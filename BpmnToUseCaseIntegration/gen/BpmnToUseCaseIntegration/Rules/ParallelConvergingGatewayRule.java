@@ -155,26 +155,8 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_54(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
-			EMoflonEdge _edge_targetRef);
+			EMoflonEdge _edge_flowElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,7 +164,8 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_57(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
+			EMoflonEdge _edge_flowElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,7 +174,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_58(
-			EMoflonEdge _edge_sourceRef);
+			EMoflonEdge _edge_targetRef);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,7 +182,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_59(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_59(EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,6 +191,23 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_60(
+			EMoflonEdge _edge_sourceRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_61(EMoflonEdge _edge_outgoing);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_62(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

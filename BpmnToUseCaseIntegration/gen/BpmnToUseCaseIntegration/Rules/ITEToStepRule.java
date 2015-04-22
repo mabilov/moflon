@@ -252,26 +252,8 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_20(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_21(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_22(
-			EMoflonEdge _edge_targetRef);
+			EMoflonEdge _edge_flowElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,7 +261,8 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_23(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_23(
+			EMoflonEdge _edge_flowElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -288,6 +271,23 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_24(
+			EMoflonEdge _edge_targetRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_25(EMoflonEdge _edge_incoming);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_26(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -296,7 +296,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_25(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_27(EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -320,7 +320,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_26(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_28(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

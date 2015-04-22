@@ -134,14 +134,15 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 						"Pattern matching in node [collect elements to be translated] failed");
 			}
 			UserTaskToStepRuleImpl
-					.pattern_UserTaskToStepRule_0_4_greenBBBBBFFFFFF(match,
-							task, inFlow, process, outFlow);
-			// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result4_green[5];
-			// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result4_green[6];
-			// EMoflonEdge process__task____flowElements = (EMoflonEdge) result4_green[7];
-			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[8];
-			// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result4_green[9];
-			// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result4_green[10];
+					.pattern_UserTaskToStepRule_0_4_greenBBBBBBFFFFFFF(match,
+							task, lane, inFlow, process, outFlow);
+			// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge process__task____flowElements = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result4_green[12];
 
 			// collect context elements
 			Object[] result5_black = UserTaskToStepRuleImpl
@@ -239,25 +240,26 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_1_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-						ruleresult, task, actor, inFlow, prevStep, normalStep,
-						process, outFlow, taskToNormalStep, outFlowToFlow,
-						outFlowToNormalStep, flow);
-		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[26];
+				.pattern_UserTaskToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
+						ruleresult, task, lane, actor, inFlow, prevStep,
+						normalStep, process, outFlow, taskToNormalStep,
+						outFlowToFlow, outFlowToNormalStep, flow);
+		// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[28];
 
 		// perform postprocessing story node is empty
 		// register objects
@@ -320,29 +322,30 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 							prevStep, process, outFlow, inFlowToFlow, flow,
 							laneSet, flowNode)) {
 				Object[] result3_green = UserTaskToStepRuleImpl
-						.pattern_UserTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFF(
+						.pattern_UserTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
 								task, lane, actor, laneToActor, inFlow,
 								inFlowToPrevStep, prevStep, process, outFlow,
 								inFlowToFlow, flow, laneSet, flowNode);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[13];
-				// EMoflonEdge laneToActor__lane____source = (EMoflonEdge) result3_green[14];
-				// EMoflonEdge laneToActor__actor____target = (EMoflonEdge) result3_green[15];
-				// EMoflonEdge inFlowToPrevStep__inFlow____source = (EMoflonEdge) result3_green[16];
-				// EMoflonEdge inFlowToPrevStep__prevStep____target = (EMoflonEdge) result3_green[17];
-				// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[18];
-				// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[19];
-				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[20];
-				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[21];
-				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[22];
-				// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[23];
-				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[24];
-				// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[25];
-				// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[26];
-				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[27];
-				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[28];
-				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[29];
-				// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result3_green[30];
-				// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge laneToActor__lane____source = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge laneToActor__actor____target = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge inFlowToPrevStep__inFlow____source = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge inFlowToPrevStep__prevStep____target = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[27];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[29];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[30];
+				// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result3_green[32];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = UserTaskToStepRuleImpl
@@ -645,13 +648,13 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		FlowNode flowNode = (FlowNode) result1_bindingAndBlack[11];
 		CSP csp = (CSP) result1_bindingAndBlack[12];
 		Object[] result1_green = UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_11_1_greenFBBBFFFFBB(inFlow,
+				.pattern_UserTaskToStepRule_11_1_greenFBBBBFFFFBB(lane, inFlow,
 						normalStep, process, flow, csp);
 		UserTask task = (UserTask) result1_green[0];
-		SequenceFlow outFlow = (SequenceFlow) result1_green[4];
-		FlowNodeToStep taskToNormalStep = (FlowNodeToStep) result1_green[5];
-		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[6];
-		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[7];
+		SequenceFlow outFlow = (SequenceFlow) result1_green[5];
+		FlowNodeToStep taskToNormalStep = (FlowNodeToStep) result1_green[6];
+		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[7];
+		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[8];
 
 		// collect translated elements
 		Object[] result2_black = UserTaskToStepRuleImpl
@@ -681,25 +684,26 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_11_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-						ruleresult, task, actor, inFlow, prevStep, normalStep,
-						process, outFlow, taskToNormalStep, outFlowToFlow,
-						outFlowToNormalStep, flow);
-		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[26];
+				.pattern_UserTaskToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
+						ruleresult, task, lane, actor, inFlow, prevStep,
+						normalStep, process, outFlow, taskToNormalStep,
+						outFlowToFlow, outFlowToNormalStep, flow);
+		// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[28];
 
 		// perform postprocessing story node is empty
 		// register objects
@@ -983,8 +987,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_8(
-			EMoflonEdge _edge_next) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_15(
+			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_20_1_bindingAndBlackFFB(this);
@@ -1000,19 +1004,23 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_20_2_blackFFFFB(_edge_next)) {
-			Actor actor = (Actor) result2_black[0];
-			Step prevStep = (Step) result2_black[1];
-			NormalStep normalStep = (NormalStep) result2_black[2];
-			Flow flow = (Flow) result2_black[3];
+				.pattern_UserTaskToStepRule_20_2_blackFFFFFFFB(_edge_flowNodeRefs)) {
+			UserTask task = (UserTask) result2_black[0];
+			Lane lane = (Lane) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			bpmn2.Process process = (bpmn2.Process) result2_black[3];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			FlowNode flowNode = (FlowNode) result2_black[6];
 			Object[] result2_green = UserTaskToStepRuleImpl
 					.pattern_UserTaskToStepRule_20_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UserTaskToStepRuleImpl
-					.pattern_UserTaskToStepRule_20_3_expressionFBBBBBB(this,
-							match, actor, prevStep, normalStep, flow)) {
+					.pattern_UserTaskToStepRule_20_3_expressionFBBBBBBBBB(this,
+							match, task, lane, inFlow, process, outFlow,
+							laneSet, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (UserTaskToStepRuleImpl
 						.pattern_UserTaskToStepRule_20_4_expressionFBB(this,
@@ -1046,8 +1054,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_14(
-			EMoflonEdge _edge_targetRef) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_8(
+			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_21_1_bindingAndBlackFFB(this);
@@ -1063,23 +1071,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_21_2_blackFFFFFFFB(_edge_targetRef)) {
-			UserTask task = (UserTask) result2_black[0];
-			Lane lane = (Lane) result2_black[1];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
-			bpmn2.Process process = (bpmn2.Process) result2_black[3];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[4];
-			LaneSet laneSet = (LaneSet) result2_black[5];
-			FlowNode flowNode = (FlowNode) result2_black[6];
+				.pattern_UserTaskToStepRule_21_2_blackFFFFB(_edge_next)) {
+			Actor actor = (Actor) result2_black[0];
+			Step prevStep = (Step) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			Flow flow = (Flow) result2_black[3];
 			Object[] result2_green = UserTaskToStepRuleImpl
 					.pattern_UserTaskToStepRule_21_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UserTaskToStepRuleImpl
-					.pattern_UserTaskToStepRule_21_3_expressionFBBBBBBBBB(this,
-							match, task, lane, inFlow, process, outFlow,
-							laneSet, flowNode)) {
+					.pattern_UserTaskToStepRule_21_3_expressionFBBBBBB(this,
+							match, actor, prevStep, normalStep, flow)) {
 				// Ensure that the correct types of elements are matched
 				if (UserTaskToStepRuleImpl
 						.pattern_UserTaskToStepRule_21_4_expressionFBB(this,
@@ -1113,8 +1117,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_15(
-			EMoflonEdge _edge_incoming) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_16(
+			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_22_1_bindingAndBlackFFB(this);
@@ -1130,7 +1134,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_22_2_blackFFFFFFFB(_edge_incoming)) {
+				.pattern_UserTaskToStepRule_22_2_blackFFFFFFFB(_edge_targetRef)) {
 			UserTask task = (UserTask) result2_black[0];
 			Lane lane = (Lane) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1180,8 +1184,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_16(
-			EMoflonEdge _edge_flowElements) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_17(
+			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_23_1_bindingAndBlackFFB(this);
@@ -1197,7 +1201,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_23_2_blackFFFFFFFB(_edge_flowElements)) {
+				.pattern_UserTaskToStepRule_23_2_blackFFFFFFFB(_edge_incoming)) {
 			UserTask task = (UserTask) result2_black[0];
 			Lane lane = (Lane) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1247,7 +1251,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_17(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_18(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
@@ -1314,8 +1318,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_18(
-			EMoflonEdge _edge_sourceRef) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_19(
+			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_25_1_bindingAndBlackFFB(this);
@@ -1331,7 +1335,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_25_2_blackFFFFFFFB(_edge_sourceRef)) {
+				.pattern_UserTaskToStepRule_25_2_blackFFFFFFFB(_edge_flowElements)) {
 			UserTask task = (UserTask) result2_black[0];
 			Lane lane = (Lane) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1381,8 +1385,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_19(
-			EMoflonEdge _edge_outgoing) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_20(
+			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_26_1_bindingAndBlackFFB(this);
@@ -1398,7 +1402,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_26_2_blackFFFFFFFB(_edge_outgoing)) {
+				.pattern_UserTaskToStepRule_26_2_blackFFFFFFFB(_edge_sourceRef)) {
 			UserTask task = (UserTask) result2_black[0];
 			Lane lane = (Lane) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1448,8 +1452,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_9(
-			EMoflonEdge _edge_actor) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_21(
+			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_27_1_bindingAndBlackFFB(this);
@@ -1465,19 +1469,23 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_27_2_blackFFFFB(_edge_actor)) {
-			Actor actor = (Actor) result2_black[0];
-			Step prevStep = (Step) result2_black[1];
-			NormalStep normalStep = (NormalStep) result2_black[2];
-			Flow flow = (Flow) result2_black[3];
+				.pattern_UserTaskToStepRule_27_2_blackFFFFFFFB(_edge_outgoing)) {
+			UserTask task = (UserTask) result2_black[0];
+			Lane lane = (Lane) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			bpmn2.Process process = (bpmn2.Process) result2_black[3];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[4];
+			LaneSet laneSet = (LaneSet) result2_black[5];
+			FlowNode flowNode = (FlowNode) result2_black[6];
 			Object[] result2_green = UserTaskToStepRuleImpl
 					.pattern_UserTaskToStepRule_27_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UserTaskToStepRuleImpl
-					.pattern_UserTaskToStepRule_27_3_expressionFBBBBBB(this,
-							match, actor, prevStep, normalStep, flow)) {
+					.pattern_UserTaskToStepRule_27_3_expressionFBBBBBBBBB(this,
+							match, task, lane, inFlow, process, outFlow,
+							laneSet, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (UserTaskToStepRuleImpl
 						.pattern_UserTaskToStepRule_27_4_expressionFBB(this,
@@ -1511,8 +1519,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_10(
-			EMoflonEdge _edge_steps) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_9(
+			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
 				.pattern_UserTaskToStepRule_28_1_bindingAndBlackFFB(this);
@@ -1528,7 +1536,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_28_2_blackFFFFB(_edge_steps)) {
+				.pattern_UserTaskToStepRule_28_2_blackFFFFB(_edge_actor)) {
 			Actor actor = (Actor) result2_black[0];
 			Step prevStep = (Step) result2_black[1];
 			NormalStep normalStep = (NormalStep) result2_black[2];
@@ -1574,6 +1582,69 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_10(
+			EMoflonEdge _edge_steps) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = UserTaskToStepRuleImpl
+				.pattern_UserTaskToStepRule_29_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = UserTaskToStepRuleImpl
+				.pattern_UserTaskToStepRule_29_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : UserTaskToStepRuleImpl
+				.pattern_UserTaskToStepRule_29_2_blackFFFFB(_edge_steps)) {
+			Actor actor = (Actor) result2_black[0];
+			Step prevStep = (Step) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			Flow flow = (Flow) result2_black[3];
+			Object[] result2_green = UserTaskToStepRuleImpl
+					.pattern_UserTaskToStepRule_29_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (UserTaskToStepRuleImpl
+					.pattern_UserTaskToStepRule_29_3_expressionFBBBBBB(this,
+							match, actor, prevStep, normalStep, flow)) {
+				// Ensure that the correct types of elements are matched
+				if (UserTaskToStepRuleImpl
+						.pattern_UserTaskToStepRule_29_4_expressionFBB(this,
+								match)) {
+
+					// Add match to rule result
+					Object[] result5_black = UserTaskToStepRuleImpl
+							.pattern_UserTaskToStepRule_29_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					UserTaskToStepRuleImpl
+							.pattern_UserTaskToStepRule_29_5_greenBBB(match,
+									__performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return UserTaskToStepRuleImpl
+				.pattern_UserTaskToStepRule_29_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
 		return null;
 	}
@@ -1597,19 +1668,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			LaneToActor laneToActorParameter) {
 		// create result
 		Object[] result1_black = UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_31_1_blackB(this);
+				.pattern_UserTaskToStepRule_32_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [create result] failed");
 		}
 		Object[] result1_green = UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_31_1_greenFF();
+				.pattern_UserTaskToStepRule_32_1_greenFF();
 		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
 		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
 		// ForEach is applicable core
 		for (Object[] result2_black : UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_31_2_blackFFFFFFFFFFFFBB(
+				.pattern_UserTaskToStepRule_32_2_blackFFFFFFFFFFFFBB(
 						ruleEntryContainer, ruleResult)) {
 			// RuleEntryList laneToActorList = (RuleEntryList) result2_black[0];
 			Lane lane = (Lane) result2_black[1];
@@ -1626,7 +1697,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = UserTaskToStepRuleImpl
-					.pattern_UserTaskToStepRule_31_3_bindingAndBlackFBBBBBBBBBBBBBB(
+					.pattern_UserTaskToStepRule_32_3_bindingAndBlackFBBBBBBBBBBBBBB(
 							this, isApplicableMatch, lane, actor, laneToActor,
 							inFlow, inFlowToPrevStep, prevStep, process,
 							inFlowToFlow, flow, laneSet, flowNode, ruleResult);
@@ -1637,10 +1708,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
 			if (UserTaskToStepRuleImpl
-					.pattern_UserTaskToStepRule_31_4_expressionFBB(this, csp)) {
+					.pattern_UserTaskToStepRule_32_4_expressionFBB(this, csp)) {
 				// check nacs
 				Object[] result5_black = UserTaskToStepRuleImpl
-						.pattern_UserTaskToStepRule_31_5_blackBBBBBBBBBBB(lane,
+						.pattern_UserTaskToStepRule_32_5_blackBBBBBBBBBBB(lane,
 								actor, laneToActor, inFlow, inFlowToPrevStep,
 								prevStep, process, inFlowToFlow, flow, laneSet,
 								flowNode);
@@ -1648,7 +1719,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// perform
 					Object[] result6_black = UserTaskToStepRuleImpl
-							.pattern_UserTaskToStepRule_31_6_blackBBBBBBBBBBBB(
+							.pattern_UserTaskToStepRule_32_6_blackBBBBBBBBBBBB(
 									lane, actor, laneToActor, inFlow,
 									inFlowToPrevStep, prevStep, process,
 									inFlowToFlow, flow, laneSet, flowNode,
@@ -1658,15 +1729,15 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 								"Pattern matching in node [perform] failed");
 					}
 					UserTaskToStepRuleImpl
-							.pattern_UserTaskToStepRule_31_6_greenFBBBFBFFFFBBB(
-									actor, inFlow, prevStep, process, flow,
-									ruleResult, csp);
+							.pattern_UserTaskToStepRule_32_6_greenFBBBBFBFFFFBBB(
+									lane, actor, inFlow, prevStep, process,
+									flow, ruleResult, csp);
 					// UserTask task = (UserTask) result6_green[0];
-					// NormalStep normalStep = (NormalStep) result6_green[4];
-					// SequenceFlow outFlow = (SequenceFlow) result6_green[6];
-					// FlowNodeToStep taskToNormalStep = (FlowNodeToStep) result6_green[7];
-					// SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result6_green[8];
-					// SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result6_green[9];
+					// NormalStep normalStep = (NormalStep) result6_green[5];
+					// SequenceFlow outFlow = (SequenceFlow) result6_green[7];
+					// FlowNodeToStep taskToNormalStep = (FlowNodeToStep) result6_green[8];
+					// SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result6_green[9];
+					// SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result6_green[10];
 
 				} else {
 				}
@@ -1676,7 +1747,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		}
 		return UserTaskToStepRuleImpl
-				.pattern_UserTaskToStepRule_31_7_expressionFB(ruleResult);
+				.pattern_UserTaskToStepRule_32_7_expressionFB(ruleResult);
 	}
 
 	/**
@@ -1860,14 +1931,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.USER_TASK_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_8__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_8((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_14__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_14((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_15__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_15((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_8__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_8((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_16__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_16((EMoflonEdge) arguments
@@ -1880,6 +1948,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					.get(0));
 		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_19__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_19((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_20__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_20((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_21__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_21((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_9__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_9((EMoflonEdge) arguments
@@ -1983,9 +2057,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_0_4_greenBBBBBFFFFFF(
-			Match match, UserTask task, SequenceFlow inFlow,
+	public static final Object[] pattern_UserTaskToStepRule_0_4_greenBBBBBBFFFFFFF(
+			Match match, UserTask task, Lane lane, SequenceFlow inFlow,
 			bpmn2.Process process, SequenceFlow outFlow) {
+		EMoflonEdge lane__task____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge inFlow__task____targetRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge task__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
@@ -2000,12 +2076,16 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(task);
 		match.getToBeTranslatedNodes().add(outFlow);
+		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
 		String inFlow__task____targetRef_name_prime = "targetRef";
 		String task__inFlow____incoming_name_prime = "incoming";
 		String process__task____flowElements_name_prime = "flowElements";
 		String process__outFlow____flowElements_name_prime = "flowElements";
 		String outFlow__task____sourceRef_name_prime = "sourceRef";
 		String task__outFlow____outgoing_name_prime = "outgoing";
+		lane__task____flowNodeRefs.setSrc(lane);
+		lane__task____flowNodeRefs.setTrg(task);
+		match.getToBeTranslatedEdges().add(lane__task____flowNodeRefs);
 		inFlow__task____targetRef.setSrc(inFlow);
 		inFlow__task____targetRef.setTrg(task);
 		match.getToBeTranslatedEdges().add(inFlow__task____targetRef);
@@ -2024,6 +2104,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		task__outFlow____outgoing.setSrc(task);
 		task__outFlow____outgoing.setTrg(outFlow);
 		match.getToBeTranslatedEdges().add(task__outFlow____outgoing);
+		lane__task____flowNodeRefs
+				.setName(lane__task____flowNodeRefs_name_prime);
 		inFlow__task____targetRef.setName(inFlow__task____targetRef_name_prime);
 		task__inFlow____incoming.setName(task__inFlow____incoming_name_prime);
 		process__task____flowElements
@@ -2033,9 +2115,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		outFlow__task____sourceRef
 				.setName(outFlow__task____sourceRef_name_prime);
 		task__outFlow____outgoing.setName(task__outFlow____outgoing_name_prime);
-		return new Object[] { match, task, inFlow, process, outFlow,
-				inFlow__task____targetRef, task__inFlow____incoming,
-				process__task____flowElements,
+		return new Object[] { match, task, lane, inFlow, process, outFlow,
+				lane__task____flowNodeRefs, inFlow__task____targetRef,
+				task__inFlow____incoming, process__task____flowElements,
 				process__outFlow____flowElements, outFlow__task____sourceRef,
 				task__outFlow____outgoing };
 	}
@@ -2758,11 +2840,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_1_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject task, EObject actor,
-			EObject inFlow, EObject prevStep, EObject normalStep,
-			EObject process, EObject outFlow, EObject taskToNormalStep,
-			EObject outFlowToFlow, EObject outFlowToNormalStep, EObject flow) {
+	public static final Object[] pattern_UserTaskToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject task, EObject lane,
+			EObject actor, EObject inFlow, EObject prevStep,
+			EObject normalStep, EObject process, EObject outFlow,
+			EObject taskToNormalStep, EObject outFlowToFlow,
+			EObject outFlowToNormalStep, EObject flow) {
+		EMoflonEdge lane__task____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlow__task____targetRef = TGGRuntimeFactory.eINSTANCE
@@ -2794,6 +2879,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "UserTaskToStepRule";
+		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
 		String prevStep__normalStep____next_name_prime = "next";
 		String inFlow__task____targetRef_name_prime = "targetRef";
 		String task__inFlow____incoming_name_prime = "incoming";
@@ -2809,6 +2895,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		String outFlowToNormalStep__outFlow____source_name_prime = "source";
 		String outFlowToNormalStep__normalStep____target_name_prime = "target";
 		String flow__normalStep____steps_name_prime = "steps";
+		lane__task____flowNodeRefs.setSrc(lane);
+		lane__task____flowNodeRefs.setTrg(task);
+		ruleresult.getTranslatedEdges().add(lane__task____flowNodeRefs);
 		prevStep__normalStep____next.setSrc(prevStep);
 		prevStep__normalStep____next.setTrg(normalStep);
 		ruleresult.getCreatedEdges().add(prevStep__normalStep____next);
@@ -2858,6 +2947,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		flow__normalStep____steps.setTrg(normalStep);
 		ruleresult.getCreatedEdges().add(flow__normalStep____steps);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		lane__task____flowNodeRefs
+				.setName(lane__task____flowNodeRefs_name_prime);
 		prevStep__normalStep____next
 				.setName(prevStep__normalStep____next_name_prime);
 		inFlow__task____targetRef.setName(inFlow__task____targetRef_name_prime);
@@ -2884,11 +2975,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		outFlowToNormalStep__normalStep____target
 				.setName(outFlowToNormalStep__normalStep____target_name_prime);
 		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
-		return new Object[] { ruleresult, task, actor, inFlow, prevStep,
+		return new Object[] { ruleresult, task, lane, actor, inFlow, prevStep,
 				normalStep, process, outFlow, taskToNormalStep, outFlowToFlow,
-				outFlowToNormalStep, flow, prevStep__normalStep____next,
-				inFlow__task____targetRef, task__inFlow____incoming,
-				process__task____flowElements,
+				outFlowToNormalStep, flow, lane__task____flowNodeRefs,
+				prevStep__normalStep____next, inFlow__task____targetRef,
+				task__inFlow____incoming, process__task____flowElements,
 				process__outFlow____flowElements, outFlow__task____sourceRef,
 				task__outFlow____outgoing, normalStep__actor____actor,
 				taskToNormalStep__task____source,
@@ -3066,50 +3157,55 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!inFlow.equals(outFlow)) {
 			if (!flowNode.equals(task)) {
-				if (lane.equals(laneToActor.getSource())) {
-					if (actor.equals(laneToActor.getTarget())) {
-						if (inFlow.equals(inFlowToPrevStep.getSource())) {
-							if (prevStep.equals(inFlowToPrevStep.getTarget())) {
-								if (task.equals(inFlow.getTargetRef())) {
-									if (process.getFlowElements().contains(
-											flowNode)) {
-										if (process.getLaneSets().contains(
-												laneSet)) {
-											if (process.getFlowElements()
-													.contains(inFlow)) {
+				if (lane.getFlowNodeRefs().contains(task)) {
+					if (lane.equals(laneToActor.getSource())) {
+						if (actor.equals(laneToActor.getTarget())) {
+							if (inFlow.equals(inFlowToPrevStep.getSource())) {
+								if (prevStep.equals(inFlowToPrevStep
+										.getTarget())) {
+									if (task.equals(inFlow.getTargetRef())) {
+										if (process.getFlowElements().contains(
+												flowNode)) {
+											if (process.getLaneSets().contains(
+													laneSet)) {
 												if (process.getFlowElements()
-														.contains(task)) {
+														.contains(inFlow)) {
 													if (process
 															.getFlowElements()
-															.contains(outFlow)) {
-														if (task.equals(outFlow
-																.getSourceRef())) {
-															if (inFlow
-																	.equals(inFlowToFlow
-																			.getSource())) {
-																if (flow.equals(inFlowToFlow
-																		.getTarget())) {
-																	if (laneSet
-																			.getLanes()
-																			.contains(
-																					lane)) {
-																		if (flowNode
-																				.equals(inFlow
-																						.getSourceRef())) {
-																			_result.add(new Object[] {
-																					task,
-																					lane,
-																					actor,
-																					laneToActor,
-																					inFlow,
-																					inFlowToPrevStep,
-																					prevStep,
-																					process,
-																					outFlow,
-																					inFlowToFlow,
-																					flow,
-																					laneSet,
-																					flowNode });
+															.contains(task)) {
+														if (process
+																.getFlowElements()
+																.contains(
+																		outFlow)) {
+															if (task.equals(outFlow
+																	.getSourceRef())) {
+																if (inFlow
+																		.equals(inFlowToFlow
+																				.getSource())) {
+																	if (flow.equals(inFlowToFlow
+																			.getTarget())) {
+																		if (laneSet
+																				.getLanes()
+																				.contains(
+																						lane)) {
+																			if (flowNode
+																					.equals(inFlow
+																							.getSourceRef())) {
+																				_result.add(new Object[] {
+																						task,
+																						lane,
+																						actor,
+																						laneToActor,
+																						inFlow,
+																						inFlowToPrevStep,
+																						prevStep,
+																						process,
+																						outFlow,
+																						inFlowToFlow,
+																						flow,
+																						laneSet,
+																						flowNode });
+																			}
 																		}
 																	}
 																}
@@ -3130,7 +3226,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_UserTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
 			UserTask task, Lane lane, Actor actor, LaneToActor laneToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, bpmn2.Process process, SequenceFlow outFlow,
@@ -3138,6 +3234,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			FlowNode flowNode) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
+		EMoflonEdge lane__task____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge laneToActor__lane____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge laneToActor__actor____target = TGGRuntimeFactory.eINSTANCE
@@ -3174,6 +3272,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge flowNode__inFlow____outgoing = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
 		String laneToActor__lane____source_name_prime = "source";
 		String laneToActor__actor____target_name_prime = "target";
 		String inFlowToPrevStep__inFlow____source_name_prime = "source";
@@ -3205,6 +3304,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAllContextElements().add(flow);
 		isApplicableMatch.getAllContextElements().add(laneSet);
 		isApplicableMatch.getAllContextElements().add(flowNode);
+		lane__task____flowNodeRefs.setSrc(lane);
+		lane__task____flowNodeRefs.setTrg(task);
+		isApplicableMatch.getAllContextElements().add(
+				lane__task____flowNodeRefs);
 		laneToActor__lane____source.setSrc(laneToActor);
 		laneToActor__lane____source.setTrg(lane);
 		isApplicableMatch.getAllContextElements().add(
@@ -3275,6 +3378,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		flowNode__inFlow____outgoing.setTrg(inFlow);
 		isApplicableMatch.getAllContextElements().add(
 				flowNode__inFlow____outgoing);
+		lane__task____flowNodeRefs
+				.setName(lane__task____flowNodeRefs_name_prime);
 		laneToActor__lane____source
 				.setName(laneToActor__lane____source_name_prime);
 		laneToActor__actor____target
@@ -3310,7 +3415,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { task, lane, actor, laneToActor, inFlow,
 				inFlowToPrevStep, prevStep, process, outFlow, inFlowToFlow,
 				flow, laneSet, flowNode, isApplicableMatch,
-				laneToActor__lane____source, laneToActor__actor____target,
+				lane__task____flowNodeRefs, laneToActor__lane____source,
+				laneToActor__actor____target,
 				inFlowToPrevStep__inFlow____source,
 				inFlowToPrevStep__prevStep____target,
 				inFlow__task____targetRef, task__inFlow____incoming,
@@ -3664,9 +3770,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_11_1_greenFBBBFFFFBB(
-			SequenceFlow inFlow, NormalStep normalStep, bpmn2.Process process,
-			Flow flow, CSP csp) {
+	public static final Object[] pattern_UserTaskToStepRule_11_1_greenFBBBBFFFFBB(
+			Lane lane, SequenceFlow inFlow, NormalStep normalStep,
+			bpmn2.Process process, Flow flow, CSP csp) {
 		UserTask task = Bpmn2Factory.eINSTANCE.createUserTask();
 		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
 		FlowNodeToStep taskToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -3677,6 +3783,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.createSequenceFlowToStep();
 		Object _localVariable_0 = csp.getValue("task", "id");
 		Object _localVariable_1 = csp.getValue("task", "name");
+		lane.getFlowNodeRefs().add(task);
 		inFlow.setTargetRef(task);
 		process.getFlowElements().add(task);
 		process.getFlowElements().add(outFlow);
@@ -3691,7 +3798,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		String task_name_prime = (String) _localVariable_1;
 		task.setId(task_id_prime);
 		task.setName(task_name_prime);
-		return new Object[] { task, inFlow, normalStep, process, outFlow,
+		return new Object[] { task, lane, inFlow, normalStep, process, outFlow,
 				taskToNormalStep, outFlowToFlow, outFlowToNormalStep, flow, csp };
 	}
 
@@ -4147,11 +4254,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_11_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject task, EObject actor,
-			EObject inFlow, EObject prevStep, EObject normalStep,
-			EObject process, EObject outFlow, EObject taskToNormalStep,
-			EObject outFlowToFlow, EObject outFlowToNormalStep, EObject flow) {
+	public static final Object[] pattern_UserTaskToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject task, EObject lane,
+			EObject actor, EObject inFlow, EObject prevStep,
+			EObject normalStep, EObject process, EObject outFlow,
+			EObject taskToNormalStep, EObject outFlowToFlow,
+			EObject outFlowToNormalStep, EObject flow) {
+		EMoflonEdge lane__task____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlow__task____targetRef = TGGRuntimeFactory.eINSTANCE
@@ -4183,6 +4293,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "UserTaskToStepRule";
+		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
 		String prevStep__normalStep____next_name_prime = "next";
 		String inFlow__task____targetRef_name_prime = "targetRef";
 		String task__inFlow____incoming_name_prime = "incoming";
@@ -4198,6 +4309,9 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		String outFlowToNormalStep__outFlow____source_name_prime = "source";
 		String outFlowToNormalStep__normalStep____target_name_prime = "target";
 		String flow__normalStep____steps_name_prime = "steps";
+		lane__task____flowNodeRefs.setSrc(lane);
+		lane__task____flowNodeRefs.setTrg(task);
+		ruleresult.getCreatedEdges().add(lane__task____flowNodeRefs);
 		prevStep__normalStep____next.setSrc(prevStep);
 		prevStep__normalStep____next.setTrg(normalStep);
 		ruleresult.getTranslatedEdges().add(prevStep__normalStep____next);
@@ -4247,6 +4361,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		flow__normalStep____steps.setTrg(normalStep);
 		ruleresult.getTranslatedEdges().add(flow__normalStep____steps);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		lane__task____flowNodeRefs
+				.setName(lane__task____flowNodeRefs_name_prime);
 		prevStep__normalStep____next
 				.setName(prevStep__normalStep____next_name_prime);
 		inFlow__task____targetRef.setName(inFlow__task____targetRef_name_prime);
@@ -4273,11 +4389,11 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		outFlowToNormalStep__normalStep____target
 				.setName(outFlowToNormalStep__normalStep____target_name_prime);
 		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
-		return new Object[] { ruleresult, task, actor, inFlow, prevStep,
+		return new Object[] { ruleresult, task, lane, actor, inFlow, prevStep,
 				normalStep, process, outFlow, taskToNormalStep, outFlowToFlow,
-				outFlowToNormalStep, flow, prevStep__normalStep____next,
-				inFlow__task____targetRef, task__inFlow____incoming,
-				process__task____flowElements,
+				outFlowToNormalStep, flow, lane__task____flowNodeRefs,
+				prevStep__normalStep____next, inFlow__task____targetRef,
+				task__inFlow____incoming, process__task____flowElements,
 				process__outFlow____flowElements, outFlow__task____sourceRef,
 				task__outFlow____outgoing, normalStep__actor____actor,
 				taskToNormalStep__task____source,
@@ -4757,7 +4873,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -4788,24 +4904,94 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_UserTaskToStepRule_20_2_blackFFFFB(
-			EMoflonEdge _edge_next) {
+	public static final Object[] pattern_UserTaskToStepRule_20_2_black_nac_0BB(
+			SequenceFlow outFlow, FlowNode flowNode) {
+		for (ExclusiveGateway __DEC_outFlow_default_870640 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!flowNode.equals(__DEC_outFlow_default_870640)) {
+				return new Object[] { outFlow, flowNode };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_20_2_black_nac_1BB(
+			SequenceFlow outFlow, UserTask task) {
+		if (task.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, task };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UserTaskToStepRule_20_2_blackFFFFFFFB(
+			EMoflonEdge _edge_flowNodeRefs) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpPrevStep = _edge_next.getSrc();
-		if (tmpPrevStep instanceof Step) {
-			Step prevStep = (Step) tmpPrevStep;
-			EObject tmpNormalStep = _edge_next.getTrg();
-			if (tmpNormalStep instanceof NormalStep) {
-				NormalStep normalStep = (NormalStep) tmpNormalStep;
-				if (!normalStep.equals(prevStep)) {
-					if (normalStep.equals(prevStep.getNext())) {
-						Actor actor = normalStep.getActor();
-						if (actor != null) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(normalStep,
-											Flow.class, "steps")) {
-								_result.add(new Object[] { actor, prevStep,
-										normalStep, flow, _edge_next });
+		EObject tmpLane = _edge_flowNodeRefs.getSrc();
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			EObject tmpTask = _edge_flowNodeRefs.getTrg();
+			if (tmpTask instanceof UserTask) {
+				UserTask task = (UserTask) tmpTask;
+				if (lane.getFlowNodeRefs().contains(task)) {
+					for (SequenceFlow inFlow : task.getIncoming()) {
+						FlowNode flowNode = inFlow.getSourceRef();
+						if (flowNode != null) {
+							if (!flowNode.equals(task)) {
+								for (SequenceFlow outFlow : task.getOutgoing()) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_UserTaskToStepRule_20_2_black_nac_0BB(
+												outFlow, flowNode) == null) {
+											if (pattern_UserTaskToStepRule_20_2_black_nac_1BB(
+													outFlow, task) == null) {
+												for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																lane,
+																LaneSet.class,
+																"lanes")) {
+													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	task,
+																	FlowElementsContainer.class,
+																	"flowElements")) {
+														if (tmpProcess instanceof bpmn2.Process) {
+															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			flowNode)) {
+																if (process
+																		.getLaneSets()
+																		.contains(
+																				laneSet)) {
+																	if (process
+																			.getFlowElements()
+																			.contains(
+																					inFlow)) {
+																		if (process
+																				.getFlowElements()
+																				.contains(
+																						outFlow)) {
+																			_result.add(new Object[] {
+																					task,
+																					lane,
+																					inFlow,
+																					process,
+																					outFlow,
+																					laneSet,
+																					flowNode,
+																					_edge_flowNodeRefs });
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
 							}
 						}
 
@@ -4828,18 +5014,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_UserTaskToStepRule_20_3_expressionFBBBBBB(
-			UserTaskToStepRule _this, Match match, Actor actor, Step prevStep,
-			NormalStep normalStep, Flow flow) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
-				prevStep, normalStep, flow);
+	public static final boolean pattern_UserTaskToStepRule_20_3_expressionFBBBBBBBBB(
+			UserTaskToStepRule _this, Match match, UserTask task, Lane lane,
+			SequenceFlow inFlow, bpmn2.Process process, SequenceFlow outFlow,
+			LaneSet laneSet, FlowNode flowNode) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, task, lane,
+				inFlow, process, outFlow, laneSet, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserTaskToStepRule_20_4_expressionFBB(
 			UserTaskToStepRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -4878,7 +5065,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
+			if (__performOperationname.equals("isApplicable_BWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -4909,89 +5096,28 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_21_2_black_nac_0BB(
-			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_719373 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
-						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_719373)) {
-				return new Object[] { outFlow, flowNode };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UserTaskToStepRule_21_2_black_nac_1BB(
-			SequenceFlow outFlow, UserTask task) {
-		if (task.equals(outFlow.getTargetRef())) {
-			return new Object[] { outFlow, task };
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UserTaskToStepRule_21_2_blackFFFFFFFB(
-			EMoflonEdge _edge_targetRef) {
+	public static final Iterable<Object[]> pattern_UserTaskToStepRule_21_2_blackFFFFB(
+			EMoflonEdge _edge_next) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInFlow = _edge_targetRef.getSrc();
-		if (tmpInFlow instanceof SequenceFlow) {
-			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-			EObject tmpTask = _edge_targetRef.getTrg();
-			if (tmpTask instanceof UserTask) {
-				UserTask task = (UserTask) tmpTask;
-				if (task.equals(inFlow.getTargetRef())) {
-					FlowNode flowNode = inFlow.getSourceRef();
-					if (flowNode != null) {
-						if (!flowNode.equals(task)) {
-							for (SequenceFlow outFlow : task.getOutgoing()) {
-								if (!inFlow.equals(outFlow)) {
-									if (pattern_UserTaskToStepRule_21_2_black_nac_0BB(
-											outFlow, flowNode) == null) {
-										if (pattern_UserTaskToStepRule_21_2_black_nac_1BB(
-												outFlow, task) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-													.getOppositeReferenceTyped(
-															inFlow,
-															FlowElementsContainer.class,
-															"flowElements")) {
-												if (tmpProcess instanceof bpmn2.Process) {
-													bpmn2.Process process = (bpmn2.Process) tmpProcess;
-													if (process
-															.getFlowElements()
-															.contains(flowNode)) {
-														if (process
-																.getFlowElements()
-																.contains(task)) {
-															if (process
-																	.getFlowElements()
-																	.contains(
-																			outFlow)) {
-																for (LaneSet laneSet : process
-																		.getLaneSets()) {
-																	for (Lane lane : laneSet
-																			.getLanes()) {
-																		_result.add(new Object[] {
-																				task,
-																				lane,
-																				inFlow,
-																				process,
-																				outFlow,
-																				laneSet,
-																				flowNode,
-																				_edge_targetRef });
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
+		EObject tmpPrevStep = _edge_next.getSrc();
+		if (tmpPrevStep instanceof Step) {
+			Step prevStep = (Step) tmpPrevStep;
+			EObject tmpNormalStep = _edge_next.getTrg();
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (!normalStep.equals(prevStep)) {
+					if (normalStep.equals(prevStep.getNext())) {
+						Actor actor = normalStep.getActor();
+						if (actor != null) {
+							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											Flow.class, "steps")) {
+								_result.add(new Object[] { actor, prevStep,
+										normalStep, flow, _edge_next });
 							}
 						}
-					}
 
+					}
 				}
 			}
 
@@ -5010,19 +5136,18 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_UserTaskToStepRule_21_3_expressionFBBBBBBBBB(
-			UserTaskToStepRule _this, Match match, UserTask task, Lane lane,
-			SequenceFlow inFlow, bpmn2.Process process, SequenceFlow outFlow,
-			LaneSet laneSet, FlowNode flowNode) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, task, lane,
-				inFlow, process, outFlow, laneSet, flowNode);
+	public static final boolean pattern_UserTaskToStepRule_21_3_expressionFBBBBBB(
+			UserTaskToStepRule _this, Match match, Actor actor, Step prevStep,
+			NormalStep normalStep, Flow flow) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
+				prevStep, normalStep, flow);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserTaskToStepRule_21_4_expressionFBB(
 			UserTaskToStepRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5094,10 +5219,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_659517 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_911967 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_659517)) {
+			if (!flowNode.equals(__DEC_outFlow_default_911967)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5113,14 +5238,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserTaskToStepRule_22_2_blackFFFFFFFB(
-			EMoflonEdge _edge_incoming) {
+			EMoflonEdge _edge_targetRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpTask = _edge_incoming.getSrc();
-		if (tmpTask instanceof UserTask) {
-			UserTask task = (UserTask) tmpTask;
-			EObject tmpInFlow = _edge_incoming.getTrg();
-			if (tmpInFlow instanceof SequenceFlow) {
-				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+		EObject tmpInFlow = _edge_targetRef.getSrc();
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			EObject tmpTask = _edge_targetRef.getTrg();
+			if (tmpTask instanceof UserTask) {
+				UserTask task = (UserTask) tmpTask;
 				if (task.equals(inFlow.getTargetRef())) {
 					FlowNode flowNode = inFlow.getSourceRef();
 					if (flowNode != null) {
@@ -5133,7 +5258,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												outFlow, task) == null) {
 											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
-															task,
+															inFlow,
 															FlowElementsContainer.class,
 															"flowElements")) {
 												if (tmpProcess instanceof bpmn2.Process) {
@@ -5143,8 +5268,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 															.contains(flowNode)) {
 														if (process
 																.getFlowElements()
-																.contains(
-																		inFlow)) {
+																.contains(task)) {
 															if (process
 																	.getFlowElements()
 																	.contains(
@@ -5153,15 +5277,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																		.getLaneSets()) {
 																	for (Lane lane : laneSet
 																			.getLanes()) {
-																		_result.add(new Object[] {
-																				task,
-																				lane,
-																				inFlow,
-																				process,
-																				outFlow,
-																				laneSet,
-																				flowNode,
-																				_edge_incoming });
+																		if (lane.getFlowNodeRefs()
+																				.contains(
+																						task)) {
+																			_result.add(new Object[] {
+																					task,
+																					lane,
+																					inFlow,
+																					process,
+																					outFlow,
+																					laneSet,
+																					flowNode,
+																					_edge_targetRef });
+																		}
 																	}
 																}
 															}
@@ -5278,10 +5406,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_384471 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_703192 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_384471)) {
+			if (!flowNode.equals(__DEC_outFlow_default_703192)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5297,54 +5425,62 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserTaskToStepRule_23_2_blackFFFFFFFB(
-			EMoflonEdge _edge_flowElements) {
+			EMoflonEdge _edge_incoming) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpProcess = _edge_flowElements.getSrc();
-		if (tmpProcess instanceof bpmn2.Process) {
-			bpmn2.Process process = (bpmn2.Process) tmpProcess;
-			EObject tmpTask = _edge_flowElements.getTrg();
-			if (tmpTask instanceof UserTask) {
-				UserTask task = (UserTask) tmpTask;
-				if (process.getFlowElements().contains(task)) {
-					for (FlowElement tmpFlowNode : process.getFlowElements()) {
-						if (tmpFlowNode instanceof FlowNode) {
-							FlowNode flowNode = (FlowNode) tmpFlowNode;
-							if (!flowNode.equals(task)) {
-								for (LaneSet laneSet : process.getLaneSets()) {
-									for (FlowElement tmpInFlow : process
-											.getFlowElements()) {
-										if (tmpInFlow instanceof SequenceFlow) {
-											SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-											if (task.equals(inFlow
-													.getTargetRef())) {
-												if (flowNode.equals(inFlow
-														.getSourceRef())) {
-													for (FlowElement tmpOutFlow : process
-															.getFlowElements()) {
-														if (tmpOutFlow instanceof SequenceFlow) {
-															SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-															if (!inFlow
-																	.equals(outFlow)) {
-																if (task.equals(outFlow
-																		.getSourceRef())) {
-																	if (pattern_UserTaskToStepRule_23_2_black_nac_0BB(
-																			outFlow,
-																			flowNode) == null) {
-																		if (pattern_UserTaskToStepRule_23_2_black_nac_1BB(
-																				outFlow,
-																				task) == null) {
-																			for (Lane lane : laneSet
-																					.getLanes()) {
-																				_result.add(new Object[] {
-																						task,
-																						lane,
-																						inFlow,
-																						process,
-																						outFlow,
-																						laneSet,
-																						flowNode,
-																						_edge_flowElements });
-																			}
+		EObject tmpTask = _edge_incoming.getSrc();
+		if (tmpTask instanceof UserTask) {
+			UserTask task = (UserTask) tmpTask;
+			EObject tmpInFlow = _edge_incoming.getTrg();
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (task.equals(inFlow.getTargetRef())) {
+					FlowNode flowNode = inFlow.getSourceRef();
+					if (flowNode != null) {
+						if (!flowNode.equals(task)) {
+							for (SequenceFlow outFlow : task.getOutgoing()) {
+								if (!inFlow.equals(outFlow)) {
+									if (pattern_UserTaskToStepRule_23_2_black_nac_0BB(
+											outFlow, flowNode) == null) {
+										if (pattern_UserTaskToStepRule_23_2_black_nac_1BB(
+												outFlow, task) == null) {
+											for (Lane lane : org.moflon.util.eMoflonEMFUtil
+													.getOppositeReferenceTyped(
+															task, Lane.class,
+															"flowNodeRefs")) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																task,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		flowNode)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	for (LaneSet laneSet : process
+																			.getLaneSets()) {
+																		if (laneSet
+																				.getLanes()
+																				.contains(
+																						lane)) {
+																			_result.add(new Object[] {
+																					task,
+																					lane,
+																					inFlow,
+																					process,
+																					outFlow,
+																					laneSet,
+																					flowNode,
+																					_edge_incoming });
 																		}
 																	}
 																}
@@ -5359,6 +5495,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 							}
 						}
 					}
+
 				}
 			}
 
@@ -5461,10 +5598,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_947556 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_271394 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_947556)) {
+			if (!flowNode.equals(__DEC_outFlow_default_271394)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5485,47 +5622,53 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		EObject tmpProcess = _edge_flowElements.getSrc();
 		if (tmpProcess instanceof bpmn2.Process) {
 			bpmn2.Process process = (bpmn2.Process) tmpProcess;
-			EObject tmpOutFlow = _edge_flowElements.getTrg();
-			if (tmpOutFlow instanceof SequenceFlow) {
-				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-				if (process.getFlowElements().contains(outFlow)) {
-					FlowNode tmpTask = outFlow.getSourceRef();
-					if (tmpTask instanceof UserTask) {
-						UserTask task = (UserTask) tmpTask;
-						if (process.getFlowElements().contains(task)) {
-							if (pattern_UserTaskToStepRule_24_2_black_nac_1BB(
-									outFlow, task) == null) {
-								for (FlowElement tmpFlowNode : process
-										.getFlowElements()) {
-									if (tmpFlowNode instanceof FlowNode) {
-										FlowNode flowNode = (FlowNode) tmpFlowNode;
-										if (!flowNode.equals(task)) {
-											if (pattern_UserTaskToStepRule_24_2_black_nac_0BB(
-													outFlow, flowNode) == null) {
-												for (LaneSet laneSet : process
-														.getLaneSets()) {
-													for (FlowElement tmpInFlow : process
+			EObject tmpTask = _edge_flowElements.getTrg();
+			if (tmpTask instanceof UserTask) {
+				UserTask task = (UserTask) tmpTask;
+				if (process.getFlowElements().contains(task)) {
+					for (FlowElement tmpFlowNode : process.getFlowElements()) {
+						if (tmpFlowNode instanceof FlowNode) {
+							FlowNode flowNode = (FlowNode) tmpFlowNode;
+							if (!flowNode.equals(task)) {
+								for (LaneSet laneSet : process.getLaneSets()) {
+									for (FlowElement tmpInFlow : process
+											.getFlowElements()) {
+										if (tmpInFlow instanceof SequenceFlow) {
+											SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+											if (task.equals(inFlow
+													.getTargetRef())) {
+												if (flowNode.equals(inFlow
+														.getSourceRef())) {
+													for (FlowElement tmpOutFlow : process
 															.getFlowElements()) {
-														if (tmpInFlow instanceof SequenceFlow) {
-															SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+														if (tmpOutFlow instanceof SequenceFlow) {
+															SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
 															if (!inFlow
 																	.equals(outFlow)) {
-																if (task.equals(inFlow
-																		.getTargetRef())) {
-																	if (flowNode
-																			.equals(inFlow
-																					.getSourceRef())) {
-																		for (Lane lane : laneSet
-																				.getLanes()) {
-																			_result.add(new Object[] {
-																					task,
-																					lane,
-																					inFlow,
-																					process,
-																					outFlow,
-																					laneSet,
-																					flowNode,
-																					_edge_flowElements });
+																if (task.equals(outFlow
+																		.getSourceRef())) {
+																	if (pattern_UserTaskToStepRule_24_2_black_nac_0BB(
+																			outFlow,
+																			flowNode) == null) {
+																		if (pattern_UserTaskToStepRule_24_2_black_nac_1BB(
+																				outFlow,
+																				task) == null) {
+																			for (Lane lane : laneSet
+																					.getLanes()) {
+																				if (lane.getFlowNodeRefs()
+																						.contains(
+																								task)) {
+																					_result.add(new Object[] {
+																							task,
+																							lane,
+																							inFlow,
+																							process,
+																							outFlow,
+																							laneSet,
+																							flowNode,
+																							_edge_flowElements });
+																				}
+																			}
 																		}
 																	}
 																}
@@ -5540,7 +5683,6 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 							}
 						}
 					}
-
 				}
 			}
 
@@ -5643,10 +5785,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_612027 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_165755 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_612027)) {
+			if (!flowNode.equals(__DEC_outFlow_default_165755)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5662,55 +5804,57 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserTaskToStepRule_25_2_blackFFFFFFFB(
-			EMoflonEdge _edge_sourceRef) {
+			EMoflonEdge _edge_flowElements) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpOutFlow = _edge_sourceRef.getSrc();
-		if (tmpOutFlow instanceof SequenceFlow) {
-			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-			EObject tmpTask = _edge_sourceRef.getTrg();
-			if (tmpTask instanceof UserTask) {
-				UserTask task = (UserTask) tmpTask;
-				if (task.equals(outFlow.getSourceRef())) {
-					if (pattern_UserTaskToStepRule_25_2_black_nac_1BB(outFlow,
-							task) == null) {
-						for (SequenceFlow inFlow : task.getIncoming()) {
-							if (!inFlow.equals(outFlow)) {
-								FlowNode flowNode = inFlow.getSourceRef();
-								if (flowNode != null) {
-									if (!flowNode.equals(task)) {
-										if (pattern_UserTaskToStepRule_25_2_black_nac_0BB(
-												outFlow, flowNode) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-													.getOppositeReferenceTyped(
-															outFlow,
-															FlowElementsContainer.class,
-															"flowElements")) {
-												if (tmpProcess instanceof bpmn2.Process) {
-													bpmn2.Process process = (bpmn2.Process) tmpProcess;
-													if (process
-															.getFlowElements()
-															.contains(flowNode)) {
-														if (process
-																.getFlowElements()
-																.contains(
-																		inFlow)) {
-															if (process
-																	.getFlowElements()
-																	.contains(
-																			task)) {
-																for (LaneSet laneSet : process
-																		.getLaneSets()) {
-																	for (Lane lane : laneSet
-																			.getLanes()) {
-																		_result.add(new Object[] {
-																				task,
-																				lane,
-																				inFlow,
-																				process,
-																				outFlow,
-																				laneSet,
-																				flowNode,
-																				_edge_sourceRef });
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpOutFlow = _edge_flowElements.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (process.getFlowElements().contains(outFlow)) {
+					FlowNode tmpTask = outFlow.getSourceRef();
+					if (tmpTask instanceof UserTask) {
+						UserTask task = (UserTask) tmpTask;
+						if (process.getFlowElements().contains(task)) {
+							if (pattern_UserTaskToStepRule_25_2_black_nac_1BB(
+									outFlow, task) == null) {
+								for (FlowElement tmpFlowNode : process
+										.getFlowElements()) {
+									if (tmpFlowNode instanceof FlowNode) {
+										FlowNode flowNode = (FlowNode) tmpFlowNode;
+										if (!flowNode.equals(task)) {
+											if (pattern_UserTaskToStepRule_25_2_black_nac_0BB(
+													outFlow, flowNode) == null) {
+												for (LaneSet laneSet : process
+														.getLaneSets()) {
+													for (FlowElement tmpInFlow : process
+															.getFlowElements()) {
+														if (tmpInFlow instanceof SequenceFlow) {
+															SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+															if (!inFlow
+																	.equals(outFlow)) {
+																if (task.equals(inFlow
+																		.getTargetRef())) {
+																	if (flowNode
+																			.equals(inFlow
+																					.getSourceRef())) {
+																		for (Lane lane : laneSet
+																				.getLanes()) {
+																			if (lane.getFlowNodeRefs()
+																					.contains(
+																							task)) {
+																				_result.add(new Object[] {
+																						task,
+																						lane,
+																						inFlow,
+																						process,
+																						outFlow,
+																						laneSet,
+																						flowNode,
+																						_edge_flowElements });
+																			}
+																		}
 																	}
 																}
 															}
@@ -5721,10 +5865,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 										}
 									}
 								}
-
 							}
 						}
 					}
+
 				}
 			}
 
@@ -5827,10 +5971,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_14860 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_414634 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_14860)) {
+			if (!flowNode.equals(__DEC_outFlow_default_414634)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5846,14 +5990,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserTaskToStepRule_26_2_blackFFFFFFFB(
-			EMoflonEdge _edge_outgoing) {
+			EMoflonEdge _edge_sourceRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpTask = _edge_outgoing.getSrc();
-		if (tmpTask instanceof UserTask) {
-			UserTask task = (UserTask) tmpTask;
-			EObject tmpOutFlow = _edge_outgoing.getTrg();
-			if (tmpOutFlow instanceof SequenceFlow) {
-				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+		EObject tmpOutFlow = _edge_sourceRef.getSrc();
+		if (tmpOutFlow instanceof SequenceFlow) {
+			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+			EObject tmpTask = _edge_sourceRef.getTrg();
+			if (tmpTask instanceof UserTask) {
+				UserTask task = (UserTask) tmpTask;
 				if (task.equals(outFlow.getSourceRef())) {
 					if (pattern_UserTaskToStepRule_26_2_black_nac_1BB(outFlow,
 							task) == null) {
@@ -5866,7 +6010,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 												outFlow, flowNode) == null) {
 											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
-															task,
+															outFlow,
 															FlowElementsContainer.class,
 															"flowElements")) {
 												if (tmpProcess instanceof bpmn2.Process) {
@@ -5881,20 +6025,24 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 															if (process
 																	.getFlowElements()
 																	.contains(
-																			outFlow)) {
+																			task)) {
 																for (LaneSet laneSet : process
 																		.getLaneSets()) {
 																	for (Lane lane : laneSet
 																			.getLanes()) {
-																		_result.add(new Object[] {
-																				task,
-																				lane,
-																				inFlow,
-																				process,
-																				outFlow,
-																				laneSet,
-																				flowNode,
-																				_edge_outgoing });
+																		if (lane.getFlowNodeRefs()
+																				.contains(
+																						task)) {
+																			_result.add(new Object[] {
+																					task,
+																					lane,
+																					inFlow,
+																					process,
+																					outFlow,
+																					laneSet,
+																					flowNode,
+																					_edge_sourceRef });
+																		}
 																	}
 																}
 															}
@@ -5978,7 +6126,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -6009,25 +6157,95 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_UserTaskToStepRule_27_2_blackFFFFB(
-			EMoflonEdge _edge_actor) {
+	public static final Object[] pattern_UserTaskToStepRule_27_2_black_nac_0BB(
+			SequenceFlow outFlow, FlowNode flowNode) {
+		for (ExclusiveGateway __DEC_outFlow_default_869368 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!flowNode.equals(__DEC_outFlow_default_869368)) {
+				return new Object[] { outFlow, flowNode };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_27_2_black_nac_1BB(
+			SequenceFlow outFlow, UserTask task) {
+		if (task.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, task };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UserTaskToStepRule_27_2_blackFFFFFFFB(
+			EMoflonEdge _edge_outgoing) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpNormalStep = _edge_actor.getSrc();
-		if (tmpNormalStep instanceof NormalStep) {
-			NormalStep normalStep = (NormalStep) tmpNormalStep;
-			EObject tmpActor = _edge_actor.getTrg();
-			if (tmpActor instanceof Actor) {
-				Actor actor = (Actor) tmpActor;
-				if (actor.equals(normalStep.getActor())) {
-					for (Step prevStep : org.moflon.util.eMoflonEMFUtil
-							.getOppositeReferenceTyped(normalStep, Step.class,
-									"next")) {
-						if (!normalStep.equals(prevStep)) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(normalStep,
-											Flow.class, "steps")) {
-								_result.add(new Object[] { actor, prevStep,
-										normalStep, flow, _edge_actor });
+		EObject tmpTask = _edge_outgoing.getSrc();
+		if (tmpTask instanceof UserTask) {
+			UserTask task = (UserTask) tmpTask;
+			EObject tmpOutFlow = _edge_outgoing.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (task.equals(outFlow.getSourceRef())) {
+					if (pattern_UserTaskToStepRule_27_2_black_nac_1BB(outFlow,
+							task) == null) {
+						for (SequenceFlow inFlow : task.getIncoming()) {
+							if (!inFlow.equals(outFlow)) {
+								FlowNode flowNode = inFlow.getSourceRef();
+								if (flowNode != null) {
+									if (!flowNode.equals(task)) {
+										if (pattern_UserTaskToStepRule_27_2_black_nac_0BB(
+												outFlow, flowNode) == null) {
+											for (Lane lane : org.moflon.util.eMoflonEMFUtil
+													.getOppositeReferenceTyped(
+															task, Lane.class,
+															"flowNodeRefs")) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																task,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		flowNode)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	for (LaneSet laneSet : process
+																			.getLaneSets()) {
+																		if (laneSet
+																				.getLanes()
+																				.contains(
+																						lane)) {
+																			_result.add(new Object[] {
+																					task,
+																					lane,
+																					inFlow,
+																					process,
+																					outFlow,
+																					laneSet,
+																					flowNode,
+																					_edge_outgoing });
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+
 							}
 						}
 					}
@@ -6049,18 +6267,19 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_UserTaskToStepRule_27_3_expressionFBBBBBB(
-			UserTaskToStepRule _this, Match match, Actor actor, Step prevStep,
-			NormalStep normalStep, Flow flow) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
-				prevStep, normalStep, flow);
+	public static final boolean pattern_UserTaskToStepRule_27_3_expressionFBBBBBBBBB(
+			UserTaskToStepRule _this, Match match, UserTask task, Lane lane,
+			SequenceFlow inFlow, bpmn2.Process process, SequenceFlow outFlow,
+			LaneSet laneSet, FlowNode flowNode) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, task, lane,
+				inFlow, process, outFlow, laneSet, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserTaskToStepRule_27_4_expressionFBB(
 			UserTaskToStepRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -6131,27 +6350,27 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserTaskToStepRule_28_2_blackFFFFB(
-			EMoflonEdge _edge_steps) {
+			EMoflonEdge _edge_actor) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpFlow = _edge_steps.getSrc();
-		if (tmpFlow instanceof Flow) {
-			Flow flow = (Flow) tmpFlow;
-			EObject tmpNormalStep = _edge_steps.getTrg();
-			if (tmpNormalStep instanceof NormalStep) {
-				NormalStep normalStep = (NormalStep) tmpNormalStep;
-				if (flow.getSteps().contains(normalStep)) {
-					Actor actor = normalStep.getActor();
-					if (actor != null) {
-						for (Step prevStep : org.moflon.util.eMoflonEMFUtil
-								.getOppositeReferenceTyped(normalStep,
-										Step.class, "next")) {
-							if (!normalStep.equals(prevStep)) {
+		EObject tmpNormalStep = _edge_actor.getSrc();
+		if (tmpNormalStep instanceof NormalStep) {
+			NormalStep normalStep = (NormalStep) tmpNormalStep;
+			EObject tmpActor = _edge_actor.getTrg();
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (actor.equals(normalStep.getActor())) {
+					for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(normalStep, Step.class,
+									"next")) {
+						if (!normalStep.equals(prevStep)) {
+							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											Flow.class, "steps")) {
 								_result.add(new Object[] { actor, prevStep,
-										normalStep, flow, _edge_steps });
+										normalStep, flow, _edge_actor });
 							}
 						}
 					}
-
 				}
 			}
 
@@ -6206,12 +6425,133 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_1_blackB(
+	public static final Object[] pattern_UserTaskToStepRule_29_1_bindingFB(
+			UserTaskToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_29_1_blackFBB(
+			EClass __eClass, UserTaskToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_BWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_29_1_bindingAndBlackFFB(
+			UserTaskToStepRule _this) {
+		Object[] result_pattern_UserTaskToStepRule_29_1_binding = pattern_UserTaskToStepRule_29_1_bindingFB(_this);
+		if (result_pattern_UserTaskToStepRule_29_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_UserTaskToStepRule_29_1_binding[0];
+
+			Object[] result_pattern_UserTaskToStepRule_29_1_black = pattern_UserTaskToStepRule_29_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_UserTaskToStepRule_29_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_UserTaskToStepRule_29_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_29_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Iterable<Object[]> pattern_UserTaskToStepRule_29_2_blackFFFFB(
+			EMoflonEdge _edge_steps) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpFlow = _edge_steps.getSrc();
+		if (tmpFlow instanceof Flow) {
+			Flow flow = (Flow) tmpFlow;
+			EObject tmpNormalStep = _edge_steps.getTrg();
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (flow.getSteps().contains(normalStep)) {
+					Actor actor = normalStep.getActor();
+					if (actor != null) {
+						for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(normalStep,
+										Step.class, "next")) {
+							if (!normalStep.equals(prevStep)) {
+								_result.add(new Object[] { actor, prevStep,
+										normalStep, flow, _edge_steps });
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_29_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_UserTaskToStepRule_29_3_expressionFBBBBBB(
+			UserTaskToStepRule _this, Match match, Actor actor, Step prevStep,
+			NormalStep normalStep, Flow flow) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
+				prevStep, normalStep, flow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_UserTaskToStepRule_29_4_expressionFBB(
+			UserTaskToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_29_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_29_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_UserTaskToStepRule_29_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_UserTaskToStepRule_32_1_blackB(
 			UserTaskToStepRule _this) {
 		return new Object[] { _this };
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_1_greenFF() {
+	public static final Object[] pattern_UserTaskToStepRule_32_1_greenFF() {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
@@ -6221,7 +6561,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { isApplicableMatch, ruleResult };
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_0BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_0BB(
 			ModelgeneratorRuleResult ruleResult, Lane lane) {
 		if (ruleResult.getSourceObjects().contains(lane)) {
 			return new Object[] { ruleResult, lane };
@@ -6229,7 +6569,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_1BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_1BB(
 			ModelgeneratorRuleResult ruleResult, LaneToActor laneToActor) {
 		if (ruleResult.getCorrObjects().contains(laneToActor)) {
 			return new Object[] { ruleResult, laneToActor };
@@ -6237,7 +6577,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_2BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_2BB(
 			ModelgeneratorRuleResult ruleResult, Actor actor) {
 		if (ruleResult.getTargetObjects().contains(actor)) {
 			return new Object[] { ruleResult, actor };
@@ -6245,7 +6585,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_3BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_3BB(
 			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
 		if (ruleResult.getSourceObjects().contains(laneSet)) {
 			return new Object[] { ruleResult, laneSet };
@@ -6253,7 +6593,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_4BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_4BB(
 			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
 		if (ruleResult.getSourceObjects().contains(process)) {
 			return new Object[] { ruleResult, process };
@@ -6261,7 +6601,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_5BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_5BB(
 			ModelgeneratorRuleResult ruleResult, FlowNode flowNode) {
 		if (ruleResult.getSourceObjects().contains(flowNode)) {
 			return new Object[] { ruleResult, flowNode };
@@ -6269,7 +6609,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_6BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_6BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow) {
 		if (ruleResult.getSourceObjects().contains(inFlow)) {
 			return new Object[] { ruleResult, inFlow };
@@ -6277,7 +6617,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_7BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_7BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToStep inFlowToPrevStep) {
 		if (ruleResult.getCorrObjects().contains(inFlowToPrevStep)) {
@@ -6286,7 +6626,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_8BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_8BB(
 			ModelgeneratorRuleResult ruleResult, Step prevStep) {
 		if (ruleResult.getTargetObjects().contains(prevStep)) {
 			return new Object[] { ruleResult, prevStep };
@@ -6294,7 +6634,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_9BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_9BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow inFlowToFlow) {
 		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
@@ -6303,7 +6643,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_2_black_nac_10BB(
+	public static final Object[] pattern_UserTaskToStepRule_32_2_black_nac_10BB(
 			ModelgeneratorRuleResult ruleResult, Flow flow) {
 		if (ruleResult.getTargetObjects().contains(flow)) {
 			return new Object[] { ruleResult, flow };
@@ -6311,7 +6651,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UserTaskToStepRule_31_2_blackFFFFFFFFFFFFBB(
+	public static final Iterable<Object[]> pattern_UserTaskToStepRule_32_2_blackFFFFFFFFFFFFBB(
 			RuleEntryContainer ruleEntryContainer,
 			ModelgeneratorRuleResult ruleResult) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
@@ -6324,17 +6664,17 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 					if (lane != null) {
 						Actor actor = laneToActor.getTarget();
 						if (actor != null) {
-							if (pattern_UserTaskToStepRule_31_2_black_nac_1BB(
+							if (pattern_UserTaskToStepRule_32_2_black_nac_1BB(
 									ruleResult, laneToActor) == null) {
-								if (pattern_UserTaskToStepRule_31_2_black_nac_0BB(
+								if (pattern_UserTaskToStepRule_32_2_black_nac_0BB(
 										ruleResult, lane) == null) {
-									if (pattern_UserTaskToStepRule_31_2_black_nac_2BB(
+									if (pattern_UserTaskToStepRule_32_2_black_nac_2BB(
 											ruleResult, actor) == null) {
 										for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														lane, LaneSet.class,
 														"lanes")) {
-											if (pattern_UserTaskToStepRule_31_2_black_nac_3BB(
+											if (pattern_UserTaskToStepRule_32_2_black_nac_3BB(
 													ruleResult, laneSet) == null) {
 												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
@@ -6343,14 +6683,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																"laneSets")) {
 													if (tmpProcess instanceof bpmn2.Process) {
 														bpmn2.Process process = (bpmn2.Process) tmpProcess;
-														if (pattern_UserTaskToStepRule_31_2_black_nac_4BB(
+														if (pattern_UserTaskToStepRule_32_2_black_nac_4BB(
 																ruleResult,
 																process) == null) {
 															for (FlowElement tmpFlowNode : process
 																	.getFlowElements()) {
 																if (tmpFlowNode instanceof FlowNode) {
 																	FlowNode flowNode = (FlowNode) tmpFlowNode;
-																	if (pattern_UserTaskToStepRule_31_2_black_nac_5BB(
+																	if (pattern_UserTaskToStepRule_32_2_black_nac_5BB(
 																			ruleResult,
 																			flowNode) == null) {
 																		for (FlowElement tmpInFlow : process
@@ -6360,7 +6700,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																				if (flowNode
 																						.equals(inFlow
 																								.getSourceRef())) {
-																					if (pattern_UserTaskToStepRule_31_2_black_nac_6BB(
+																					if (pattern_UserTaskToStepRule_32_2_black_nac_6BB(
 																							ruleResult,
 																							inFlow) == null) {
 																						for (SequenceFlowToStep inFlowToPrevStep : org.moflon.util.eMoflonEMFUtil
@@ -6371,10 +6711,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																							Step prevStep = inFlowToPrevStep
 																									.getTarget();
 																							if (prevStep != null) {
-																								if (pattern_UserTaskToStepRule_31_2_black_nac_7BB(
+																								if (pattern_UserTaskToStepRule_32_2_black_nac_7BB(
 																										ruleResult,
 																										inFlowToPrevStep) == null) {
-																									if (pattern_UserTaskToStepRule_31_2_black_nac_8BB(
+																									if (pattern_UserTaskToStepRule_32_2_black_nac_8BB(
 																											ruleResult,
 																											prevStep) == null) {
 																										for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
@@ -6385,10 +6725,10 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 																											Flow flow = inFlowToFlow
 																													.getTarget();
 																											if (flow != null) {
-																												if (pattern_UserTaskToStepRule_31_2_black_nac_9BB(
+																												if (pattern_UserTaskToStepRule_32_2_black_nac_9BB(
 																														ruleResult,
 																														inFlowToFlow) == null) {
-																													if (pattern_UserTaskToStepRule_31_2_black_nac_10BB(
+																													if (pattern_UserTaskToStepRule_32_2_black_nac_10BB(
 																															ruleResult,
 																															flow) == null) {
 																														_result.add(new Object[] {
@@ -6441,7 +6781,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_3_bindingFBBBBBBBBBBBBBB(
+	public static final Object[] pattern_UserTaskToStepRule_32_3_bindingFBBBBBBBBBBBBBB(
 			UserTaskToStepRule _this, IsApplicableMatch isApplicableMatch,
 			Lane lane, Actor actor, LaneToActor laneToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
@@ -6461,26 +6801,26 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_3_blackB(CSP csp) {
+	public static final Object[] pattern_UserTaskToStepRule_32_3_blackB(CSP csp) {
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_3_bindingAndBlackFBBBBBBBBBBBBBB(
+	public static final Object[] pattern_UserTaskToStepRule_32_3_bindingAndBlackFBBBBBBBBBBBBBB(
 			UserTaskToStepRule _this, IsApplicableMatch isApplicableMatch,
 			Lane lane, Actor actor, LaneToActor laneToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, bpmn2.Process process,
 			SequenceFlowToUCFlow inFlowToFlow, Flow flow, LaneSet laneSet,
 			FlowNode flowNode, ModelgeneratorRuleResult ruleResult) {
-		Object[] result_pattern_UserTaskToStepRule_31_3_binding = pattern_UserTaskToStepRule_31_3_bindingFBBBBBBBBBBBBBB(
+		Object[] result_pattern_UserTaskToStepRule_32_3_binding = pattern_UserTaskToStepRule_32_3_bindingFBBBBBBBBBBBBBB(
 				_this, isApplicableMatch, lane, actor, laneToActor, inFlow,
 				inFlowToPrevStep, prevStep, process, inFlowToFlow, flow,
 				laneSet, flowNode, ruleResult);
-		if (result_pattern_UserTaskToStepRule_31_3_binding != null) {
-			CSP csp = (CSP) result_pattern_UserTaskToStepRule_31_3_binding[0];
+		if (result_pattern_UserTaskToStepRule_32_3_binding != null) {
+			CSP csp = (CSP) result_pattern_UserTaskToStepRule_32_3_binding[0];
 
-			Object[] result_pattern_UserTaskToStepRule_31_3_black = pattern_UserTaskToStepRule_31_3_blackB(csp);
-			if (result_pattern_UserTaskToStepRule_31_3_black != null) {
+			Object[] result_pattern_UserTaskToStepRule_32_3_black = pattern_UserTaskToStepRule_32_3_blackB(csp);
+			if (result_pattern_UserTaskToStepRule_32_3_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch, lane,
 						actor, laneToActor, inFlow, inFlowToPrevStep, prevStep,
@@ -6491,14 +6831,14 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final boolean pattern_UserTaskToStepRule_31_4_expressionFBB(
+	public static final boolean pattern_UserTaskToStepRule_32_4_expressionFBB(
 			UserTaskToStepRule _this, CSP csp) {
 		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_5_blackBBBBBBBBBBB(
+	public static final Object[] pattern_UserTaskToStepRule_32_5_blackBBBBBBBBBBB(
 			Lane lane, Actor actor, LaneToActor laneToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, bpmn2.Process process,
@@ -6509,7 +6849,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				laneSet, flowNode };
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_6_blackBBBBBBBBBBBB(
+	public static final Object[] pattern_UserTaskToStepRule_32_6_blackBBBBBBBBBBBB(
 			Lane lane, Actor actor, LaneToActor laneToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, bpmn2.Process process,
@@ -6520,8 +6860,8 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 				laneSet, flowNode, ruleResult };
 	}
 
-	public static final Object[] pattern_UserTaskToStepRule_31_6_greenFBBBFBFFFFBBB(
-			Actor actor, SequenceFlow inFlow, Step prevStep,
+	public static final Object[] pattern_UserTaskToStepRule_32_6_greenFBBBBFBFFFFBBB(
+			Lane lane, Actor actor, SequenceFlow inFlow, Step prevStep,
 			bpmn2.Process process, Flow flow,
 			ModelgeneratorRuleResult ruleResult, CSP csp) {
 		UserTask task = Bpmn2Factory.eINSTANCE.createUserTask();
@@ -6539,6 +6879,7 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_3 = csp.getValue("normalStep", "label");
 		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		lane.getFlowNodeRefs().add(task);
 		inFlow.setTargetRef(task);
 		process.getFlowElements().add(task);
 		ruleResult.getSourceObjects().add(task);
@@ -6570,12 +6911,12 @@ public class UserTaskToStepRuleImpl extends AbstractRuleImpl implements
 		normalStep.setLabel(normalStep_label_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
-		return new Object[] { task, actor, inFlow, prevStep, normalStep,
+		return new Object[] { task, lane, actor, inFlow, prevStep, normalStep,
 				process, outFlow, taskToNormalStep, outFlowToFlow,
 				outFlowToNormalStep, flow, ruleResult, csp };
 	}
 
-	public static final ModelgeneratorRuleResult pattern_UserTaskToStepRule_31_7_expressionFB(
+	public static final ModelgeneratorRuleResult pattern_UserTaskToStepRule_32_7_expressionFB(
 			ModelgeneratorRuleResult ruleResult) {
 		ModelgeneratorRuleResult _result = ruleResult;
 		return _result;

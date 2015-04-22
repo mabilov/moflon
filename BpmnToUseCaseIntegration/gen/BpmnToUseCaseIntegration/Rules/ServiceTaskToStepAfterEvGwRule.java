@@ -247,25 +247,7 @@ public interface ServiceTaskToStepAfterEvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_199(
-			EMoflonEdge _edge_targetRef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_200(
-			EMoflonEdge _edge_incoming);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_201(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_205(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -274,7 +256,34 @@ public interface ServiceTaskToStepAfterEvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_202(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_206(
+			EMoflonEdge _edge_targetRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_207(
+			EMoflonEdge _edge_incoming);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_208(
+			EMoflonEdge _edge_flowElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_209(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -283,7 +292,7 @@ public interface ServiceTaskToStepAfterEvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_203(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_210(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -308,7 +317,7 @@ public interface ServiceTaskToStepAfterEvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_204(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_211(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

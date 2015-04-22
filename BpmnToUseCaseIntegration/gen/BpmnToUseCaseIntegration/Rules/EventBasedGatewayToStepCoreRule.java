@@ -234,7 +234,7 @@ public interface EventBasedGatewayToStepCoreRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_50(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_52(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -243,7 +243,7 @@ public interface EventBasedGatewayToStepCoreRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_51(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_53(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -252,7 +252,7 @@ public interface EventBasedGatewayToStepCoreRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_52(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_54(EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,7 +276,7 @@ public interface EventBasedGatewayToStepCoreRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_53(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

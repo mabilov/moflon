@@ -1142,7 +1142,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_77(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_79(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1208,7 +1208,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_78(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_80(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1274,7 +1274,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_79(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_81(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1340,7 +1340,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_80(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_82(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1406,7 +1406,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_81(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1472,7 +1472,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_82(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_84(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1538,7 +1538,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_85(
 			EMoflonEdge _edge_default) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -1667,7 +1667,7 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_84(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_86(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExclusiveGatewayToStepRuleImpl
@@ -2032,12 +2032,6 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_30__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_30((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_77__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_77((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_78__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_78((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_79__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_79((EMoflonEdge) arguments
 					.get(0));
@@ -2053,11 +2047,17 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_83__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_83((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_84__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_84((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_85__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_85((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_31__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_31((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_84__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_84((EMoflonEdge) arguments
+		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_86__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_86((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -5118,10 +5118,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_355645 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_512769 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_355645)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_512769)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5292,10 +5292,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_325108 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_809794 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_325108)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_809794)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5468,10 +5468,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_522101 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_107359 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_522101)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_107359)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5648,10 +5648,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_924501 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_680985 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_924501)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_680985)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5826,10 +5826,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_916498 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_578814 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_916498)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_578814)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -6004,10 +6004,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_27_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_449618 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_143234 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_449618)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_143234)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -6181,10 +6181,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_28_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_166867 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_755950 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_166867)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_755950)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -6479,10 +6479,10 @@ public class ExclusiveGatewayToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExclusiveGatewayToStepRule_30_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_324910 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_955821 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_324910)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_955821)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}

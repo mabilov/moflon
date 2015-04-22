@@ -978,10 +978,10 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 
 	public static final Object[] pattern_LaneSetRule_10_2_black_nac_0BB(
 			LaneSet laneSet, bpmn2.Process process) {
-		for (FlowElementsContainer __DEC_laneSet_laneSets_602758 : org.moflon.util.eMoflonEMFUtil
+		for (FlowElementsContainer __DEC_laneSet_laneSets_358451 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(laneSet,
 						FlowElementsContainer.class, "laneSets")) {
-			if (!process.equals(__DEC_laneSet_laneSets_602758)) {
+			if (!process.equals(__DEC_laneSet_laneSets_358451)) {
 				return new Object[] { laneSet, process };
 			}
 		}

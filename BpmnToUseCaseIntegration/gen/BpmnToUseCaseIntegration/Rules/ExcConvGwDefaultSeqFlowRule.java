@@ -162,26 +162,8 @@ public interface ExcConvGwDefaultSeqFlowRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_101(
-			EMoflonEdge _edge_targetRef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_102(
-			EMoflonEdge _edge_incoming);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_103(
-			EMoflonEdge _edge_flowElements);
+			EMoflonEdge _edge_targetRef);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,24 +172,6 @@ public interface ExcConvGwDefaultSeqFlowRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_104(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_105(
-			EMoflonEdge _edge_targetRef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_106(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -216,8 +180,26 @@ public interface ExcConvGwDefaultSeqFlowRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_105(
+			EMoflonEdge _edge_flowElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_106(
+			EMoflonEdge _edge_flowElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_107(
-			EMoflonEdge _edge_sourceRef);
+			EMoflonEdge _edge_targetRef);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,7 +208,7 @@ public interface ExcConvGwDefaultSeqFlowRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_108(
-			EMoflonEdge _edge_outgoing);
+			EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,6 +217,24 @@ public interface ExcConvGwDefaultSeqFlowRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_109(
+			EMoflonEdge _edge_sourceRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_110(
+			EMoflonEdge _edge_outgoing);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_111(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

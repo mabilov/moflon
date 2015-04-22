@@ -255,35 +255,8 @@ public interface ICEToStepAfterEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_160(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_161(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_162(
-			EMoflonEdge _edge_targetRef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_163(
-			EMoflonEdge _edge_incoming);
+			EMoflonEdge _edge_flowElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,7 +265,7 @@ public interface ICEToStepAfterEventRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_164(
-			EMoflonEdge _edge_sourceRef);
+			EMoflonEdge _edge_flowElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,6 +274,33 @@ public interface ICEToStepAfterEventRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_165(
+			EMoflonEdge _edge_targetRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_166(
+			EMoflonEdge _edge_incoming);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_167(
+			EMoflonEdge _edge_sourceRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_168(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -325,7 +325,7 @@ public interface ICEToStepAfterEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_166(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_169(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

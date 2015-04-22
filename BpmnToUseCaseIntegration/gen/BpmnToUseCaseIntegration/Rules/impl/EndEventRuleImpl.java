@@ -456,7 +456,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_27(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_29(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -517,7 +517,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_28(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_30(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -578,7 +578,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_29(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_31(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -639,7 +639,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_30(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_32(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -896,17 +896,17 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			return null;
 		case RulesPackage.END_EVENT_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_27__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_27((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_28__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_28((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_29__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_29((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_30__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_30((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_31__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_31((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_32__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_32((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

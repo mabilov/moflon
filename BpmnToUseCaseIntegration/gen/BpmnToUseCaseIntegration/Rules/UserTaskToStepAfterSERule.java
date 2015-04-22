@@ -238,7 +238,16 @@ public interface UserTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_205(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_212(
+			EMoflonEdge _edge_flowNodeRefs);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_213(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -247,7 +256,7 @@ public interface UserTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_206(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_214(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -256,7 +265,7 @@ public interface UserTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_207(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_215(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -265,7 +274,7 @@ public interface UserTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_208(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_216(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -274,7 +283,7 @@ public interface UserTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_209(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_217(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -283,7 +292,7 @@ public interface UserTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_210(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_218(
 			EMoflonEdge _edge_outgoing);
 
 	/**

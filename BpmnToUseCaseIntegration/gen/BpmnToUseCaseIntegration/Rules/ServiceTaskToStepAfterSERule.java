@@ -239,25 +239,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_181(
-			EMoflonEdge _edge_targetRef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_182(
-			EMoflonEdge _edge_incoming);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_183(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_184(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -266,7 +248,34 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_184(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_185(
+			EMoflonEdge _edge_targetRef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_186(
+			EMoflonEdge _edge_incoming);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_187(
+			EMoflonEdge _edge_flowElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_188(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -275,7 +284,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_185(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_189(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -300,7 +309,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_186(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_190(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

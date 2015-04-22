@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration">
-  <domain name="Source" metamodel="//@metamodel.2" type="SOURCE"/>
+  <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
   <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.1"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="BpModelToUseCaseModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="documentRoot" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot"/>
@@ -367,18 +367,21 @@
     </csp>
   </tggRule>
   <tggRule name="FirstServiceTaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.4/@linkVariable.0" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.4/@linkVariable.1" outgoingLink="//@tggRule.4/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.4/@linkVariable.1" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.4/@linkVariable.2" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="processToActor" outgoingLink="//@tggRule.4/@linkVariable.0 //@tggRule.4/@linkVariable.1" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="processToActor" outgoingLink="//@tggRule.4/@linkVariable.1 //@tggRule.4/@linkVariable.2" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" bindingOperator="CREATE" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" incomingLink="//@tggRule.4/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ServiceTask"/>
     </objectVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.4/@objectVariable.3" source="//@tggRule.4/@objectVariable.0" bindingOperator="CREATE" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
+    </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.4/@objectVariable.0" source="//@tggRule.4/@objectVariable.2" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor/source"/>
     </linkVariable>
@@ -388,18 +391,21 @@
     <csp/>
   </tggRule>
   <tggRule name="FirstUserTaskToStepRule" refines="//@tggRule.3" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="lane" incomingLink="//@tggRule.5/@linkVariable.0" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="lane" incomingLink="//@tggRule.5/@linkVariable.1" outgoingLink="//@tggRule.5/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" bindingOperator="CREATE" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" incomingLink="//@tggRule.5/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//UserTask"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.5/@linkVariable.1" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.5/@linkVariable.2" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="laneToActor" outgoingLink="//@tggRule.5/@linkVariable.0 //@tggRule.5/@linkVariable.1" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="laneToActor" outgoingLink="//@tggRule.5/@linkVariable.1 //@tggRule.5/@linkVariable.2" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor"/>
     </objectVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowNodeRefs" target="//@tggRule.5/@objectVariable.1" source="//@tggRule.5/@objectVariable.0" bindingOperator="CREATE" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane/flowNodeRefs"/>
+    </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.5/@objectVariable.0" source="//@tggRule.5/@objectVariable.3" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor/source"/>
     </linkVariable>
@@ -547,18 +553,21 @@
     <csp/>
   </tggRule>
   <tggRule name="ServiceTaskToStepRule" refines="//@tggRule.8" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" bindingOperator="CREATE" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" incomingLink="//@tggRule.9/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ServiceTask"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.9/@linkVariable.0" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.9/@linkVariable.1" outgoingLink="//@tggRule.9/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.9/@linkVariable.1" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.9/@linkVariable.2" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="processToActor" outgoingLink="//@tggRule.9/@linkVariable.0 //@tggRule.9/@linkVariable.1" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="processToActor" outgoingLink="//@tggRule.9/@linkVariable.1 //@tggRule.9/@linkVariable.2" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor"/>
     </objectVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.9/@objectVariable.0" source="//@tggRule.9/@objectVariable.1" bindingOperator="CREATE" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
+    </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.9/@objectVariable.1" source="//@tggRule.9/@objectVariable.3" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ProcessToActor/source"/>
     </linkVariable>
@@ -568,18 +577,21 @@
     <csp/>
   </tggRule>
   <tggRule name="UserTaskToStepRule" refines="//@tggRule.8" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" bindingOperator="CREATE" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="task" incomingLink="//@tggRule.10/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//UserTask"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="lane" incomingLink="//@tggRule.10/@linkVariable.0" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="lane" incomingLink="//@tggRule.10/@linkVariable.1" outgoingLink="//@tggRule.10/@linkVariable.0" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.10/@linkVariable.1" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="actor" incomingLink="//@tggRule.10/@linkVariable.2" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="laneToActor" outgoingLink="//@tggRule.10/@linkVariable.0 //@tggRule.10/@linkVariable.1" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="laneToActor" outgoingLink="//@tggRule.10/@linkVariable.1 //@tggRule.10/@linkVariable.2" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor"/>
     </objectVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowNodeRefs" target="//@tggRule.10/@objectVariable.0" source="//@tggRule.10/@objectVariable.1" bindingOperator="CREATE" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Lane/flowNodeRefs"/>
+    </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.10/@objectVariable.1" source="//@tggRule.10/@objectVariable.3" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//LaneToActor/source"/>
     </linkVariable>
@@ -2028,31 +2040,31 @@
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.30/@linkVariable.0 //@tggRule.30/@linkVariable.1 //@tggRule.30/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="eventGw" incomingLink="//@tggRule.30/@linkVariable.0 //@tggRule.30/@linkVariable.5 //@tggRule.30/@linkVariable.3" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="eventGw" incomingLink="//@tggRule.30/@linkVariable.0 //@tggRule.30/@linkVariable.6 //@tggRule.30/@linkVariable.3" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//EventBasedGateway"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow" incomingLink="//@tggRule.30/@linkVariable.1 //@tggRule.30/@linkVariable.7" outgoingLink="//@tggRule.30/@linkVariable.4 //@tggRule.30/@linkVariable.3" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow" incomingLink="//@tggRule.30/@linkVariable.1 //@tggRule.30/@linkVariable.9" outgoingLink="//@tggRule.30/@linkVariable.4 //@tggRule.30/@linkVariable.3" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="ice" incomingLink="//@tggRule.30/@linkVariable.2 //@tggRule.30/@linkVariable.4 //@tggRule.30/@linkVariable.9" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="ice" incomingLink="//@tggRule.30/@linkVariable.2 //@tggRule.30/@linkVariable.4 //@tggRule.30/@linkVariable.11" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" incomingLink="//@tggRule.30/@linkVariable.6" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" incomingLink="//@tggRule.30/@linkVariable.7" outgoingLink="//@tggRule.30/@linkVariable.5" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="eventGwToNormalStep" outgoingLink="//@tggRule.30/@linkVariable.5 //@tggRule.30/@linkVariable.6" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="eventGwToNormalStep" outgoingLink="//@tggRule.30/@linkVariable.6 //@tggRule.30/@linkVariable.7" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//FlowNodeToStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="alt" incomingLink="//@tggRule.30/@linkVariable.8" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="alt" incomingLink="//@tggRule.30/@linkVariable.5 //@tggRule.30/@linkVariable.10" outgoingLink="//@tggRule.30/@linkVariable.8" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlowAlternative"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlowToAlt" outgoingLink="//@tggRule.30/@linkVariable.7 //@tggRule.30/@linkVariable.8" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlowToAlt" outgoingLink="//@tggRule.30/@linkVariable.9 //@tggRule.30/@linkVariable.10" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SeqFlowToAltFlowAlt"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flow" incomingLink="//@tggRule.30/@linkVariable.10" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flow" incomingLink="//@tggRule.30/@linkVariable.8 //@tggRule.30/@linkVariable.12" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="iceToFlow" outgoingLink="//@tggRule.30/@linkVariable.9 //@tggRule.30/@linkVariable.10" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="iceToFlow" outgoingLink="//@tggRule.30/@linkVariable.11 //@tggRule.30/@linkVariable.12" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//ICEToAltFlow"/>
     </objectVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.30/@objectVariable.1" source="//@tggRule.30/@objectVariable.0" domain="//@domain.0">
@@ -2070,11 +2082,17 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="targetRef" target="//@tggRule.30/@objectVariable.3" source="//@tggRule.30/@objectVariable.2" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow/targetRef"/>
     </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="stepAlternative" target="//@tggRule.30/@objectVariable.6" source="//@tggRule.30/@objectVariable.4" domain="//@domain.1">
+      <type href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep/stepAlternative"/>
+    </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.30/@objectVariable.1" source="//@tggRule.30/@objectVariable.5" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//FlowNodeToStep/source"/>
     </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="target" target="//@tggRule.30/@objectVariable.4" source="//@tggRule.30/@objectVariable.5" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//FlowNodeToStep/target"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="ref" target="//@tggRule.30/@objectVariable.8" source="//@tggRule.30/@objectVariable.6" domain="//@domain.1">
+      <type href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlowAlternative/ref"/>
     </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.30/@objectVariable.2" source="//@tggRule.30/@objectVariable.7" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SeqFlowToAltFlowAlt/source"/>
@@ -2103,40 +2121,49 @@
     <csp/>
   </tggRule>
   <tggRule name="ParallelConvergingGatewayTwoInputsRule" refines="//@tggRule.22" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.32/@linkVariable.0" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.32/@linkVariable.0 //@tggRule.32/@linkVariable.1 //@tggRule.32/@linkVariable.2 //@tggRule.32/@linkVariable.3" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow1" incomingLink="//@tggRule.32/@linkVariable.0 //@tggRule.32/@linkVariable.4 //@tggRule.32/@linkVariable.6" outgoingLink="//@tggRule.32/@linkVariable.1" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow1" incomingLink="//@tggRule.32/@linkVariable.0 //@tggRule.32/@linkVariable.7 //@tggRule.32/@linkVariable.9" outgoingLink="//@tggRule.32/@linkVariable.4" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="parallelConvGateway" incomingLink="//@tggRule.32/@linkVariable.1" bindingOperator="CREATE" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="parallelConvGateway" incomingLink="//@tggRule.32/@linkVariable.1 //@tggRule.32/@linkVariable.4" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ParallelGateway"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="parallelGateway" incomingLink="//@tggRule.32/@linkVariable.2" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="parallelGateway" incomingLink="//@tggRule.32/@linkVariable.3 //@tggRule.32/@linkVariable.5" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ParallelGateway"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow1" incomingLink="//@tggRule.32/@linkVariable.9" outgoingLink="//@tggRule.32/@linkVariable.2" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow1" incomingLink="//@tggRule.32/@linkVariable.2 //@tggRule.32/@linkVariable.12" outgoingLink="//@tggRule.32/@linkVariable.5" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flow1" incomingLink="//@tggRule.32/@linkVariable.5 //@tggRule.32/@linkVariable.8 //@tggRule.32/@linkVariable.10" outgoingLink="//@tggRule.32/@linkVariable.3" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flow1" incomingLink="//@tggRule.32/@linkVariable.8 //@tggRule.32/@linkVariable.11 //@tggRule.32/@linkVariable.13" outgoingLink="//@tggRule.32/@linkVariable.6" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ParallelFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow1ToFlow1" outgoingLink="//@tggRule.32/@linkVariable.4 //@tggRule.32/@linkVariable.5" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow1ToFlow1" outgoingLink="//@tggRule.32/@linkVariable.7 //@tggRule.32/@linkVariable.8" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="step1" incomingLink="//@tggRule.32/@linkVariable.3 //@tggRule.32/@linkVariable.7" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="step1" incomingLink="//@tggRule.32/@linkVariable.6 //@tggRule.32/@linkVariable.10" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow1ToStep1" outgoingLink="//@tggRule.32/@linkVariable.6 //@tggRule.32/@linkVariable.7" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow1ToStep1" outgoingLink="//@tggRule.32/@linkVariable.9 //@tggRule.32/@linkVariable.10" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="parallelStep" outgoingLink="//@tggRule.32/@linkVariable.8" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="parallelStep" outgoingLink="//@tggRule.32/@linkVariable.11" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ParallelStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow1ToFlow1" outgoingLink="//@tggRule.32/@linkVariable.9 //@tggRule.32/@linkVariable.10" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow1ToFlow1" outgoingLink="//@tggRule.32/@linkVariable.12 //@tggRule.32/@linkVariable.13" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow"/>
     </objectVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.32/@objectVariable.1" source="//@tggRule.32/@objectVariable.0" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.32/@objectVariable.2" source="//@tggRule.32/@objectVariable.0" bindingOperator="CREATE" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.32/@objectVariable.4" source="//@tggRule.32/@objectVariable.0" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.32/@objectVariable.3" source="//@tggRule.32/@objectVariable.0" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
     </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="targetRef" target="//@tggRule.32/@objectVariable.2" source="//@tggRule.32/@objectVariable.1" bindingOperator="CREATE" domain="//@domain.0">
@@ -2172,49 +2199,49 @@
     <csp/>
   </tggRule>
   <tggRule name="ExcConvGwAfterExDivGwRule" refines="//@tggRule.21" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.33/@linkVariable.1" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlow" incomingLink="//@tggRule.33/@linkVariable.1 //@tggRule.33/@linkVariable.6" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="step" incomingLink="//@tggRule.33/@linkVariable.2 //@tggRule.33/@linkVariable.14" outgoingLink="//@tggRule.33/@linkVariable.0" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="step" incomingLink="//@tggRule.33/@linkVariable.2 //@tggRule.33/@linkVariable.18" outgoingLink="//@tggRule.33/@linkVariable.0" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Step"/>
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="inFlowToStep" outgoingLink="//@tggRule.33/@linkVariable.1 //@tggRule.33/@linkVariable.2" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.33/@linkVariable.3 //@tggRule.33/@linkVariable.4 //@tggRule.33/@linkVariable.5" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.33/@linkVariable.3 //@tggRule.33/@linkVariable.4 //@tggRule.33/@linkVariable.5 //@tggRule.33/@linkVariable.6" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="defaultFlow" incomingLink="//@tggRule.33/@linkVariable.5 //@tggRule.33/@linkVariable.6 //@tggRule.33/@linkVariable.8" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="defaultFlow" incomingLink="//@tggRule.33/@linkVariable.5 //@tggRule.33/@linkVariable.7 //@tggRule.33/@linkVariable.12" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="exclusiveGateway" incomingLink="//@tggRule.33/@linkVariable.3 //@tggRule.33/@linkVariable.10 //@tggRule.33/@linkVariable.7" outgoingLink="//@tggRule.33/@linkVariable.6" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="exclusiveGateway" incomingLink="//@tggRule.33/@linkVariable.3 //@tggRule.33/@linkVariable.14 //@tggRule.33/@linkVariable.8" outgoingLink="//@tggRule.33/@linkVariable.7" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ExclusiveGateway"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow" incomingLink="//@tggRule.33/@linkVariable.4 //@tggRule.33/@linkVariable.12 //@tggRule.33/@linkVariable.15" outgoingLink="//@tggRule.33/@linkVariable.7" domain="//@domain.0">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlow" incomingLink="//@tggRule.33/@linkVariable.4 //@tggRule.33/@linkVariable.16 //@tggRule.33/@linkVariable.19" outgoingLink="//@tggRule.33/@linkVariable.8" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" incomingLink="//@tggRule.33/@linkVariable.11" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" incomingLink="//@tggRule.33/@linkVariable.11 //@tggRule.33/@linkVariable.15" outgoingLink="//@tggRule.33/@linkVariable.9" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="alt" incomingLink="//@tggRule.33/@linkVariable.13" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="alt" incomingLink="//@tggRule.33/@linkVariable.9 //@tggRule.33/@linkVariable.17" outgoingLink="//@tggRule.33/@linkVariable.10" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlowAlternative"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="initFlow" incomingLink="//@tggRule.33/@linkVariable.9" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="initFlow" incomingLink="//@tggRule.33/@linkVariable.13" outgoingLink="//@tggRule.33/@linkVariable.11" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Flow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="defaultFlowToInitFlow" outgoingLink="//@tggRule.33/@linkVariable.8 //@tggRule.33/@linkVariable.9" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="defaultFlowToInitFlow" outgoingLink="//@tggRule.33/@linkVariable.12 //@tggRule.33/@linkVariable.13" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="egwToStep" outgoingLink="//@tggRule.33/@linkVariable.10 //@tggRule.33/@linkVariable.11" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="egwToStep" outgoingLink="//@tggRule.33/@linkVariable.14 //@tggRule.33/@linkVariable.15" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//FlowNodeToStep"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlowToAlt" outgoingLink="//@tggRule.33/@linkVariable.12 //@tggRule.33/@linkVariable.13" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlowToAlt" outgoingLink="//@tggRule.33/@linkVariable.16 //@tggRule.33/@linkVariable.17" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SeqFlowToAltFlowAlt"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flow" incomingLink="//@tggRule.33/@linkVariable.16" outgoingLink="//@tggRule.33/@linkVariable.14" domain="//@domain.1">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="flow" incomingLink="//@tggRule.33/@linkVariable.10 //@tggRule.33/@linkVariable.20" outgoingLink="//@tggRule.33/@linkVariable.18" domain="//@domain.1">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlow"/>
     </objectVariable>
-    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlowToFlow" outgoingLink="//@tggRule.33/@linkVariable.15 //@tggRule.33/@linkVariable.16" domain="//@domain.2">
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="divergeFlowToFlow" outgoingLink="//@tggRule.33/@linkVariable.19 //@tggRule.33/@linkVariable.20" domain="//@domain.2">
       <type xsi:type="ecore:EClass" href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow"/>
     </objectVariable>
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="nextStep" incomingLink="//@tggRule.33/@linkVariable.0" bindingSemantics="NEGATIVE" domain="//@domain.1">
@@ -2238,11 +2265,23 @@
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.33/@objectVariable.4" source="//@tggRule.33/@objectVariable.3" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
     </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="flowElements" target="//@tggRule.33/@objectVariable.0" source="//@tggRule.33/@objectVariable.3" domain="//@domain.0">
+      <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//FlowElementsContainer/flowElements"/>
+    </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="default" target="//@tggRule.33/@objectVariable.4" source="//@tggRule.33/@objectVariable.5" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//ExclusiveGateway/default"/>
     </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="sourceRef" target="//@tggRule.33/@objectVariable.5" source="//@tggRule.33/@objectVariable.6" domain="//@domain.0">
       <type href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//SequenceFlow/sourceRef"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="stepAlternative" target="//@tggRule.33/@objectVariable.8" source="//@tggRule.33/@objectVariable.7" domain="//@domain.1">
+      <type href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep/stepAlternative"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="ref" target="//@tggRule.33/@objectVariable.13" source="//@tggRule.33/@objectVariable.8" domain="//@domain.1">
+      <type href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//AlternativeFlowAlternative/ref"/>
+    </linkVariable>
+    <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="steps" target="//@tggRule.33/@objectVariable.7" source="//@tggRule.33/@objectVariable.9" domain="//@domain.1">
+      <type href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Flow/steps"/>
     </linkVariable>
     <linkVariable xsi:type="TGGLanguage:TGGLinkVariable" name="source" target="//@tggRule.33/@objectVariable.4" source="//@tggRule.33/@objectVariable.10" domain="//@domain.2">
       <type href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//SequenceFlowToUCFlow/source"/>
@@ -2577,10 +2616,10 @@
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
-  <metamodel name="BpmnToUseCaseIntegration">
-    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
-  </metamodel>
   <metamodel name="bpmn2">
     <outermostPackage href="platform:/plugin/bpmn2/model/Bpmn2.ecore#/"/>
+  </metamodel>
+  <metamodel name="BpmnToUseCaseIntegration">
+    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

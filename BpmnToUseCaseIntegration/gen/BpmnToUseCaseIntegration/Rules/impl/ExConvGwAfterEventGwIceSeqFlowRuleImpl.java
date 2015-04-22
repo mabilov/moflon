@@ -34,8 +34,10 @@ import TGGRuntime.impl.AbstractRuleImpl;
 import UseCaseDSL.AlternativeFlow;
 import UseCaseDSL.AlternativeFlowAlternative;
 import UseCaseDSL.Flow;
+import UseCaseDSL.NamedFlow;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.Step;
+import UseCaseDSL.StepAlternative;
 
 import bpmn2.Bpmn2Factory;
 import bpmn2.EventBasedGateway;
@@ -345,7 +347,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 							outFlow, inFlowToFlow, lane, laneSet)) {
 				Flow initFlow = (Flow) result3_black[14];
 				Object[] result3_green = ExConvGwAfterEventGwIceSeqFlowRuleImpl
-						.pattern_ExConvGwAfterEventGwIceSeqFlowRule_2_3_greenBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
+						.pattern_ExConvGwAfterEventGwIceSeqFlowRule_2_3_greenBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
 								ice, inFlow, process, eventGw, divergeFlow,
 								normalStep, eventGwToNormalStep, alt,
 								divergeFlowToAlt, flow, iceToFlow,
@@ -361,25 +363,27 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 				// EMoflonEdge eventGw__divergeFlow____outgoing = (EMoflonEdge) result3_green[24];
 				// EMoflonEdge divergeFlow__ice____targetRef = (EMoflonEdge) result3_green[25];
 				// EMoflonEdge ice__divergeFlow____incoming = (EMoflonEdge) result3_green[26];
-				// EMoflonEdge eventGwToNormalStep__eventGw____source = (EMoflonEdge) result3_green[27];
-				// EMoflonEdge eventGwToNormalStep__normalStep____target = (EMoflonEdge) result3_green[28];
-				// EMoflonEdge divergeFlowToAlt__divergeFlow____source = (EMoflonEdge) result3_green[29];
-				// EMoflonEdge divergeFlowToAlt__alt____target = (EMoflonEdge) result3_green[30];
-				// EMoflonEdge iceToFlow__ice____source = (EMoflonEdge) result3_green[31];
-				// EMoflonEdge iceToFlow__flow____target = (EMoflonEdge) result3_green[32];
-				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[33];
-				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[34];
-				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[35];
-				// EMoflonEdge process__exConvGateway____flowElements = (EMoflonEdge) result3_green[36];
-				// EMoflonEdge inFlow__exConvGateway____targetRef = (EMoflonEdge) result3_green[37];
-				// EMoflonEdge exConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[38];
-				// EMoflonEdge outFlow__exConvGateway____sourceRef = (EMoflonEdge) result3_green[39];
-				// EMoflonEdge exConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[40];
-				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[41];
-				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[42];
-				// EMoflonEdge initFlow__normalStep____steps = (EMoflonEdge) result3_green[43];
-				// EMoflonEdge lane__exConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[44];
-				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[45];
+				// EMoflonEdge normalStep__alt____stepAlternative = (EMoflonEdge) result3_green[27];
+				// EMoflonEdge eventGwToNormalStep__eventGw____source = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge eventGwToNormalStep__normalStep____target = (EMoflonEdge) result3_green[29];
+				// EMoflonEdge alt__flow____ref = (EMoflonEdge) result3_green[30];
+				// EMoflonEdge divergeFlowToAlt__divergeFlow____source = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge divergeFlowToAlt__alt____target = (EMoflonEdge) result3_green[32];
+				// EMoflonEdge iceToFlow__ice____source = (EMoflonEdge) result3_green[33];
+				// EMoflonEdge iceToFlow__flow____target = (EMoflonEdge) result3_green[34];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[35];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[36];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[37];
+				// EMoflonEdge process__exConvGateway____flowElements = (EMoflonEdge) result3_green[38];
+				// EMoflonEdge inFlow__exConvGateway____targetRef = (EMoflonEdge) result3_green[39];
+				// EMoflonEdge exConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[40];
+				// EMoflonEdge outFlow__exConvGateway____sourceRef = (EMoflonEdge) result3_green[41];
+				// EMoflonEdge exConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[42];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[43];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[44];
+				// EMoflonEdge initFlow__normalStep____steps = (EMoflonEdge) result3_green[45];
+				// EMoflonEdge lane__exConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[46];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[47];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -604,7 +608,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_125(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_128(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -673,7 +677,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_126(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_129(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -742,7 +746,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_127(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_130(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -811,7 +815,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_128(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_131(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -880,7 +884,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_129(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_132(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -949,7 +953,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_130(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_133(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -1018,7 +1022,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_131(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_134(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -1122,15 +1126,15 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 			EventBasedGateway eventGw = (EventBasedGateway) result2_black[4];
 			FlowNodeToStep eventGwToNormalStep = (FlowNodeToStep) result2_black[5];
 			NormalStep normalStep = (NormalStep) result2_black[6];
-			Flow initFlow = (Flow) result2_black[7];
-			SequenceFlow divergeFlow = (SequenceFlow) result2_black[8];
-			SeqFlowToAltFlowAlt divergeFlowToAlt = (SeqFlowToAltFlowAlt) result2_black[9];
-			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_black[10];
-			LaneSet laneSet = (LaneSet) result2_black[11];
-			Lane lane = (Lane) result2_black[12];
-			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[13];
-			AlternativeFlow flow = (AlternativeFlow) result2_black[14];
-			ICEToAltFlow iceToFlow = (ICEToAltFlow) result2_black[15];
+			AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_black[7];
+			AlternativeFlow flow = (AlternativeFlow) result2_black[8];
+			ICEToAltFlow iceToFlow = (ICEToAltFlow) result2_black[9];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[10];
+			SeqFlowToAltFlowAlt divergeFlowToAlt = (SeqFlowToAltFlowAlt) result2_black[11];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[12];
+			Flow initFlow = (Flow) result2_black[13];
+			LaneSet laneSet = (LaneSet) result2_black[14];
+			Lane lane = (Lane) result2_black[15];
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = ExConvGwAfterEventGwIceSeqFlowRuleImpl
@@ -1341,15 +1345,6 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_125__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_125((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_126__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_126((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_127__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_127((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_128__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_128((EMoflonEdge) arguments
 					.get(0));
@@ -1361,6 +1356,15 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 					.get(0));
 		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_131__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_131((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_132__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_132((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_133__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_133((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_134__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_134((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2855,80 +2859,86 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 											.getSourceRef())) {
 										if (ice.equals(divergeFlow
 												.getTargetRef())) {
-											if (eventGw
-													.equals(eventGwToNormalStep
-															.getSource())) {
-												if (normalStep
+											if (normalStep.getStepAlternative()
+													.contains(alt)) {
+												if (eventGw
 														.equals(eventGwToNormalStep
-																.getTarget())) {
-													if (divergeFlow
-															.equals(divergeFlowToAlt
-																	.getSource())) {
-														if (alt.equals(divergeFlowToAlt
-																.getTarget())) {
-															if (ice.equals(iceToFlow
-																	.getSource())) {
-																if (flow.equals(iceToFlow
+																.getSource())) {
+													if (normalStep
+															.equals(eventGwToNormalStep
+																	.getTarget())) {
+														if (flow.equals(alt
+																.getRef())) {
+															if (divergeFlow
+																	.equals(divergeFlowToAlt
+																			.getSource())) {
+																if (alt.equals(divergeFlowToAlt
 																		.getTarget())) {
-																	if (process
-																			.getFlowElements()
-																			.contains(
-																					outFlow)) {
-																		if (process
-																				.getLaneSets()
-																				.contains(
-																						laneSet)) {
+																	if (ice.equals(iceToFlow
+																			.getSource())) {
+																		if (flow.equals(iceToFlow
+																				.getTarget())) {
 																			if (process
 																					.getFlowElements()
 																					.contains(
-																							inFlow)) {
+																							outFlow)) {
 																				if (process
-																						.getFlowElements()
+																						.getLaneSets()
 																						.contains(
-																								exConvGateway)) {
-																					if (exConvGateway
-																							.equals(inFlow
-																									.getTargetRef())) {
-																						if (exConvGateway
-																								.equals(outFlow
-																										.getSourceRef())) {
-																							if (inFlow
-																									.equals(inFlowToFlow
-																											.getSource())) {
-																								if (flow.equals(inFlowToFlow
-																										.getTarget())) {
-																									if (lane.getFlowNodeRefs()
-																											.contains(
-																													exConvGateway)) {
-																										if (laneSet
-																												.getLanes()
-																												.contains(
-																														lane)) {
-																											for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
-																													.getOppositeReferenceTyped(
-																															normalStep,
-																															Flow.class,
-																															"steps")) {
-																												if (!flow
-																														.equals(initFlow)) {
-																													_result.add(new Object[] {
-																															ice,
-																															inFlow,
-																															process,
-																															eventGw,
-																															divergeFlow,
-																															normalStep,
-																															eventGwToNormalStep,
-																															alt,
-																															divergeFlowToAlt,
-																															flow,
-																															iceToFlow,
-																															exConvGateway,
-																															outFlow,
-																															inFlowToFlow,
-																															initFlow,
-																															lane,
-																															laneSet });
+																								laneSet)) {
+																					if (process
+																							.getFlowElements()
+																							.contains(
+																									inFlow)) {
+																						if (process
+																								.getFlowElements()
+																								.contains(
+																										exConvGateway)) {
+																							if (exConvGateway
+																									.equals(inFlow
+																											.getTargetRef())) {
+																								if (exConvGateway
+																										.equals(outFlow
+																												.getSourceRef())) {
+																									if (inFlow
+																											.equals(inFlowToFlow
+																													.getSource())) {
+																										if (flow.equals(inFlowToFlow
+																												.getTarget())) {
+																											if (lane.getFlowNodeRefs()
+																													.contains(
+																															exConvGateway)) {
+																												if (laneSet
+																														.getLanes()
+																														.contains(
+																																lane)) {
+																													for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																															.getOppositeReferenceTyped(
+																																	normalStep,
+																																	Flow.class,
+																																	"steps")) {
+																														if (!flow
+																																.equals(initFlow)) {
+																															_result.add(new Object[] {
+																																	ice,
+																																	inFlow,
+																																	process,
+																																	eventGw,
+																																	divergeFlow,
+																																	normalStep,
+																																	eventGwToNormalStep,
+																																	alt,
+																																	divergeFlowToAlt,
+																																	flow,
+																																	iceToFlow,
+																																	exConvGateway,
+																																	outFlow,
+																																	inFlowToFlow,
+																																	initFlow,
+																																	lane,
+																																	laneSet });
+																														}
+																													}
 																												}
 																											}
 																										}
@@ -2959,7 +2969,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_2_3_greenBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_2_3_greenBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
 			IntermediateCatchEvent ice, SequenceFlow inFlow,
 			bpmn2.Process process, EventBasedGateway eventGw,
 			SequenceFlow divergeFlow, NormalStep normalStep,
@@ -2988,9 +2998,13 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge ice__divergeFlow____incoming = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge normalStep__alt____stepAlternative = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge eventGwToNormalStep__eventGw____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge eventGwToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge alt__flow____ref = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge divergeFlowToAlt__divergeFlow____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -3035,8 +3049,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		String eventGw__divergeFlow____outgoing_name_prime = "outgoing";
 		String divergeFlow__ice____targetRef_name_prime = "targetRef";
 		String ice__divergeFlow____incoming_name_prime = "incoming";
+		String normalStep__alt____stepAlternative_name_prime = "stepAlternative";
 		String eventGwToNormalStep__eventGw____source_name_prime = "source";
 		String eventGwToNormalStep__normalStep____target_name_prime = "target";
+		String alt__flow____ref_name_prime = "ref";
 		String divergeFlowToAlt__divergeFlow____source_name_prime = "source";
 		String divergeFlowToAlt__alt____target_name_prime = "target";
 		String iceToFlow__ice____source_name_prime = "source";
@@ -3105,6 +3121,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		ice__divergeFlow____incoming.setTrg(divergeFlow);
 		isApplicableMatch.getAllContextElements().add(
 				ice__divergeFlow____incoming);
+		normalStep__alt____stepAlternative.setSrc(normalStep);
+		normalStep__alt____stepAlternative.setTrg(alt);
+		isApplicableMatch.getAllContextElements().add(
+				normalStep__alt____stepAlternative);
 		eventGwToNormalStep__eventGw____source.setSrc(eventGwToNormalStep);
 		eventGwToNormalStep__eventGw____source.setTrg(eventGw);
 		isApplicableMatch.getAllContextElements().add(
@@ -3113,6 +3133,9 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		eventGwToNormalStep__normalStep____target.setTrg(normalStep);
 		isApplicableMatch.getAllContextElements().add(
 				eventGwToNormalStep__normalStep____target);
+		alt__flow____ref.setSrc(alt);
+		alt__flow____ref.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(alt__flow____ref);
 		divergeFlowToAlt__divergeFlow____source.setSrc(divergeFlowToAlt);
 		divergeFlowToAlt__divergeFlow____source.setTrg(divergeFlow);
 		isApplicableMatch.getAllContextElements().add(
@@ -3195,10 +3218,13 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 				.setName(divergeFlow__ice____targetRef_name_prime);
 		ice__divergeFlow____incoming
 				.setName(ice__divergeFlow____incoming_name_prime);
+		normalStep__alt____stepAlternative
+				.setName(normalStep__alt____stepAlternative_name_prime);
 		eventGwToNormalStep__eventGw____source
 				.setName(eventGwToNormalStep__eventGw____source_name_prime);
 		eventGwToNormalStep__normalStep____target
 				.setName(eventGwToNormalStep__normalStep____target_name_prime);
+		alt__flow____ref.setName(alt__flow____ref_name_prime);
 		divergeFlowToAlt__divergeFlow____source
 				.setName(divergeFlowToAlt__divergeFlow____source_name_prime);
 		divergeFlowToAlt__alt____target
@@ -3240,8 +3266,9 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 				divergeFlow__eventGw____sourceRef,
 				eventGw__divergeFlow____outgoing,
 				divergeFlow__ice____targetRef, ice__divergeFlow____incoming,
+				normalStep__alt____stepAlternative,
 				eventGwToNormalStep__eventGw____source,
-				eventGwToNormalStep__normalStep____target,
+				eventGwToNormalStep__normalStep____target, alt__flow____ref,
 				divergeFlowToAlt__divergeFlow____source,
 				divergeFlowToAlt__alt____target, iceToFlow__ice____source,
 				iceToFlow__flow____target, process__outFlow____flowElements,
@@ -3401,14 +3428,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_779647 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_79401 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_779647 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_779647)) {
+					if (__DEC_exConvGateway_default_79401 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_79401)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_779647)) {
+									.equals(__DEC_exConvGateway_default_79401)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_779647)) {
+										.equals(__DEC_exConvGateway_default_79401)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -3424,10 +3451,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_10_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_164405 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_9995 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_164405)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_9995)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -3697,14 +3724,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_381560 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_549610 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_381560 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_381560)) {
+					if (__DEC_exConvGateway_default_549610 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_549610)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_381560)) {
+									.equals(__DEC_exConvGateway_default_549610)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_381560)) {
+										.equals(__DEC_exConvGateway_default_549610)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -3720,10 +3747,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_11_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_594121 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_132713 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_594121)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_132713)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -3995,14 +4022,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_248683 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_422419 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_248683 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_248683)) {
+					if (__DEC_exConvGateway_default_422419 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_422419)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_248683)) {
+									.equals(__DEC_exConvGateway_default_422419)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_248683)) {
+										.equals(__DEC_exConvGateway_default_422419)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4018,10 +4045,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_12_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_541832 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_970805 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_541832)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_970805)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4293,14 +4320,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_927600 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_998820 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_927600 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_927600)) {
+					if (__DEC_exConvGateway_default_998820 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_998820)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_927600)) {
+									.equals(__DEC_exConvGateway_default_998820)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_927600)) {
+										.equals(__DEC_exConvGateway_default_998820)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4316,10 +4343,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_13_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_598752 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_723109 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_598752)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_723109)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4591,14 +4618,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_14727 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_219188 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_14727 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_14727)) {
+					if (__DEC_exConvGateway_default_219188 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_219188)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_14727)) {
+									.equals(__DEC_exConvGateway_default_219188)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_14727)) {
+										.equals(__DEC_exConvGateway_default_219188)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4614,10 +4641,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_14_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_108101 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_821057 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_108101)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_821057)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4889,14 +4916,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_514514 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_674203 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_514514 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_514514)) {
+					if (__DEC_exConvGateway_default_674203 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_674203)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_514514)) {
+									.equals(__DEC_exConvGateway_default_674203)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_514514)) {
+										.equals(__DEC_exConvGateway_default_674203)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -4912,10 +4939,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_15_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_113462 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_63210 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_113462)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_63210)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -5187,14 +5214,14 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		if (!inFlow.equals(outFlow)) {
 			if (!divergeFlow.equals(inFlow)) {
 				if (!divergeFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_218417 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_642635 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_218417 != null) {
-						if (!inFlow.equals(__DEC_exConvGateway_default_218417)) {
+					if (__DEC_exConvGateway_default_642635 != null) {
+						if (!inFlow.equals(__DEC_exConvGateway_default_642635)) {
 							if (!divergeFlow
-									.equals(__DEC_exConvGateway_default_218417)) {
+									.equals(__DEC_exConvGateway_default_642635)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_218417)) {
+										.equals(__DEC_exConvGateway_default_642635)) {
 									return new Object[] { exConvGateway,
 											inFlow, divergeFlow, outFlow };
 								}
@@ -5210,10 +5237,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_16_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_104659 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_79028 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_104659)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_79028)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -5502,31 +5529,6 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 	}
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_6BB(
-			ModelgeneratorRuleResult ruleResult, Flow initFlow) {
-		if (ruleResult.getTargetObjects().contains(initFlow)) {
-			return new Object[] { ruleResult, initFlow };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_7BB(
-			ModelgeneratorRuleResult ruleResult, SequenceFlow divergeFlow) {
-		if (ruleResult.getSourceObjects().contains(divergeFlow)) {
-			return new Object[] { ruleResult, divergeFlow };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_8BB(
-			ModelgeneratorRuleResult ruleResult,
-			SeqFlowToAltFlowAlt divergeFlowToAlt) {
-		if (ruleResult.getCorrObjects().contains(divergeFlowToAlt)) {
-			return new Object[] { ruleResult, divergeFlowToAlt };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_9BB(
 			ModelgeneratorRuleResult ruleResult, AlternativeFlowAlternative alt) {
 		if (ruleResult.getTargetObjects().contains(alt)) {
 			return new Object[] { ruleResult, alt };
@@ -5534,23 +5536,23 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_10BB(
-			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
-		if (ruleResult.getSourceObjects().contains(laneSet)) {
-			return new Object[] { ruleResult, laneSet };
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_7BB(
+			ModelgeneratorRuleResult ruleResult, AlternativeFlow flow) {
+		if (ruleResult.getTargetObjects().contains(flow)) {
+			return new Object[] { ruleResult, flow };
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_11BB(
-			ModelgeneratorRuleResult ruleResult, Lane lane) {
-		if (ruleResult.getSourceObjects().contains(lane)) {
-			return new Object[] { ruleResult, lane };
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_8BB(
+			ModelgeneratorRuleResult ruleResult, ICEToAltFlow iceToFlow) {
+		if (ruleResult.getCorrObjects().contains(iceToFlow)) {
+			return new Object[] { ruleResult, iceToFlow };
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_12BB(
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_9BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow inFlowToFlow) {
 		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
@@ -5559,18 +5561,43 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_10BB(
+			ModelgeneratorRuleResult ruleResult,
+			SeqFlowToAltFlowAlt divergeFlowToAlt) {
+		if (ruleResult.getCorrObjects().contains(divergeFlowToAlt)) {
+			return new Object[] { ruleResult, divergeFlowToAlt };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_11BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlow divergeFlow) {
+		if (ruleResult.getSourceObjects().contains(divergeFlow)) {
+			return new Object[] { ruleResult, divergeFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_12BB(
+			ModelgeneratorRuleResult ruleResult, Flow initFlow) {
+		if (ruleResult.getTargetObjects().contains(initFlow)) {
+			return new Object[] { ruleResult, initFlow };
+		}
+		return null;
+	}
+
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_13BB(
-			ModelgeneratorRuleResult ruleResult, AlternativeFlow flow) {
-		if (ruleResult.getTargetObjects().contains(flow)) {
-			return new Object[] { ruleResult, flow };
+			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
+		if (ruleResult.getSourceObjects().contains(laneSet)) {
+			return new Object[] { ruleResult, laneSet };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_14BB(
-			ModelgeneratorRuleResult ruleResult, ICEToAltFlow iceToFlow) {
-		if (ruleResult.getCorrObjects().contains(iceToFlow)) {
-			return new Object[] { ruleResult, iceToFlow };
+			ModelgeneratorRuleResult ruleResult, Lane lane) {
+		if (ruleResult.getSourceObjects().contains(lane)) {
+			return new Object[] { ruleResult, lane };
 		}
 		return null;
 	}
@@ -5603,116 +5630,126 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 													.getTargetRef();
 											if (tmpIce instanceof IntermediateCatchEvent) {
 												IntermediateCatchEvent ice = (IntermediateCatchEvent) tmpIce;
-												if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_7BB(
+												if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_11BB(
 														ruleResult, divergeFlow) == null) {
 													if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_0BB(
 															ruleResult, ice) == null) {
-														for (SequenceFlow inFlow : ice
-																.getOutgoing()) {
-															if (!divergeFlow
-																	.equals(inFlow)) {
-																if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_1BB(
-																		ruleResult,
-																		inFlow) == null) {
-																	for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReferenceTyped(
-																					eventGw,
-																					FlowElementsContainer.class,
-																					"flowElements")) {
-																		if (tmpProcess instanceof bpmn2.Process) {
-																			bpmn2.Process process = (bpmn2.Process) tmpProcess;
-																			if (process
-																					.getFlowElements()
-																					.contains(
-																							inFlow)) {
-																				if (process
-																						.getFlowElements()
-																						.contains(
-																								divergeFlow)) {
-																					if (process
-																							.getFlowElements()
-																							.contains(
-																									ice)) {
-																						if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_2BB(
-																								ruleResult,
-																								process) == null) {
-																							for (LaneSet laneSet : process
-																									.getLaneSets()) {
-																								if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_10BB(
-																										ruleResult,
-																										laneSet) == null) {
-																									for (Lane lane : laneSet
-																											.getLanes()) {
-																										if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_11BB(
-																												ruleResult,
-																												lane) == null) {
-																											for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
-																													.getOppositeReferenceTyped(
-																															normalStep,
-																															Flow.class,
-																															"steps")) {
-																												if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_6BB(
-																														ruleResult,
-																														initFlow) == null) {
-																													for (SeqFlowToAltFlowAlt divergeFlowToAlt : org.moflon.util.eMoflonEMFUtil
-																															.getOppositeReferenceTyped(
-																																	divergeFlow,
-																																	SeqFlowToAltFlowAlt.class,
-																																	"source")) {
-																														AlternativeFlowAlternative alt = divergeFlowToAlt
-																																.getTarget();
-																														if (alt != null) {
-																															if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_8BB(
+														for (StepAlternative tmpAlt : normalStep
+																.getStepAlternative()) {
+															if (tmpAlt instanceof AlternativeFlowAlternative) {
+																AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
+																NamedFlow tmpFlow = alt
+																		.getRef();
+																if (tmpFlow instanceof AlternativeFlow) {
+																	AlternativeFlow flow = (AlternativeFlow) tmpFlow;
+																	if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_6BB(
+																			ruleResult,
+																			alt) == null) {
+																		if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_7BB(
+																				ruleResult,
+																				flow) == null) {
+																			for (SequenceFlow inFlow : ice
+																					.getOutgoing()) {
+																				if (!divergeFlow
+																						.equals(inFlow)) {
+																					if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_1BB(
+																							ruleResult,
+																							inFlow) == null) {
+																						for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+																								.getOppositeReferenceTyped(
+																										eventGw,
+																										FlowElementsContainer.class,
+																										"flowElements")) {
+																							if (tmpProcess instanceof bpmn2.Process) {
+																								bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												inFlow)) {
+																									if (process
+																											.getFlowElements()
+																											.contains(
+																													divergeFlow)) {
+																										if (process
+																												.getFlowElements()
+																												.contains(
+																														ice)) {
+																											if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_2BB(
+																													ruleResult,
+																													process) == null) {
+																												for (LaneSet laneSet : process
+																														.getLaneSets()) {
+																													if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_13BB(
+																															ruleResult,
+																															laneSet) == null) {
+																														for (Lane lane : laneSet
+																																.getLanes()) {
+																															if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_14BB(
 																																	ruleResult,
-																																	divergeFlowToAlt) == null) {
-																																if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_9BB(
-																																		ruleResult,
-																																		alt) == null) {
-																																	for (ICEToAltFlow iceToFlow : org.moflon.util.eMoflonEMFUtil
-																																			.getOppositeReferenceTyped(
-																																					ice,
-																																					ICEToAltFlow.class,
-																																					"source")) {
-																																		AlternativeFlow flow = iceToFlow
-																																				.getTarget();
-																																		if (flow != null) {
-																																			if (!flow
-																																					.equals(initFlow)) {
-																																				if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_14BB(
-																																						ruleResult,
-																																						iceToFlow) == null) {
-																																					if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_13BB(
+																																	lane) == null) {
+																																for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																		.getOppositeReferenceTyped(
+																																				normalStep,
+																																				Flow.class,
+																																				"steps")) {
+																																	if (!flow
+																																			.equals(initFlow)) {
+																																		if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_12BB(
+																																				ruleResult,
+																																				initFlow) == null) {
+																																			for (SeqFlowToAltFlowAlt divergeFlowToAlt : org.moflon.util.eMoflonEMFUtil
+																																					.getOppositeReferenceTyped(
+																																							divergeFlow,
+																																							SeqFlowToAltFlowAlt.class,
+																																							"source")) {
+																																				if (alt.equals(divergeFlowToAlt
+																																						.getTarget())) {
+																																					if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_10BB(
 																																							ruleResult,
-																																							flow) == null) {
-																																						for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																							divergeFlowToAlt) == null) {
+																																						for (ICEToAltFlow iceToFlow : org.moflon.util.eMoflonEMFUtil
 																																								.getOppositeReferenceTyped(
-																																										inFlow,
-																																										SequenceFlowToUCFlow.class,
+																																										ice,
+																																										ICEToAltFlow.class,
 																																										"source")) {
-																																							if (flow.equals(inFlowToFlow
+																																							if (flow.equals(iceToFlow
 																																									.getTarget())) {
-																																								if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_12BB(
+																																								if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_8BB(
 																																										ruleResult,
-																																										inFlowToFlow) == null) {
-																																									_result.add(new Object[] {
-																																											eventGwToNormalStepList,
-																																											ice,
-																																											inFlow,
-																																											process,
-																																											eventGw,
-																																											eventGwToNormalStep,
-																																											normalStep,
-																																											initFlow,
-																																											divergeFlow,
-																																											divergeFlowToAlt,
-																																											alt,
-																																											laneSet,
-																																											lane,
-																																											inFlowToFlow,
-																																											flow,
-																																											iceToFlow,
-																																											ruleEntryContainer,
-																																											ruleResult });
+																																										iceToFlow) == null) {
+																																									for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																											.getOppositeReferenceTyped(
+																																													flow,
+																																													SequenceFlowToUCFlow.class,
+																																													"target")) {
+																																										if (inFlow
+																																												.equals(inFlowToFlow
+																																														.getSource())) {
+																																											if (pattern_ExConvGwAfterEventGwIceSeqFlowRule_18_2_black_nac_9BB(
+																																													ruleResult,
+																																													inFlowToFlow) == null) {
+																																												_result.add(new Object[] {
+																																														eventGwToNormalStepList,
+																																														ice,
+																																														inFlow,
+																																														process,
+																																														eventGw,
+																																														eventGwToNormalStep,
+																																														normalStep,
+																																														alt,
+																																														flow,
+																																														iceToFlow,
+																																														inFlowToFlow,
+																																														divergeFlowToAlt,
+																																														divergeFlow,
+																																														initFlow,
+																																														laneSet,
+																																														lane,
+																																														ruleEntryContainer,
+																																														ruleResult });
+																																											}
+																																										}
+																																									}
 																																								}
 																																							}
 																																						}
@@ -5720,12 +5757,10 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 																																				}
 																																			}
 																																		}
-
 																																	}
 																																}
 																															}
 																														}
-
 																													}
 																												}
 																											}
@@ -5740,6 +5775,7 @@ public class ExConvGwAfterEventGwIceSeqFlowRuleImpl extends AbstractRuleImpl
 																		}
 																	}
 																}
+
 															}
 														}
 													}

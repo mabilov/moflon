@@ -961,7 +961,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_39(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_41(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1028,7 +1028,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_40(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_42(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1095,7 +1095,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_41(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_43(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1162,7 +1162,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_42(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_44(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1229,7 +1229,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_43(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_45(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1296,7 +1296,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_44(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_46(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1487,7 +1487,7 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_45(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_47(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = FirstInterThrowEventToStepRuleImpl
@@ -1832,12 +1832,6 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_39__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_39((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_40__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_40((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_41__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_41((EMoflonEdge) arguments
 					.get(0));
@@ -1850,14 +1844,20 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_44__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_44((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_45__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_45((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_46__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_46((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_16__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_16((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_17__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_17((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_45__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_45((EMoflonEdge) arguments
+		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_47__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_47((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4375,10 +4375,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_20_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_641553 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_175084 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_641553)) {
+			if (!flowNode.equals(__DEC_outFlow_default_175084)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4557,10 +4557,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_327231 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_426257 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_327231)) {
+			if (!flowNode.equals(__DEC_outFlow_default_426257)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4739,10 +4739,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_520275 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_748991 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_520275)) {
+			if (!flowNode.equals(__DEC_outFlow_default_748991)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4922,10 +4922,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_291261 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_389250 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_291261)) {
+			if (!flowNode.equals(__DEC_outFlow_default_389250)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5106,10 +5106,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_241623 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_769892 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_241623)) {
+			if (!flowNode.equals(__DEC_outFlow_default_769892)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5289,10 +5289,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_621515 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_908886 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_621515)) {
+			if (!flowNode.equals(__DEC_outFlow_default_908886)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5703,10 +5703,10 @@ public class FirstInterThrowEventToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_FirstInterThrowEventToStepRule_28_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_957638 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_681421 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_957638)) {
+			if (!flowNode.equals(__DEC_outFlow_default_681421)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

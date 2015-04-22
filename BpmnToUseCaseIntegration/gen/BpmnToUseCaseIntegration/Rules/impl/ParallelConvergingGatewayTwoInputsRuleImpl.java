@@ -141,17 +141,18 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						"Pattern matching in node [collect elements to be translated] failed");
 			}
 			ParallelConvergingGatewayTwoInputsRuleImpl
-					.pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFF(
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFFF(
 							match, process, inFlow1, parallelConvGateway,
 							inFlow, outFlow, lane);
-			// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[7];
-			// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result4_green[8];
-			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[9];
-			// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[10];
-			// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result4_green[11];
-			// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result4_green[12];
-			// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result4_green[13];
-			// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result4_green[14];
+			// EMoflonEdge process__parallelConvGateway____flowElements = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result4_green[12];
+			// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result4_green[13];
+			// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result4_green[14];
+			// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result4_green[15];
 
 			// collect context elements
 			Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -164,18 +165,20 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						"Pattern matching in node [collect context elements] failed");
 			}
 			ParallelConvergingGatewayTwoInputsRuleImpl
-					.pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFF(
+					.pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFFFF(
 							match, process, inFlow1, parallelGateway,
 							divergeFlow1, inFlow, lane, laneSet, divergeFlow);
 			// EMoflonEdge process__inFlow1____flowElements = (EMoflonEdge) result5_green[9];
-			// EMoflonEdge divergeFlow1__parallelGateway____sourceRef = (EMoflonEdge) result5_green[10];
-			// EMoflonEdge parallelGateway__divergeFlow1____outgoing = (EMoflonEdge) result5_green[11];
-			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[12];
-			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[13];
-			// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result5_green[14];
-			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[15];
-			// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result5_green[16];
-			// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result5_green[17];
+			// EMoflonEdge process__divergeFlow1____flowElements = (EMoflonEdge) result5_green[10];
+			// EMoflonEdge process__parallelGateway____flowElements = (EMoflonEdge) result5_green[11];
+			// EMoflonEdge divergeFlow1__parallelGateway____sourceRef = (EMoflonEdge) result5_green[12];
+			// EMoflonEdge parallelGateway__divergeFlow1____outgoing = (EMoflonEdge) result5_green[13];
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[14];
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[15];
+			// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result5_green[16];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[17];
+			// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result5_green[18];
+			// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result5_green[19];
 
 			// register objects to match
 			ParallelConvergingGatewayTwoInputsRuleImpl
@@ -265,22 +268,23 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFF(
+				.pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
 						ruleresult, process, inFlow1, parallelConvGateway,
 						parallelStep, inFlow, outFlow, initFlow,
 						outFlowToInitFlow, outFlowToParallelStep, lane);
-		// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[11];
-		// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge outFlowToInitFlow__outFlow____source = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge outFlowToInitFlow__initFlow____target = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge outFlowToParallelStep__outFlow____source = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge outFlowToParallelStep__parallelStep____target = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge process__parallelConvGateway____flowElements = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge outFlowToInitFlow__outFlow____source = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge outFlowToInitFlow__initFlow____target = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge outFlowToParallelStep__outFlow____source = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge outFlowToParallelStep__parallelStep____target = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[23];
 
 		// perform postprocessing story node is empty
 		// register objects
@@ -359,7 +363,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				ParallelStep parallelStep = (ParallelStep) result3_black[9];
 				Flow initFlow = (Flow) result3_black[17];
 				Object[] result3_green = ParallelConvergingGatewayTwoInputsRuleImpl
-						.pattern_ParallelConvergingGatewayTwoInputsRule_2_3_greenBBBBBBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
+						.pattern_ParallelConvergingGatewayTwoInputsRule_2_3_greenBBBBBBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
 								process, inFlow1, parallelConvGateway,
 								parallelGateway, divergeFlow1, flow1,
 								inFlow1ToFlow1, step1, inFlow1ToStep1,
@@ -369,39 +373,42 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 								divergeFlow, divergeFlowToFlow);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[22];
 				// EMoflonEdge process__inFlow1____flowElements = (EMoflonEdge) result3_green[23];
-				// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[24];
-				// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result3_green[25];
-				// EMoflonEdge divergeFlow1__parallelGateway____sourceRef = (EMoflonEdge) result3_green[26];
-				// EMoflonEdge parallelGateway__divergeFlow1____outgoing = (EMoflonEdge) result3_green[27];
-				// EMoflonEdge flow1__step1____steps = (EMoflonEdge) result3_green[28];
-				// EMoflonEdge inFlow1ToFlow1__inFlow1____source = (EMoflonEdge) result3_green[29];
-				// EMoflonEdge inFlow1ToFlow1__flow1____target = (EMoflonEdge) result3_green[30];
-				// EMoflonEdge inFlow1ToStep1__inFlow1____source = (EMoflonEdge) result3_green[31];
-				// EMoflonEdge inFlow1ToStep1__step1____target = (EMoflonEdge) result3_green[32];
-				// EMoflonEdge parallelStep__flow1____invokedFlows = (EMoflonEdge) result3_green[33];
-				// EMoflonEdge divergeFlow1ToFlow1__divergeFlow1____source = (EMoflonEdge) result3_green[34];
-				// EMoflonEdge divergeFlow1ToFlow1__flow1____target = (EMoflonEdge) result3_green[35];
-				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[36];
-				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[37];
-				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[38];
-				// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result3_green[39];
-				// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[40];
-				// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[41];
-				// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result3_green[42];
-				// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[43];
-				// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[44];
-				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[45];
-				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[46];
-				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[47];
-				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[48];
-				// EMoflonEdge initFlow__parallelStep____steps = (EMoflonEdge) result3_green[49];
-				// EMoflonEdge parallelStep__flow____invokedFlows = (EMoflonEdge) result3_green[50];
-				// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[51];
-				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[52];
-				// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result3_green[53];
-				// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result3_green[54];
-				// EMoflonEdge divergeFlowToFlow__divergeFlow____source = (EMoflonEdge) result3_green[55];
-				// EMoflonEdge divergeFlowToFlow__flow____target = (EMoflonEdge) result3_green[56];
+				// EMoflonEdge process__parallelConvGateway____flowElements = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge process__divergeFlow1____flowElements = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge process__parallelGateway____flowElements = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge inFlow1__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[27];
+				// EMoflonEdge parallelConvGateway__inFlow1____incoming = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge divergeFlow1__parallelGateway____sourceRef = (EMoflonEdge) result3_green[29];
+				// EMoflonEdge parallelGateway__divergeFlow1____outgoing = (EMoflonEdge) result3_green[30];
+				// EMoflonEdge flow1__step1____steps = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge inFlow1ToFlow1__inFlow1____source = (EMoflonEdge) result3_green[32];
+				// EMoflonEdge inFlow1ToFlow1__flow1____target = (EMoflonEdge) result3_green[33];
+				// EMoflonEdge inFlow1ToStep1__inFlow1____source = (EMoflonEdge) result3_green[34];
+				// EMoflonEdge inFlow1ToStep1__step1____target = (EMoflonEdge) result3_green[35];
+				// EMoflonEdge parallelStep__flow1____invokedFlows = (EMoflonEdge) result3_green[36];
+				// EMoflonEdge divergeFlow1ToFlow1__divergeFlow1____source = (EMoflonEdge) result3_green[37];
+				// EMoflonEdge divergeFlow1ToFlow1__flow1____target = (EMoflonEdge) result3_green[38];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[39];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[40];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[41];
+				// EMoflonEdge process__divergeFlow____flowElements = (EMoflonEdge) result3_green[42];
+				// EMoflonEdge inFlow__parallelConvGateway____targetRef = (EMoflonEdge) result3_green[43];
+				// EMoflonEdge parallelConvGateway__inFlow____incoming = (EMoflonEdge) result3_green[44];
+				// EMoflonEdge outFlow__parallelConvGateway____sourceRef = (EMoflonEdge) result3_green[45];
+				// EMoflonEdge parallelConvGateway__outFlow____outgoing = (EMoflonEdge) result3_green[46];
+				// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[47];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[48];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[49];
+				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[50];
+				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[51];
+				// EMoflonEdge initFlow__parallelStep____steps = (EMoflonEdge) result3_green[52];
+				// EMoflonEdge parallelStep__flow____invokedFlows = (EMoflonEdge) result3_green[53];
+				// EMoflonEdge lane__parallelConvGateway____flowNodeRefs = (EMoflonEdge) result3_green[54];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[55];
+				// EMoflonEdge divergeFlow__parallelGateway____sourceRef = (EMoflonEdge) result3_green[56];
+				// EMoflonEdge parallelGateway__divergeFlow____outgoing = (EMoflonEdge) result3_green[57];
+				// EMoflonEdge divergeFlowToFlow__divergeFlow____source = (EMoflonEdge) result3_green[58];
+				// EMoflonEdge divergeFlowToFlow__flow____target = (EMoflonEdge) result3_green[59];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -663,8 +670,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_110(
-			EMoflonEdge _edge_targetRef) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_112(
+			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_10_1_bindingAndBlackFFB(this);
@@ -680,7 +687,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_10_2_blackFFFFFFFFFFB(_edge_targetRef)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_10_2_blackFFFFFFFFFFB(_edge_flowElements)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -734,8 +741,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_111(
-			EMoflonEdge _edge_incoming) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_113(
+			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_11_1_bindingAndBlackFFB(this);
@@ -751,7 +758,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_11_2_blackFFFFFFFFFFB(_edge_incoming)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_11_2_blackFFFFFFFFFFB(_edge_targetRef)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -805,8 +812,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_112(
-			EMoflonEdge _edge_flowElements) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_114(
+			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_12_1_bindingAndBlackFFB(this);
@@ -822,7 +829,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_12_2_blackFFFFFFFFFFB(_edge_flowElements)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_12_2_blackFFFFFFFFFFB(_edge_incoming)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -876,8 +883,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_113(
-			EMoflonEdge _edge_targetRef) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_115(
+			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_13_1_bindingAndBlackFFB(this);
@@ -893,7 +900,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_13_2_blackFFFFFFFFFFB(_edge_targetRef)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_13_2_blackFFFFFFFFFFB(_edge_flowElements)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -947,8 +954,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_114(
-			EMoflonEdge _edge_incoming) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_116(
+			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_14_1_bindingAndBlackFFB(this);
@@ -964,7 +971,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_14_2_blackFFFFFFFFFFB(_edge_incoming)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_14_2_blackFFFFFFFFFFB(_edge_targetRef)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -1018,8 +1025,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_115(
-			EMoflonEdge _edge_sourceRef) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_117(
+			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_15_1_bindingAndBlackFFB(this);
@@ -1035,7 +1042,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_15_2_blackFFFFFFFFFFB(_edge_sourceRef)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_15_2_blackFFFFFFFFFFB(_edge_incoming)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -1089,8 +1096,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_116(
-			EMoflonEdge _edge_outgoing) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_118(
+			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_16_1_bindingAndBlackFFB(this);
@@ -1106,7 +1113,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_16_2_blackFFFFFFFFFFB(_edge_outgoing)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_16_2_blackFFFFFFFFFFB(_edge_sourceRef)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -1160,8 +1167,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_117(
-			EMoflonEdge _edge_flowNodeRefs) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_119(
+			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_17_1_bindingAndBlackFFB(this);
@@ -1177,7 +1184,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_17_2_blackFFFFFFFFFFB(_edge_flowNodeRefs)) {
+				.pattern_ParallelConvergingGatewayTwoInputsRule_17_2_blackFFFFFFFFFFB(_edge_outgoing)) {
 			bpmn2.Process process = (bpmn2.Process) result2_black[0];
 			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
 			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
@@ -1231,6 +1238,77 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_120(
+			EMoflonEdge _edge_flowNodeRefs) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_18_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_18_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_18_2_blackFFFFFFFFFFB(_edge_flowNodeRefs)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[0];
+			SequenceFlow inFlow1 = (SequenceFlow) result2_black[1];
+			ParallelGateway parallelConvGateway = (ParallelGateway) result2_black[2];
+			ParallelGateway parallelGateway = (ParallelGateway) result2_black[3];
+			SequenceFlow divergeFlow1 = (SequenceFlow) result2_black[4];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[5];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[6];
+			Lane lane = (Lane) result2_black[7];
+			LaneSet laneSet = (LaneSet) result2_black[8];
+			SequenceFlow divergeFlow = (SequenceFlow) result2_black[9];
+			Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_18_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ParallelConvergingGatewayTwoInputsRuleImpl
+					.pattern_ParallelConvergingGatewayTwoInputsRule_18_3_expressionFBBBBBBBBBBBB(
+							this, match, process, inFlow1, parallelConvGateway,
+							parallelGateway, divergeFlow1, inFlow, outFlow,
+							lane, laneSet, divergeFlow)) {
+				// Ensure that the correct types of elements are matched
+				if (ParallelConvergingGatewayTwoInputsRuleImpl
+						.pattern_ParallelConvergingGatewayTwoInputsRule_18_4_expressionFBB(
+								this, match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_18_5_blackBBB(
+									match, __performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					ParallelConvergingGatewayTwoInputsRuleImpl
+							.pattern_ParallelConvergingGatewayTwoInputsRule_18_5_greenBBB(
+									match, __performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ParallelConvergingGatewayTwoInputsRuleImpl
+				.pattern_ParallelConvergingGatewayTwoInputsRule_18_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
 		return null;
 	}
@@ -1245,19 +1323,19 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			SequenceFlowToUCFlow inFlow1ToFlow1Parameter) {
 		// create result
 		Object[] result1_black = ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_19_1_blackB(this);
+				.pattern_ParallelConvergingGatewayTwoInputsRule_20_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [create result] failed");
 		}
 		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_19_1_greenFF();
+				.pattern_ParallelConvergingGatewayTwoInputsRule_20_1_greenFF();
 		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
 		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
 		// ForEach is applicable core
 		for (Object[] result2_black : ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_19_2_blackFFFFFFFFFFFFFFFFFFFFFBB(
+				.pattern_ParallelConvergingGatewayTwoInputsRule_20_2_blackFFFFFFFFFFFFFFFFFFFFFBB(
 						ruleEntryContainer, ruleResult)) {
 			// RuleEntryList inFlow1ToFlow1List = (RuleEntryList) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
@@ -1283,7 +1361,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
-					.pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBB(
+					.pattern_ParallelConvergingGatewayTwoInputsRule_20_3_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBB(
 							this, isApplicableMatch, process, inFlow1,
 							parallelGateway, divergeFlow1, flow1,
 							inFlow1ToFlow1, step1, inFlow1ToStep1,
@@ -1297,11 +1375,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
 			if (ParallelConvergingGatewayTwoInputsRuleImpl
-					.pattern_ParallelConvergingGatewayTwoInputsRule_19_4_expressionFBB(
+					.pattern_ParallelConvergingGatewayTwoInputsRule_20_4_expressionFBB(
 							this, csp)) {
 				// check nacs
 				Object[] result5_black = ParallelConvergingGatewayTwoInputsRuleImpl
-						.pattern_ParallelConvergingGatewayTwoInputsRule_19_5_blackBBBBBBBBBBBBBBBBBBBB(
+						.pattern_ParallelConvergingGatewayTwoInputsRule_20_5_blackBBBBBBBBBBBBBBBBBBBB(
 								step, process, inFlow1, parallelGateway,
 								divergeFlow1, flow1, inFlow1ToFlow1, step1,
 								inFlow1ToStep1, parallelStep,
@@ -1312,7 +1390,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 					// perform
 					Object[] result6_black = ParallelConvergingGatewayTwoInputsRuleImpl
-							.pattern_ParallelConvergingGatewayTwoInputsRule_19_6_blackBBBBBBBBBBBBBBBBBBBBB(
+							.pattern_ParallelConvergingGatewayTwoInputsRule_20_6_blackBBBBBBBBBBBBBBBBBBBBB(
 									process, inFlow1, parallelGateway,
 									divergeFlow1, flow1, inFlow1ToFlow1, step1,
 									inFlow1ToStep1, parallelStep,
@@ -1325,7 +1403,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 								"Pattern matching in node [perform] failed");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
-							.pattern_ParallelConvergingGatewayTwoInputsRule_19_6_greenBBFBBFBFFBBB(
+							.pattern_ParallelConvergingGatewayTwoInputsRule_20_6_greenBBFBBFBFFBBB(
 									process, inFlow1, parallelStep, inFlow,
 									initFlow, lane, ruleResult, csp);
 					// ParallelGateway parallelConvGateway = (ParallelGateway) result6_green[2];
@@ -1341,7 +1419,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 		}
 		return ParallelConvergingGatewayTwoInputsRuleImpl
-				.pattern_ParallelConvergingGatewayTwoInputsRule_19_7_expressionFB(ruleResult);
+				.pattern_ParallelConvergingGatewayTwoInputsRule_20_7_expressionFB(ruleResult);
 	}
 
 	/**
@@ -1529,12 +1607,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			return null;
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_110__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_110((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_111__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_111((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_112__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_112((EMoflonEdge) arguments
 					.get(0));
@@ -1552,6 +1624,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_117__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_117((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_118__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_118((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_119__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_119((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_120__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_120((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1729,10 +1810,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFF(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFFF(
 			Match match, bpmn2.Process process, SequenceFlow inFlow1,
 			ParallelGateway parallelConvGateway, SequenceFlow inFlow,
 			SequenceFlow outFlow, Lane lane) {
+		EMoflonEdge process__parallelConvGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge inFlow1__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge parallelConvGateway__inFlow1____incoming = TGGRuntimeFactory.eINSTANCE
@@ -1751,6 +1834,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(parallelConvGateway);
 		match.getToBeTranslatedNodes().add(outFlow);
+		String process__parallelConvGateway____flowElements_name_prime = "flowElements";
 		String inFlow1__parallelConvGateway____targetRef_name_prime = "targetRef";
 		String parallelConvGateway__inFlow1____incoming_name_prime = "incoming";
 		String process__outFlow____flowElements_name_prime = "flowElements";
@@ -1759,6 +1843,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		String outFlow__parallelConvGateway____sourceRef_name_prime = "sourceRef";
 		String parallelConvGateway__outFlow____outgoing_name_prime = "outgoing";
 		String lane__parallelConvGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__parallelConvGateway____flowElements.setSrc(process);
+		process__parallelConvGateway____flowElements
+				.setTrg(parallelConvGateway);
+		match.getToBeTranslatedEdges().add(
+				process__parallelConvGateway____flowElements);
 		inFlow1__parallelConvGateway____targetRef.setSrc(inFlow1);
 		inFlow1__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
 		match.getToBeTranslatedEdges().add(
@@ -1790,6 +1879,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		lane__parallelConvGateway____flowNodeRefs.setTrg(parallelConvGateway);
 		match.getToBeTranslatedEdges().add(
 				lane__parallelConvGateway____flowNodeRefs);
+		process__parallelConvGateway____flowElements
+				.setName(process__parallelConvGateway____flowElements_name_prime);
 		inFlow1__parallelConvGateway____targetRef
 				.setName(inFlow1__parallelConvGateway____targetRef_name_prime);
 		parallelConvGateway__inFlow1____incoming
@@ -1808,6 +1899,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				.setName(lane__parallelConvGateway____flowNodeRefs_name_prime);
 		return new Object[] { match, process, inFlow1, parallelConvGateway,
 				inFlow, outFlow, lane,
+				process__parallelConvGateway____flowElements,
 				inFlow1__parallelConvGateway____targetRef,
 				parallelConvGateway__inFlow1____incoming,
 				process__outFlow____flowElements,
@@ -1860,12 +1952,16 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFF(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFFFF(
 			Match match, bpmn2.Process process, SequenceFlow inFlow1,
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
 			SequenceFlow inFlow, Lane lane, LaneSet laneSet,
 			SequenceFlow divergeFlow) {
 		EMoflonEdge process__inFlow1____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__divergeFlow1____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__parallelGateway____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge divergeFlow1__parallelGateway____sourceRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -1892,6 +1988,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		match.getContextNodes().add(laneSet);
 		match.getContextNodes().add(divergeFlow);
 		String process__inFlow1____flowElements_name_prime = "flowElements";
+		String process__divergeFlow1____flowElements_name_prime = "flowElements";
+		String process__parallelGateway____flowElements_name_prime = "flowElements";
 		String divergeFlow1__parallelGateway____sourceRef_name_prime = "sourceRef";
 		String parallelGateway__divergeFlow1____outgoing_name_prime = "outgoing";
 		String process__inFlow____flowElements_name_prime = "flowElements";
@@ -1903,6 +2001,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		process__inFlow1____flowElements.setSrc(process);
 		process__inFlow1____flowElements.setTrg(inFlow1);
 		match.getContextEdges().add(process__inFlow1____flowElements);
+		process__divergeFlow1____flowElements.setSrc(process);
+		process__divergeFlow1____flowElements.setTrg(divergeFlow1);
+		match.getContextEdges().add(process__divergeFlow1____flowElements);
+		process__parallelGateway____flowElements.setSrc(process);
+		process__parallelGateway____flowElements.setTrg(parallelGateway);
+		match.getContextEdges().add(process__parallelGateway____flowElements);
 		divergeFlow1__parallelGateway____sourceRef.setSrc(divergeFlow1);
 		divergeFlow1__parallelGateway____sourceRef.setTrg(parallelGateway);
 		match.getContextEdges().add(divergeFlow1__parallelGateway____sourceRef);
@@ -1929,6 +2033,10 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		match.getContextEdges().add(parallelGateway__divergeFlow____outgoing);
 		process__inFlow1____flowElements
 				.setName(process__inFlow1____flowElements_name_prime);
+		process__divergeFlow1____flowElements
+				.setName(process__divergeFlow1____flowElements_name_prime);
+		process__parallelGateway____flowElements
+				.setName(process__parallelGateway____flowElements_name_prime);
 		divergeFlow1__parallelGateway____sourceRef
 				.setName(divergeFlow1__parallelGateway____sourceRef_name_prime);
 		parallelGateway__divergeFlow1____outgoing
@@ -1947,6 +2055,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return new Object[] { match, process, inFlow1, parallelGateway,
 				divergeFlow1, inFlow, lane, laneSet, divergeFlow,
 				process__inFlow1____flowElements,
+				process__divergeFlow1____flowElements,
+				process__parallelGateway____flowElements,
 				divergeFlow1__parallelGateway____sourceRef,
 				parallelGateway__divergeFlow1____outgoing,
 				process__inFlow____flowElements, process__laneSet____laneSets,
@@ -3176,11 +3286,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFF(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
 			PerformRuleResult ruleresult, EObject process, EObject inFlow1,
 			EObject parallelConvGateway, EObject parallelStep, EObject inFlow,
 			EObject outFlow, EObject initFlow, EObject outFlowToInitFlow,
 			EObject outFlowToParallelStep, EObject lane) {
+		EMoflonEdge process__parallelConvGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge inFlow1__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge parallelConvGateway__inFlow1____incoming = TGGRuntimeFactory.eINSTANCE
@@ -3206,6 +3318,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		EMoflonEdge lane__parallelConvGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "ParallelConvergingGatewayTwoInputsRule";
+		String process__parallelConvGateway____flowElements_name_prime = "flowElements";
 		String inFlow1__parallelConvGateway____targetRef_name_prime = "targetRef";
 		String parallelConvGateway__inFlow1____incoming_name_prime = "incoming";
 		String process__outFlow____flowElements_name_prime = "flowElements";
@@ -3218,6 +3331,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		String outFlowToParallelStep__outFlow____source_name_prime = "source";
 		String outFlowToParallelStep__parallelStep____target_name_prime = "target";
 		String lane__parallelConvGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__parallelConvGateway____flowElements.setSrc(process);
+		process__parallelConvGateway____flowElements
+				.setTrg(parallelConvGateway);
+		ruleresult.getTranslatedEdges().add(
+				process__parallelConvGateway____flowElements);
 		inFlow1__parallelConvGateway____targetRef.setSrc(inFlow1);
 		inFlow1__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
 		ruleresult.getTranslatedEdges().add(
@@ -3265,6 +3383,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		ruleresult.getTranslatedEdges().add(
 				lane__parallelConvGateway____flowNodeRefs);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		process__parallelConvGateway____flowElements
+				.setName(process__parallelConvGateway____flowElements_name_prime);
 		inFlow1__parallelConvGateway____targetRef
 				.setName(inFlow1__parallelConvGateway____targetRef_name_prime);
 		parallelConvGateway__inFlow1____incoming
@@ -3292,6 +3412,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return new Object[] { ruleresult, process, inFlow1,
 				parallelConvGateway, parallelStep, inFlow, outFlow, initFlow,
 				outFlowToInitFlow, outFlowToParallelStep, lane,
+				process__parallelConvGateway____flowElements,
 				inFlow1__parallelConvGateway____targetRef,
 				parallelConvGateway__inFlow1____incoming,
 				process__outFlow____flowElements,
@@ -3662,133 +3783,148 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																								.getFlowElements()
 																								.contains(
 																										inFlow1)) {
-																							if (parallelConvGateway
-																									.equals(inFlow1
-																											.getTargetRef())) {
-																								if (parallelGateway
-																										.equals(divergeFlow1
-																												.getSourceRef())) {
-																									if (flow1
-																											.getSteps()
+																							if (process
+																									.getFlowElements()
+																									.contains(
+																											parallelConvGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												divergeFlow1)) {
+																									if (process
+																											.getFlowElements()
 																											.contains(
-																													step1)) {
-																										if (inFlow1
-																												.equals(inFlow1ToFlow1
-																														.getSource())) {
-																											if (flow1
-																													.equals(inFlow1ToFlow1
-																															.getTarget())) {
-																												if (inFlow1
-																														.equals(inFlow1ToStep1
-																																.getSource())) {
-																													if (step1
-																															.equals(inFlow1ToStep1
-																																	.getTarget())) {
-																														if (divergeFlow1
-																																.equals(divergeFlow1ToFlow1
-																																		.getSource())) {
-																															if (flow1
-																																	.equals(divergeFlow1ToFlow1
-																																			.getTarget())) {
-																																if (process
-																																		.getFlowElements()
-																																		.contains(
-																																				inFlow)) {
-																																	if (process
-																																			.getLaneSets()
-																																			.contains(
-																																					laneSet)) {
-																																		if (process
-																																				.getFlowElements()
-																																				.contains(
-																																						outFlow)) {
+																													parallelGateway)) {
+																										if (parallelConvGateway
+																												.equals(inFlow1
+																														.getTargetRef())) {
+																											if (parallelGateway
+																													.equals(divergeFlow1
+																															.getSourceRef())) {
+																												if (flow1
+																														.getSteps()
+																														.contains(
+																																step1)) {
+																													if (inFlow1
+																															.equals(inFlow1ToFlow1
+																																	.getSource())) {
+																														if (flow1
+																																.equals(inFlow1ToFlow1
+																																		.getTarget())) {
+																															if (inFlow1
+																																	.equals(inFlow1ToStep1
+																																			.getSource())) {
+																																if (step1
+																																		.equals(inFlow1ToStep1
+																																				.getTarget())) {
+																																	if (divergeFlow1
+																																			.equals(divergeFlow1ToFlow1
+																																					.getSource())) {
+																																		if (flow1
+																																				.equals(divergeFlow1ToFlow1
+																																						.getTarget())) {
 																																			if (process
 																																					.getFlowElements()
 																																					.contains(
-																																							divergeFlow)) {
-																																				if (parallelConvGateway
-																																						.equals(inFlow
-																																								.getTargetRef())) {
-																																					if (parallelConvGateway
-																																							.equals(outFlow
-																																									.getSourceRef())) {
-																																						if (flow.getSteps()
+																																							inFlow)) {
+																																				if (process
+																																						.getLaneSets()
+																																						.contains(
+																																								laneSet)) {
+																																					if (process
+																																							.getFlowElements()
+																																							.contains(
+																																									outFlow)) {
+																																						if (process
+																																								.getFlowElements()
 																																								.contains(
-																																										step)) {
-																																							if (inFlow
-																																									.equals(inFlowToFlow
-																																											.getSource())) {
-																																								if (flow.equals(inFlowToFlow
-																																										.getTarget())) {
-																																									if (inFlow
-																																											.equals(inFlowToStep
-																																													.getSource())) {
-																																										if (step.equals(inFlowToStep
-																																												.getTarget())) {
-																																											if (lane.getFlowNodeRefs()
-																																													.contains(
-																																															parallelConvGateway)) {
-																																												if (laneSet
-																																														.getLanes()
-																																														.contains(
-																																																lane)) {
-																																													if (parallelGateway
-																																															.equals(divergeFlow
-																																																	.getSourceRef())) {
-																																														if (divergeFlow
-																																																.equals(divergeFlowToFlow
-																																																		.getSource())) {
-																																															if (flow.equals(divergeFlowToFlow
-																																																	.getTarget())) {
-																																																for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
-																																																		.getOppositeReferenceTyped(
-																																																				flow1,
-																																																				ParallelStep.class,
-																																																				"invokedFlows")) {
-																																																	if (!parallelStep
-																																																			.equals(step1)) {
-																																																		if (!parallelStep
-																																																				.equals(step)) {
-																																																			if (parallelStep
-																																																					.getInvokedFlows()
-																																																					.contains(
-																																																							flow)) {
-																																																				if (pattern_ParallelConvergingGatewayTwoInputsRule_2_3_black_nac_0BBB(
-																																																						step,
-																																																						step1,
-																																																						parallelStep) == null) {
-																																																					for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
-																																																							.getOppositeReferenceTyped(
-																																																									parallelStep,
-																																																									Flow.class,
-																																																									"steps")) {
-																																																						if (!flow1
-																																																								.equals(initFlow)) {
-																																																							if (!flow
-																																																									.equals(initFlow)) {
-																																																								_result.add(new Object[] {
-																																																										process,
-																																																										inFlow1,
-																																																										parallelConvGateway,
-																																																										parallelGateway,
-																																																										divergeFlow1,
-																																																										flow1,
-																																																										inFlow1ToFlow1,
-																																																										step1,
-																																																										inFlow1ToStep1,
-																																																										parallelStep,
-																																																										divergeFlow1ToFlow1,
-																																																										inFlow,
-																																																										outFlow,
-																																																										flow,
-																																																										inFlowToFlow,
-																																																										step,
-																																																										inFlowToStep,
-																																																										initFlow,
-																																																										lane,
-																																																										laneSet,
-																																																										divergeFlow,
-																																																										divergeFlowToFlow });
+																																										divergeFlow)) {
+																																							if (parallelConvGateway
+																																									.equals(inFlow
+																																											.getTargetRef())) {
+																																								if (parallelConvGateway
+																																										.equals(outFlow
+																																												.getSourceRef())) {
+																																									if (flow.getSteps()
+																																											.contains(
+																																													step)) {
+																																										if (inFlow
+																																												.equals(inFlowToFlow
+																																														.getSource())) {
+																																											if (flow.equals(inFlowToFlow
+																																													.getTarget())) {
+																																												if (inFlow
+																																														.equals(inFlowToStep
+																																																.getSource())) {
+																																													if (step.equals(inFlowToStep
+																																															.getTarget())) {
+																																														if (lane.getFlowNodeRefs()
+																																																.contains(
+																																																		parallelConvGateway)) {
+																																															if (laneSet
+																																																	.getLanes()
+																																																	.contains(
+																																																			lane)) {
+																																																if (parallelGateway
+																																																		.equals(divergeFlow
+																																																				.getSourceRef())) {
+																																																	if (divergeFlow
+																																																			.equals(divergeFlowToFlow
+																																																					.getSource())) {
+																																																		if (flow.equals(divergeFlowToFlow
+																																																				.getTarget())) {
+																																																			for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																																																					.getOppositeReferenceTyped(
+																																																							flow1,
+																																																							ParallelStep.class,
+																																																							"invokedFlows")) {
+																																																				if (!parallelStep
+																																																						.equals(step1)) {
+																																																					if (!parallelStep
+																																																							.equals(step)) {
+																																																						if (parallelStep
+																																																								.getInvokedFlows()
+																																																								.contains(
+																																																										flow)) {
+																																																							if (pattern_ParallelConvergingGatewayTwoInputsRule_2_3_black_nac_0BBB(
+																																																									step,
+																																																									step1,
+																																																									parallelStep) == null) {
+																																																								for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																																										.getOppositeReferenceTyped(
+																																																												parallelStep,
+																																																												Flow.class,
+																																																												"steps")) {
+																																																									if (!flow1
+																																																											.equals(initFlow)) {
+																																																										if (!flow
+																																																												.equals(initFlow)) {
+																																																											_result.add(new Object[] {
+																																																													process,
+																																																													inFlow1,
+																																																													parallelConvGateway,
+																																																													parallelGateway,
+																																																													divergeFlow1,
+																																																													flow1,
+																																																													inFlow1ToFlow1,
+																																																													step1,
+																																																													inFlow1ToStep1,
+																																																													parallelStep,
+																																																													divergeFlow1ToFlow1,
+																																																													inFlow,
+																																																													outFlow,
+																																																													flow,
+																																																													inFlowToFlow,
+																																																													step,
+																																																													inFlowToStep,
+																																																													initFlow,
+																																																													lane,
+																																																													laneSet,
+																																																													divergeFlow,
+																																																													divergeFlowToFlow });
+																																																										}
+																																																									}
+																																																								}
 																																																							}
 																																																						}
 																																																					}
@@ -3846,7 +3982,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_3_greenBBBBBBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_2_3_greenBBBBBBBBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
 			bpmn2.Process process, SequenceFlow inFlow1,
 			ParallelGateway parallelConvGateway,
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
@@ -3862,6 +3998,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		EMoflonEdge process__inFlow1____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__parallelConvGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__divergeFlow1____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__parallelGateway____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlow1__parallelConvGateway____targetRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -3930,6 +4072,9 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		EMoflonEdge divergeFlowToFlow__flow____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String process__inFlow1____flowElements_name_prime = "flowElements";
+		String process__parallelConvGateway____flowElements_name_prime = "flowElements";
+		String process__divergeFlow1____flowElements_name_prime = "flowElements";
+		String process__parallelGateway____flowElements_name_prime = "flowElements";
 		String inFlow1__parallelConvGateway____targetRef_name_prime = "targetRef";
 		String parallelConvGateway__inFlow1____incoming_name_prime = "incoming";
 		String divergeFlow1__parallelGateway____sourceRef_name_prime = "sourceRef";
@@ -3989,6 +4134,19 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		process__inFlow1____flowElements.setTrg(inFlow1);
 		isApplicableMatch.getAllContextElements().add(
 				process__inFlow1____flowElements);
+		process__parallelConvGateway____flowElements.setSrc(process);
+		process__parallelConvGateway____flowElements
+				.setTrg(parallelConvGateway);
+		isApplicableMatch.getAllContextElements().add(
+				process__parallelConvGateway____flowElements);
+		process__divergeFlow1____flowElements.setSrc(process);
+		process__divergeFlow1____flowElements.setTrg(divergeFlow1);
+		isApplicableMatch.getAllContextElements().add(
+				process__divergeFlow1____flowElements);
+		process__parallelGateway____flowElements.setSrc(process);
+		process__parallelGateway____flowElements.setTrg(parallelGateway);
+		isApplicableMatch.getAllContextElements().add(
+				process__parallelGateway____flowElements);
 		inFlow1__parallelConvGateway____targetRef.setSrc(inFlow1);
 		inFlow1__parallelConvGateway____targetRef.setTrg(parallelConvGateway);
 		isApplicableMatch.getAllContextElements().add(
@@ -4120,6 +4278,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				divergeFlowToFlow__flow____target);
 		process__inFlow1____flowElements
 				.setName(process__inFlow1____flowElements_name_prime);
+		process__parallelConvGateway____flowElements
+				.setName(process__parallelConvGateway____flowElements_name_prime);
+		process__divergeFlow1____flowElements
+				.setName(process__divergeFlow1____flowElements_name_prime);
+		process__parallelGateway____flowElements
+				.setName(process__parallelGateway____flowElements_name_prime);
 		inFlow1__parallelConvGateway____targetRef
 				.setName(inFlow1__parallelConvGateway____targetRef_name_prime);
 		parallelConvGateway__inFlow1____incoming
@@ -4189,6 +4353,9 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				outFlow, flow, inFlowToFlow, step, inFlowToStep, initFlow,
 				lane, laneSet, divergeFlow, divergeFlowToFlow,
 				isApplicableMatch, process__inFlow1____flowElements,
+				process__parallelConvGateway____flowElements,
+				process__divergeFlow1____flowElements,
+				process__parallelGateway____flowElements,
 				inFlow1__parallelConvGateway____targetRef,
 				parallelConvGateway__inFlow1____incoming,
 				divergeFlow1__parallelGateway____sourceRef,
@@ -4372,7 +4539,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_729895 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_855877 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4381,14 +4548,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -4396,7 +4555,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -4404,7 +4563,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -4413,95 +4572,108 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_10_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_targetRef) {
+			EMoflonEdge _edge_flowElements) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInFlow1 = _edge_targetRef.getSrc();
-		if (tmpInFlow1 instanceof SequenceFlow) {
-			SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
-			EObject tmpParallelConvGateway = _edge_targetRef.getTrg();
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpParallelConvGateway = _edge_flowElements.getTrg();
 			if (tmpParallelConvGateway instanceof ParallelGateway) {
 				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-				if (parallelConvGateway.equals(inFlow1.getTargetRef())) {
-					for (SequenceFlow inFlow : parallelConvGateway
-							.getIncoming()) {
-						if (!inFlow.equals(inFlow1)) {
-							for (SequenceFlow outFlow : parallelConvGateway
-									.getOutgoing()) {
-								if (!inFlow1.equals(outFlow)) {
-									if (!inFlow.equals(outFlow)) {
-										if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(outFlow) == null) {
-											if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_3BB(
-													outFlow,
-													parallelConvGateway) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-														.getOppositeReferenceTyped(
-																inFlow1,
-																FlowElementsContainer.class,
-																"flowElements")) {
-													if (tmpProcess instanceof bpmn2.Process) {
-														bpmn2.Process process = (bpmn2.Process) tmpProcess;
-														if (process
-																.getFlowElements()
-																.contains(
-																		inFlow)) {
-															if (process
-																	.getFlowElements()
-																	.contains(
-																			outFlow)) {
-																if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_1BB(
-																		process,
-																		parallelConvGateway) == null) {
-																	for (LaneSet laneSet : process
-																			.getLaneSets()) {
-																		for (FlowElement tmpDivergeFlow : process
-																				.getFlowElements()) {
-																			if (tmpDivergeFlow instanceof SequenceFlow) {
-																				SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																				if (!divergeFlow
-																						.equals(inFlow1)) {
-																					if (!divergeFlow
-																							.equals(inFlow)) {
-																						if (!divergeFlow
-																								.equals(outFlow)) {
-																							FlowNode tmpParallelGateway = divergeFlow
-																									.getSourceRef();
-																							if (tmpParallelGateway instanceof ParallelGateway) {
-																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																								if (!parallelConvGateway
-																										.equals(parallelGateway)) {
-																									if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_4BB(
-																											divergeFlow,
-																											parallelConvGateway) == null) {
-																										for (Lane lane : laneSet
-																												.getLanes()) {
-																											if (lane.getFlowNodeRefs()
-																													.contains(
-																															parallelConvGateway)) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
-																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+				if (process.getFlowElements().contains(parallelConvGateway)) {
+					for (FlowElement tmpInFlow1 : process.getFlowElements()) {
+						if (tmpInFlow1 instanceof SequenceFlow) {
+							SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+							if (parallelConvGateway.equals(inFlow1
+									.getTargetRef())) {
+								for (FlowElement tmpDivergeFlow1 : process
+										.getFlowElements()) {
+									if (tmpDivergeFlow1 instanceof SequenceFlow) {
+										SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+										if (!divergeFlow1.equals(inFlow1)) {
+											FlowNode tmpParallelGateway = divergeFlow1
+													.getSourceRef();
+											if (tmpParallelGateway instanceof ParallelGateway) {
+												ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+												if (!parallelConvGateway
+														.equals(parallelGateway)) {
+													if (process
+															.getFlowElements()
+															.contains(
+																	parallelGateway)) {
+														if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_1BB(
+																divergeFlow1,
+																parallelConvGateway) == null) {
+															for (FlowElement tmpInFlow : process
+																	.getFlowElements()) {
+																if (tmpInFlow instanceof SequenceFlow) {
+																	SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+																	if (!divergeFlow1
+																			.equals(inFlow)) {
+																		if (!inFlow
+																				.equals(inFlow1)) {
+																			if (parallelConvGateway
+																					.equals(inFlow
+																							.getTargetRef())) {
+																				for (LaneSet laneSet : process
+																						.getLaneSets()) {
+																					for (FlowElement tmpOutFlow : process
+																							.getFlowElements()) {
+																						if (tmpOutFlow instanceof SequenceFlow) {
+																							SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+																							if (!inFlow1
+																									.equals(outFlow)) {
+																								if (!divergeFlow1
+																										.equals(outFlow)) {
+																									if (!inFlow
+																											.equals(outFlow)) {
+																										if (parallelConvGateway
+																												.equals(outFlow
+																														.getSourceRef())) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(outFlow) == null) {
+																												if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_2BB(
+																														outFlow,
+																														parallelConvGateway) == null) {
+																													for (FlowElement tmpDivergeFlow : process
+																															.getFlowElements()) {
+																														if (tmpDivergeFlow instanceof SequenceFlow) {
+																															SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																															if (!divergeFlow
+																																	.equals(inFlow1)) {
 																																if (!divergeFlow
 																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
-																																				divergeFlow,
-																																				_edge_targetRef });
+																																	if (!divergeFlow
+																																			.equals(inFlow)) {
+																																		if (!divergeFlow
+																																				.equals(outFlow)) {
+																																			if (parallelGateway
+																																					.equals(divergeFlow
+																																							.getSourceRef())) {
+																																				if (pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_3BB(
+																																						divergeFlow,
+																																						parallelConvGateway) == null) {
+																																					for (Lane lane : laneSet
+																																							.getLanes()) {
+																																						if (lane.getFlowNodeRefs()
+																																								.contains(
+																																										parallelConvGateway)) {
+																																							_result.add(new Object[] {
+																																									process,
+																																									inFlow1,
+																																									parallelConvGateway,
+																																									parallelGateway,
+																																									divergeFlow1,
+																																									inFlow,
+																																									outFlow,
+																																									lane,
+																																									laneSet,
+																																									divergeFlow,
+																																									_edge_flowElements });
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -4513,7 +4685,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																									}
 																								}
 																							}
-
 																						}
 																					}
 																				}
@@ -4526,6 +4697,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 													}
 												}
 											}
+
 										}
 									}
 								}
@@ -4638,7 +4810,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_356827 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_464185 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4647,14 +4819,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -4662,7 +4826,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -4670,7 +4834,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -4679,14 +4843,14 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_11_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_incoming) {
+			EMoflonEdge _edge_targetRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpParallelConvGateway = _edge_incoming.getSrc();
-		if (tmpParallelConvGateway instanceof ParallelGateway) {
-			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-			EObject tmpInFlow1 = _edge_incoming.getTrg();
-			if (tmpInFlow1 instanceof SequenceFlow) {
-				SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+		EObject tmpInFlow1 = _edge_targetRef.getSrc();
+		if (tmpInFlow1 instanceof SequenceFlow) {
+			SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+			EObject tmpParallelConvGateway = _edge_targetRef.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
 				if (parallelConvGateway.equals(inFlow1.getTargetRef())) {
 					for (SequenceFlow inFlow : parallelConvGateway
 							.getIncoming()) {
@@ -4696,21 +4860,20 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 								if (!inFlow1.equals(outFlow)) {
 									if (!inFlow.equals(outFlow)) {
 										if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_0B(outFlow) == null) {
-											if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_3BB(
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
 													outFlow,
 													parallelConvGateway) == null) {
-												for (Lane lane : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
-																parallelConvGateway,
-																Lane.class,
-																"flowNodeRefs")) {
-													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-															.getOppositeReferenceTyped(
-																	inFlow1,
-																	FlowElementsContainer.class,
-																	"flowElements")) {
-														if (tmpProcess instanceof bpmn2.Process) {
-															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																inFlow1,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		parallelConvGateway)) {
 															if (process
 																	.getFlowElements()
 																	.contains(
@@ -4719,59 +4882,69 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																		.getFlowElements()
 																		.contains(
 																				outFlow)) {
-																	if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_1BB(
-																			process,
-																			parallelConvGateway) == null) {
-																		for (LaneSet laneSet : process
-																				.getLaneSets()) {
-																			if (laneSet
-																					.getLanes()
-																					.contains(
-																							lane)) {
-																				for (FlowElement tmpDivergeFlow : process
-																						.getFlowElements()) {
-																					if (tmpDivergeFlow instanceof SequenceFlow) {
-																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																						if (!divergeFlow
-																								.equals(inFlow1)) {
-																							if (!divergeFlow
-																									.equals(inFlow)) {
-																								if (!divergeFlow
-																										.equals(outFlow)) {
-																									FlowNode tmpParallelGateway = divergeFlow
-																											.getSourceRef();
-																									if (tmpParallelGateway instanceof ParallelGateway) {
-																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																										if (!parallelConvGateway
-																												.equals(parallelGateway)) {
-																											if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_4BB(
-																													divergeFlow,
-																													parallelConvGateway) == null) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
+																	for (FlowElement tmpDivergeFlow1 : process
+																			.getFlowElements()) {
+																		if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																			SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																			if (!divergeFlow1
+																					.equals(inFlow1)) {
+																				if (!divergeFlow1
+																						.equals(inFlow)) {
+																					if (!divergeFlow1
+																							.equals(outFlow)) {
+																						FlowNode tmpParallelGateway = divergeFlow1
+																								.getSourceRef();
+																						if (tmpParallelGateway instanceof ParallelGateway) {
+																							ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																							if (!parallelConvGateway
+																									.equals(parallelGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_1BB(
+																											divergeFlow1,
+																											parallelConvGateway) == null) {
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											for (FlowElement tmpDivergeFlow : process
+																													.getFlowElements()) {
+																												if (tmpDivergeFlow instanceof SequenceFlow) {
+																													SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																													if (!divergeFlow
 																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+																														if (!divergeFlow
+																																.equals(divergeFlow1)) {
+																															if (!divergeFlow
+																																	.equals(inFlow)) {
 																																if (!divergeFlow
-																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
+																																		.equals(outFlow)) {
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_3BB(
 																																				divergeFlow,
-																																				_edge_incoming });
+																																				parallelConvGateway) == null) {
+																																			for (Lane lane : laneSet
+																																					.getLanes()) {
+																																				if (lane.getFlowNodeRefs()
+																																						.contains(
+																																								parallelConvGateway)) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_targetRef });
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -4781,10 +4954,10 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																											}
 																										}
 																									}
-
 																								}
 																							}
 																						}
+
 																					}
 																				}
 																			}
@@ -4908,7 +5081,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_597865 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_116700 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4917,14 +5090,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -4932,7 +5097,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -4940,7 +5105,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -4949,93 +5114,107 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_12_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_flowElements) {
+			EMoflonEdge _edge_incoming) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpProcess = _edge_flowElements.getSrc();
-		if (tmpProcess instanceof bpmn2.Process) {
-			bpmn2.Process process = (bpmn2.Process) tmpProcess;
-			EObject tmpOutFlow = _edge_flowElements.getTrg();
-			if (tmpOutFlow instanceof SequenceFlow) {
-				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-				if (process.getFlowElements().contains(outFlow)) {
-					FlowNode tmpParallelConvGateway = outFlow.getSourceRef();
-					if (tmpParallelConvGateway instanceof ParallelGateway) {
-						ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-						if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(outFlow) == null) {
-							if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_1BB(
-									process, parallelConvGateway) == null) {
-								if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_3BB(
-										outFlow, parallelConvGateway) == null) {
-									for (FlowElement tmpInFlow1 : process
-											.getFlowElements()) {
-										if (tmpInFlow1 instanceof SequenceFlow) {
-											SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
-											if (!inFlow1.equals(outFlow)) {
-												if (parallelConvGateway
-														.equals(inFlow1
-																.getTargetRef())) {
-													for (FlowElement tmpInFlow : process
-															.getFlowElements()) {
-														if (tmpInFlow instanceof SequenceFlow) {
-															SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-															if (!inFlow
-																	.equals(inFlow1)) {
-																if (!inFlow
-																		.equals(outFlow)) {
-																	if (parallelConvGateway
-																			.equals(inFlow
-																					.getTargetRef())) {
-																		for (LaneSet laneSet : process
-																				.getLaneSets()) {
-																			for (FlowElement tmpDivergeFlow : process
-																					.getFlowElements()) {
-																				if (tmpDivergeFlow instanceof SequenceFlow) {
-																					SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																					if (!divergeFlow
-																							.equals(inFlow1)) {
-																						if (!divergeFlow
-																								.equals(inFlow)) {
-																							if (!divergeFlow
-																									.equals(outFlow)) {
-																								FlowNode tmpParallelGateway = divergeFlow
-																										.getSourceRef();
-																								if (tmpParallelGateway instanceof ParallelGateway) {
-																									ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																									if (!parallelConvGateway
-																											.equals(parallelGateway)) {
-																										if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_4BB(
-																												divergeFlow,
-																												parallelConvGateway) == null) {
-																											for (Lane lane : laneSet
-																													.getLanes()) {
-																												if (lane.getFlowNodeRefs()
-																														.contains(
-																																parallelConvGateway)) {
-																													for (SequenceFlow divergeFlow1 : parallelGateway
-																															.getOutgoing()) {
-																														if (!divergeFlow1
-																																.equals(inFlow1)) {
-																															if (!divergeFlow1
+		EObject tmpParallelConvGateway = _edge_incoming.getSrc();
+		if (tmpParallelConvGateway instanceof ParallelGateway) {
+			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+			EObject tmpInFlow1 = _edge_incoming.getTrg();
+			if (tmpInFlow1 instanceof SequenceFlow) {
+				SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+				if (parallelConvGateway.equals(inFlow1.getTargetRef())) {
+					for (SequenceFlow inFlow : parallelConvGateway
+							.getIncoming()) {
+						if (!inFlow.equals(inFlow1)) {
+							for (SequenceFlow outFlow : parallelConvGateway
+									.getOutgoing()) {
+								if (!inFlow1.equals(outFlow)) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(outFlow) == null) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
+													outFlow,
+													parallelConvGateway) == null) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																parallelConvGateway,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow1)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	for (FlowElement tmpDivergeFlow1 : process
+																			.getFlowElements()) {
+																		if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																			SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																			if (!divergeFlow1
+																					.equals(inFlow1)) {
+																				if (!divergeFlow1
+																						.equals(inFlow)) {
+																					if (!divergeFlow1
+																							.equals(outFlow)) {
+																						FlowNode tmpParallelGateway = divergeFlow1
+																								.getSourceRef();
+																						if (tmpParallelGateway instanceof ParallelGateway) {
+																							ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																							if (!parallelConvGateway
+																									.equals(parallelGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_1BB(
+																											divergeFlow1,
+																											parallelConvGateway) == null) {
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											for (FlowElement tmpDivergeFlow : process
+																													.getFlowElements()) {
+																												if (tmpDivergeFlow instanceof SequenceFlow) {
+																													SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																													if (!divergeFlow
+																															.equals(inFlow1)) {
+																														if (!divergeFlow
+																																.equals(divergeFlow1)) {
+																															if (!divergeFlow
 																																	.equals(inFlow)) {
-																																if (!divergeFlow1
+																																if (!divergeFlow
 																																		.equals(outFlow)) {
-																																	if (!divergeFlow
-																																			.equals(divergeFlow1)) {
-																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
-																																				divergeFlow1,
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_3BB(
+																																				divergeFlow,
 																																				parallelConvGateway) == null) {
-																																			_result.add(new Object[] {
-																																					process,
-																																					inFlow1,
-																																					parallelConvGateway,
-																																					parallelGateway,
-																																					divergeFlow1,
-																																					inFlow,
-																																					outFlow,
-																																					lane,
-																																					laneSet,
-																																					divergeFlow,
-																																					_edge_flowElements });
+																																			for (Lane lane : laneSet
+																																					.getLanes()) {
+																																				if (lane.getFlowNodeRefs()
+																																						.contains(
+																																								parallelConvGateway)) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_incoming });
+																																				}
+																																			}
 																																		}
 																																	}
 																																}
@@ -5047,9 +5226,9 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																										}
 																									}
 																								}
-
 																							}
 																						}
+
 																					}
 																				}
 																			}
@@ -5067,7 +5246,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 							}
 						}
 					}
-
 				}
 			}
 
@@ -5174,7 +5352,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_642374 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_456368 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5183,14 +5361,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -5198,7 +5368,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -5206,7 +5376,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -5215,95 +5385,106 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_13_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_targetRef) {
+			EMoflonEdge _edge_flowElements) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInFlow = _edge_targetRef.getSrc();
-		if (tmpInFlow instanceof SequenceFlow) {
-			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-			EObject tmpParallelConvGateway = _edge_targetRef.getTrg();
-			if (tmpParallelConvGateway instanceof ParallelGateway) {
-				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-				if (parallelConvGateway.equals(inFlow.getTargetRef())) {
-					for (SequenceFlow inFlow1 : parallelConvGateway
-							.getIncoming()) {
-						if (!inFlow.equals(inFlow1)) {
-							for (SequenceFlow outFlow : parallelConvGateway
-									.getOutgoing()) {
-								if (!inFlow1.equals(outFlow)) {
-									if (!inFlow.equals(outFlow)) {
-										if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(outFlow) == null) {
-											if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_3BB(
-													outFlow,
-													parallelConvGateway) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-														.getOppositeReferenceTyped(
-																inFlow,
-																FlowElementsContainer.class,
-																"flowElements")) {
-													if (tmpProcess instanceof bpmn2.Process) {
-														bpmn2.Process process = (bpmn2.Process) tmpProcess;
-														if (process
-																.getFlowElements()
-																.contains(
-																		inFlow1)) {
-															if (process
-																	.getFlowElements()
-																	.contains(
-																			outFlow)) {
-																if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_1BB(
-																		process,
-																		parallelConvGateway) == null) {
-																	for (LaneSet laneSet : process
-																			.getLaneSets()) {
-																		for (FlowElement tmpDivergeFlow : process
-																				.getFlowElements()) {
-																			if (tmpDivergeFlow instanceof SequenceFlow) {
-																				SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																				if (!divergeFlow
-																						.equals(inFlow1)) {
-																					if (!divergeFlow
-																							.equals(inFlow)) {
-																						if (!divergeFlow
-																								.equals(outFlow)) {
-																							FlowNode tmpParallelGateway = divergeFlow
-																									.getSourceRef();
-																							if (tmpParallelGateway instanceof ParallelGateway) {
-																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																								if (!parallelConvGateway
-																										.equals(parallelGateway)) {
-																									if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_4BB(
-																											divergeFlow,
-																											parallelConvGateway) == null) {
-																										for (Lane lane : laneSet
-																												.getLanes()) {
-																											if (lane.getFlowNodeRefs()
-																													.contains(
-																															parallelConvGateway)) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
-																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpOutFlow = _edge_flowElements.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (process.getFlowElements().contains(outFlow)) {
+					FlowNode tmpParallelConvGateway = outFlow.getSourceRef();
+					if (tmpParallelConvGateway instanceof ParallelGateway) {
+						ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+						if (process.getFlowElements().contains(
+								parallelConvGateway)) {
+							if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(outFlow) == null) {
+								if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_2BB(
+										outFlow, parallelConvGateway) == null) {
+									for (FlowElement tmpInFlow1 : process
+											.getFlowElements()) {
+										if (tmpInFlow1 instanceof SequenceFlow) {
+											SequenceFlow inFlow1 = (SequenceFlow) tmpInFlow1;
+											if (!inFlow1.equals(outFlow)) {
+												if (parallelConvGateway
+														.equals(inFlow1
+																.getTargetRef())) {
+													for (FlowElement tmpDivergeFlow1 : process
+															.getFlowElements()) {
+														if (tmpDivergeFlow1 instanceof SequenceFlow) {
+															SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+															if (!divergeFlow1
+																	.equals(inFlow1)) {
+																if (!divergeFlow1
+																		.equals(outFlow)) {
+																	FlowNode tmpParallelGateway = divergeFlow1
+																			.getSourceRef();
+																	if (tmpParallelGateway instanceof ParallelGateway) {
+																		ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																		if (!parallelConvGateway
+																				.equals(parallelGateway)) {
+																			if (process
+																					.getFlowElements()
+																					.contains(
+																							parallelGateway)) {
+																				if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_1BB(
+																						divergeFlow1,
+																						parallelConvGateway) == null) {
+																					for (FlowElement tmpInFlow : process
+																							.getFlowElements()) {
+																						if (tmpInFlow instanceof SequenceFlow) {
+																							SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+																							if (!divergeFlow1
+																									.equals(inFlow)) {
+																								if (!inFlow
+																										.equals(inFlow1)) {
+																									if (!inFlow
+																											.equals(outFlow)) {
+																										if (parallelConvGateway
+																												.equals(inFlow
+																														.getTargetRef())) {
+																											for (LaneSet laneSet : process
+																													.getLaneSets()) {
+																												for (FlowElement tmpDivergeFlow : process
+																														.getFlowElements()) {
+																													if (tmpDivergeFlow instanceof SequenceFlow) {
+																														SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																														if (!divergeFlow
+																																.equals(inFlow1)) {
+																															if (!divergeFlow
+																																	.equals(divergeFlow1)) {
 																																if (!divergeFlow
-																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
-																																				divergeFlow,
-																																				_edge_targetRef });
+																																		.equals(inFlow)) {
+																																	if (!divergeFlow
+																																			.equals(outFlow)) {
+																																		if (parallelGateway
+																																				.equals(divergeFlow
+																																						.getSourceRef())) {
+																																			if (pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_3BB(
+																																					divergeFlow,
+																																					parallelConvGateway) == null) {
+																																				for (Lane lane : laneSet
+																																						.getLanes()) {
+																																					if (lane.getFlowNodeRefs()
+																																							.contains(
+																																									parallelConvGateway)) {
+																																						_result.add(new Object[] {
+																																								process,
+																																								inFlow1,
+																																								parallelConvGateway,
+																																								parallelGateway,
+																																								divergeFlow1,
+																																								inFlow,
+																																								outFlow,
+																																								lane,
+																																								laneSet,
+																																								divergeFlow,
+																																								_edge_flowElements });
+																																					}
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -5315,13 +5496,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																									}
 																								}
 																							}
-
 																						}
 																					}
 																				}
 																			}
 																		}
 																	}
+
 																}
 															}
 														}
@@ -5334,6 +5515,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 							}
 						}
 					}
+
 				}
 			}
 
@@ -5440,7 +5622,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_659376 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_757327 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5449,14 +5631,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -5464,7 +5638,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -5472,7 +5646,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -5481,14 +5655,14 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_14_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_incoming) {
+			EMoflonEdge _edge_targetRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpParallelConvGateway = _edge_incoming.getSrc();
-		if (tmpParallelConvGateway instanceof ParallelGateway) {
-			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-			EObject tmpInFlow = _edge_incoming.getTrg();
-			if (tmpInFlow instanceof SequenceFlow) {
-				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+		EObject tmpInFlow = _edge_targetRef.getSrc();
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			EObject tmpParallelConvGateway = _edge_targetRef.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
 				if (parallelConvGateway.equals(inFlow.getTargetRef())) {
 					for (SequenceFlow inFlow1 : parallelConvGateway
 							.getIncoming()) {
@@ -5498,82 +5672,91 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 								if (!inFlow1.equals(outFlow)) {
 									if (!inFlow.equals(outFlow)) {
 										if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_0B(outFlow) == null) {
-											if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_3BB(
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
 													outFlow,
 													parallelConvGateway) == null) {
-												for (Lane lane : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
-																parallelConvGateway,
-																Lane.class,
-																"flowNodeRefs")) {
-													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-															.getOppositeReferenceTyped(
-																	inFlow,
-																	FlowElementsContainer.class,
-																	"flowElements")) {
-														if (tmpProcess instanceof bpmn2.Process) {
-															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																inFlow,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow1)) {
 															if (process
 																	.getFlowElements()
 																	.contains(
-																			inFlow1)) {
+																			parallelConvGateway)) {
 																if (process
 																		.getFlowElements()
 																		.contains(
 																				outFlow)) {
-																	if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_1BB(
-																			process,
-																			parallelConvGateway) == null) {
-																		for (LaneSet laneSet : process
-																				.getLaneSets()) {
-																			if (laneSet
-																					.getLanes()
-																					.contains(
-																							lane)) {
-																				for (FlowElement tmpDivergeFlow : process
-																						.getFlowElements()) {
-																					if (tmpDivergeFlow instanceof SequenceFlow) {
-																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																						if (!divergeFlow
-																								.equals(inFlow1)) {
-																							if (!divergeFlow
-																									.equals(inFlow)) {
-																								if (!divergeFlow
-																										.equals(outFlow)) {
-																									FlowNode tmpParallelGateway = divergeFlow
-																											.getSourceRef();
-																									if (tmpParallelGateway instanceof ParallelGateway) {
-																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																										if (!parallelConvGateway
-																												.equals(parallelGateway)) {
-																											if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_4BB(
-																													divergeFlow,
-																													parallelConvGateway) == null) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
+																	for (FlowElement tmpDivergeFlow1 : process
+																			.getFlowElements()) {
+																		if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																			SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																			if (!divergeFlow1
+																					.equals(inFlow1)) {
+																				if (!divergeFlow1
+																						.equals(inFlow)) {
+																					if (!divergeFlow1
+																							.equals(outFlow)) {
+																						FlowNode tmpParallelGateway = divergeFlow1
+																								.getSourceRef();
+																						if (tmpParallelGateway instanceof ParallelGateway) {
+																							ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																							if (!parallelConvGateway
+																									.equals(parallelGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_1BB(
+																											divergeFlow1,
+																											parallelConvGateway) == null) {
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											for (FlowElement tmpDivergeFlow : process
+																													.getFlowElements()) {
+																												if (tmpDivergeFlow instanceof SequenceFlow) {
+																													SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																													if (!divergeFlow
 																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+																														if (!divergeFlow
+																																.equals(divergeFlow1)) {
+																															if (!divergeFlow
+																																	.equals(inFlow)) {
 																																if (!divergeFlow
-																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
+																																		.equals(outFlow)) {
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_3BB(
 																																				divergeFlow,
-																																				_edge_incoming });
+																																				parallelConvGateway) == null) {
+																																			for (Lane lane : laneSet
+																																					.getLanes()) {
+																																				if (lane.getFlowNodeRefs()
+																																						.contains(
+																																								parallelConvGateway)) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_targetRef });
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -5583,10 +5766,10 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																											}
 																										}
 																									}
-
 																								}
 																							}
 																						}
+
 																					}
 																				}
 																			}
@@ -5710,7 +5893,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_343444 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_300814 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5719,14 +5902,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -5734,7 +5909,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -5742,7 +5917,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -5751,28 +5926,29 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_15_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_sourceRef) {
+			EMoflonEdge _edge_incoming) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpOutFlow = _edge_sourceRef.getSrc();
-		if (tmpOutFlow instanceof SequenceFlow) {
-			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-			EObject tmpParallelConvGateway = _edge_sourceRef.getTrg();
-			if (tmpParallelConvGateway instanceof ParallelGateway) {
-				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-				if (parallelConvGateway.equals(outFlow.getSourceRef())) {
-					if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(outFlow) == null) {
-						if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_3BB(
-								outFlow, parallelConvGateway) == null) {
-							for (SequenceFlow inFlow1 : parallelConvGateway
-									.getIncoming()) {
+		EObject tmpParallelConvGateway = _edge_incoming.getSrc();
+		if (tmpParallelConvGateway instanceof ParallelGateway) {
+			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+			EObject tmpInFlow = _edge_incoming.getTrg();
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (parallelConvGateway.equals(inFlow.getTargetRef())) {
+					for (SequenceFlow inFlow1 : parallelConvGateway
+							.getIncoming()) {
+						if (!inFlow.equals(inFlow1)) {
+							for (SequenceFlow outFlow : parallelConvGateway
+									.getOutgoing()) {
 								if (!inFlow1.equals(outFlow)) {
-									for (SequenceFlow inFlow : parallelConvGateway
-											.getIncoming()) {
-										if (!inFlow.equals(inFlow1)) {
-											if (!inFlow.equals(outFlow)) {
+									if (!inFlow.equals(outFlow)) {
+										if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(outFlow) == null) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
+													outFlow,
+													parallelConvGateway) == null) {
 												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
-																outFlow,
+																parallelConvGateway,
 																FlowElementsContainer.class,
 																"flowElements")) {
 													if (tmpProcess instanceof bpmn2.Process) {
@@ -5785,60 +5961,73 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																	.getFlowElements()
 																	.contains(
 																			inFlow)) {
-																if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_1BB(
-																		process,
-																		parallelConvGateway) == null) {
-																	for (LaneSet laneSet : process
-																			.getLaneSets()) {
-																		for (FlowElement tmpDivergeFlow : process
-																				.getFlowElements()) {
-																			if (tmpDivergeFlow instanceof SequenceFlow) {
-																				SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																				if (!divergeFlow
-																						.equals(inFlow1)) {
-																					if (!divergeFlow
-																							.equals(inFlow)) {
-																						if (!divergeFlow
-																								.equals(outFlow)) {
-																							FlowNode tmpParallelGateway = divergeFlow
-																									.getSourceRef();
-																							if (tmpParallelGateway instanceof ParallelGateway) {
-																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																								if (!parallelConvGateway
-																										.equals(parallelGateway)) {
-																									if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_4BB(
-																											divergeFlow,
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				outFlow)) {
+																	for (FlowElement tmpDivergeFlow1 : process
+																			.getFlowElements()) {
+																		if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																			SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																			if (!divergeFlow1
+																					.equals(inFlow1)) {
+																				if (!divergeFlow1
+																						.equals(inFlow)) {
+																					if (!divergeFlow1
+																							.equals(outFlow)) {
+																						FlowNode tmpParallelGateway = divergeFlow1
+																								.getSourceRef();
+																						if (tmpParallelGateway instanceof ParallelGateway) {
+																							ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																							if (!parallelConvGateway
+																									.equals(parallelGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_1BB(
+																											divergeFlow1,
 																											parallelConvGateway) == null) {
-																										for (Lane lane : laneSet
-																												.getLanes()) {
-																											if (lane.getFlowNodeRefs()
-																													.contains(
-																															parallelConvGateway)) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											for (FlowElement tmpDivergeFlow : process
+																													.getFlowElements()) {
+																												if (tmpDivergeFlow instanceof SequenceFlow) {
+																													SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																													if (!divergeFlow
 																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+																														if (!divergeFlow
+																																.equals(divergeFlow1)) {
+																															if (!divergeFlow
+																																	.equals(inFlow)) {
 																																if (!divergeFlow
-																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
+																																		.equals(outFlow)) {
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_3BB(
 																																				divergeFlow,
-																																				_edge_sourceRef });
+																																				parallelConvGateway) == null) {
+																																			for (Lane lane : laneSet
+																																					.getLanes()) {
+																																				if (lane.getFlowNodeRefs()
+																																						.contains(
+																																								parallelConvGateway)) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_incoming });
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -5850,8 +6039,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																									}
 																								}
 																							}
-
 																						}
+
 																					}
 																				}
 																			}
@@ -5975,7 +6164,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_46754 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_514766 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5984,14 +6173,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -5999,7 +6180,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -6007,7 +6188,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -6016,17 +6197,17 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_16_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_outgoing) {
+			EMoflonEdge _edge_sourceRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpParallelConvGateway = _edge_outgoing.getSrc();
-		if (tmpParallelConvGateway instanceof ParallelGateway) {
-			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-			EObject tmpOutFlow = _edge_outgoing.getTrg();
-			if (tmpOutFlow instanceof SequenceFlow) {
-				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+		EObject tmpOutFlow = _edge_sourceRef.getSrc();
+		if (tmpOutFlow instanceof SequenceFlow) {
+			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+			EObject tmpParallelConvGateway = _edge_sourceRef.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
 				if (parallelConvGateway.equals(outFlow.getSourceRef())) {
 					if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_0B(outFlow) == null) {
-						if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_3BB(
+						if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_2BB(
 								outFlow, parallelConvGateway) == null) {
 							for (SequenceFlow inFlow1 : parallelConvGateway
 									.getIncoming()) {
@@ -6035,79 +6216,88 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											.getIncoming()) {
 										if (!inFlow.equals(inFlow1)) {
 											if (!inFlow.equals(outFlow)) {
-												for (Lane lane : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
-																parallelConvGateway,
-																Lane.class,
-																"flowNodeRefs")) {
-													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-															.getOppositeReferenceTyped(
-																	outFlow,
-																	FlowElementsContainer.class,
-																	"flowElements")) {
-														if (tmpProcess instanceof bpmn2.Process) {
-															bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																outFlow,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow1)) {
 															if (process
 																	.getFlowElements()
 																	.contains(
-																			inFlow1)) {
+																			parallelConvGateway)) {
 																if (process
 																		.getFlowElements()
 																		.contains(
 																				inFlow)) {
-																	if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_1BB(
-																			process,
-																			parallelConvGateway) == null) {
-																		for (LaneSet laneSet : process
-																				.getLaneSets()) {
-																			if (laneSet
-																					.getLanes()
-																					.contains(
-																							lane)) {
-																				for (FlowElement tmpDivergeFlow : process
-																						.getFlowElements()) {
-																					if (tmpDivergeFlow instanceof SequenceFlow) {
-																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																						if (!divergeFlow
-																								.equals(inFlow1)) {
-																							if (!divergeFlow
-																									.equals(inFlow)) {
-																								if (!divergeFlow
-																										.equals(outFlow)) {
-																									FlowNode tmpParallelGateway = divergeFlow
-																											.getSourceRef();
-																									if (tmpParallelGateway instanceof ParallelGateway) {
-																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																										if (!parallelConvGateway
-																												.equals(parallelGateway)) {
-																											if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_4BB(
-																													divergeFlow,
-																													parallelConvGateway) == null) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
+																	for (FlowElement tmpDivergeFlow1 : process
+																			.getFlowElements()) {
+																		if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																			SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																			if (!divergeFlow1
+																					.equals(inFlow1)) {
+																				if (!divergeFlow1
+																						.equals(inFlow)) {
+																					if (!divergeFlow1
+																							.equals(outFlow)) {
+																						FlowNode tmpParallelGateway = divergeFlow1
+																								.getSourceRef();
+																						if (tmpParallelGateway instanceof ParallelGateway) {
+																							ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																							if (!parallelConvGateway
+																									.equals(parallelGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_1BB(
+																											divergeFlow1,
+																											parallelConvGateway) == null) {
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											for (FlowElement tmpDivergeFlow : process
+																													.getFlowElements()) {
+																												if (tmpDivergeFlow instanceof SequenceFlow) {
+																													SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																													if (!divergeFlow
 																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+																														if (!divergeFlow
+																																.equals(divergeFlow1)) {
+																															if (!divergeFlow
+																																	.equals(inFlow)) {
 																																if (!divergeFlow
-																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
+																																		.equals(outFlow)) {
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_3BB(
 																																				divergeFlow,
-																																				_edge_outgoing });
+																																				parallelConvGateway) == null) {
+																																			for (Lane lane : laneSet
+																																					.getLanes()) {
+																																				if (lane.getFlowNodeRefs()
+																																						.contains(
+																																								parallelConvGateway)) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_sourceRef });
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -6117,10 +6307,10 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																											}
 																										}
 																									}
-
 																								}
 																							}
 																						}
+
 																					}
 																				}
 																			}
@@ -6244,7 +6434,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_895377 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_192934 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6253,14 +6443,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_1BB(
-			bpmn2.Process process, ParallelGateway parallelConvGateway) {
-		if (process.getFlowElements().contains(parallelConvGateway)) {
-			return new Object[] { process, parallelConvGateway };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_2BB(
 			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
 			return new Object[] { divergeFlow1, parallelConvGateway };
@@ -6268,7 +6450,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_2BB(
 			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, parallelConvGateway };
@@ -6276,7 +6458,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_3BB(
 			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
 		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
 			return new Object[] { divergeFlow, parallelConvGateway };
@@ -6285,99 +6467,107 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	}
 
 	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_17_2_blackFFFFFFFFFFB(
-			EMoflonEdge _edge_flowNodeRefs) {
+			EMoflonEdge _edge_outgoing) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpLane = _edge_flowNodeRefs.getSrc();
-		if (tmpLane instanceof Lane) {
-			Lane lane = (Lane) tmpLane;
-			EObject tmpParallelConvGateway = _edge_flowNodeRefs.getTrg();
-			if (tmpParallelConvGateway instanceof ParallelGateway) {
-				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
-				if (lane.getFlowNodeRefs().contains(parallelConvGateway)) {
-					for (SequenceFlow inFlow1 : parallelConvGateway
-							.getIncoming()) {
-						for (SequenceFlow inFlow : parallelConvGateway
-								.getIncoming()) {
-							if (!inFlow.equals(inFlow1)) {
-								for (SequenceFlow outFlow : parallelConvGateway
-										.getOutgoing()) {
-									if (!inFlow1.equals(outFlow)) {
-										if (!inFlow.equals(outFlow)) {
-											if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(outFlow) == null) {
-												if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_3BB(
-														outFlow,
-														parallelConvGateway) == null) {
-													for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
-															.getOppositeReferenceTyped(
-																	lane,
-																	LaneSet.class,
-																	"lanes")) {
-														for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		inFlow1,
-																		FlowElementsContainer.class,
-																		"flowElements")) {
-															if (tmpProcess instanceof bpmn2.Process) {
-																bpmn2.Process process = (bpmn2.Process) tmpProcess;
+		EObject tmpParallelConvGateway = _edge_outgoing.getSrc();
+		if (tmpParallelConvGateway instanceof ParallelGateway) {
+			ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+			EObject tmpOutFlow = _edge_outgoing.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (parallelConvGateway.equals(outFlow.getSourceRef())) {
+					if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(outFlow) == null) {
+						if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_2BB(
+								outFlow, parallelConvGateway) == null) {
+							for (SequenceFlow inFlow1 : parallelConvGateway
+									.getIncoming()) {
+								if (!inFlow1.equals(outFlow)) {
+									for (SequenceFlow inFlow : parallelConvGateway
+											.getIncoming()) {
+										if (!inFlow.equals(inFlow1)) {
+											if (!inFlow.equals(outFlow)) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																parallelConvGateway,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow1)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			inFlow)) {
 																if (process
 																		.getFlowElements()
 																		.contains(
-																				inFlow)) {
-																	if (process
-																			.getLaneSets()
-																			.contains(
-																					laneSet)) {
-																		if (process
-																				.getFlowElements()
-																				.contains(
-																						outFlow)) {
-																			if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_1BB(
-																					process,
-																					parallelConvGateway) == null) {
-																				for (FlowElement tmpDivergeFlow : process
-																						.getFlowElements()) {
-																					if (tmpDivergeFlow instanceof SequenceFlow) {
-																						SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																						if (!divergeFlow
-																								.equals(inFlow1)) {
-																							if (!divergeFlow
-																									.equals(inFlow)) {
-																								if (!divergeFlow
-																										.equals(outFlow)) {
-																									FlowNode tmpParallelGateway = divergeFlow
-																											.getSourceRef();
-																									if (tmpParallelGateway instanceof ParallelGateway) {
-																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																										if (!parallelConvGateway
-																												.equals(parallelGateway)) {
-																											if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_4BB(
-																													divergeFlow,
-																													parallelConvGateway) == null) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow1
+																				outFlow)) {
+																	for (FlowElement tmpDivergeFlow1 : process
+																			.getFlowElements()) {
+																		if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																			SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																			if (!divergeFlow1
+																					.equals(inFlow1)) {
+																				if (!divergeFlow1
+																						.equals(inFlow)) {
+																					if (!divergeFlow1
+																							.equals(outFlow)) {
+																						FlowNode tmpParallelGateway = divergeFlow1
+																								.getSourceRef();
+																						if (tmpParallelGateway instanceof ParallelGateway) {
+																							ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																							if (!parallelConvGateway
+																									.equals(parallelGateway)) {
+																								if (process
+																										.getFlowElements()
+																										.contains(
+																												parallelGateway)) {
+																									if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_1BB(
+																											divergeFlow1,
+																											parallelConvGateway) == null) {
+																										for (LaneSet laneSet : process
+																												.getLaneSets()) {
+																											for (FlowElement tmpDivergeFlow : process
+																													.getFlowElements()) {
+																												if (tmpDivergeFlow instanceof SequenceFlow) {
+																													SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																													if (!divergeFlow
 																															.equals(inFlow1)) {
-																														if (!divergeFlow1
-																																.equals(inFlow)) {
-																															if (!divergeFlow1
-																																	.equals(outFlow)) {
+																														if (!divergeFlow
+																																.equals(divergeFlow1)) {
+																															if (!divergeFlow
+																																	.equals(inFlow)) {
 																																if (!divergeFlow
-																																		.equals(divergeFlow1)) {
-																																	if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_2BB(
-																																			divergeFlow1,
-																																			parallelConvGateway) == null) {
-																																		_result.add(new Object[] {
-																																				process,
-																																				inFlow1,
-																																				parallelConvGateway,
-																																				parallelGateway,
-																																				divergeFlow1,
-																																				inFlow,
-																																				outFlow,
-																																				lane,
-																																				laneSet,
+																																		.equals(outFlow)) {
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_3BB(
 																																				divergeFlow,
-																																				_edge_flowNodeRefs });
+																																				parallelConvGateway) == null) {
+																																			for (Lane lane : laneSet
+																																					.getLanes()) {
+																																				if (lane.getFlowNodeRefs()
+																																						.contains(
+																																								parallelConvGateway)) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_outgoing });
+																																				}
+																																			}
+																																		}
 																																	}
 																																}
 																															}
@@ -6387,10 +6577,10 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																											}
 																										}
 																									}
-
 																								}
 																							}
 																						}
+
 																					}
 																				}
 																			}
@@ -6467,12 +6657,287 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_1_blackB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_1_bindingFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_1_blackFBB(
+			EClass __eClass, ParallelConvergingGatewayTwoInputsRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_1_bindingAndBlackFFB(
+			ParallelConvergingGatewayTwoInputsRule _this) {
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_18_1_binding = pattern_ParallelConvergingGatewayTwoInputsRule_18_1_bindingFB(_this);
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_18_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ParallelConvergingGatewayTwoInputsRule_18_1_binding[0];
+
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_18_1_black = pattern_ParallelConvergingGatewayTwoInputsRule_18_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_18_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ParallelConvergingGatewayTwoInputsRule_18_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_0B(
+			SequenceFlow outFlow) {
+		for (ExclusiveGateway __DEC_outFlow_default_614233 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			return new Object[] { outFlow };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_1BB(
+			SequenceFlow divergeFlow1, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow1.getTargetRef())) {
+			return new Object[] { divergeFlow1, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_2BB(
+			SequenceFlow outFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_3BB(
+			SequenceFlow divergeFlow, ParallelGateway parallelConvGateway) {
+		if (parallelConvGateway.equals(divergeFlow.getTargetRef())) {
+			return new Object[] { divergeFlow, parallelConvGateway };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_18_2_blackFFFFFFFFFFB(
+			EMoflonEdge _edge_flowNodeRefs) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpLane = _edge_flowNodeRefs.getSrc();
+		if (tmpLane instanceof Lane) {
+			Lane lane = (Lane) tmpLane;
+			EObject tmpParallelConvGateway = _edge_flowNodeRefs.getTrg();
+			if (tmpParallelConvGateway instanceof ParallelGateway) {
+				ParallelGateway parallelConvGateway = (ParallelGateway) tmpParallelConvGateway;
+				if (lane.getFlowNodeRefs().contains(parallelConvGateway)) {
+					for (SequenceFlow inFlow1 : parallelConvGateway
+							.getIncoming()) {
+						for (SequenceFlow inFlow : parallelConvGateway
+								.getIncoming()) {
+							if (!inFlow.equals(inFlow1)) {
+								for (SequenceFlow outFlow : parallelConvGateway
+										.getOutgoing()) {
+									if (!inFlow1.equals(outFlow)) {
+										if (!inFlow.equals(outFlow)) {
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_0B(outFlow) == null) {
+												if (pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_2BB(
+														outFlow,
+														parallelConvGateway) == null) {
+													for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+															.getOppositeReferenceTyped(
+																	lane,
+																	LaneSet.class,
+																	"lanes")) {
+														for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		parallelConvGateway,
+																		FlowElementsContainer.class,
+																		"flowElements")) {
+															if (tmpProcess instanceof bpmn2.Process) {
+																bpmn2.Process process = (bpmn2.Process) tmpProcess;
+																if (process
+																		.getFlowElements()
+																		.contains(
+																				inFlow1)) {
+																	if (process
+																			.getFlowElements()
+																			.contains(
+																					inFlow)) {
+																		if (process
+																				.getLaneSets()
+																				.contains(
+																						laneSet)) {
+																			if (process
+																					.getFlowElements()
+																					.contains(
+																							outFlow)) {
+																				for (FlowElement tmpDivergeFlow1 : process
+																						.getFlowElements()) {
+																					if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																						SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																						if (!divergeFlow1
+																								.equals(inFlow1)) {
+																							if (!divergeFlow1
+																									.equals(inFlow)) {
+																								if (!divergeFlow1
+																										.equals(outFlow)) {
+																									FlowNode tmpParallelGateway = divergeFlow1
+																											.getSourceRef();
+																									if (tmpParallelGateway instanceof ParallelGateway) {
+																										ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																										if (!parallelConvGateway
+																												.equals(parallelGateway)) {
+																											if (process
+																													.getFlowElements()
+																													.contains(
+																															parallelGateway)) {
+																												if (pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_1BB(
+																														divergeFlow1,
+																														parallelConvGateway) == null) {
+																													for (FlowElement tmpDivergeFlow : process
+																															.getFlowElements()) {
+																														if (tmpDivergeFlow instanceof SequenceFlow) {
+																															SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																															if (!divergeFlow
+																																	.equals(inFlow1)) {
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (!divergeFlow
+																																			.equals(inFlow)) {
+																																		if (!divergeFlow
+																																				.equals(outFlow)) {
+																																			if (parallelGateway
+																																					.equals(divergeFlow
+																																							.getSourceRef())) {
+																																				if (pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_3BB(
+																																						divergeFlow,
+																																						parallelConvGateway) == null) {
+																																					_result.add(new Object[] {
+																																							process,
+																																							inFlow1,
+																																							parallelConvGateway,
+																																							parallelGateway,
+																																							divergeFlow1,
+																																							inFlow,
+																																							outFlow,
+																																							lane,
+																																							laneSet,
+																																							divergeFlow,
+																																							_edge_flowNodeRefs });
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_18_3_expressionFBBBBBBBBBBBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match,
+			bpmn2.Process process, SequenceFlow inFlow1,
+			ParallelGateway parallelConvGateway,
+			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
+			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane,
+			LaneSet laneSet, SequenceFlow divergeFlow) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, process,
+				inFlow1, parallelConvGateway, parallelGateway, divergeFlow1,
+				inFlow, outFlow, lane, laneSet, divergeFlow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_18_4_expressionFBB(
+			ParallelConvergingGatewayTwoInputsRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ParallelConvergingGatewayTwoInputsRule_18_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_1_blackB(
 			ParallelConvergingGatewayTwoInputsRule _this) {
 		return new Object[] { _this };
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_1_greenFF() {
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_1_greenFF() {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
@@ -6482,7 +6947,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return new Object[] { isApplicableMatch, ruleResult };
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_0BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_0BB(
 			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
 		if (ruleResult.getSourceObjects().contains(process)) {
 			return new Object[] { ruleResult, process };
@@ -6490,7 +6955,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_1BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_1BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow1) {
 		if (ruleResult.getSourceObjects().contains(inFlow1)) {
 			return new Object[] { ruleResult, inFlow1 };
@@ -6498,7 +6963,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_2BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_2BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow inFlow1ToFlow1) {
 		if (ruleResult.getCorrObjects().contains(inFlow1ToFlow1)) {
@@ -6507,7 +6972,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_3BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_3BB(
 			ModelgeneratorRuleResult ruleResult, ParallelFlow flow1) {
 		if (ruleResult.getTargetObjects().contains(flow1)) {
 			return new Object[] { ruleResult, flow1 };
@@ -6515,7 +6980,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_4BB(
 			ModelgeneratorRuleResult ruleResult, Step step1) {
 		if (ruleResult.getTargetObjects().contains(step1)) {
 			return new Object[] { ruleResult, step1 };
@@ -6523,7 +6988,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_5BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_5BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToStep inFlow1ToStep1) {
 		if (ruleResult.getCorrObjects().contains(inFlow1ToStep1)) {
@@ -6532,7 +6997,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_6BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_6BB(
 			ModelgeneratorRuleResult ruleResult, ParallelStep parallelStep) {
 		if (ruleResult.getTargetObjects().contains(parallelStep)) {
 			return new Object[] { ruleResult, parallelStep };
@@ -6540,7 +7005,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_7BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_7BB(
 			ModelgeneratorRuleResult ruleResult, ParallelFlow flow) {
 		if (ruleResult.getTargetObjects().contains(flow)) {
 			return new Object[] { ruleResult, flow };
@@ -6548,7 +7013,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_8BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_8BB(
 			ModelgeneratorRuleResult ruleResult, Step step) {
 		if (ruleResult.getTargetObjects().contains(step)) {
 			return new Object[] { ruleResult, step };
@@ -6556,7 +7021,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_9BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_9BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlowToStep inFlowToStep) {
 		if (ruleResult.getCorrObjects().contains(inFlowToStep)) {
 			return new Object[] { ruleResult, inFlowToStep };
@@ -6564,7 +7029,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_10BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_10BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow) {
 		if (ruleResult.getSourceObjects().contains(inFlow)) {
 			return new Object[] { ruleResult, inFlow };
@@ -6572,7 +7037,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_11BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_11BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow inFlowToFlow) {
 		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
@@ -6581,7 +7046,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_12BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_12BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow divergeFlowToFlow) {
 		if (ruleResult.getCorrObjects().contains(divergeFlowToFlow)) {
@@ -6590,7 +7055,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_13BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_13BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlow divergeFlow) {
 		if (ruleResult.getSourceObjects().contains(divergeFlow)) {
 			return new Object[] { ruleResult, divergeFlow };
@@ -6598,7 +7063,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_14BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_14BB(
 			ModelgeneratorRuleResult ruleResult, ParallelGateway parallelGateway) {
 		if (ruleResult.getSourceObjects().contains(parallelGateway)) {
 			return new Object[] { ruleResult, parallelGateway };
@@ -6606,7 +7071,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_15BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_15BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlow divergeFlow1) {
 		if (ruleResult.getSourceObjects().contains(divergeFlow1)) {
 			return new Object[] { ruleResult, divergeFlow1 };
@@ -6614,7 +7079,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_16BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_16BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow divergeFlow1ToFlow1) {
 		if (ruleResult.getCorrObjects().contains(divergeFlow1ToFlow1)) {
@@ -6623,7 +7088,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_17BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_17BB(
 			ModelgeneratorRuleResult ruleResult, Flow initFlow) {
 		if (ruleResult.getTargetObjects().contains(initFlow)) {
 			return new Object[] { ruleResult, initFlow };
@@ -6631,7 +7096,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_18BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_18BB(
 			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
 		if (ruleResult.getSourceObjects().contains(laneSet)) {
 			return new Object[] { ruleResult, laneSet };
@@ -6639,7 +7104,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_19BB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_19BB(
 			ModelgeneratorRuleResult ruleResult, Lane lane) {
 		if (ruleResult.getSourceObjects().contains(lane)) {
 			return new Object[] { ruleResult, lane };
@@ -6647,7 +7112,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_19_2_blackFFFFFFFFFFFFFFFFFFFFFBB(
+	public static final Iterable<Object[]> pattern_ParallelConvergingGatewayTwoInputsRule_20_2_blackFFFFFFFFFFFFFFFFFFFFFBB(
 			RuleEntryContainer ruleEntryContainer,
 			ModelgeneratorRuleResult ruleResult) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
@@ -6662,14 +7127,14 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						Flow tmpFlow1 = inFlow1ToFlow1.getTarget();
 						if (tmpFlow1 instanceof ParallelFlow) {
 							ParallelFlow flow1 = (ParallelFlow) tmpFlow1;
-							if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_2BB(
+							if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_2BB(
 									ruleResult, inFlow1ToFlow1) == null) {
-								if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_1BB(
+								if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_1BB(
 										ruleResult, inFlow1) == null) {
-									if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_3BB(
+									if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_3BB(
 											ruleResult, flow1) == null) {
 										for (Step step1 : flow1.getSteps()) {
-											if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_4BB(
+											if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_4BB(
 													ruleResult, step1) == null) {
 												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
@@ -6678,7 +7143,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																"flowElements")) {
 													if (tmpProcess instanceof bpmn2.Process) {
 														bpmn2.Process process = (bpmn2.Process) tmpProcess;
-														if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_0BB(
+														if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_0BB(
 																ruleResult,
 																process) == null) {
 															for (FlowElement tmpInFlow : process
@@ -6687,176 +7152,188 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																	SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 																	if (!inFlow
 																			.equals(inFlow1)) {
-																		if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_10BB(
+																		if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_10BB(
 																				ruleResult,
 																				inFlow) == null) {
-																			for (FlowElement tmpDivergeFlow : process
+																			for (FlowElement tmpParallelGateway : process
 																					.getFlowElements()) {
-																				if (tmpDivergeFlow instanceof SequenceFlow) {
-																					SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
-																					if (!divergeFlow
-																							.equals(inFlow1)) {
-																						if (!divergeFlow
-																								.equals(inFlow)) {
-																							FlowNode tmpParallelGateway = divergeFlow
-																									.getSourceRef();
-																							if (tmpParallelGateway instanceof ParallelGateway) {
-																								ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
-																								if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_13BB(
-																										ruleResult,
-																										divergeFlow) == null) {
-																									if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_14BB(
-																											ruleResult,
-																											parallelGateway) == null) {
-																										for (LaneSet laneSet : process
-																												.getLaneSets()) {
-																											if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_18BB(
+																				if (tmpParallelGateway instanceof ParallelGateway) {
+																					ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
+																					if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_14BB(
+																							ruleResult,
+																							parallelGateway) == null) {
+																						for (FlowElement tmpDivergeFlow1 : process
+																								.getFlowElements()) {
+																							if (tmpDivergeFlow1 instanceof SequenceFlow) {
+																								SequenceFlow divergeFlow1 = (SequenceFlow) tmpDivergeFlow1;
+																								if (!divergeFlow1
+																										.equals(inFlow1)) {
+																									if (!divergeFlow1
+																											.equals(inFlow)) {
+																										if (parallelGateway
+																												.equals(divergeFlow1
+																														.getSourceRef())) {
+																											if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_15BB(
 																													ruleResult,
-																													laneSet) == null) {
-																												for (SequenceFlow divergeFlow1 : parallelGateway
-																														.getOutgoing()) {
-																													if (!divergeFlow
-																															.equals(divergeFlow1)) {
-																														if (!divergeFlow1
+																													divergeFlow1) == null) {
+																												for (FlowElement tmpDivergeFlow : process
+																														.getFlowElements()) {
+																													if (tmpDivergeFlow instanceof SequenceFlow) {
+																														SequenceFlow divergeFlow = (SequenceFlow) tmpDivergeFlow;
+																														if (!divergeFlow
 																																.equals(inFlow1)) {
-																															if (!divergeFlow1
+																															if (!divergeFlow
 																																	.equals(inFlow)) {
-																																if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_15BB(
-																																		ruleResult,
-																																		divergeFlow1) == null) {
-																																	for (Lane lane : laneSet
-																																			.getLanes()) {
-																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_19BB(
+																																if (!divergeFlow
+																																		.equals(divergeFlow1)) {
+																																	if (parallelGateway
+																																			.equals(divergeFlow
+																																					.getSourceRef())) {
+																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_13BB(
 																																				ruleResult,
-																																				lane) == null) {
-																																			for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.util.eMoflonEMFUtil
-																																					.getOppositeReferenceTyped(
-																																							inFlow1,
-																																							SequenceFlowToStep.class,
-																																							"source")) {
-																																				if (step1
-																																						.equals(inFlow1ToStep1
-																																								.getTarget())) {
-																																					if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_5BB(
-																																							ruleResult,
-																																							inFlow1ToStep1) == null) {
-																																						for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
-																																								.getOppositeReferenceTyped(
-																																										flow1,
-																																										ParallelStep.class,
-																																										"invokedFlows")) {
-																																							if (!parallelStep
-																																									.equals(step1)) {
-																																								if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_6BB(
-																																										ruleResult,
-																																										parallelStep) == null) {
-																																									for (ParallelFlow flow : parallelStep
-																																											.getInvokedFlows()) {
-																																										if (!flow
-																																												.equals(flow1)) {
-																																											if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_7BB(
-																																													ruleResult,
-																																													flow) == null) {
-																																												for (Step step : flow
-																																														.getSteps()) {
-																																													if (!parallelStep
-																																															.equals(step)) {
-																																														if (!step
-																																																.equals(step1)) {
-																																															if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_8BB(
+																																				divergeFlow) == null) {
+																																			for (LaneSet laneSet : process
+																																					.getLaneSets()) {
+																																				if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_18BB(
+																																						ruleResult,
+																																						laneSet) == null) {
+																																					for (Lane lane : laneSet
+																																							.getLanes()) {
+																																						if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_19BB(
+																																								ruleResult,
+																																								lane) == null) {
+																																							for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.util.eMoflonEMFUtil
+																																									.getOppositeReferenceTyped(
+																																											inFlow1,
+																																											SequenceFlowToStep.class,
+																																											"source")) {
+																																								if (step1
+																																										.equals(inFlow1ToStep1
+																																												.getTarget())) {
+																																									if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_5BB(
+																																											ruleResult,
+																																											inFlow1ToStep1) == null) {
+																																										for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																																												.getOppositeReferenceTyped(
+																																														flow1,
+																																														ParallelStep.class,
+																																														"invokedFlows")) {
+																																											if (!parallelStep
+																																													.equals(step1)) {
+																																												if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_6BB(
+																																														ruleResult,
+																																														parallelStep) == null) {
+																																													for (ParallelFlow flow : parallelStep
+																																															.getInvokedFlows()) {
+																																														if (!flow
+																																																.equals(flow1)) {
+																																															if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_7BB(
 																																																	ruleResult,
-																																																	step) == null) {
-																																																for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
-																																																		.getOppositeReferenceTyped(
-																																																				flow1,
-																																																				SequenceFlowToUCFlow.class,
-																																																				"target")) {
-																																																	if (!divergeFlow1ToFlow1
-																																																			.equals(inFlow1ToFlow1)) {
-																																																		if (divergeFlow1
-																																																				.equals(divergeFlow1ToFlow1
-																																																						.getSource())) {
-																																																			if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_16BB(
+																																																	flow) == null) {
+																																																for (Step step : flow
+																																																		.getSteps()) {
+																																																	if (!parallelStep
+																																																			.equals(step)) {
+																																																		if (!step
+																																																				.equals(step1)) {
+																																																			if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_8BB(
 																																																					ruleResult,
-																																																					divergeFlow1ToFlow1) == null) {
-																																																				for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+																																																					step) == null) {
+																																																				for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
 																																																						.getOppositeReferenceTyped(
-																																																								inFlow,
-																																																								SequenceFlowToStep.class,
-																																																								"source")) {
-																																																					if (!inFlow1ToStep1
-																																																							.equals(inFlowToStep)) {
-																																																						if (step.equals(inFlowToStep
-																																																								.getTarget())) {
-																																																							if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_9BB(
+																																																								flow1,
+																																																								SequenceFlowToUCFlow.class,
+																																																								"target")) {
+																																																					if (!divergeFlow1ToFlow1
+																																																							.equals(inFlow1ToFlow1)) {
+																																																						if (divergeFlow1
+																																																								.equals(divergeFlow1ToFlow1
+																																																										.getSource())) {
+																																																							if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_16BB(
 																																																									ruleResult,
-																																																									inFlowToStep) == null) {
-																																																								for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																									divergeFlow1ToFlow1) == null) {
+																																																								for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
 																																																										.getOppositeReferenceTyped(
 																																																												inFlow,
-																																																												SequenceFlowToUCFlow.class,
+																																																												SequenceFlowToStep.class,
 																																																												"source")) {
-																																																									if (!inFlow1ToFlow1
-																																																											.equals(inFlowToFlow)) {
-																																																										if (!divergeFlow1ToFlow1
-																																																												.equals(inFlowToFlow)) {
-																																																											if (flow.equals(inFlowToFlow
-																																																													.getTarget())) {
-																																																												if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_11BB(
-																																																														ruleResult,
-																																																														inFlowToFlow) == null) {
-																																																													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
-																																																															.getOppositeReferenceTyped(
-																																																																	divergeFlow,
-																																																																	SequenceFlowToUCFlow.class,
-																																																																	"source")) {
-																																																														if (!divergeFlowToFlow
-																																																																.equals(inFlow1ToFlow1)) {
-																																																															if (!divergeFlowToFlow
-																																																																	.equals(inFlowToFlow)) {
-																																																																if (!divergeFlow1ToFlow1
-																																																																		.equals(divergeFlowToFlow)) {
-																																																																	if (flow.equals(divergeFlowToFlow
-																																																																			.getTarget())) {
-																																																																		if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_12BB(
-																																																																				ruleResult,
-																																																																				divergeFlowToFlow) == null) {
-																																																																			for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
-																																																																					.getOppositeReferenceTyped(
-																																																																							parallelStep,
-																																																																							Flow.class,
-																																																																							"steps")) {
-																																																																				if (!flow1
-																																																																						.equals(initFlow)) {
-																																																																					if (!flow
-																																																																							.equals(initFlow)) {
-																																																																						if (pattern_ParallelConvergingGatewayTwoInputsRule_19_2_black_nac_17BB(
+																																																									if (!inFlow1ToStep1
+																																																											.equals(inFlowToStep)) {
+																																																										if (step.equals(inFlowToStep
+																																																												.getTarget())) {
+																																																											if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_9BB(
+																																																													ruleResult,
+																																																													inFlowToStep) == null) {
+																																																												for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																														.getOppositeReferenceTyped(
+																																																																inFlow,
+																																																																SequenceFlowToUCFlow.class,
+																																																																"source")) {
+																																																													if (!inFlow1ToFlow1
+																																																															.equals(inFlowToFlow)) {
+																																																														if (!divergeFlow1ToFlow1
+																																																																.equals(inFlowToFlow)) {
+																																																															if (flow.equals(inFlowToFlow
+																																																																	.getTarget())) {
+																																																																if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_11BB(
+																																																																		ruleResult,
+																																																																		inFlowToFlow) == null) {
+																																																																	for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																																			.getOppositeReferenceTyped(
+																																																																					divergeFlow,
+																																																																					SequenceFlowToUCFlow.class,
+																																																																					"source")) {
+																																																																		if (!divergeFlowToFlow
+																																																																				.equals(inFlow1ToFlow1)) {
+																																																																			if (!divergeFlowToFlow
+																																																																					.equals(inFlowToFlow)) {
+																																																																				if (!divergeFlow1ToFlow1
+																																																																						.equals(divergeFlowToFlow)) {
+																																																																					if (flow.equals(divergeFlowToFlow
+																																																																							.getTarget())) {
+																																																																						if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_12BB(
 																																																																								ruleResult,
-																																																																								initFlow) == null) {
-																																																																							_result.add(new Object[] {
-																																																																									inFlow1ToFlow1List,
-																																																																									process,
-																																																																									inFlow1,
-																																																																									inFlow1ToFlow1,
-																																																																									flow1,
-																																																																									step1,
-																																																																									inFlow1ToStep1,
-																																																																									parallelStep,
-																																																																									flow,
-																																																																									step,
-																																																																									inFlowToStep,
-																																																																									inFlow,
-																																																																									inFlowToFlow,
-																																																																									divergeFlowToFlow,
-																																																																									divergeFlow,
-																																																																									parallelGateway,
-																																																																									divergeFlow1,
-																																																																									divergeFlow1ToFlow1,
-																																																																									initFlow,
-																																																																									laneSet,
-																																																																									lane,
-																																																																									ruleEntryContainer,
-																																																																									ruleResult });
+																																																																								divergeFlowToFlow) == null) {
+																																																																							for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																																																									.getOppositeReferenceTyped(
+																																																																											parallelStep,
+																																																																											Flow.class,
+																																																																											"steps")) {
+																																																																								if (!flow1
+																																																																										.equals(initFlow)) {
+																																																																									if (!flow
+																																																																											.equals(initFlow)) {
+																																																																										if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_17BB(
+																																																																												ruleResult,
+																																																																												initFlow) == null) {
+																																																																											_result.add(new Object[] {
+																																																																													inFlow1ToFlow1List,
+																																																																													process,
+																																																																													inFlow1,
+																																																																													inFlow1ToFlow1,
+																																																																													flow1,
+																																																																													step1,
+																																																																													inFlow1ToStep1,
+																																																																													parallelStep,
+																																																																													flow,
+																																																																													step,
+																																																																													inFlowToStep,
+																																																																													inFlow,
+																																																																													inFlowToFlow,
+																																																																													divergeFlowToFlow,
+																																																																													divergeFlow,
+																																																																													parallelGateway,
+																																																																													divergeFlow1,
+																																																																													divergeFlow1ToFlow1,
+																																																																													initFlow,
+																																																																													laneSet,
+																																																																													lane,
+																																																																													ruleEntryContainer,
+																																																																													ruleResult });
+																																																																										}
+																																																																									}
+																																																																								}
+																																																																							}
 																																																																						}
 																																																																					}
 																																																																				}
@@ -6905,7 +7382,6 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																									}
 																								}
 																							}
-
 																						}
 																					}
 																				}
@@ -6932,7 +7408,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingFBBBBBBBBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_3_bindingFBBBBBBBBBBBBBBBBBBBBBBB(
 			ParallelConvergingGatewayTwoInputsRule _this,
 			IsApplicableMatch isApplicableMatch, bpmn2.Process process,
 			SequenceFlow inFlow1, ParallelGateway parallelGateway,
@@ -6963,12 +7439,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_3_blackB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_3_blackB(
 			CSP csp) {
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_3_bindingAndBlackFBBBBBBBBBBBBBBBBBBBBBBB(
 			ParallelConvergingGatewayTwoInputsRule _this,
 			IsApplicableMatch isApplicableMatch, bpmn2.Process process,
 			SequenceFlow inFlow1, ParallelGateway parallelGateway,
@@ -6981,17 +7457,17 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			LaneSet laneSet, SequenceFlow divergeFlow,
 			SequenceFlowToUCFlow divergeFlowToFlow,
 			ModelgeneratorRuleResult ruleResult) {
-		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_binding = pattern_ParallelConvergingGatewayTwoInputsRule_19_3_bindingFBBBBBBBBBBBBBBBBBBBBBBB(
+		Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_20_3_binding = pattern_ParallelConvergingGatewayTwoInputsRule_20_3_bindingFBBBBBBBBBBBBBBBBBBBBBBB(
 				_this, isApplicableMatch, process, inFlow1, parallelGateway,
 				divergeFlow1, flow1, inFlow1ToFlow1, step1, inFlow1ToStep1,
 				parallelStep, divergeFlow1ToFlow1, inFlow, flow, inFlowToFlow,
 				step, inFlowToStep, initFlow, lane, laneSet, divergeFlow,
 				divergeFlowToFlow, ruleResult);
-		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_binding != null) {
-			CSP csp = (CSP) result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_binding[0];
+		if (result_pattern_ParallelConvergingGatewayTwoInputsRule_20_3_binding != null) {
+			CSP csp = (CSP) result_pattern_ParallelConvergingGatewayTwoInputsRule_20_3_binding[0];
 
-			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_black = pattern_ParallelConvergingGatewayTwoInputsRule_19_3_blackB(csp);
-			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_19_3_black != null) {
+			Object[] result_pattern_ParallelConvergingGatewayTwoInputsRule_20_3_black = pattern_ParallelConvergingGatewayTwoInputsRule_20_3_blackB(csp);
+			if (result_pattern_ParallelConvergingGatewayTwoInputsRule_20_3_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch, process,
 						inFlow1, parallelGateway, divergeFlow1, flow1,
@@ -7004,14 +7480,14 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_19_4_expressionFBB(
+	public static final boolean pattern_ParallelConvergingGatewayTwoInputsRule_20_4_expressionFBB(
 			ParallelConvergingGatewayTwoInputsRule _this, CSP csp) {
 		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_5_black_nac_0BBB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_5_black_nac_0BBB(
 			Step step, Step step1, ParallelStep parallelStep) {
 		if (!step.equals(step1)) {
 			if (!parallelStep.equals(step)) {
@@ -7034,7 +7510,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_5_blackBBBBBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_5_blackBBBBBBBBBBBBBBBBBBBB(
 			Step step, bpmn2.Process process, SequenceFlow inFlow1,
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
 			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
@@ -7073,7 +7549,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																					.equals(inFlow1ToFlow1)) {
 																				if (!divergeFlowToFlow
 																						.equals(inFlowToFlow)) {
-																					if (pattern_ParallelConvergingGatewayTwoInputsRule_19_5_black_nac_0BBB(
+																					if (pattern_ParallelConvergingGatewayTwoInputsRule_20_5_black_nac_0BBB(
 																							step,
 																							step1,
 																							parallelStep) == null) {
@@ -7121,7 +7597,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_6_blackBBBBBBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_6_blackBBBBBBBBBBBBBBBBBBBBB(
 			bpmn2.Process process, SequenceFlow inFlow1,
 			ParallelGateway parallelGateway, SequenceFlow divergeFlow1,
 			ParallelFlow flow1, SequenceFlowToUCFlow inFlow1ToFlow1,
@@ -7206,7 +7682,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_19_6_greenBBFBBFBFFBBB(
+	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_20_6_greenBBFBBFBFFBBB(
 			bpmn2.Process process, SequenceFlow inFlow1,
 			ParallelStep parallelStep, SequenceFlow inFlow, Flow initFlow,
 			Lane lane, ModelgeneratorRuleResult ruleResult, CSP csp) {
@@ -7221,6 +7697,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				"gatewayDirection");
 		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		process.getFlowElements().add(parallelConvGateway);
 		inFlow1.setTargetRef(parallelConvGateway);
 		inFlow.setTargetRef(parallelConvGateway);
 		lane.getFlowNodeRefs().add(parallelConvGateway);
@@ -7246,7 +7723,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				outFlowToParallelStep, lane, ruleResult, csp };
 	}
 
-	public static final ModelgeneratorRuleResult pattern_ParallelConvergingGatewayTwoInputsRule_19_7_expressionFB(
+	public static final ModelgeneratorRuleResult pattern_ParallelConvergingGatewayTwoInputsRule_20_7_expressionFB(
 			ModelgeneratorRuleResult ruleResult) {
 		ModelgeneratorRuleResult _result = ruleResult;
 		return _result;

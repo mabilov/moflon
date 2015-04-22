@@ -135,14 +135,15 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						"Pattern matching in node [collect elements to be translated] failed");
 			}
 			ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_0_4_greenBBBBBBFFFFFF(match,
-							task, process, inFlow, outFlow, lane);
-			// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result4_green[6];
-			// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result4_green[7];
-			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[8];
-			// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result4_green[9];
-			// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result4_green[10];
-			// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result4_green[11];
+					.pattern_ServiceTaskToStepRule_0_4_greenBBBBBBFFFFFFF(
+							match, task, process, inFlow, outFlow, lane);
+			// EMoflonEdge process__task____flowElements = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result4_green[12];
 
 			// collect context elements
 			Object[] result5_black = ServiceTaskToStepRuleImpl
@@ -241,25 +242,26 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFF(
+				.pattern_ServiceTaskToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
 						ruleresult, task, process, actor, inFlow, prevStep,
 						normalStep, outFlow, taskToNormalStep, outFlowToFlow,
 						outFlowToNormalStep, flow, lane);
-		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[26];
-		// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[28];
 
 		// perform postprocessing story node is empty
 		// register objects
@@ -323,29 +325,30 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 							inFlowToPrevStep, prevStep, outFlow, inFlowToFlow,
 							flow, laneSet, lane, flowNode)) {
 				Object[] result3_green = ServiceTaskToStepRuleImpl
-						.pattern_ServiceTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFF(
+						.pattern_ServiceTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
 								task, process, actor, processToActor, inFlow,
 								inFlowToPrevStep, prevStep, outFlow,
 								inFlowToFlow, flow, laneSet, lane, flowNode);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[13];
-				// EMoflonEdge processToActor__process____source = (EMoflonEdge) result3_green[14];
-				// EMoflonEdge processToActor__actor____target = (EMoflonEdge) result3_green[15];
-				// EMoflonEdge inFlowToPrevStep__inFlow____source = (EMoflonEdge) result3_green[16];
-				// EMoflonEdge inFlowToPrevStep__prevStep____target = (EMoflonEdge) result3_green[17];
-				// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[18];
-				// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[19];
-				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[20];
-				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[21];
-				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[22];
-				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[23];
-				// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[24];
-				// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[25];
-				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[26];
-				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[27];
-				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[28];
-				// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[29];
-				// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result3_green[30];
-				// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge processToActor__process____source = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge processToActor__actor____target = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge inFlowToPrevStep__inFlow____source = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge inFlowToPrevStep__prevStep____target = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[27];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[29];
+				// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[30];
+				// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result3_green[32];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = ServiceTaskToStepRuleImpl
@@ -686,25 +689,26 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFF(
+				.pattern_ServiceTaskToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
 						ruleresult, task, process, actor, inFlow, prevStep,
 						normalStep, outFlow, taskToNormalStep, outFlowToFlow,
 						outFlowToNormalStep, flow, lane);
-		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[26];
-		// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge process__task____flowElements = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge prevStep__normalStep____next = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge inFlow__task____targetRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge task__inFlow____incoming = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge outFlow__task____sourceRef = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge task__outFlow____outgoing = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge taskToNormalStep__task____source = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge taskToNormalStep__normalStep____target = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[25];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[26];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[27];
+		// EMoflonEdge lane__task____flowNodeRefs = (EMoflonEdge) result3_green[28];
 
 		// perform postprocessing story node is empty
 		// register objects
@@ -989,8 +993,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_5(
-			EMoflonEdge _edge_next) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_8(
+			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_20_1_bindingAndBlackFFB(this);
@@ -1006,19 +1010,23 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_20_2_blackFFFFB(_edge_next)) {
-			Actor actor = (Actor) result2_black[0];
-			Step prevStep = (Step) result2_black[1];
-			NormalStep normalStep = (NormalStep) result2_black[2];
-			Flow flow = (Flow) result2_black[3];
+				.pattern_ServiceTaskToStepRule_20_2_blackFFFFFFFB(_edge_flowElements)) {
+			ServiceTask task = (ServiceTask) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Lane lane = (Lane) result2_black[5];
+			FlowNode flowNode = (FlowNode) result2_black[6];
 			Object[] result2_green = ServiceTaskToStepRuleImpl
 					.pattern_ServiceTaskToStepRule_20_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_20_3_expressionFBBBBBB(this,
-							match, actor, prevStep, normalStep, flow)) {
+					.pattern_ServiceTaskToStepRule_20_3_expressionFBBBBBBBBB(
+							this, match, task, process, inFlow, outFlow,
+							laneSet, lane, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (ServiceTaskToStepRuleImpl
 						.pattern_ServiceTaskToStepRule_20_4_expressionFBB(this,
@@ -1052,8 +1060,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_8(
-			EMoflonEdge _edge_targetRef) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_5(
+			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_21_1_bindingAndBlackFFB(this);
@@ -1069,23 +1077,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_21_2_blackFFFFFFFB(_edge_targetRef)) {
-			ServiceTask task = (ServiceTask) result2_black[0];
-			bpmn2.Process process = (bpmn2.Process) result2_black[1];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
-			LaneSet laneSet = (LaneSet) result2_black[4];
-			Lane lane = (Lane) result2_black[5];
-			FlowNode flowNode = (FlowNode) result2_black[6];
+				.pattern_ServiceTaskToStepRule_21_2_blackFFFFB(_edge_next)) {
+			Actor actor = (Actor) result2_black[0];
+			Step prevStep = (Step) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			Flow flow = (Flow) result2_black[3];
 			Object[] result2_green = ServiceTaskToStepRuleImpl
 					.pattern_ServiceTaskToStepRule_21_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_21_3_expressionFBBBBBBBBB(
-							this, match, task, process, inFlow, outFlow,
-							laneSet, lane, flowNode)) {
+					.pattern_ServiceTaskToStepRule_21_3_expressionFBBBBBB(this,
+							match, actor, prevStep, normalStep, flow)) {
 				// Ensure that the correct types of elements are matched
 				if (ServiceTaskToStepRuleImpl
 						.pattern_ServiceTaskToStepRule_21_4_expressionFBB(this,
@@ -1120,7 +1124,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_9(
-			EMoflonEdge _edge_incoming) {
+			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_22_1_bindingAndBlackFFB(this);
@@ -1136,7 +1140,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_22_2_blackFFFFFFFB(_edge_incoming)) {
+				.pattern_ServiceTaskToStepRule_22_2_blackFFFFFFFB(_edge_targetRef)) {
 			ServiceTask task = (ServiceTask) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1187,7 +1191,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_10(
-			EMoflonEdge _edge_flowElements) {
+			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_23_1_bindingAndBlackFFB(this);
@@ -1203,7 +1207,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_23_2_blackFFFFFFFB(_edge_flowElements)) {
+				.pattern_ServiceTaskToStepRule_23_2_blackFFFFFFFB(_edge_incoming)) {
 			ServiceTask task = (ServiceTask) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1254,7 +1258,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_11(
-			EMoflonEdge _edge_sourceRef) {
+			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_24_1_bindingAndBlackFFB(this);
@@ -1270,7 +1274,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_24_2_blackFFFFFFFB(_edge_sourceRef)) {
+				.pattern_ServiceTaskToStepRule_24_2_blackFFFFFFFB(_edge_flowElements)) {
 			ServiceTask task = (ServiceTask) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1321,7 +1325,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public EObjectContainer isAppropriate_FWD_EMoflonEdge_12(
-			EMoflonEdge _edge_outgoing) {
+			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_25_1_bindingAndBlackFFB(this);
@@ -1337,7 +1341,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_25_2_blackFFFFFFFB(_edge_outgoing)) {
+				.pattern_ServiceTaskToStepRule_25_2_blackFFFFFFFB(_edge_sourceRef)) {
 			ServiceTask task = (ServiceTask) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
@@ -1387,8 +1391,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_6(
-			EMoflonEdge _edge_actor) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_13(
+			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_26_1_bindingAndBlackFFB(this);
@@ -1404,19 +1408,23 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_26_2_blackFFFFB(_edge_actor)) {
-			Actor actor = (Actor) result2_black[0];
-			Step prevStep = (Step) result2_black[1];
-			NormalStep normalStep = (NormalStep) result2_black[2];
-			Flow flow = (Flow) result2_black[3];
+				.pattern_ServiceTaskToStepRule_26_2_blackFFFFFFFB(_edge_outgoing)) {
+			ServiceTask task = (ServiceTask) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Lane lane = (Lane) result2_black[5];
+			FlowNode flowNode = (FlowNode) result2_black[6];
 			Object[] result2_green = ServiceTaskToStepRuleImpl
 					.pattern_ServiceTaskToStepRule_26_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_26_3_expressionFBBBBBB(this,
-							match, actor, prevStep, normalStep, flow)) {
+					.pattern_ServiceTaskToStepRule_26_3_expressionFBBBBBBBBB(
+							this, match, task, process, inFlow, outFlow,
+							laneSet, lane, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (ServiceTaskToStepRuleImpl
 						.pattern_ServiceTaskToStepRule_26_4_expressionFBB(this,
@@ -1450,8 +1458,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_7(
-			EMoflonEdge _edge_steps) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_6(
+			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_27_1_bindingAndBlackFFB(this);
@@ -1467,7 +1475,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_27_2_blackFFFFB(_edge_steps)) {
+				.pattern_ServiceTaskToStepRule_27_2_blackFFFFB(_edge_actor)) {
 			Actor actor = (Actor) result2_black[0];
 			Step prevStep = (Step) result2_black[1];
 			NormalStep normalStep = (NormalStep) result2_black[2];
@@ -1513,8 +1521,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_13(
-			EMoflonEdge _edge_flowNodeRefs) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_7(
+			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
 				.pattern_ServiceTaskToStepRule_28_1_bindingAndBlackFFB(this);
@@ -1530,23 +1538,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_28_2_blackFFFFFFFB(_edge_flowNodeRefs)) {
-			ServiceTask task = (ServiceTask) result2_black[0];
-			bpmn2.Process process = (bpmn2.Process) result2_black[1];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
-			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
-			LaneSet laneSet = (LaneSet) result2_black[4];
-			Lane lane = (Lane) result2_black[5];
-			FlowNode flowNode = (FlowNode) result2_black[6];
+				.pattern_ServiceTaskToStepRule_28_2_blackFFFFB(_edge_steps)) {
+			Actor actor = (Actor) result2_black[0];
+			Step prevStep = (Step) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[2];
+			Flow flow = (Flow) result2_black[3];
 			Object[] result2_green = ServiceTaskToStepRuleImpl
 					.pattern_ServiceTaskToStepRule_28_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_28_3_expressionFBBBBBBBBB(
-							this, match, task, process, inFlow, outFlow,
-							laneSet, lane, flowNode)) {
+					.pattern_ServiceTaskToStepRule_28_3_expressionFBBBBBB(this,
+							match, actor, prevStep, normalStep, flow)) {
 				// Ensure that the correct types of elements are matched
 				if (ServiceTaskToStepRuleImpl
 						.pattern_ServiceTaskToStepRule_28_4_expressionFBB(this,
@@ -1580,6 +1584,73 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_14(
+			EMoflonEdge _edge_flowNodeRefs) {
+		// prepare return value
+		Object[] result1_bindingAndBlack = ServiceTaskToStepRuleImpl
+				.pattern_ServiceTaskToStepRule_29_1_bindingAndBlackFFB(this);
+		if (result1_bindingAndBlack == null) {
+			throw new RuntimeException(
+					"Pattern matching in node [prepare return value] failed");
+		}
+		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
+		EClass __eClass = (EClass) result1_bindingAndBlack[1];
+		Object[] result1_green = ServiceTaskToStepRuleImpl
+				.pattern_ServiceTaskToStepRule_29_1_greenF();
+		EObjectContainer __result = (EObjectContainer) result1_green[0];
+
+		// ForEach test core match and DECs
+		for (Object[] result2_black : ServiceTaskToStepRuleImpl
+				.pattern_ServiceTaskToStepRule_29_2_blackFFFFFFFB(_edge_flowNodeRefs)) {
+			ServiceTask task = (ServiceTask) result2_black[0];
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			SequenceFlow outFlow = (SequenceFlow) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Lane lane = (Lane) result2_black[5];
+			FlowNode flowNode = (FlowNode) result2_black[6];
+			Object[] result2_green = ServiceTaskToStepRuleImpl
+					.pattern_ServiceTaskToStepRule_29_2_greenFB(__eClass);
+			Match match = (Match) result2_green[0];
+
+			// bookkeeping with generic isAppropriate method
+			if (ServiceTaskToStepRuleImpl
+					.pattern_ServiceTaskToStepRule_29_3_expressionFBBBBBBBBB(
+							this, match, task, process, inFlow, outFlow,
+							laneSet, lane, flowNode)) {
+				// Ensure that the correct types of elements are matched
+				if (ServiceTaskToStepRuleImpl
+						.pattern_ServiceTaskToStepRule_29_4_expressionFBB(this,
+								match)) {
+
+					// Add match to rule result
+					Object[] result5_black = ServiceTaskToStepRuleImpl
+							.pattern_ServiceTaskToStepRule_29_5_blackBBB(match,
+									__performOperation, __result);
+					if (result5_black == null) {
+						throw new RuntimeException(
+								"Pattern matching in node [Add match to rule result] failed");
+					}
+					ServiceTaskToStepRuleImpl
+							.pattern_ServiceTaskToStepRule_29_5_greenBBB(match,
+									__performOperation, __result);
+
+				} else {
+				}
+
+			} else {
+			}
+
+		}
+		return ServiceTaskToStepRuleImpl
+				.pattern_ServiceTaskToStepRule_29_6_expressionFB(__result);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
 		return null;
 	}
@@ -1603,19 +1674,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			SequenceFlowToStep inFlowToPrevStepParameter) {
 		// create result
 		Object[] result1_black = ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_31_1_blackB(this);
+				.pattern_ServiceTaskToStepRule_32_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [create result] failed");
 		}
 		Object[] result1_green = ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_31_1_greenFF();
+				.pattern_ServiceTaskToStepRule_32_1_greenFF();
 		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
 		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
 		// ForEach is applicable core
 		for (Object[] result2_black : ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_31_2_blackFFFFFFFFFFFFBB(
+				.pattern_ServiceTaskToStepRule_32_2_blackFFFFFFFFFFFFBB(
 						ruleEntryContainer, ruleResult)) {
 			// RuleEntryList inFlowToPrevStepList = (RuleEntryList) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
@@ -1632,7 +1703,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_31_3_bindingAndBlackFBBBBBBBBBBBBBB(
+					.pattern_ServiceTaskToStepRule_32_3_bindingAndBlackFBBBBBBBBBBBBBB(
 							this, isApplicableMatch, process, actor,
 							processToActor, inFlow, inFlowToPrevStep, prevStep,
 							inFlowToFlow, flow, laneSet, lane, flowNode,
@@ -1644,10 +1715,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
 			if (ServiceTaskToStepRuleImpl
-					.pattern_ServiceTaskToStepRule_31_4_expressionFBB(this, csp)) {
+					.pattern_ServiceTaskToStepRule_32_4_expressionFBB(this, csp)) {
 				// check nacs
 				Object[] result5_black = ServiceTaskToStepRuleImpl
-						.pattern_ServiceTaskToStepRule_31_5_blackBBBBBBBBBBB(
+						.pattern_ServiceTaskToStepRule_32_5_blackBBBBBBBBBBB(
 								process, actor, processToActor, inFlow,
 								inFlowToPrevStep, prevStep, inFlowToFlow, flow,
 								laneSet, lane, flowNode);
@@ -1655,7 +1726,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 					// perform
 					Object[] result6_black = ServiceTaskToStepRuleImpl
-							.pattern_ServiceTaskToStepRule_31_6_blackBBBBBBBBBBBB(
+							.pattern_ServiceTaskToStepRule_32_6_blackBBBBBBBBBBBB(
 									process, actor, processToActor, inFlow,
 									inFlowToPrevStep, prevStep, inFlowToFlow,
 									flow, laneSet, lane, flowNode, ruleResult);
@@ -1664,7 +1735,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								"Pattern matching in node [perform] failed");
 					}
 					ServiceTaskToStepRuleImpl
-							.pattern_ServiceTaskToStepRule_31_6_greenFBBBBFFFFFBBBB(
+							.pattern_ServiceTaskToStepRule_32_6_greenFBBBBFFFFFBBBB(
 									process, actor, inFlow, prevStep, flow,
 									lane, ruleResult, csp);
 					// ServiceTask task = (ServiceTask) result6_green[0];
@@ -1682,7 +1753,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 		}
 		return ServiceTaskToStepRuleImpl
-				.pattern_ServiceTaskToStepRule_31_7_expressionFB(ruleResult);
+				.pattern_ServiceTaskToStepRule_32_7_expressionFB(ruleResult);
 	}
 
 	/**
@@ -1868,11 +1939,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_5__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_5((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_8__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_8((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_5__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_5((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_9__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_9((EMoflonEdge) arguments
@@ -1886,14 +1957,17 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_12__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_12((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_13__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_13((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_6__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_6((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_7__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_7((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_13__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_13((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_14__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_14((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1992,9 +2066,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_0_4_greenBBBBBBFFFFFF(
+	public static final Object[] pattern_ServiceTaskToStepRule_0_4_greenBBBBBBFFFFFFF(
 			Match match, ServiceTask task, bpmn2.Process process,
 			SequenceFlow inFlow, SequenceFlow outFlow, Lane lane) {
+		EMoflonEdge process__task____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge inFlow__task____targetRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge task__inFlow____incoming = TGGRuntimeFactory.eINSTANCE
@@ -2009,12 +2085,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(task);
 		match.getToBeTranslatedNodes().add(outFlow);
+		String process__task____flowElements_name_prime = "flowElements";
 		String inFlow__task____targetRef_name_prime = "targetRef";
 		String task__inFlow____incoming_name_prime = "incoming";
 		String process__outFlow____flowElements_name_prime = "flowElements";
 		String outFlow__task____sourceRef_name_prime = "sourceRef";
 		String task__outFlow____outgoing_name_prime = "outgoing";
 		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__task____flowElements.setSrc(process);
+		process__task____flowElements.setTrg(task);
+		match.getToBeTranslatedEdges().add(process__task____flowElements);
 		inFlow__task____targetRef.setSrc(inFlow);
 		inFlow__task____targetRef.setTrg(task);
 		match.getToBeTranslatedEdges().add(inFlow__task____targetRef);
@@ -2033,6 +2113,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		lane__task____flowNodeRefs.setSrc(lane);
 		lane__task____flowNodeRefs.setTrg(task);
 		match.getToBeTranslatedEdges().add(lane__task____flowNodeRefs);
+		process__task____flowElements
+				.setName(process__task____flowElements_name_prime);
 		inFlow__task____targetRef.setName(inFlow__task____targetRef_name_prime);
 		task__inFlow____incoming.setName(task__inFlow____incoming_name_prime);
 		process__outFlow____flowElements
@@ -2043,9 +2125,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		lane__task____flowNodeRefs
 				.setName(lane__task____flowNodeRefs_name_prime);
 		return new Object[] { match, task, process, inFlow, outFlow, lane,
-				inFlow__task____targetRef, task__inFlow____incoming,
-				process__outFlow____flowElements, outFlow__task____sourceRef,
-				task__outFlow____outgoing, lane__task____flowNodeRefs };
+				process__task____flowElements, inFlow__task____targetRef,
+				task__inFlow____incoming, process__outFlow____flowElements,
+				outFlow__task____sourceRef, task__outFlow____outgoing,
+				lane__task____flowNodeRefs };
 	}
 
 	public static final Object[] pattern_ServiceTaskToStepRule_0_5_blackBBBBBBBB(
@@ -2766,12 +2849,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_ServiceTaskToStepRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
 			PerformRuleResult ruleresult, EObject task, EObject process,
 			EObject actor, EObject inFlow, EObject prevStep,
 			EObject normalStep, EObject outFlow, EObject taskToNormalStep,
 			EObject outFlowToFlow, EObject outFlowToNormalStep, EObject flow,
 			EObject lane) {
+		EMoflonEdge process__task____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlow__task____targetRef = TGGRuntimeFactory.eINSTANCE
@@ -2803,6 +2888,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge lane__task____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "ServiceTaskToStepRule";
+		String process__task____flowElements_name_prime = "flowElements";
 		String prevStep__normalStep____next_name_prime = "next";
 		String inFlow__task____targetRef_name_prime = "targetRef";
 		String task__inFlow____incoming_name_prime = "incoming";
@@ -2818,6 +2904,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		String outFlowToNormalStep__normalStep____target_name_prime = "target";
 		String flow__normalStep____steps_name_prime = "steps";
 		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__task____flowElements.setSrc(process);
+		process__task____flowElements.setTrg(task);
+		ruleresult.getTranslatedEdges().add(process__task____flowElements);
 		prevStep__normalStep____next.setSrc(prevStep);
 		prevStep__normalStep____next.setTrg(normalStep);
 		ruleresult.getCreatedEdges().add(prevStep__normalStep____next);
@@ -2867,6 +2956,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		lane__task____flowNodeRefs.setTrg(task);
 		ruleresult.getTranslatedEdges().add(lane__task____flowNodeRefs);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		process__task____flowElements
+				.setName(process__task____flowElements_name_prime);
 		prevStep__normalStep____next
 				.setName(prevStep__normalStep____next_name_prime);
 		inFlow__task____targetRef.setName(inFlow__task____targetRef_name_prime);
@@ -2895,11 +2986,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.setName(lane__task____flowNodeRefs_name_prime);
 		return new Object[] { ruleresult, task, process, actor, inFlow,
 				prevStep, normalStep, outFlow, taskToNormalStep, outFlowToFlow,
-				outFlowToNormalStep, flow, lane, prevStep__normalStep____next,
-				inFlow__task____targetRef, task__inFlow____incoming,
-				process__outFlow____flowElements, outFlow__task____sourceRef,
-				task__outFlow____outgoing, normalStep__actor____actor,
-				taskToNormalStep__task____source,
+				outFlowToNormalStep, flow, lane, process__task____flowElements,
+				prevStep__normalStep____next, inFlow__task____targetRef,
+				task__inFlow____incoming, process__outFlow____flowElements,
+				outFlow__task____sourceRef, task__outFlow____outgoing,
+				normalStep__actor____actor, taskToNormalStep__task____source,
 				taskToNormalStep__normalStep____target,
 				outFlowToFlow__outFlow____source,
 				outFlowToFlow__flow____target,
@@ -3075,50 +3166,54 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!inFlow.equals(outFlow)) {
 			if (!flowNode.equals(task)) {
-				if (process.equals(processToActor.getSource())) {
-					if (actor.equals(processToActor.getTarget())) {
-						if (inFlow.equals(inFlowToPrevStep.getSource())) {
-							if (prevStep.equals(inFlowToPrevStep.getTarget())) {
-								if (task.equals(inFlow.getTargetRef())) {
-									if (process.getFlowElements().contains(
-											flowNode)) {
-										if (process.getLaneSets().contains(
-												laneSet)) {
-											if (process.getFlowElements()
-													.contains(inFlow)) {
+				if (process.getFlowElements().contains(task)) {
+					if (process.equals(processToActor.getSource())) {
+						if (actor.equals(processToActor.getTarget())) {
+							if (inFlow.equals(inFlowToPrevStep.getSource())) {
+								if (prevStep.equals(inFlowToPrevStep
+										.getTarget())) {
+									if (task.equals(inFlow.getTargetRef())) {
+										if (process.getFlowElements().contains(
+												flowNode)) {
+											if (process.getLaneSets().contains(
+													laneSet)) {
 												if (process.getFlowElements()
-														.contains(outFlow)) {
-													if (task.equals(outFlow
-															.getSourceRef())) {
-														if (inFlow
-																.equals(inFlowToFlow
-																		.getSource())) {
-															if (flow.equals(inFlowToFlow
-																	.getTarget())) {
-																if (laneSet
-																		.getLanes()
-																		.contains(
-																				lane)) {
-																	if (lane.getFlowNodeRefs()
+														.contains(inFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(outFlow)) {
+														if (task.equals(outFlow
+																.getSourceRef())) {
+															if (inFlow
+																	.equals(inFlowToFlow
+																			.getSource())) {
+																if (flow.equals(inFlowToFlow
+																		.getTarget())) {
+																	if (laneSet
+																			.getLanes()
 																			.contains(
-																					task)) {
-																		if (flowNode
-																				.equals(inFlow
-																						.getSourceRef())) {
-																			_result.add(new Object[] {
-																					task,
-																					process,
-																					actor,
-																					processToActor,
-																					inFlow,
-																					inFlowToPrevStep,
-																					prevStep,
-																					outFlow,
-																					inFlowToFlow,
-																					flow,
-																					laneSet,
-																					lane,
-																					flowNode });
+																					lane)) {
+																		if (lane.getFlowNodeRefs()
+																				.contains(
+																						task)) {
+																			if (flowNode
+																					.equals(inFlow
+																							.getSourceRef())) {
+																				_result.add(new Object[] {
+																						task,
+																						process,
+																						actor,
+																						processToActor,
+																						inFlow,
+																						inFlowToPrevStep,
+																						prevStep,
+																						outFlow,
+																						inFlowToFlow,
+																						flow,
+																						laneSet,
+																						lane,
+																						flowNode });
+																			}
 																		}
 																	}
 																}
@@ -3139,7 +3234,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_ServiceTaskToStepRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
 			ServiceTask task, bpmn2.Process process, Actor actor,
 			ProcessToActor processToActor, SequenceFlow inFlow,
 			SequenceFlowToStep inFlowToPrevStep, Step prevStep,
@@ -3147,6 +3242,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			LaneSet laneSet, Lane lane, FlowNode flowNode) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
+		EMoflonEdge process__task____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge processToActor__process____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge processToActor__actor____target = TGGRuntimeFactory.eINSTANCE
@@ -3183,6 +3280,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge flowNode__inFlow____outgoing = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		String process__task____flowElements_name_prime = "flowElements";
 		String processToActor__process____source_name_prime = "source";
 		String processToActor__actor____target_name_prime = "target";
 		String inFlowToPrevStep__inFlow____source_name_prime = "source";
@@ -3214,6 +3312,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAllContextElements().add(laneSet);
 		isApplicableMatch.getAllContextElements().add(lane);
 		isApplicableMatch.getAllContextElements().add(flowNode);
+		process__task____flowElements.setSrc(process);
+		process__task____flowElements.setTrg(task);
+		isApplicableMatch.getAllContextElements().add(
+				process__task____flowElements);
 		processToActor__process____source.setSrc(processToActor);
 		processToActor__process____source.setTrg(process);
 		isApplicableMatch.getAllContextElements().add(
@@ -3284,6 +3386,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		flowNode__inFlow____outgoing.setTrg(inFlow);
 		isApplicableMatch.getAllContextElements().add(
 				flowNode__inFlow____outgoing);
+		process__task____flowElements
+				.setName(process__task____flowElements_name_prime);
 		processToActor__process____source
 				.setName(processToActor__process____source_name_prime);
 		processToActor__actor____target
@@ -3319,6 +3423,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { task, process, actor, processToActor, inFlow,
 				inFlowToPrevStep, prevStep, outFlow, inFlowToFlow, flow,
 				laneSet, lane, flowNode, isApplicableMatch,
+				process__task____flowElements,
 				processToActor__process____source,
 				processToActor__actor____target,
 				inFlowToPrevStep__inFlow____source,
@@ -3689,6 +3794,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.createSequenceFlowToStep();
 		Object _localVariable_0 = csp.getValue("task", "id");
 		Object _localVariable_1 = csp.getValue("task", "name");
+		process.getFlowElements().add(task);
 		inFlow.setTargetRef(task);
 		lane.getFlowNodeRefs().add(task);
 		process.getFlowElements().add(outFlow);
@@ -4159,12 +4265,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_ServiceTaskToStepRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFF(
 			PerformRuleResult ruleresult, EObject task, EObject process,
 			EObject actor, EObject inFlow, EObject prevStep,
 			EObject normalStep, EObject outFlow, EObject taskToNormalStep,
 			EObject outFlowToFlow, EObject outFlowToNormalStep, EObject flow,
 			EObject lane) {
+		EMoflonEdge process__task____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge prevStep__normalStep____next = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlow__task____targetRef = TGGRuntimeFactory.eINSTANCE
@@ -4196,6 +4304,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge lane__task____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "ServiceTaskToStepRule";
+		String process__task____flowElements_name_prime = "flowElements";
 		String prevStep__normalStep____next_name_prime = "next";
 		String inFlow__task____targetRef_name_prime = "targetRef";
 		String task__inFlow____incoming_name_prime = "incoming";
@@ -4211,6 +4320,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		String outFlowToNormalStep__normalStep____target_name_prime = "target";
 		String flow__normalStep____steps_name_prime = "steps";
 		String lane__task____flowNodeRefs_name_prime = "flowNodeRefs";
+		process__task____flowElements.setSrc(process);
+		process__task____flowElements.setTrg(task);
+		ruleresult.getCreatedEdges().add(process__task____flowElements);
 		prevStep__normalStep____next.setSrc(prevStep);
 		prevStep__normalStep____next.setTrg(normalStep);
 		ruleresult.getTranslatedEdges().add(prevStep__normalStep____next);
@@ -4260,6 +4372,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		lane__task____flowNodeRefs.setTrg(task);
 		ruleresult.getCreatedEdges().add(lane__task____flowNodeRefs);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
+		process__task____flowElements
+				.setName(process__task____flowElements_name_prime);
 		prevStep__normalStep____next
 				.setName(prevStep__normalStep____next_name_prime);
 		inFlow__task____targetRef.setName(inFlow__task____targetRef_name_prime);
@@ -4288,11 +4402,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				.setName(lane__task____flowNodeRefs_name_prime);
 		return new Object[] { ruleresult, task, process, actor, inFlow,
 				prevStep, normalStep, outFlow, taskToNormalStep, outFlowToFlow,
-				outFlowToNormalStep, flow, lane, prevStep__normalStep____next,
-				inFlow__task____targetRef, task__inFlow____incoming,
-				process__outFlow____flowElements, outFlow__task____sourceRef,
-				task__outFlow____outgoing, normalStep__actor____actor,
-				taskToNormalStep__task____source,
+				outFlowToNormalStep, flow, lane, process__task____flowElements,
+				prevStep__normalStep____next, inFlow__task____targetRef,
+				task__inFlow____incoming, process__outFlow____flowElements,
+				outFlow__task____sourceRef, task__outFlow____outgoing,
+				normalStep__actor____actor, taskToNormalStep__task____source,
 				taskToNormalStep__normalStep____target,
 				outFlowToFlow__outFlow____source,
 				outFlowToFlow__flow____target,
@@ -4763,7 +4877,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, ServiceTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -4794,27 +4908,92 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_20_2_blackFFFFB(
-			EMoflonEdge _edge_next) {
+	public static final Object[] pattern_ServiceTaskToStepRule_20_2_black_nac_0BB(
+			SequenceFlow outFlow, FlowNode flowNode) {
+		for (ExclusiveGateway __DEC_outFlow_default_416810 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!flowNode.equals(__DEC_outFlow_default_416810)) {
+				return new Object[] { outFlow, flowNode };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_20_2_black_nac_1BB(
+			SequenceFlow outFlow, ServiceTask task) {
+		if (task.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, task };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_20_2_blackFFFFFFFB(
+			EMoflonEdge _edge_flowElements) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpPrevStep = _edge_next.getSrc();
-		if (tmpPrevStep instanceof Step) {
-			Step prevStep = (Step) tmpPrevStep;
-			EObject tmpNormalStep = _edge_next.getTrg();
-			if (tmpNormalStep instanceof NormalStep) {
-				NormalStep normalStep = (NormalStep) tmpNormalStep;
-				if (!normalStep.equals(prevStep)) {
-					if (normalStep.equals(prevStep.getNext())) {
-						Actor actor = normalStep.getActor();
-						if (actor != null) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(normalStep,
-											Flow.class, "steps")) {
-								_result.add(new Object[] { actor, prevStep,
-										normalStep, flow, _edge_next });
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpTask = _edge_flowElements.getTrg();
+			if (tmpTask instanceof ServiceTask) {
+				ServiceTask task = (ServiceTask) tmpTask;
+				if (process.getFlowElements().contains(task)) {
+					for (FlowElement tmpFlowNode : process.getFlowElements()) {
+						if (tmpFlowNode instanceof FlowNode) {
+							FlowNode flowNode = (FlowNode) tmpFlowNode;
+							if (!flowNode.equals(task)) {
+								for (LaneSet laneSet : process.getLaneSets()) {
+									for (FlowElement tmpInFlow : process
+											.getFlowElements()) {
+										if (tmpInFlow instanceof SequenceFlow) {
+											SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+											if (task.equals(inFlow
+													.getTargetRef())) {
+												if (flowNode.equals(inFlow
+														.getSourceRef())) {
+													for (FlowElement tmpOutFlow : process
+															.getFlowElements()) {
+														if (tmpOutFlow instanceof SequenceFlow) {
+															SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+															if (!inFlow
+																	.equals(outFlow)) {
+																if (task.equals(outFlow
+																		.getSourceRef())) {
+																	if (pattern_ServiceTaskToStepRule_20_2_black_nac_0BB(
+																			outFlow,
+																			flowNode) == null) {
+																		if (pattern_ServiceTaskToStepRule_20_2_black_nac_1BB(
+																				outFlow,
+																				task) == null) {
+																			for (Lane lane : laneSet
+																					.getLanes()) {
+																				if (lane.getFlowNodeRefs()
+																						.contains(
+																								task)) {
+																					_result.add(new Object[] {
+																							task,
+																							process,
+																							inFlow,
+																							outFlow,
+																							laneSet,
+																							lane,
+																							flowNode,
+																							_edge_flowElements });
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
 							}
 						}
-
 					}
 				}
 			}
@@ -4834,18 +5013,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_ServiceTaskToStepRule_20_3_expressionFBBBBBB(
-			ServiceTaskToStepRule _this, Match match, Actor actor,
-			Step prevStep, NormalStep normalStep, Flow flow) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
-				prevStep, normalStep, flow);
+	public static final boolean pattern_ServiceTaskToStepRule_20_3_expressionFBBBBBBBBB(
+			ServiceTaskToStepRule _this, Match match, ServiceTask task,
+			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, task,
+				process, inFlow, outFlow, laneSet, lane, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_ServiceTaskToStepRule_20_4_expressionFBB(
 			ServiceTaskToStepRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -4884,7 +5064,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, ServiceTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
+			if (__performOperationname.equals("isApplicable_BWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -4915,101 +5095,28 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_21_2_black_nac_0BB(
-			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_613188 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
-						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_613188)) {
-				return new Object[] { outFlow, flowNode };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_21_2_black_nac_1BB(
-			bpmn2.Process process, ServiceTask task) {
-		if (process.getFlowElements().contains(task)) {
-			return new Object[] { process, task };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_21_2_black_nac_2BB(
-			SequenceFlow outFlow, ServiceTask task) {
-		if (task.equals(outFlow.getTargetRef())) {
-			return new Object[] { outFlow, task };
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_21_2_blackFFFFFFFB(
-			EMoflonEdge _edge_targetRef) {
+	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_21_2_blackFFFFB(
+			EMoflonEdge _edge_next) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInFlow = _edge_targetRef.getSrc();
-		if (tmpInFlow instanceof SequenceFlow) {
-			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-			EObject tmpTask = _edge_targetRef.getTrg();
-			if (tmpTask instanceof ServiceTask) {
-				ServiceTask task = (ServiceTask) tmpTask;
-				if (task.equals(inFlow.getTargetRef())) {
-					FlowNode flowNode = inFlow.getSourceRef();
-					if (flowNode != null) {
-						if (!flowNode.equals(task)) {
-							for (SequenceFlow outFlow : task.getOutgoing()) {
-								if (!inFlow.equals(outFlow)) {
-									if (pattern_ServiceTaskToStepRule_21_2_black_nac_0BB(
-											outFlow, flowNode) == null) {
-										if (pattern_ServiceTaskToStepRule_21_2_black_nac_2BB(
-												outFlow, task) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-													.getOppositeReferenceTyped(
-															inFlow,
-															FlowElementsContainer.class,
-															"flowElements")) {
-												if (tmpProcess instanceof bpmn2.Process) {
-													bpmn2.Process process = (bpmn2.Process) tmpProcess;
-													if (process
-															.getFlowElements()
-															.contains(flowNode)) {
-														if (process
-																.getFlowElements()
-																.contains(
-																		outFlow)) {
-															if (pattern_ServiceTaskToStepRule_21_2_black_nac_1BB(
-																	process,
-																	task) == null) {
-																for (LaneSet laneSet : process
-																		.getLaneSets()) {
-																	for (Lane lane : laneSet
-																			.getLanes()) {
-																		if (lane.getFlowNodeRefs()
-																				.contains(
-																						task)) {
-																			_result.add(new Object[] {
-																					task,
-																					process,
-																					inFlow,
-																					outFlow,
-																					laneSet,
-																					lane,
-																					flowNode,
-																					_edge_targetRef });
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
+		EObject tmpPrevStep = _edge_next.getSrc();
+		if (tmpPrevStep instanceof Step) {
+			Step prevStep = (Step) tmpPrevStep;
+			EObject tmpNormalStep = _edge_next.getTrg();
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (!normalStep.equals(prevStep)) {
+					if (normalStep.equals(prevStep.getNext())) {
+						Actor actor = normalStep.getActor();
+						if (actor != null) {
+							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											Flow.class, "steps")) {
+								_result.add(new Object[] { actor, prevStep,
+										normalStep, flow, _edge_next });
 							}
 						}
-					}
 
+					}
 				}
 			}
 
@@ -5028,19 +5135,18 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_ServiceTaskToStepRule_21_3_expressionFBBBBBBBBB(
-			ServiceTaskToStepRule _this, Match match, ServiceTask task,
-			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
-			LaneSet laneSet, Lane lane, FlowNode flowNode) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, task,
-				process, inFlow, outFlow, laneSet, lane, flowNode);
+	public static final boolean pattern_ServiceTaskToStepRule_21_3_expressionFBBBBBB(
+			ServiceTaskToStepRule _this, Match match, Actor actor,
+			Step prevStep, NormalStep normalStep, Flow flow) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
+				prevStep, normalStep, flow);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_ServiceTaskToStepRule_21_4_expressionFBB(
 			ServiceTaskToStepRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5112,10 +5218,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_929945 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_567864 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_929945)) {
+			if (!flowNode.equals(__DEC_outFlow_default_567864)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5123,14 +5229,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ServiceTaskToStepRule_22_2_black_nac_1BB(
-			bpmn2.Process process, ServiceTask task) {
-		if (process.getFlowElements().contains(task)) {
-			return new Object[] { process, task };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_22_2_black_nac_2BB(
 			SequenceFlow outFlow, ServiceTask task) {
 		if (task.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, task };
@@ -5139,14 +5237,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_22_2_blackFFFFFFFB(
-			EMoflonEdge _edge_incoming) {
+			EMoflonEdge _edge_targetRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpTask = _edge_incoming.getSrc();
-		if (tmpTask instanceof ServiceTask) {
-			ServiceTask task = (ServiceTask) tmpTask;
-			EObject tmpInFlow = _edge_incoming.getTrg();
-			if (tmpInFlow instanceof SequenceFlow) {
-				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+		EObject tmpInFlow = _edge_targetRef.getSrc();
+		if (tmpInFlow instanceof SequenceFlow) {
+			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+			EObject tmpTask = _edge_targetRef.getTrg();
+			if (tmpTask instanceof ServiceTask) {
+				ServiceTask task = (ServiceTask) tmpTask;
 				if (task.equals(inFlow.getTargetRef())) {
 					FlowNode flowNode = inFlow.getSourceRef();
 					if (flowNode != null) {
@@ -5155,19 +5253,18 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 								if (!inFlow.equals(outFlow)) {
 									if (pattern_ServiceTaskToStepRule_22_2_black_nac_0BB(
 											outFlow, flowNode) == null) {
-										if (pattern_ServiceTaskToStepRule_22_2_black_nac_2BB(
+										if (pattern_ServiceTaskToStepRule_22_2_black_nac_1BB(
 												outFlow, task) == null) {
-											for (Lane lane : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
-															task, Lane.class,
-															"flowNodeRefs")) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-														.getOppositeReferenceTyped(
-																inFlow,
-																FlowElementsContainer.class,
-																"flowElements")) {
-													if (tmpProcess instanceof bpmn2.Process) {
-														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+															inFlow,
+															FlowElementsContainer.class,
+															"flowElements")) {
+												if (tmpProcess instanceof bpmn2.Process) {
+													bpmn2.Process process = (bpmn2.Process) tmpProcess;
+													if (process
+															.getFlowElements()
+															.contains(task)) {
 														if (process
 																.getFlowElements()
 																.contains(
@@ -5176,15 +5273,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																	.getFlowElements()
 																	.contains(
 																			outFlow)) {
-																if (pattern_ServiceTaskToStepRule_22_2_black_nac_1BB(
-																		process,
-																		task) == null) {
-																	for (LaneSet laneSet : process
-																			.getLaneSets()) {
-																		if (laneSet
-																				.getLanes()
+																for (LaneSet laneSet : process
+																		.getLaneSets()) {
+																	for (Lane lane : laneSet
+																			.getLanes()) {
+																		if (lane.getFlowNodeRefs()
 																				.contains(
-																						lane)) {
+																						task)) {
 																			_result.add(new Object[] {
 																					task,
 																					process,
@@ -5193,7 +5288,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																					laneSet,
 																					lane,
 																					flowNode,
-																					_edge_incoming });
+																					_edge_targetRef });
 																		}
 																	}
 																}
@@ -5311,10 +5406,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_187168 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_915207 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_187168)) {
+			if (!flowNode.equals(__DEC_outFlow_default_915207)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5322,14 +5417,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ServiceTaskToStepRule_23_2_black_nac_1BB(
-			bpmn2.Process process, ServiceTask task) {
-		if (process.getFlowElements().contains(task)) {
-			return new Object[] { process, task };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_23_2_black_nac_2BB(
 			SequenceFlow outFlow, ServiceTask task) {
 		if (task.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, task };
@@ -5338,57 +5425,58 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_23_2_blackFFFFFFFB(
-			EMoflonEdge _edge_flowElements) {
+			EMoflonEdge _edge_incoming) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpProcess = _edge_flowElements.getSrc();
-		if (tmpProcess instanceof bpmn2.Process) {
-			bpmn2.Process process = (bpmn2.Process) tmpProcess;
-			EObject tmpOutFlow = _edge_flowElements.getTrg();
-			if (tmpOutFlow instanceof SequenceFlow) {
-				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-				if (process.getFlowElements().contains(outFlow)) {
-					FlowNode tmpTask = outFlow.getSourceRef();
-					if (tmpTask instanceof ServiceTask) {
-						ServiceTask task = (ServiceTask) tmpTask;
-						if (pattern_ServiceTaskToStepRule_23_2_black_nac_1BB(
-								process, task) == null) {
-							if (pattern_ServiceTaskToStepRule_23_2_black_nac_2BB(
-									outFlow, task) == null) {
-								for (FlowElement tmpFlowNode : process
-										.getFlowElements()) {
-									if (tmpFlowNode instanceof FlowNode) {
-										FlowNode flowNode = (FlowNode) tmpFlowNode;
-										if (!flowNode.equals(task)) {
-											if (pattern_ServiceTaskToStepRule_23_2_black_nac_0BB(
-													outFlow, flowNode) == null) {
-												for (LaneSet laneSet : process
-														.getLaneSets()) {
-													for (FlowElement tmpInFlow : process
-															.getFlowElements()) {
-														if (tmpInFlow instanceof SequenceFlow) {
-															SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-															if (!inFlow
-																	.equals(outFlow)) {
-																if (task.equals(inFlow
-																		.getTargetRef())) {
-																	if (flowNode
-																			.equals(inFlow
-																					.getSourceRef())) {
-																		for (Lane lane : laneSet
-																				.getLanes()) {
-																			if (lane.getFlowNodeRefs()
-																					.contains(
-																							task)) {
-																				_result.add(new Object[] {
-																						task,
-																						process,
-																						inFlow,
-																						outFlow,
-																						laneSet,
-																						lane,
-																						flowNode,
-																						_edge_flowElements });
-																			}
+		EObject tmpTask = _edge_incoming.getSrc();
+		if (tmpTask instanceof ServiceTask) {
+			ServiceTask task = (ServiceTask) tmpTask;
+			EObject tmpInFlow = _edge_incoming.getTrg();
+			if (tmpInFlow instanceof SequenceFlow) {
+				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+				if (task.equals(inFlow.getTargetRef())) {
+					FlowNode flowNode = inFlow.getSourceRef();
+					if (flowNode != null) {
+						if (!flowNode.equals(task)) {
+							for (SequenceFlow outFlow : task.getOutgoing()) {
+								if (!inFlow.equals(outFlow)) {
+									if (pattern_ServiceTaskToStepRule_23_2_black_nac_0BB(
+											outFlow, flowNode) == null) {
+										if (pattern_ServiceTaskToStepRule_23_2_black_nac_1BB(
+												outFlow, task) == null) {
+											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+													.getOppositeReferenceTyped(
+															task,
+															FlowElementsContainer.class,
+															"flowElements")) {
+												if (tmpProcess instanceof bpmn2.Process) {
+													bpmn2.Process process = (bpmn2.Process) tmpProcess;
+													if (process
+															.getFlowElements()
+															.contains(flowNode)) {
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			outFlow)) {
+																for (LaneSet laneSet : process
+																		.getLaneSets()) {
+																	for (Lane lane : laneSet
+																			.getLanes()) {
+																		if (lane.getFlowNodeRefs()
+																				.contains(
+																						task)) {
+																			_result.add(new Object[] {
+																					task,
+																					process,
+																					inFlow,
+																					outFlow,
+																					laneSet,
+																					lane,
+																					flowNode,
+																					_edge_incoming });
 																		}
 																	}
 																}
@@ -5506,10 +5594,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_730989 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_196948 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_730989)) {
+			if (!flowNode.equals(__DEC_outFlow_default_196948)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5517,14 +5605,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ServiceTaskToStepRule_24_2_black_nac_1BB(
-			bpmn2.Process process, ServiceTask task) {
-		if (process.getFlowElements().contains(task)) {
-			return new Object[] { process, task };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_24_2_black_nac_2BB(
 			SequenceFlow outFlow, ServiceTask task) {
 		if (task.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, task };
@@ -5533,57 +5613,56 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_24_2_blackFFFFFFFB(
-			EMoflonEdge _edge_sourceRef) {
+			EMoflonEdge _edge_flowElements) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpOutFlow = _edge_sourceRef.getSrc();
-		if (tmpOutFlow instanceof SequenceFlow) {
-			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
-			EObject tmpTask = _edge_sourceRef.getTrg();
-			if (tmpTask instanceof ServiceTask) {
-				ServiceTask task = (ServiceTask) tmpTask;
-				if (task.equals(outFlow.getSourceRef())) {
-					if (pattern_ServiceTaskToStepRule_24_2_black_nac_2BB(
-							outFlow, task) == null) {
-						for (SequenceFlow inFlow : task.getIncoming()) {
-							if (!inFlow.equals(outFlow)) {
-								FlowNode flowNode = inFlow.getSourceRef();
-								if (flowNode != null) {
-									if (!flowNode.equals(task)) {
-										if (pattern_ServiceTaskToStepRule_24_2_black_nac_0BB(
-												outFlow, flowNode) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-													.getOppositeReferenceTyped(
-															outFlow,
-															FlowElementsContainer.class,
-															"flowElements")) {
-												if (tmpProcess instanceof bpmn2.Process) {
-													bpmn2.Process process = (bpmn2.Process) tmpProcess;
-													if (process
-															.getFlowElements()
-															.contains(flowNode)) {
-														if (process
-																.getFlowElements()
-																.contains(
-																		inFlow)) {
-															if (pattern_ServiceTaskToStepRule_24_2_black_nac_1BB(
-																	process,
-																	task) == null) {
-																for (LaneSet laneSet : process
-																		.getLaneSets()) {
-																	for (Lane lane : laneSet
-																			.getLanes()) {
-																		if (lane.getFlowNodeRefs()
-																				.contains(
-																						task)) {
-																			_result.add(new Object[] {
-																					task,
-																					process,
-																					inFlow,
-																					outFlow,
-																					laneSet,
-																					lane,
-																					flowNode,
-																					_edge_sourceRef });
+		EObject tmpProcess = _edge_flowElements.getSrc();
+		if (tmpProcess instanceof bpmn2.Process) {
+			bpmn2.Process process = (bpmn2.Process) tmpProcess;
+			EObject tmpOutFlow = _edge_flowElements.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (process.getFlowElements().contains(outFlow)) {
+					FlowNode tmpTask = outFlow.getSourceRef();
+					if (tmpTask instanceof ServiceTask) {
+						ServiceTask task = (ServiceTask) tmpTask;
+						if (process.getFlowElements().contains(task)) {
+							if (pattern_ServiceTaskToStepRule_24_2_black_nac_1BB(
+									outFlow, task) == null) {
+								for (FlowElement tmpFlowNode : process
+										.getFlowElements()) {
+									if (tmpFlowNode instanceof FlowNode) {
+										FlowNode flowNode = (FlowNode) tmpFlowNode;
+										if (!flowNode.equals(task)) {
+											if (pattern_ServiceTaskToStepRule_24_2_black_nac_0BB(
+													outFlow, flowNode) == null) {
+												for (LaneSet laneSet : process
+														.getLaneSets()) {
+													for (FlowElement tmpInFlow : process
+															.getFlowElements()) {
+														if (tmpInFlow instanceof SequenceFlow) {
+															SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+															if (!inFlow
+																	.equals(outFlow)) {
+																if (task.equals(inFlow
+																		.getTargetRef())) {
+																	if (flowNode
+																			.equals(inFlow
+																					.getSourceRef())) {
+																		for (Lane lane : laneSet
+																				.getLanes()) {
+																			if (lane.getFlowNodeRefs()
+																					.contains(
+																							task)) {
+																				_result.add(new Object[] {
+																						task,
+																						process,
+																						inFlow,
+																						outFlow,
+																						laneSet,
+																						lane,
+																						flowNode,
+																						_edge_flowElements });
+																			}
 																		}
 																	}
 																}
@@ -5595,10 +5674,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 										}
 									}
 								}
-
 							}
 						}
 					}
+
 				}
 			}
 
@@ -5701,10 +5780,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_569147 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_281481 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_569147)) {
+			if (!flowNode.equals(__DEC_outFlow_default_281481)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5712,14 +5791,6 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ServiceTaskToStepRule_25_2_black_nac_1BB(
-			bpmn2.Process process, ServiceTask task) {
-		if (process.getFlowElements().contains(task)) {
-			return new Object[] { process, task };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_25_2_black_nac_2BB(
 			SequenceFlow outFlow, ServiceTask task) {
 		if (task.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, task };
@@ -5728,16 +5799,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_25_2_blackFFFFFFFB(
-			EMoflonEdge _edge_outgoing) {
+			EMoflonEdge _edge_sourceRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpTask = _edge_outgoing.getSrc();
-		if (tmpTask instanceof ServiceTask) {
-			ServiceTask task = (ServiceTask) tmpTask;
-			EObject tmpOutFlow = _edge_outgoing.getTrg();
-			if (tmpOutFlow instanceof SequenceFlow) {
-				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+		EObject tmpOutFlow = _edge_sourceRef.getSrc();
+		if (tmpOutFlow instanceof SequenceFlow) {
+			SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+			EObject tmpTask = _edge_sourceRef.getTrg();
+			if (tmpTask instanceof ServiceTask) {
+				ServiceTask task = (ServiceTask) tmpTask;
 				if (task.equals(outFlow.getSourceRef())) {
-					if (pattern_ServiceTaskToStepRule_25_2_black_nac_2BB(
+					if (pattern_ServiceTaskToStepRule_25_2_black_nac_1BB(
 							outFlow, task) == null) {
 						for (SequenceFlow inFlow : task.getIncoming()) {
 							if (!inFlow.equals(outFlow)) {
@@ -5746,17 +5817,16 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 									if (!flowNode.equals(task)) {
 										if (pattern_ServiceTaskToStepRule_25_2_black_nac_0BB(
 												outFlow, flowNode) == null) {
-											for (Lane lane : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
-															task, Lane.class,
-															"flowNodeRefs")) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-														.getOppositeReferenceTyped(
-																outFlow,
-																FlowElementsContainer.class,
-																"flowElements")) {
-													if (tmpProcess instanceof bpmn2.Process) {
-														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+															outFlow,
+															FlowElementsContainer.class,
+															"flowElements")) {
+												if (tmpProcess instanceof bpmn2.Process) {
+													bpmn2.Process process = (bpmn2.Process) tmpProcess;
+													if (process
+															.getFlowElements()
+															.contains(task)) {
 														if (process
 																.getFlowElements()
 																.contains(
@@ -5765,15 +5835,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																	.getFlowElements()
 																	.contains(
 																			inFlow)) {
-																if (pattern_ServiceTaskToStepRule_25_2_black_nac_1BB(
-																		process,
-																		task) == null) {
-																	for (LaneSet laneSet : process
-																			.getLaneSets()) {
-																		if (laneSet
-																				.getLanes()
+																for (LaneSet laneSet : process
+																		.getLaneSets()) {
+																	for (Lane lane : laneSet
+																			.getLanes()) {
+																		if (lane.getFlowNodeRefs()
 																				.contains(
-																						lane)) {
+																						task)) {
 																			_result.add(new Object[] {
 																					task,
 																					process,
@@ -5782,7 +5850,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																					laneSet,
 																					lane,
 																					flowNode,
-																					_edge_outgoing });
+																					_edge_sourceRef });
 																		}
 																	}
 																}
@@ -5867,7 +5935,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, ServiceTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -5898,25 +5966,91 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_26_2_blackFFFFB(
-			EMoflonEdge _edge_actor) {
+	public static final Object[] pattern_ServiceTaskToStepRule_26_2_black_nac_0BB(
+			SequenceFlow outFlow, FlowNode flowNode) {
+		for (ExclusiveGateway __DEC_outFlow_default_264019 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
+						"default")) {
+			if (!flowNode.equals(__DEC_outFlow_default_264019)) {
+				return new Object[] { outFlow, flowNode };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_26_2_black_nac_1BB(
+			SequenceFlow outFlow, ServiceTask task) {
+		if (task.equals(outFlow.getTargetRef())) {
+			return new Object[] { outFlow, task };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_26_2_blackFFFFFFFB(
+			EMoflonEdge _edge_outgoing) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpNormalStep = _edge_actor.getSrc();
-		if (tmpNormalStep instanceof NormalStep) {
-			NormalStep normalStep = (NormalStep) tmpNormalStep;
-			EObject tmpActor = _edge_actor.getTrg();
-			if (tmpActor instanceof Actor) {
-				Actor actor = (Actor) tmpActor;
-				if (actor.equals(normalStep.getActor())) {
-					for (Step prevStep : org.moflon.util.eMoflonEMFUtil
-							.getOppositeReferenceTyped(normalStep, Step.class,
-									"next")) {
-						if (!normalStep.equals(prevStep)) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(normalStep,
-											Flow.class, "steps")) {
-								_result.add(new Object[] { actor, prevStep,
-										normalStep, flow, _edge_actor });
+		EObject tmpTask = _edge_outgoing.getSrc();
+		if (tmpTask instanceof ServiceTask) {
+			ServiceTask task = (ServiceTask) tmpTask;
+			EObject tmpOutFlow = _edge_outgoing.getTrg();
+			if (tmpOutFlow instanceof SequenceFlow) {
+				SequenceFlow outFlow = (SequenceFlow) tmpOutFlow;
+				if (task.equals(outFlow.getSourceRef())) {
+					if (pattern_ServiceTaskToStepRule_26_2_black_nac_1BB(
+							outFlow, task) == null) {
+						for (SequenceFlow inFlow : task.getIncoming()) {
+							if (!inFlow.equals(outFlow)) {
+								FlowNode flowNode = inFlow.getSourceRef();
+								if (flowNode != null) {
+									if (!flowNode.equals(task)) {
+										if (pattern_ServiceTaskToStepRule_26_2_black_nac_0BB(
+												outFlow, flowNode) == null) {
+											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+													.getOppositeReferenceTyped(
+															task,
+															FlowElementsContainer.class,
+															"flowElements")) {
+												if (tmpProcess instanceof bpmn2.Process) {
+													bpmn2.Process process = (bpmn2.Process) tmpProcess;
+													if (process
+															.getFlowElements()
+															.contains(flowNode)) {
+														if (process
+																.getFlowElements()
+																.contains(
+																		inFlow)) {
+															if (process
+																	.getFlowElements()
+																	.contains(
+																			outFlow)) {
+																for (LaneSet laneSet : process
+																		.getLaneSets()) {
+																	for (Lane lane : laneSet
+																			.getLanes()) {
+																		if (lane.getFlowNodeRefs()
+																				.contains(
+																						task)) {
+																			_result.add(new Object[] {
+																					task,
+																					process,
+																					inFlow,
+																					outFlow,
+																					laneSet,
+																					lane,
+																					flowNode,
+																					_edge_outgoing });
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+
 							}
 						}
 					}
@@ -5938,18 +6072,19 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_ServiceTaskToStepRule_26_3_expressionFBBBBBB(
-			ServiceTaskToStepRule _this, Match match, Actor actor,
-			Step prevStep, NormalStep normalStep, Flow flow) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
-				prevStep, normalStep, flow);
+	public static final boolean pattern_ServiceTaskToStepRule_26_3_expressionFBBBBBBBBB(
+			ServiceTaskToStepRule _this, Match match, ServiceTask task,
+			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, task,
+				process, inFlow, outFlow, laneSet, lane, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_ServiceTaskToStepRule_26_4_expressionFBB(
 			ServiceTaskToStepRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -6020,27 +6155,27 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_27_2_blackFFFFB(
-			EMoflonEdge _edge_steps) {
+			EMoflonEdge _edge_actor) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpFlow = _edge_steps.getSrc();
-		if (tmpFlow instanceof Flow) {
-			Flow flow = (Flow) tmpFlow;
-			EObject tmpNormalStep = _edge_steps.getTrg();
-			if (tmpNormalStep instanceof NormalStep) {
-				NormalStep normalStep = (NormalStep) tmpNormalStep;
-				if (flow.getSteps().contains(normalStep)) {
-					Actor actor = normalStep.getActor();
-					if (actor != null) {
-						for (Step prevStep : org.moflon.util.eMoflonEMFUtil
-								.getOppositeReferenceTyped(normalStep,
-										Step.class, "next")) {
-							if (!normalStep.equals(prevStep)) {
+		EObject tmpNormalStep = _edge_actor.getSrc();
+		if (tmpNormalStep instanceof NormalStep) {
+			NormalStep normalStep = (NormalStep) tmpNormalStep;
+			EObject tmpActor = _edge_actor.getTrg();
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (actor.equals(normalStep.getActor())) {
+					for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(normalStep, Step.class,
+									"next")) {
+						if (!normalStep.equals(prevStep)) {
+							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(normalStep,
+											Flow.class, "steps")) {
 								_result.add(new Object[] { actor, prevStep,
-										normalStep, flow, _edge_steps });
+										normalStep, flow, _edge_actor });
 							}
 						}
 					}
-
 				}
 			}
 
@@ -6109,7 +6244,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, ServiceTaskToStepRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
+			if (__performOperationname.equals("isApplicable_BWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -6140,27 +6275,140 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_28_2_black_nac_0BB(
+	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_28_2_blackFFFFB(
+			EMoflonEdge _edge_steps) {
+		LinkedList<Object[]> _result = new LinkedList<Object[]>();
+		EObject tmpFlow = _edge_steps.getSrc();
+		if (tmpFlow instanceof Flow) {
+			Flow flow = (Flow) tmpFlow;
+			EObject tmpNormalStep = _edge_steps.getTrg();
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (flow.getSteps().contains(normalStep)) {
+					Actor actor = normalStep.getActor();
+					if (actor != null) {
+						for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(normalStep,
+										Step.class, "next")) {
+							if (!normalStep.equals(prevStep)) {
+								_result.add(new Object[] { actor, prevStep,
+										normalStep, flow, _edge_steps });
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+
+		return _result;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_28_2_greenFB(
+			EClass __eClass) {
+		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
+		String __eClassname = __eClass.getName();
+		String match_ruleName_prime = __eClassname;
+		match.setRuleName(match_ruleName_prime);
+		return new Object[] { match, __eClass };
+
+	}
+
+	public static final boolean pattern_ServiceTaskToStepRule_28_3_expressionFBBBBBB(
+			ServiceTaskToStepRule _this, Match match, Actor actor,
+			Step prevStep, NormalStep normalStep, Flow flow) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
+				prevStep, normalStep, flow);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final boolean pattern_ServiceTaskToStepRule_28_4_expressionFBB(
+			ServiceTaskToStepRule _this, Match match) {
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _result = Boolean.valueOf(_localVariable_0);
+		return _result;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_28_5_blackBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_28_5_greenBBB(
+			Match match, EOperation __performOperation,
+			EObjectContainer __result) {
+		__result.getContents().add(match);
+		match.setIsApplicableOperation(__performOperation);
+		return new Object[] { match, __performOperation, __result };
+	}
+
+	public static final EObjectContainer pattern_ServiceTaskToStepRule_28_6_expressionFB(
+			EObjectContainer __result) {
+		EObjectContainer _result = __result;
+		return _result;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_29_1_bindingFB(
+			ServiceTaskToStepRule _this) {
+		EClass _localVariable_0 = _this.eClass();
+		EClass __eClass = _localVariable_0;
+		if (__eClass != null) {
+			return new Object[] { __eClass, _this };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_29_1_blackFBB(
+			EClass __eClass, ServiceTaskToStepRule _this) {
+		for (EOperation __performOperation : __eClass.getEOperations()) {
+			String __performOperationname = __performOperation.getName();
+			if (__performOperationname.equals("isApplicable_FWD")) {
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_29_1_bindingAndBlackFFB(
+			ServiceTaskToStepRule _this) {
+		Object[] result_pattern_ServiceTaskToStepRule_29_1_binding = pattern_ServiceTaskToStepRule_29_1_bindingFB(_this);
+		if (result_pattern_ServiceTaskToStepRule_29_1_binding != null) {
+			EClass __eClass = (EClass) result_pattern_ServiceTaskToStepRule_29_1_binding[0];
+
+			Object[] result_pattern_ServiceTaskToStepRule_29_1_black = pattern_ServiceTaskToStepRule_29_1_blackFBB(
+					__eClass, _this);
+			if (result_pattern_ServiceTaskToStepRule_29_1_black != null) {
+				EOperation __performOperation = (EOperation) result_pattern_ServiceTaskToStepRule_29_1_black[0];
+
+				return new Object[] { __performOperation, __eClass, _this };
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_29_1_greenF() {
+		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
+				.createEObjectContainer();
+		return new Object[] { __result };
+	}
+
+	public static final Object[] pattern_ServiceTaskToStepRule_29_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_813902 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_427937 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_813902)) {
+			if (!flowNode.equals(__DEC_outFlow_default_427937)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_28_2_black_nac_1BB(
-			bpmn2.Process process, ServiceTask task) {
-		if (process.getFlowElements().contains(task)) {
-			return new Object[] { process, task };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ServiceTaskToStepRule_28_2_black_nac_2BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_29_2_black_nac_1BB(
 			SequenceFlow outFlow, ServiceTask task) {
 		if (task.equals(outFlow.getTargetRef())) {
 			return new Object[] { outFlow, task };
@@ -6168,7 +6416,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_28_2_blackFFFFFFFB(
+	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_29_2_blackFFFFFFFB(
 			EMoflonEdge _edge_flowNodeRefs) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		EObject tmpLane = _edge_flowNodeRefs.getSrc();
@@ -6184,9 +6432,9 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 							if (!flowNode.equals(task)) {
 								for (SequenceFlow outFlow : task.getOutgoing()) {
 									if (!inFlow.equals(outFlow)) {
-										if (pattern_ServiceTaskToStepRule_28_2_black_nac_0BB(
+										if (pattern_ServiceTaskToStepRule_29_2_black_nac_0BB(
 												outFlow, flowNode) == null) {
-											if (pattern_ServiceTaskToStepRule_28_2_black_nac_2BB(
+											if (pattern_ServiceTaskToStepRule_29_2_black_nac_1BB(
 													outFlow, task) == null) {
 												for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
@@ -6195,7 +6443,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																"lanes")) {
 													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
-																	inFlow,
+																	task,
 																	FlowElementsContainer.class,
 																	"flowElements")) {
 														if (tmpProcess instanceof bpmn2.Process) {
@@ -6211,10 +6459,11 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																	if (process
 																			.getFlowElements()
 																			.contains(
-																					outFlow)) {
-																		if (pattern_ServiceTaskToStepRule_28_2_black_nac_1BB(
-																				process,
-																				task) == null) {
+																					inFlow)) {
+																		if (process
+																				.getFlowElements()
+																				.contains(
+																						outFlow)) {
 																			_result.add(new Object[] {
 																					task,
 																					process,
@@ -6247,7 +6496,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_28_2_greenFB(
+	public static final Object[] pattern_ServiceTaskToStepRule_29_2_greenFB(
 			EClass __eClass) {
 		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
 		String __eClassname = __eClass.getName();
@@ -6257,7 +6506,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_ServiceTaskToStepRule_28_3_expressionFBBBBBBBBB(
+	public static final boolean pattern_ServiceTaskToStepRule_29_3_expressionFBBBBBBBBB(
 			ServiceTaskToStepRule _this, Match match, ServiceTask task,
 			bpmn2.Process process, SequenceFlow inFlow, SequenceFlow outFlow,
 			LaneSet laneSet, Lane lane, FlowNode flowNode) {
@@ -6267,20 +6516,20 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final boolean pattern_ServiceTaskToStepRule_28_4_expressionFBB(
+	public static final boolean pattern_ServiceTaskToStepRule_29_4_expressionFBB(
 			ServiceTaskToStepRule _this, Match match) {
 		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_28_5_blackBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_29_5_blackBBB(
 			Match match, EOperation __performOperation,
 			EObjectContainer __result) {
 		return new Object[] { match, __performOperation, __result };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_28_5_greenBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_29_5_greenBBB(
 			Match match, EOperation __performOperation,
 			EObjectContainer __result) {
 		__result.getContents().add(match);
@@ -6288,18 +6537,18 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { match, __performOperation, __result };
 	}
 
-	public static final EObjectContainer pattern_ServiceTaskToStepRule_28_6_expressionFB(
+	public static final EObjectContainer pattern_ServiceTaskToStepRule_29_6_expressionFB(
 			EObjectContainer __result) {
 		EObjectContainer _result = __result;
 		return _result;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_1_blackB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_1_blackB(
 			ServiceTaskToStepRule _this) {
 		return new Object[] { _this };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_1_greenFF() {
+	public static final Object[] pattern_ServiceTaskToStepRule_32_1_greenFF() {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
@@ -6309,7 +6558,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { isApplicableMatch, ruleResult };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_0BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_0BB(
 			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
 		if (ruleResult.getSourceObjects().contains(process)) {
 			return new Object[] { ruleResult, process };
@@ -6317,7 +6566,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_1BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_1BB(
 			ModelgeneratorRuleResult ruleResult, FlowNode flowNode) {
 		if (ruleResult.getSourceObjects().contains(flowNode)) {
 			return new Object[] { ruleResult, flowNode };
@@ -6325,7 +6574,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_2BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_2BB(
 			ModelgeneratorRuleResult ruleResult, SequenceFlow inFlow) {
 		if (ruleResult.getSourceObjects().contains(inFlow)) {
 			return new Object[] { ruleResult, inFlow };
@@ -6333,7 +6582,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_3BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_3BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToStep inFlowToPrevStep) {
 		if (ruleResult.getCorrObjects().contains(inFlowToPrevStep)) {
@@ -6342,7 +6591,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_4BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_4BB(
 			ModelgeneratorRuleResult ruleResult, Step prevStep) {
 		if (ruleResult.getTargetObjects().contains(prevStep)) {
 			return new Object[] { ruleResult, prevStep };
@@ -6350,7 +6599,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_5BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_5BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow inFlowToFlow) {
 		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
@@ -6359,7 +6608,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_6BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_6BB(
 			ModelgeneratorRuleResult ruleResult, Flow flow) {
 		if (ruleResult.getTargetObjects().contains(flow)) {
 			return new Object[] { ruleResult, flow };
@@ -6367,7 +6616,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_7BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_7BB(
 			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
 		if (ruleResult.getSourceObjects().contains(laneSet)) {
 			return new Object[] { ruleResult, laneSet };
@@ -6375,7 +6624,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_8BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_8BB(
 			ModelgeneratorRuleResult ruleResult, Lane lane) {
 		if (ruleResult.getSourceObjects().contains(lane)) {
 			return new Object[] { ruleResult, lane };
@@ -6383,7 +6632,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_9BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_9BB(
 			ModelgeneratorRuleResult ruleResult, ProcessToActor processToActor) {
 		if (ruleResult.getCorrObjects().contains(processToActor)) {
 			return new Object[] { ruleResult, processToActor };
@@ -6391,7 +6640,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_2_black_nac_10BB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_2_black_nac_10BB(
 			ModelgeneratorRuleResult ruleResult, Actor actor) {
 		if (ruleResult.getTargetObjects().contains(actor)) {
 			return new Object[] { ruleResult, actor };
@@ -6399,7 +6648,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_31_2_blackFFFFFFFFFFFFBB(
+	public static final Iterable<Object[]> pattern_ServiceTaskToStepRule_32_2_blackFFFFFFFFFFFFBB(
 			RuleEntryContainer ruleEntryContainer,
 			ModelgeneratorRuleResult ruleResult) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
@@ -6415,13 +6664,13 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 						if (prevStep != null) {
 							FlowNode flowNode = inFlow.getSourceRef();
 							if (flowNode != null) {
-								if (pattern_ServiceTaskToStepRule_31_2_black_nac_3BB(
+								if (pattern_ServiceTaskToStepRule_32_2_black_nac_3BB(
 										ruleResult, inFlowToPrevStep) == null) {
-									if (pattern_ServiceTaskToStepRule_31_2_black_nac_2BB(
+									if (pattern_ServiceTaskToStepRule_32_2_black_nac_2BB(
 											ruleResult, inFlow) == null) {
-										if (pattern_ServiceTaskToStepRule_31_2_black_nac_4BB(
+										if (pattern_ServiceTaskToStepRule_32_2_black_nac_4BB(
 												ruleResult, prevStep) == null) {
-											if (pattern_ServiceTaskToStepRule_31_2_black_nac_1BB(
+											if (pattern_ServiceTaskToStepRule_32_2_black_nac_1BB(
 													ruleResult, flowNode) == null) {
 												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
@@ -6434,17 +6683,17 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																.getFlowElements()
 																.contains(
 																		flowNode)) {
-															if (pattern_ServiceTaskToStepRule_31_2_black_nac_0BB(
+															if (pattern_ServiceTaskToStepRule_32_2_black_nac_0BB(
 																	ruleResult,
 																	process) == null) {
 																for (LaneSet laneSet : process
 																		.getLaneSets()) {
-																	if (pattern_ServiceTaskToStepRule_31_2_black_nac_7BB(
+																	if (pattern_ServiceTaskToStepRule_32_2_black_nac_7BB(
 																			ruleResult,
 																			laneSet) == null) {
 																		for (Lane lane : laneSet
 																				.getLanes()) {
-																			if (pattern_ServiceTaskToStepRule_31_2_black_nac_8BB(
+																			if (pattern_ServiceTaskToStepRule_32_2_black_nac_8BB(
 																					ruleResult,
 																					lane) == null) {
 																				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
@@ -6455,10 +6704,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																					Flow flow = inFlowToFlow
 																							.getTarget();
 																					if (flow != null) {
-																						if (pattern_ServiceTaskToStepRule_31_2_black_nac_5BB(
+																						if (pattern_ServiceTaskToStepRule_32_2_black_nac_5BB(
 																								ruleResult,
 																								inFlowToFlow) == null) {
-																							if (pattern_ServiceTaskToStepRule_31_2_black_nac_6BB(
+																							if (pattern_ServiceTaskToStepRule_32_2_black_nac_6BB(
 																									ruleResult,
 																									flow) == null) {
 																								for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
@@ -6469,10 +6718,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 																									Actor actor = processToActor
 																											.getTarget();
 																									if (actor != null) {
-																										if (pattern_ServiceTaskToStepRule_31_2_black_nac_9BB(
+																										if (pattern_ServiceTaskToStepRule_32_2_black_nac_9BB(
 																												ruleResult,
 																												processToActor) == null) {
-																											if (pattern_ServiceTaskToStepRule_31_2_black_nac_10BB(
+																											if (pattern_ServiceTaskToStepRule_32_2_black_nac_10BB(
 																													ruleResult,
 																													actor) == null) {
 																												_result.add(new Object[] {
@@ -6524,7 +6773,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_3_bindingFBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_3_bindingFBBBBBBBBBBBBBB(
 			ServiceTaskToStepRule _this, IsApplicableMatch isApplicableMatch,
 			bpmn2.Process process, Actor actor, ProcessToActor processToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
@@ -6544,27 +6793,27 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_3_blackB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_3_blackB(
 			CSP csp) {
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_3_bindingAndBlackFBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_3_bindingAndBlackFBBBBBBBBBBBBBB(
 			ServiceTaskToStepRule _this, IsApplicableMatch isApplicableMatch,
 			bpmn2.Process process, Actor actor, ProcessToActor processToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, SequenceFlowToUCFlow inFlowToFlow, Flow flow,
 			LaneSet laneSet, Lane lane, FlowNode flowNode,
 			ModelgeneratorRuleResult ruleResult) {
-		Object[] result_pattern_ServiceTaskToStepRule_31_3_binding = pattern_ServiceTaskToStepRule_31_3_bindingFBBBBBBBBBBBBBB(
+		Object[] result_pattern_ServiceTaskToStepRule_32_3_binding = pattern_ServiceTaskToStepRule_32_3_bindingFBBBBBBBBBBBBBB(
 				_this, isApplicableMatch, process, actor, processToActor,
 				inFlow, inFlowToPrevStep, prevStep, inFlowToFlow, flow,
 				laneSet, lane, flowNode, ruleResult);
-		if (result_pattern_ServiceTaskToStepRule_31_3_binding != null) {
-			CSP csp = (CSP) result_pattern_ServiceTaskToStepRule_31_3_binding[0];
+		if (result_pattern_ServiceTaskToStepRule_32_3_binding != null) {
+			CSP csp = (CSP) result_pattern_ServiceTaskToStepRule_32_3_binding[0];
 
-			Object[] result_pattern_ServiceTaskToStepRule_31_3_black = pattern_ServiceTaskToStepRule_31_3_blackB(csp);
-			if (result_pattern_ServiceTaskToStepRule_31_3_black != null) {
+			Object[] result_pattern_ServiceTaskToStepRule_32_3_black = pattern_ServiceTaskToStepRule_32_3_blackB(csp);
+			if (result_pattern_ServiceTaskToStepRule_32_3_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch, process,
 						actor, processToActor, inFlow, inFlowToPrevStep,
@@ -6575,14 +6824,14 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final boolean pattern_ServiceTaskToStepRule_31_4_expressionFBB(
+	public static final boolean pattern_ServiceTaskToStepRule_32_4_expressionFBB(
 			ServiceTaskToStepRule _this, CSP csp) {
 		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_5_blackBBBBBBBBBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_5_blackBBBBBBBBBBB(
 			bpmn2.Process process, Actor actor, ProcessToActor processToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, SequenceFlowToUCFlow inFlowToFlow, Flow flow,
@@ -6592,7 +6841,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				flowNode };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_6_blackBBBBBBBBBBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_6_blackBBBBBBBBBBBB(
 			bpmn2.Process process, Actor actor, ProcessToActor processToActor,
 			SequenceFlow inFlow, SequenceFlowToStep inFlowToPrevStep,
 			Step prevStep, SequenceFlowToUCFlow inFlowToFlow, Flow flow,
@@ -6603,7 +6852,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				flowNode, ruleResult };
 	}
 
-	public static final Object[] pattern_ServiceTaskToStepRule_31_6_greenFBBBBFFFFFBBBB(
+	public static final Object[] pattern_ServiceTaskToStepRule_32_6_greenFBBBBFFFFFBBBB(
 			bpmn2.Process process, Actor actor, SequenceFlow inFlow,
 			Step prevStep, Flow flow, Lane lane,
 			ModelgeneratorRuleResult ruleResult, CSP csp) {
@@ -6622,6 +6871,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_3 = csp.getValue("normalStep", "label");
 		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		process.getFlowElements().add(task);
 		inFlow.setTargetRef(task);
 		lane.getFlowNodeRefs().add(task);
 		ruleResult.getSourceObjects().add(task);
@@ -6658,7 +6908,7 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 				outFlowToNormalStep, flow, lane, ruleResult, csp };
 	}
 
-	public static final ModelgeneratorRuleResult pattern_ServiceTaskToStepRule_31_7_expressionFB(
+	public static final ModelgeneratorRuleResult pattern_ServiceTaskToStepRule_32_7_expressionFB(
 			ModelgeneratorRuleResult ruleResult) {
 		ModelgeneratorRuleResult _result = ruleResult;
 		return _result;
