@@ -32,6 +32,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  6.0.0)";resolution:=optional,
  org.eclipse.xtext.ecore;bundle-version="2.7.3",
  org.eclipse.emf.ecore.xmi,
+ org.eclipse.equinox.common,
  org.moflon.dependencies
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
