@@ -3,8 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:bpmn2="platform:/plugin/bpmn2/model/Bpmn2.ecore"
-    xsi:schemaLocation="platform:/plugin/bpmn2/model/Bpmn2.ecore ../../../bpmn2/model/Bpmn2.ecore">
+    xmlns:bpmn2="platform:/plugin/bpmn2/model/Bpmn2.ecore">
   <definitions
       name="Book sale"
       targetNamespace="http://de.abilov.booksale">
@@ -24,7 +23,7 @@
             id="financing"
             name="Financing"/>
         <lanes
-            flowNodeRefs="deliver_books_stock separate_books pcgw1 deliver_books_stock delivery_confirmed end_event"
+            flowNodeRefs="separate_books pcgw1 deliver_books_stock deliver_books_stock delivery_confirmed end_event deliver_books_customer"
             id="shipping"
             name="Shipping"/>
       </laneSets>
