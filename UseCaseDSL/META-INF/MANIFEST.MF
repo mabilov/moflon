@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: UseCaseDSL;singleton:=true
 Export-Package: UseCaseDSL,
- UseCaseDSL.formatting,
+ UseCaseDSL.formatting2,
  UseCaseDSL.generator,
  UseCaseDSL.impl,
  UseCaseDSL.parser.antlr,

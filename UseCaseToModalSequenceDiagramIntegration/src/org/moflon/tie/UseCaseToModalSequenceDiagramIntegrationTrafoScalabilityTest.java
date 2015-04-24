@@ -1,21 +1,22 @@
 package org.moflon.tie;
 
-import java.io.IOException;
-import org.apache.log4j.BasicConfigurator;
-import org.moflon.util.eMoflonEMFUtil;
-import org.moflon.ide.debug.DebugSynchronizationHelper;
-
-import org.moflon.tgg.algorithm.modelgenerator.*;
-import org.moflon.tgg.algorithm.modelgenerator.controller.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import TGGLanguage.DomainType;
 
+import org.apache.log4j.BasicConfigurator;
+import org.moflon.ide.debug.DebugSynchronizationHelper;
+import org.moflon.tgg.algorithm.modelgenerator.GenerationResult;
+import org.moflon.tgg.algorithm.modelgenerator.ModelGenerator;
+import org.moflon.tgg.algorithm.modelgenerator.controller.AbstractModelGenerationController;
+import org.moflon.tgg.algorithm.modelgenerator.controller.DefaultModelGenController;
+import org.moflon.tgg.algorithm.modelgenerator.controller.LimitedRandomRuleSelector;
+import org.moflon.tgg.algorithm.modelgenerator.controller.MaxModelSizeController;
+import org.moflon.util.eMoflonEMFUtil;
+
+import TGGLanguage.DomainType;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
 
 

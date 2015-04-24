@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: de.abilov.tgg.bpmn2usecase.test;singleton:=true
+Export-Package: de.abilov.tgg.bpmn2usecase.test
+Bundle-Name: de.abilov.tgg.bpmn2usecase.test
+Bundle-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Marat Abilov
+Require-Bundle: BpmnToUseCaseIntegration,
+ bpmn2,
+ UseCaseDSL,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.dependencies,
+ MocaTree,
+ SDMLanguage,
+ TGGLanguage,
+ TGGRuntime,
+ org.eclipse.emf.compare;bundle-version="3.1.2"

@@ -10,3 +10,6 @@ UseCaseDSL.editor/bin/
 UseCaseDSL.tests/bin/
 UseCaseDSL.ui/bin/
 de.abilov.ea/MetaAndTgg.ldb
+/org.eclipse.xtext.example.domainmodel/
+/org.eclipse.xtext.example.domainmodel.tests/
+/org.eclipse.xtext.example.domainmodel.ui/

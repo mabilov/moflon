@@ -3,12 +3,11 @@ package de.abilov.tgg.usecase2msd;
 import java.io.IOException;
 import java.util.Map;
 
-import org.apache.log4j.BasicConfigurator;
 import org.moflon.util.eMoflonEMFUtil;
 
-import de.abilov.tgg.synch.SynchronizationHelper;
 import UseCaseDSL.resource.UseCaseXMIHelper;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
+import de.abilov.tgg.synch.SynchronizationHelper;
 
 public class UseCaseToModalSequenceDiagramIntegrationTrafo extends
 		SynchronizationHelper {

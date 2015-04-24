@@ -1,8 +1,0 @@
-package de.abilov.booksale 
-actors sys as system 
-	shipping as person "Shipping"
-	financing as person "Financing" 
-usecase booksale "Book Sale Process" 
-preconditions "Order Received" 
-basic flow 
-end flow 
