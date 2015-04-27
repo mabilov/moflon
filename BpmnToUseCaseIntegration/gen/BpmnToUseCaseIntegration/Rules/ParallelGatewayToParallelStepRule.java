@@ -24,6 +24,7 @@ import UseCaseDSL.Flow;
 import UseCaseDSL.ParallelStep;
 import UseCaseDSL.Step;
 
+import bpmn2.FlowNode;
 import bpmn2.Lane;
 import bpmn2.LaneSet;
 import bpmn2.ParallelGateway;
@@ -53,7 +54,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 */
 	boolean isAppropriate_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ParallelGateway parallelGateway,
-			LaneSet laneSet, Lane lane);
+			LaneSet laneSet, Lane lane, FlowNode flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,7 +80,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 */
 	void registerObjectsToMatch_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ParallelGateway parallelGateway,
-			LaneSet laneSet, Lane lane);
+			LaneSet laneSet, Lane lane, FlowNode flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,7 +90,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 */
 	CSP isAppropriate_solveCsp_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ParallelGateway parallelGateway,
-			LaneSet laneSet, Lane lane);
+			LaneSet laneSet, Lane lane, FlowNode flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,7 +109,8 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, ParallelGateway parallelGateway, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane);
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,7 +130,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 			EObject step, EObject inFlowToStep, EObject parallelStep,
 			EObject process, EObject parallelGateway, EObject flow,
 			EObject parallelGatewayToParallelStep, EObject inFlowToFlow,
-			EObject laneSet, EObject lane);
+			EObject laneSet, EObject lane, EObject flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,7 +200,8 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, bpmn2.Process process, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane);
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,7 +221,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 			EObject step, EObject inFlowToStep, EObject parallelStep,
 			EObject process, EObject parallelGateway, EObject flow,
 			EObject parallelGatewayToParallelStep, EObject inFlowToFlow,
-			EObject laneSet, EObject lane);
+			EObject laneSet, EObject lane, EObject flowNode);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,7 +237,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_32(EMoflonEdge _edge_next);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_29(EMoflonEdge _edge_next);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,7 +245,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_87(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_75(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -251,7 +254,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_88(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_76(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -260,7 +263,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_89(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_77(EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,7 +271,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_33(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_30(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,7 +279,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_90(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_78(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**
@@ -315,7 +318,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
-			ModelgeneratorRuleResult ruleResult);
+			FlowNode flowNode, ModelgeneratorRuleResult ruleResult);
 
 	/**
 	 * <!-- begin-user-doc -->

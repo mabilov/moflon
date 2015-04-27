@@ -163,7 +163,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="EndEventRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveGatewayToStepCoreRule">
+    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveGatewayToStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InterEventToStepRule" abstract="true">
@@ -175,7 +175,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="FirstICEToStepRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParallelGatewayToParallelStepCoreRule">
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelGatewayToParallelStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule">

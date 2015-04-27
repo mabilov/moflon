@@ -1,37 +1,37 @@
-package de.abilov.booksale 
-actors 
-    sys as system 
-    shipping as person "Shipping"
-    financing as person "Financing" 
-    sales as person "Sales" 
-usecase booksale "Book Sale Process" 
-preconditions "Order Received" 
-basic flow 
-    step record_order "Record Order" by sys next check_stock 
-    step check_stock "Check Stock" by sys next all_books_available 
-    step all_books_available "All books available" by sys 
-        alternatives if "No" then alternative flow sf_no
-        else next pgw1 
-    parallel step pgw1 "pgw1" payment , shipment_prepare next deliver_books_customer 
-    step deliver_books_customer "Deliver books to customer" by sales next delivery_confirmed 
-    step delivery_confirmed "Delivery confirmed" by sys 
-end flow 
-alternative flow sf_no 
-    step deliver_books_stock "Deliver books to stock" by financing 
-end flow 
-parallel flow payment 
-    step charge_issue "Charge Issue" by sys 
-    step wait_for_event "Wait for event" by sys 
-        alternatives if "Payment Received" then alternative flow payment_received 
-        if "delay > 5 days" then alternative flow delay_5d 
-        else 
-end flow 
-parallel flow shipment_prepare 
-    step separate_books "Separate books of the request" by financing 
-end flow 
-alternative flow payment_received 
-    step issue_invoice "Issue invoice" by shipping 
-end flow 
-alternative flow delay_5d end flow
-end usecase 
-end package
+package de.abilov.booksale
+actors sys as system
+sales as person "Sales"
+shipping as person "Shipping"
+financing as person "Financing"
+usecase booksale "Book Sale Process"
+preconditions "Order Received"
+basic flow
+	step record_order "Record Order" by sys next check_stock
+	step check_stock "Check Stock" by sys next all_books_available
+	step all_books_available "All books available" by sys
+	alternatives
+		if "No" then alternative flow ShipmentPrepare
+	else next pgw1
+	parallel step pgw1 "pgw1" shipment_prepare , payment next deliver_books_customer
+	step deliver_books_customer "Deliver books to customer" by shipping next delivery_confirmed
+	step delivery_confirmed "Delivery confirmed" by sys
+end flow
+alternative flow ShipmentPrepare
+	step deliver_books_stock "Deliver books to stock" by shipping
+end flow
+parallel flow shipment_prepare
+	step separate_books "Separate books of the request" by shipping
+end flow
+parallel flow payment
+	step charge_issue "Charge Issue" by sys next wait_for_event
+	step wait_for_event "Wait for event" by sys
+	alternatives
+		if "delay > 5 days" then alternative flow delay_5d
+		if "Payment Received" then alternative flow payment_received
+	else
+end flow
+alternative flow delay_5d
+end flow
+alternative flow payment_received
+	step issue_invoice "Issue invoice" by financing
+end flow end usecase end package

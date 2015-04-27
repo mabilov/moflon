@@ -4910,10 +4910,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_20_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_416810 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_431618 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_416810)) {
+			if (!flowNode.equals(__DEC_outFlow_default_431618)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5218,10 +5218,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_567864 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_888754 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_567864)) {
+			if (!flowNode.equals(__DEC_outFlow_default_888754)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5406,10 +5406,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_915207 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_622483 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_915207)) {
+			if (!flowNode.equals(__DEC_outFlow_default_622483)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5594,10 +5594,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_196948 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_869761 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_196948)) {
+			if (!flowNode.equals(__DEC_outFlow_default_869761)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5780,10 +5780,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_281481 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_704077 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_281481)) {
+			if (!flowNode.equals(__DEC_outFlow_default_704077)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5968,10 +5968,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_264019 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_45574 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_264019)) {
+			if (!flowNode.equals(__DEC_outFlow_default_45574)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -6398,10 +6398,10 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ServiceTaskToStepRule_29_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_427937 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_221475 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_427937)) {
+			if (!flowNode.equals(__DEC_outFlow_default_221475)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -6869,8 +6869,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_1 = csp.getValue("task", "name");
 		Object _localVariable_2 = csp.getValue("normalStep", "name");
 		Object _localVariable_3 = csp.getValue("normalStep", "label");
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(task);
 		inFlow.setTargetRef(task);
 		lane.getFlowNodeRefs().add(task);
@@ -6895,8 +6895,8 @@ public class ServiceTaskToStepRuleImpl extends AbstractRuleImpl implements
 		String task_name_prime = (String) _localVariable_1;
 		String normalStep_name_prime = (String) _localVariable_2;
 		String normalStep_label_prime = (String) _localVariable_3;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		task.setId(task_id_prime);
 		task.setName(task_name_prime);
 		normalStep.setName(normalStep_name_prime);

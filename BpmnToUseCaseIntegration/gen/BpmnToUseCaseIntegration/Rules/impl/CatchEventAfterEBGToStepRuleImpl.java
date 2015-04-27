@@ -1124,7 +1124,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_69(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1193,7 +1193,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_70(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_58(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1262,7 +1262,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_71(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_59(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1331,7 +1331,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_72(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_60(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1400,7 +1400,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_73(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_61(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1469,7 +1469,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_74(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_62(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1538,7 +1538,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_75(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_63(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1607,7 +1607,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_76(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_64(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1676,7 +1676,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_77(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_65(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1745,7 +1745,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_26(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_23(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1810,7 +1810,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_27(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_24(
 			EMoflonEdge _edge_stepAlternative) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1875,7 +1875,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_28(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_25(
 			EMoflonEdge _edge_ref) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -1940,7 +1940,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_78(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_66(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = CatchEventAfterEBGToStepRuleImpl
@@ -2337,44 +2337,44 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_69__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_69((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_57__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_57((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_70__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_70((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_58__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_58((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_71__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_71((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_59__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_59((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_72__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_72((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_60__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_60((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_73__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_73((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_61__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_61((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_74__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_74((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_62__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_62((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_75__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_75((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_63__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_63((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_76__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_76((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_64__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_64((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_77__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_77((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_65__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_65((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_26__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_26((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_23__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_23((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_27__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_27((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_24__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_24((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_28__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_28((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_25__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_25((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_78__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_78((EMoflonEdge) arguments
+		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_66__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_66((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -5937,7 +5937,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_78441 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_121854 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5947,7 +5947,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_20_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_584875 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_316647 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6164,7 +6164,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_807759 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_950665 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6174,7 +6174,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_21_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_682866 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_162475 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6390,7 +6390,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_697904 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_995664 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6400,7 +6400,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_22_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_888638 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_758585 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6616,7 +6616,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_284471 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_126915 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6626,7 +6626,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_23_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_882576 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_996331 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -6842,7 +6842,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_552845 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_672453 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6852,7 +6852,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_24_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_472558 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_804200 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7068,7 +7068,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_186323 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_722655 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7078,7 +7078,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_25_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_548824 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_842812 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7294,7 +7294,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_26_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_983427 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_665873 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7304,7 +7304,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_26_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_540601 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_947281 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7520,7 +7520,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_27_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_741252 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_369372 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7530,7 +7530,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_27_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_745730 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_771574 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -7747,7 +7747,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_28_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_840837 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_593685 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -7757,7 +7757,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_28_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_758322 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_55171 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -8366,7 +8366,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_32_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_325879 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_838641 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -8376,7 +8376,7 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_CatchEventAfterEBGToStepRule_32_2_black_nac_1B(
 			SequenceFlow ceFlow) {
-		for (ExclusiveGateway __DEC_ceFlow_default_468911 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_ceFlow_default_299022 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(ceFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { ceFlow };
@@ -8899,8 +8899,8 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 				.getValue("intermediateCatchEvent", "name");
 		Object _localVariable_2 = csp.getValue("alt", "condition");
 		Object _localVariable_3 = csp.getValue("alternativeFlow", "name");
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(outFlow);
 		outFlow.setSourceRef(eventBasedGateway);
 		ruleResult.getSourceObjects().add(outFlow);
@@ -8929,8 +8929,8 @@ public class CatchEventAfterEBGToStepRuleImpl extends AbstractRuleImpl
 		String intermediateCatchEvent_name_prime = (String) _localVariable_1;
 		String alt_condition_prime = (String) _localVariable_2;
 		String alternativeFlow_name_prime = (String) _localVariable_3;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		intermediateCatchEvent.setId(intermediateCatchEvent_id_prime);
 		intermediateCatchEvent.setName(intermediateCatchEvent_name_prime);
 		alt.setCondition(alt_condition_prime);

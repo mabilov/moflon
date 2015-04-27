@@ -960,7 +960,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_184(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_172(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1027,7 +1027,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_185(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_173(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1094,7 +1094,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_186(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_174(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1161,7 +1161,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_187(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_175(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1228,7 +1228,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_188(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_176(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1295,7 +1295,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_189(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_177(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1362,7 +1362,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_56(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_53(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1424,7 +1424,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_57(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_54(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1486,7 +1486,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_190(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_178(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ServiceTaskToStepAfterSERuleImpl
@@ -1833,32 +1833,32 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_184__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_184((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_172__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_172((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_185__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_185((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_173__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_173((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_186__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_186((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_174__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_174((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_187__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_187((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_175__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_175((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_188__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_188((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_176__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_176((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_189__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_189((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_177__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_177((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_56__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_56((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_53__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_53((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_57__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_57((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_54__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_54((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_190__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_190((EMoflonEdge) arguments
+		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_178__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_178((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SERVICE_TASK_TO_STEP_AFTER_SE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4395,7 +4395,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_996851 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_654283 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4576,7 +4576,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_21573 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_915851 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4759,7 +4759,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_594723 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_866513 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4942,7 +4942,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_383237 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_709682 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5124,7 +5124,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_143733 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_161745 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5308,7 +5308,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_454006 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_338243 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5722,7 +5722,7 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ServiceTaskToStepAfterSERule_28_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_210050 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_832463 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6144,8 +6144,8 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 		Object _localVariable_1 = csp.getValue("task", "name");
 		Object _localVariable_2 = csp.getValue("normalStep", "name");
 		Object _localVariable_3 = csp.getValue("normalStep", "label");
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(task);
 		inFlow.setTargetRef(task);
 		lane.getFlowNodeRefs().add(task);
@@ -6169,8 +6169,8 @@ public class ServiceTaskToStepAfterSERuleImpl extends AbstractRuleImpl
 		String task_name_prime = (String) _localVariable_1;
 		String normalStep_name_prime = (String) _localVariable_2;
 		String normalStep_label_prime = (String) _localVariable_3;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		task.setId(task_id_prime);
 		task.setName(task_name_prime);
 		normalStep.setName(normalStep_name_prime);

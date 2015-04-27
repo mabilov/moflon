@@ -386,7 +386,7 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_95(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneStartEventRuleImpl
@@ -608,8 +608,8 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.LANE_START_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_95__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_95((EMoflonEdge) arguments
+		case RulesPackage.LANE_START_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_83__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_83((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1379,10 +1379,10 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_LaneStartEventRule_12_6_greenBBB(
 			Lane lane, StartEvent flowNode, ModelgeneratorRuleResult ruleResult) {
 		lane.getFlowNodeRefs().add(flowNode);
-		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
+		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
 		return new Object[] { lane, flowNode, ruleResult };

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<UseCaseDSL:UseCasesModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UseCaseDSL="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore">
+  <packages name="de.abilov.booksale">
+    <useCases description="Book Sale Process" name="booksale" preConditions="Order Received">
+      <flows xsi:type="UseCaseDSL:BasicFlow">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Record Order" name="record_order" actor="sys"/>
+      </flows>
+    </useCases>
+    <actors name="sys" type="system"/>
+    <actors description="Shipping" name="shipping"/>
+    <actors description="Financing" name="financing"/>
+  </packages>
+</UseCaseDSL:UseCasesModel>

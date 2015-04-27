@@ -5,18 +5,18 @@
       <laneSets id="ls1" name="Lane set 1">
         <lanes flowNodeRefs="order_received record_order check_stock" id="sales" name="Sales"/>
         <lanes flowNodeRefs="all_books_available ecg1 pgw1 charge_issue payment_received issue_invoice wait_for_event ecgw2 delay_5d cancel_order" id="financing" name="Financing"/>
-        <lanes flowNodeRefs="deliver_books_stock separate_books pcgw1 deliver_books_stock delivery_confirmed end_event" id="shipping" name="Shipping"/>
+        <lanes flowNodeRefs="separate_books pcgw1 deliver_books_stock delivery_confirmed end_event deliver_books_customer" id="shipping" name="Shipping"/>
       </laneSets>
       <flowElements xsi:type="bpmn2:StartEvent" id="order_received" name="Order Received" outgoing="sf1"/>
-      <flowElements xsi:type="bpmn2:ExclusiveGateway" id="all_books_available" name="All books available" outgoing="sf_yes sf_no" incoming="sf4" gatewayDirection="Diverging" default="sf_yes"/>
+      <flowElements xsi:type="bpmn2:ExclusiveGateway" id="all_books_available" name="All books available" outgoing="sf_yes ShipmentPrepare" incoming="sf4" gatewayDirection="Diverging" default="sf_yes"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf1" name="sf1" sourceRef="order_received" targetRef="record_order"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf_yes" name="Yes" sourceRef="all_books_available" targetRef="ecg1"/>
       <flowElements xsi:type="bpmn2:ServiceTask" id="record_order" name="Record Order" outgoing="sf3" incoming="sf1"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf3" name="sf3" sourceRef="record_order" targetRef="check_stock"/>
       <flowElements xsi:type="bpmn2:ServiceTask" id="check_stock" name="Check Stock" outgoing="sf4" incoming="sf3"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf4" name="sf4" sourceRef="check_stock" targetRef="all_books_available"/>
-      <flowElements xsi:type="bpmn2:SequenceFlow" id="sf_no" name="No" sourceRef="all_books_available" targetRef="deliver_books_stock"/>
-      <flowElements xsi:type="bpmn2:UserTask" id="deliver_books_stock" name="Deliver books to stock" outgoing="sf5" incoming="sf_no"/>
+      <flowElements xsi:type="bpmn2:SequenceFlow" id="ShipmentPrepare" name="No" sourceRef="all_books_available" targetRef="deliver_books_stock"/>
+      <flowElements xsi:type="bpmn2:UserTask" id="deliver_books_stock" name="Deliver books to stock" outgoing="sf5" incoming="ShipmentPrepare"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf5" name="sf5" sourceRef="deliver_books_stock" targetRef="ecg1"/>
       <flowElements xsi:type="bpmn2:ExclusiveGateway" id="ecg1" name="ecg1" outgoing="sf6" incoming="sf5 sf_yes"/>
       <flowElements xsi:type="bpmn2:SequenceFlow" id="sf6" name="sf6" sourceRef="ecg1" targetRef="pgw1"/>

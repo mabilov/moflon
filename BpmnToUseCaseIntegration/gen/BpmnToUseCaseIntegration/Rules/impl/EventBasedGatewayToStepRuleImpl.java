@@ -954,7 +954,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_34(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_31(
 			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1017,7 +1017,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_91(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_79(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1082,7 +1082,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_92(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_80(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1147,7 +1147,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_93(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_81(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1212,7 +1212,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_35(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_32(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1275,7 +1275,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_36(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_33(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1338,7 +1338,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_94(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_82(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1687,26 +1687,26 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_34((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_31__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_31((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_91__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_91((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_79__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_79((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_92__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_92((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_80__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_80((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_93__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_93((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_81__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_81((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_35__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_35((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_32__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_32((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_36__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_36((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_33((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_94__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_94((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_82__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_82((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -5061,8 +5061,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_3 = csp.getValue("eventBasedGateway", "name");
 		Object _localVariable_4 = csp.getValue("eventBasedGateway",
 				"gatewayDirection");
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		prevStep.setNext(normalStep);
 		normalStep.setActor(actor);
 		flow.getSteps().add(normalStep);
@@ -5079,8 +5079,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		String eventBasedGateway_id_prime = (String) _localVariable_2;
 		String eventBasedGateway_name_prime = (String) _localVariable_3;
 		GatewayDirection eventBasedGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_4;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
 		eventBasedGateway.setId(eventBasedGateway_id_prime);

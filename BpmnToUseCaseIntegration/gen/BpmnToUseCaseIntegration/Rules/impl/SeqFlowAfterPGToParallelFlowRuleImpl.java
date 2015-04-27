@@ -942,7 +942,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_66(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_54(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
@@ -1006,7 +1006,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_67(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
@@ -1070,7 +1070,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_68(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
@@ -1134,7 +1134,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_24(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_21(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
@@ -1198,7 +1198,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_25(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_22(
 			EMoflonEdge _edge_invokedFlows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
@@ -1543,20 +1543,20 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_66__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_66((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_54__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_54((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_67__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_67((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_55__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_55((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_68__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_68((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_56__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_56((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_24__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_24((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_21__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_21((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_25__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_25((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_22__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_22((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3780,7 +3780,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_20_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_203163 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_848676 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -3925,7 +3925,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_21_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_224244 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_354596 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4072,7 +4072,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_22_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_772574 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_479611 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4219,10 +4219,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_23_2_black_nac_0BB(
 			ParallelFlow parallelFlow, ParallelStep parallelStep) {
-		for (ParallelStep __DEC_parallelFlow_invokedFlows_304448 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parallelFlow_invokedFlows_90253 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parallelFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_304448)) {
+			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_90253)) {
 				return new Object[] { parallelFlow, parallelStep };
 			}
 		}
@@ -4359,10 +4359,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_24_2_black_nac_0BB(
 			ParallelFlow parallelFlow, ParallelStep parallelStep) {
-		for (ParallelStep __DEC_parallelFlow_invokedFlows_549189 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parallelFlow_invokedFlows_587274 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parallelFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_549189)) {
+			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_587274)) {
 				return new Object[] { parallelFlow, parallelStep };
 			}
 		}
@@ -4758,8 +4758,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 				.createSequenceFlowToUCFlow();
 		Object _localVariable_0 = csp.getValue("sequenceFlow", "id");
 		Object _localVariable_1 = csp.getValue("parallelFlow", "name");
-		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(sequenceFlow);
 		sequenceFlow.setSourceRef(parallelGateway);
 		ruleResult.getSourceObjects().add(sequenceFlow);
@@ -4771,8 +4771,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 		ruleResult.getCorrObjects().add(sequenceFlowToParallelFlow);
 		String sequenceFlow_id_prime = (String) _localVariable_0;
 		String parallelFlow_name_prime = (String) _localVariable_1;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
 		sequenceFlow.setId(sequenceFlow_id_prime);
 		parallelFlow.setName(parallelFlow_name_prime);
 		ruleResult.setPerformCount(Integer

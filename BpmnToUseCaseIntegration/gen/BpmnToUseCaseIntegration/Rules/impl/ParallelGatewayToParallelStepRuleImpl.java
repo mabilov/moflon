@@ -37,6 +37,7 @@ import UseCaseDSL.UseCaseDSLFactory;
 import bpmn2.Bpmn2Factory;
 import bpmn2.FlowElement;
 import bpmn2.FlowElementsContainer;
+import bpmn2.FlowNode;
 import bpmn2.GatewayDirection;
 import bpmn2.Lane;
 import bpmn2.LaneSet;
@@ -98,12 +99,12 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 */
 	public boolean isAppropriate_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ParallelGateway parallelGateway,
-			LaneSet laneSet, Lane lane) {
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
 		// initial bindings
 		Object[] result1_black = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_0_1_blackBBBBBBB(
+				.pattern_ParallelGatewayToParallelStepRule_0_1_blackBBBBBBBB(
 						this, match, inFlow, process, parallelGateway, laneSet,
-						lane);
+						lane, flowNode);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [initial bindings] failed");
@@ -111,9 +112,9 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// Solve CSP
 		Object[] result2_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_0_2_bindingAndBlackFBBBBBBB(
+				.pattern_ParallelGatewayToParallelStepRule_0_2_bindingAndBlackFBBBBBBBB(
 						this, match, inFlow, process, parallelGateway, laneSet,
-						lane);
+						lane, flowNode);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [Solve CSP] failed");
@@ -126,9 +127,9 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 			// collect elements to be translated
 			Object[] result4_black = ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_0_4_blackBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_0_4_blackBBBBBBB(
 							match, inFlow, process, parallelGateway, laneSet,
-							lane);
+							lane, flowNode);
 			if (result4_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect elements to be translated] failed");
@@ -143,25 +144,28 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 			// collect context elements
 			Object[] result5_black = ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_0_5_blackBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_0_5_blackBBBBBBB(
 							match, inFlow, process, parallelGateway, laneSet,
-							lane);
+							lane, flowNode);
 			if (result5_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect context elements] failed");
 			}
 			ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_0_5_greenBBBBBFFF(
-							match, inFlow, process, laneSet, lane);
-			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[5];
-			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[6];
-			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[7];
+					.pattern_ParallelGatewayToParallelStepRule_0_5_greenBBBBBBFFFFFF(
+							match, inFlow, process, laneSet, lane, flowNode);
+			// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result5_green[6];
+			// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result5_green[7];
+			// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result5_green[8];
+			// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result5_green[9];
+			// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result5_green[10];
+			// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result5_green[11];
 
 			// register objects to match
 			ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_0_6_expressionBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_0_6_expressionBBBBBBBB(
 							this, match, inFlow, process, parallelGateway,
-							laneSet, lane);
+							laneSet, lane, flowNode);
 			return ParallelGatewayToParallelStepRuleImpl
 					.pattern_ParallelGatewayToParallelStepRule_0_7_expressionF();
 		} else {
@@ -179,7 +183,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
 		// perform transformation
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_1_1_bindingAndBlackFFFFFFFFFFBB(
+				.pattern_ParallelGatewayToParallelStepRule_1_1_bindingAndBlackFFFFFFFFFFFBB(
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
@@ -194,7 +198,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[6];
 		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[7];
 		Lane lane = (Lane) result1_bindingAndBlack[8];
-		CSP csp = (CSP) result1_bindingAndBlack[9];
+		FlowNode flowNode = (FlowNode) result1_bindingAndBlack[9];
+		CSP csp = (CSP) result1_bindingAndBlack[10];
 		Object[] result1_green = ParallelGatewayToParallelStepRuleImpl
 				.pattern_ParallelGatewayToParallelStepRule_1_1_greenBFBBFB(
 						step, parallelGateway, flow, csp);
@@ -218,11 +223,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// bookkeeping for edges
 		Object[] result3_black = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_1_3_blackBBBBBBBBBBBB(
+				.pattern_ParallelGatewayToParallelStepRule_1_3_blackBBBBBBBBBBBBB(
 						ruleresult, inFlow, step, inFlowToStep, parallelStep,
 						process, parallelGateway, flow,
 						parallelGatewayToParallelStep, inFlowToFlow, laneSet,
-						lane);
+						lane, flowNode);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
@@ -244,11 +249,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		// perform postprocessing story node is empty
 		// register objects
 		ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_1_5_expressionBBBBBBBBBBBBB(
+				.pattern_ParallelGatewayToParallelStepRule_1_5_expressionBBBBBBBBBBBBBB(
 						this, ruleresult, inFlow, step, inFlowToStep,
 						parallelStep, process, parallelGateway, flow,
 						parallelGatewayToParallelStep, inFlowToFlow, laneSet,
-						lane);
+						lane, flowNode);
 		return ParallelGatewayToParallelStepRuleImpl
 				.pattern_ParallelGatewayToParallelStepRule_1_6_expressionFB(ruleresult);
 	}
@@ -274,7 +279,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// ForEach core match
 		Object[] result2_binding = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_2_2_bindingFFFFFB(match);
+				.pattern_ParallelGatewayToParallelStepRule_2_2_bindingFFFFFFB(match);
 		if (result2_binding == null) {
 			throw new RuntimeException("Binding in node core match failed");
 		}
@@ -283,42 +288,48 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		ParallelGateway parallelGateway = (ParallelGateway) result2_binding[2];
 		LaneSet laneSet = (LaneSet) result2_binding[3];
 		Lane lane = (Lane) result2_binding[4];
+		FlowNode flowNode = (FlowNode) result2_binding[5];
 		for (Object[] result2_black : ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_2_2_blackBFFBBFFBBB(
-						inFlow, process, parallelGateway, laneSet, lane, match)) {
+				.pattern_ParallelGatewayToParallelStepRule_2_2_blackBFFBBFFBBBB(
+						inFlow, process, parallelGateway, laneSet, lane,
+						flowNode, match)) {
 			Step step = (Step) result2_black[1];
 			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result2_black[2];
 			Flow flow = (Flow) result2_black[5];
 			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[6];
 			// ForEach find context
 			for (Object[] result3_black : ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_2_3_blackBBBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_2_3_blackBBBBBBBBBB(
 							inFlow, step, inFlowToStep, process,
-							parallelGateway, flow, inFlowToFlow, laneSet, lane)) {
+							parallelGateway, flow, inFlowToFlow, laneSet, lane,
+							flowNode)) {
 				Object[] result3_green = ParallelGatewayToParallelStepRuleImpl
-						.pattern_ParallelGatewayToParallelStepRule_2_3_greenBBBBBBBBBFFFFFFFFFFFF(
+						.pattern_ParallelGatewayToParallelStepRule_2_3_greenBBBBBBBBBBFFFFFFFFFFFFFFF(
 								inFlow, step, inFlowToStep, process,
 								parallelGateway, flow, inFlowToFlow, laneSet,
-								lane);
-				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[9];
-				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[10];
-				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[11];
-				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[12];
-				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[13];
-				// EMoflonEdge process__parallelGateway____flowElements = (EMoflonEdge) result3_green[14];
-				// EMoflonEdge inFlow__parallelGateway____targetRef = (EMoflonEdge) result3_green[15];
-				// EMoflonEdge parallelGateway__inFlow____incoming = (EMoflonEdge) result3_green[16];
-				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[17];
-				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[18];
-				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[19];
-				// EMoflonEdge lane__parallelGateway____flowNodeRefs = (EMoflonEdge) result3_green[20];
+								lane, flowNode);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[10];
+				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge process__parallelGateway____flowElements = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge inFlow__parallelGateway____targetRef = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge parallelGateway__inFlow____incoming = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge lane__parallelGateway____flowNodeRefs = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result3_green[24];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
-						.pattern_ParallelGatewayToParallelStepRule_2_4_bindingAndBlackFBBBBBBBBBBB(
+						.pattern_ParallelGatewayToParallelStepRule_2_4_bindingAndBlackFBBBBBBBBBBBB(
 								this, isApplicableMatch, inFlow, step,
 								inFlowToStep, process, parallelGateway, flow,
-								inFlowToFlow, laneSet, lane);
+								inFlowToFlow, laneSet, lane, flowNode);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -358,12 +369,13 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 */
 	public void registerObjectsToMatch_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ParallelGateway parallelGateway,
-			LaneSet laneSet, Lane lane) {
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
 		match.registerObject("inFlow", inFlow);
 		match.registerObject("process", process);
 		match.registerObject("parallelGateway", parallelGateway);
 		match.registerObject("laneSet", laneSet);
 		match.registerObject("lane", lane);
+		match.registerObject("flowNode", flowNode);
 
 	}
 
@@ -374,7 +386,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, SequenceFlow inFlow,
 			bpmn2.Process process, ParallelGateway parallelGateway,
-			LaneSet laneSet, Lane lane) {// Create CSP
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -421,7 +433,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, ParallelGateway parallelGateway, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {// Create CSP
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -468,6 +481,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
 		isApplicableMatch.registerObject("laneSet", laneSet);
 		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("flowNode", flowNode);
 		return csp;
 	}
 
@@ -489,7 +503,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			EObject inFlow, EObject step, EObject inFlowToStep,
 			EObject parallelStep, EObject process, EObject parallelGateway,
 			EObject flow, EObject parallelGatewayToParallelStep,
-			EObject inFlowToFlow, EObject laneSet, EObject lane) {
+			EObject inFlowToFlow, EObject laneSet, EObject lane,
+			EObject flowNode) {
 		ruleresult.registerObject("inFlow", inFlow);
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("inFlowToStep", inFlowToStep);
@@ -502,6 +517,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		ruleresult.registerObject("inFlowToFlow", inFlowToFlow);
 		ruleresult.registerObject("laneSet", laneSet);
 		ruleresult.registerObject("lane", lane);
+		ruleresult.registerObject("flowNode", flowNode);
 
 	}
 
@@ -592,7 +608,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
 		// perform transformation
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_11_1_bindingAndBlackFFFFFFFFFFBB(
+				.pattern_ParallelGatewayToParallelStepRule_11_1_bindingAndBlackFFFFFFFFFFFBB(
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
@@ -607,7 +623,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[6];
 		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[7];
 		Lane lane = (Lane) result1_bindingAndBlack[8];
-		CSP csp = (CSP) result1_bindingAndBlack[9];
+		FlowNode flowNode = (FlowNode) result1_bindingAndBlack[9];
+		CSP csp = (CSP) result1_bindingAndBlack[10];
 		Object[] result1_green = ParallelGatewayToParallelStepRuleImpl
 				.pattern_ParallelGatewayToParallelStepRule_11_1_greenBBBFFBB(
 						inFlow, parallelStep, process, lane, csp);
@@ -631,11 +648,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// bookkeeping for edges
 		Object[] result3_black = ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_11_3_blackBBBBBBBBBBBB(
+				.pattern_ParallelGatewayToParallelStepRule_11_3_blackBBBBBBBBBBBBB(
 						ruleresult, inFlow, step, inFlowToStep, parallelStep,
 						process, parallelGateway, flow,
 						parallelGatewayToParallelStep, inFlowToFlow, laneSet,
-						lane);
+						lane, flowNode);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
@@ -657,11 +674,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		// perform postprocessing story node is empty
 		// register objects
 		ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_11_5_expressionBBBBBBBBBBBBB(
+				.pattern_ParallelGatewayToParallelStepRule_11_5_expressionBBBBBBBBBBBBBB(
 						this, ruleresult, inFlow, step, inFlowToStep,
 						parallelStep, process, parallelGateway, flow,
 						parallelGatewayToParallelStep, inFlowToFlow, laneSet,
-						lane);
+						lane, flowNode);
 		return ParallelGatewayToParallelStepRuleImpl
 				.pattern_ParallelGatewayToParallelStepRule_11_6_expressionFB(ruleresult);
 	}
@@ -702,33 +719,38 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[5];
 			// ForEach find context
 			for (Object[] result3_black : ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_12_3_blackBBBBFBBFF(
+					.pattern_ParallelGatewayToParallelStepRule_12_3_blackBBBBFBBFFF(
 							inFlow, step, inFlowToStep, parallelStep, flow,
 							inFlowToFlow)) {
 				bpmn2.Process process = (bpmn2.Process) result3_black[4];
 				LaneSet laneSet = (LaneSet) result3_black[7];
 				Lane lane = (Lane) result3_black[8];
+				FlowNode flowNode = (FlowNode) result3_black[9];
 				Object[] result3_green = ParallelGatewayToParallelStepRuleImpl
-						.pattern_ParallelGatewayToParallelStepRule_12_3_greenBBBBBBBBBFFFFFFFFFF(
+						.pattern_ParallelGatewayToParallelStepRule_12_3_greenBBBBBBBBBBFFFFFFFFFFFFF(
 								inFlow, step, inFlowToStep, parallelStep,
-								process, flow, inFlowToFlow, laneSet, lane);
-				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[9];
-				// EMoflonEdge step__parallelStep____next = (EMoflonEdge) result3_green[10];
-				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[11];
-				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[12];
-				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[13];
-				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[14];
-				// EMoflonEdge flow__parallelStep____steps = (EMoflonEdge) result3_green[15];
-				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[16];
-				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[17];
-				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[18];
+								process, flow, inFlowToFlow, laneSet, lane,
+								flowNode);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[10];
+				// EMoflonEdge step__parallelStep____next = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge inFlowToStep__inFlow____source = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge inFlowToStep__step____target = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge process__flowNode____flowElements = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge flow__parallelStep____steps = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge inFlowToFlow__inFlow____source = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge inFlowToFlow__flow____target = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge laneSet__lane____lanes = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge inFlow__flowNode____sourceRef = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge flowNode__inFlow____outgoing = (EMoflonEdge) result3_green[22];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
-						.pattern_ParallelGatewayToParallelStepRule_12_4_bindingAndBlackFBBBBBBBBBBB(
+						.pattern_ParallelGatewayToParallelStepRule_12_4_bindingAndBlackFBBBBBBBBBBBB(
 								this, isApplicableMatch, inFlow, step,
 								inFlowToStep, parallelStep, process, flow,
-								inFlowToFlow, laneSet, lane);
+								inFlowToFlow, laneSet, lane, flowNode);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -812,7 +834,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, bpmn2.Process process, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {// Create CSP
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -871,6 +894,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
 		isApplicableMatch.registerObject("laneSet", laneSet);
 		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("flowNode", flowNode);
 		return csp;
 	}
 
@@ -892,7 +916,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			EObject inFlow, EObject step, EObject inFlowToStep,
 			EObject parallelStep, EObject process, EObject parallelGateway,
 			EObject flow, EObject parallelGatewayToParallelStep,
-			EObject inFlowToFlow, EObject laneSet, EObject lane) {
+			EObject inFlowToFlow, EObject laneSet, EObject lane,
+			EObject flowNode) {
 		ruleresult.registerObject("inFlow", inFlow);
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("inFlowToStep", inFlowToStep);
@@ -905,6 +930,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		ruleresult.registerObject("inFlowToFlow", inFlowToFlow);
 		ruleresult.registerObject("laneSet", laneSet);
 		ruleresult.registerObject("lane", lane);
+		ruleresult.registerObject("flowNode", flowNode);
 
 	}
 
@@ -926,7 +952,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_32(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_29(
 			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
@@ -988,7 +1014,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_87(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_75(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
@@ -1005,21 +1031,22 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_21_2_blackFFFFFB(_edge_flowElements)) {
+				.pattern_ParallelGatewayToParallelStepRule_21_2_blackFFFFFFB(_edge_flowElements)) {
 			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			ParallelGateway parallelGateway = (ParallelGateway) result2_black[2];
 			LaneSet laneSet = (LaneSet) result2_black[3];
 			Lane lane = (Lane) result2_black[4];
+			FlowNode flowNode = (FlowNode) result2_black[5];
 			Object[] result2_green = ParallelGatewayToParallelStepRuleImpl
 					.pattern_ParallelGatewayToParallelStepRule_21_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_21_3_expressionFBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_21_3_expressionFBBBBBBBB(
 							this, match, inFlow, process, parallelGateway,
-							laneSet, lane)) {
+							laneSet, lane, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (ParallelGatewayToParallelStepRuleImpl
 						.pattern_ParallelGatewayToParallelStepRule_21_4_expressionFBB(
@@ -1053,7 +1080,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_88(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_76(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
@@ -1070,21 +1097,22 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_22_2_blackFFFFFB(_edge_targetRef)) {
+				.pattern_ParallelGatewayToParallelStepRule_22_2_blackFFFFFFB(_edge_targetRef)) {
 			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			ParallelGateway parallelGateway = (ParallelGateway) result2_black[2];
 			LaneSet laneSet = (LaneSet) result2_black[3];
 			Lane lane = (Lane) result2_black[4];
+			FlowNode flowNode = (FlowNode) result2_black[5];
 			Object[] result2_green = ParallelGatewayToParallelStepRuleImpl
 					.pattern_ParallelGatewayToParallelStepRule_22_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_22_3_expressionFBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_22_3_expressionFBBBBBBBB(
 							this, match, inFlow, process, parallelGateway,
-							laneSet, lane)) {
+							laneSet, lane, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (ParallelGatewayToParallelStepRuleImpl
 						.pattern_ParallelGatewayToParallelStepRule_22_4_expressionFBB(
@@ -1118,7 +1146,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_89(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_77(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
@@ -1135,21 +1163,22 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_23_2_blackFFFFFB(_edge_incoming)) {
+				.pattern_ParallelGatewayToParallelStepRule_23_2_blackFFFFFFB(_edge_incoming)) {
 			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			ParallelGateway parallelGateway = (ParallelGateway) result2_black[2];
 			LaneSet laneSet = (LaneSet) result2_black[3];
 			Lane lane = (Lane) result2_black[4];
+			FlowNode flowNode = (FlowNode) result2_black[5];
 			Object[] result2_green = ParallelGatewayToParallelStepRuleImpl
 					.pattern_ParallelGatewayToParallelStepRule_23_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_23_3_expressionFBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_23_3_expressionFBBBBBBBB(
 							this, match, inFlow, process, parallelGateway,
-							laneSet, lane)) {
+							laneSet, lane, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (ParallelGatewayToParallelStepRuleImpl
 						.pattern_ParallelGatewayToParallelStepRule_23_4_expressionFBB(
@@ -1183,7 +1212,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_33(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_30(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
@@ -1245,7 +1274,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_90(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_78(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
@@ -1262,21 +1291,22 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_25_2_blackFFFFFB(_edge_flowNodeRefs)) {
+				.pattern_ParallelGatewayToParallelStepRule_25_2_blackFFFFFFB(_edge_flowNodeRefs)) {
 			SequenceFlow inFlow = (SequenceFlow) result2_black[0];
 			bpmn2.Process process = (bpmn2.Process) result2_black[1];
 			ParallelGateway parallelGateway = (ParallelGateway) result2_black[2];
 			LaneSet laneSet = (LaneSet) result2_black[3];
 			Lane lane = (Lane) result2_black[4];
+			FlowNode flowNode = (FlowNode) result2_black[5];
 			Object[] result2_green = ParallelGatewayToParallelStepRuleImpl
 					.pattern_ParallelGatewayToParallelStepRule_25_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_25_3_expressionFBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_25_3_expressionFBBBBBBBB(
 							this, match, inFlow, process, parallelGateway,
-							laneSet, lane)) {
+							laneSet, lane, flowNode)) {
 				// Ensure that the correct types of elements are matched
 				if (ParallelGatewayToParallelStepRuleImpl
 						.pattern_ParallelGatewayToParallelStepRule_25_4_expressionFBB(
@@ -1345,24 +1375,25 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 		// ForEach is applicable core
 		for (Object[] result2_black : ParallelGatewayToParallelStepRuleImpl
-				.pattern_ParallelGatewayToParallelStepRule_28_2_blackFFFFFFFFFBB(
+				.pattern_ParallelGatewayToParallelStepRule_28_2_blackFFFFFFFFFFBB(
 						ruleEntryContainer, ruleResult)) {
 			// RuleEntryList inFlowToStepList = (RuleEntryList) result2_black[0];
 			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
-			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result2_black[2];
-			Step step = (Step) result2_black[3];
-			bpmn2.Process process = (bpmn2.Process) result2_black[4];
-			LaneSet laneSet = (LaneSet) result2_black[5];
-			Lane lane = (Lane) result2_black[6];
-			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[7];
-			Flow flow = (Flow) result2_black[8];
+			FlowNode flowNode = (FlowNode) result2_black[2];
+			bpmn2.Process process = (bpmn2.Process) result2_black[3];
+			LaneSet laneSet = (LaneSet) result2_black[4];
+			Lane lane = (Lane) result2_black[5];
+			SequenceFlowToStep inFlowToStep = (SequenceFlowToStep) result2_black[6];
+			Step step = (Step) result2_black[7];
+			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[8];
+			Flow flow = (Flow) result2_black[9];
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = ParallelGatewayToParallelStepRuleImpl
-					.pattern_ParallelGatewayToParallelStepRule_28_3_bindingAndBlackFBBBBBBBBBBB(
+					.pattern_ParallelGatewayToParallelStepRule_28_3_bindingAndBlackFBBBBBBBBBBBB(
 							this, isApplicableMatch, inFlow, step,
 							inFlowToStep, process, flow, inFlowToFlow, laneSet,
-							lane, ruleResult);
+							lane, flowNode, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [solve CSP] failed");
@@ -1374,16 +1405,17 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 							this, csp)) {
 				// check nacs
 				Object[] result5_black = ParallelGatewayToParallelStepRuleImpl
-						.pattern_ParallelGatewayToParallelStepRule_28_5_blackBBBBBBBB(
+						.pattern_ParallelGatewayToParallelStepRule_28_5_blackBBBBBBBBB(
 								inFlow, step, inFlowToStep, process, flow,
-								inFlowToFlow, laneSet, lane);
+								inFlowToFlow, laneSet, lane, flowNode);
 				if (result5_black != null) {
 
 					// perform
 					Object[] result6_black = ParallelGatewayToParallelStepRuleImpl
-							.pattern_ParallelGatewayToParallelStepRule_28_6_blackBBBBBBBBB(
+							.pattern_ParallelGatewayToParallelStepRule_28_6_blackBBBBBBBBBB(
 									inFlow, step, inFlowToStep, process, flow,
-									inFlowToFlow, laneSet, lane, ruleResult);
+									inFlowToFlow, laneSet, lane, flowNode,
+									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
 								"Pattern matching in node [perform] failed");
@@ -1416,7 +1448,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
-			ModelgeneratorRuleResult ruleResult) {// Create CSP
+			FlowNode flowNode, ModelgeneratorRuleResult ruleResult) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1472,6 +1504,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
 		isApplicableMatch.registerObject("laneSet", laneSet);
 		isApplicableMatch.registerObject("lane", lane);
+		isApplicableMatch.registerObject("flowNode", flowNode);
 		return csp;
 	}
 
@@ -1493,32 +1526,35 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE_FLOWNODE:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(SequenceFlow) arguments.get(1),
 					(bpmn2.Process) arguments.get(2),
 					(ParallelGateway) arguments.get(3),
-					(LaneSet) arguments.get(4), (Lane) arguments.get(5));
+					(LaneSet) arguments.get(4), (Lane) arguments.get(5),
+					(FlowNode) arguments.get(6));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE_FLOWNODE:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(SequenceFlow) arguments.get(1),
 					(bpmn2.Process) arguments.get(2),
 					(ParallelGateway) arguments.get(3),
-					(LaneSet) arguments.get(4), (Lane) arguments.get(5));
+					(LaneSet) arguments.get(4), (Lane) arguments.get(5),
+					(FlowNode) arguments.get(6));
 			return null;
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_SEQUENCEFLOW_PROCESS_PARALLELGATEWAY_LANESET_LANE_FLOWNODE:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(SequenceFlow) arguments.get(1),
 					(bpmn2.Process) arguments.get(2),
 					(ParallelGateway) arguments.get(3),
-					(LaneSet) arguments.get(4), (Lane) arguments.get(5));
+					(LaneSet) arguments.get(4), (Lane) arguments.get(5),
+					(FlowNode) arguments.get(6));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_PARALLELGATEWAY_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_PARALLELGATEWAY_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_FLOWNODE:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(SequenceFlow) arguments.get(1), (Step) arguments.get(2),
@@ -1527,17 +1563,18 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 					(ParallelGateway) arguments.get(5),
 					(Flow) arguments.get(6),
 					(SequenceFlowToUCFlow) arguments.get(7),
-					(LaneSet) arguments.get(8), (Lane) arguments.get(9));
+					(LaneSet) arguments.get(8), (Lane) arguments.get(9),
+					(FlowNode) arguments.get(10));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11));
+					(EObject) arguments.get(11), (EObject) arguments.get(12));
 			return null;
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
@@ -1560,7 +1597,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 					(Flow) arguments.get(3));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PARALLELSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_FLOWNODE:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(SequenceFlow) arguments.get(1), (Step) arguments.get(2),
@@ -1568,37 +1605,38 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 					(ParallelStep) arguments.get(4),
 					(bpmn2.Process) arguments.get(5), (Flow) arguments.get(6),
 					(SequenceFlowToUCFlow) arguments.get(7),
-					(LaneSet) arguments.get(8), (Lane) arguments.get(9));
+					(LaneSet) arguments.get(8), (Lane) arguments.get(9),
+					(FlowNode) arguments.get(10));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11));
+					(EObject) arguments.get(11), (EObject) arguments.get(12));
 			return null;
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_32__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_32((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_29__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_29((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_87__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_87((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_75__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_75((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_88__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_88((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_76__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_76((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_89__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_89((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_77__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_77((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_33((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_30__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_30((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_90__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_90((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_78__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_78((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1607,7 +1645,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOSTEP:
 			return generateModel((RuleEntryContainer) arguments.get(0),
 					(SequenceFlowToStep) arguments.get(1));
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_MODELGENERATORRULERESULT:
+		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_FLOW_SEQUENCEFLOWTOUCFLOW_LANESET_LANE_FLOWNODE_MODELGENERATORRULERESULT:
 			return generateModel_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(SequenceFlow) arguments.get(1), (Step) arguments.get(2),
@@ -1615,31 +1653,37 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 					(bpmn2.Process) arguments.get(4), (Flow) arguments.get(5),
 					(SequenceFlowToUCFlow) arguments.get(6),
 					(LaneSet) arguments.get(7), (Lane) arguments.get(8),
-					(ModelgeneratorRuleResult) arguments.get(9));
+					(FlowNode) arguments.get(9),
+					(ModelgeneratorRuleResult) arguments.get(10));
 		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
 			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_1_blackBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_1_blackBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
-		return new Object[] { _this, match, inFlow, process, parallelGateway,
-				laneSet, lane };
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
+		if (!flowNode.equals(parallelGateway)) {
+			return new Object[] { _this, match, inFlow, process,
+					parallelGateway, laneSet, lane, flowNode };
+		}
+		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_2_bindingFBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_2_bindingFBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, inFlow,
-				process, parallelGateway, laneSet, lane);
+				process, parallelGateway, laneSet, lane, flowNode);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, match, inFlow, process,
-					parallelGateway, laneSet, lane };
+					parallelGateway, laneSet, lane, flowNode };
 		}
 		return null;
 	}
@@ -1649,12 +1693,14 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_2_bindingAndBlackFBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_2_bindingAndBlackFBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
-		Object[] result_pattern_ParallelGatewayToParallelStepRule_0_2_binding = pattern_ParallelGatewayToParallelStepRule_0_2_bindingFBBBBBBB(
-				_this, match, inFlow, process, parallelGateway, laneSet, lane);
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
+		Object[] result_pattern_ParallelGatewayToParallelStepRule_0_2_binding = pattern_ParallelGatewayToParallelStepRule_0_2_bindingFBBBBBBBB(
+				_this, match, inFlow, process, parallelGateway, laneSet, lane,
+				flowNode);
 		if (result_pattern_ParallelGatewayToParallelStepRule_0_2_binding != null) {
 			CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_0_2_binding[0];
 
@@ -1662,7 +1708,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			if (result_pattern_ParallelGatewayToParallelStepRule_0_2_black != null) {
 
 				return new Object[] { csp, _this, match, inFlow, process,
-						parallelGateway, laneSet, lane };
+						parallelGateway, laneSet, lane, flowNode };
 			}
 		}
 		return null;
@@ -1675,11 +1721,15 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_4_blackBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_4_blackBBBBBBB(
 			Match match, SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
-		return new Object[] { match, inFlow, process, parallelGateway, laneSet,
-				lane };
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
+		if (!flowNode.equals(parallelGateway)) {
+			return new Object[] { match, inFlow, process, parallelGateway,
+					laneSet, lane, flowNode };
+		}
+		return null;
 	}
 
 	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_4_greenBBBBBFFFF(
@@ -1728,54 +1778,85 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				lane__parallelGateway____flowNodeRefs };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_5_blackBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_5_blackBBBBBBB(
 			Match match, SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
-		return new Object[] { match, inFlow, process, parallelGateway, laneSet,
-				lane };
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
+		if (!flowNode.equals(parallelGateway)) {
+			return new Object[] { match, inFlow, process, parallelGateway,
+					laneSet, lane, flowNode };
+		}
+		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_5_greenBBBBBFFF(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_0_5_greenBBBBBBFFFFFF(
 			Match match, SequenceFlow inFlow, bpmn2.Process process,
-			LaneSet laneSet, Lane lane) {
+			LaneSet laneSet, Lane lane, FlowNode flowNode) {
 		EMoflonEdge process__laneSet____laneSets = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge process__flowNode____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge inFlow__flowNode____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flowNode__inFlow____outgoing = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		match.getContextNodes().add(inFlow);
 		match.getContextNodes().add(process);
 		match.getContextNodes().add(laneSet);
 		match.getContextNodes().add(lane);
+		match.getContextNodes().add(flowNode);
 		String process__laneSet____laneSets_name_prime = "laneSets";
 		String process__inFlow____flowElements_name_prime = "flowElements";
+		String process__flowNode____flowElements_name_prime = "flowElements";
 		String laneSet__lane____lanes_name_prime = "lanes";
+		String inFlow__flowNode____sourceRef_name_prime = "sourceRef";
+		String flowNode__inFlow____outgoing_name_prime = "outgoing";
 		process__laneSet____laneSets.setSrc(process);
 		process__laneSet____laneSets.setTrg(laneSet);
 		match.getContextEdges().add(process__laneSet____laneSets);
 		process__inFlow____flowElements.setSrc(process);
 		process__inFlow____flowElements.setTrg(inFlow);
 		match.getContextEdges().add(process__inFlow____flowElements);
+		process__flowNode____flowElements.setSrc(process);
+		process__flowNode____flowElements.setTrg(flowNode);
+		match.getContextEdges().add(process__flowNode____flowElements);
 		laneSet__lane____lanes.setSrc(laneSet);
 		laneSet__lane____lanes.setTrg(lane);
 		match.getContextEdges().add(laneSet__lane____lanes);
+		inFlow__flowNode____sourceRef.setSrc(inFlow);
+		inFlow__flowNode____sourceRef.setTrg(flowNode);
+		match.getContextEdges().add(inFlow__flowNode____sourceRef);
+		flowNode__inFlow____outgoing.setSrc(flowNode);
+		flowNode__inFlow____outgoing.setTrg(inFlow);
+		match.getContextEdges().add(flowNode__inFlow____outgoing);
 		process__laneSet____laneSets
 				.setName(process__laneSet____laneSets_name_prime);
 		process__inFlow____flowElements
 				.setName(process__inFlow____flowElements_name_prime);
+		process__flowNode____flowElements
+				.setName(process__flowNode____flowElements_name_prime);
 		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
-		return new Object[] { match, inFlow, process, laneSet, lane,
+		inFlow__flowNode____sourceRef
+				.setName(inFlow__flowNode____sourceRef_name_prime);
+		flowNode__inFlow____outgoing
+				.setName(flowNode__inFlow____outgoing_name_prime);
+		return new Object[] { match, inFlow, process, laneSet, lane, flowNode,
 				process__laneSet____laneSets, process__inFlow____flowElements,
-				laneSet__lane____lanes };
+				process__flowNode____flowElements, laneSet__lane____lanes,
+				inFlow__flowNode____sourceRef, flowNode__inFlow____outgoing };
 	}
 
-	public static final void pattern_ParallelGatewayToParallelStepRule_0_6_expressionBBBBBBB(
+	public static final void pattern_ParallelGatewayToParallelStepRule_0_6_expressionBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		_this.registerObjectsToMatch_FWD(match, inFlow, process,
-				parallelGateway, laneSet, lane);
+				parallelGateway, laneSet, lane, flowNode);
 
 	}
 
@@ -1789,7 +1870,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_1_bindingFFFFFFFFFB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_1_bindingFFFFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
 		EObject _localVariable_0 = isApplicableMatch.getObject("inFlow");
 		EObject _localVariable_1 = isApplicableMatch.getObject("step");
@@ -1801,6 +1882,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		EObject _localVariable_6 = isApplicableMatch.getObject("inFlowToFlow");
 		EObject _localVariable_7 = isApplicableMatch.getObject("laneSet");
 		EObject _localVariable_8 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_9 = isApplicableMatch.getObject("flowNode");
 		EObject tmpInFlow = _localVariable_0;
 		EObject tmpStep = _localVariable_1;
 		EObject tmpInFlowToStep = _localVariable_2;
@@ -1810,6 +1892,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		EObject tmpInFlowToFlow = _localVariable_6;
 		EObject tmpLaneSet = _localVariable_7;
 		EObject tmpLane = _localVariable_8;
+		EObject tmpFlowNode = _localVariable_9;
 		if (tmpInFlow instanceof SequenceFlow) {
 			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 			if (tmpStep instanceof Step) {
@@ -1828,11 +1911,16 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 										LaneSet laneSet = (LaneSet) tmpLaneSet;
 										if (tmpLane instanceof Lane) {
 											Lane lane = (Lane) tmpLane;
-											return new Object[] { inFlow, step,
-													inFlowToStep, process,
-													parallelGateway, flow,
-													inFlowToFlow, laneSet,
-													lane, isApplicableMatch };
+											if (tmpFlowNode instanceof FlowNode) {
+												FlowNode flowNode = (FlowNode) tmpFlowNode;
+												return new Object[] { inFlow,
+														step, inFlowToStep,
+														process,
+														parallelGateway, flow,
+														inFlowToFlow, laneSet,
+														lane, flowNode,
+														isApplicableMatch };
+											}
 										}
 									}
 								}
@@ -1845,27 +1933,29 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_1_blackBBBBBBBBBFBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_1_blackBBBBBBBBBBFBB(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, ParallelGateway parallelGateway, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
-			ParallelGatewayToParallelStepRule _this,
+			FlowNode flowNode, ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch) {
-		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
-			if (tmpCsp instanceof CSP) {
-				CSP csp = (CSP) tmpCsp;
-				return new Object[] { inFlow, step, inFlowToStep, process,
-						parallelGateway, flow, inFlowToFlow, laneSet, lane,
-						csp, _this, isApplicableMatch };
+		if (!flowNode.equals(parallelGateway)) {
+			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
+				if (tmpCsp instanceof CSP) {
+					CSP csp = (CSP) tmpCsp;
+					return new Object[] { inFlow, step, inFlowToStep, process,
+							parallelGateway, flow, inFlowToFlow, laneSet, lane,
+							flowNode, csp, _this, isApplicableMatch };
+				}
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_1_bindingAndBlackFFFFFFFFFFBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_1_bindingAndBlackFFFFFFFFFFFBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch) {
-		Object[] result_pattern_ParallelGatewayToParallelStepRule_1_1_binding = pattern_ParallelGatewayToParallelStepRule_1_1_bindingFFFFFFFFFB(isApplicableMatch);
+		Object[] result_pattern_ParallelGatewayToParallelStepRule_1_1_binding = pattern_ParallelGatewayToParallelStepRule_1_1_bindingFFFFFFFFFFB(isApplicableMatch);
 		if (result_pattern_ParallelGatewayToParallelStepRule_1_1_binding != null) {
 			SequenceFlow inFlow = (SequenceFlow) result_pattern_ParallelGatewayToParallelStepRule_1_1_binding[0];
 			Step step = (Step) result_pattern_ParallelGatewayToParallelStepRule_1_1_binding[1];
@@ -1876,16 +1966,18 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ParallelGatewayToParallelStepRule_1_1_binding[6];
 			LaneSet laneSet = (LaneSet) result_pattern_ParallelGatewayToParallelStepRule_1_1_binding[7];
 			Lane lane = (Lane) result_pattern_ParallelGatewayToParallelStepRule_1_1_binding[8];
+			FlowNode flowNode = (FlowNode) result_pattern_ParallelGatewayToParallelStepRule_1_1_binding[9];
 
-			Object[] result_pattern_ParallelGatewayToParallelStepRule_1_1_black = pattern_ParallelGatewayToParallelStepRule_1_1_blackBBBBBBBBBFBB(
+			Object[] result_pattern_ParallelGatewayToParallelStepRule_1_1_black = pattern_ParallelGatewayToParallelStepRule_1_1_blackBBBBBBBBBBFBB(
 					inFlow, step, inFlowToStep, process, parallelGateway, flow,
-					inFlowToFlow, laneSet, lane, _this, isApplicableMatch);
+					inFlowToFlow, laneSet, lane, flowNode, _this,
+					isApplicableMatch);
 			if (result_pattern_ParallelGatewayToParallelStepRule_1_1_black != null) {
-				CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_1_1_black[9];
+				CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_1_1_black[10];
 
 				return new Object[] { inFlow, step, inFlowToStep, process,
 						parallelGateway, flow, inFlowToFlow, laneSet, lane,
-						csp, _this, isApplicableMatch };
+						flowNode, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -1930,12 +2022,12 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				parallelGatewayToParallelStep };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_3_blackBBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_1_3_blackBBBBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject inFlow, EObject step,
 			EObject inFlowToStep, EObject parallelStep, EObject process,
 			EObject parallelGateway, EObject flow,
 			EObject parallelGatewayToParallelStep, EObject inFlowToFlow,
-			EObject laneSet, EObject lane) {
+			EObject laneSet, EObject lane, EObject flowNode) {
 		if (!inFlow.equals(step)) {
 			if (!inFlow.equals(inFlowToStep)) {
 				if (!inFlow.equals(parallelStep)) {
@@ -1992,63 +2084,97 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 																																			.equals(laneSet)) {
 																																		if (!flow
 																																				.equals(lane)) {
-																																			if (!parallelGatewayToParallelStep
-																																					.equals(step)) {
+																																			if (!flow
+																																					.equals(flowNode)) {
 																																				if (!parallelGatewayToParallelStep
-																																						.equals(parallelStep)) {
+																																						.equals(step)) {
 																																					if (!parallelGatewayToParallelStep
-																																							.equals(process)) {
-																																						if (!inFlowToFlow
-																																								.equals(step)) {
+																																							.equals(parallelStep)) {
+																																						if (!parallelGatewayToParallelStep
+																																								.equals(process)) {
 																																							if (!inFlowToFlow
-																																									.equals(inFlowToStep)) {
+																																									.equals(step)) {
 																																								if (!inFlowToFlow
-																																										.equals(parallelStep)) {
+																																										.equals(inFlowToStep)) {
 																																									if (!inFlowToFlow
-																																											.equals(process)) {
+																																											.equals(parallelStep)) {
 																																										if (!inFlowToFlow
-																																												.equals(parallelGateway)) {
+																																												.equals(process)) {
 																																											if (!inFlowToFlow
-																																													.equals(parallelGatewayToParallelStep)) {
+																																													.equals(parallelGateway)) {
 																																												if (!inFlowToFlow
-																																														.equals(laneSet)) {
+																																														.equals(parallelGatewayToParallelStep)) {
 																																													if (!inFlowToFlow
-																																															.equals(lane)) {
-																																														if (!laneSet
-																																																.equals(step)) {
+																																															.equals(laneSet)) {
+																																														if (!inFlowToFlow
+																																																.equals(lane)) {
 																																															if (!laneSet
-																																																	.equals(parallelStep)) {
+																																																	.equals(step)) {
 																																																if (!laneSet
-																																																		.equals(process)) {
+																																																		.equals(parallelStep)) {
 																																																	if (!laneSet
-																																																			.equals(parallelGateway)) {
+																																																			.equals(process)) {
 																																																		if (!laneSet
-																																																				.equals(parallelGatewayToParallelStep)) {
-																																																			if (!lane
-																																																					.equals(step)) {
+																																																				.equals(parallelGateway)) {
+																																																			if (!laneSet
+																																																					.equals(parallelGatewayToParallelStep)) {
 																																																				if (!lane
-																																																						.equals(parallelStep)) {
+																																																						.equals(step)) {
 																																																					if (!lane
-																																																							.equals(process)) {
+																																																							.equals(parallelStep)) {
 																																																						if (!lane
-																																																								.equals(parallelGateway)) {
+																																																								.equals(process)) {
 																																																							if (!lane
-																																																									.equals(parallelGatewayToParallelStep)) {
+																																																									.equals(parallelGateway)) {
 																																																								if (!lane
-																																																										.equals(laneSet)) {
-																																																									return new Object[] {
-																																																											ruleresult,
-																																																											inFlow,
-																																																											step,
-																																																											inFlowToStep,
-																																																											parallelStep,
-																																																											process,
-																																																											parallelGateway,
-																																																											flow,
-																																																											parallelGatewayToParallelStep,
-																																																											inFlowToFlow,
-																																																											laneSet,
-																																																											lane };
+																																																										.equals(parallelGatewayToParallelStep)) {
+																																																									if (!lane
+																																																											.equals(laneSet)) {
+																																																										if (!flowNode
+																																																												.equals(inFlow)) {
+																																																											if (!flowNode
+																																																													.equals(step)) {
+																																																												if (!flowNode
+																																																														.equals(inFlowToStep)) {
+																																																													if (!flowNode
+																																																															.equals(parallelStep)) {
+																																																														if (!flowNode
+																																																																.equals(process)) {
+																																																															if (!flowNode
+																																																																	.equals(parallelGateway)) {
+																																																																if (!flowNode
+																																																																		.equals(parallelGatewayToParallelStep)) {
+																																																																	if (!flowNode
+																																																																			.equals(inFlowToFlow)) {
+																																																																		if (!flowNode
+																																																																				.equals(laneSet)) {
+																																																																			if (!flowNode
+																																																																					.equals(lane)) {
+																																																																				return new Object[] {
+																																																																						ruleresult,
+																																																																						inFlow,
+																																																																						step,
+																																																																						inFlowToStep,
+																																																																						parallelStep,
+																																																																						process,
+																																																																						parallelGateway,
+																																																																						flow,
+																																																																						parallelGatewayToParallelStep,
+																																																																						inFlowToFlow,
+																																																																						laneSet,
+																																																																						lane,
+																																																																						flowNode };
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
 																																																								}
 																																																							}
 																																																						}
@@ -2199,16 +2325,17 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				lane__parallelGateway____flowNodeRefs };
 	}
 
-	public static final void pattern_ParallelGatewayToParallelStepRule_1_5_expressionBBBBBBBBBBBBB(
+	public static final void pattern_ParallelGatewayToParallelStepRule_1_5_expressionBBBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			PerformRuleResult ruleresult, EObject inFlow, EObject step,
 			EObject inFlowToStep, EObject parallelStep, EObject process,
 			EObject parallelGateway, EObject flow,
 			EObject parallelGatewayToParallelStep, EObject inFlowToFlow,
-			EObject laneSet, EObject lane) {
+			EObject laneSet, EObject lane, EObject flowNode) {
 		_this.registerObjects_FWD(ruleresult, inFlow, step, inFlowToStep,
 				parallelStep, process, parallelGateway, flow,
-				parallelGatewayToParallelStep, inFlowToFlow, laneSet, lane);
+				parallelGatewayToParallelStep, inFlowToFlow, laneSet, lane,
+				flowNode);
 
 	}
 
@@ -2269,18 +2396,20 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { performOperation, ruleresult };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_2_bindingFFFFFB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_2_bindingFFFFFFB(
 			Match match) {
 		EObject _localVariable_0 = match.getObject("inFlow");
 		EObject _localVariable_1 = match.getObject("process");
 		EObject _localVariable_2 = match.getObject("parallelGateway");
 		EObject _localVariable_3 = match.getObject("laneSet");
 		EObject _localVariable_4 = match.getObject("lane");
+		EObject _localVariable_5 = match.getObject("flowNode");
 		EObject tmpInFlow = _localVariable_0;
 		EObject tmpProcess = _localVariable_1;
 		EObject tmpParallelGateway = _localVariable_2;
 		EObject tmpLaneSet = _localVariable_3;
 		EObject tmpLane = _localVariable_4;
+		EObject tmpFlowNode = _localVariable_5;
 		if (tmpInFlow instanceof SequenceFlow) {
 			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 			if (tmpProcess instanceof bpmn2.Process) {
@@ -2291,8 +2420,12 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 						LaneSet laneSet = (LaneSet) tmpLaneSet;
 						if (tmpLane instanceof Lane) {
 							Lane lane = (Lane) tmpLane;
-							return new Object[] { inFlow, process,
-									parallelGateway, laneSet, lane, match };
+							if (tmpFlowNode instanceof FlowNode) {
+								FlowNode flowNode = (FlowNode) tmpFlowNode;
+								return new Object[] { inFlow, process,
+										parallelGateway, laneSet, lane,
+										flowNode, match };
+							}
 						}
 					}
 				}
@@ -2301,55 +2434,79 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_2_2_blackBFFBBFFBBB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_2_2_blackBFFBBFFBBBB(
 			SequenceFlow inFlow, bpmn2.Process process,
 			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
-			Match match) {
+			FlowNode flowNode, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(inFlow, SequenceFlowToStep.class,
-						"source")) {
-			Step step = inFlowToStep.getTarget();
-			if (step != null) {
-				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
-						.getOppositeReferenceTyped(inFlow,
-								SequenceFlowToUCFlow.class, "source")) {
-					Flow flow = inFlowToFlow.getTarget();
-					if (flow != null) {
-						_result.add(new Object[] { inFlow, step, inFlowToStep,
-								process, parallelGateway, flow, inFlowToFlow,
-								laneSet, lane, match });
+		if (!flowNode.equals(parallelGateway)) {
+			for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(inFlow,
+							SequenceFlowToStep.class, "source")) {
+				Step step = inFlowToStep.getTarget();
+				if (step != null) {
+					for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(inFlow,
+									SequenceFlowToUCFlow.class, "source")) {
+						Flow flow = inFlowToFlow.getTarget();
+						if (flow != null) {
+							_result.add(new Object[] { inFlow, step,
+									inFlowToStep, process, parallelGateway,
+									flow, inFlowToFlow, laneSet, lane,
+									flowNode, match });
+						}
+
 					}
-
 				}
-			}
 
+			}
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_2_3_blackBBBBBBBBB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_2_3_blackBBBBBBBBBB(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, ParallelGateway parallelGateway, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		if (inFlow.equals(inFlowToStep.getSource())) {
-			if (step.equals(inFlowToStep.getTarget())) {
-				if (process.getLaneSets().contains(laneSet)) {
-					if (process.getFlowElements().contains(inFlow)) {
-						if (process.getFlowElements().contains(parallelGateway)) {
-							if (parallelGateway.equals(inFlow.getTargetRef())) {
-								if (inFlow.equals(inFlowToFlow.getSource())) {
-									if (flow.equals(inFlowToFlow.getTarget())) {
-										if (laneSet.getLanes().contains(lane)) {
-											if (lane.getFlowNodeRefs()
-													.contains(parallelGateway)) {
-												_result.add(new Object[] {
-														inFlow, step,
-														inFlowToStep, process,
-														parallelGateway, flow,
-														inFlowToFlow, laneSet,
-														lane });
+		if (!flowNode.equals(parallelGateway)) {
+			if (inFlow.equals(inFlowToStep.getSource())) {
+				if (step.equals(inFlowToStep.getTarget())) {
+					if (process.getLaneSets().contains(laneSet)) {
+						if (process.getFlowElements().contains(inFlow)) {
+							if (process.getFlowElements().contains(
+									parallelGateway)) {
+								if (process.getFlowElements()
+										.contains(flowNode)) {
+									if (parallelGateway.equals(inFlow
+											.getTargetRef())) {
+										if (inFlow.equals(inFlowToFlow
+												.getSource())) {
+											if (flow.equals(inFlowToFlow
+													.getTarget())) {
+												if (laneSet.getLanes()
+														.contains(lane)) {
+													if (lane.getFlowNodeRefs()
+															.contains(
+																	parallelGateway)) {
+														if (flowNode
+																.equals(inFlow
+																		.getSourceRef())) {
+															_result.add(new Object[] {
+																	inFlow,
+																	step,
+																	inFlowToStep,
+																	process,
+																	parallelGateway,
+																	flow,
+																	inFlowToFlow,
+																	laneSet,
+																	lane,
+																	flowNode });
+														}
+													}
+												}
 											}
 										}
 									}
@@ -2363,10 +2520,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_3_greenBBBBBBBBBFFFFFFFFFFFF(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_3_greenBBBBBBBBBBFFFFFFFFFFFFFFF(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, ParallelGateway parallelGateway, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		EMoflonEdge inFlowToStep__inFlow____source = TGGRuntimeFactory.eINSTANCE
@@ -2378,6 +2536,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge process__parallelGateway____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge process__flowNode____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlow__parallelGateway____targetRef = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -2391,17 +2551,24 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge lane__parallelGateway____flowNodeRefs = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge inFlow__flowNode____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flowNode__inFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		String inFlowToStep__inFlow____source_name_prime = "source";
 		String inFlowToStep__step____target_name_prime = "target";
 		String process__laneSet____laneSets_name_prime = "laneSets";
 		String process__inFlow____flowElements_name_prime = "flowElements";
 		String process__parallelGateway____flowElements_name_prime = "flowElements";
+		String process__flowNode____flowElements_name_prime = "flowElements";
 		String inFlow__parallelGateway____targetRef_name_prime = "targetRef";
 		String parallelGateway__inFlow____incoming_name_prime = "incoming";
 		String inFlowToFlow__inFlow____source_name_prime = "source";
 		String inFlowToFlow__flow____target_name_prime = "target";
 		String laneSet__lane____lanes_name_prime = "lanes";
 		String lane__parallelGateway____flowNodeRefs_name_prime = "flowNodeRefs";
+		String inFlow__flowNode____sourceRef_name_prime = "sourceRef";
+		String flowNode__inFlow____outgoing_name_prime = "outgoing";
 		isApplicableMatch.getAllContextElements().add(inFlow);
 		isApplicableMatch.getAllContextElements().add(step);
 		isApplicableMatch.getAllContextElements().add(inFlowToStep);
@@ -2411,6 +2578,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
 		isApplicableMatch.getAllContextElements().add(laneSet);
 		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(flowNode);
 		inFlowToStep__inFlow____source.setSrc(inFlowToStep);
 		inFlowToStep__inFlow____source.setTrg(inFlow);
 		isApplicableMatch.getAllContextElements().add(
@@ -2431,6 +2599,10 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		process__parallelGateway____flowElements.setTrg(parallelGateway);
 		isApplicableMatch.getAllContextElements().add(
 				process__parallelGateway____flowElements);
+		process__flowNode____flowElements.setSrc(process);
+		process__flowNode____flowElements.setTrg(flowNode);
+		isApplicableMatch.getAllContextElements().add(
+				process__flowNode____flowElements);
 		inFlow__parallelGateway____targetRef.setSrc(inFlow);
 		inFlow__parallelGateway____targetRef.setTrg(parallelGateway);
 		isApplicableMatch.getAllContextElements().add(
@@ -2454,6 +2626,14 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		lane__parallelGateway____flowNodeRefs.setTrg(parallelGateway);
 		isApplicableMatch.getAllContextElements().add(
 				lane__parallelGateway____flowNodeRefs);
+		inFlow__flowNode____sourceRef.setSrc(inFlow);
+		inFlow__flowNode____sourceRef.setTrg(flowNode);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow__flowNode____sourceRef);
+		flowNode__inFlow____outgoing.setSrc(flowNode);
+		flowNode__inFlow____outgoing.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				flowNode__inFlow____outgoing);
 		inFlowToStep__inFlow____source
 				.setName(inFlowToStep__inFlow____source_name_prime);
 		inFlowToStep__step____target
@@ -2464,6 +2644,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				.setName(process__inFlow____flowElements_name_prime);
 		process__parallelGateway____flowElements
 				.setName(process__parallelGateway____flowElements_name_prime);
+		process__flowNode____flowElements
+				.setName(process__flowNode____flowElements_name_prime);
 		inFlow__parallelGateway____targetRef
 				.setName(inFlow__parallelGateway____targetRef_name_prime);
 		parallelGateway__inFlow____incoming
@@ -2475,32 +2657,39 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
 		lane__parallelGateway____flowNodeRefs
 				.setName(lane__parallelGateway____flowNodeRefs_name_prime);
+		inFlow__flowNode____sourceRef
+				.setName(inFlow__flowNode____sourceRef_name_prime);
+		flowNode__inFlow____outgoing
+				.setName(flowNode__inFlow____outgoing_name_prime);
 		return new Object[] { inFlow, step, inFlowToStep, process,
-				parallelGateway, flow, inFlowToFlow, laneSet, lane,
+				parallelGateway, flow, inFlowToFlow, laneSet, lane, flowNode,
 				isApplicableMatch, inFlowToStep__inFlow____source,
 				inFlowToStep__step____target, process__laneSet____laneSets,
 				process__inFlow____flowElements,
 				process__parallelGateway____flowElements,
+				process__flowNode____flowElements,
 				inFlow__parallelGateway____targetRef,
 				parallelGateway__inFlow____incoming,
 				inFlowToFlow__inFlow____source, inFlowToFlow__flow____target,
-				laneSet__lane____lanes, lane__parallelGateway____flowNodeRefs };
+				laneSet__lane____lanes, lane__parallelGateway____flowNodeRefs,
+				inFlow__flowNode____sourceRef, flowNode__inFlow____outgoing };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_4_bindingFBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_4_bindingFBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
 			Step step, SequenceFlowToStep inFlowToStep, bpmn2.Process process,
 			ParallelGateway parallelGateway, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
 				isApplicableMatch, inFlow, step, inFlowToStep, process,
-				parallelGateway, flow, inFlowToFlow, laneSet, lane);
+				parallelGateway, flow, inFlowToFlow, laneSet, lane, flowNode);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, inFlow, step,
 					inFlowToStep, process, parallelGateway, flow, inFlowToFlow,
-					laneSet, lane };
+					laneSet, lane, flowNode };
 		}
 		return null;
 	}
@@ -2510,15 +2699,16 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_4_bindingAndBlackFBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_2_4_bindingAndBlackFBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
 			Step step, SequenceFlowToStep inFlowToStep, bpmn2.Process process,
 			ParallelGateway parallelGateway, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
-		Object[] result_pattern_ParallelGatewayToParallelStepRule_2_4_binding = pattern_ParallelGatewayToParallelStepRule_2_4_bindingFBBBBBBBBBBB(
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
+		Object[] result_pattern_ParallelGatewayToParallelStepRule_2_4_binding = pattern_ParallelGatewayToParallelStepRule_2_4_bindingFBBBBBBBBBBBB(
 				_this, isApplicableMatch, inFlow, step, inFlowToStep, process,
-				parallelGateway, flow, inFlowToFlow, laneSet, lane);
+				parallelGateway, flow, inFlowToFlow, laneSet, lane, flowNode);
 		if (result_pattern_ParallelGatewayToParallelStepRule_2_4_binding != null) {
 			CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_2_4_binding[0];
 
@@ -2527,7 +2717,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 				return new Object[] { csp, _this, isApplicableMatch, inFlow,
 						step, inFlowToStep, process, parallelGateway, flow,
-						inFlowToFlow, laneSet, lane };
+						inFlowToFlow, laneSet, lane, flowNode };
 			}
 		}
 		return null;
@@ -2677,7 +2867,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_1_bindingFFFFFFFFFB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_1_bindingFFFFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
 		EObject _localVariable_0 = isApplicableMatch.getObject("inFlow");
 		EObject _localVariable_1 = isApplicableMatch.getObject("step");
@@ -2688,6 +2878,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		EObject _localVariable_6 = isApplicableMatch.getObject("inFlowToFlow");
 		EObject _localVariable_7 = isApplicableMatch.getObject("laneSet");
 		EObject _localVariable_8 = isApplicableMatch.getObject("lane");
+		EObject _localVariable_9 = isApplicableMatch.getObject("flowNode");
 		EObject tmpInFlow = _localVariable_0;
 		EObject tmpStep = _localVariable_1;
 		EObject tmpInFlowToStep = _localVariable_2;
@@ -2697,6 +2888,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		EObject tmpInFlowToFlow = _localVariable_6;
 		EObject tmpLaneSet = _localVariable_7;
 		EObject tmpLane = _localVariable_8;
+		EObject tmpFlowNode = _localVariable_9;
 		if (tmpInFlow instanceof SequenceFlow) {
 			SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 			if (tmpStep instanceof Step) {
@@ -2715,11 +2907,16 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 										LaneSet laneSet = (LaneSet) tmpLaneSet;
 										if (tmpLane instanceof Lane) {
 											Lane lane = (Lane) tmpLane;
-											return new Object[] { inFlow, step,
-													inFlowToStep, parallelStep,
-													process, flow,
-													inFlowToFlow, laneSet,
-													lane, isApplicableMatch };
+											if (tmpFlowNode instanceof FlowNode) {
+												FlowNode flowNode = (FlowNode) tmpFlowNode;
+												return new Object[] { inFlow,
+														step, inFlowToStep,
+														parallelStep, process,
+														flow, inFlowToFlow,
+														laneSet, lane,
+														flowNode,
+														isApplicableMatch };
+											}
 										}
 									}
 								}
@@ -2732,11 +2929,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_1_blackBBBBBBBBBFBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_1_blackBBBBBBBBBBFBB(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, bpmn2.Process process, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
-			ParallelGatewayToParallelStepRule _this,
+			FlowNode flowNode, ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch) {
 		if (!parallelStep.equals(step)) {
 			for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
@@ -2744,17 +2941,17 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 					CSP csp = (CSP) tmpCsp;
 					return new Object[] { inFlow, step, inFlowToStep,
 							parallelStep, process, flow, inFlowToFlow, laneSet,
-							lane, csp, _this, isApplicableMatch };
+							lane, flowNode, csp, _this, isApplicableMatch };
 				}
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_1_bindingAndBlackFFFFFFFFFFBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_1_bindingAndBlackFFFFFFFFFFFBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch) {
-		Object[] result_pattern_ParallelGatewayToParallelStepRule_11_1_binding = pattern_ParallelGatewayToParallelStepRule_11_1_bindingFFFFFFFFFB(isApplicableMatch);
+		Object[] result_pattern_ParallelGatewayToParallelStepRule_11_1_binding = pattern_ParallelGatewayToParallelStepRule_11_1_bindingFFFFFFFFFFB(isApplicableMatch);
 		if (result_pattern_ParallelGatewayToParallelStepRule_11_1_binding != null) {
 			SequenceFlow inFlow = (SequenceFlow) result_pattern_ParallelGatewayToParallelStepRule_11_1_binding[0];
 			Step step = (Step) result_pattern_ParallelGatewayToParallelStepRule_11_1_binding[1];
@@ -2765,16 +2962,18 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ParallelGatewayToParallelStepRule_11_1_binding[6];
 			LaneSet laneSet = (LaneSet) result_pattern_ParallelGatewayToParallelStepRule_11_1_binding[7];
 			Lane lane = (Lane) result_pattern_ParallelGatewayToParallelStepRule_11_1_binding[8];
+			FlowNode flowNode = (FlowNode) result_pattern_ParallelGatewayToParallelStepRule_11_1_binding[9];
 
-			Object[] result_pattern_ParallelGatewayToParallelStepRule_11_1_black = pattern_ParallelGatewayToParallelStepRule_11_1_blackBBBBBBBBBFBB(
+			Object[] result_pattern_ParallelGatewayToParallelStepRule_11_1_black = pattern_ParallelGatewayToParallelStepRule_11_1_blackBBBBBBBBBBFBB(
 					inFlow, step, inFlowToStep, parallelStep, process, flow,
-					inFlowToFlow, laneSet, lane, _this, isApplicableMatch);
+					inFlowToFlow, laneSet, lane, flowNode, _this,
+					isApplicableMatch);
 			if (result_pattern_ParallelGatewayToParallelStepRule_11_1_black != null) {
-				CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_11_1_black[9];
+				CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_11_1_black[10];
 
 				return new Object[] { inFlow, step, inFlowToStep, parallelStep,
-						process, flow, inFlowToFlow, laneSet, lane, csp, _this,
-						isApplicableMatch };
+						process, flow, inFlowToFlow, laneSet, lane, flowNode,
+						csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -2826,12 +3025,12 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				parallelGatewayToParallelStep };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_3_blackBBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_11_3_blackBBBBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject inFlow, EObject step,
 			EObject inFlowToStep, EObject parallelStep, EObject process,
 			EObject parallelGateway, EObject flow,
 			EObject parallelGatewayToParallelStep, EObject inFlowToFlow,
-			EObject laneSet, EObject lane) {
+			EObject laneSet, EObject lane, EObject flowNode) {
 		if (!inFlow.equals(step)) {
 			if (!inFlow.equals(inFlowToStep)) {
 				if (!inFlow.equals(parallelStep)) {
@@ -2888,63 +3087,97 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 																																			.equals(laneSet)) {
 																																		if (!flow
 																																				.equals(lane)) {
-																																			if (!parallelGatewayToParallelStep
-																																					.equals(step)) {
+																																			if (!flow
+																																					.equals(flowNode)) {
 																																				if (!parallelGatewayToParallelStep
-																																						.equals(parallelStep)) {
+																																						.equals(step)) {
 																																					if (!parallelGatewayToParallelStep
-																																							.equals(process)) {
-																																						if (!inFlowToFlow
-																																								.equals(step)) {
+																																							.equals(parallelStep)) {
+																																						if (!parallelGatewayToParallelStep
+																																								.equals(process)) {
 																																							if (!inFlowToFlow
-																																									.equals(inFlowToStep)) {
+																																									.equals(step)) {
 																																								if (!inFlowToFlow
-																																										.equals(parallelStep)) {
+																																										.equals(inFlowToStep)) {
 																																									if (!inFlowToFlow
-																																											.equals(process)) {
+																																											.equals(parallelStep)) {
 																																										if (!inFlowToFlow
-																																												.equals(parallelGateway)) {
+																																												.equals(process)) {
 																																											if (!inFlowToFlow
-																																													.equals(parallelGatewayToParallelStep)) {
+																																													.equals(parallelGateway)) {
 																																												if (!inFlowToFlow
-																																														.equals(laneSet)) {
+																																														.equals(parallelGatewayToParallelStep)) {
 																																													if (!inFlowToFlow
-																																															.equals(lane)) {
-																																														if (!laneSet
-																																																.equals(step)) {
+																																															.equals(laneSet)) {
+																																														if (!inFlowToFlow
+																																																.equals(lane)) {
 																																															if (!laneSet
-																																																	.equals(parallelStep)) {
+																																																	.equals(step)) {
 																																																if (!laneSet
-																																																		.equals(process)) {
+																																																		.equals(parallelStep)) {
 																																																	if (!laneSet
-																																																			.equals(parallelGateway)) {
+																																																			.equals(process)) {
 																																																		if (!laneSet
-																																																				.equals(parallelGatewayToParallelStep)) {
-																																																			if (!lane
-																																																					.equals(step)) {
+																																																				.equals(parallelGateway)) {
+																																																			if (!laneSet
+																																																					.equals(parallelGatewayToParallelStep)) {
 																																																				if (!lane
-																																																						.equals(parallelStep)) {
+																																																						.equals(step)) {
 																																																					if (!lane
-																																																							.equals(process)) {
+																																																							.equals(parallelStep)) {
 																																																						if (!lane
-																																																								.equals(parallelGateway)) {
+																																																								.equals(process)) {
 																																																							if (!lane
-																																																									.equals(parallelGatewayToParallelStep)) {
+																																																									.equals(parallelGateway)) {
 																																																								if (!lane
-																																																										.equals(laneSet)) {
-																																																									return new Object[] {
-																																																											ruleresult,
-																																																											inFlow,
-																																																											step,
-																																																											inFlowToStep,
-																																																											parallelStep,
-																																																											process,
-																																																											parallelGateway,
-																																																											flow,
-																																																											parallelGatewayToParallelStep,
-																																																											inFlowToFlow,
-																																																											laneSet,
-																																																											lane };
+																																																										.equals(parallelGatewayToParallelStep)) {
+																																																									if (!lane
+																																																											.equals(laneSet)) {
+																																																										if (!flowNode
+																																																												.equals(inFlow)) {
+																																																											if (!flowNode
+																																																													.equals(step)) {
+																																																												if (!flowNode
+																																																														.equals(inFlowToStep)) {
+																																																													if (!flowNode
+																																																															.equals(parallelStep)) {
+																																																														if (!flowNode
+																																																																.equals(process)) {
+																																																															if (!flowNode
+																																																																	.equals(parallelGateway)) {
+																																																																if (!flowNode
+																																																																		.equals(parallelGatewayToParallelStep)) {
+																																																																	if (!flowNode
+																																																																			.equals(inFlowToFlow)) {
+																																																																		if (!flowNode
+																																																																				.equals(laneSet)) {
+																																																																			if (!flowNode
+																																																																					.equals(lane)) {
+																																																																				return new Object[] {
+																																																																						ruleresult,
+																																																																						inFlow,
+																																																																						step,
+																																																																						inFlowToStep,
+																																																																						parallelStep,
+																																																																						process,
+																																																																						parallelGateway,
+																																																																						flow,
+																																																																						parallelGatewayToParallelStep,
+																																																																						inFlowToFlow,
+																																																																						laneSet,
+																																																																						lane,
+																																																																						flowNode };
+																																																																			}
+																																																																		}
+																																																																	}
+																																																																}
+																																																															}
+																																																														}
+																																																													}
+																																																												}
+																																																											}
+																																																										}
+																																																									}
 																																																								}
 																																																							}
 																																																						}
@@ -3092,16 +3325,17 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				lane__parallelGateway____flowNodeRefs };
 	}
 
-	public static final void pattern_ParallelGatewayToParallelStepRule_11_5_expressionBBBBBBBBBBBBB(
+	public static final void pattern_ParallelGatewayToParallelStepRule_11_5_expressionBBBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			PerformRuleResult ruleresult, EObject inFlow, EObject step,
 			EObject inFlowToStep, EObject parallelStep, EObject process,
 			EObject parallelGateway, EObject flow,
 			EObject parallelGatewayToParallelStep, EObject inFlowToFlow,
-			EObject laneSet, EObject lane) {
+			EObject laneSet, EObject lane, EObject flowNode) {
 		_this.registerObjects_BWD(ruleresult, inFlow, step, inFlowToStep,
 				parallelStep, process, parallelGateway, flow,
-				parallelGatewayToParallelStep, inFlowToFlow, laneSet, lane);
+				parallelGatewayToParallelStep, inFlowToFlow, laneSet, lane,
+				flowNode);
 
 	}
 
@@ -3208,7 +3442,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_12_3_blackBBBBFBBFF(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_12_3_blackBBBBFBBFFF(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow) {
@@ -3220,28 +3454,39 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 						if (flow.getSteps().contains(parallelStep)) {
 							if (inFlow.equals(inFlowToFlow.getSource())) {
 								if (flow.equals(inFlowToFlow.getTarget())) {
-									for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-											.getOppositeReferenceTyped(
-													inFlow,
-													FlowElementsContainer.class,
-													"flowElements")) {
-										if (tmpProcess instanceof bpmn2.Process) {
-											bpmn2.Process process = (bpmn2.Process) tmpProcess;
-											for (LaneSet laneSet : process
-													.getLaneSets()) {
-												for (Lane lane : laneSet
-														.getLanes()) {
-													_result.add(new Object[] {
-															inFlow, step,
-															inFlowToStep,
-															parallelStep,
-															process, flow,
-															inFlowToFlow,
-															laneSet, lane });
+									FlowNode flowNode = inFlow.getSourceRef();
+									if (flowNode != null) {
+										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														inFlow,
+														FlowElementsContainer.class,
+														"flowElements")) {
+											if (tmpProcess instanceof bpmn2.Process) {
+												bpmn2.Process process = (bpmn2.Process) tmpProcess;
+												if (process.getFlowElements()
+														.contains(flowNode)) {
+													for (LaneSet laneSet : process
+															.getLaneSets()) {
+														for (Lane lane : laneSet
+																.getLanes()) {
+															_result.add(new Object[] {
+																	inFlow,
+																	step,
+																	inFlowToStep,
+																	parallelStep,
+																	process,
+																	flow,
+																	inFlowToFlow,
+																	laneSet,
+																	lane,
+																	flowNode });
+														}
+													}
 												}
 											}
 										}
 									}
+
 								}
 							}
 						}
@@ -3252,10 +3497,11 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_12_3_greenBBBBBBBBBFFFFFFFFFF(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_12_3_greenBBBBBBBBBBFFFFFFFFFFFFF(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, bpmn2.Process process, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		EMoflonEdge step__parallelStep____next = TGGRuntimeFactory.eINSTANCE
@@ -3268,6 +3514,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge process__inFlow____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge process__flowNode____flowElements = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge flow__parallelStep____steps = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge inFlowToFlow__inFlow____source = TGGRuntimeFactory.eINSTANCE
@@ -3276,15 +3524,22 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge laneSet__lane____lanes = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge inFlow__flowNode____sourceRef = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flowNode__inFlow____outgoing = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		String step__parallelStep____next_name_prime = "next";
 		String inFlowToStep__inFlow____source_name_prime = "source";
 		String inFlowToStep__step____target_name_prime = "target";
 		String process__laneSet____laneSets_name_prime = "laneSets";
 		String process__inFlow____flowElements_name_prime = "flowElements";
+		String process__flowNode____flowElements_name_prime = "flowElements";
 		String flow__parallelStep____steps_name_prime = "steps";
 		String inFlowToFlow__inFlow____source_name_prime = "source";
 		String inFlowToFlow__flow____target_name_prime = "target";
 		String laneSet__lane____lanes_name_prime = "lanes";
+		String inFlow__flowNode____sourceRef_name_prime = "sourceRef";
+		String flowNode__inFlow____outgoing_name_prime = "outgoing";
 		isApplicableMatch.getAllContextElements().add(inFlow);
 		isApplicableMatch.getAllContextElements().add(step);
 		isApplicableMatch.getAllContextElements().add(inFlowToStep);
@@ -3294,6 +3549,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
 		isApplicableMatch.getAllContextElements().add(laneSet);
 		isApplicableMatch.getAllContextElements().add(lane);
+		isApplicableMatch.getAllContextElements().add(flowNode);
 		step__parallelStep____next.setSrc(step);
 		step__parallelStep____next.setTrg(parallelStep);
 		isApplicableMatch.getAllContextElements().add(
@@ -3314,6 +3570,10 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		process__inFlow____flowElements.setTrg(inFlow);
 		isApplicableMatch.getAllContextElements().add(
 				process__inFlow____flowElements);
+		process__flowNode____flowElements.setSrc(process);
+		process__flowNode____flowElements.setTrg(flowNode);
+		isApplicableMatch.getAllContextElements().add(
+				process__flowNode____flowElements);
 		flow__parallelStep____steps.setSrc(flow);
 		flow__parallelStep____steps.setTrg(parallelStep);
 		isApplicableMatch.getAllContextElements().add(
@@ -3329,6 +3589,14 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		laneSet__lane____lanes.setSrc(laneSet);
 		laneSet__lane____lanes.setTrg(lane);
 		isApplicableMatch.getAllContextElements().add(laneSet__lane____lanes);
+		inFlow__flowNode____sourceRef.setSrc(inFlow);
+		inFlow__flowNode____sourceRef.setTrg(flowNode);
+		isApplicableMatch.getAllContextElements().add(
+				inFlow__flowNode____sourceRef);
+		flowNode__inFlow____outgoing.setSrc(flowNode);
+		flowNode__inFlow____outgoing.setTrg(inFlow);
+		isApplicableMatch.getAllContextElements().add(
+				flowNode__inFlow____outgoing);
 		step__parallelStep____next
 				.setName(step__parallelStep____next_name_prime);
 		inFlowToStep__inFlow____source
@@ -3339,6 +3607,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				.setName(process__laneSet____laneSets_name_prime);
 		process__inFlow____flowElements
 				.setName(process__inFlow____flowElements_name_prime);
+		process__flowNode____flowElements
+				.setName(process__flowNode____flowElements_name_prime);
 		flow__parallelStep____steps
 				.setName(flow__parallelStep____steps_name_prime);
 		inFlowToFlow__inFlow____source
@@ -3346,29 +3616,36 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		inFlowToFlow__flow____target
 				.setName(inFlowToFlow__flow____target_name_prime);
 		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
+		inFlow__flowNode____sourceRef
+				.setName(inFlow__flowNode____sourceRef_name_prime);
+		flowNode__inFlow____outgoing
+				.setName(flowNode__inFlow____outgoing_name_prime);
 		return new Object[] { inFlow, step, inFlowToStep, parallelStep,
-				process, flow, inFlowToFlow, laneSet, lane, isApplicableMatch,
-				step__parallelStep____next, inFlowToStep__inFlow____source,
-				inFlowToStep__step____target, process__laneSet____laneSets,
-				process__inFlow____flowElements, flow__parallelStep____steps,
+				process, flow, inFlowToFlow, laneSet, lane, flowNode,
+				isApplicableMatch, step__parallelStep____next,
+				inFlowToStep__inFlow____source, inFlowToStep__step____target,
+				process__laneSet____laneSets, process__inFlow____flowElements,
+				process__flowNode____flowElements, flow__parallelStep____steps,
 				inFlowToFlow__inFlow____source, inFlowToFlow__flow____target,
-				laneSet__lane____lanes };
+				laneSet__lane____lanes, inFlow__flowNode____sourceRef,
+				flowNode__inFlow____outgoing };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_12_4_bindingFBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_12_4_bindingFBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
 			Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, bpmn2.Process process, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
 				isApplicableMatch, inFlow, step, inFlowToStep, parallelStep,
-				process, flow, inFlowToFlow, laneSet, lane);
+				process, flow, inFlowToFlow, laneSet, lane, flowNode);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, inFlow, step,
 					inFlowToStep, parallelStep, process, flow, inFlowToFlow,
-					laneSet, lane };
+					laneSet, lane, flowNode };
 		}
 		return null;
 	}
@@ -3378,15 +3655,17 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_12_4_bindingAndBlackFBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_12_4_bindingAndBlackFBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
 			Step step, SequenceFlowToStep inFlowToStep,
 			ParallelStep parallelStep, bpmn2.Process process, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
-		Object[] result_pattern_ParallelGatewayToParallelStepRule_12_4_binding = pattern_ParallelGatewayToParallelStepRule_12_4_bindingFBBBBBBBBBBB(
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
+		Object[] result_pattern_ParallelGatewayToParallelStepRule_12_4_binding = pattern_ParallelGatewayToParallelStepRule_12_4_bindingFBBBBBBBBBBBB(
 				_this, isApplicableMatch, inFlow, step, inFlowToStep,
-				parallelStep, process, flow, inFlowToFlow, laneSet, lane);
+				parallelStep, process, flow, inFlowToFlow, laneSet, lane,
+				flowNode);
 		if (result_pattern_ParallelGatewayToParallelStepRule_12_4_binding != null) {
 			CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_12_4_binding[0];
 
@@ -3395,7 +3674,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 				return new Object[] { csp, _this, isApplicableMatch, inFlow,
 						step, inFlowToStep, parallelStep, process, flow,
-						inFlowToFlow, laneSet, lane };
+						inFlowToFlow, laneSet, lane, flowNode };
 			}
 		}
 		return null;
@@ -3593,7 +3872,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_21_2_blackFFFFFB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_21_2_blackFFFFFFB(
 			EMoflonEdge _edge_flowElements) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		EObject tmpProcess = _edge_flowElements.getSrc();
@@ -3609,15 +3888,29 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 								SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 								if (parallelGateway.equals(inFlow
 										.getTargetRef())) {
-									for (Lane lane : laneSet.getLanes()) {
-										if (lane.getFlowNodeRefs().contains(
-												parallelGateway)) {
-											_result.add(new Object[] { inFlow,
-													process, parallelGateway,
-													laneSet, lane,
-													_edge_flowElements });
+									FlowNode flowNode = inFlow.getSourceRef();
+									if (flowNode != null) {
+										if (!flowNode.equals(parallelGateway)) {
+											if (process.getFlowElements()
+													.contains(flowNode)) {
+												for (Lane lane : laneSet
+														.getLanes()) {
+													if (lane.getFlowNodeRefs()
+															.contains(
+																	parallelGateway)) {
+														_result.add(new Object[] {
+																inFlow,
+																process,
+																parallelGateway,
+																laneSet, lane,
+																flowNode,
+																_edge_flowElements });
+													}
+												}
+											}
 										}
 									}
+
 								}
 							}
 						}
@@ -3640,12 +3933,13 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_ParallelGatewayToParallelStepRule_21_3_expressionFBBBBBBB(
+	public static final boolean pattern_ParallelGatewayToParallelStepRule_21_3_expressionFBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
-				process, parallelGateway, laneSet, lane);
+				process, parallelGateway, laneSet, lane, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -3722,7 +4016,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_22_2_blackFFFFFB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_22_2_blackFFFFFFB(
 			EMoflonEdge _edge_targetRef) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		EObject tmpInFlow = _edge_targetRef.getSrc();
@@ -3732,27 +4026,43 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			if (tmpParallelGateway instanceof ParallelGateway) {
 				ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
 				if (parallelGateway.equals(inFlow.getTargetRef())) {
-					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-							.getOppositeReferenceTyped(inFlow,
-									FlowElementsContainer.class, "flowElements")) {
-						if (tmpProcess instanceof bpmn2.Process) {
-							bpmn2.Process process = (bpmn2.Process) tmpProcess;
-							if (process.getFlowElements().contains(
-									parallelGateway)) {
-								for (LaneSet laneSet : process.getLaneSets()) {
-									for (Lane lane : laneSet.getLanes()) {
-										if (lane.getFlowNodeRefs().contains(
-												parallelGateway)) {
-											_result.add(new Object[] { inFlow,
-													process, parallelGateway,
-													laneSet, lane,
-													_edge_targetRef });
+					FlowNode flowNode = inFlow.getSourceRef();
+					if (flowNode != null) {
+						if (!flowNode.equals(parallelGateway)) {
+							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(inFlow,
+											FlowElementsContainer.class,
+											"flowElements")) {
+								if (tmpProcess instanceof bpmn2.Process) {
+									bpmn2.Process process = (bpmn2.Process) tmpProcess;
+									if (process.getFlowElements().contains(
+											parallelGateway)) {
+										if (process.getFlowElements().contains(
+												flowNode)) {
+											for (LaneSet laneSet : process
+													.getLaneSets()) {
+												for (Lane lane : laneSet
+														.getLanes()) {
+													if (lane.getFlowNodeRefs()
+															.contains(
+																	parallelGateway)) {
+														_result.add(new Object[] {
+																inFlow,
+																process,
+																parallelGateway,
+																laneSet, lane,
+																flowNode,
+																_edge_targetRef });
+													}
+												}
+											}
 										}
 									}
 								}
 							}
 						}
 					}
+
 				}
 			}
 
@@ -3771,12 +4081,13 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_ParallelGatewayToParallelStepRule_22_3_expressionFBBBBBBB(
+	public static final boolean pattern_ParallelGatewayToParallelStepRule_22_3_expressionFBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
-				process, parallelGateway, laneSet, lane);
+				process, parallelGateway, laneSet, lane, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -3853,7 +4164,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_23_2_blackFFFFFB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_23_2_blackFFFFFFB(
 			EMoflonEdge _edge_incoming) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		EObject tmpParallelGateway = _edge_incoming.getSrc();
@@ -3863,26 +4174,43 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 			if (tmpInFlow instanceof SequenceFlow) {
 				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 				if (parallelGateway.equals(inFlow.getTargetRef())) {
-					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-							.getOppositeReferenceTyped(parallelGateway,
-									FlowElementsContainer.class, "flowElements")) {
-						if (tmpProcess instanceof bpmn2.Process) {
-							bpmn2.Process process = (bpmn2.Process) tmpProcess;
-							if (process.getFlowElements().contains(inFlow)) {
-								for (LaneSet laneSet : process.getLaneSets()) {
-									for (Lane lane : laneSet.getLanes()) {
-										if (lane.getFlowNodeRefs().contains(
-												parallelGateway)) {
-											_result.add(new Object[] { inFlow,
-													process, parallelGateway,
-													laneSet, lane,
-													_edge_incoming });
+					FlowNode flowNode = inFlow.getSourceRef();
+					if (flowNode != null) {
+						if (!flowNode.equals(parallelGateway)) {
+							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(parallelGateway,
+											FlowElementsContainer.class,
+											"flowElements")) {
+								if (tmpProcess instanceof bpmn2.Process) {
+									bpmn2.Process process = (bpmn2.Process) tmpProcess;
+									if (process.getFlowElements().contains(
+											inFlow)) {
+										if (process.getFlowElements().contains(
+												flowNode)) {
+											for (LaneSet laneSet : process
+													.getLaneSets()) {
+												for (Lane lane : laneSet
+														.getLanes()) {
+													if (lane.getFlowNodeRefs()
+															.contains(
+																	parallelGateway)) {
+														_result.add(new Object[] {
+																inFlow,
+																process,
+																parallelGateway,
+																laneSet, lane,
+																flowNode,
+																_edge_incoming });
+													}
+												}
+											}
 										}
 									}
 								}
 							}
 						}
 					}
+
 				}
 			}
 
@@ -3901,12 +4229,13 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_ParallelGatewayToParallelStepRule_23_3_expressionFBBBBBBB(
+	public static final boolean pattern_ParallelGatewayToParallelStepRule_23_3_expressionFBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
-				process, parallelGateway, laneSet, lane);
+				process, parallelGateway, laneSet, lane, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -4100,7 +4429,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { __result };
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_25_2_blackFFFFFB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_25_2_blackFFFFFFB(
 			EMoflonEdge _edge_flowNodeRefs) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		EObject tmpLane = _edge_flowNodeRefs.getSrc();
@@ -4111,27 +4440,42 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 				ParallelGateway parallelGateway = (ParallelGateway) tmpParallelGateway;
 				if (lane.getFlowNodeRefs().contains(parallelGateway)) {
 					for (SequenceFlow inFlow : parallelGateway.getIncoming()) {
-						for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
-								.getOppositeReferenceTyped(lane, LaneSet.class,
-										"lanes")) {
-							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(parallelGateway,
-											FlowElementsContainer.class,
-											"flowElements")) {
-								if (tmpProcess instanceof bpmn2.Process) {
-									bpmn2.Process process = (bpmn2.Process) tmpProcess;
-									if (process.getLaneSets().contains(laneSet)) {
-										if (process.getFlowElements().contains(
-												inFlow)) {
-											_result.add(new Object[] { inFlow,
-													process, parallelGateway,
-													laneSet, lane,
-													_edge_flowNodeRefs });
+						FlowNode flowNode = inFlow.getSourceRef();
+						if (flowNode != null) {
+							if (!flowNode.equals(parallelGateway)) {
+								for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+										.getOppositeReferenceTyped(lane,
+												LaneSet.class, "lanes")) {
+									for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+											.getOppositeReferenceTyped(
+													parallelGateway,
+													FlowElementsContainer.class,
+													"flowElements")) {
+										if (tmpProcess instanceof bpmn2.Process) {
+											bpmn2.Process process = (bpmn2.Process) tmpProcess;
+											if (process.getLaneSets().contains(
+													laneSet)) {
+												if (process.getFlowElements()
+														.contains(inFlow)) {
+													if (process
+															.getFlowElements()
+															.contains(flowNode)) {
+														_result.add(new Object[] {
+																inFlow,
+																process,
+																parallelGateway,
+																laneSet, lane,
+																flowNode,
+																_edge_flowNodeRefs });
+													}
+												}
+											}
 										}
 									}
 								}
 							}
 						}
+
 					}
 				}
 			}
@@ -4151,12 +4495,13 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_ParallelGatewayToParallelStepRule_25_3_expressionFBBBBBBB(
+	public static final boolean pattern_ParallelGatewayToParallelStepRule_25_3_expressionFBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this, Match match,
 			SequenceFlow inFlow, bpmn2.Process process,
-			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane) {
+			ParallelGateway parallelGateway, LaneSet laneSet, Lane lane,
+			FlowNode flowNode) {
 		boolean _localVariable_0 = _this.isAppropriate_FWD(match, inFlow,
-				process, parallelGateway, laneSet, lane);
+				process, parallelGateway, laneSet, lane, flowNode);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -4212,22 +4557,14 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 	}
 
 	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_1BB(
-			ModelgeneratorRuleResult ruleResult, SequenceFlowToStep inFlowToStep) {
-		if (ruleResult.getCorrObjects().contains(inFlowToStep)) {
-			return new Object[] { ruleResult, inFlowToStep };
+			ModelgeneratorRuleResult ruleResult, FlowNode flowNode) {
+		if (ruleResult.getSourceObjects().contains(flowNode)) {
+			return new Object[] { ruleResult, flowNode };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_2BB(
-			ModelgeneratorRuleResult ruleResult, Step step) {
-		if (ruleResult.getTargetObjects().contains(step)) {
-			return new Object[] { ruleResult, step };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_3BB(
 			ModelgeneratorRuleResult ruleResult, bpmn2.Process process) {
 		if (ruleResult.getSourceObjects().contains(process)) {
 			return new Object[] { ruleResult, process };
@@ -4235,7 +4572,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_4BB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_3BB(
 			ModelgeneratorRuleResult ruleResult, LaneSet laneSet) {
 		if (ruleResult.getSourceObjects().contains(laneSet)) {
 			return new Object[] { ruleResult, laneSet };
@@ -4243,7 +4580,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_5BB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_4BB(
 			ModelgeneratorRuleResult ruleResult, Lane lane) {
 		if (ruleResult.getSourceObjects().contains(lane)) {
 			return new Object[] { ruleResult, lane };
@@ -4251,7 +4588,23 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult, SequenceFlowToStep inFlowToStep) {
+		if (ruleResult.getCorrObjects().contains(inFlowToStep)) {
+			return new Object[] { ruleResult, inFlowToStep };
+		}
+		return null;
+	}
+
 	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_6BB(
+			ModelgeneratorRuleResult ruleResult, Step step) {
+		if (ruleResult.getTargetObjects().contains(step)) {
+			return new Object[] { ruleResult, step };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_7BB(
 			ModelgeneratorRuleResult ruleResult,
 			SequenceFlowToUCFlow inFlowToFlow) {
 		if (ruleResult.getCorrObjects().contains(inFlowToFlow)) {
@@ -4260,7 +4613,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_7BB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_8BB(
 			ModelgeneratorRuleResult ruleResult, Flow flow) {
 		if (ruleResult.getTargetObjects().contains(flow)) {
 			return new Object[] { ruleResult, flow };
@@ -4268,7 +4621,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_28_2_blackFFFFFFFFFBB(
+	public static final Iterable<Object[]> pattern_ParallelGatewayToParallelStepRule_28_2_blackFFFFFFFFFFBB(
 			RuleEntryContainer ruleEntryContainer,
 			ModelgeneratorRuleResult ruleResult) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
@@ -4281,61 +4634,74 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 					if (inFlow != null) {
 						Step step = inFlowToStep.getTarget();
 						if (step != null) {
-							if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_1BB(
-									ruleResult, inFlowToStep) == null) {
-								if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_0BB(
-										ruleResult, inFlow) == null) {
-									if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_2BB(
-											ruleResult, step) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
-												.getOppositeReferenceTyped(
-														inFlow,
-														FlowElementsContainer.class,
-														"flowElements")) {
-											if (tmpProcess instanceof bpmn2.Process) {
-												bpmn2.Process process = (bpmn2.Process) tmpProcess;
-												if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_3BB(
-														ruleResult, process) == null) {
-													for (LaneSet laneSet : process
-															.getLaneSets()) {
-														if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_4BB(
-																ruleResult,
-																laneSet) == null) {
-															for (Lane lane : laneSet
-																	.getLanes()) {
-																if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_5BB(
-																		ruleResult,
-																		lane) == null) {
-																	for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
-																			.getOppositeReferenceTyped(
-																					inFlow,
-																					SequenceFlowToUCFlow.class,
-																					"source")) {
-																		Flow flow = inFlowToFlow
-																				.getTarget();
-																		if (flow != null) {
-																			if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_6BB(
+							FlowNode flowNode = inFlow.getSourceRef();
+							if (flowNode != null) {
+								if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_5BB(
+										ruleResult, inFlowToStep) == null) {
+									if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_0BB(
+											ruleResult, inFlow) == null) {
+										if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_6BB(
+												ruleResult, step) == null) {
+											if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_1BB(
+													ruleResult, flowNode) == null) {
+												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																inFlow,
+																FlowElementsContainer.class,
+																"flowElements")) {
+													if (tmpProcess instanceof bpmn2.Process) {
+														bpmn2.Process process = (bpmn2.Process) tmpProcess;
+														if (process
+																.getFlowElements()
+																.contains(
+																		flowNode)) {
+															if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_2BB(
+																	ruleResult,
+																	process) == null) {
+																for (LaneSet laneSet : process
+																		.getLaneSets()) {
+																	if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_3BB(
+																			ruleResult,
+																			laneSet) == null) {
+																		for (Lane lane : laneSet
+																				.getLanes()) {
+																			if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_4BB(
 																					ruleResult,
-																					inFlowToFlow) == null) {
-																				if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_7BB(
-																						ruleResult,
-																						flow) == null) {
-																					_result.add(new Object[] {
-																							inFlowToStepList,
-																							inFlow,
-																							inFlowToStep,
-																							step,
-																							process,
-																							laneSet,
-																							lane,
-																							inFlowToFlow,
-																							flow,
-																							ruleEntryContainer,
-																							ruleResult });
+																					lane) == null) {
+																				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																						.getOppositeReferenceTyped(
+																								inFlow,
+																								SequenceFlowToUCFlow.class,
+																								"source")) {
+																					Flow flow = inFlowToFlow
+																							.getTarget();
+																					if (flow != null) {
+																						if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_7BB(
+																								ruleResult,
+																								inFlowToFlow) == null) {
+																							if (pattern_ParallelGatewayToParallelStepRule_28_2_black_nac_8BB(
+																									ruleResult,
+																									flow) == null) {
+																								_result.add(new Object[] {
+																										inFlowToStepList,
+																										inFlow,
+																										flowNode,
+																										process,
+																										laneSet,
+																										lane,
+																										inFlowToStep,
+																										step,
+																										inFlowToFlow,
+																										flow,
+																										ruleEntryContainer,
+																										ruleResult });
+																							}
+																						}
+																					}
+
 																				}
 																			}
 																		}
-
 																	}
 																}
 															}
@@ -4347,6 +4713,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 									}
 								}
 							}
+
 						}
 
 					}
@@ -4357,20 +4724,20 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_3_bindingFBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_3_bindingFBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
 			Step step, SequenceFlowToStep inFlowToStep, bpmn2.Process process,
 			Flow flow, SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet,
-			Lane lane, ModelgeneratorRuleResult ruleResult) {
+			Lane lane, FlowNode flowNode, ModelgeneratorRuleResult ruleResult) {
 		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
 				isApplicableMatch, inFlow, step, inFlowToStep, process, flow,
-				inFlowToFlow, laneSet, lane, ruleResult);
+				inFlowToFlow, laneSet, lane, flowNode, ruleResult);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, inFlow, step,
 					inFlowToStep, process, flow, inFlowToFlow, laneSet, lane,
-					ruleResult };
+					flowNode, ruleResult };
 		}
 		return null;
 	}
@@ -4380,15 +4747,15 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_3_bindingAndBlackFBBBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_3_bindingAndBlackFBBBBBBBBBBBB(
 			ParallelGatewayToParallelStepRule _this,
 			IsApplicableMatch isApplicableMatch, SequenceFlow inFlow,
 			Step step, SequenceFlowToStep inFlowToStep, bpmn2.Process process,
 			Flow flow, SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet,
-			Lane lane, ModelgeneratorRuleResult ruleResult) {
-		Object[] result_pattern_ParallelGatewayToParallelStepRule_28_3_binding = pattern_ParallelGatewayToParallelStepRule_28_3_bindingFBBBBBBBBBBB(
+			Lane lane, FlowNode flowNode, ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_ParallelGatewayToParallelStepRule_28_3_binding = pattern_ParallelGatewayToParallelStepRule_28_3_bindingFBBBBBBBBBBBB(
 				_this, isApplicableMatch, inFlow, step, inFlowToStep, process,
-				flow, inFlowToFlow, laneSet, lane, ruleResult);
+				flow, inFlowToFlow, laneSet, lane, flowNode, ruleResult);
 		if (result_pattern_ParallelGatewayToParallelStepRule_28_3_binding != null) {
 			CSP csp = (CSP) result_pattern_ParallelGatewayToParallelStepRule_28_3_binding[0];
 
@@ -4397,7 +4764,7 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 
 				return new Object[] { csp, _this, isApplicableMatch, inFlow,
 						step, inFlowToStep, process, flow, inFlowToFlow,
-						laneSet, lane, ruleResult };
+						laneSet, lane, flowNode, ruleResult };
 			}
 		}
 		return null;
@@ -4410,21 +4777,22 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_5_blackBBBBBBBB(
-			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
-			bpmn2.Process process, Flow flow,
-			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane) {
-		return new Object[] { inFlow, step, inFlowToStep, process, flow,
-				inFlowToFlow, laneSet, lane };
-	}
-
-	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_6_blackBBBBBBBBB(
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_5_blackBBBBBBBBB(
 			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
 			bpmn2.Process process, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
-			ModelgeneratorRuleResult ruleResult) {
+			FlowNode flowNode) {
 		return new Object[] { inFlow, step, inFlowToStep, process, flow,
-				inFlowToFlow, laneSet, lane, ruleResult };
+				inFlowToFlow, laneSet, lane, flowNode };
+	}
+
+	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_6_blackBBBBBBBBBB(
+			SequenceFlow inFlow, Step step, SequenceFlowToStep inFlowToStep,
+			bpmn2.Process process, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, LaneSet laneSet, Lane lane,
+			FlowNode flowNode, ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { inFlow, step, inFlowToStep, process, flow,
+				inFlowToFlow, laneSet, lane, flowNode, ruleResult };
 	}
 
 	public static final Object[] pattern_ParallelGatewayToParallelStepRule_28_6_greenBBFBFBFBBB(
@@ -4442,8 +4810,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		Object _localVariable_3 = csp.getValue("parallelGateway", "name");
 		Object _localVariable_4 = csp.getValue("parallelGateway",
 				"gatewayDirection");
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		step.setNext(parallelStep);
 		flow.getSteps().add(parallelStep);
 		ruleResult.getTargetObjects().add(parallelStep);
@@ -4459,8 +4827,8 @@ public class ParallelGatewayToParallelStepRuleImpl extends AbstractRuleImpl
 		String parallelGateway_id_prime = (String) _localVariable_2;
 		String parallelGateway_name_prime = (String) _localVariable_3;
 		GatewayDirection parallelGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_4;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		parallelStep.setName(parallelStep_name_prime);
 		parallelStep.setLabel(parallelStep_label_prime);
 		parallelGateway.setId(parallelGateway_id_prime);

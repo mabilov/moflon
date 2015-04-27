@@ -2321,10 +2321,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_DefinitionsToPackageRule_20_2_black_nac_0BB(
 			Definitions definitions, DocumentRoot documentRoot) {
-		for (DocumentRoot __DEC_definitions_definitions_638816 : org.moflon.util.eMoflonEMFUtil
+		for (DocumentRoot __DEC_definitions_definitions_734828 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(definitions, DocumentRoot.class,
 						"definitions")) {
-			if (!documentRoot.equals(__DEC_definitions_definitions_638816)) {
+			if (!documentRoot.equals(__DEC_definitions_definitions_734828)) {
 				return new Object[] { definitions, documentRoot };
 			}
 		}
@@ -2447,10 +2447,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_DefinitionsToPackageRule_21_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_210117 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_882193 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_210117)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_882193)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}
@@ -2685,8 +2685,8 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_0 = csp
 				.getValue("definitions", "targetNamespace");
 		Object _localVariable_1 = csp.getValue("packageDeclaration", "name");
-		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
 		documentRoot.getDefinitions().add(definitions);
 		ruleResult.getSourceObjects().add(definitions);
 		useCasesModel.getPackages().add(packageDeclaration);
@@ -2696,8 +2696,8 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getCorrObjects().add(definitionsToPackage);
 		String definitions_targetNamespace_prime = (String) _localVariable_0;
 		String packageDeclaration_name_prime = (String) _localVariable_1;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
 		definitions.setTargetNamespace(definitions_targetNamespace_prime);
 		packageDeclaration.setName(packageDeclaration_name_prime);
 		ruleResult.setPerformCount(Integer

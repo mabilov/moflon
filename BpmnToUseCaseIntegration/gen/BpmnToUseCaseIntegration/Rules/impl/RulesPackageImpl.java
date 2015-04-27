@@ -2947,321 +2947,6 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD__Match_Process_SequenceFlow_ExclusiveGateway_SequenceFlow_Lane_LaneSet() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__Perform_FWD__IsApplicableMatch() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsApplicable_FWD__Match() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__RegisterObjectsToMatch_FWD__Match_Process_SequenceFlow_ExclusiveGateway_SequenceFlow_Lane_LaneSet() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_solveCsp_FWD__Match_Process_SequenceFlow_ExclusiveGateway_SequenceFlow_Lane_LaneSet() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_checkCsp_FWD__CSP() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_SequenceFlowToUCFlow_Process_SequenceFlow_ExclusiveGateway_SequenceFlow_Flow_Actor_ProcessToActor_Lane_LaneSet() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsApplicable_checkCsp_FWD__CSP() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__CheckTypes_FWD__Match() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_BWD__Match_NormalStep_Flow_Actor() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__Perform_BWD__IsApplicableMatch() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsApplicable_BWD__Match() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Flow_Actor() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Flow_Actor() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_checkCsp_BWD__CSP() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_NormalStep_SequenceFlowToUCFlow_Process_SequenceFlow_Flow_Actor_ProcessToActor_Lane_LaneSet() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsApplicable_checkCsp_BWD__CSP() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__CheckTypes_BWD__Match() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_14__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_33__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_34__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_35__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_36__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_37__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_38__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_39__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_15__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_40__EMoflonEdge() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(29);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__CheckAttributes_FWD__TripleMatch() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(30);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__CheckAttributes_BWD__TripleMatch() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(31);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlowToUCFlow_Process_SequenceFlow_Flow_Actor_ProcessToActor_Lane_LaneSet_ModelgeneratorRuleResult() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getExclusiveGatewayToStepCoreRule__GenerateModel_checkCsp_BWD__CSP() {
-		return getExclusiveGatewayToStepCoreRule().getEOperations().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInterEventToStepRule() {
 		if (interEventToStepRuleEClass == null) {
 			interEventToStepRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -3470,7 +3155,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_41__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_33__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(20);
 	}
 
@@ -3479,7 +3164,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_42__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_34__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(21);
 	}
 
@@ -3488,7 +3173,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_43__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_35__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(22);
 	}
 
@@ -3497,7 +3182,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_44__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_36__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(23);
 	}
 
@@ -3506,7 +3191,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_45__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_37__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(24);
 	}
 
@@ -3515,7 +3200,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_46__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_38__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(25);
 	}
 
@@ -3524,7 +3209,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_16__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_14__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(26);
 	}
 
@@ -3533,7 +3218,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_17__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_15__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(27);
 	}
 
@@ -3542,7 +3227,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_47__EMoflonEdge() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_39__EMoflonEdge() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(28);
 	}
 
@@ -3617,306 +3302,6 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 					.get(19);
 		}
 		return parallelGatewayToParallelStepCoreRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_FWD__Match_Process_SequenceFlow_ParallelGateway_LaneSet_Lane() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__Perform_FWD__IsApplicableMatch() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsApplicable_FWD__Match() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__RegisterObjectsToMatch_FWD__Match_Process_SequenceFlow_ParallelGateway_LaneSet_Lane() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_solveCsp_FWD__Match_Process_SequenceFlow_ParallelGateway_LaneSet_Lane() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_checkCsp_FWD__CSP() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_Process_SequenceFlow_ParallelGateway_Flow_SequenceFlowToUCFlow_LaneSet_Lane() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsApplicable_checkCsp_FWD__CSP() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__CheckTypes_FWD__Match() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_BWD__Match_ParallelStep_Flow() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__Perform_BWD__IsApplicableMatch() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsApplicable_BWD__Match() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__RegisterObjectsToMatch_BWD__Match_ParallelStep_Flow() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_solveCsp_BWD__Match_ParallelStep_Flow() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_checkCsp_BWD__CSP() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_ParallelStep_Flow_SequenceFlowToUCFlow_LaneSet_Lane() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsApplicable_checkCsp_BWD__CSP() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__CheckTypes_BWD__Match() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_FWD_EMoflonEdge_48__EMoflonEdge() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_FWD_EMoflonEdge_49__EMoflonEdge() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_FWD_EMoflonEdge_50__EMoflonEdge() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_BWD_EMoflonEdge_18__EMoflonEdge() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__IsAppropriate_FWD_EMoflonEdge_51__EMoflonEdge() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__CheckAttributes_FWD__TripleMatch() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__CheckAttributes_BWD__TripleMatch() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__GenerateModel__RuleEntryContainer_SequenceFlowToUCFlow() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Flow_SequenceFlowToUCFlow_LaneSet_Lane_ModelgeneratorRuleResult() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getParallelGatewayToParallelStepCoreRule__GenerateModel_checkCsp_BWD__CSP() {
-		return getParallelGatewayToParallelStepCoreRule().getEOperations().get(
-				29);
 	}
 
 	/**
@@ -4118,7 +3503,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_52__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_40__EMoflonEdge() {
 		return getEventBasedGatewayToStepCoreRule().getEOperations().get(20);
 	}
 
@@ -4127,7 +3512,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_53__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_41__EMoflonEdge() {
 		return getEventBasedGatewayToStepCoreRule().getEOperations().get(21);
 	}
 
@@ -4136,7 +3521,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_54__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_42__EMoflonEdge() {
 		return getEventBasedGatewayToStepCoreRule().getEOperations().get(22);
 	}
 
@@ -4145,7 +3530,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_19__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_16__EMoflonEdge() {
 		return getEventBasedGatewayToStepCoreRule().getEOperations().get(23);
 	}
 
@@ -4154,7 +3539,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_20__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_17__EMoflonEdge() {
 		return getEventBasedGatewayToStepCoreRule().getEOperations().get(24);
 	}
 
@@ -4163,7 +3548,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_55__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_43__EMoflonEdge() {
 		return getEventBasedGatewayToStepCoreRule().getEOperations().get(25);
 	}
 
@@ -4335,7 +3720,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_56__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_44__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(10);
 	}
 
@@ -4344,7 +3729,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_57__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_45__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(11);
 	}
 
@@ -4353,7 +3738,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_58__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_46__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(12);
 	}
 
@@ -4362,7 +3747,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_59__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_47__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(13);
 	}
 
@@ -4371,7 +3756,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_60__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_48__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(14);
 	}
 
@@ -4380,7 +3765,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_61__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_49__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(15);
 	}
 
@@ -4389,7 +3774,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_62__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayRule__IsAppropriate_FWD_EMoflonEdge_50__EMoflonEdge() {
 		return getParallelConvergingGatewayRule().getEOperations().get(16);
 	}
 
@@ -4628,7 +4013,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_21__EMoflonEdge() {
+	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_18__EMoflonEdge() {
 		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(20);
 	}
 
@@ -4637,7 +4022,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_22__EMoflonEdge() {
+	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_19__EMoflonEdge() {
 		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(21);
 	}
 
@@ -4646,7 +4031,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_23__EMoflonEdge() {
+	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_20__EMoflonEdge() {
 		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(22);
 	}
 
@@ -4655,7 +4040,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_FWD_EMoflonEdge_63__EMoflonEdge() {
+	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_FWD_EMoflonEdge_51__EMoflonEdge() {
 		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(23);
 	}
 
@@ -4664,7 +4049,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_FWD_EMoflonEdge_64__EMoflonEdge() {
+	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_FWD_EMoflonEdge_52__EMoflonEdge() {
 		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(24);
 	}
 
@@ -4673,7 +4058,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_FWD_EMoflonEdge_65__EMoflonEdge() {
+	public EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_FWD_EMoflonEdge_53__EMoflonEdge() {
 		return getSeqFlowAfterEGToAltFlowRule().getEOperations().get(25);
 	}
 
@@ -4921,7 +4306,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_66__EMoflonEdge() {
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_54__EMoflonEdge() {
 		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(20);
 	}
 
@@ -4930,7 +4315,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_67__EMoflonEdge() {
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_55__EMoflonEdge() {
 		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(21);
 	}
 
@@ -4939,7 +4324,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_68__EMoflonEdge() {
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_56__EMoflonEdge() {
 		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(22);
 	}
 
@@ -4948,7 +4333,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_24__EMoflonEdge() {
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_21__EMoflonEdge() {
 		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(23);
 	}
 
@@ -4957,7 +4342,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_25__EMoflonEdge() {
+	public EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_22__EMoflonEdge() {
 		return getSeqFlowAfterPGToParallelFlowRule().getEOperations().get(24);
 	}
 
@@ -5205,7 +4590,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_69__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_57__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(20);
 	}
 
@@ -5214,7 +4599,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_70__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_58__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(21);
 	}
 
@@ -5223,7 +4608,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_71__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_59__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(22);
 	}
 
@@ -5232,7 +4617,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_72__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_60__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(23);
 	}
 
@@ -5241,7 +4626,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_73__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_61__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(24);
 	}
 
@@ -5250,7 +4635,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_74__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_62__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(25);
 	}
 
@@ -5259,7 +4644,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_75__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_63__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(26);
 	}
 
@@ -5268,7 +4653,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_76__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_64__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(27);
 	}
 
@@ -5277,7 +4662,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_77__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_65__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(28);
 	}
 
@@ -5286,7 +4671,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_26__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_23__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(29);
 	}
 
@@ -5295,7 +4680,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_27__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_24__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(30);
 	}
 
@@ -5304,7 +4689,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_28__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_25__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(31);
 	}
 
@@ -5313,7 +4698,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_78__EMoflonEdge() {
+	public EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_66__EMoflonEdge() {
 		return getCatchEventAfterEBGToStepRule().getEOperations().get(32);
 	}
 
@@ -5561,7 +4946,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_29__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_26__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(20);
 	}
 
@@ -5570,7 +4955,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_30__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_27__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(21);
 	}
 
@@ -5579,7 +4964,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_79__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_67__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(22);
 	}
 
@@ -5588,7 +4973,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_80__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_68__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(23);
 	}
 
@@ -5597,7 +4982,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_81__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_69__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(24);
 	}
 
@@ -5606,7 +4991,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_82__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_70__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(25);
 	}
 
@@ -5615,7 +5000,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_83__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_71__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(26);
 	}
 
@@ -5624,7 +5009,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_84__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_72__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(27);
 	}
 
@@ -5633,7 +5018,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_85__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_73__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(28);
 	}
 
@@ -5642,7 +5027,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_31__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_28__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(29);
 	}
 
@@ -5651,7 +5036,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_86__EMoflonEdge() {
+	public EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_74__EMoflonEdge() {
 		return getExclusiveGatewayToStepRule().getEOperations().get(30);
 	}
 
@@ -5719,7 +5104,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD__Match_SequenceFlow_Process_ParallelGateway_LaneSet_Lane() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD__Match_SequenceFlow_Process_ParallelGateway_LaneSet_Lane_FlowNode() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(0);
 	}
 
@@ -5746,7 +5131,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__RegisterObjectsToMatch_FWD__Match_SequenceFlow_Process_ParallelGateway_LaneSet_Lane() {
+	public EOperation getParallelGatewayToParallelStepRule__RegisterObjectsToMatch_FWD__Match_SequenceFlow_Process_ParallelGateway_LaneSet_Lane_FlowNode() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(3);
 	}
 
@@ -5755,7 +5140,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_solveCsp_FWD__Match_SequenceFlow_Process_ParallelGateway_LaneSet_Lane() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_solveCsp_FWD__Match_SequenceFlow_Process_ParallelGateway_LaneSet_Lane_FlowNode() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(4);
 	}
 
@@ -5773,7 +5158,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_ParallelGateway_Flow_SequenceFlowToUCFlow_LaneSet_Lane() {
+	public EOperation getParallelGatewayToParallelStepRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_ParallelGateway_Flow_SequenceFlowToUCFlow_LaneSet_Lane_FlowNode() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(6);
 	}
 
@@ -5791,7 +5176,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getParallelGatewayToParallelStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(8);
 	}
 
@@ -5863,7 +5248,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_ParallelStep_Process_Flow_SequenceFlowToUCFlow_LaneSet_Lane() {
+	public EOperation getParallelGatewayToParallelStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_ParallelStep_Process_Flow_SequenceFlowToUCFlow_LaneSet_Lane_FlowNode() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(16);
 	}
 
@@ -5881,7 +5266,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getParallelGatewayToParallelStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(18);
 	}
 
@@ -5899,7 +5284,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_32__EMoflonEdge() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_29__EMoflonEdge() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(20);
 	}
 
@@ -5908,7 +5293,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_87__EMoflonEdge() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_75__EMoflonEdge() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(21);
 	}
 
@@ -5917,7 +5302,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_88__EMoflonEdge() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_76__EMoflonEdge() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(22);
 	}
 
@@ -5926,7 +5311,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_89__EMoflonEdge() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_77__EMoflonEdge() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(23);
 	}
 
@@ -5935,7 +5320,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_33__EMoflonEdge() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_30__EMoflonEdge() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(24);
 	}
 
@@ -5944,7 +5329,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_90__EMoflonEdge() {
+	public EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_78__EMoflonEdge() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(25);
 	}
 
@@ -5980,7 +5365,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelGatewayToParallelStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_Flow_SequenceFlowToUCFlow_LaneSet_Lane_ModelgeneratorRuleResult() {
+	public EOperation getParallelGatewayToParallelStepRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_Process_Flow_SequenceFlowToUCFlow_LaneSet_Lane_FlowNode_ModelgeneratorRuleResult() {
 		return getParallelGatewayToParallelStepRule().getEOperations().get(29);
 	}
 
@@ -6192,7 +5577,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_34__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_31__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(20);
 	}
 
@@ -6201,7 +5586,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_91__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_79__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(21);
 	}
 
@@ -6210,7 +5595,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_92__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_80__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(22);
 	}
 
@@ -6219,7 +5604,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_93__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_81__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(23);
 	}
 
@@ -6228,7 +5613,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_35__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_32__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(24);
 	}
 
@@ -6237,7 +5622,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_36__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_33__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(25);
 	}
 
@@ -6246,7 +5631,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_94__EMoflonEdge() {
+	public EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_82__EMoflonEdge() {
 		return getEventBasedGatewayToStepRule().getEOperations().get(26);
 	}
 
@@ -6404,7 +5789,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getLaneStartEventRule__IsAppropriate_FWD_EMoflonEdge_95__EMoflonEdge() {
+	public EOperation getLaneStartEventRule__IsAppropriate_FWD_EMoflonEdge_83__EMoflonEdge() {
 		return getLaneStartEventRule().getEOperations().get(10);
 	}
 
@@ -6553,7 +5938,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_96__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_84__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(10);
 	}
 
@@ -6562,7 +5947,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_97__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_85__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(11);
 	}
 
@@ -6571,7 +5956,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_98__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_86__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(12);
 	}
 
@@ -6580,7 +5965,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_99__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_87__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(13);
 	}
 
@@ -6589,7 +5974,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_100__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_88__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(14);
 	}
 
@@ -6598,7 +5983,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_101__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_89__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(15);
 	}
 
@@ -6607,7 +5992,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_102__EMoflonEdge() {
+	public EOperation getExcConvGwAfterEventGwRule__IsAppropriate_FWD_EMoflonEdge_90__EMoflonEdge() {
 		return getExcConvGwAfterEventGwRule().getEOperations().get(16);
 	}
 
@@ -6756,7 +6141,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_103__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_91__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(10);
 	}
 
@@ -6765,7 +6150,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_104__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_92__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(11);
 	}
 
@@ -6774,7 +6159,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_105__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_93__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(12);
 	}
 
@@ -6783,7 +6168,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_106__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_94__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(13);
 	}
 
@@ -6792,7 +6177,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_107__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_95__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(14);
 	}
 
@@ -6801,7 +6186,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_108__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_96__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(15);
 	}
 
@@ -6810,7 +6195,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_109__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_97__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(16);
 	}
 
@@ -6819,7 +6204,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_110__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_98__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(17);
 	}
 
@@ -6828,7 +6213,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_111__EMoflonEdge() {
+	public EOperation getExcConvGwDefaultSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_99__EMoflonEdge() {
 		return getExcConvGwDefaultSeqFlowRule().getEOperations().get(18);
 	}
 
@@ -6987,7 +6372,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_112__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_100__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(10);
 	}
@@ -6997,7 +6382,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_113__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_101__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(11);
 	}
@@ -7007,7 +6392,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_114__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_102__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(12);
 	}
@@ -7017,7 +6402,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_115__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_103__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(13);
 	}
@@ -7027,7 +6412,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_116__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_104__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(14);
 	}
@@ -7037,7 +6422,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_117__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_105__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(15);
 	}
@@ -7047,7 +6432,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_118__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_106__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(16);
 	}
@@ -7057,7 +6442,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_119__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_107__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(17);
 	}
@@ -7067,7 +6452,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_120__EMoflonEdge() {
+	public EOperation getParallelConvergingGatewayTwoInputsRule__IsAppropriate_FWD_EMoflonEdge_108__EMoflonEdge() {
 		return getParallelConvergingGatewayTwoInputsRule().getEOperations()
 				.get(18);
 	}
@@ -7221,7 +6606,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_121__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_109__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(10);
 	}
 
@@ -7230,7 +6615,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_122__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_110__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(11);
 	}
 
@@ -7239,7 +6624,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_123__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_111__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(12);
 	}
 
@@ -7248,7 +6633,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_124__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_112__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(13);
 	}
 
@@ -7257,7 +6642,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_125__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_113__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(14);
 	}
 
@@ -7266,7 +6651,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_126__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_114__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(15);
 	}
 
@@ -7275,7 +6660,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_127__EMoflonEdge() {
+	public EOperation getExcConvGwAfterExDivGwRule__IsAppropriate_FWD_EMoflonEdge_115__EMoflonEdge() {
 		return getExcConvGwAfterExDivGwRule().getEOperations().get(16);
 	}
 
@@ -7424,7 +6809,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_128__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_116__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(10);
 	}
 
@@ -7433,7 +6818,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_129__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_117__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(11);
 	}
 
@@ -7442,7 +6827,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_130__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_118__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(12);
 	}
 
@@ -7451,7 +6836,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_131__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_119__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(13);
 	}
 
@@ -7460,7 +6845,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_132__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_120__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(14);
 	}
 
@@ -7469,7 +6854,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_133__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_121__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(15);
 	}
 
@@ -7478,7 +6863,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_134__EMoflonEdge() {
+	public EOperation getExConvGwAfterEventGwIceSeqFlowRule__IsAppropriate_FWD_EMoflonEdge_122__EMoflonEdge() {
 		return getExConvGwAfterEventGwIceSeqFlowRule().getEOperations().get(16);
 	}
 
@@ -7627,7 +7012,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getContinuationRule__IsAppropriate_BWD_EMoflonEdge_37__EMoflonEdge() {
+	public EOperation getContinuationRule__IsAppropriate_BWD_EMoflonEdge_34__EMoflonEdge() {
 		return getContinuationRule().getEOperations().get(10);
 	}
 
@@ -7866,7 +7251,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_135__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_123__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(20);
 	}
 
@@ -7875,7 +7260,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_136__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_124__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(21);
 	}
 
@@ -7884,7 +7269,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_137__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_125__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(22);
 	}
 
@@ -7893,7 +7278,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_138__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_126__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(23);
 	}
 
@@ -7902,7 +7287,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_139__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_127__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(24);
 	}
 
@@ -7911,7 +7296,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_140__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_128__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(25);
 	}
 
@@ -7920,7 +7305,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_38__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_35__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(26);
 	}
 
@@ -7929,7 +7314,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_39__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_36__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(27);
 	}
 
@@ -7938,7 +7323,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_141__EMoflonEdge() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_129__EMoflonEdge() {
 		return getICEToStepAfterSERule().getEOperations().get(28);
 	}
 
@@ -8186,7 +7571,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_142__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_130__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(20);
 	}
 
@@ -8195,7 +7580,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_143__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_131__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(21);
 	}
 
@@ -8204,7 +7589,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_144__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_132__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(22);
 	}
 
@@ -8213,7 +7598,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_145__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_133__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(23);
 	}
 
@@ -8222,7 +7607,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_146__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_134__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(24);
 	}
 
@@ -8231,7 +7616,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_147__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_135__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(25);
 	}
 
@@ -8240,7 +7625,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_40__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_37__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(26);
 	}
 
@@ -8249,7 +7634,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_41__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_38__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(27);
 	}
 
@@ -8258,7 +7643,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_148__EMoflonEdge() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_136__EMoflonEdge() {
 		return getICEToStepAfterExGwRule().getEOperations().get(28);
 	}
 
@@ -8506,7 +7891,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_149__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_137__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(20);
 	}
 
@@ -8515,7 +7900,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_150__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_138__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(21);
 	}
 
@@ -8524,7 +7909,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_151__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_139__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(22);
 	}
 
@@ -8533,7 +7918,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_152__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_140__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(23);
 	}
 
@@ -8542,7 +7927,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_153__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_141__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(24);
 	}
 
@@ -8551,7 +7936,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_154__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_142__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(25);
 	}
 
@@ -8560,7 +7945,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_42__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_39__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(26);
 	}
 
@@ -8569,7 +7954,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_43__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_40__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(27);
 	}
 
@@ -8578,7 +7963,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_155__EMoflonEdge() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_143__EMoflonEdge() {
 		return getICEToStepAfterPGRule().getEOperations().get(28);
 	}
 
@@ -8826,7 +8211,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_44__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_41__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(20);
 	}
 
@@ -8835,7 +8220,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_156__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_144__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(21);
 	}
 
@@ -8844,7 +8229,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_157__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_145__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(22);
 	}
 
@@ -8853,7 +8238,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_158__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_146__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(23);
 	}
 
@@ -8862,7 +8247,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_159__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_147__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(24);
 	}
 
@@ -8871,7 +8256,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_160__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_148__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(25);
 	}
 
@@ -8880,7 +8265,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_161__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_149__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(26);
 	}
 
@@ -8889,7 +8274,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_45__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_42__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(27);
 	}
 
@@ -8898,7 +8283,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_46__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_43__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(28);
 	}
 
@@ -8907,7 +8292,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_162__EMoflonEdge() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_150__EMoflonEdge() {
 		return getICEToStepAfterTaskRule().getEOperations().get(29);
 	}
 
@@ -9155,7 +8540,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_47__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_44__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(20);
 	}
 
@@ -9164,7 +8549,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_163__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_151__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(21);
 	}
 
@@ -9173,7 +8558,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_164__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_152__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(22);
 	}
 
@@ -9182,7 +8567,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_165__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_153__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(23);
 	}
 
@@ -9191,7 +8576,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_166__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_154__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(24);
 	}
 
@@ -9200,7 +8585,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_167__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_155__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(25);
 	}
 
@@ -9209,7 +8594,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_168__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_156__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(26);
 	}
 
@@ -9218,7 +8603,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_48__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_45__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(27);
 	}
 
@@ -9227,7 +8612,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_49__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_46__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(28);
 	}
 
@@ -9236,7 +8621,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_169__EMoflonEdge() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_157__EMoflonEdge() {
 		return getICEToStepAfterEventRule().getEOperations().get(29);
 	}
 
@@ -9484,7 +8869,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_50__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_47__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(20);
 	}
 
@@ -9493,7 +8878,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_170__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_158__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(21);
 	}
 
@@ -9502,7 +8887,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_171__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_159__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(22);
 	}
 
@@ -9511,7 +8896,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_172__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_160__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(23);
 	}
 
@@ -9520,7 +8905,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_173__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_161__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(24);
 	}
 
@@ -9529,7 +8914,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_174__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_162__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(25);
 	}
 
@@ -9538,7 +8923,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_175__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_163__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(26);
 	}
 
@@ -9547,7 +8932,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_51__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_48__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(27);
 	}
 
@@ -9556,7 +8941,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_52__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_49__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(28);
 	}
 
@@ -9565,7 +8950,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_176__EMoflonEdge() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_164__EMoflonEdge() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(29);
 	}
 
@@ -9813,7 +9198,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_53__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_50__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(20);
 	}
 
@@ -9822,7 +9207,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_177__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_165__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(21);
 	}
 
@@ -9831,7 +9216,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_178__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_166__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(22);
 	}
 
@@ -9840,7 +9225,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_179__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_167__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(23);
 	}
 
@@ -9849,7 +9234,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_180__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_168__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(24);
 	}
 
@@ -9858,7 +9243,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_181__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_169__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(25);
 	}
 
@@ -9867,7 +9252,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_182__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_170__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(26);
 	}
 
@@ -9876,7 +9261,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_54__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_51__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(27);
 	}
 
@@ -9885,7 +9270,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_55__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_52__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(28);
 	}
 
@@ -9894,7 +9279,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_183__EMoflonEdge() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_171__EMoflonEdge() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(29);
 	}
 
@@ -10142,7 +9527,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_184__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_172__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(20);
 	}
 
@@ -10151,7 +9536,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_185__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_173__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(21);
 	}
 
@@ -10160,7 +9545,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_186__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_174__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(22);
 	}
 
@@ -10169,7 +9554,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_187__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_175__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(23);
 	}
 
@@ -10178,7 +9563,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_188__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_176__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(24);
 	}
 
@@ -10187,7 +9572,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_189__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_177__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(25);
 	}
 
@@ -10196,7 +9581,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_56__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_53__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(26);
 	}
 
@@ -10205,7 +9590,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_57__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_54__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(27);
 	}
 
@@ -10214,7 +9599,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_190__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_178__EMoflonEdge() {
 		return getServiceTaskToStepAfterSERule().getEOperations().get(28);
 	}
 
@@ -10462,7 +9847,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_191__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_179__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(20);
 	}
 
@@ -10471,7 +9856,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_192__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_180__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(21);
 	}
 
@@ -10480,7 +9865,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_193__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_181__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(22);
 	}
 
@@ -10489,7 +9874,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_194__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_182__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(23);
 	}
 
@@ -10498,7 +9883,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_195__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_183__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(24);
 	}
 
@@ -10507,7 +9892,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_196__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_184__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(25);
 	}
 
@@ -10516,7 +9901,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_58__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_55__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(26);
 	}
 
@@ -10525,7 +9910,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_59__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_56__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(27);
 	}
 
@@ -10534,7 +9919,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_197__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_185__EMoflonEdge() {
 		return getServiceTaskToStepAfterExGwRule().getEOperations().get(28);
 	}
 
@@ -10782,7 +10167,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_198__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_186__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(20);
 	}
 
@@ -10791,7 +10176,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_199__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_187__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(21);
 	}
 
@@ -10800,7 +10185,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_200__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_188__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(22);
 	}
 
@@ -10809,7 +10194,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_201__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_189__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(23);
 	}
 
@@ -10818,7 +10203,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_202__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_190__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(24);
 	}
 
@@ -10827,7 +10212,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_203__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_191__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(25);
 	}
 
@@ -10836,7 +10221,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_60__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_57__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(26);
 	}
 
@@ -10845,7 +10230,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_61__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_58__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(27);
 	}
 
@@ -10854,7 +10239,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_204__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_192__EMoflonEdge() {
 		return getServiceTaskToStepAfterPGRule().getEOperations().get(28);
 	}
 
@@ -11102,7 +10487,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_205__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_193__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(20);
 	}
 
@@ -11111,7 +10496,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_206__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_194__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(21);
 	}
 
@@ -11120,7 +10505,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_207__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_195__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(22);
 	}
 
@@ -11129,7 +10514,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_208__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_196__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(23);
 	}
 
@@ -11138,7 +10523,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_209__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_197__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(24);
 	}
 
@@ -11147,7 +10532,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_210__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_198__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(25);
 	}
 
@@ -11156,7 +10541,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_62__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_59__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(26);
 	}
 
@@ -11165,7 +10550,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_63__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_60__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(27);
 	}
 
@@ -11174,7 +10559,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_211__EMoflonEdge() {
+	public EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_199__EMoflonEdge() {
 		return getServiceTaskToStepAfterEvGwRule().getEOperations().get(28);
 	}
 
@@ -11422,7 +10807,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_212__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_200__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(20);
 	}
 
@@ -11431,7 +10816,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_213__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_201__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(21);
 	}
 
@@ -11440,7 +10825,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_214__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_202__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(22);
 	}
 
@@ -11449,7 +10834,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_215__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_203__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(23);
 	}
 
@@ -11458,7 +10843,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_216__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_204__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(24);
 	}
 
@@ -11467,7 +10852,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_217__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_205__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(25);
 	}
 
@@ -11476,7 +10861,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_218__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_206__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(26);
 	}
 
@@ -11485,7 +10870,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_64__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_61__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(27);
 	}
 
@@ -11494,7 +10879,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_65__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_62__EMoflonEdge() {
 		return getUserTaskToStepAfterSERule().getEOperations().get(28);
 	}
 
@@ -11742,7 +11127,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_219__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_207__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(20);
 	}
 
@@ -11751,7 +11136,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_220__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_208__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(21);
 	}
 
@@ -11760,7 +11145,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_221__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_209__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(22);
 	}
 
@@ -11769,7 +11154,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_222__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_210__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(23);
 	}
 
@@ -11778,7 +11163,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_223__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_211__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(24);
 	}
 
@@ -11787,7 +11172,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_224__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_212__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(25);
 	}
 
@@ -11796,7 +11181,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_225__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_213__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(26);
 	}
 
@@ -11805,7 +11190,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_66__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_63__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(27);
 	}
 
@@ -11814,7 +11199,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_67__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_64__EMoflonEdge() {
 		return getUserTaskToStepAfterExGwRule().getEOperations().get(28);
 	}
 
@@ -12062,7 +11447,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_226__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_214__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(20);
 	}
 
@@ -12071,7 +11456,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_227__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_215__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(21);
 	}
 
@@ -12080,7 +11465,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_228__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_216__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(22);
 	}
 
@@ -12089,7 +11474,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_229__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_217__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(23);
 	}
 
@@ -12098,7 +11483,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_230__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_218__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(24);
 	}
 
@@ -12107,7 +11492,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_231__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_219__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(25);
 	}
 
@@ -12116,7 +11501,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_232__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_220__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(26);
 	}
 
@@ -12125,7 +11510,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_68__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_65__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(27);
 	}
 
@@ -12134,7 +11519,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_69__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_66__EMoflonEdge() {
 		return getUserTaskToStepAfterPGRule().getEOperations().get(28);
 	}
 
@@ -12382,7 +11767,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_233__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_221__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(20);
 	}
 
@@ -12391,7 +11776,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_234__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_222__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(21);
 	}
 
@@ -12400,7 +11785,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_235__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_223__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(22);
 	}
 
@@ -12409,7 +11794,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_236__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_224__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(23);
 	}
 
@@ -12418,7 +11803,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_237__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_225__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(24);
 	}
 
@@ -12427,7 +11812,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_238__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_226__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(25);
 	}
 
@@ -12436,7 +11821,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_239__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_227__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(26);
 	}
 
@@ -12445,7 +11830,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_70__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_67__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(27);
 	}
 
@@ -12454,7 +11839,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_71__EMoflonEdge() {
+	public EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_68__EMoflonEdge() {
 		return getUserTaskToStepAfterEvGwRule().getEOperations().get(28);
 	}
 

@@ -247,7 +247,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_44(EMoflonEdge _edge_next);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_41(EMoflonEdge _edge_next);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -255,7 +255,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_156(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_144(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -264,7 +264,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_157(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_145(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -273,7 +273,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_158(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_146(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -282,7 +282,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_159(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_147(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -291,7 +291,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_160(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_148(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -300,7 +300,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_161(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_149(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -309,7 +309,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_45(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_42(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -317,7 +317,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_46(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_43(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,7 +325,7 @@ public interface ICEToStepAfterTaskRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_162(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_150(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

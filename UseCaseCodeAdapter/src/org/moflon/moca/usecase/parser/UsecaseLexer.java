@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 C:\\Users\\marat\\Documents\\EclipseWS\\Luna\\moflon\\UseCaseCodeAdapter\\src\\org\\moflon\\moca\\usecase\\parser\\UsecaseLexer.g 2015-04-24 10:48:05
+// $ANTLR 3.5.2 C:\\Users\\marat\\Documents\\EclipseWS\\Luna\\moflon\\UseCaseCodeAdapter\\src\\org\\moflon\\moca\\usecase\\parser\\UsecaseLexer.g 2015-04-27 11:29:16
 
 package org.moflon.moca.usecase.parser;
 import org.moflon.moca.MocaUtil;

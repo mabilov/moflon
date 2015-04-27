@@ -163,7 +163,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_96(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_84(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -172,7 +172,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_97(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_85(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -181,7 +181,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_98(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_86(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -190,7 +190,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_99(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_87(EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,7 +198,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_100(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_88(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -207,8 +207,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_101(
-			EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_89(EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,7 +215,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_102(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_90(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

@@ -2871,9 +2871,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_20_2_black_nac_0BB(
 			Lane lane, LaneSet laneSet) {
-		for (LaneSet __DEC_lane_lanes_538888 : org.moflon.util.eMoflonEMFUtil
+		for (LaneSet __DEC_lane_lanes_807636 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(lane, LaneSet.class, "lanes")) {
-			if (!laneSet.equals(__DEC_lane_lanes_538888)) {
+			if (!laneSet.equals(__DEC_lane_lanes_807636)) {
 				return new Object[] { lane, laneSet };
 			}
 		}
@@ -3009,10 +3009,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_21_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_328590 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_282872 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_328590)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_282872)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3336,8 +3336,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_2 = csp.getValue("actor", "name");
 		Object _localVariable_3 = csp.getValue("actor", "description");
 		Object _localVariable_4 = csp.getValue("actor", "type");
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		laneSet.getLanes().add(lane);
 		ruleResult.getSourceObjects().add(lane);
 		packageDeclaration.getActors().add(actor);
@@ -3350,8 +3350,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		String actor_name_prime = (String) _localVariable_2;
 		String actor_description_prime = (String) _localVariable_3;
 		ActorType actor_type_prime = (ActorType) _localVariable_4;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		lane.setId(lane_id_prime);
 		lane.setName(lane_name_prime);
 		actor.setName(actor_name_prime);

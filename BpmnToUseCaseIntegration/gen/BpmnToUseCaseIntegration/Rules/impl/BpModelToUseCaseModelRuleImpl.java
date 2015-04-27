@@ -1963,15 +1963,15 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 				.createUseCasesModel();
 		DocRootToUCModel docRootToUCModel = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createDocRootToUCModel();
-		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		ruleResult.getSourceObjects().add(documentRoot);
 		ruleResult.getTargetObjects().add(useCasesModel);
 		docRootToUCModel.setSource(documentRoot);
 		docRootToUCModel.setTarget(useCasesModel);
 		ruleResult.getCorrObjects().add(docRootToUCModel);
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
 		return new Object[] { documentRoot, useCasesModel, docRootToUCModel,

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ModalSequenceDiagram:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ModalSequenceDiagram="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore">
+  <packagedElement xsi:type="ModalSequenceDiagram:Package" name="de.abilov.booksale">
+    <packagedElement xsi:type="ModalSequenceDiagram:Interaction" name="booksale">
+      <lifeline name="sys" coveredBy="//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+      <lifeline name="financing"/>
+      <lifeline name="shipping"/>
+      <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@packagedElement.0/@packagedElement.0/@message.0" covered="//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+      <message name="Order Received" receiveEvent="//@packagedElement.0/@packagedElement.0/@fragment.0" messageKind="FOUND" messageSort="ASYNCH_SIGNAL"/>
+    </packagedElement>
+  </packagedElement>
+</ModalSequenceDiagram:Model>

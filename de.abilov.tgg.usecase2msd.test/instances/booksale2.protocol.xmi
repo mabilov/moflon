@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TGGRuntime:PrecedenceStructure xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGRuntime="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore">
+  <tripleMatches ruleName="UserActorToLifelineRule" number="4">
+    <sourceElements href="booksale2.src.usecase.xmi#shipping"/>
+    <sourceElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <sourceElements href="#//@tripleMatches.0/@containedEdges.8"/>
+    <contextElements href="#//@tripleMatches.0/@containedEdges.0"/>
+    <contextElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <contextElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <contextElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    <contextElements href="#//@tripleMatches.0/@containedEdges.1"/>
+    <contextElements href="#//@tripleMatches.0/@containedEdges.2"/>
+    <contextElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <nodeMappings nodeName="actor">
+      <node href="booksale2.src.usecase.xmi#shipping"/>
+    </nodeMappings>
+    <nodeMappings nodeName="p">
+      <node href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclarationToP">
+      <node href="booksale2.corr.xmi#//@correspondences.1"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclaration">
+      <node href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </nodeMappings>
+    <nodeMappings nodeName="actorToLine">
+      <node href="booksale2.corr.xmi#//@correspondences.6"/>
+    </nodeMappings>
+    <nodeMappings nodeName="line">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+    </nodeMappings>
+    <nodeMappings nodeName="interaction">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </nodeMappings>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="packagedElement">
+      <src href="booksale2.trg.xmi#//@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.6"/>
+      <trg href="booksale2.src.usecase.xmi#shipping"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="interaction">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.6"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="lifeline">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="actors">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#shipping"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="actors">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#shipping"/>
+    </containedEdges>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+    <targetElements href="#//@tripleMatches.0/@containedEdges.4"/>
+    <targetElements href="#//@tripleMatches.0/@containedEdges.0"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    <targetElements href="#//@tripleMatches.0/@containedEdges.6"/>
+    <correspondenceElements href="#//@tripleMatches.0/@containedEdges.3"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.6"/>
+    <correspondenceElements href="#//@tripleMatches.0/@containedEdges.1"/>
+    <correspondenceElements href="#//@tripleMatches.0/@containedEdges.2"/>
+    <correspondenceElements href="#//@tripleMatches.0/@containedEdges.5"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+    <createdElements href="#//@tripleMatches.0/@containedEdges.3"/>
+    <createdElements href="#//@tripleMatches.0/@containedEdges.4"/>
+    <createdElements href="booksale2.src.usecase.xmi#shipping"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.6"/>
+    <createdElements href="#//@tripleMatches.0/@containedEdges.5"/>
+    <createdElements href="#//@tripleMatches.0/@containedEdges.6"/>
+    <createdElements href="#//@tripleMatches.0/@containedEdges.7"/>
+  </tripleMatches>
+  <tripleMatches children="//@tripleMatches.0 //@tripleMatches.2 //@tripleMatches.3" ruleName="UCPackageToMSDPackage" number="1">
+    <sourceElements href="#//@tripleMatches.1/@containedEdges.6"/>
+    <sourceElements href="booksale2.src.usecase.xmi#/"/>
+    <sourceElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <contextElements href="booksale2.corr.xmi#//@correspondences.0"/>
+    <contextElements href="booksale2.src.usecase.xmi#/"/>
+    <contextElements href="booksale2.trg.xmi#/"/>
+    <contextElements href="#//@tripleMatches.1/@containedEdges.0"/>
+    <contextElements href="#//@tripleMatches.1/@containedEdges.1"/>
+    <nodeMappings nodeName="p">
+      <node href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclaration">
+      <node href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </nodeMappings>
+    <nodeMappings nodeName="useCasesModelToModel">
+      <node href="booksale2.corr.xmi#//@correspondences.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="useCasesModel">
+      <node href="booksale2.src.usecase.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings nodeName="model">
+      <node href="booksale2.trg.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclarationToPackage">
+      <node href="booksale2.corr.xmi#//@correspondences.1"/>
+    </nodeMappings>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.0"/>
+      <trg href="booksale2.src.usecase.xmi#/"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.0"/>
+      <trg href="booksale2.trg.xmi#/"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="packages">
+      <src href="booksale2.src.usecase.xmi#/"/>
+      <trg href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="packagedElement">
+      <src href="booksale2.trg.xmi#/"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="packages">
+      <src href="booksale2.src.usecase.xmi#/"/>
+      <trg href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </containedEdges>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <targetElements href="#//@tripleMatches.1/@containedEdges.3"/>
+    <targetElements href="booksale2.trg.xmi#/"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.0"/>
+    <correspondenceElements href="#//@tripleMatches.1/@containedEdges.4"/>
+    <correspondenceElements href="#//@tripleMatches.1/@containedEdges.0"/>
+    <correspondenceElements href="#//@tripleMatches.1/@containedEdges.5"/>
+    <correspondenceElements href="#//@tripleMatches.1/@containedEdges.1"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <createdElements href="#//@tripleMatches.1/@containedEdges.2"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <createdElements href="#//@tripleMatches.1/@containedEdges.3"/>
+    <createdElements href="#//@tripleMatches.1/@containedEdges.4"/>
+    <createdElements href="#//@tripleMatches.1/@containedEdges.5"/>
+    <createdElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+  </tripleMatches>
+  <tripleMatches ruleName="UserActorToLifelineRule" number="3">
+    <sourceElements href="booksale2.src.usecase.xmi#financing"/>
+    <sourceElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <sourceElements href="#//@tripleMatches.2/@containedEdges.8"/>
+    <contextElements href="#//@tripleMatches.2/@containedEdges.0"/>
+    <contextElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <contextElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <contextElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    <contextElements href="#//@tripleMatches.2/@containedEdges.1"/>
+    <contextElements href="#//@tripleMatches.2/@containedEdges.2"/>
+    <contextElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <nodeMappings nodeName="actor">
+      <node href="booksale2.src.usecase.xmi#financing"/>
+    </nodeMappings>
+    <nodeMappings nodeName="p">
+      <node href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclarationToP">
+      <node href="booksale2.corr.xmi#//@correspondences.1"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclaration">
+      <node href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </nodeMappings>
+    <nodeMappings nodeName="actorToLine">
+      <node href="booksale2.corr.xmi#//@correspondences.5"/>
+    </nodeMappings>
+    <nodeMappings nodeName="line">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+    </nodeMappings>
+    <nodeMappings nodeName="interaction">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </nodeMappings>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="packagedElement">
+      <src href="booksale2.trg.xmi#//@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.5"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.5"/>
+      <trg href="booksale2.src.usecase.xmi#financing"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="interaction">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="lifeline">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="actors">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#financing"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="actors">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#financing"/>
+    </containedEdges>
+    <targetElements href="#//@tripleMatches.2/@containedEdges.0"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    <targetElements href="#//@tripleMatches.2/@containedEdges.5"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+    <targetElements href="#//@tripleMatches.2/@containedEdges.6"/>
+    <correspondenceElements href="#//@tripleMatches.2/@containedEdges.3"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <correspondenceElements href="#//@tripleMatches.2/@containedEdges.4"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.5"/>
+    <correspondenceElements href="#//@tripleMatches.2/@containedEdges.1"/>
+    <correspondenceElements href="#//@tripleMatches.2/@containedEdges.2"/>
+    <createdElements href="#//@tripleMatches.2/@containedEdges.3"/>
+    <createdElements href="#//@tripleMatches.2/@containedEdges.4"/>
+    <createdElements href="booksale2.src.usecase.xmi#financing"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.5"/>
+    <createdElements href="#//@tripleMatches.2/@containedEdges.5"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+    <createdElements href="#//@tripleMatches.2/@containedEdges.6"/>
+    <createdElements href="#//@tripleMatches.2/@containedEdges.7"/>
+  </tripleMatches>
+  <tripleMatches children="//@tripleMatches.0 //@tripleMatches.2" ruleName="UseCasePrecondToFoundMessageRule" number="2">
+    <sourceElements href="#//@tripleMatches.3/@containedEdges.22"/>
+    <sourceElements href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    <sourceElements href="#//@tripleMatches.3/@containedEdges.23"/>
+    <sourceElements href="booksale2.src.usecase.xmi#sys"/>
+    <sourceElements href="booksale2.src.usecase.xmi#booksale"/>
+    <sourceElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <sourceElements href="#//@tripleMatches.3/@containedEdges.24"/>
+    <contextElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <contextElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <contextElements href="#//@tripleMatches.3/@containedEdges.0"/>
+    <contextElements href="#//@tripleMatches.3/@containedEdges.1"/>
+    <contextElements href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    <nodeMappings nodeName="messageReceive">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="line">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="message">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="basicFlowToInteraction">
+      <node href="booksale2.corr.xmi#//@correspondences.4"/>
+    </nodeMappings>
+    <nodeMappings nodeName="basicFlow">
+      <node href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="actor">
+      <node href="booksale2.src.usecase.xmi#sys"/>
+    </nodeMappings>
+    <nodeMappings nodeName="useCase">
+      <node href="booksale2.src.usecase.xmi#booksale"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclaration">
+      <node href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </nodeMappings>
+    <nodeMappings nodeName="useCaseToMessage">
+      <node href="booksale2.corr.xmi#//@correspondences.2"/>
+    </nodeMappings>
+    <nodeMappings nodeName="_package">
+      <node href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="actorToLine">
+      <node href="booksale2.corr.xmi#//@correspondences.3"/>
+    </nodeMappings>
+    <nodeMappings nodeName="interaction">
+      <node href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="packageDeclarationToPackage">
+      <node href="booksale2.corr.xmi#//@correspondences.1"/>
+    </nodeMappings>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.1"/>
+      <trg href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="enclosingInteraction">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="lifeline">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="message">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="fragment">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.2"/>
+      <trg href="booksale2.src.usecase.xmi#booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.3"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.4"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.2"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="coveredBy">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="interaction">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="flows">
+      <src href="booksale2.src.usecase.xmi#booksale"/>
+      <trg href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="packagedElement">
+      <src href="booksale2.trg.xmi#//@packagedElement.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="actors">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#sys"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="message">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="receiveEvent">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.3"/>
+      <trg href="booksale2.src.usecase.xmi#sys"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="covered">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.4"/>
+      <trg href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="interaction">
+      <src href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+      <trg href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="useCases">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#booksale"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="flows">
+      <src href="booksale2.src.usecase.xmi#booksale"/>
+      <trg href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="actors">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#sys"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="useCases">
+      <src href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
+      <trg href="booksale2.src.usecase.xmi#booksale"/>
+    </containedEdges>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.2"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.13"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.3"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.15"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.4"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.16"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.5"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.18"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.10"/>
+    <targetElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.11"/>
+    <targetElements href="#//@tripleMatches.3/@containedEdges.20"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.1"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.6"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.0"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.7"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.17"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.8"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.3"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.9"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.1"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.2"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.4"/>
+    <correspondenceElements href="#//@tripleMatches.3/@containedEdges.19"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.2"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.3"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@fragment.0"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.4"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.2"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.5"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.6"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.7"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.8"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.9"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.10"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.4"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.11"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.12"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.13"/>
+    <createdElements href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.14"/>
+    <createdElements href="booksale2.src.usecase.xmi#sys"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.15"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.3"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.16"/>
+    <createdElements href="booksale2.src.usecase.xmi#booksale"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.17"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.18"/>
+    <createdElements href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.19"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.20"/>
+    <createdElements href="#//@tripleMatches.3/@containedEdges.21"/>
+  </tripleMatches>
+  <tripleMatches children="//@tripleMatches.1" ruleName="UCModelToMSDModelRule">
+    <sourceElements href="booksale2.src.usecase.xmi#/"/>
+    <nodeMappings nodeName="useCasesModelToModel">
+      <node href="booksale2.corr.xmi#//@correspondences.0"/>
+    </nodeMappings>
+    <nodeMappings nodeName="useCasesModel">
+      <node href="booksale2.src.usecase.xmi#/"/>
+    </nodeMappings>
+    <nodeMappings nodeName="model">
+      <node href="booksale2.trg.xmi#/"/>
+    </nodeMappings>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="source">
+      <src href="booksale2.corr.xmi#//@correspondences.0"/>
+      <trg href="booksale2.src.usecase.xmi#/"/>
+    </containedEdges>
+    <containedEdges xsi:type="TGGRuntime:EMoflonEdge" name="target">
+      <src href="booksale2.corr.xmi#//@correspondences.0"/>
+      <trg href="booksale2.trg.xmi#/"/>
+    </containedEdges>
+    <targetElements href="booksale2.trg.xmi#/"/>
+    <correspondenceElements href="booksale2.corr.xmi#//@correspondences.0"/>
+    <correspondenceElements href="#//@tripleMatches.4/@containedEdges.0"/>
+    <correspondenceElements href="#//@tripleMatches.4/@containedEdges.1"/>
+    <createdElements href="booksale2.corr.xmi#//@correspondences.0"/>
+    <createdElements href="booksale2.trg.xmi#/"/>
+    <createdElements href="booksale2.src.usecase.xmi#/"/>
+    <createdElements href="#//@tripleMatches.4/@containedEdges.0"/>
+    <createdElements href="#//@tripleMatches.4/@containedEdges.1"/>
+  </tripleMatches>
+</TGGRuntime:PrecedenceStructure>

@@ -2546,8 +2546,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		EndEventToFlow endEventToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createEndEventToFlow();
 		Object _localVariable_0 = csp.getValue("endEvent", "name");
-		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(endEvent);
 		inFlow.setTargetRef(endEvent);
 		lane.getFlowNodeRefs().add(endEvent);
@@ -2556,8 +2556,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		endEventToFlow.setTarget(flow);
 		ruleResult.getCorrObjects().add(endEventToFlow);
 		String endEvent_name_prime = (String) _localVariable_0;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
 		endEvent.setName(endEvent_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

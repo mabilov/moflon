@@ -5,4 +5,5 @@ actors sys as system
 usecase booksale "Book Sale Process" 
 preconditions "Order Received" 
 basic flow 
+	step record_order "Record Order" by sys
 end flow 

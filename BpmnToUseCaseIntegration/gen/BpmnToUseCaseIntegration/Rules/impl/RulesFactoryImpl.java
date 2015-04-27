@@ -74,12 +74,8 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createITEToStepRule();
 		case RulesPackage.END_EVENT_RULE:
 			return createEndEventRule();
-		case RulesPackage.EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE:
-			return createExclusiveGatewayToStepCoreRule();
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE:
 			return createFirstInterThrowEventToStepRule();
-		case RulesPackage.PARALLEL_GATEWAY_TO_PARALLEL_STEP_CORE_RULE:
-			return createParallelGatewayToParallelStepCoreRule();
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE:
 			return createEventBasedGatewayToStepCoreRule();
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE:
@@ -241,29 +237,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExclusiveGatewayToStepCoreRule createExclusiveGatewayToStepCoreRule() {
-		ExclusiveGatewayToStepCoreRuleImpl exclusiveGatewayToStepCoreRule = new ExclusiveGatewayToStepCoreRuleImpl();
-		return exclusiveGatewayToStepCoreRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public FirstInterThrowEventToStepRule createFirstInterThrowEventToStepRule() {
 		FirstInterThrowEventToStepRuleImpl firstInterThrowEventToStepRule = new FirstInterThrowEventToStepRuleImpl();
 		return firstInterThrowEventToStepRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParallelGatewayToParallelStepCoreRule createParallelGatewayToParallelStepCoreRule() {
-		ParallelGatewayToParallelStepCoreRuleImpl parallelGatewayToParallelStepCoreRule = new ParallelGatewayToParallelStepCoreRuleImpl();
-		return parallelGatewayToParallelStepCoreRule;
 	}
 
 	/**

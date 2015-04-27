@@ -980,7 +980,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_21(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_18(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
@@ -1045,7 +1045,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_22(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_19(
 			EMoflonEdge _edge_stepAlternative) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
@@ -1110,7 +1110,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_23(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_20(
 			EMoflonEdge _edge_ref) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
@@ -1175,7 +1175,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_63(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_51(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
@@ -1239,7 +1239,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_64(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_52(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
@@ -1303,7 +1303,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_65(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_53(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
@@ -1654,23 +1654,23 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_21__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_21((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_18__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_18((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_22__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_22((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_19__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_19((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_23__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_23((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_20__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_20((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_63__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_63((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_51__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_51((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_64__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_64((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_52__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_52((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_65__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_65((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_53__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_53((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4590,10 +4590,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_115070 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_960584 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_115070)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_960584)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4758,10 +4758,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_745722 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_937376 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_745722)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_937376)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4925,10 +4925,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_443087 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_613370 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_443087)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_613370)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5363,8 +5363,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_1 = csp.getValue("alt", "condition");
 		Object _localVariable_2 = csp.getValue("outFlow", "id");
 		Object _localVariable_3 = csp.getValue("outFlow", "name");
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		useCase.getFlows().add(alternativeFlow);
 		ruleResult.getTargetObjects().add(alternativeFlow);
 		outFlowToAlternativeFlow.setTarget(alternativeFlow);
@@ -5383,8 +5383,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		String alt_condition_prime = (String) _localVariable_1;
 		String outFlow_id_prime = (String) _localVariable_2;
 		String outFlow_name_prime = (String) _localVariable_3;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		alternativeFlow.setName(alternativeFlow_name_prime);
 		alt.setCondition(alt_condition_prime);
 		outFlow.setId(outFlow_id_prime);

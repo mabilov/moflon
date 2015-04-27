@@ -609,7 +609,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_44(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -678,7 +678,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_45(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -747,7 +747,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_58(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_46(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -816,7 +816,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_59(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_47(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -885,7 +885,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_60(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_48(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -954,7 +954,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_61(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_49(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -1023,7 +1023,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_62(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_50(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
@@ -1355,26 +1355,26 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_56__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_56((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_44__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_44((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_57__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_57((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_45__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_45((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_58__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_58((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_46__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_46((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_59__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_59((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_47__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_47((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_60__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_60((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_48__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_48((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_61__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_61((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_49__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_49((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_62__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_62((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_50__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_50((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3367,7 +3367,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_10_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_233598 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_262326 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3581,7 +3581,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_11_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_927365 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_778129 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3795,7 +3795,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_12_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_885649 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_350825 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4011,7 +4011,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_13_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_668363 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_139727 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4225,7 +4225,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_14_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_556814 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_721175 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4441,7 +4441,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_15_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_478509 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_346548 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4655,7 +4655,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_16_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_595812 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_742830 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5288,8 +5288,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				.createSequenceFlowToStep();
 		Object _localVariable_0 = csp.getValue("parallelConvGateway",
 				"gatewayDirection");
-		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(parallelConvGateway);
 		inFlow.setTargetRef(parallelConvGateway);
 		lane.getFlowNodeRefs().add(parallelConvGateway);
@@ -5307,8 +5307,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		outFlowToParallelStep.setTarget(parallelStep);
 		ruleResult.getCorrObjects().add(outFlowToParallelStep);
 		GatewayDirection parallelConvGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_0;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
 		parallelConvGateway
 				.setGatewayDirection(parallelConvGateway_gatewayDirection_prime);
 		ruleResult.setPerformCount(Integer

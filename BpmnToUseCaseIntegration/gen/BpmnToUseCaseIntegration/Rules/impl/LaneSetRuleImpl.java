@@ -978,10 +978,10 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 
 	public static final Object[] pattern_LaneSetRule_10_2_black_nac_0BB(
 			LaneSet laneSet, bpmn2.Process process) {
-		for (FlowElementsContainer __DEC_laneSet_laneSets_358451 : org.moflon.util.eMoflonEMFUtil
+		for (FlowElementsContainer __DEC_laneSet_laneSets_13627 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(laneSet,
 						FlowElementsContainer.class, "laneSets")) {
-			if (!process.equals(__DEC_laneSet_laneSets_358451)) {
+			if (!process.equals(__DEC_laneSet_laneSets_13627)) {
 				return new Object[] { laneSet, process };
 			}
 		}
@@ -1151,12 +1151,12 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 	public static final Object[] pattern_LaneSetRule_12_6_greenBFB(
 			bpmn2.Process process, ModelgeneratorRuleResult ruleResult) {
 		LaneSet laneSet = Bpmn2Factory.eINSTANCE.createLaneSet();
-		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		process.getLaneSets().add(laneSet);
 		ruleResult.getSourceObjects().add(laneSet);
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
 		return new Object[] { process, laneSet, ruleResult };

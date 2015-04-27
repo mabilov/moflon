@@ -104,15 +104,6 @@ public interface RulesFactory extends EFactory {
 	EndEventRule createEndEventRule();
 
 	/**
-	 * Returns a new object of class '<em>Exclusive Gateway To Step Core Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exclusive Gateway To Step Core Rule</em>'.
-	 * @generated
-	 */
-	ExclusiveGatewayToStepCoreRule createExclusiveGatewayToStepCoreRule();
-
-	/**
 	 * Returns a new object of class '<em>First Inter Throw Event To Step Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,15 +111,6 @@ public interface RulesFactory extends EFactory {
 	 * @generated
 	 */
 	FirstInterThrowEventToStepRule createFirstInterThrowEventToStepRule();
-
-	/**
-	 * Returns a new object of class '<em>Parallel Gateway To Parallel Step Core Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parallel Gateway To Parallel Step Core Rule</em>'.
-	 * @generated
-	 */
-	ParallelGatewayToParallelStepCoreRule createParallelGatewayToParallelStepCoreRule();
 
 	/**
 	 * Returns a new object of class '<em>Event Based Gateway To Step Core Rule</em>'.

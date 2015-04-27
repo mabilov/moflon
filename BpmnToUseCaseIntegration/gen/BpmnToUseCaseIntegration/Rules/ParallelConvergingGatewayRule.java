@@ -155,7 +155,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_56(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_44(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -164,7 +164,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_45(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -173,7 +173,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_58(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_46(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -182,7 +182,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_59(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_47(EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,7 +190,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_60(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_48(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -199,7 +199,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_61(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_49(EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,7 +207,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_62(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_50(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**
