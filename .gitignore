@@ -3,6 +3,7 @@ bpmn2/bin/
 UseCaseDSL/bin/
 BpmnToUseCaseIntegration/bin/
 BpmnToUseCaseIntegration/visualisation/
+UseCaseToModalSequenceDiagramIntegration/visualisation/
 UseCaseCodeAdapter/bin/
 UseCaseCodeAdapter/gen/
 UseCaseDSL.edit/bin/
