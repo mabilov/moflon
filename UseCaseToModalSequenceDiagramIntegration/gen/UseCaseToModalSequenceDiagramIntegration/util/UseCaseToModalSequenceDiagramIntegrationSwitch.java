@@ -50,7 +50,7 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -155,6 +155,15 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 			T result = caseNormalStepToCombinedFragment(normalStepToCombinedFragment);
 			if (result == null)
 				result = caseAbstractCorrespondence(normalStepToCombinedFragment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case UseCaseToModalSequenceDiagramIntegrationPackage.UC_CONDITION_TO_MESSAGE: {
+			UCConditionToMessage ucConditionToMessage = (UCConditionToMessage) theEObject;
+			T result = caseUCConditionToMessage(ucConditionToMessage);
+			if (result == null)
+				result = caseAbstractCorrespondence(ucConditionToMessage);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -314,6 +323,21 @@ public class UseCaseToModalSequenceDiagramIntegrationSwitch<T> extends
 	 */
 	public T caseNormalStepToCombinedFragment(
 			NormalStepToCombinedFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>UC Condition To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>UC Condition To Message</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUCConditionToMessage(UCConditionToMessage object) {
 		return null;
 	}
 

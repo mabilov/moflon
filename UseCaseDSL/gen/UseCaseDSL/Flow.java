@@ -43,30 +43,30 @@ public interface Flow extends EObject {
 	EList<Step> getSteps();
 
 	/**
-	 * Returns the value of the '<em><b>Final State</b></em>' attribute.
+	 * Returns the value of the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Final State</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Final State</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Final State</em>' attribute.
-	 * @see #setFinalState(String)
+	 * @return the value of the '<em>Final State</em>' containment reference.
+	 * @see #setFinalState(UCCondition)
 	 * @see UseCaseDSL.UseCaseDSLPackage#getFlow_FinalState()
-	 * @model ordered="false"
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getFinalState();
+	UCCondition getFinalState();
 
 	/**
-	 * Sets the value of the '{@link UseCaseDSL.Flow#getFinalState <em>Final State</em>}' attribute.
+	 * Sets the value of the '{@link UseCaseDSL.Flow#getFinalState <em>Final State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Final State</em>' attribute.
+	 * @param value the new value of the '<em>Final State</em>' containment reference.
 	 * @see #getFinalState()
 	 * @generated
 	 */
-	void setFinalState(String value);
+	void setFinalState(UCCondition value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

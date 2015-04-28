@@ -14,11 +14,12 @@ PackageDeclaration: 'package' name = QualifiedName
 UseCase: 'usecase' name = ID 
 	(description = STRING)? 
 	('extends' superCase = [UseCase|ID])? 
-	(('preconditions' preConditions = STRING)? &
-		('postcondition' postcondition = STRING)?) 
+	(('preconditions' preconditions += UCCondition+)? &
+		('postcondition' postconditions += UCCondition+)?) 
 	flows += Flow*
 	'end usecase';
-	
+
+UCCondition: name=STRING;	
 Actor: name = ID 
 	'as' type = ActorType
 	(description = STRING)?  
@@ -31,7 +32,7 @@ Flow: BasicFlow | NamedFlow;
 BasicFlow: 'basic flow' {BasicFlow} 
 	steps += Step*
 	'end flow'
-	('with postcondition' finalState = STRING)?;
+	('with postcondition' finalState = UCCondition)?;
 
 NamedFlow: ExceptionFlow | AlternativeFlow | ParallelFlow;
 
@@ -39,17 +40,17 @@ ExceptionFlow: 'exception flow' name = ID
 	'if' condition = STRING 'then' 
 	steps += Step*
 	'end flow'
-	('with postcondition' finalState = STRING)?;
+	('with postcondition' finalState = UCCondition)?;
 
 AlternativeFlow: 'alternative flow' name = ID
 	steps += Step*
 	'end flow'
-	('with postcondition' finalState = STRING)?;
+	('with postcondition' finalState = UCCondition)?;
 
 ParallelFlow: 'parallel flow' name = ID
 	steps += Step*
 	'end flow'
-	('with postcondition' finalState = STRING)?;
+	('with postcondition' finalState = UCCondition)?;
 
 StepAlternative: Condition | LocalAlternative | AlternativeFlowAlternative;
 

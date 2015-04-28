@@ -84,6 +84,8 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 			return createUseCase();
 		case UseCaseDSLPackage.USE_CASES_MODEL:
 			return createUseCasesModel();
+		case UseCaseDSLPackage.UC_CONDITION:
+			return createUCCondition();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -254,6 +256,16 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	public UseCasesModel createUseCasesModel() {
 		UseCasesModelImpl useCasesModel = new UseCasesModelImpl();
 		return useCasesModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UCCondition createUCCondition() {
+		UCConditionImpl ucCondition = new UCConditionImpl();
+		return ucCondition;
 	}
 
 	/**

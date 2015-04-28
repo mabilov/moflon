@@ -41,13 +41,13 @@ public interface RulesFactory extends EFactory {
 	UCPackageToMSDPackage createUCPackageToMSDPackage();
 
 	/**
-	 * Returns a new object of class '<em>Use Case No Precond Rule</em>'.
+	 * Returns a new object of class '<em>Use Case To Interaction Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Use Case No Precond Rule</em>'.
+	 * @return a new object of class '<em>Use Case To Interaction Rule</em>'.
 	 * @generated
 	 */
-	UseCaseNoPrecondRule createUseCaseNoPrecondRule();
+	UseCaseToInteractionRule createUseCaseToInteractionRule();
 
 	/**
 	 * Returns a new object of class '<em>User Actor To Lifeline Rule</em>'.

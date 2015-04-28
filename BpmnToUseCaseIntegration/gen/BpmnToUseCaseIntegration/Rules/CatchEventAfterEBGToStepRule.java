@@ -337,7 +337,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_23(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_25(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -345,7 +345,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_24(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_26(
 			EMoflonEdge _edge_stepAlternative);
 
 	/**
@@ -354,7 +354,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_25(EMoflonEdge _edge_ref);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_27(EMoflonEdge _edge_ref);
 
 	/**
 	 * <!-- begin-user-doc -->

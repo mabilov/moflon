@@ -64,9 +64,7 @@ public class BasicFlowItemProvider extends FlowItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BasicFlow) object).getFinalState();
-		return label == null || label.length() == 0 ? getString("_UI_BasicFlow_type")
-				: getString("_UI_BasicFlow_type") + " " + label;
+		return getString("_UI_BasicFlow_type");
 	}
 
 	/**

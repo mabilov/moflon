@@ -23,11 +23,12 @@ import TGGRuntime.RuleResult;
 import TGGRuntime.TripleMatch;
 
 import UseCaseDSL.Actor;
-import UseCaseDSL.BasicFlow;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 
-import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
+import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 
 import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]
@@ -43,16 +44,15 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
-		UseCaseToInteractionRule {
+public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_FWD(Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow);
+	boolean isAppropriate_FWD(Match match, UCCondition precond,
+			UseCase useCase, Actor actor, PackageDeclaration packageDeclaration);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +76,8 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_FWD(Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow);
+	void registerObjectsToMatch_FWD(Match match, UCCondition precond,
+			UseCase useCase, Actor actor, PackageDeclaration packageDeclaration);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -85,8 +85,8 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_FWD(Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow);
+	CSP isAppropriate_solveCsp_FWD(Match match, UCCondition precond,
+			UseCase useCase, Actor actor, PackageDeclaration packageDeclaration);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,11 +103,10 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow);
+			UCCondition precond, UseCaseToInteraction useCaseToInteraction,
+			UseCase useCase, Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,12 +122,11 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_FWD(PerformRuleResult ruleresult,
-			EObject useCaseToMessage, EObject useCase, EObject message,
+	void registerObjects_FWD(PerformRuleResult ruleresult, EObject precond,
+			EObject useCaseToInteraction, EObject useCase, EObject message,
 			EObject interaction, EObject messageReceive, EObject actor,
 			EObject packageDeclaration, EObject line, EObject actorToLine,
-			EObject _package, EObject packageDeclarationToPackage,
-			EObject basicFlow, EObject basicFlowToInteraction);
+			EObject precondToMessage);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,8 +144,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 */
 	boolean isAppropriate_BWD(Match match, Message message,
 			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package);
+			MessageOccurrenceSpecification messageReceive, Lifeline line);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,8 +170,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 */
 	void registerObjectsToMatch_BWD(Match match, Message message,
 			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package);
+			MessageOccurrenceSpecification messageReceive, Lifeline line);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,8 +180,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 */
 	CSP isAppropriate_solveCsp_BWD(Match match, Message message,
 			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package);
+			MessageOccurrenceSpecification messageReceive, Lifeline line);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,11 +197,11 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
 			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage);
+			ActorToLifeline actorToLine);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,12 +217,11 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	void registerObjects_BWD(PerformRuleResult ruleresult,
-			EObject useCaseToMessage, EObject useCase, EObject message,
+	void registerObjects_BWD(PerformRuleResult ruleresult, EObject precond,
+			EObject useCaseToInteraction, EObject useCase, EObject message,
 			EObject interaction, EObject messageReceive, EObject actor,
 			EObject packageDeclaration, EObject line, EObject actorToLine,
-			EObject _package, EObject packageDeclarationToPackage,
-			EObject basicFlow, EObject basicFlowToInteraction);
+			EObject precondToMessage);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -243,7 +237,16 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_235(
+			EMoflonEdge _edge_preconditions);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_80(
 			EMoflonEdge _edge_receiveEvent);
 
 	/**
@@ -252,7 +255,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_82(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -261,7 +264,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_83(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_82(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -269,24 +272,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
-			EMoflonEdge _edge_interaction);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_85(EMoflonEdge _edge_lifeline);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_86(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_83(
 			EMoflonEdge _edge_enclosingInteraction);
 
 	/**
@@ -295,7 +281,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_87(EMoflonEdge _edge_fragment);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_84(EMoflonEdge _edge_fragment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,7 +289,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_88(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_85(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -311,24 +297,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_236(
-			EMoflonEdge _edge_useCases);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_237(EMoflonEdge _edge_actors);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_89(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_86(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -337,24 +306,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_90(EMoflonEdge _edge_covered);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_91(
-			EMoflonEdge _edge_packagedElement);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_238(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_87(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -380,7 +332,7 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 */
 	ModelgeneratorRuleResult generateModel(
 			RuleEntryContainer ruleEntryContainer,
-			PackageDeclarationToPackage packageDeclarationToPackageParameter);
+			UseCaseToInteraction useCaseToInteractionParameter);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -389,10 +341,10 @@ public interface UseCasePrecondToFoundMessageRule extends AbstractRule,
 	 * @generated
 	 */
 	CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			ModelgeneratorRuleResult ruleResult);
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult);
 
 	/**
 	 * <!-- begin-user-doc -->

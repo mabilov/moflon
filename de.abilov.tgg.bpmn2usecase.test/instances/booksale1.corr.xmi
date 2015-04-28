@@ -12,17 +12,25 @@
     <source href="booksale1.src.xmi#booksale"/>
     <target href="booksale1.trg.usecase.xmi#booksale"/>
   </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:StartEventToBasicFlow">
-    <source href="booksale1.src.xmi#order_received"/>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:ProcessToActor">
+    <source href="booksale1.src.xmi#booksale"/>
+    <target href="booksale1.trg.usecase.xmi#sys"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:ProcessToBasicFlow">
+    <source href="booksale1.src.xmi#booksale"/>
     <target href="booksale1.trg.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:StartEventToUCCondition">
+    <source href="booksale1.src.xmi#order_received"/>
+    <target href="booksale1.trg.usecase.xmi#//@packages.0/@useCases.0/@preconditions.0"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
     <source href="booksale1.src.xmi#sf1"/>
     <target xsi:type="UseCaseDSL:BasicFlow" href="booksale1.trg.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
   </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:ProcessToActor">
-    <source href="booksale1.src.xmi#booksale"/>
-    <target href="booksale1.trg.usecase.xmi#sys"/>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
+    <source href="booksale1.src.xmi#financing"/>
+    <target href="booksale1.trg.usecase.xmi#financing"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
     <source href="booksale1.src.xmi#sales"/>
@@ -40,14 +48,6 @@
     <source href="booksale1.src.xmi#sf3"/>
     <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#record_order"/>
   </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
-    <source href="booksale1.src.xmi#shipping"/>
-    <target href="booksale1.trg.usecase.xmi#shipping"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
-    <source href="booksale1.src.xmi#financing"/>
-    <target href="booksale1.trg.usecase.xmi#financing"/>
-  </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
     <source xsi:type="bpmn2:ServiceTask" href="booksale1.src.xmi#check_stock"/>
     <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#check_stock"/>
@@ -59,6 +59,10 @@
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
     <source href="booksale1.src.xmi#sf4"/>
     <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#check_stock"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:LaneToActor">
+    <source href="booksale1.src.xmi#shipping"/>
+    <target href="booksale1.trg.usecase.xmi#shipping"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
     <source href="booksale1.src.xmi#sf_yes"/>
@@ -107,6 +111,34 @@
   <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
     <source xsi:type="bpmn2:ParallelGateway" href="booksale1.src.xmi#pgw1"/>
     <target xsi:type="UseCaseDSL:ParallelStep" href="booksale1.trg.usecase.xmi#pgw1"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="booksale1.src.xmi#payment"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.trg.usecase.xmi#payment"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:ServiceTask" href="booksale1.src.xmi#charge_issue"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#charge_issue"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="booksale1.src.xmi#sf7"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.trg.usecase.xmi#payment"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="booksale1.src.xmi#sf7"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#charge_issue"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
+    <source xsi:type="bpmn2:IntermediateCatchEvent" href="booksale1.src.xmi#payment_received"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#payment_received"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
+    <source href="booksale1.src.xmi#sf8"/>
+    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#payment_received"/>
+  </correspondences>
+  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
+    <source href="booksale1.src.xmi#sf8"/>
+    <target xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.trg.usecase.xmi#payment"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
     <source href="booksale1.src.xmi#shipment_prepare"/>
@@ -160,37 +192,9 @@
     <source href="booksale1.src.xmi#sf13"/>
     <target xsi:type="UseCaseDSL:BasicFlow" href="booksale1.trg.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
   </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:EndEventToFlow">
+  <correspondences xsi:type="BpmnToUseCaseIntegration:EndEventToUCCondition">
     <source href="booksale1.src.xmi#end_event"/>
-    <target xsi:type="UseCaseDSL:BasicFlow" href="booksale1.trg.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
-    <source href="booksale1.src.xmi#payment"/>
-    <target xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.trg.usecase.xmi#payment"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
-    <source xsi:type="bpmn2:ServiceTask" href="booksale1.src.xmi#charge_issue"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#charge_issue"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
-    <source href="booksale1.src.xmi#sf7"/>
-    <target xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.trg.usecase.xmi#payment"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
-    <source href="booksale1.src.xmi#sf7"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#charge_issue"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
-    <source xsi:type="bpmn2:IntermediateCatchEvent" href="booksale1.src.xmi#payment_received"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#payment_received"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToStep">
-    <source href="booksale1.src.xmi#sf8"/>
-    <target xsi:type="UseCaseDSL:NormalStep" href="booksale1.trg.usecase.xmi#payment_received"/>
-  </correspondences>
-  <correspondences xsi:type="BpmnToUseCaseIntegration:SequenceFlowToUCFlow">
-    <source href="booksale1.src.xmi#sf8"/>
-    <target xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.trg.usecase.xmi#payment"/>
+    <target href="booksale1.trg.usecase.xmi#//@packages.0/@useCases.0/@flows.0/@finalState"/>
   </correspondences>
   <correspondences xsi:type="BpmnToUseCaseIntegration:FlowNodeToStep">
     <source xsi:type="bpmn2:UserTask" href="booksale1.src.xmi#issue_invoice"/>

@@ -49,7 +49,7 @@ public class RulesSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -113,22 +113,9 @@ public class RulesSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.USE_CASE_NO_PRECOND_RULE: {
-			UseCaseNoPrecondRule useCaseNoPrecondRule = (UseCaseNoPrecondRule) theEObject;
-			T result = caseUseCaseNoPrecondRule(useCaseNoPrecondRule);
-			if (result == null)
-				result = caseUseCaseToInteractionRule(useCaseNoPrecondRule);
-			if (result == null)
-				result = caseAbstractRule(useCaseNoPrecondRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE: {
 			UserActorToLifelineRule userActorToLifelineRule = (UserActorToLifelineRule) theEObject;
 			T result = caseUserActorToLifelineRule(userActorToLifelineRule);
-			if (result == null)
-				result = caseActorToLifelineRule(userActorToLifelineRule);
 			if (result == null)
 				result = caseAbstractRule(userActorToLifelineRule);
 			if (result == null)
@@ -139,8 +126,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			NormalStepBFToMessageRule normalStepBFToMessageRule = (NormalStepBFToMessageRule) theEObject;
 			T result = caseNormalStepBFToMessageRule(normalStepBFToMessageRule);
 			if (result == null)
-				result = caseNormalStepToMessageRule(normalStepBFToMessageRule);
-			if (result == null)
 				result = caseAbstractRule(normalStepBFToMessageRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -149,8 +134,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.NORMAL_STEP_NF_TO_MESSAGE_RULE: {
 			NormalStepNFToMessageRule normalStepNFToMessageRule = (NormalStepNFToMessageRule) theEObject;
 			T result = caseNormalStepNFToMessageRule(normalStepNFToMessageRule);
-			if (result == null)
-				result = caseNormalStepToMessageRule(normalStepNFToMessageRule);
 			if (result == null)
 				result = caseAbstractRule(normalStepNFToMessageRule);
 			if (result == null)
@@ -169,8 +152,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ALT_STEP_NF_TO_COMBO_RULE: {
 			AltStepNFToComboRule altStepNFToComboRule = (AltStepNFToComboRule) theEObject;
 			T result = caseAltStepNFToComboRule(altStepNFToComboRule);
-			if (result == null)
-				result = caseAltStepToComboRule(altStepNFToComboRule);
 			if (result == null)
 				result = caseAbstractRule(altStepNFToComboRule);
 			if (result == null)
@@ -199,8 +180,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			UseCasePrecondToFoundMessageRule useCasePrecondToFoundMessageRule = (UseCasePrecondToFoundMessageRule) theEObject;
 			T result = caseUseCasePrecondToFoundMessageRule(useCasePrecondToFoundMessageRule);
 			if (result == null)
-				result = caseUseCaseToInteractionRule(useCasePrecondToFoundMessageRule);
-			if (result == null)
 				result = caseAbstractRule(useCasePrecondToFoundMessageRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -209,10 +188,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.SYSTEM_STEP_BF_TO_MESSAGE_RULE: {
 			SystemStepBFToMessageRule systemStepBFToMessageRule = (SystemStepBFToMessageRule) theEObject;
 			T result = caseSystemStepBFToMessageRule(systemStepBFToMessageRule);
-			if (result == null)
-				result = caseNormalStepBFToMessageRule(systemStepBFToMessageRule);
-			if (result == null)
-				result = caseNormalStepToMessageRule(systemStepBFToMessageRule);
 			if (result == null)
 				result = caseAbstractRule(systemStepBFToMessageRule);
 			if (result == null)
@@ -232,8 +207,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			AltStepBFToComboRule altStepBFToComboRule = (AltStepBFToComboRule) theEObject;
 			T result = caseAltStepBFToComboRule(altStepBFToComboRule);
 			if (result == null)
-				result = caseAltStepToComboRule(altStepBFToComboRule);
-			if (result == null)
 				result = caseAbstractRule(altStepBFToComboRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -242,10 +215,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE: {
 			UserStepBFMessageRule userStepBFMessageRule = (UserStepBFMessageRule) theEObject;
 			T result = caseUserStepBFMessageRule(userStepBFMessageRule);
-			if (result == null)
-				result = caseNormalStepBFToMessageRule(userStepBFMessageRule);
-			if (result == null)
-				result = caseNormalStepToMessageRule(userStepBFMessageRule);
 			if (result == null)
 				result = caseAbstractRule(userStepBFMessageRule);
 			if (result == null)
@@ -256,10 +225,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			SystemStepNFToMessageRule systemStepNFToMessageRule = (SystemStepNFToMessageRule) theEObject;
 			T result = caseSystemStepNFToMessageRule(systemStepNFToMessageRule);
 			if (result == null)
-				result = caseNormalStepNFToMessageRule(systemStepNFToMessageRule);
-			if (result == null)
-				result = caseNormalStepToMessageRule(systemStepNFToMessageRule);
-			if (result == null)
 				result = caseAbstractRule(systemStepNFToMessageRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -268,10 +233,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.USER_STEP_NF_TO_MESSAGE_RULE: {
 			UserStepNfToMessageRule userStepNfToMessageRule = (UserStepNfToMessageRule) theEObject;
 			T result = caseUserStepNfToMessageRule(userStepNfToMessageRule);
-			if (result == null)
-				result = caseNormalStepNFToMessageRule(userStepNfToMessageRule);
-			if (result == null)
-				result = caseNormalStepToMessageRule(userStepNfToMessageRule);
 			if (result == null)
 				result = caseAbstractRule(userStepNfToMessageRule);
 			if (result == null)
@@ -282,10 +243,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			AltSysStepBFToComboRule altSysStepBFToComboRule = (AltSysStepBFToComboRule) theEObject;
 			T result = caseAltSysStepBFToComboRule(altSysStepBFToComboRule);
 			if (result == null)
-				result = caseAltStepBFToComboRule(altSysStepBFToComboRule);
-			if (result == null)
-				result = caseAltStepToComboRule(altSysStepBFToComboRule);
-			if (result == null)
 				result = caseAbstractRule(altSysStepBFToComboRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -294,10 +251,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ALT_USER_STEP_BF_TO_COMBO_RULE: {
 			AltUserStepBFToComboRule altUserStepBFToComboRule = (AltUserStepBFToComboRule) theEObject;
 			T result = caseAltUserStepBFToComboRule(altUserStepBFToComboRule);
-			if (result == null)
-				result = caseAltStepBFToComboRule(altUserStepBFToComboRule);
-			if (result == null)
-				result = caseAltStepToComboRule(altUserStepBFToComboRule);
 			if (result == null)
 				result = caseAbstractRule(altUserStepBFToComboRule);
 			if (result == null)
@@ -308,10 +261,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			AltSysStepNFToComboRule altSysStepNFToComboRule = (AltSysStepNFToComboRule) theEObject;
 			T result = caseAltSysStepNFToComboRule(altSysStepNFToComboRule);
 			if (result == null)
-				result = caseAltStepNFToComboRule(altSysStepNFToComboRule);
-			if (result == null)
-				result = caseAltStepToComboRule(altSysStepNFToComboRule);
-			if (result == null)
 				result = caseAbstractRule(altSysStepNFToComboRule);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -320,10 +269,6 @@ public class RulesSwitch<T> extends Switch<T> {
 		case RulesPackage.ALT_USER_STEP_NF_TO_COMBO_RULE: {
 			AltUserStepNFToComboRule altUserStepNFToComboRule = (AltUserStepNFToComboRule) theEObject;
 			T result = caseAltUserStepNFToComboRule(altUserStepNFToComboRule);
-			if (result == null)
-				result = caseAltStepNFToComboRule(altUserStepNFToComboRule);
-			if (result == null)
-				result = caseAltStepToComboRule(altUserStepNFToComboRule);
 			if (result == null)
 				result = caseAbstractRule(altUserStepNFToComboRule);
 			if (result == null)
@@ -407,21 +352,6 @@ public class RulesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNormalStepToMessageRule(NormalStepToMessageRule object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Use Case No Precond Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Use Case No Precond Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUseCaseNoPrecondRule(UseCaseNoPrecondRule object) {
 		return null;
 	}
 

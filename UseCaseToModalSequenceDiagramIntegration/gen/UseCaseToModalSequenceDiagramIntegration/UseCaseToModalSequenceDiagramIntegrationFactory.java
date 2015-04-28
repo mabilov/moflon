@@ -114,6 +114,15 @@ public interface UseCaseToModalSequenceDiagramIntegrationFactory extends
 	NormalStepToCombinedFragment createNormalStepToCombinedFragment();
 
 	/**
+	 * Returns a new object of class '<em>UC Condition To Message</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>UC Condition To Message</em>'.
+	 * @generated
+	 */
+	UCConditionToMessage createUCConditionToMessage();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

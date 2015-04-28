@@ -1237,7 +1237,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_192(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_188(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1308,7 +1308,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_193(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_189(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1379,7 +1379,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_194(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_190(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1450,7 +1450,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_195(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_191(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1521,7 +1521,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_196(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_192(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1592,7 +1592,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_197(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_193(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1663,7 +1663,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_198(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_194(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1734,7 +1734,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_199(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_195(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1805,7 +1805,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_200(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_196(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1876,7 +1876,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_201(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_197(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -1947,7 +1947,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_202(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_198(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2018,7 +2018,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_203(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_199(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2089,7 +2089,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_204(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_200(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2160,7 +2160,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_205(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_201(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2231,7 +2231,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_258(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_255(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2298,7 +2298,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_259(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_256(
 			EMoflonEdge _edge_stepAlternative) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2365,7 +2365,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_260(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_257(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2432,7 +2432,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_261(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_258(
 			EMoflonEdge _edge_ref) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2499,7 +2499,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_206(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_202(
 			EMoflonEdge _edge_operand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2570,7 +2570,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_207(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_203(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2641,7 +2641,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_208(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_204(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2712,7 +2712,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_209(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_205(
 			EMoflonEdge _edge_guard) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -2783,7 +2783,7 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_210(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_206(
 			EMoflonEdge _edge_specification) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltSysStepNFToComboRuleImpl
@@ -3215,6 +3215,18 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_188__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_188((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_189__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_189((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_190__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_190((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_191__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_191((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_192__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_192((EMoflonEdge) arguments
 					.get(0));
@@ -3245,6 +3257,18 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_201__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_201((EMoflonEdge) arguments
 					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_255__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_255((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_256__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_256((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_257__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_257((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_258__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_258((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_202__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_202((EMoflonEdge) arguments
 					.get(0));
@@ -3257,32 +3281,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_205__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_205((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_258__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_258((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_259__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_259((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_260__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_260((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_261__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_261((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_206__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_206((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_207__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_207((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_208__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_208((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_209__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_209((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_210__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_210((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -7509,8 +7509,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_20_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_439648 = messageSend.getMessage();
-		if (__DEC_messageSend_message_439648 != null) {
+		Message __DEC_messageSend_message_557533 = messageSend.getMessage();
+		if (__DEC_messageSend_message_557533 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -7519,11 +7519,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_20_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_683042 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_617277 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_683042 != null) {
+		if (__DEC_messageSend_enclosingInteraction_617277 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_683042)) {
+					.equals(__DEC_messageSend_enclosingInteraction_617277)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7533,9 +7533,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_20_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_56709 = messageReceive
+		Message __DEC_messageReceive_message_664731 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_56709 != null) {
+		if (__DEC_messageReceive_message_664731 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -7545,11 +7545,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_20_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_193000 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_428309 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_193000 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_428309 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_193000)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_428309)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7559,10 +7559,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_20_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_918696 = operand
+		Interaction __DEC_operand_enclosingInteraction_36896 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_918696 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_918696)) {
+		if (__DEC_operand_enclosingInteraction_36896 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_36896)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -7574,11 +7574,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_160971 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_622975 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_160971)) {
-					if (!parentCombo.equals(__DEC_operand_operand_160971)) {
+				if (!combo.equals(__DEC_operand_operand_622975)) {
+					if (!parentCombo.equals(__DEC_operand_operand_622975)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -7591,11 +7591,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_317008 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_187121 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_317008)) {
-					if (!operand.equals(__DEC_guard_guard_317008)) {
+				if (!parentOperand.equals(__DEC_guard_guard_187121)) {
+					if (!operand.equals(__DEC_guard_guard_187121)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -7938,8 +7938,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_21_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_697819 = messageSend.getMessage();
-		if (__DEC_messageSend_message_697819 != null) {
+		Message __DEC_messageSend_message_945326 = messageSend.getMessage();
+		if (__DEC_messageSend_message_945326 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -7948,11 +7948,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_21_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_560363 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_67802 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_560363 != null) {
+		if (__DEC_messageSend_enclosingInteraction_67802 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_560363)) {
+					.equals(__DEC_messageSend_enclosingInteraction_67802)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7962,9 +7962,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_21_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_70724 = messageReceive
+		Message __DEC_messageReceive_message_631378 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_70724 != null) {
+		if (__DEC_messageReceive_message_631378 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -7974,11 +7974,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_21_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_393893 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_897983 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_393893 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_897983 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_393893)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_897983)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7988,10 +7988,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_21_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_454419 = operand
+		Interaction __DEC_operand_enclosingInteraction_411822 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_454419 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_454419)) {
+		if (__DEC_operand_enclosingInteraction_411822 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_411822)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -8003,11 +8003,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_950189 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_174069 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_950189)) {
-					if (!parentCombo.equals(__DEC_operand_operand_950189)) {
+				if (!combo.equals(__DEC_operand_operand_174069)) {
+					if (!parentCombo.equals(__DEC_operand_operand_174069)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -8020,11 +8020,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_718421 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_466977 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_718421)) {
-					if (!operand.equals(__DEC_guard_guard_718421)) {
+				if (!parentOperand.equals(__DEC_guard_guard_466977)) {
+					if (!operand.equals(__DEC_guard_guard_466977)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -8366,8 +8366,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_22_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_199666 = messageSend.getMessage();
-		if (__DEC_messageSend_message_199666 != null) {
+		Message __DEC_messageSend_message_557037 = messageSend.getMessage();
+		if (__DEC_messageSend_message_557037 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -8376,11 +8376,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_22_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_238176 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_361284 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_238176 != null) {
+		if (__DEC_messageSend_enclosingInteraction_361284 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_238176)) {
+					.equals(__DEC_messageSend_enclosingInteraction_361284)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8390,9 +8390,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_22_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_937199 = messageReceive
+		Message __DEC_messageReceive_message_896388 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_937199 != null) {
+		if (__DEC_messageReceive_message_896388 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -8402,11 +8402,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_22_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_992267 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_261464 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_992267 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_261464 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_992267)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_261464)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8416,10 +8416,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_22_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_490989 = operand
+		Interaction __DEC_operand_enclosingInteraction_53047 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_490989 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_490989)) {
+		if (__DEC_operand_enclosingInteraction_53047 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_53047)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -8431,11 +8431,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_599849 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_775354 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_599849)) {
-					if (!parentCombo.equals(__DEC_operand_operand_599849)) {
+				if (!combo.equals(__DEC_operand_operand_775354)) {
+					if (!parentCombo.equals(__DEC_operand_operand_775354)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -8448,11 +8448,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_958384 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_654489 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_958384)) {
-					if (!operand.equals(__DEC_guard_guard_958384)) {
+				if (!parentOperand.equals(__DEC_guard_guard_654489)) {
+					if (!operand.equals(__DEC_guard_guard_654489)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -8795,8 +8795,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_23_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_588060 = messageSend.getMessage();
-		if (__DEC_messageSend_message_588060 != null) {
+		Message __DEC_messageSend_message_325604 = messageSend.getMessage();
+		if (__DEC_messageSend_message_325604 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -8805,11 +8805,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_23_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_169211 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_668244 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_169211 != null) {
+		if (__DEC_messageSend_enclosingInteraction_668244 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_169211)) {
+					.equals(__DEC_messageSend_enclosingInteraction_668244)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8819,9 +8819,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_23_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_148654 = messageReceive
+		Message __DEC_messageReceive_message_285961 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_148654 != null) {
+		if (__DEC_messageReceive_message_285961 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -8831,11 +8831,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_23_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_366529 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_535258 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_366529 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_535258 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_366529)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_535258)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8845,10 +8845,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_23_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_980446 = operand
+		Interaction __DEC_operand_enclosingInteraction_663741 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_980446 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_980446)) {
+		if (__DEC_operand_enclosingInteraction_663741 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_663741)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -8860,11 +8860,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_348122 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_948629 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_348122)) {
-					if (!parentCombo.equals(__DEC_operand_operand_348122)) {
+				if (!combo.equals(__DEC_operand_operand_948629)) {
+					if (!parentCombo.equals(__DEC_operand_operand_948629)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -8877,11 +8877,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_806793 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_187861 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_806793)) {
-					if (!operand.equals(__DEC_guard_guard_806793)) {
+				if (!parentOperand.equals(__DEC_guard_guard_187861)) {
+					if (!operand.equals(__DEC_guard_guard_187861)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -9220,8 +9220,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_24_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_413254 = messageSend.getMessage();
-		if (__DEC_messageSend_message_413254 != null) {
+		Message __DEC_messageSend_message_314255 = messageSend.getMessage();
+		if (__DEC_messageSend_message_314255 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -9230,11 +9230,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_24_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_137816 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_238135 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_137816 != null) {
+		if (__DEC_messageSend_enclosingInteraction_238135 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_137816)) {
+					.equals(__DEC_messageSend_enclosingInteraction_238135)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9244,9 +9244,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_24_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_599042 = messageReceive
+		Message __DEC_messageReceive_message_964009 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_599042 != null) {
+		if (__DEC_messageReceive_message_964009 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -9256,11 +9256,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_24_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_136463 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_704543 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_136463 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_704543 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_136463)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_704543)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9270,10 +9270,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_24_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_693285 = operand
+		Interaction __DEC_operand_enclosingInteraction_316561 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_693285 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_693285)) {
+		if (__DEC_operand_enclosingInteraction_316561 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_316561)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -9285,11 +9285,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_549333 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_254493 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_549333)) {
-					if (!parentCombo.equals(__DEC_operand_operand_549333)) {
+				if (!combo.equals(__DEC_operand_operand_254493)) {
+					if (!parentCombo.equals(__DEC_operand_operand_254493)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -9302,11 +9302,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_646084 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_232794 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_646084)) {
-					if (!operand.equals(__DEC_guard_guard_646084)) {
+				if (!parentOperand.equals(__DEC_guard_guard_232794)) {
+					if (!operand.equals(__DEC_guard_guard_232794)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -9649,8 +9649,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_25_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_505243 = messageSend.getMessage();
-		if (__DEC_messageSend_message_505243 != null) {
+		Message __DEC_messageSend_message_982305 = messageSend.getMessage();
+		if (__DEC_messageSend_message_982305 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -9659,11 +9659,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_25_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_667040 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_809721 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_667040 != null) {
+		if (__DEC_messageSend_enclosingInteraction_809721 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_667040)) {
+					.equals(__DEC_messageSend_enclosingInteraction_809721)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9673,9 +9673,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_25_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_189347 = messageReceive
+		Message __DEC_messageReceive_message_480646 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_189347 != null) {
+		if (__DEC_messageReceive_message_480646 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -9685,11 +9685,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_25_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_505678 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_445547 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_505678 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_445547 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_505678)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_445547)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9699,10 +9699,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_25_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_48861 = operand
+		Interaction __DEC_operand_enclosingInteraction_751528 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_48861 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_48861)) {
+		if (__DEC_operand_enclosingInteraction_751528 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_751528)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -9714,11 +9714,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_32701 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_943662 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_32701)) {
-					if (!parentCombo.equals(__DEC_operand_operand_32701)) {
+				if (!combo.equals(__DEC_operand_operand_943662)) {
+					if (!parentCombo.equals(__DEC_operand_operand_943662)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -9731,11 +9731,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_390629 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_844743 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_390629)) {
-					if (!operand.equals(__DEC_guard_guard_390629)) {
+				if (!parentOperand.equals(__DEC_guard_guard_844743)) {
+					if (!operand.equals(__DEC_guard_guard_844743)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -10078,8 +10078,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_26_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_504616 = messageSend.getMessage();
-		if (__DEC_messageSend_message_504616 != null) {
+		Message __DEC_messageSend_message_328430 = messageSend.getMessage();
+		if (__DEC_messageSend_message_328430 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -10088,11 +10088,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_26_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_288790 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_126866 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_288790 != null) {
+		if (__DEC_messageSend_enclosingInteraction_126866 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_288790)) {
+					.equals(__DEC_messageSend_enclosingInteraction_126866)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -10102,9 +10102,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_26_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_852108 = messageReceive
+		Message __DEC_messageReceive_message_334630 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_852108 != null) {
+		if (__DEC_messageReceive_message_334630 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -10114,11 +10114,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_26_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_288425 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_877992 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_288425 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_877992 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_288425)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_877992)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -10128,10 +10128,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_26_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_462503 = operand
+		Interaction __DEC_operand_enclosingInteraction_725140 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_462503 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_462503)) {
+		if (__DEC_operand_enclosingInteraction_725140 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_725140)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -10143,11 +10143,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_229122 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_948448 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_229122)) {
-					if (!parentCombo.equals(__DEC_operand_operand_229122)) {
+				if (!combo.equals(__DEC_operand_operand_948448)) {
+					if (!parentCombo.equals(__DEC_operand_operand_948448)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -10160,11 +10160,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_46955 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_580157 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_46955)) {
-					if (!operand.equals(__DEC_guard_guard_46955)) {
+				if (!parentOperand.equals(__DEC_guard_guard_580157)) {
+					if (!operand.equals(__DEC_guard_guard_580157)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -10508,8 +10508,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_27_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_717414 = messageSend.getMessage();
-		if (__DEC_messageSend_message_717414 != null) {
+		Message __DEC_messageSend_message_483093 = messageSend.getMessage();
+		if (__DEC_messageSend_message_483093 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -10518,11 +10518,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_27_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_244518 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_526715 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_244518 != null) {
+		if (__DEC_messageSend_enclosingInteraction_526715 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_244518)) {
+					.equals(__DEC_messageSend_enclosingInteraction_526715)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -10532,9 +10532,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_27_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_326499 = messageReceive
+		Message __DEC_messageReceive_message_960449 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_326499 != null) {
+		if (__DEC_messageReceive_message_960449 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -10544,11 +10544,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_27_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_848647 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_848032 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_848647 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_848032 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_848647)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_848032)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -10558,10 +10558,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_27_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_146478 = operand
+		Interaction __DEC_operand_enclosingInteraction_563030 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_146478 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_146478)) {
+		if (__DEC_operand_enclosingInteraction_563030 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_563030)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -10573,11 +10573,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_20567 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_711131 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_20567)) {
-					if (!parentCombo.equals(__DEC_operand_operand_20567)) {
+				if (!combo.equals(__DEC_operand_operand_711131)) {
+					if (!parentCombo.equals(__DEC_operand_operand_711131)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -10590,11 +10590,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_945206 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_641201 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_945206)) {
-					if (!operand.equals(__DEC_guard_guard_945206)) {
+				if (!parentOperand.equals(__DEC_guard_guard_641201)) {
+					if (!operand.equals(__DEC_guard_guard_641201)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -10937,8 +10937,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_28_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_779266 = messageSend.getMessage();
-		if (__DEC_messageSend_message_779266 != null) {
+		Message __DEC_messageSend_message_797856 = messageSend.getMessage();
+		if (__DEC_messageSend_message_797856 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -10947,11 +10947,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_28_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_403642 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_315291 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_403642 != null) {
+		if (__DEC_messageSend_enclosingInteraction_315291 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_403642)) {
+					.equals(__DEC_messageSend_enclosingInteraction_315291)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -10961,9 +10961,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_28_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_800318 = messageReceive
+		Message __DEC_messageReceive_message_912113 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_800318 != null) {
+		if (__DEC_messageReceive_message_912113 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -10973,11 +10973,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_28_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_614058 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_773140 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_614058 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_773140 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_614058)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_773140)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -10987,10 +10987,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_28_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_646712 = operand
+		Interaction __DEC_operand_enclosingInteraction_103428 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_646712 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_646712)) {
+		if (__DEC_operand_enclosingInteraction_103428 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_103428)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -11002,11 +11002,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_95095 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_315564 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_95095)) {
-					if (!parentCombo.equals(__DEC_operand_operand_95095)) {
+				if (!combo.equals(__DEC_operand_operand_315564)) {
+					if (!parentCombo.equals(__DEC_operand_operand_315564)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -11019,11 +11019,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_641642 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_995776 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_641642)) {
-					if (!operand.equals(__DEC_guard_guard_641642)) {
+				if (!parentOperand.equals(__DEC_guard_guard_995776)) {
+					if (!operand.equals(__DEC_guard_guard_995776)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -11361,8 +11361,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_29_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_473744 = messageSend.getMessage();
-		if (__DEC_messageSend_message_473744 != null) {
+		Message __DEC_messageSend_message_693240 = messageSend.getMessage();
+		if (__DEC_messageSend_message_693240 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -11371,11 +11371,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_29_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_122706 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_774328 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_122706 != null) {
+		if (__DEC_messageSend_enclosingInteraction_774328 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_122706)) {
+					.equals(__DEC_messageSend_enclosingInteraction_774328)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -11385,9 +11385,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_29_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_124093 = messageReceive
+		Message __DEC_messageReceive_message_431821 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_124093 != null) {
+		if (__DEC_messageReceive_message_431821 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -11397,11 +11397,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_29_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_965949 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_16140 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_965949 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_16140 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_965949)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_16140)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -11411,10 +11411,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_29_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_388739 = operand
+		Interaction __DEC_operand_enclosingInteraction_686200 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_388739 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_388739)) {
+		if (__DEC_operand_enclosingInteraction_686200 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_686200)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -11426,11 +11426,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_113092 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_445414 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_113092)) {
-					if (!parentCombo.equals(__DEC_operand_operand_113092)) {
+				if (!combo.equals(__DEC_operand_operand_445414)) {
+					if (!parentCombo.equals(__DEC_operand_operand_445414)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -11443,11 +11443,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_58813 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_868299 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_58813)) {
-					if (!operand.equals(__DEC_guard_guard_58813)) {
+				if (!parentOperand.equals(__DEC_guard_guard_868299)) {
+					if (!operand.equals(__DEC_guard_guard_868299)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -11782,8 +11782,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_30_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_172977 = messageSend.getMessage();
-		if (__DEC_messageSend_message_172977 != null) {
+		Message __DEC_messageSend_message_276438 = messageSend.getMessage();
+		if (__DEC_messageSend_message_276438 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -11792,11 +11792,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_30_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_901724 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_427455 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_901724 != null) {
+		if (__DEC_messageSend_enclosingInteraction_427455 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_901724)) {
+					.equals(__DEC_messageSend_enclosingInteraction_427455)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -11806,9 +11806,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_30_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_332970 = messageReceive
+		Message __DEC_messageReceive_message_368190 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_332970 != null) {
+		if (__DEC_messageReceive_message_368190 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -11818,11 +11818,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_30_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_604275 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_190980 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_604275 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_190980 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_604275)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_190980)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -11832,10 +11832,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_30_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_391770 = operand
+		Interaction __DEC_operand_enclosingInteraction_220048 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_391770 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_391770)) {
+		if (__DEC_operand_enclosingInteraction_220048 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_220048)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -11847,11 +11847,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_649489 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_478601 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_649489)) {
-					if (!parentCombo.equals(__DEC_operand_operand_649489)) {
+				if (!combo.equals(__DEC_operand_operand_478601)) {
+					if (!parentCombo.equals(__DEC_operand_operand_478601)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -11864,11 +11864,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_864904 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_203790 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_864904)) {
-					if (!operand.equals(__DEC_guard_guard_864904)) {
+				if (!parentOperand.equals(__DEC_guard_guard_203790)) {
+					if (!operand.equals(__DEC_guard_guard_203790)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -12212,8 +12212,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_31_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_431951 = messageSend.getMessage();
-		if (__DEC_messageSend_message_431951 != null) {
+		Message __DEC_messageSend_message_464018 = messageSend.getMessage();
+		if (__DEC_messageSend_message_464018 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -12222,11 +12222,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_31_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_584692 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_173351 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_584692 != null) {
+		if (__DEC_messageSend_enclosingInteraction_173351 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_584692)) {
+					.equals(__DEC_messageSend_enclosingInteraction_173351)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -12236,9 +12236,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_31_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_900113 = messageReceive
+		Message __DEC_messageReceive_message_116964 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_900113 != null) {
+		if (__DEC_messageReceive_message_116964 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -12248,11 +12248,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_31_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_108494 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_223099 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_108494 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_223099 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_108494)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_223099)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -12262,10 +12262,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_31_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_664275 = operand
+		Interaction __DEC_operand_enclosingInteraction_641608 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_664275 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_664275)) {
+		if (__DEC_operand_enclosingInteraction_641608 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_641608)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -12277,11 +12277,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_567880 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_324881 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_567880)) {
-					if (!parentCombo.equals(__DEC_operand_operand_567880)) {
+				if (!combo.equals(__DEC_operand_operand_324881)) {
+					if (!parentCombo.equals(__DEC_operand_operand_324881)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -12294,11 +12294,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_370156 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_216245 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_370156)) {
-					if (!operand.equals(__DEC_guard_guard_370156)) {
+				if (!parentOperand.equals(__DEC_guard_guard_216245)) {
+					if (!operand.equals(__DEC_guard_guard_216245)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -12639,8 +12639,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_32_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_151424 = messageSend.getMessage();
-		if (__DEC_messageSend_message_151424 != null) {
+		Message __DEC_messageSend_message_371822 = messageSend.getMessage();
+		if (__DEC_messageSend_message_371822 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -12649,11 +12649,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_32_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_386647 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_124202 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_386647 != null) {
+		if (__DEC_messageSend_enclosingInteraction_124202 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_386647)) {
+					.equals(__DEC_messageSend_enclosingInteraction_124202)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -12663,9 +12663,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_32_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_534856 = messageReceive
+		Message __DEC_messageReceive_message_483964 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_534856 != null) {
+		if (__DEC_messageReceive_message_483964 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -12675,11 +12675,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_32_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_471913 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_518480 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_471913 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_518480 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_471913)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_518480)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -12689,10 +12689,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_32_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_771306 = operand
+		Interaction __DEC_operand_enclosingInteraction_23506 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_771306 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_771306)) {
+		if (__DEC_operand_enclosingInteraction_23506 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_23506)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -12704,11 +12704,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_804327 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_595150 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_804327)) {
-					if (!parentCombo.equals(__DEC_operand_operand_804327)) {
+				if (!combo.equals(__DEC_operand_operand_595150)) {
+					if (!parentCombo.equals(__DEC_operand_operand_595150)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -12721,11 +12721,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_263126 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_630488 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_263126)) {
-					if (!operand.equals(__DEC_guard_guard_263126)) {
+				if (!parentOperand.equals(__DEC_guard_guard_630488)) {
+					if (!operand.equals(__DEC_guard_guard_630488)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -13061,8 +13061,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_33_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_761026 = messageSend.getMessage();
-		if (__DEC_messageSend_message_761026 != null) {
+		Message __DEC_messageSend_message_534426 = messageSend.getMessage();
+		if (__DEC_messageSend_message_534426 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -13071,11 +13071,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_33_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_675690 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_290662 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_675690 != null) {
+		if (__DEC_messageSend_enclosingInteraction_290662 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_675690)) {
+					.equals(__DEC_messageSend_enclosingInteraction_290662)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -13085,9 +13085,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_33_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_551895 = messageReceive
+		Message __DEC_messageReceive_message_968025 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_551895 != null) {
+		if (__DEC_messageReceive_message_968025 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -13097,11 +13097,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_33_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_198274 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_254140 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_198274 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_254140 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_198274)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_254140)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -13111,10 +13111,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_33_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_644469 = operand
+		Interaction __DEC_operand_enclosingInteraction_968364 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_644469 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_644469)) {
+		if (__DEC_operand_enclosingInteraction_968364 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_968364)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -13126,11 +13126,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_42944 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_170177 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_42944)) {
-					if (!parentCombo.equals(__DEC_operand_operand_42944)) {
+				if (!combo.equals(__DEC_operand_operand_170177)) {
+					if (!parentCombo.equals(__DEC_operand_operand_170177)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -13143,11 +13143,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_452596 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_293884 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_452596)) {
-					if (!operand.equals(__DEC_guard_guard_452596)) {
+				if (!parentOperand.equals(__DEC_guard_guard_293884)) {
+					if (!operand.equals(__DEC_guard_guard_293884)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -14173,8 +14173,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_38_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_534385 = messageSend.getMessage();
-		if (__DEC_messageSend_message_534385 != null) {
+		Message __DEC_messageSend_message_990648 = messageSend.getMessage();
+		if (__DEC_messageSend_message_990648 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -14183,11 +14183,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_38_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_184059 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_671163 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_184059 != null) {
+		if (__DEC_messageSend_enclosingInteraction_671163 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_184059)) {
+					.equals(__DEC_messageSend_enclosingInteraction_671163)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -14197,9 +14197,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_38_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_518740 = messageReceive
+		Message __DEC_messageReceive_message_245506 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_518740 != null) {
+		if (__DEC_messageReceive_message_245506 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -14209,11 +14209,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_38_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_157017 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_930533 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_157017 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_930533 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_157017)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_930533)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -14223,10 +14223,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_38_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_568061 = operand
+		Interaction __DEC_operand_enclosingInteraction_241857 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_568061 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_568061)) {
+		if (__DEC_operand_enclosingInteraction_241857 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_241857)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -14238,11 +14238,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_504190 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_259000 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_504190)) {
-					if (!parentCombo.equals(__DEC_operand_operand_504190)) {
+				if (!combo.equals(__DEC_operand_operand_259000)) {
+					if (!parentCombo.equals(__DEC_operand_operand_259000)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -14255,11 +14255,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_275632 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_32023 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_275632)) {
-					if (!operand.equals(__DEC_guard_guard_275632)) {
+				if (!parentOperand.equals(__DEC_guard_guard_32023)) {
+					if (!operand.equals(__DEC_guard_guard_32023)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -14598,8 +14598,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_39_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_517110 = messageSend.getMessage();
-		if (__DEC_messageSend_message_517110 != null) {
+		Message __DEC_messageSend_message_767899 = messageSend.getMessage();
+		if (__DEC_messageSend_message_767899 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -14608,11 +14608,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_39_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_132832 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_694062 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_132832 != null) {
+		if (__DEC_messageSend_enclosingInteraction_694062 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_132832)) {
+					.equals(__DEC_messageSend_enclosingInteraction_694062)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -14622,9 +14622,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_39_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_176204 = messageReceive
+		Message __DEC_messageReceive_message_919684 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_176204 != null) {
+		if (__DEC_messageReceive_message_919684 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -14634,11 +14634,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_39_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_445635 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_694201 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_445635 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_694201 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_445635)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_694201)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -14648,10 +14648,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_39_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_222401 = operand
+		Interaction __DEC_operand_enclosingInteraction_612680 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_222401 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_222401)) {
+		if (__DEC_operand_enclosingInteraction_612680 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_612680)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -14663,11 +14663,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_124905 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_30786 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_124905)) {
-					if (!parentCombo.equals(__DEC_operand_operand_124905)) {
+				if (!combo.equals(__DEC_operand_operand_30786)) {
+					if (!parentCombo.equals(__DEC_operand_operand_30786)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -14680,11 +14680,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_581821 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_486854 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_581821)) {
-					if (!operand.equals(__DEC_guard_guard_581821)) {
+				if (!parentOperand.equals(__DEC_guard_guard_486854)) {
+					if (!operand.equals(__DEC_guard_guard_486854)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -15028,8 +15028,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_40_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_280348 = messageSend.getMessage();
-		if (__DEC_messageSend_message_280348 != null) {
+		Message __DEC_messageSend_message_15527 = messageSend.getMessage();
+		if (__DEC_messageSend_message_15527 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -15038,11 +15038,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_40_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_727955 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_774504 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_727955 != null) {
+		if (__DEC_messageSend_enclosingInteraction_774504 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_727955)) {
+					.equals(__DEC_messageSend_enclosingInteraction_774504)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -15052,9 +15052,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_40_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_265962 = messageReceive
+		Message __DEC_messageReceive_message_375495 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_265962 != null) {
+		if (__DEC_messageReceive_message_375495 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -15064,11 +15064,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_40_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_338835 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_31159 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_338835 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_31159 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_338835)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_31159)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -15078,10 +15078,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_40_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_749906 = operand
+		Interaction __DEC_operand_enclosingInteraction_295974 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_749906 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_749906)) {
+		if (__DEC_operand_enclosingInteraction_295974 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_295974)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -15093,11 +15093,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_964692 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_915732 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_964692)) {
-					if (!parentCombo.equals(__DEC_operand_operand_964692)) {
+				if (!combo.equals(__DEC_operand_operand_915732)) {
+					if (!parentCombo.equals(__DEC_operand_operand_915732)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -15110,11 +15110,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_306991 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_244211 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_306991)) {
-					if (!operand.equals(__DEC_guard_guard_306991)) {
+				if (!parentOperand.equals(__DEC_guard_guard_244211)) {
+					if (!operand.equals(__DEC_guard_guard_244211)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -15458,8 +15458,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_41_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_610211 = messageSend.getMessage();
-		if (__DEC_messageSend_message_610211 != null) {
+		Message __DEC_messageSend_message_486150 = messageSend.getMessage();
+		if (__DEC_messageSend_message_486150 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -15468,11 +15468,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_41_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_868743 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_981211 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_868743 != null) {
+		if (__DEC_messageSend_enclosingInteraction_981211 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_868743)) {
+					.equals(__DEC_messageSend_enclosingInteraction_981211)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -15482,9 +15482,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_41_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_535896 = messageReceive
+		Message __DEC_messageReceive_message_18581 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_535896 != null) {
+		if (__DEC_messageReceive_message_18581 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -15494,11 +15494,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_41_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_362080 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_361605 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_362080 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_361605 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_362080)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_361605)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -15508,10 +15508,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_41_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_622477 = operand
+		Interaction __DEC_operand_enclosingInteraction_551895 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_622477 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_622477)) {
+		if (__DEC_operand_enclosingInteraction_551895 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_551895)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -15523,11 +15523,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_227967 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_807772 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_227967)) {
-					if (!parentCombo.equals(__DEC_operand_operand_227967)) {
+				if (!combo.equals(__DEC_operand_operand_807772)) {
+					if (!parentCombo.equals(__DEC_operand_operand_807772)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -15540,11 +15540,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_445310 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_972074 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_445310)) {
-					if (!operand.equals(__DEC_guard_guard_445310)) {
+				if (!parentOperand.equals(__DEC_guard_guard_972074)) {
+					if (!operand.equals(__DEC_guard_guard_972074)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -15885,8 +15885,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_42_2_black_nac_0B(
 			MessageOccurrenceSpecification messageSend) {
-		Message __DEC_messageSend_message_300921 = messageSend.getMessage();
-		if (__DEC_messageSend_message_300921 != null) {
+		Message __DEC_messageSend_message_846628 = messageSend.getMessage();
+		if (__DEC_messageSend_message_846628 != null) {
 			return new Object[] { messageSend };
 		}
 
@@ -15895,11 +15895,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_42_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_296812 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_311908 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_296812 != null) {
+		if (__DEC_messageSend_enclosingInteraction_311908 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_296812)) {
+					.equals(__DEC_messageSend_enclosingInteraction_311908)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -15909,9 +15909,9 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_42_2_black_nac_2B(
 			MessageOccurrenceSpecification messageReceive) {
-		Message __DEC_messageReceive_message_364542 = messageReceive
+		Message __DEC_messageReceive_message_773357 = messageReceive
 				.getMessage();
-		if (__DEC_messageReceive_message_364542 != null) {
+		if (__DEC_messageReceive_message_773357 != null) {
 			return new Object[] { messageReceive };
 		}
 
@@ -15921,11 +15921,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_AltSysStepNFToComboRule_42_2_black_nac_3BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_382187 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_752370 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_382187 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_752370 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_382187)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_752370)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -15935,10 +15935,10 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_AltSysStepNFToComboRule_42_2_black_nac_4BB(
 			InteractionOperand operand, Interaction interaction) {
-		Interaction __DEC_operand_enclosingInteraction_763586 = operand
+		Interaction __DEC_operand_enclosingInteraction_406115 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_763586 != null) {
-			if (!interaction.equals(__DEC_operand_enclosingInteraction_763586)) {
+		if (__DEC_operand_enclosingInteraction_406115 != null) {
+			if (!interaction.equals(__DEC_operand_enclosingInteraction_406115)) {
 				return new Object[] { operand, interaction };
 			}
 		}
@@ -15950,11 +15950,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionOperand operand, CombinedFragment combo,
 			CombinedFragment parentCombo) {
 		if (!combo.equals(parentCombo)) {
-			for (CombinedFragment __DEC_operand_operand_163886 : org.moflon.util.eMoflonEMFUtil
+			for (CombinedFragment __DEC_operand_operand_915151 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand, CombinedFragment.class,
 							"operand")) {
-				if (!combo.equals(__DEC_operand_operand_163886)) {
-					if (!parentCombo.equals(__DEC_operand_operand_163886)) {
+				if (!combo.equals(__DEC_operand_operand_915151)) {
+					if (!parentCombo.equals(__DEC_operand_operand_915151)) {
 						return new Object[] { operand, combo, parentCombo };
 					}
 				}
@@ -15967,11 +15967,11 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, InteractionOperand parentOperand,
 			InteractionOperand operand) {
 		if (!operand.equals(parentOperand)) {
-			for (InteractionOperand __DEC_guard_guard_567168 : org.moflon.util.eMoflonEMFUtil
+			for (InteractionOperand __DEC_guard_guard_931572 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(guard, InteractionOperand.class,
 							"guard")) {
-				if (!parentOperand.equals(__DEC_guard_guard_567168)) {
-					if (!operand.equals(__DEC_guard_guard_567168)) {
+				if (!parentOperand.equals(__DEC_guard_guard_931572)) {
+					if (!operand.equals(__DEC_guard_guard_931572)) {
 						return new Object[] { guard, parentOperand, operand };
 					}
 				}
@@ -16597,8 +16597,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_2 = csp.getValue("guard", "name");
 		Object _localVariable_3 = csp.getValue("spec", "value");
 		Object _localVariable_4 = csp.getValue("altFlow", "name");
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		line.getCoveredBy().add(messageSend);
 		parentOperand.getFragment().add(messageSend);
 		ruleResult.getTargetObjects().add(messageSend);
@@ -16635,8 +16635,8 @@ public class AltSysStepNFToComboRuleImpl extends AbstractRuleImpl implements
 		String guard_name_prime = (String) _localVariable_2;
 		String spec_value_prime = (String) _localVariable_3;
 		String altFlow_name_prime = (String) _localVariable_4;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		combo.setInteractionOperator(combo_interactionOperator_prime);
 		alt.setCondition(alt_condition_prime);
 		guard.setName(guard_name_prime);

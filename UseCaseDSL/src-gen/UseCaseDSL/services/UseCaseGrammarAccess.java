@@ -110,23 +110,23 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final UnorderedGroup cUnorderedGroup_4 = (UnorderedGroup)cGroup.eContents().get(4);
 		private final Group cGroup_4_0 = (Group)cUnorderedGroup_4.eContents().get(0);
 		private final Keyword cPreconditionsKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
-		private final Assignment cPreConditionsAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
-		private final RuleCall cPreConditionsSTRINGTerminalRuleCall_4_0_1_0 = (RuleCall)cPreConditionsAssignment_4_0_1.eContents().get(0);
+		private final Assignment cPreconditionsAssignment_4_0_1 = (Assignment)cGroup_4_0.eContents().get(1);
+		private final RuleCall cPreconditionsUCConditionParserRuleCall_4_0_1_0 = (RuleCall)cPreconditionsAssignment_4_0_1.eContents().get(0);
 		private final Group cGroup_4_1 = (Group)cUnorderedGroup_4.eContents().get(1);
 		private final Keyword cPostconditionKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cPostconditionAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cPostconditionSTRINGTerminalRuleCall_4_1_1_0 = (RuleCall)cPostconditionAssignment_4_1_1.eContents().get(0);
+		private final Assignment cPostconditionsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cPostconditionsUCConditionParserRuleCall_4_1_1_0 = (RuleCall)cPostconditionsAssignment_4_1_1.eContents().get(0);
 		private final Assignment cFlowsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cFlowsFlowParserRuleCall_5_0 = (RuleCall)cFlowsAssignment_5.eContents().get(0);
 		private final Keyword cEndUsecaseKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//UseCase:
-		//	"usecase" name=ID description=STRING? ("extends" superCase=[UseCase])? (("preconditions" preConditions=STRING)? &
-		//	("postcondition" postcondition=STRING)?) flows+=Flow* "end usecase";
+		//	"usecase" name=ID description=STRING? ("extends" superCase=[UseCase])? (("preconditions"
+		//	preconditions+=UCCondition+)? & ("postcondition" postconditions+=UCCondition+)?) flows+=Flow* "end usecase";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"usecase" name=ID description=STRING? ("extends" superCase=[UseCase])? (("preconditions" preConditions=STRING)? &
-		//("postcondition" postcondition=STRING)?) flows+=Flow* "end usecase"
+		//"usecase" name=ID description=STRING? ("extends" superCase=[UseCase])? (("preconditions" preconditions+=UCCondition+)? &
+		//("postcondition" postconditions+=UCCondition+)?) flows+=Flow* "end usecase"
 		public Group getGroup() { return cGroup; }
 
 		//"usecase"
@@ -159,32 +159,32 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSuperCaseUseCaseIDTerminalRuleCall_3_1_0_1() { return cSuperCaseUseCaseIDTerminalRuleCall_3_1_0_1; }
 
-		//("preconditions" preConditions=STRING)? & ("postcondition" postcondition=STRING)?
+		//("preconditions" preconditions+=UCCondition+)? & ("postcondition" postconditions+=UCCondition+)?
 		public UnorderedGroup getUnorderedGroup_4() { return cUnorderedGroup_4; }
 
-		//("preconditions" preConditions=STRING)?
+		//("preconditions" preconditions+=UCCondition+)?
 		public Group getGroup_4_0() { return cGroup_4_0; }
 
 		//"preconditions"
 		public Keyword getPreconditionsKeyword_4_0_0() { return cPreconditionsKeyword_4_0_0; }
 
-		//preConditions=STRING
-		public Assignment getPreConditionsAssignment_4_0_1() { return cPreConditionsAssignment_4_0_1; }
+		//preconditions+=UCCondition+
+		public Assignment getPreconditionsAssignment_4_0_1() { return cPreconditionsAssignment_4_0_1; }
 
-		//STRING
-		public RuleCall getPreConditionsSTRINGTerminalRuleCall_4_0_1_0() { return cPreConditionsSTRINGTerminalRuleCall_4_0_1_0; }
+		//UCCondition
+		public RuleCall getPreconditionsUCConditionParserRuleCall_4_0_1_0() { return cPreconditionsUCConditionParserRuleCall_4_0_1_0; }
 
-		//("postcondition" postcondition=STRING)?
+		//("postcondition" postconditions+=UCCondition+)?
 		public Group getGroup_4_1() { return cGroup_4_1; }
 
 		//"postcondition"
 		public Keyword getPostconditionKeyword_4_1_0() { return cPostconditionKeyword_4_1_0; }
 
-		//postcondition=STRING
-		public Assignment getPostconditionAssignment_4_1_1() { return cPostconditionAssignment_4_1_1; }
+		//postconditions+=UCCondition+
+		public Assignment getPostconditionsAssignment_4_1_1() { return cPostconditionsAssignment_4_1_1; }
 
-		//STRING
-		public RuleCall getPostconditionSTRINGTerminalRuleCall_4_1_1_0() { return cPostconditionSTRINGTerminalRuleCall_4_1_1_0; }
+		//UCCondition
+		public RuleCall getPostconditionsUCConditionParserRuleCall_4_1_1_0() { return cPostconditionsUCConditionParserRuleCall_4_1_1_0; }
 
 		//flows+=Flow*
 		public Assignment getFlowsAssignment_5() { return cFlowsAssignment_5; }
@@ -194,6 +194,22 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"end usecase"
 		public Keyword getEndUsecaseKeyword_6() { return cEndUsecaseKeyword_6; }
+	}
+
+	public class UCConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UCCondition");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameSTRINGTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//UCCondition:
+		//	name=STRING;
+		@Override public ParserRule getRule() { return rule; }
+
+		//name=STRING
+		public Assignment getNameAssignment() { return cNameAssignment; }
+
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_0() { return cNameSTRINGTerminalRuleCall_0; }
 	}
 
 	public class ActorElements extends AbstractParserRuleElementFinder {
@@ -307,13 +323,13 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cWithPostconditionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cFinalStateAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFinalStateSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
+		private final RuleCall cFinalStateUCConditionParserRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
 		
 		//BasicFlow:
-		//	"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
+		//	"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
+		//"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?
 		public Group getGroup() { return cGroup; }
 
 		//"basic flow"
@@ -331,17 +347,17 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//"end flow"
 		public Keyword getEndFlowKeyword_3() { return cEndFlowKeyword_3; }
 
-		//("with postcondition" finalState=STRING)?
+		//("with postcondition" finalState=UCCondition)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"with postcondition"
 		public Keyword getWithPostconditionKeyword_4_0() { return cWithPostconditionKeyword_4_0; }
 
-		//finalState=STRING
+		//finalState=UCCondition
 		public Assignment getFinalStateAssignment_4_1() { return cFinalStateAssignment_4_1; }
 
-		//STRING
-		public RuleCall getFinalStateSTRINGTerminalRuleCall_4_1_0() { return cFinalStateSTRINGTerminalRuleCall_4_1_0; }
+		//UCCondition
+		public RuleCall getFinalStateUCConditionParserRuleCall_4_1_0() { return cFinalStateUCConditionParserRuleCall_4_1_0; }
 	}
 
 	public class NamedFlowElements extends AbstractParserRuleElementFinder {
@@ -384,14 +400,15 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cWithPostconditionKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cFinalStateAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cFinalStateSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cFinalStateAssignment_7_1.eContents().get(0);
+		private final RuleCall cFinalStateUCConditionParserRuleCall_7_1_0 = (RuleCall)cFinalStateAssignment_7_1.eContents().get(0);
 		
 		//ExceptionFlow:
 		//	"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition"
-		//	finalState=STRING)?;
+		//	finalState=UCCondition)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
+		//"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition"
+		//finalState=UCCondition)?
 		public Group getGroup() { return cGroup; }
 
 		//"exception flow"
@@ -424,17 +441,17 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//"end flow"
 		public Keyword getEndFlowKeyword_6() { return cEndFlowKeyword_6; }
 
-		//("with postcondition" finalState=STRING)?
+		//("with postcondition" finalState=UCCondition)?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"with postcondition"
 		public Keyword getWithPostconditionKeyword_7_0() { return cWithPostconditionKeyword_7_0; }
 
-		//finalState=STRING
+		//finalState=UCCondition
 		public Assignment getFinalStateAssignment_7_1() { return cFinalStateAssignment_7_1; }
 
-		//STRING
-		public RuleCall getFinalStateSTRINGTerminalRuleCall_7_1_0() { return cFinalStateSTRINGTerminalRuleCall_7_1_0; }
+		//UCCondition
+		public RuleCall getFinalStateUCConditionParserRuleCall_7_1_0() { return cFinalStateUCConditionParserRuleCall_7_1_0; }
 	}
 
 	public class AlternativeFlowElements extends AbstractParserRuleElementFinder {
@@ -449,13 +466,13 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cWithPostconditionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cFinalStateAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFinalStateSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
+		private final RuleCall cFinalStateUCConditionParserRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
 		
 		//AlternativeFlow:
-		//	"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
+		//	"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
+		//"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?
 		public Group getGroup() { return cGroup; }
 
 		//"alternative flow"
@@ -476,17 +493,17 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//"end flow"
 		public Keyword getEndFlowKeyword_3() { return cEndFlowKeyword_3; }
 
-		//("with postcondition" finalState=STRING)?
+		//("with postcondition" finalState=UCCondition)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"with postcondition"
 		public Keyword getWithPostconditionKeyword_4_0() { return cWithPostconditionKeyword_4_0; }
 
-		//finalState=STRING
+		//finalState=UCCondition
 		public Assignment getFinalStateAssignment_4_1() { return cFinalStateAssignment_4_1; }
 
-		//STRING
-		public RuleCall getFinalStateSTRINGTerminalRuleCall_4_1_0() { return cFinalStateSTRINGTerminalRuleCall_4_1_0; }
+		//UCCondition
+		public RuleCall getFinalStateUCConditionParserRuleCall_4_1_0() { return cFinalStateUCConditionParserRuleCall_4_1_0; }
 	}
 
 	public class ParallelFlowElements extends AbstractParserRuleElementFinder {
@@ -501,13 +518,13 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cWithPostconditionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cFinalStateAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFinalStateSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
+		private final RuleCall cFinalStateUCConditionParserRuleCall_4_1_0 = (RuleCall)cFinalStateAssignment_4_1.eContents().get(0);
 		
 		//ParallelFlow:
-		//	"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
+		//	"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?
+		//"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?
 		public Group getGroup() { return cGroup; }
 
 		//"parallel flow"
@@ -528,17 +545,17 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//"end flow"
 		public Keyword getEndFlowKeyword_3() { return cEndFlowKeyword_3; }
 
-		//("with postcondition" finalState=STRING)?
+		//("with postcondition" finalState=UCCondition)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//"with postcondition"
 		public Keyword getWithPostconditionKeyword_4_0() { return cWithPostconditionKeyword_4_0; }
 
-		//finalState=STRING
+		//finalState=UCCondition
 		public Assignment getFinalStateAssignment_4_1() { return cFinalStateAssignment_4_1; }
 
-		//STRING
-		public RuleCall getFinalStateSTRINGTerminalRuleCall_4_1_0() { return cFinalStateSTRINGTerminalRuleCall_4_1_0; }
+		//UCCondition
+		public RuleCall getFinalStateUCConditionParserRuleCall_4_1_0() { return cFinalStateUCConditionParserRuleCall_4_1_0; }
 	}
 
 	public class StepAlternativeElements extends AbstractParserRuleElementFinder {
@@ -1087,6 +1104,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final UseCasesModelElements pUseCasesModel;
 	private final PackageDeclarationElements pPackageDeclaration;
 	private final UseCaseElements pUseCase;
+	private final UCConditionElements pUCCondition;
 	private final ActorElements pActor;
 	private final StepElements pStep;
 	private final FlowElements pFlow;
@@ -1117,6 +1135,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUseCasesModel = new UseCasesModelElements();
 		this.pPackageDeclaration = new PackageDeclarationElements();
 		this.pUseCase = new UseCaseElements();
+		this.pUCCondition = new UCConditionElements();
 		this.pActor = new ActorElements();
 		this.pStep = new StepElements();
 		this.pFlow = new FlowElements();
@@ -1184,14 +1203,24 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UseCase:
-	//	"usecase" name=ID description=STRING? ("extends" superCase=[UseCase])? (("preconditions" preConditions=STRING)? &
-	//	("postcondition" postcondition=STRING)?) flows+=Flow* "end usecase";
+	//	"usecase" name=ID description=STRING? ("extends" superCase=[UseCase])? (("preconditions"
+	//	preconditions+=UCCondition+)? & ("postcondition" postconditions+=UCCondition+)?) flows+=Flow* "end usecase";
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
 	}
 	
 	public ParserRule getUseCaseRule() {
 		return getUseCaseAccess().getRule();
+	}
+
+	//UCCondition:
+	//	name=STRING;
+	public UCConditionElements getUCConditionAccess() {
+		return pUCCondition;
+	}
+	
+	public ParserRule getUCConditionRule() {
+		return getUCConditionAccess().getRule();
 	}
 
 	//Actor:
@@ -1225,7 +1254,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BasicFlow:
-	//	"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
+	//	"basic flow" {BasicFlow} steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?;
 	public BasicFlowElements getBasicFlowAccess() {
 		return pBasicFlow;
 	}
@@ -1246,7 +1275,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ExceptionFlow:
 	//	"exception flow" name=ID "if" condition=STRING "then" steps+=Step* "end flow" ("with postcondition"
-	//	finalState=STRING)?;
+	//	finalState=UCCondition)?;
 	public ExceptionFlowElements getExceptionFlowAccess() {
 		return pExceptionFlow;
 	}
@@ -1256,7 +1285,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AlternativeFlow:
-	//	"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
+	//	"alternative flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?;
 	public AlternativeFlowElements getAlternativeFlowAccess() {
 		return pAlternativeFlow;
 	}
@@ -1266,7 +1295,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParallelFlow:
-	//	"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=STRING)?;
+	//	"parallel flow" name=ID steps+=Step* "end flow" ("with postcondition" finalState=UCCondition)?;
 	public ParallelFlowElements getParallelFlowAccess() {
 		return pParallelFlow;
 	}

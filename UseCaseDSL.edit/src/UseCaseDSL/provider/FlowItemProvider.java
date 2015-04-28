@@ -57,27 +57,8 @@ public class FlowItemProvider extends ItemProviderAdapter implements
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFinalStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Final State feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFinalStatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory)
-						.getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_Flow_finalState_feature"),
-				getString("_UI_PropertyDescriptor_description",
-						"_UI_Flow_finalState_feature", "_UI_Flow_type"),
-				UseCaseDSLPackage.Literals.FLOW__FINAL_STATE, true, false,
-				false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -94,6 +75,7 @@ public class FlowItemProvider extends ItemProviderAdapter implements
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UseCaseDSLPackage.Literals.FLOW__STEPS);
+			childrenFeatures.add(UseCaseDSLPackage.Literals.FLOW__FINAL_STATE);
 		}
 		return childrenFeatures;
 	}
@@ -119,9 +101,7 @@ public class FlowItemProvider extends ItemProviderAdapter implements
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Flow) object).getFinalState();
-		return label == null || label.length() == 0 ? getString("_UI_Flow_type")
-				: getString("_UI_Flow_type") + " " + label;
+		return getString("_UI_Flow_type");
 	}
 
 	/**
@@ -136,11 +116,8 @@ public class FlowItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Flow.class)) {
-		case UseCaseDSLPackage.FLOW__FINAL_STATE:
-			fireNotifyChanged(new ViewerNotification(notification,
-					notification.getNotifier(), false, true));
-			return;
 		case UseCaseDSLPackage.FLOW__STEPS:
+		case UseCaseDSLPackage.FLOW__FINAL_STATE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -167,6 +144,10 @@ public class FlowItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add(createChildParameter(
 				UseCaseDSLPackage.Literals.FLOW__STEPS,
 				UseCaseDSLFactory.eINSTANCE.createParallelStep()));
+
+		newChildDescriptors.add(createChildParameter(
+				UseCaseDSLPackage.Literals.FLOW__FINAL_STATE,
+				UseCaseDSLFactory.eINSTANCE.createUCCondition()));
 	}
 
 	/**

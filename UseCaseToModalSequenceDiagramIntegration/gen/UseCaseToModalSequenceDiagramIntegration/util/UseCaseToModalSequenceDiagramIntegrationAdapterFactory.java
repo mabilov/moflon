@@ -125,6 +125,11 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 		}
 
 		@Override
+		public Adapter caseUCConditionToMessage(UCConditionToMessage object) {
+			return createUCConditionToMessageAdapter();
+		}
+
+		@Override
 		public Adapter caseAbstractCorrespondence(AbstractCorrespondence object) {
 			return createAbstractCorrespondenceAdapter();
 		}
@@ -285,6 +290,20 @@ public class UseCaseToModalSequenceDiagramIntegrationAdapterFactory extends
 	 * @generated
 	 */
 	public Adapter createNormalStepToCombinedFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage <em>UC Condition To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage
+	 * @generated
+	 */
+	public Adapter createUCConditionToMessageAdapter() {
 		return null;
 	}
 

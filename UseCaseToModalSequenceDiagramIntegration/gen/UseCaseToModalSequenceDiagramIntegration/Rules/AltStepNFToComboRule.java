@@ -3,6 +3,8 @@
 package UseCaseToModalSequenceDiagramIntegration.Rules;
 
 import TGGRuntime.AbstractRule;
+
+import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]
 // [user defined imports] -->
 
@@ -16,7 +18,7 @@ import TGGRuntime.AbstractRule;
  * @model abstract="true"
  * @generated
  */
-public interface AltStepNFToComboRule extends AbstractRule, AltStepToComboRule { // <-- [user code injected with eMoflon]
+public interface AltStepNFToComboRule extends EObject, AbstractRule { // <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
 } // AltStepNFToComboRule

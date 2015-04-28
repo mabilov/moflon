@@ -266,7 +266,7 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_21(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_23(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,7 +274,7 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_22(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_24(
 			EMoflonEdge _edge_invokedFlows);
 
 	/**

@@ -239,7 +239,7 @@ public interface LaneToActorRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_4(EMoflonEdge _edge_actors);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_5(EMoflonEdge _edge_actors);
 
 	/**
 	 * <!-- begin-user-doc -->

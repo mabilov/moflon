@@ -299,23 +299,23 @@ ruleUseCase returns [EObject current=null]
     }
 (
 (
-		lv_preConditions_7_0=RULE_STRING
-		{
-			newLeafNode(lv_preConditions_7_0, grammarAccess.getUseCaseAccess().getPreConditionsSTRINGTerminalRuleCall_4_0_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionsUCConditionParserRuleCall_4_0_1_0()); 
+	    }
+		lv_preconditions_7_0=ruleUCCondition		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUseCaseRule());
+	            $current = createModelElementForParent(grammarAccess.getUseCaseRule());
 	        }
-       		setWithLastConsumed(
+       		add(
        			$current, 
-       			"preConditions",
-        		lv_preConditions_7_0, 
-        		"STRING");
+       			"preconditions",
+        		lv_preconditions_7_0, 
+        		"UCCondition");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))
+)+))
 					{ 
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUseCaseAccess().getUnorderedGroup_4());
 	 				}
@@ -333,23 +333,23 @@ ruleUseCase returns [EObject current=null]
     }
 (
 (
-		lv_postcondition_9_0=RULE_STRING
-		{
-			newLeafNode(lv_postcondition_9_0, grammarAccess.getUseCaseAccess().getPostconditionSTRINGTerminalRuleCall_4_1_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getUseCaseAccess().getPostconditionsUCConditionParserRuleCall_4_1_1_0()); 
+	    }
+		lv_postconditions_9_0=ruleUCCondition		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getUseCaseRule());
+	            $current = createModelElementForParent(grammarAccess.getUseCaseRule());
 	        }
-       		setWithLastConsumed(
+       		add(
        			$current, 
-       			"postcondition",
-        		lv_postcondition_9_0, 
-        		"STRING");
+       			"postconditions",
+        		lv_postconditions_9_0, 
+        		"UCCondition");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)))
+)+))
 					{ 
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getUseCaseAccess().getUnorderedGroup_4());
 	 				}
@@ -385,6 +385,45 @@ ruleUseCase returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getUseCaseAccess().getEndUsecaseKeyword_6());
     }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleUCCondition
+entryRuleUCCondition returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getUCConditionRule()); }
+	 iv_ruleUCCondition=ruleUCCondition 
+	 { $current=$iv_ruleUCCondition.current; } 
+	 EOF 
+;
+
+// Rule UCCondition
+ruleUCCondition returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		lv_name_0_0=RULE_STRING
+		{
+			newLeafNode(lv_name_0_0, grammarAccess.getUCConditionAccess().getNameSTRINGTerminalRuleCall_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getUCConditionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"STRING");
+	    }
+
+)
 )
 ;
 
@@ -620,19 +659,19 @@ ruleBasicFlow returns [EObject current=null]
     }
 (
 (
-		lv_finalState_5_0=RULE_STRING
-		{
-			newLeafNode(lv_finalState_5_0, grammarAccess.getBasicFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getBasicFlowAccess().getFinalStateUCConditionParserRuleCall_4_1_0()); 
+	    }
+		lv_finalState_5_0=ruleUCCondition		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getBasicFlowRule());
+	            $current = createModelElementForParent(grammarAccess.getBasicFlowRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"finalState",
         		lv_finalState_5_0, 
-        		"STRING");
+        		"UCCondition");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -783,19 +822,19 @@ ruleExceptionFlow returns [EObject current=null]
     }
 (
 (
-		lv_finalState_8_0=RULE_STRING
-		{
-			newLeafNode(lv_finalState_8_0, grammarAccess.getExceptionFlowAccess().getFinalStateSTRINGTerminalRuleCall_7_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getExceptionFlowAccess().getFinalStateUCConditionParserRuleCall_7_1_0()); 
+	    }
+		lv_finalState_8_0=ruleUCCondition		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getExceptionFlowRule());
+	            $current = createModelElementForParent(grammarAccess.getExceptionFlowRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"finalState",
         		lv_finalState_8_0, 
-        		"STRING");
+        		"UCCondition");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -870,19 +909,19 @@ ruleAlternativeFlow returns [EObject current=null]
     }
 (
 (
-		lv_finalState_5_0=RULE_STRING
-		{
-			newLeafNode(lv_finalState_5_0, grammarAccess.getAlternativeFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getAlternativeFlowAccess().getFinalStateUCConditionParserRuleCall_4_1_0()); 
+	    }
+		lv_finalState_5_0=ruleUCCondition		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAlternativeFlowRule());
+	            $current = createModelElementForParent(grammarAccess.getAlternativeFlowRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"finalState",
         		lv_finalState_5_0, 
-        		"STRING");
+        		"UCCondition");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -957,19 +996,19 @@ ruleParallelFlow returns [EObject current=null]
     }
 (
 (
-		lv_finalState_5_0=RULE_STRING
-		{
-			newLeafNode(lv_finalState_5_0, grammarAccess.getParallelFlowAccess().getFinalStateSTRINGTerminalRuleCall_4_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getParallelFlowAccess().getFinalStateUCConditionParserRuleCall_4_1_0()); 
+	    }
+		lv_finalState_5_0=ruleUCCondition		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getParallelFlowRule());
+	            $current = createModelElementForParent(grammarAccess.getParallelFlowRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"finalState",
         		lv_finalState_5_0, 
-        		"STRING");
+        		"UCCondition");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )

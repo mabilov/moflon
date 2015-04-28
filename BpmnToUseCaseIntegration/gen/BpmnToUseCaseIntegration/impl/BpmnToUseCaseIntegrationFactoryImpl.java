@@ -83,6 +83,12 @@ public class BpmnToUseCaseIntegrationFactoryImpl extends EFactoryImpl implements
 			return createICEToAltFlow();
 		case BpmnToUseCaseIntegrationPackage.END_EVENT_TO_FLOW:
 			return createEndEventToFlow();
+		case BpmnToUseCaseIntegrationPackage.PROCESS_TO_BASIC_FLOW:
+			return createProcessToBasicFlow();
+		case BpmnToUseCaseIntegrationPackage.START_EVENT_TO_UC_CONDITION:
+			return createStartEventToUCCondition();
+		case BpmnToUseCaseIntegrationPackage.END_EVENT_TO_UC_CONDITION:
+			return createEndEventToUCCondition();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -217,6 +223,36 @@ public class BpmnToUseCaseIntegrationFactoryImpl extends EFactoryImpl implements
 	public EndEventToFlow createEndEventToFlow() {
 		EndEventToFlowImpl endEventToFlow = new EndEventToFlowImpl();
 		return endEventToFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProcessToBasicFlow createProcessToBasicFlow() {
+		ProcessToBasicFlowImpl processToBasicFlow = new ProcessToBasicFlowImpl();
+		return processToBasicFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StartEventToUCCondition createStartEventToUCCondition() {
+		StartEventToUCConditionImpl startEventToUCCondition = new StartEventToUCConditionImpl();
+		return startEventToUCCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndEventToUCCondition createEndEventToUCCondition() {
+		EndEventToUCConditionImpl endEventToUCCondition = new EndEventToUCConditionImpl();
+		return endEventToUCCondition;
 	}
 
 	/**

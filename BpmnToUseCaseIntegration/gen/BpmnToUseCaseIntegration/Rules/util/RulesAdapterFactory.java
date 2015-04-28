@@ -86,6 +86,11 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseClass1(Class1 object) {
+			return createClass1Adapter();
+		}
+
+		@Override
 		public Adapter caseTaskToStepCoreRule(TaskToStepCoreRule object) {
 			return createTaskToStepCoreRuleAdapter();
 		}
@@ -419,6 +424,20 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProcessToUseCaseRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link BpmnToUseCaseIntegration.Rules.Class1 <em>Class1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1
+	 * @generated
+	 */
+	public Adapter createClass1Adapter() {
 		return null;
 	}
 

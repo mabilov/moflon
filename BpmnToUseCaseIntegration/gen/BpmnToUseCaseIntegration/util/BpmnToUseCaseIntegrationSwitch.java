@@ -185,6 +185,33 @@ public class BpmnToUseCaseIntegrationSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case BpmnToUseCaseIntegrationPackage.PROCESS_TO_BASIC_FLOW: {
+			ProcessToBasicFlow processToBasicFlow = (ProcessToBasicFlow) theEObject;
+			T result = caseProcessToBasicFlow(processToBasicFlow);
+			if (result == null)
+				result = caseAbstractCorrespondence(processToBasicFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.START_EVENT_TO_UC_CONDITION: {
+			StartEventToUCCondition startEventToUCCondition = (StartEventToUCCondition) theEObject;
+			T result = caseStartEventToUCCondition(startEventToUCCondition);
+			if (result == null)
+				result = caseAbstractCorrespondence(startEventToUCCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnToUseCaseIntegrationPackage.END_EVENT_TO_UC_CONDITION: {
+			EndEventToUCCondition endEventToUCCondition = (EndEventToUCCondition) theEObject;
+			T result = caseEndEventToUCCondition(endEventToUCCondition);
+			if (result == null)
+				result = caseAbstractCorrespondence(endEventToUCCondition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -382,6 +409,51 @@ public class BpmnToUseCaseIntegrationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEndEventToFlow(EndEventToFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Process To Basic Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Process To Basic Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProcessToBasicFlow(ProcessToBasicFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start Event To UC Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start Event To UC Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartEventToUCCondition(StartEventToUCCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>End Event To UC Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>End Event To UC Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEndEventToUCCondition(EndEventToUCCondition object) {
 		return null;
 	}
 

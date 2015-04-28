@@ -77,6 +77,8 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 			return createParallelStepToCombinedFragment();
 		case UseCaseToModalSequenceDiagramIntegrationPackage.NORMAL_STEP_TO_COMBINED_FRAGMENT:
 			return createNormalStepToCombinedFragment();
+		case UseCaseToModalSequenceDiagramIntegrationPackage.UC_CONDITION_TO_MESSAGE:
+			return createUCConditionToMessage();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -181,6 +183,16 @@ public class UseCaseToModalSequenceDiagramIntegrationFactoryImpl extends
 	public NormalStepToCombinedFragment createNormalStepToCombinedFragment() {
 		NormalStepToCombinedFragmentImpl normalStepToCombinedFragment = new NormalStepToCombinedFragmentImpl();
 		return normalStepToCombinedFragment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UCConditionToMessage createUCConditionToMessage() {
+		UCConditionToMessageImpl ucConditionToMessage = new UCConditionToMessageImpl();
+		return ucConditionToMessage;
 	}
 
 	/**

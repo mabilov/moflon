@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +20,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public abstract class AbstractUseCaseSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UseCaseGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_UseCase_PostconditionKeyword_4_1_0_q;
+	protected AbstractElementAlias match_UseCase_PreconditionsKeyword_4_0_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UseCaseGrammarAccess) access;
+		match_UseCase_PostconditionKeyword_4_1_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getPostconditionKeyword_4_1_0());
+		match_UseCase_PreconditionsKeyword_4_0_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getPreconditionsKeyword_4_0_0());
 	}
 	
 	@Override
@@ -36,8 +42,34 @@ public abstract class AbstractUseCaseSyntacticSequencer extends AbstractSyntacti
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if(match_UseCase_PostconditionKeyword_4_1_0_q.equals(syntax))
+				emit_UseCase_PostconditionKeyword_4_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UseCase_PreconditionsKeyword_4_0_0_q.equals(syntax))
+				emit_UseCase_PreconditionsKeyword_4_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'postcondition'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     postconditions+=UCCondition (ambiguity) postconditions+=UCCondition
+	 */
+	protected void emit_UseCase_PostconditionKeyword_4_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'preconditions'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     preconditions+=UCCondition (ambiguity) preconditions+=UCCondition
+	 */
+	protected void emit_UseCase_PreconditionsKeyword_4_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

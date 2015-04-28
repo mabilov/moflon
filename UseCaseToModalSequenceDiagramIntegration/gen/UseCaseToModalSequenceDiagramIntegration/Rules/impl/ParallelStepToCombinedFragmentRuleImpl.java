@@ -789,7 +789,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_76(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_75(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
@@ -850,7 +850,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_77(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_76(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
@@ -911,7 +911,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_233(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_232(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
@@ -1200,14 +1200,14 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_75__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_75((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_76__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_76((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_77__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_77((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_233__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_233((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_232__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_232((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2880,8 +2880,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createParallelStepToCombinedFragment();
 		Object _localVariable_0 = csp.getValue("combo", "interactionOperator");
-		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
 		flow.getSteps().add(step);
 		ruleResult.getSourceObjects().add(step);
 		combo.setEnclosingInteraction(interaction);
@@ -2890,8 +2890,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		stepToCombo.setTarget(combo);
 		ruleResult.getCorrObjects().add(stepToCombo);
 		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_0;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
 		combo.setInteractionOperator(combo_interactionOperator_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

@@ -926,7 +926,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_4(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_5(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneToActorRuleImpl
@@ -1259,8 +1259,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_7__EMOFLONEDGE:
 			return isAppropriate_FWD_EMoflonEdge_7((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_4__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_4((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_5__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_5((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2871,9 +2871,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_20_2_black_nac_0BB(
 			Lane lane, LaneSet laneSet) {
-		for (LaneSet __DEC_lane_lanes_807636 : org.moflon.util.eMoflonEMFUtil
+		for (LaneSet __DEC_lane_lanes_185555 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(lane, LaneSet.class, "lanes")) {
-			if (!laneSet.equals(__DEC_lane_lanes_807636)) {
+			if (!laneSet.equals(__DEC_lane_lanes_185555)) {
 				return new Object[] { lane, laneSet };
 			}
 		}
@@ -3009,10 +3009,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_21_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_282872 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_939859 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_282872)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_939859)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}

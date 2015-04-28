@@ -60,8 +60,8 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createUCModelToMSDModelRule();
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE:
 			return createUCPackageToMSDPackage();
-		case RulesPackage.USE_CASE_NO_PRECOND_RULE:
-			return createUseCaseNoPrecondRule();
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE:
+			return createUseCaseToInteractionRule();
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE:
 			return createUserActorToLifelineRule();
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE:
@@ -119,9 +119,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UseCaseNoPrecondRule createUseCaseNoPrecondRule() {
-		UseCaseNoPrecondRuleImpl useCaseNoPrecondRule = new UseCaseNoPrecondRuleImpl();
-		return useCaseNoPrecondRule;
+	public UseCaseToInteractionRule createUseCaseToInteractionRule() {
+		UseCaseToInteractionRuleImpl useCaseToInteractionRule = new UseCaseToInteractionRuleImpl();
+		return useCaseToInteractionRule;
 	}
 
 	/**

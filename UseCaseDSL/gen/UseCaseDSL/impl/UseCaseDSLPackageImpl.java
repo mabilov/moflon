@@ -19,6 +19,7 @@ import UseCaseDSL.ParallelFlow;
 import UseCaseDSL.ParallelStep;
 import UseCaseDSL.Step;
 import UseCaseDSL.StepAlternative;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 import UseCaseDSL.UseCaseDSLPackage;
@@ -158,6 +159,13 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass useCasesModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ucConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -370,8 +378,8 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFlow_FinalState() {
-		return (EAttribute) flowEClass.getEStructuralFeatures().get(1);
+	public EReference getFlow_FinalState() {
+		return (EReference) flowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -639,25 +647,25 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUseCase_Preconditions() {
+		return (EReference) useCaseEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUseCase_Postconditions() {
+		return (EReference) useCaseEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getUseCase_Description() {
-		return (EAttribute) useCaseEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUseCase_Name() {
-		return (EAttribute) useCaseEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUseCase_Postcondition() {
 		return (EAttribute) useCaseEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -666,7 +674,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUseCase_PreConditions() {
+	public EAttribute getUseCase_Name() {
 		return (EAttribute) useCaseEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -686,6 +694,24 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 */
 	public EReference getUseCasesModel_Packages() {
 		return (EReference) useCasesModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUCCondition() {
+		return ucConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUCCondition_Name() {
+		return (EAttribute) ucConditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -756,7 +782,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 
 		flowEClass = createEClass(FLOW);
 		createEReference(flowEClass, FLOW__STEPS);
-		createEAttribute(flowEClass, FLOW__FINAL_STATE);
+		createEReference(flowEClass, FLOW__FINAL_STATE);
 
 		localAlternativeEClass = createEClass(LOCAL_ALTERNATIVE);
 		createEReference(localAlternativeEClass,
@@ -797,13 +823,16 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 		useCaseEClass = createEClass(USE_CASE);
 		createEReference(useCaseEClass, USE_CASE__SUPER_CASE);
 		createEReference(useCaseEClass, USE_CASE__FLOWS);
+		createEReference(useCaseEClass, USE_CASE__PRECONDITIONS);
+		createEReference(useCaseEClass, USE_CASE__POSTCONDITIONS);
 		createEAttribute(useCaseEClass, USE_CASE__DESCRIPTION);
 		createEAttribute(useCaseEClass, USE_CASE__NAME);
-		createEAttribute(useCaseEClass, USE_CASE__POSTCONDITION);
-		createEAttribute(useCaseEClass, USE_CASE__PRE_CONDITIONS);
 
 		useCasesModelEClass = createEClass(USE_CASES_MODEL);
 		createEReference(useCasesModelEClass, USE_CASES_MODEL__PACKAGES);
+
+		ucConditionEClass = createEClass(UC_CONDITION);
+		createEAttribute(ucConditionEClass, UC_CONDITION__NAME);
 
 		// Create enums
 		actorTypeEEnum = createEEnum(ACTOR_TYPE);
@@ -902,10 +931,10 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 				-1, Flow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFlow_FinalState(), ecorePackage.getEString(),
+		initEReference(getFlow_FinalState(), this.getUCCondition(), null,
 				"finalState", null, 0, 1, Flow.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, !IS_ORDERED);
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(localAlternativeEClass, LocalAlternative.class,
 				"LocalAlternative", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1019,6 +1048,15 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 				0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUseCase_Preconditions(), this.getUCCondition(), null,
+				"preconditions", null, 0, -1, UseCase.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUseCase_Postconditions(), this.getUCCondition(),
+				null, "postconditions", null, 0, -1, UseCase.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEAttribute(getUseCase_Description(), ecorePackage.getEString(),
 				"description", null, 0, 1, UseCase.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -1027,14 +1065,6 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 				null, 1, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED,
 				!IS_ORDERED);
-		initEAttribute(getUseCase_Postcondition(), ecorePackage.getEString(),
-				"postcondition", null, 0, 1, UseCase.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getUseCase_PreConditions(), ecorePackage.getEString(),
-				"preConditions", null, 0, 1, UseCase.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, !IS_ORDERED);
 
 		initEClass(useCasesModelEClass, UseCasesModel.class, "UseCasesModel",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1043,6 +1073,13 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 				UseCasesModel.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ucConditionEClass, UCCondition.class, "UCCondition",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUCCondition_Name(), ecorePackage.getEString(),
+				"name", null, 1, 1, UCCondition.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(actorTypeEEnum, ActorType.class, "ActorType");

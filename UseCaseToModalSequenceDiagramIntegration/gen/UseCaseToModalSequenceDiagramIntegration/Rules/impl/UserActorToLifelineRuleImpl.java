@@ -5,7 +5,6 @@ package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 import ModalSequenceDiagram.Interaction;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.ModalSequenceDiagramFactory;
-import ModalSequenceDiagram.PackageableElement;
 
 import TGGLanguage.csp.CSP;
 
@@ -28,6 +27,7 @@ import TGGRuntime.impl.AbstractRuleImpl;
 import UseCaseDSL.Actor;
 import UseCaseDSL.ActorType;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 
 import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
@@ -36,6 +36,7 @@ import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UserActorToLifelineRule;
 
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 
 import java.lang.Iterable;
@@ -92,11 +93,11 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public boolean isAppropriate_FWD(Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
+			PackageDeclaration packageDeclaration, UseCase useCase) {
 		// initial bindings
 		Object[] result1_black = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_0_1_blackBBBB(this, match,
-						actor, packageDeclaration);
+				.pattern_UserActorToLifelineRule_0_1_blackBBBBB(this, match,
+						actor, packageDeclaration, useCase);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [initial bindings] failed");
@@ -104,8 +105,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 		// Solve CSP
 		Object[] result2_bindingAndBlack = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_0_2_bindingAndBlackFBBBB(this,
-						match, actor, packageDeclaration);
+				.pattern_UserActorToLifelineRule_0_2_bindingAndBlackFBBBBB(
+						this, match, actor, packageDeclaration, useCase);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [Solve CSP] failed");
@@ -117,8 +118,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 			// collect elements to be translated
 			Object[] result4_black = UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_0_4_blackBBB(match, actor,
-							packageDeclaration);
+					.pattern_UserActorToLifelineRule_0_4_blackBBBB(match,
+							actor, packageDeclaration, useCase);
 			if (result4_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect elements to be translated] failed");
@@ -130,20 +131,21 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 			// collect context elements
 			Object[] result5_black = UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_0_5_blackBBB(match, actor,
-							packageDeclaration);
+					.pattern_UserActorToLifelineRule_0_5_blackBBBB(match,
+							actor, packageDeclaration, useCase);
 			if (result5_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect context elements] failed");
 			}
 			UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_0_5_greenBB(match,
-							packageDeclaration);
+					.pattern_UserActorToLifelineRule_0_5_greenBBBF(match,
+							packageDeclaration, useCase);
+			// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result5_green[3];
 
 			// register objects to match
 			UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_0_6_expressionBBBB(this,
-							match, actor, packageDeclaration);
+					.pattern_UserActorToLifelineRule_0_6_expressionBBBBB(this,
+							match, actor, packageDeclaration, useCase);
 			return UserActorToLifelineRuleImpl
 					.pattern_UserActorToLifelineRule_0_7_expressionF();
 		} else {
@@ -161,7 +163,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
 		// perform transformation
 		Object[] result1_bindingAndBlack = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_1_1_bindingAndBlackFFFFFFBB(
+				.pattern_UserActorToLifelineRule_1_1_bindingAndBlackFFFFFFFFBB(
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
@@ -171,8 +173,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[1];
 		ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result1_bindingAndBlack[2];
 		PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result1_bindingAndBlack[3];
-		Interaction interaction = (Interaction) result1_bindingAndBlack[4];
-		CSP csp = (CSP) result1_bindingAndBlack[5];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[4];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[5];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[6];
+		CSP csp = (CSP) result1_bindingAndBlack[7];
 		Object[] result1_green = UserActorToLifelineRuleImpl
 				.pattern_UserActorToLifelineRule_1_1_greenBFFBB(actor,
 						interaction, csp);
@@ -194,9 +198,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 		// bookkeeping for edges
 		Object[] result3_black = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_1_3_blackBBBBBBBB(ruleresult,
-						actor, packageDeclaration, p, packageDeclarationToP,
-						line, actorToLine, interaction);
+				.pattern_UserActorToLifelineRule_1_3_blackBBBBBBBBBB(
+						ruleresult, actor, packageDeclaration, p,
+						packageDeclarationToP, line, actorToLine, useCase,
+						useCaseToInteraction, interaction);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
@@ -214,9 +219,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		// perform postprocessing story node is empty
 		// register objects
 		UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_1_5_expressionBBBBBBBBB(this,
-						ruleresult, actor, packageDeclaration, p,
-						packageDeclarationToP, line, actorToLine, interaction);
+				.pattern_UserActorToLifelineRule_1_5_expressionBBBBBBBBBBB(
+						this, ruleresult, actor, packageDeclaration, p,
+						packageDeclarationToP, line, actorToLine, useCase,
+						useCaseToInteraction, interaction);
 		return UserActorToLifelineRuleImpl
 				.pattern_UserActorToLifelineRule_1_6_expressionFB(ruleresult);
 	}
@@ -242,38 +248,45 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach core match
 		Object[] result2_binding = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_2_2_bindingFFB(match);
+				.pattern_UserActorToLifelineRule_2_2_bindingFFFB(match);
 		if (result2_binding == null) {
 			throw new RuntimeException("Binding in node core match failed");
 		}
 		Actor actor = (Actor) result2_binding[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[1];
+		UseCase useCase = (UseCase) result2_binding[2];
 		for (Object[] result2_black : UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_2_2_blackBBFFB(actor,
-						packageDeclaration, match)) {
+				.pattern_UserActorToLifelineRule_2_2_blackBBFFBFFB(actor,
+						packageDeclaration, useCase, match)) {
 			ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result2_black[2];
 			PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result2_black[3];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[5];
+			Interaction interaction = (Interaction) result2_black[6];
 			// ForEach find context
 			for (Object[] result3_black : UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_2_3_blackBBBBF(actor,
-							packageDeclaration, p, packageDeclarationToP)) {
-				Interaction interaction = (Interaction) result3_black[4];
+					.pattern_UserActorToLifelineRule_2_3_blackBBBBBBB(actor,
+							packageDeclaration, p, packageDeclarationToP,
+							useCase, useCaseToInteraction, interaction)) {
 				Object[] result3_green = UserActorToLifelineRuleImpl
-						.pattern_UserActorToLifelineRule_2_3_greenBBBBBFFFFF(
+						.pattern_UserActorToLifelineRule_2_3_greenBBBBBBBFFFFFFFF(
 								actor, packageDeclaration, p,
-								packageDeclarationToP, interaction);
-				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[5];
-				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[6];
-				// EMoflonEdge p__interaction____packagedElement = (EMoflonEdge) result3_green[7];
-				// EMoflonEdge packageDeclarationToP__packageDeclaration____source = (EMoflonEdge) result3_green[8];
-				// EMoflonEdge packageDeclarationToP__p____target = (EMoflonEdge) result3_green[9];
+								packageDeclarationToP, useCase,
+								useCaseToInteraction, interaction);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[7];
+				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[8];
+				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[9];
+				// EMoflonEdge p__interaction____packagedElement = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge packageDeclarationToP__packageDeclaration____source = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge packageDeclarationToP__p____target = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[14];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = UserActorToLifelineRuleImpl
-						.pattern_UserActorToLifelineRule_2_4_bindingAndBlackFBBBBBBB(
+						.pattern_UserActorToLifelineRule_2_4_bindingAndBlackFBBBBBBBBB(
 								this, isApplicableMatch, actor,
 								packageDeclaration, p, packageDeclarationToP,
-								interaction);
+								useCase, useCaseToInteraction, interaction);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -312,9 +325,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjectsToMatch_FWD(Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
+			PackageDeclaration packageDeclaration, UseCase useCase) {
 		match.registerObject("actor", actor);
 		match.registerObject("packageDeclaration", packageDeclaration);
+		match.registerObject("useCase", useCase);
 
 	}
 
@@ -324,7 +338,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {// Create CSP
+			PackageDeclaration packageDeclaration, UseCase useCase) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -369,8 +383,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			Actor actor, PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction) {// Create CSP
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -403,6 +417,9 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("p", p);
 		isApplicableMatch.registerObject("packageDeclarationToP",
 				packageDeclarationToP);
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
 		isApplicableMatch.registerObject("interaction", interaction);
 		return csp;
 	}
@@ -424,7 +441,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public void registerObjects_FWD(PerformRuleResult ruleresult,
 			EObject actor, EObject packageDeclaration, EObject p,
 			EObject packageDeclarationToP, EObject line, EObject actorToLine,
-			EObject interaction) {
+			EObject useCase, EObject useCaseToInteraction, EObject interaction) {
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 		ruleresult.registerObject("p", p);
@@ -432,6 +449,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				packageDeclarationToP);
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("useCase", useCase);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("interaction", interaction);
 
 	}
@@ -524,7 +543,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
 		// perform transformation
 		Object[] result1_bindingAndBlack = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_11_1_bindingAndBlackFFFFFFBB(
+				.pattern_UserActorToLifelineRule_11_1_bindingAndBlackFFFFFFFFBB(
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
@@ -534,8 +553,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result1_bindingAndBlack[1];
 		PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result1_bindingAndBlack[2];
 		Lifeline line = (Lifeline) result1_bindingAndBlack[3];
-		Interaction interaction = (Interaction) result1_bindingAndBlack[4];
-		CSP csp = (CSP) result1_bindingAndBlack[5];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[4];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[5];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[6];
+		CSP csp = (CSP) result1_bindingAndBlack[7];
 		Object[] result1_green = UserActorToLifelineRuleImpl
 				.pattern_UserActorToLifelineRule_11_1_greenFBBFB(
 						packageDeclaration, line, csp);
@@ -557,9 +578,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 		// bookkeeping for edges
 		Object[] result3_black = UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_11_3_blackBBBBBBBB(ruleresult,
-						actor, packageDeclaration, p, packageDeclarationToP,
-						line, actorToLine, interaction);
+				.pattern_UserActorToLifelineRule_11_3_blackBBBBBBBBBB(
+						ruleresult, actor, packageDeclaration, p,
+						packageDeclarationToP, line, actorToLine, useCase,
+						useCaseToInteraction, interaction);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
@@ -577,9 +599,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		// perform postprocessing story node is empty
 		// register objects
 		UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_11_5_expressionBBBBBBBBB(this,
-						ruleresult, actor, packageDeclaration, p,
-						packageDeclarationToP, line, actorToLine, interaction);
+				.pattern_UserActorToLifelineRule_11_5_expressionBBBBBBBBBBB(
+						this, ruleresult, actor, packageDeclaration, p,
+						packageDeclarationToP, line, actorToLine, useCase,
+						useCaseToInteraction, interaction);
 		return UserActorToLifelineRuleImpl
 				.pattern_UserActorToLifelineRule_11_6_expressionFB(ruleresult);
 	}
@@ -613,31 +636,38 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Lifeline line = (Lifeline) result2_binding[1];
 		Interaction interaction = (Interaction) result2_binding[2];
 		for (Object[] result2_black : UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_12_2_blackFBFBBB(p, line,
+				.pattern_UserActorToLifelineRule_12_2_blackFBFBFFBB(p, line,
 						interaction, match)) {
 			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[0];
 			PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result2_black[2];
+			UseCase useCase = (UseCase) result2_black[4];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[5];
 			// ForEach find context
 			for (Object[] result3_black : UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_12_3_blackBBBBB(
+					.pattern_UserActorToLifelineRule_12_3_blackBBBBBBB(
 							packageDeclaration, p, packageDeclarationToP, line,
-							interaction)) {
+							useCase, useCaseToInteraction, interaction)) {
 				Object[] result3_green = UserActorToLifelineRuleImpl
-						.pattern_UserActorToLifelineRule_12_3_greenBBBBBFFFFFF(
+						.pattern_UserActorToLifelineRule_12_3_greenBBBBBBBFFFFFFFFF(
 								packageDeclaration, p, packageDeclarationToP,
-								line, interaction);
-				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[5];
-				// EMoflonEdge p__interaction____packagedElement = (EMoflonEdge) result3_green[6];
-				// EMoflonEdge packageDeclarationToP__packageDeclaration____source = (EMoflonEdge) result3_green[7];
-				// EMoflonEdge packageDeclarationToP__p____target = (EMoflonEdge) result3_green[8];
-				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[9];
-				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[10];
+								line, useCase, useCaseToInteraction,
+								interaction);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[7];
+				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[8];
+				// EMoflonEdge p__interaction____packagedElement = (EMoflonEdge) result3_green[9];
+				// EMoflonEdge packageDeclarationToP__packageDeclaration____source = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge packageDeclarationToP__p____target = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[15];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = UserActorToLifelineRuleImpl
-						.pattern_UserActorToLifelineRule_12_4_bindingAndBlackFBBBBBBB(
+						.pattern_UserActorToLifelineRule_12_4_bindingAndBlackFBBBBBBBBB(
 								this, isApplicableMatch, packageDeclaration, p,
-								packageDeclarationToP, line, interaction);
+								packageDeclarationToP, line, useCase,
+								useCaseToInteraction, interaction);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -724,6 +754,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
 			PackageDeclarationToPackage packageDeclarationToP, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Interaction interaction) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -768,6 +799,9 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("packageDeclarationToP",
 				packageDeclarationToP);
 		isApplicableMatch.registerObject("line", line);
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
 		isApplicableMatch.registerObject("interaction", interaction);
 		return csp;
 	}
@@ -789,7 +823,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public void registerObjects_BWD(PerformRuleResult ruleresult,
 			EObject actor, EObject packageDeclaration, EObject p,
 			EObject packageDeclarationToP, EObject line, EObject actorToLine,
-			EObject interaction) {
+			EObject useCase, EObject useCaseToInteraction, EObject interaction) {
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 		ruleresult.registerObject("p", p);
@@ -797,6 +831,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				packageDeclarationToP);
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actorToLine", actorToLine);
+		ruleresult.registerObject("useCase", useCase);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("interaction", interaction);
 
 	}
@@ -819,7 +855,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_232(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_231(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserActorToLifelineRuleImpl
@@ -836,17 +872,18 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_20_2_blackFFB(_edge_actors)) {
+				.pattern_UserActorToLifelineRule_20_2_blackFFFB(_edge_actors)) {
 			Actor actor = (Actor) result2_black[0];
 			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[1];
+			UseCase useCase = (UseCase) result2_black[2];
 			Object[] result2_green = UserActorToLifelineRuleImpl
 					.pattern_UserActorToLifelineRule_20_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_20_3_expressionFBBBB(this,
-							match, actor, packageDeclaration)) {
+					.pattern_UserActorToLifelineRule_20_3_expressionFBBBBB(
+							this, match, actor, packageDeclaration, useCase)) {
 				// Ensure that the correct types of elements are matched
 				if (UserActorToLifelineRuleImpl
 						.pattern_UserActorToLifelineRule_20_4_expressionFBB(
@@ -880,7 +917,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_74(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_73(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserActorToLifelineRuleImpl
@@ -942,7 +979,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_75(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_74(
 			EMoflonEdge _edge_lifeline) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserActorToLifelineRuleImpl
@@ -1024,7 +1061,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 */
 	public ModelgeneratorRuleResult generateModel(
 			RuleEntryContainer ruleEntryContainer,
-			PackageDeclarationToPackage packageDeclarationToPParameter) {
+			UseCaseToInteraction useCaseToInteractionParameter) {
 		// create result
 		Object[] result1_black = UserActorToLifelineRuleImpl
 				.pattern_UserActorToLifelineRule_25_1_blackB(this);
@@ -1039,19 +1076,22 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach is applicable core
 		for (Object[] result2_black : UserActorToLifelineRuleImpl
-				.pattern_UserActorToLifelineRule_25_2_blackFFFFFBB(
+				.pattern_UserActorToLifelineRule_25_2_blackFFFFFFFBB(
 						ruleEntryContainer, ruleResult)) {
-			// RuleEntryList packageDeclarationToPList = (RuleEntryList) result2_black[0];
+			// RuleEntryList useCaseToInteractionList = (RuleEntryList) result2_black[0];
 			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[1];
-			PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result2_black[2];
-			ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result2_black[3];
+			UseCase useCase = (UseCase) result2_black[2];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[3];
 			Interaction interaction = (Interaction) result2_black[4];
+			ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result2_black[5];
+			PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result2_black[6];
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = UserActorToLifelineRuleImpl
-					.pattern_UserActorToLifelineRule_25_3_bindingAndBlackFBBBBBBB(
+					.pattern_UserActorToLifelineRule_25_3_bindingAndBlackFBBBBBBBBB(
 							this, isApplicableMatch, packageDeclaration, p,
-							packageDeclarationToP, interaction, ruleResult);
+							packageDeclarationToP, useCase,
+							useCaseToInteraction, interaction, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [solve CSP] failed");
@@ -1063,16 +1103,17 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 							csp)) {
 				// check nacs
 				Object[] result5_black = UserActorToLifelineRuleImpl
-						.pattern_UserActorToLifelineRule_25_5_blackBBBB(
+						.pattern_UserActorToLifelineRule_25_5_blackBBBBBB(
 								packageDeclaration, p, packageDeclarationToP,
-								interaction);
+								useCase, useCaseToInteraction, interaction);
 				if (result5_black != null) {
 
 					// perform
 					Object[] result6_black = UserActorToLifelineRuleImpl
-							.pattern_UserActorToLifelineRule_25_6_blackBBBBB(
+							.pattern_UserActorToLifelineRule_25_6_blackBBBBBBB(
 									packageDeclaration, p,
-									packageDeclarationToP, interaction,
+									packageDeclarationToP, useCase,
+									useCaseToInteraction, interaction,
 									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
@@ -1105,8 +1146,9 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction, ModelgeneratorRuleResult ruleResult) {// Create CSP
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction,
+			ModelgeneratorRuleResult ruleResult) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1148,6 +1190,9 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("p", p);
 		isApplicableMatch.registerObject("packageDeclarationToP",
 				packageDeclarationToP);
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
 		isApplicableMatch.registerObject("interaction", interaction);
 		return csp;
 	}
@@ -1170,41 +1215,47 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_PACKAGEDECLARATION:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_PACKAGEDECLARATION_USECASE:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1),
-					(PackageDeclaration) arguments.get(2));
+					(PackageDeclaration) arguments.get(2),
+					(UseCase) arguments.get(3));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_PACKAGEDECLARATION:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_PACKAGEDECLARATION_USECASE:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1),
-					(PackageDeclaration) arguments.get(2));
+					(PackageDeclaration) arguments.get(2),
+					(UseCase) arguments.get(3));
 			return null;
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_PACKAGEDECLARATION:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_PACKAGEDECLARATION_USECASE:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1),
-					(PackageDeclaration) arguments.get(2));
+					(PackageDeclaration) arguments.get(2),
+					(UseCase) arguments.get(3));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_INTERACTION:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_USECASE_USECASETOINTERACTION_INTERACTION:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Actor) arguments.get(1),
 					(PackageDeclaration) arguments.get(2),
 					(ModalSequenceDiagram.Package) arguments.get(3),
 					(PackageDeclarationToPackage) arguments.get(4),
-					(Interaction) arguments.get(5));
+					(UseCase) arguments.get(5),
+					(UseCaseToInteraction) arguments.get(6),
+					(Interaction) arguments.get(7));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
-					(EObject) arguments.get(7));
+					(EObject) arguments.get(7), (EObject) arguments.get(8),
+					(EObject) arguments.get(9));
 			return null;
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
@@ -1227,68 +1278,74 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 					(Lifeline) arguments.get(2), (Interaction) arguments.get(3));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_LIFELINE_INTERACTION:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_LIFELINE_USECASE_USECASETOINTERACTION_INTERACTION:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
 					(ModalSequenceDiagram.Package) arguments.get(2),
 					(PackageDeclarationToPackage) arguments.get(3),
-					(Lifeline) arguments.get(4), (Interaction) arguments.get(5));
+					(Lifeline) arguments.get(4), (UseCase) arguments.get(5),
+					(UseCaseToInteraction) arguments.get(6),
+					(Interaction) arguments.get(7));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
-					(EObject) arguments.get(7));
+					(EObject) arguments.get(7), (EObject) arguments.get(8),
+					(EObject) arguments.get(9));
 			return null;
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_232__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_232((EMoflonEdge) arguments
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_231__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_231((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_73__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_73((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_74__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_74((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_75__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_75((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_PACKAGEDECLARATIONTOPACKAGE:
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_USECASETOINTERACTION:
 			return generateModel((RuleEntryContainer) arguments.get(0),
-					(PackageDeclarationToPackage) arguments.get(1));
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_INTERACTION_MODELGENERATORRULERESULT:
+					(UseCaseToInteraction) arguments.get(1));
+		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_USECASE_USECASETOINTERACTION_INTERACTION_MODELGENERATORRULERESULT:
 			return generateModel_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(PackageDeclaration) arguments.get(1),
 					(ModalSequenceDiagram.Package) arguments.get(2),
 					(PackageDeclarationToPackage) arguments.get(3),
-					(Interaction) arguments.get(4),
-					(ModelgeneratorRuleResult) arguments.get(5));
+					(UseCase) arguments.get(4),
+					(UseCaseToInteraction) arguments.get(5),
+					(Interaction) arguments.get(6),
+					(ModelgeneratorRuleResult) arguments.get(7));
 		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
 			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_0_1_blackBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_0_1_blackBBBBB(
 			UserActorToLifelineRule _this, Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
-		return new Object[] { _this, match, actor, packageDeclaration };
+			PackageDeclaration packageDeclaration, UseCase useCase) {
+		return new Object[] { _this, match, actor, packageDeclaration, useCase };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_0_2_bindingFBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_0_2_bindingFBBBBB(
 			UserActorToLifelineRule _this, Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
+			PackageDeclaration packageDeclaration, UseCase useCase) {
 		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, actor,
-				packageDeclaration);
+				packageDeclaration, useCase);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, actor, packageDeclaration };
+			return new Object[] { csp, _this, match, actor, packageDeclaration,
+					useCase };
 		}
 		return null;
 	}
@@ -1298,11 +1355,11 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_0_2_bindingAndBlackFBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_0_2_bindingAndBlackFBBBBB(
 			UserActorToLifelineRule _this, Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
-		Object[] result_pattern_UserActorToLifelineRule_0_2_binding = pattern_UserActorToLifelineRule_0_2_bindingFBBBB(
-				_this, match, actor, packageDeclaration);
+			PackageDeclaration packageDeclaration, UseCase useCase) {
+		Object[] result_pattern_UserActorToLifelineRule_0_2_binding = pattern_UserActorToLifelineRule_0_2_bindingFBBBBB(
+				_this, match, actor, packageDeclaration, useCase);
 		if (result_pattern_UserActorToLifelineRule_0_2_binding != null) {
 			CSP csp = (CSP) result_pattern_UserActorToLifelineRule_0_2_binding[0];
 
@@ -1310,7 +1367,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			if (result_pattern_UserActorToLifelineRule_0_2_black != null) {
 
 				return new Object[] { csp, _this, match, actor,
-						packageDeclaration };
+						packageDeclaration, useCase };
 			}
 		}
 		return null;
@@ -1323,9 +1380,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_0_4_blackBBB(
-			Match match, Actor actor, PackageDeclaration packageDeclaration) {
-		return new Object[] { match, actor, packageDeclaration };
+	public static final Object[] pattern_UserActorToLifelineRule_0_4_blackBBBB(
+			Match match, Actor actor, PackageDeclaration packageDeclaration,
+			UseCase useCase) {
+		return new Object[] { match, actor, packageDeclaration, useCase };
 	}
 
 	public static final Object[] pattern_UserActorToLifelineRule_0_4_greenBBBF(
@@ -1343,21 +1401,33 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				packageDeclaration__actor____actors };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_0_5_blackBBB(
-			Match match, Actor actor, PackageDeclaration packageDeclaration) {
-		return new Object[] { match, actor, packageDeclaration };
+	public static final Object[] pattern_UserActorToLifelineRule_0_5_blackBBBB(
+			Match match, Actor actor, PackageDeclaration packageDeclaration,
+			UseCase useCase) {
+		return new Object[] { match, actor, packageDeclaration, useCase };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_0_5_greenBB(
-			Match match, PackageDeclaration packageDeclaration) {
+	public static final Object[] pattern_UserActorToLifelineRule_0_5_greenBBBF(
+			Match match, PackageDeclaration packageDeclaration, UseCase useCase) {
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		match.getContextNodes().add(packageDeclaration);
-		return new Object[] { match, packageDeclaration };
+		match.getContextNodes().add(useCase);
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		match.getContextEdges().add(packageDeclaration__useCase____useCases);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
+		return new Object[] { match, packageDeclaration, useCase,
+				packageDeclaration__useCase____useCases };
 	}
 
-	public static final void pattern_UserActorToLifelineRule_0_6_expressionBBBB(
+	public static final void pattern_UserActorToLifelineRule_0_6_expressionBBBBB(
 			UserActorToLifelineRule _this, Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
-		_this.registerObjectsToMatch_FWD(match, actor, packageDeclaration);
+			PackageDeclaration packageDeclaration, UseCase useCase) {
+		_this.registerObjectsToMatch_FWD(match, actor, packageDeclaration,
+				useCase);
 
 	}
 
@@ -1371,7 +1441,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_1_1_bindingFFFFFB(
+	public static final Object[] pattern_UserActorToLifelineRule_1_1_bindingFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
 		EObject _localVariable_0 = isApplicableMatch.getObject("actor");
 		EObject _localVariable_1 = isApplicableMatch
@@ -1379,12 +1449,17 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		EObject _localVariable_2 = isApplicableMatch.getObject("p");
 		EObject _localVariable_3 = isApplicableMatch
 				.getObject("packageDeclarationToP");
-		EObject _localVariable_4 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_4 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_5 = isApplicableMatch
+				.getObject("useCaseToInteraction");
+		EObject _localVariable_6 = isApplicableMatch.getObject("interaction");
 		EObject tmpActor = _localVariable_0;
 		EObject tmpPackageDeclaration = _localVariable_1;
 		EObject tmpP = _localVariable_2;
 		EObject tmpPackageDeclarationToP = _localVariable_3;
-		EObject tmpInteraction = _localVariable_4;
+		EObject tmpUseCase = _localVariable_4;
+		EObject tmpUseCaseToInteraction = _localVariable_5;
+		EObject tmpInteraction = _localVariable_6;
 		if (tmpActor instanceof Actor) {
 			Actor actor = (Actor) tmpActor;
 			if (tmpPackageDeclaration instanceof PackageDeclaration) {
@@ -1393,11 +1468,19 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 					ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) tmpP;
 					if (tmpPackageDeclarationToP instanceof PackageDeclarationToPackage) {
 						PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) tmpPackageDeclarationToP;
-						if (tmpInteraction instanceof Interaction) {
-							Interaction interaction = (Interaction) tmpInteraction;
-							return new Object[] { actor, packageDeclaration, p,
-									packageDeclarationToP, interaction,
-									isApplicableMatch };
+						if (tmpUseCase instanceof UseCase) {
+							UseCase useCase = (UseCase) tmpUseCase;
+							if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+								UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+								if (tmpInteraction instanceof Interaction) {
+									Interaction interaction = (Interaction) tmpInteraction;
+									return new Object[] { actor,
+											packageDeclaration, p,
+											packageDeclarationToP, useCase,
+											useCaseToInteraction, interaction,
+											isApplicableMatch };
+								}
+							}
 						}
 					}
 				}
@@ -1406,42 +1489,45 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_1_1_blackBBBBBFBB(
+	public static final Object[] pattern_UserActorToLifelineRule_1_1_blackBBBBBBBFBB(
 			Actor actor, PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction, UserActorToLifelineRule _this,
-			IsApplicableMatch isApplicableMatch) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction,
+			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
 				return new Object[] { actor, packageDeclaration, p,
-						packageDeclarationToP, interaction, csp, _this,
-						isApplicableMatch };
+						packageDeclarationToP, useCase, useCaseToInteraction,
+						interaction, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_1_1_bindingAndBlackFFFFFFBB(
+	public static final Object[] pattern_UserActorToLifelineRule_1_1_bindingAndBlackFFFFFFFFBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch) {
-		Object[] result_pattern_UserActorToLifelineRule_1_1_binding = pattern_UserActorToLifelineRule_1_1_bindingFFFFFB(isApplicableMatch);
+		Object[] result_pattern_UserActorToLifelineRule_1_1_binding = pattern_UserActorToLifelineRule_1_1_bindingFFFFFFFB(isApplicableMatch);
 		if (result_pattern_UserActorToLifelineRule_1_1_binding != null) {
 			Actor actor = (Actor) result_pattern_UserActorToLifelineRule_1_1_binding[0];
 			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UserActorToLifelineRule_1_1_binding[1];
 			ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result_pattern_UserActorToLifelineRule_1_1_binding[2];
 			PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result_pattern_UserActorToLifelineRule_1_1_binding[3];
-			Interaction interaction = (Interaction) result_pattern_UserActorToLifelineRule_1_1_binding[4];
+			UseCase useCase = (UseCase) result_pattern_UserActorToLifelineRule_1_1_binding[4];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UserActorToLifelineRule_1_1_binding[5];
+			Interaction interaction = (Interaction) result_pattern_UserActorToLifelineRule_1_1_binding[6];
 
-			Object[] result_pattern_UserActorToLifelineRule_1_1_black = pattern_UserActorToLifelineRule_1_1_blackBBBBBFBB(
+			Object[] result_pattern_UserActorToLifelineRule_1_1_black = pattern_UserActorToLifelineRule_1_1_blackBBBBBBBFBB(
 					actor, packageDeclaration, p, packageDeclarationToP,
-					interaction, _this, isApplicableMatch);
+					useCase, useCaseToInteraction, interaction, _this,
+					isApplicableMatch);
 			if (result_pattern_UserActorToLifelineRule_1_1_black != null) {
-				CSP csp = (CSP) result_pattern_UserActorToLifelineRule_1_1_black[5];
+				CSP csp = (CSP) result_pattern_UserActorToLifelineRule_1_1_black[7];
 
 				return new Object[] { actor, packageDeclaration, p,
-						packageDeclarationToP, interaction, csp, _this,
-						isApplicableMatch };
+						packageDeclarationToP, useCase, useCaseToInteraction,
+						interaction, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
@@ -1476,53 +1562,97 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { ruleresult, actor, line, actorToLine };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_1_3_blackBBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_1_3_blackBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject actor,
 			EObject packageDeclaration, EObject p,
 			EObject packageDeclarationToP, EObject line, EObject actorToLine,
-			EObject interaction) {
+			EObject useCase, EObject useCaseToInteraction, EObject interaction) {
 		if (!actor.equals(packageDeclaration)) {
 			if (!actor.equals(p)) {
 				if (!actor.equals(packageDeclarationToP)) {
 					if (!actor.equals(line)) {
 						if (!actor.equals(actorToLine)) {
-							if (!actor.equals(interaction)) {
-								if (!packageDeclaration
-										.equals(packageDeclarationToP)) {
-									if (!p.equals(packageDeclaration)) {
-										if (!p.equals(packageDeclarationToP)) {
-											if (!line
-													.equals(packageDeclaration)) {
-												if (!line.equals(p)) {
-													if (!line
-															.equals(packageDeclarationToP)) {
-														if (!actorToLine
-																.equals(packageDeclaration)) {
-															if (!actorToLine
-																	.equals(p)) {
-																if (!actorToLine
-																		.equals(packageDeclarationToP)) {
-																	if (!actorToLine
-																			.equals(line)) {
-																		if (!actorToLine
-																				.equals(interaction)) {
-																			if (!interaction
+							if (!actor.equals(useCase)) {
+								if (!actor.equals(useCaseToInteraction)) {
+									if (!actor.equals(interaction)) {
+										if (!packageDeclaration
+												.equals(packageDeclarationToP)) {
+											if (!packageDeclaration
+													.equals(useCase)) {
+												if (!packageDeclaration
+														.equals(useCaseToInteraction)) {
+													if (!p.equals(packageDeclaration)) {
+														if (!p.equals(packageDeclarationToP)) {
+															if (!p.equals(useCase)) {
+																if (!p.equals(useCaseToInteraction)) {
+																	if (!packageDeclarationToP
+																			.equals(useCase)) {
+																		if (!packageDeclarationToP
+																				.equals(useCaseToInteraction)) {
+																			if (!line
 																					.equals(packageDeclaration)) {
-																				if (!interaction
+																				if (!line
 																						.equals(p)) {
-																					if (!interaction
+																					if (!line
 																							.equals(packageDeclarationToP)) {
-																						if (!interaction
-																								.equals(line)) {
-																							return new Object[] {
-																									ruleresult,
-																									actor,
-																									packageDeclaration,
-																									p,
-																									packageDeclarationToP,
-																									line,
-																									actorToLine,
-																									interaction };
+																						if (!line
+																								.equals(useCase)) {
+																							if (!line
+																									.equals(useCaseToInteraction)) {
+																								if (!actorToLine
+																										.equals(packageDeclaration)) {
+																									if (!actorToLine
+																											.equals(p)) {
+																										if (!actorToLine
+																												.equals(packageDeclarationToP)) {
+																											if (!actorToLine
+																													.equals(line)) {
+																												if (!actorToLine
+																														.equals(useCase)) {
+																													if (!actorToLine
+																															.equals(useCaseToInteraction)) {
+																														if (!actorToLine
+																																.equals(interaction)) {
+																															if (!useCase
+																																	.equals(useCaseToInteraction)) {
+																																if (!interaction
+																																		.equals(packageDeclaration)) {
+																																	if (!interaction
+																																			.equals(p)) {
+																																		if (!interaction
+																																				.equals(packageDeclarationToP)) {
+																																			if (!interaction
+																																					.equals(line)) {
+																																				if (!interaction
+																																						.equals(useCase)) {
+																																					if (!interaction
+																																							.equals(useCaseToInteraction)) {
+																																						return new Object[] {
+																																								ruleresult,
+																																								actor,
+																																								packageDeclaration,
+																																								p,
+																																								packageDeclarationToP,
+																																								line,
+																																								actorToLine,
+																																								useCase,
+																																								useCaseToInteraction,
+																																								interaction };
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
 																						}
 																					}
 																				}
@@ -1600,13 +1730,14 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				line__interaction____interaction, interaction__line____lifeline };
 	}
 
-	public static final void pattern_UserActorToLifelineRule_1_5_expressionBBBBBBBBB(
+	public static final void pattern_UserActorToLifelineRule_1_5_expressionBBBBBBBBBBB(
 			UserActorToLifelineRule _this, PerformRuleResult ruleresult,
 			EObject actor, EObject packageDeclaration, EObject p,
 			EObject packageDeclarationToP, EObject line, EObject actorToLine,
-			EObject interaction) {
+			EObject useCase, EObject useCaseToInteraction, EObject interaction) {
 		_this.registerObjects_FWD(ruleresult, actor, packageDeclaration, p,
-				packageDeclarationToP, line, actorToLine, interaction);
+				packageDeclarationToP, line, actorToLine, useCase,
+				useCaseToInteraction, interaction);
 
 	}
 
@@ -1667,53 +1798,76 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { performOperation, ruleresult };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_2_2_bindingFFB(
+	public static final Object[] pattern_UserActorToLifelineRule_2_2_bindingFFFB(
 			Match match) {
 		EObject _localVariable_0 = match.getObject("actor");
 		EObject _localVariable_1 = match.getObject("packageDeclaration");
+		EObject _localVariable_2 = match.getObject("useCase");
 		EObject tmpActor = _localVariable_0;
 		EObject tmpPackageDeclaration = _localVariable_1;
+		EObject tmpUseCase = _localVariable_2;
 		if (tmpActor instanceof Actor) {
 			Actor actor = (Actor) tmpActor;
 			if (tmpPackageDeclaration instanceof PackageDeclaration) {
 				PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
-				return new Object[] { actor, packageDeclaration, match };
+				if (tmpUseCase instanceof UseCase) {
+					UseCase useCase = (UseCase) tmpUseCase;
+					return new Object[] { actor, packageDeclaration, useCase,
+							match };
+				}
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_2_2_blackBBFFB(
-			Actor actor, PackageDeclaration packageDeclaration, Match match) {
+	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_2_2_blackBBFFBFFB(
+			Actor actor, PackageDeclaration packageDeclaration,
+			UseCase useCase, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						PackageDeclarationToPackage.class, "source")) {
 			ModalSequenceDiagram.Package p = packageDeclarationToP.getTarget();
 			if (p != null) {
-				_result.add(new Object[] { actor, packageDeclaration, p,
-						packageDeclarationToP, match });
+				for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+						.getOppositeReferenceTyped(useCase,
+								UseCaseToInteraction.class, "source")) {
+					Interaction interaction = useCaseToInteraction.getTarget();
+					if (interaction != null) {
+						_result.add(new Object[] { actor, packageDeclaration,
+								p, packageDeclarationToP, useCase,
+								useCaseToInteraction, interaction, match });
+					}
+
+				}
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_2_3_blackBBBBF(
+	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_2_3_blackBBBBBBB(
 			Actor actor, PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (packageDeclaration.getActors().contains(actor)) {
-			if (packageDeclaration.equals(packageDeclarationToP.getSource())) {
-				if (p.equals(packageDeclarationToP.getTarget())) {
-					for (PackageableElement tmpInteraction : p
-							.getPackagedElement()) {
-						if (tmpInteraction instanceof Interaction) {
-							Interaction interaction = (Interaction) tmpInteraction;
-							_result.add(new Object[] { actor,
-									packageDeclaration, p,
-									packageDeclarationToP, interaction });
+			if (packageDeclaration.getUseCases().contains(useCase)) {
+				if (p.getPackagedElement().contains(interaction)) {
+					if (packageDeclaration.equals(packageDeclarationToP
+							.getSource())) {
+						if (p.equals(packageDeclarationToP.getTarget())) {
+							if (useCase
+									.equals(useCaseToInteraction.getSource())) {
+								if (interaction.equals(useCaseToInteraction
+										.getTarget())) {
+									_result.add(new Object[] { actor,
+											packageDeclaration, p,
+											packageDeclarationToP, useCase,
+											useCaseToInteraction, interaction });
+								}
+							}
 						}
 					}
 				}
@@ -1722,14 +1876,16 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_2_3_greenBBBBBFFFFF(
+	public static final Object[] pattern_UserActorToLifelineRule_2_3_greenBBBBBBBFFFFFFFF(
 			Actor actor, PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge p__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -1737,19 +1893,32 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge packageDeclarationToP__p____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		String packageDeclaration__actor____actors_name_prime = "actors";
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
 		String p__interaction____packagedElement_name_prime = "packagedElement";
 		String packageDeclarationToP__packageDeclaration____source_name_prime = "source";
 		String packageDeclarationToP__p____target_name_prime = "target";
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
 		isApplicableMatch.getAllContextElements().add(actor);
 		isApplicableMatch.getAllContextElements().add(packageDeclaration);
 		isApplicableMatch.getAllContextElements().add(p);
 		isApplicableMatch.getAllContextElements().add(packageDeclarationToP);
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(interaction);
 		packageDeclaration__actor____actors.setSrc(packageDeclaration);
 		packageDeclaration__actor____actors.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(
 				packageDeclaration__actor____actors);
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclaration__useCase____useCases);
 		p__interaction____packagedElement.setSrc(p);
 		p__interaction____packagedElement.setTrg(interaction);
 		isApplicableMatch.getAllContextElements().add(
@@ -1764,35 +1933,56 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		packageDeclarationToP__p____target.setTrg(p);
 		isApplicableMatch.getAllContextElements().add(
 				packageDeclarationToP__p____target);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
 		packageDeclaration__actor____actors
 				.setName(packageDeclaration__actor____actors_name_prime);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
 		p__interaction____packagedElement
 				.setName(p__interaction____packagedElement_name_prime);
 		packageDeclarationToP__packageDeclaration____source
 				.setName(packageDeclarationToP__packageDeclaration____source_name_prime);
 		packageDeclarationToP__p____target
 				.setName(packageDeclarationToP__p____target_name_prime);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
 		return new Object[] { actor, packageDeclaration, p,
-				packageDeclarationToP, interaction, isApplicableMatch,
+				packageDeclarationToP, useCase, useCaseToInteraction,
+				interaction, isApplicableMatch,
 				packageDeclaration__actor____actors,
+				packageDeclaration__useCase____useCases,
 				p__interaction____packagedElement,
 				packageDeclarationToP__packageDeclaration____source,
-				packageDeclarationToP__p____target };
+				packageDeclarationToP__p____target,
+				useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_2_4_bindingFBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_2_4_bindingFBBBBBBBBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch,
 			Actor actor, PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
 				isApplicableMatch, actor, packageDeclaration, p,
-				packageDeclarationToP, interaction);
+				packageDeclarationToP, useCase, useCaseToInteraction,
+				interaction);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, actor,
-					packageDeclaration, p, packageDeclarationToP, interaction };
+					packageDeclaration, p, packageDeclarationToP, useCase,
+					useCaseToInteraction, interaction };
 		}
 		return null;
 	}
@@ -1802,15 +1992,16 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_2_4_bindingAndBlackFBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_2_4_bindingAndBlackFBBBBBBBBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch,
 			Actor actor, PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction) {
-		Object[] result_pattern_UserActorToLifelineRule_2_4_binding = pattern_UserActorToLifelineRule_2_4_bindingFBBBBBBB(
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction) {
+		Object[] result_pattern_UserActorToLifelineRule_2_4_binding = pattern_UserActorToLifelineRule_2_4_bindingFBBBBBBBBB(
 				_this, isApplicableMatch, actor, packageDeclaration, p,
-				packageDeclarationToP, interaction);
+				packageDeclarationToP, useCase, useCaseToInteraction,
+				interaction);
 		if (result_pattern_UserActorToLifelineRule_2_4_binding != null) {
 			CSP csp = (CSP) result_pattern_UserActorToLifelineRule_2_4_binding[0];
 
@@ -1818,8 +2009,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			if (result_pattern_UserActorToLifelineRule_2_4_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch, actor,
-						packageDeclaration, p, packageDeclarationToP,
-						interaction };
+						packageDeclaration, p, packageDeclarationToP, useCase,
+						useCaseToInteraction, interaction };
 			}
 		}
 		return null;
@@ -1974,7 +2165,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_11_1_bindingFFFFFB(
+	public static final Object[] pattern_UserActorToLifelineRule_11_1_bindingFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
 		EObject _localVariable_0 = isApplicableMatch
 				.getObject("packageDeclaration");
@@ -1982,12 +2173,17 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		EObject _localVariable_2 = isApplicableMatch
 				.getObject("packageDeclarationToP");
 		EObject _localVariable_3 = isApplicableMatch.getObject("line");
-		EObject _localVariable_4 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_4 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_5 = isApplicableMatch
+				.getObject("useCaseToInteraction");
+		EObject _localVariable_6 = isApplicableMatch.getObject("interaction");
 		EObject tmpPackageDeclaration = _localVariable_0;
 		EObject tmpP = _localVariable_1;
 		EObject tmpPackageDeclarationToP = _localVariable_2;
 		EObject tmpLine = _localVariable_3;
-		EObject tmpInteraction = _localVariable_4;
+		EObject tmpUseCase = _localVariable_4;
+		EObject tmpUseCaseToInteraction = _localVariable_5;
+		EObject tmpInteraction = _localVariable_6;
 		if (tmpPackageDeclaration instanceof PackageDeclaration) {
 			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
 			if (tmpP instanceof ModalSequenceDiagram.Package) {
@@ -1996,11 +2192,18 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 					PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) tmpPackageDeclarationToP;
 					if (tmpLine instanceof Lifeline) {
 						Lifeline line = (Lifeline) tmpLine;
-						if (tmpInteraction instanceof Interaction) {
-							Interaction interaction = (Interaction) tmpInteraction;
-							return new Object[] { packageDeclaration, p,
-									packageDeclarationToP, line, interaction,
-									isApplicableMatch };
+						if (tmpUseCase instanceof UseCase) {
+							UseCase useCase = (UseCase) tmpUseCase;
+							if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+								UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+								if (tmpInteraction instanceof Interaction) {
+									Interaction interaction = (Interaction) tmpInteraction;
+									return new Object[] { packageDeclaration,
+											p, packageDeclarationToP, line,
+											useCase, useCaseToInteraction,
+											interaction, isApplicableMatch };
+								}
+							}
 						}
 					}
 				}
@@ -2009,41 +2212,47 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_11_1_blackBBBBBFBB(
+	public static final Object[] pattern_UserActorToLifelineRule_11_1_blackBBBBBBBFBB(
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
 			PackageDeclarationToPackage packageDeclarationToP, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Interaction interaction, UserActorToLifelineRule _this,
 			IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
 				return new Object[] { packageDeclaration, p,
-						packageDeclarationToP, line, interaction, csp, _this,
+						packageDeclarationToP, line, useCase,
+						useCaseToInteraction, interaction, csp, _this,
 						isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_11_1_bindingAndBlackFFFFFFBB(
+	public static final Object[] pattern_UserActorToLifelineRule_11_1_bindingAndBlackFFFFFFFFBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch) {
-		Object[] result_pattern_UserActorToLifelineRule_11_1_binding = pattern_UserActorToLifelineRule_11_1_bindingFFFFFB(isApplicableMatch);
+		Object[] result_pattern_UserActorToLifelineRule_11_1_binding = pattern_UserActorToLifelineRule_11_1_bindingFFFFFFFB(isApplicableMatch);
 		if (result_pattern_UserActorToLifelineRule_11_1_binding != null) {
 			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UserActorToLifelineRule_11_1_binding[0];
 			ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result_pattern_UserActorToLifelineRule_11_1_binding[1];
 			PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) result_pattern_UserActorToLifelineRule_11_1_binding[2];
 			Lifeline line = (Lifeline) result_pattern_UserActorToLifelineRule_11_1_binding[3];
-			Interaction interaction = (Interaction) result_pattern_UserActorToLifelineRule_11_1_binding[4];
+			UseCase useCase = (UseCase) result_pattern_UserActorToLifelineRule_11_1_binding[4];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UserActorToLifelineRule_11_1_binding[5];
+			Interaction interaction = (Interaction) result_pattern_UserActorToLifelineRule_11_1_binding[6];
 
-			Object[] result_pattern_UserActorToLifelineRule_11_1_black = pattern_UserActorToLifelineRule_11_1_blackBBBBBFBB(
+			Object[] result_pattern_UserActorToLifelineRule_11_1_black = pattern_UserActorToLifelineRule_11_1_blackBBBBBBBFBB(
 					packageDeclaration, p, packageDeclarationToP, line,
-					interaction, _this, isApplicableMatch);
+					useCase, useCaseToInteraction, interaction, _this,
+					isApplicableMatch);
 			if (result_pattern_UserActorToLifelineRule_11_1_black != null) {
-				CSP csp = (CSP) result_pattern_UserActorToLifelineRule_11_1_black[5];
+				CSP csp = (CSP) result_pattern_UserActorToLifelineRule_11_1_black[7];
 
 				return new Object[] { packageDeclaration, p,
-						packageDeclarationToP, line, interaction, csp, _this,
+						packageDeclarationToP, line, useCase,
+						useCaseToInteraction, interaction, csp, _this,
 						isApplicableMatch };
 			}
 		}
@@ -2082,53 +2291,97 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { ruleresult, actor, line, actorToLine };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_11_3_blackBBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_11_3_blackBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject actor,
 			EObject packageDeclaration, EObject p,
 			EObject packageDeclarationToP, EObject line, EObject actorToLine,
-			EObject interaction) {
+			EObject useCase, EObject useCaseToInteraction, EObject interaction) {
 		if (!actor.equals(packageDeclaration)) {
 			if (!actor.equals(p)) {
 				if (!actor.equals(packageDeclarationToP)) {
 					if (!actor.equals(line)) {
 						if (!actor.equals(actorToLine)) {
-							if (!actor.equals(interaction)) {
-								if (!packageDeclaration
-										.equals(packageDeclarationToP)) {
-									if (!p.equals(packageDeclaration)) {
-										if (!p.equals(packageDeclarationToP)) {
-											if (!line
-													.equals(packageDeclaration)) {
-												if (!line.equals(p)) {
-													if (!line
-															.equals(packageDeclarationToP)) {
-														if (!actorToLine
-																.equals(packageDeclaration)) {
-															if (!actorToLine
-																	.equals(p)) {
-																if (!actorToLine
-																		.equals(packageDeclarationToP)) {
-																	if (!actorToLine
-																			.equals(line)) {
-																		if (!actorToLine
-																				.equals(interaction)) {
-																			if (!interaction
+							if (!actor.equals(useCase)) {
+								if (!actor.equals(useCaseToInteraction)) {
+									if (!actor.equals(interaction)) {
+										if (!packageDeclaration
+												.equals(packageDeclarationToP)) {
+											if (!packageDeclaration
+													.equals(useCase)) {
+												if (!packageDeclaration
+														.equals(useCaseToInteraction)) {
+													if (!p.equals(packageDeclaration)) {
+														if (!p.equals(packageDeclarationToP)) {
+															if (!p.equals(useCase)) {
+																if (!p.equals(useCaseToInteraction)) {
+																	if (!packageDeclarationToP
+																			.equals(useCase)) {
+																		if (!packageDeclarationToP
+																				.equals(useCaseToInteraction)) {
+																			if (!line
 																					.equals(packageDeclaration)) {
-																				if (!interaction
+																				if (!line
 																						.equals(p)) {
-																					if (!interaction
+																					if (!line
 																							.equals(packageDeclarationToP)) {
-																						if (!interaction
-																								.equals(line)) {
-																							return new Object[] {
-																									ruleresult,
-																									actor,
-																									packageDeclaration,
-																									p,
-																									packageDeclarationToP,
-																									line,
-																									actorToLine,
-																									interaction };
+																						if (!line
+																								.equals(useCase)) {
+																							if (!line
+																									.equals(useCaseToInteraction)) {
+																								if (!actorToLine
+																										.equals(packageDeclaration)) {
+																									if (!actorToLine
+																											.equals(p)) {
+																										if (!actorToLine
+																												.equals(packageDeclarationToP)) {
+																											if (!actorToLine
+																													.equals(line)) {
+																												if (!actorToLine
+																														.equals(useCase)) {
+																													if (!actorToLine
+																															.equals(useCaseToInteraction)) {
+																														if (!actorToLine
+																																.equals(interaction)) {
+																															if (!useCase
+																																	.equals(useCaseToInteraction)) {
+																																if (!interaction
+																																		.equals(packageDeclaration)) {
+																																	if (!interaction
+																																			.equals(p)) {
+																																		if (!interaction
+																																				.equals(packageDeclarationToP)) {
+																																			if (!interaction
+																																					.equals(line)) {
+																																				if (!interaction
+																																						.equals(useCase)) {
+																																					if (!interaction
+																																							.equals(useCaseToInteraction)) {
+																																						return new Object[] {
+																																								ruleresult,
+																																								actor,
+																																								packageDeclaration,
+																																								p,
+																																								packageDeclarationToP,
+																																								line,
+																																								actorToLine,
+																																								useCase,
+																																								useCaseToInteraction,
+																																								interaction };
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
 																						}
 																					}
 																				}
@@ -2205,13 +2458,14 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				line__interaction____interaction, interaction__line____lifeline };
 	}
 
-	public static final void pattern_UserActorToLifelineRule_11_5_expressionBBBBBBBBB(
+	public static final void pattern_UserActorToLifelineRule_11_5_expressionBBBBBBBBBBB(
 			UserActorToLifelineRule _this, PerformRuleResult ruleresult,
 			EObject actor, EObject packageDeclaration, EObject p,
 			EObject packageDeclarationToP, EObject line, EObject actorToLine,
-			EObject interaction) {
+			EObject useCase, EObject useCaseToInteraction, EObject interaction) {
 		_this.registerObjects_BWD(ruleresult, actor, packageDeclaration, p,
-				packageDeclarationToP, line, actorToLine, interaction);
+				packageDeclarationToP, line, actorToLine, useCase,
+				useCaseToInteraction, interaction);
 
 	}
 
@@ -2293,7 +2547,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_12_2_blackFBFBBB(
+	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_12_2_blackFBFBFFBB(
 			ModalSequenceDiagram.Package p, Lifeline line,
 			Interaction interaction, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
@@ -2303,26 +2557,47 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration = packageDeclarationToP
 					.getSource();
 			if (packageDeclaration != null) {
-				_result.add(new Object[] { packageDeclaration, p,
-						packageDeclarationToP, line, interaction, match });
+				for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+						.getOppositeReferenceTyped(interaction,
+								UseCaseToInteraction.class, "target")) {
+					UseCase useCase = useCaseToInteraction.getSource();
+					if (useCase != null) {
+						_result.add(new Object[] { packageDeclaration, p,
+								packageDeclarationToP, line, useCase,
+								useCaseToInteraction, interaction, match });
+					}
+
+				}
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_12_3_blackBBBBB(
+	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_12_3_blackBBBBBBB(
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
 			PackageDeclarationToPackage packageDeclarationToP, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Interaction interaction) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		if (p.getPackagedElement().contains(interaction)) {
-			if (packageDeclaration.equals(packageDeclarationToP.getSource())) {
-				if (p.equals(packageDeclarationToP.getTarget())) {
-					if (interaction.equals(line.getInteraction())) {
-						_result.add(new Object[] { packageDeclaration, p,
-								packageDeclarationToP, line, interaction });
+		if (packageDeclaration.getUseCases().contains(useCase)) {
+			if (p.getPackagedElement().contains(interaction)) {
+				if (packageDeclaration
+						.equals(packageDeclarationToP.getSource())) {
+					if (p.equals(packageDeclarationToP.getTarget())) {
+						if (useCase.equals(useCaseToInteraction.getSource())) {
+							if (interaction.equals(useCaseToInteraction
+									.getTarget())) {
+								if (interaction.equals(line.getInteraction())) {
+									_result.add(new Object[] {
+											packageDeclaration, p,
+											packageDeclarationToP, line,
+											useCase, useCaseToInteraction,
+											interaction });
+								}
+							}
+						}
 					}
 				}
 			}
@@ -2330,33 +2605,49 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_12_3_greenBBBBBFFFFFF(
+	public static final Object[] pattern_UserActorToLifelineRule_12_3_greenBBBBBBBFFFFFFFFF(
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
 			PackageDeclarationToPackage packageDeclarationToP, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Interaction interaction) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge p__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge packageDeclarationToP__packageDeclaration____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge packageDeclarationToP__p____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
 		String p__interaction____packagedElement_name_prime = "packagedElement";
 		String packageDeclarationToP__packageDeclaration____source_name_prime = "source";
 		String packageDeclarationToP__p____target_name_prime = "target";
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
 		String line__interaction____interaction_name_prime = "interaction";
 		String interaction__line____lifeline_name_prime = "lifeline";
 		isApplicableMatch.getAllContextElements().add(packageDeclaration);
 		isApplicableMatch.getAllContextElements().add(p);
 		isApplicableMatch.getAllContextElements().add(packageDeclarationToP);
 		isApplicableMatch.getAllContextElements().add(line);
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(interaction);
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclaration__useCase____useCases);
 		p__interaction____packagedElement.setSrc(p);
 		p__interaction____packagedElement.setTrg(interaction);
 		isApplicableMatch.getAllContextElements().add(
@@ -2371,6 +2662,15 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		packageDeclarationToP__p____target.setTrg(p);
 		isApplicableMatch.getAllContextElements().add(
 				packageDeclarationToP__p____target);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
 		line__interaction____interaction.setSrc(line);
 		line__interaction____interaction.setTrg(interaction);
 		isApplicableMatch.getAllContextElements().add(
@@ -2379,38 +2679,49 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		interaction__line____lifeline.setTrg(line);
 		isApplicableMatch.getAllContextElements().add(
 				interaction__line____lifeline);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
 		p__interaction____packagedElement
 				.setName(p__interaction____packagedElement_name_prime);
 		packageDeclarationToP__packageDeclaration____source
 				.setName(packageDeclarationToP__packageDeclaration____source_name_prime);
 		packageDeclarationToP__p____target
 				.setName(packageDeclarationToP__p____target_name_prime);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
 		line__interaction____interaction
 				.setName(line__interaction____interaction_name_prime);
 		interaction__line____lifeline
 				.setName(interaction__line____lifeline_name_prime);
 		return new Object[] { packageDeclaration, p, packageDeclarationToP,
-				line, interaction, isApplicableMatch,
+				line, useCase, useCaseToInteraction, interaction,
+				isApplicableMatch, packageDeclaration__useCase____useCases,
 				p__interaction____packagedElement,
 				packageDeclarationToP__packageDeclaration____source,
 				packageDeclarationToP__p____target,
+				useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target,
 				line__interaction____interaction, interaction__line____lifeline };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_12_4_bindingFBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_12_4_bindingFBBBBBBBBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch,
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
 			PackageDeclarationToPackage packageDeclarationToP, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Interaction interaction) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
 				isApplicableMatch, packageDeclaration, p,
-				packageDeclarationToP, line, interaction);
+				packageDeclarationToP, line, useCase, useCaseToInteraction,
+				interaction);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch,
 					packageDeclaration, p, packageDeclarationToP, line,
-					interaction };
+					useCase, useCaseToInteraction, interaction };
 		}
 		return null;
 	}
@@ -2420,15 +2731,17 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_12_4_bindingAndBlackFBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_12_4_bindingAndBlackFBBBBBBBBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch,
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
 			PackageDeclarationToPackage packageDeclarationToP, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			Interaction interaction) {
-		Object[] result_pattern_UserActorToLifelineRule_12_4_binding = pattern_UserActorToLifelineRule_12_4_bindingFBBBBBBB(
+		Object[] result_pattern_UserActorToLifelineRule_12_4_binding = pattern_UserActorToLifelineRule_12_4_bindingFBBBBBBBBB(
 				_this, isApplicableMatch, packageDeclaration, p,
-				packageDeclarationToP, line, interaction);
+				packageDeclarationToP, line, useCase, useCaseToInteraction,
+				interaction);
 		if (result_pattern_UserActorToLifelineRule_12_4_binding != null) {
 			CSP csp = (CSP) result_pattern_UserActorToLifelineRule_12_4_binding[0];
 
@@ -2437,7 +2750,7 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 				return new Object[] { csp, _this, isApplicableMatch,
 						packageDeclaration, p, packageDeclarationToP, line,
-						interaction };
+						useCase, useCaseToInteraction, interaction };
 			}
 		}
 		return null;
@@ -2520,17 +2833,17 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserActorToLifelineRule_20_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_777329 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_548034 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_777329)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_548034)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_20_2_blackFFB(
+	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_20_2_blackFFFB(
 			EMoflonEdge _edge_actors) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		EObject tmpPackageDeclaration = _edge_actors.getSrc();
@@ -2542,8 +2855,10 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				if (packageDeclaration.getActors().contains(actor)) {
 					if (pattern_UserActorToLifelineRule_20_2_black_nac_0BB(
 							actor, packageDeclaration) == null) {
-						_result.add(new Object[] { actor, packageDeclaration,
-								_edge_actors });
+						for (UseCase useCase : packageDeclaration.getUseCases()) {
+							_result.add(new Object[] { actor,
+									packageDeclaration, useCase, _edge_actors });
+						}
 					}
 				}
 			}
@@ -2563,11 +2878,11 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 	}
 
-	public static final boolean pattern_UserActorToLifelineRule_20_3_expressionFBBBB(
+	public static final boolean pattern_UserActorToLifelineRule_20_3_expressionFBBBBB(
 			UserActorToLifelineRule _this, Match match, Actor actor,
-			PackageDeclaration packageDeclaration) {
+			PackageDeclaration packageDeclaration, UseCase useCase) {
 		boolean _localVariable_0 = _this.isAppropriate_FWD(match, actor,
-				packageDeclaration);
+				packageDeclaration, useCase);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -2858,18 +3173,18 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_UserActorToLifelineRule_25_2_black_nac_1BB(
-			ModelgeneratorRuleResult ruleResult,
-			PackageDeclarationToPackage packageDeclarationToP) {
-		if (ruleResult.getCorrObjects().contains(packageDeclarationToP)) {
-			return new Object[] { ruleResult, packageDeclarationToP };
+			ModelgeneratorRuleResult ruleResult, UseCase useCase) {
+		if (ruleResult.getSourceObjects().contains(useCase)) {
+			return new Object[] { ruleResult, useCase };
 		}
 		return null;
 	}
 
 	public static final Object[] pattern_UserActorToLifelineRule_25_2_black_nac_2BB(
-			ModelgeneratorRuleResult ruleResult, ModalSequenceDiagram.Package p) {
-		if (ruleResult.getTargetObjects().contains(p)) {
-			return new Object[] { ruleResult, p };
+			ModelgeneratorRuleResult ruleResult,
+			UseCaseToInteraction useCaseToInteraction) {
+		if (ruleResult.getCorrObjects().contains(useCaseToInteraction)) {
+			return new Object[] { ruleResult, useCaseToInteraction };
 		}
 		return null;
 	}
@@ -2882,41 +3197,83 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_25_2_blackFFFFFBB(
+	public static final Object[] pattern_UserActorToLifelineRule_25_2_black_nac_4BB(
+			ModelgeneratorRuleResult ruleResult, ModalSequenceDiagram.Package p) {
+		if (ruleResult.getTargetObjects().contains(p)) {
+			return new Object[] { ruleResult, p };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserActorToLifelineRule_25_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult,
+			PackageDeclarationToPackage packageDeclarationToP) {
+		if (ruleResult.getCorrObjects().contains(packageDeclarationToP)) {
+			return new Object[] { ruleResult, packageDeclarationToP };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UserActorToLifelineRule_25_2_blackFFFFFFFBB(
 			RuleEntryContainer ruleEntryContainer,
 			ModelgeneratorRuleResult ruleResult) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (RuleEntryList packageDeclarationToPList : ruleEntryContainer
+		for (RuleEntryList useCaseToInteractionList : ruleEntryContainer
 				.getRuleEntryList()) {
-			for (EObject tmpPackageDeclarationToP : packageDeclarationToPList
+			for (EObject tmpUseCaseToInteraction : useCaseToInteractionList
 					.getEntryObjects()) {
-				if (tmpPackageDeclarationToP instanceof PackageDeclarationToPackage) {
-					PackageDeclarationToPackage packageDeclarationToP = (PackageDeclarationToPackage) tmpPackageDeclarationToP;
-					PackageDeclaration packageDeclaration = packageDeclarationToP
-							.getSource();
-					if (packageDeclaration != null) {
-						ModalSequenceDiagram.Package p = packageDeclarationToP
+				if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+					UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+					UseCase useCase = useCaseToInteraction.getSource();
+					if (useCase != null) {
+						Interaction interaction = useCaseToInteraction
 								.getTarget();
-						if (p != null) {
-							if (pattern_UserActorToLifelineRule_25_2_black_nac_1BB(
-									ruleResult, packageDeclarationToP) == null) {
-								if (pattern_UserActorToLifelineRule_25_2_black_nac_0BB(
-										ruleResult, packageDeclaration) == null) {
-									if (pattern_UserActorToLifelineRule_25_2_black_nac_2BB(
-											ruleResult, p) == null) {
-										for (PackageableElement tmpInteraction : p
-												.getPackagedElement()) {
-											if (tmpInteraction instanceof Interaction) {
-												Interaction interaction = (Interaction) tmpInteraction;
-												if (pattern_UserActorToLifelineRule_25_2_black_nac_3BB(
-														ruleResult, interaction) == null) {
-													_result.add(new Object[] {
-															packageDeclarationToPList,
-															packageDeclaration,
-															packageDeclarationToP,
-															p, interaction,
-															ruleEntryContainer,
-															ruleResult });
+						if (interaction != null) {
+							if (pattern_UserActorToLifelineRule_25_2_black_nac_2BB(
+									ruleResult, useCaseToInteraction) == null) {
+								if (pattern_UserActorToLifelineRule_25_2_black_nac_1BB(
+										ruleResult, useCase) == null) {
+									if (pattern_UserActorToLifelineRule_25_2_black_nac_3BB(
+											ruleResult, interaction) == null) {
+										for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+												.getOppositeReferenceTyped(
+														useCase,
+														PackageDeclaration.class,
+														"useCases")) {
+											if (pattern_UserActorToLifelineRule_25_2_black_nac_0BB(
+													ruleResult,
+													packageDeclaration) == null) {
+												for (ModalSequenceDiagram.Package p : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																interaction,
+																ModalSequenceDiagram.Package.class,
+																"packagedElement")) {
+													if (pattern_UserActorToLifelineRule_25_2_black_nac_4BB(
+															ruleResult, p) == null) {
+														for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.util.eMoflonEMFUtil
+																.getOppositeReferenceTyped(
+																		packageDeclaration,
+																		PackageDeclarationToPackage.class,
+																		"source")) {
+															if (p.equals(packageDeclarationToP
+																	.getTarget())) {
+																if (pattern_UserActorToLifelineRule_25_2_black_nac_5BB(
+																		ruleResult,
+																		packageDeclarationToP) == null) {
+																	_result.add(new Object[] {
+																			useCaseToInteractionList,
+																			packageDeclaration,
+																			useCase,
+																			useCaseToInteraction,
+																			interaction,
+																			p,
+																			packageDeclarationToP,
+																			ruleEntryContainer,
+																			ruleResult });
+																}
+															}
+														}
+													}
 												}
 											}
 										}
@@ -2933,20 +3290,22 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_25_3_bindingFBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_25_3_bindingFBBBBBBBBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch,
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction, ModelgeneratorRuleResult ruleResult) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction,
+			ModelgeneratorRuleResult ruleResult) {
 		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
 				isApplicableMatch, packageDeclaration, p,
-				packageDeclarationToP, interaction, ruleResult);
+				packageDeclarationToP, useCase, useCaseToInteraction,
+				interaction, ruleResult);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch,
-					packageDeclaration, p, packageDeclarationToP, interaction,
-					ruleResult };
+					packageDeclaration, p, packageDeclarationToP, useCase,
+					useCaseToInteraction, interaction, ruleResult };
 		}
 		return null;
 	}
@@ -2956,15 +3315,17 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_25_3_bindingAndBlackFBBBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_25_3_bindingAndBlackFBBBBBBBBB(
 			UserActorToLifelineRule _this, IsApplicableMatch isApplicableMatch,
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction, ModelgeneratorRuleResult ruleResult) {
-		Object[] result_pattern_UserActorToLifelineRule_25_3_binding = pattern_UserActorToLifelineRule_25_3_bindingFBBBBBBB(
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction,
+			ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_UserActorToLifelineRule_25_3_binding = pattern_UserActorToLifelineRule_25_3_bindingFBBBBBBBBB(
 				_this, isApplicableMatch, packageDeclaration, p,
-				packageDeclarationToP, interaction, ruleResult);
+				packageDeclarationToP, useCase, useCaseToInteraction,
+				interaction, ruleResult);
 		if (result_pattern_UserActorToLifelineRule_25_3_binding != null) {
 			CSP csp = (CSP) result_pattern_UserActorToLifelineRule_25_3_binding[0];
 
@@ -2972,8 +3333,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			if (result_pattern_UserActorToLifelineRule_25_3_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch,
-						packageDeclaration, p, packageDeclarationToP,
-						interaction, ruleResult };
+						packageDeclaration, p, packageDeclarationToP, useCase,
+						useCaseToInteraction, interaction, ruleResult };
 			}
 		}
 		return null;
@@ -2986,22 +3347,23 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		return _result;
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_25_5_blackBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_25_5_blackBBBBBB(
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction) {
 		return new Object[] { packageDeclaration, p, packageDeclarationToP,
-				interaction };
+				useCase, useCaseToInteraction, interaction };
 	}
 
-	public static final Object[] pattern_UserActorToLifelineRule_25_6_blackBBBBB(
+	public static final Object[] pattern_UserActorToLifelineRule_25_6_blackBBBBBBB(
 			PackageDeclaration packageDeclaration,
 			ModalSequenceDiagram.Package p,
-			PackageDeclarationToPackage packageDeclarationToP,
-			Interaction interaction, ModelgeneratorRuleResult ruleResult) {
+			PackageDeclarationToPackage packageDeclarationToP, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction, Interaction interaction,
+			ModelgeneratorRuleResult ruleResult) {
 		return new Object[] { packageDeclaration, p, packageDeclarationToP,
-				interaction, ruleResult };
+				useCase, useCaseToInteraction, interaction, ruleResult };
 	}
 
 	public static final Object[] pattern_UserActorToLifelineRule_25_6_greenFBFFBBB(
@@ -3014,8 +3376,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_0 = csp.getValue("actor", "type");
 		Object _localVariable_1 = csp.getValue("actor", "name");
 		Object _localVariable_2 = csp.getValue("line", "name");
-		int _localVariable_3 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_3 = ruleResult.getIncrementedPerformCount();
 		packageDeclaration.getActors().add(actor);
 		ruleResult.getSourceObjects().add(actor);
 		line.setInteraction(interaction);
@@ -3026,8 +3388,8 @@ public class UserActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		ActorType actor_type_prime = (ActorType) _localVariable_0;
 		String actor_name_prime = (String) _localVariable_1;
 		String line_name_prime = (String) _localVariable_2;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_3);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_3);
 		actor.setType(actor_type_prime);
 		actor.setName(actor_name_prime);
 		line.setName(line_name_prime);

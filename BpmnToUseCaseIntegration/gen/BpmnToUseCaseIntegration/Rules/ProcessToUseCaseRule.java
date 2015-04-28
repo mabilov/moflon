@@ -25,8 +25,6 @@ import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.UseCase;
 
 import bpmn2.Definitions;
-import bpmn2.SequenceFlow;
-import bpmn2.StartEvent;
 
 import org.eclipse.emf.ecore.EObject;
 // <-- [user defined imports]
@@ -50,8 +48,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	boolean isAppropriate_FWD(Match match, Definitions definitions,
-			bpmn2.Process process, StartEvent startEvent,
-			SequenceFlow sequenceFlow);
+			bpmn2.Process process);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +73,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	void registerObjectsToMatch_FWD(Match match, Definitions definitions,
-			bpmn2.Process process, StartEvent startEvent,
-			SequenceFlow sequenceFlow);
+			bpmn2.Process process);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,8 +82,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	CSP isAppropriate_solveCsp_FWD(Match match, Definitions definitions,
-			bpmn2.Process process, StartEvent startEvent,
-			SequenceFlow sequenceFlow);
+			bpmn2.Process process);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,8 +100,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 */
 	CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
 			Definitions definitions, PackageDeclaration packageDeclaration,
-			DefinitionsToPackage definitionsToPackage, bpmn2.Process process,
-			StartEvent startEvent, SequenceFlow sequenceFlow);
+			DefinitionsToPackage definitionsToPackage, bpmn2.Process process);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,10 +119,8 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	void registerObjects_FWD(PerformRuleResult ruleresult, EObject definitions,
 			EObject packageDeclaration, EObject definitionsToPackage,
 			EObject process, EObject useCase, EObject processToUseCase,
-			EObject startEvent, EObject basicFlow,
-			EObject startEventToBasicFlow, EObject sequenceFlow,
-			EObject sequenceFlowToBasicFlow, EObject actor,
-			EObject processToActor);
+			EObject basicFlow, EObject actor, EObject processToActor,
+			EObject processToBasicFlow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -220,10 +212,8 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	void registerObjects_BWD(PerformRuleResult ruleresult, EObject definitions,
 			EObject packageDeclaration, EObject definitionsToPackage,
 			EObject process, EObject useCase, EObject processToUseCase,
-			EObject startEvent, EObject basicFlow,
-			EObject startEventToBasicFlow, EObject sequenceFlow,
-			EObject sequenceFlowToBasicFlow, EObject actor,
-			EObject processToActor);
+			EObject basicFlow, EObject actor, EObject processToActor,
+			EObject processToBasicFlow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,41 +254,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_2(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_3(
-			EMoflonEdge _edge_flowElements);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	EObjectContainer isAppropriate_BWD_EMoflonEdge_3(EMoflonEdge _edge_flows);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_4(EMoflonEdge _edge_sourceRef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_5(EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->

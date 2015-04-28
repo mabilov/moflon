@@ -50,6 +50,15 @@ public interface RulesFactory extends EFactory {
 	ProcessToUseCaseRule createProcessToUseCaseRule();
 
 	/**
+	 * Returns a new object of class '<em>Class1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class1</em>'.
+	 * @generated
+	 */
+	Class1 createClass1();
+
+	/**
 	 * Returns a new object of class '<em>Lane Set Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

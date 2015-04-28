@@ -247,7 +247,7 @@ public interface SeqFlowAfterEGToAltFlowRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_18(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_20(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -255,7 +255,7 @@ public interface SeqFlowAfterEGToAltFlowRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_19(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_21(
 			EMoflonEdge _edge_stepAlternative);
 
 	/**
@@ -264,7 +264,7 @@ public interface SeqFlowAfterEGToAltFlowRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_20(EMoflonEdge _edge_ref);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_22(EMoflonEdge _edge_ref);
 
 	/**
 	 * <!-- begin-user-doc -->

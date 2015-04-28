@@ -3,6 +3,7 @@
 package UseCaseDSL.impl;
 
 import UseCaseDSL.Flow;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLPackage;
 
@@ -33,10 +34,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getSuperCase <em>Super Case</em>}</li>
  *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getFlows <em>Flows</em>}</li>
+ *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getPreconditions <em>Preconditions</em>}</li>
+ *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getPostconditions <em>Postconditions</em>}</li>
  *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getName <em>Name</em>}</li>
- *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getPostcondition <em>Postcondition</em>}</li>
- *   <li>{@link UseCaseDSL.impl.UseCaseImpl#getPreConditions <em>Pre Conditions</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +63,26 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 	 * @ordered
 	 */
 	protected EList<Flow> flows;
+
+	/**
+	 * The cached value of the '{@link #getPreconditions() <em>Preconditions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreconditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UCCondition> preconditions;
+
+	/**
+	 * The cached value of the '{@link #getPostconditions() <em>Postconditions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostconditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<UCCondition> postconditions;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -102,46 +123,6 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPostcondition() <em>Postcondition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPostcondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String POSTCONDITION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPostcondition() <em>Postcondition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPostcondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected String postcondition = POSTCONDITION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPreConditions() <em>Pre Conditions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPreConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PRE_CONDITIONS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPreConditions() <em>Pre Conditions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPreConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected String preConditions = PRE_CONDITIONS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,6 +203,34 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<UCCondition> getPreconditions() {
+		if (preconditions == null) {
+			preconditions = new EObjectContainmentEList<UCCondition>(
+					UCCondition.class, this,
+					UseCaseDSLPackage.USE_CASE__PRECONDITIONS);
+		}
+		return preconditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<UCCondition> getPostconditions() {
+		if (postconditions == null) {
+			postconditions = new EObjectContainmentEList<UCCondition>(
+					UCCondition.class, this,
+					UseCaseDSLPackage.USE_CASE__POSTCONDITIONS);
+		}
+		return postconditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getDescription() {
 		return description;
 	}
@@ -267,58 +276,18 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPostcondition() {
-		return postcondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPostcondition(String newPostcondition) {
-		String oldPostcondition = postcondition;
-		postcondition = newPostcondition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					UseCaseDSLPackage.USE_CASE__POSTCONDITION,
-					oldPostcondition, postcondition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPreConditions() {
-		return preConditions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPreConditions(String newPreConditions) {
-		String oldPreConditions = preConditions;
-		preConditions = newPreConditions;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					UseCaseDSLPackage.USE_CASE__PRE_CONDITIONS,
-					oldPreConditions, preConditions));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case UseCaseDSLPackage.USE_CASE__FLOWS:
 			return ((InternalEList<?>) getFlows()).basicRemove(otherEnd, msgs);
+		case UseCaseDSLPackage.USE_CASE__PRECONDITIONS:
+			return ((InternalEList<?>) getPreconditions()).basicRemove(
+					otherEnd, msgs);
+		case UseCaseDSLPackage.USE_CASE__POSTCONDITIONS:
+			return ((InternalEList<?>) getPostconditions()).basicRemove(
+					otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -337,14 +306,14 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 			return basicGetSuperCase();
 		case UseCaseDSLPackage.USE_CASE__FLOWS:
 			return getFlows();
+		case UseCaseDSLPackage.USE_CASE__PRECONDITIONS:
+			return getPreconditions();
+		case UseCaseDSLPackage.USE_CASE__POSTCONDITIONS:
+			return getPostconditions();
 		case UseCaseDSLPackage.USE_CASE__DESCRIPTION:
 			return getDescription();
 		case UseCaseDSLPackage.USE_CASE__NAME:
 			return getName();
-		case UseCaseDSLPackage.USE_CASE__POSTCONDITION:
-			return getPostcondition();
-		case UseCaseDSLPackage.USE_CASE__PRE_CONDITIONS:
-			return getPreConditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,17 +334,21 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 			getFlows().clear();
 			getFlows().addAll((Collection<? extends Flow>) newValue);
 			return;
+		case UseCaseDSLPackage.USE_CASE__PRECONDITIONS:
+			getPreconditions().clear();
+			getPreconditions().addAll(
+					(Collection<? extends UCCondition>) newValue);
+			return;
+		case UseCaseDSLPackage.USE_CASE__POSTCONDITIONS:
+			getPostconditions().clear();
+			getPostconditions().addAll(
+					(Collection<? extends UCCondition>) newValue);
+			return;
 		case UseCaseDSLPackage.USE_CASE__DESCRIPTION:
 			setDescription((String) newValue);
 			return;
 		case UseCaseDSLPackage.USE_CASE__NAME:
 			setName((String) newValue);
-			return;
-		case UseCaseDSLPackage.USE_CASE__POSTCONDITION:
-			setPostcondition((String) newValue);
-			return;
-		case UseCaseDSLPackage.USE_CASE__PRE_CONDITIONS:
-			setPreConditions((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -395,17 +368,17 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 		case UseCaseDSLPackage.USE_CASE__FLOWS:
 			getFlows().clear();
 			return;
+		case UseCaseDSLPackage.USE_CASE__PRECONDITIONS:
+			getPreconditions().clear();
+			return;
+		case UseCaseDSLPackage.USE_CASE__POSTCONDITIONS:
+			getPostconditions().clear();
+			return;
 		case UseCaseDSLPackage.USE_CASE__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case UseCaseDSLPackage.USE_CASE__NAME:
 			setName(NAME_EDEFAULT);
-			return;
-		case UseCaseDSLPackage.USE_CASE__POSTCONDITION:
-			setPostcondition(POSTCONDITION_EDEFAULT);
-			return;
-		case UseCaseDSLPackage.USE_CASE__PRE_CONDITIONS:
-			setPreConditions(PRE_CONDITIONS_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -423,18 +396,16 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 			return superCase != null;
 		case UseCaseDSLPackage.USE_CASE__FLOWS:
 			return flows != null && !flows.isEmpty();
+		case UseCaseDSLPackage.USE_CASE__PRECONDITIONS:
+			return preconditions != null && !preconditions.isEmpty();
+		case UseCaseDSLPackage.USE_CASE__POSTCONDITIONS:
+			return postconditions != null && !postconditions.isEmpty();
 		case UseCaseDSLPackage.USE_CASE__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null
 					: !DESCRIPTION_EDEFAULT.equals(description);
 		case UseCaseDSLPackage.USE_CASE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
 					.equals(name);
-		case UseCaseDSLPackage.USE_CASE__POSTCONDITION:
-			return POSTCONDITION_EDEFAULT == null ? postcondition != null
-					: !POSTCONDITION_EDEFAULT.equals(postcondition);
-		case UseCaseDSLPackage.USE_CASE__PRE_CONDITIONS:
-			return PRE_CONDITIONS_EDEFAULT == null ? preConditions != null
-					: !PRE_CONDITIONS_EDEFAULT.equals(preConditions);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -454,10 +425,6 @@ public class UseCaseImpl extends EObjectImpl implements UseCase {
 		result.append(description);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", postcondition: ");
-		result.append(postcondition);
-		result.append(", preConditions: ");
-		result.append(preConditions);
 		result.append(')');
 		return result.toString();
 	}

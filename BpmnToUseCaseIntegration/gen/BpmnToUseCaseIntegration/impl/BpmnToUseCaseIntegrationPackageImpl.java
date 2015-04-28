@@ -140,6 +140,27 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	private EClass endEventToFlowEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass processToBasicFlowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass startEventToUCConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endEventToUCConditionEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -643,6 +664,108 @@ public class BpmnToUseCaseIntegrationPackageImpl extends EPackageImpl implements
 	 */
 	public EReference getEndEventToFlow_Target() {
 		return (EReference) getEndEventToFlow().getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcessToBasicFlow() {
+		if (processToBasicFlowEClass == null) {
+			processToBasicFlowEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(13);
+		}
+		return processToBasicFlowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessToBasicFlow_Source() {
+		return (EReference) getProcessToBasicFlow().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcessToBasicFlow_Target() {
+		return (EReference) getProcessToBasicFlow().getEStructuralFeatures()
+				.get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStartEventToUCCondition() {
+		if (startEventToUCConditionEClass == null) {
+			startEventToUCConditionEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(14);
+		}
+		return startEventToUCConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartEventToUCCondition_Source() {
+		return (EReference) getStartEventToUCCondition()
+				.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStartEventToUCCondition_Target() {
+		return (EReference) getStartEventToUCCondition()
+				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEndEventToUCCondition() {
+		if (endEventToUCConditionEClass == null) {
+			endEventToUCConditionEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(BpmnToUseCaseIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(15);
+		}
+		return endEventToUCConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndEventToUCCondition_Source() {
+		return (EReference) getEndEventToUCCondition().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndEventToUCCondition_Target() {
+		return (EReference) getEndEventToUCCondition().getEStructuralFeatures()
+				.get(1);
 	}
 
 	/**

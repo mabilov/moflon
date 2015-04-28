@@ -768,7 +768,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_228(
 			EMoflonEdge _edge_packages) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCPackageToMSDPackageImpl
@@ -829,7 +829,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_72(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_71(
 			EMoflonEdge _edge_packagedElement) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCPackageToMSDPackageImpl
@@ -1107,11 +1107,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_229__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_229((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_228__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_228((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_72__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_72((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_71__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_71((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2272,10 +2272,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UCPackageToMSDPackage_20_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_935005 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_11893 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_935005)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_11893)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}
@@ -2616,8 +2616,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				.createPackageDeclarationToPackage();
 		Object _localVariable_0 = csp.getValue("packageDeclaration", "name");
 		Object _localVariable_1 = csp.getValue("p", "name");
-		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
 		useCasesModel.getPackages().add(packageDeclaration);
 		ruleResult.getSourceObjects().add(packageDeclaration);
 		model.getPackagedElement().add(p);
@@ -2627,8 +2627,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		ruleResult.getCorrObjects().add(packageDeclarationToPackage);
 		String packageDeclaration_name_prime = (String) _localVariable_0;
 		String p_name_prime = (String) _localVariable_1;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
 		packageDeclaration.setName(packageDeclaration_name_prime);
 		p.setName(p_name_prime);
 		ruleResult.setPerformCount(Integer

@@ -467,7 +467,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_34(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_36(
 			EMoflonEdge _edge_continuation) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ContinuationRuleImpl
@@ -742,8 +742,8 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.CONTINUATION_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.CONTINUATION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_34((EMoflonEdge) arguments
+		case RulesPackage.CONTINUATION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_36__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_36((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.CONTINUATION_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));

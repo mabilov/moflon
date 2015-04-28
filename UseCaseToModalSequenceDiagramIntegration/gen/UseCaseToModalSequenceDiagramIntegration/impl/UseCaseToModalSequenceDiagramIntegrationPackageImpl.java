@@ -119,6 +119,13 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	private EClass normalStepToCombinedFragmentEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ucConditionToMessageEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -543,6 +550,41 @@ public class UseCaseToModalSequenceDiagramIntegrationPackageImpl extends
 	public EReference getNormalStepToCombinedFragment_Target() {
 		return (EReference) getNormalStepToCombinedFragment()
 				.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUCConditionToMessage() {
+		if (ucConditionToMessageEClass == null) {
+			ucConditionToMessageEClass = (EClass) EPackage.Registry.INSTANCE
+					.getEPackage(
+							UseCaseToModalSequenceDiagramIntegrationPackage.eNS_URI)
+					.getEClassifiers().get(10);
+		}
+		return ucConditionToMessageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUCConditionToMessage_Source() {
+		return (EReference) getUCConditionToMessage().getEStructuralFeatures()
+				.get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUCConditionToMessage_Target() {
+		return (EReference) getUCConditionToMessage().getEStructuralFeatures()
+				.get(1);
 	}
 
 	/**

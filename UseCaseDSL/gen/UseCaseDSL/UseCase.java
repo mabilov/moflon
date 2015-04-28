@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link UseCaseDSL.UseCase#getSuperCase <em>Super Case</em>}</li>
  *   <li>{@link UseCaseDSL.UseCase#getFlows <em>Flows</em>}</li>
+ *   <li>{@link UseCaseDSL.UseCase#getPreconditions <em>Preconditions</em>}</li>
+ *   <li>{@link UseCaseDSL.UseCase#getPostconditions <em>Postconditions</em>}</li>
  *   <li>{@link UseCaseDSL.UseCase#getDescription <em>Description</em>}</li>
  *   <li>{@link UseCaseDSL.UseCase#getName <em>Name</em>}</li>
- *   <li>{@link UseCaseDSL.UseCase#getPostcondition <em>Postcondition</em>}</li>
- *   <li>{@link UseCaseDSL.UseCase#getPreConditions <em>Pre Conditions</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +71,38 @@ public interface UseCase extends EObject {
 	 * @generated
 	 */
 	EList<Flow> getFlows();
+
+	/**
+	 * Returns the value of the '<em><b>Preconditions</b></em>' containment reference list.
+	 * The list contents are of type {@link UseCaseDSL.UCCondition}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Preconditions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Preconditions</em>' containment reference list.
+	 * @see UseCaseDSL.UseCaseDSLPackage#getUseCase_Preconditions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<UCCondition> getPreconditions();
+
+	/**
+	 * Returns the value of the '<em><b>Postconditions</b></em>' containment reference list.
+	 * The list contents are of type {@link UseCaseDSL.UCCondition}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Postconditions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Postconditions</em>' containment reference list.
+	 * @see UseCaseDSL.UseCaseDSLPackage#getUseCase_Postconditions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<UCCondition> getPostconditions();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -123,58 +155,6 @@ public interface UseCase extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Postcondition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Postcondition</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Postcondition</em>' attribute.
-	 * @see #setPostcondition(String)
-	 * @see UseCaseDSL.UseCaseDSLPackage#getUseCase_Postcondition()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	String getPostcondition();
-
-	/**
-	 * Sets the value of the '{@link UseCaseDSL.UseCase#getPostcondition <em>Postcondition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Postcondition</em>' attribute.
-	 * @see #getPostcondition()
-	 * @generated
-	 */
-	void setPostcondition(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Pre Conditions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pre Conditions</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pre Conditions</em>' attribute.
-	 * @see #setPreConditions(String)
-	 * @see UseCaseDSL.UseCaseDSLPackage#getUseCase_PreConditions()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	String getPreConditions();
-
-	/**
-	 * Sets the value of the '{@link UseCaseDSL.UseCase#getPreConditions <em>Pre Conditions</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pre Conditions</em>' attribute.
-	 * @see #getPreConditions()
-	 * @generated
-	 */
-	void setPreConditions(String value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

@@ -657,6 +657,144 @@ public interface BpmnToUseCaseIntegrationPackage extends EPackage {
 	int END_EVENT_TO_FLOW_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link BpmnToUseCaseIntegration.impl.ProcessToBasicFlowImpl <em>Process To Basic Flow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see BpmnToUseCaseIntegration.impl.ProcessToBasicFlowImpl
+	 * @see BpmnToUseCaseIntegration.impl.BpmnToUseCaseIntegrationPackageImpl#getProcessToBasicFlow()
+	 * @generated
+	 */
+	int PROCESS_TO_BASIC_FLOW = 13;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_TO_BASIC_FLOW__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_TO_BASIC_FLOW__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Process To Basic Flow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_TO_BASIC_FLOW_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Process To Basic Flow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_TO_BASIC_FLOW_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link BpmnToUseCaseIntegration.impl.StartEventToUCConditionImpl <em>Start Event To UC Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see BpmnToUseCaseIntegration.impl.StartEventToUCConditionImpl
+	 * @see BpmnToUseCaseIntegration.impl.BpmnToUseCaseIntegrationPackageImpl#getStartEventToUCCondition()
+	 * @generated
+	 */
+	int START_EVENT_TO_UC_CONDITION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT_TO_UC_CONDITION__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT_TO_UC_CONDITION__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Start Event To UC Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT_TO_UC_CONDITION_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Start Event To UC Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT_TO_UC_CONDITION_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link BpmnToUseCaseIntegration.impl.EndEventToUCConditionImpl <em>End Event To UC Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see BpmnToUseCaseIntegration.impl.EndEventToUCConditionImpl
+	 * @see BpmnToUseCaseIntegration.impl.BpmnToUseCaseIntegrationPackageImpl#getEndEventToUCCondition()
+	 * @generated
+	 */
+	int END_EVENT_TO_UC_CONDITION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_TO_UC_CONDITION__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_TO_UC_CONDITION__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>End Event To UC Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_TO_UC_CONDITION_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>End Event To UC Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_TO_UC_CONDITION_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link BpmnToUseCaseIntegration.DocRootToUCModel <em>Doc Root To UC Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1073,6 +1211,102 @@ public interface BpmnToUseCaseIntegrationPackage extends EPackage {
 	EReference getEndEventToFlow_Target();
 
 	/**
+	 * Returns the meta object for class '{@link BpmnToUseCaseIntegration.ProcessToBasicFlow <em>Process To Basic Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Process To Basic Flow</em>'.
+	 * @see BpmnToUseCaseIntegration.ProcessToBasicFlow
+	 * @generated
+	 */
+	EClass getProcessToBasicFlow();
+
+	/**
+	 * Returns the meta object for the reference '{@link BpmnToUseCaseIntegration.ProcessToBasicFlow#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see BpmnToUseCaseIntegration.ProcessToBasicFlow#getSource()
+	 * @see #getProcessToBasicFlow()
+	 * @generated
+	 */
+	EReference getProcessToBasicFlow_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link BpmnToUseCaseIntegration.ProcessToBasicFlow#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see BpmnToUseCaseIntegration.ProcessToBasicFlow#getTarget()
+	 * @see #getProcessToBasicFlow()
+	 * @generated
+	 */
+	EReference getProcessToBasicFlow_Target();
+
+	/**
+	 * Returns the meta object for class '{@link BpmnToUseCaseIntegration.StartEventToUCCondition <em>Start Event To UC Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Start Event To UC Condition</em>'.
+	 * @see BpmnToUseCaseIntegration.StartEventToUCCondition
+	 * @generated
+	 */
+	EClass getStartEventToUCCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link BpmnToUseCaseIntegration.StartEventToUCCondition#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see BpmnToUseCaseIntegration.StartEventToUCCondition#getSource()
+	 * @see #getStartEventToUCCondition()
+	 * @generated
+	 */
+	EReference getStartEventToUCCondition_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link BpmnToUseCaseIntegration.StartEventToUCCondition#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see BpmnToUseCaseIntegration.StartEventToUCCondition#getTarget()
+	 * @see #getStartEventToUCCondition()
+	 * @generated
+	 */
+	EReference getStartEventToUCCondition_Target();
+
+	/**
+	 * Returns the meta object for class '{@link BpmnToUseCaseIntegration.EndEventToUCCondition <em>End Event To UC Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>End Event To UC Condition</em>'.
+	 * @see BpmnToUseCaseIntegration.EndEventToUCCondition
+	 * @generated
+	 */
+	EClass getEndEventToUCCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link BpmnToUseCaseIntegration.EndEventToUCCondition#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see BpmnToUseCaseIntegration.EndEventToUCCondition#getSource()
+	 * @see #getEndEventToUCCondition()
+	 * @generated
+	 */
+	EReference getEndEventToUCCondition_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link BpmnToUseCaseIntegration.EndEventToUCCondition#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see BpmnToUseCaseIntegration.EndEventToUCCondition#getTarget()
+	 * @see #getEndEventToUCCondition()
+	 * @generated
+	 */
+	EReference getEndEventToUCCondition_Target();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1454,6 +1688,91 @@ public interface BpmnToUseCaseIntegrationPackage extends EPackage {
 		 */
 		EReference END_EVENT_TO_FLOW__TARGET = eINSTANCE
 				.getEndEventToFlow_Target();
+
+		/**
+		 * The meta object literal for the '{@link BpmnToUseCaseIntegration.impl.ProcessToBasicFlowImpl <em>Process To Basic Flow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see BpmnToUseCaseIntegration.impl.ProcessToBasicFlowImpl
+		 * @see BpmnToUseCaseIntegration.impl.BpmnToUseCaseIntegrationPackageImpl#getProcessToBasicFlow()
+		 * @generated
+		 */
+		EClass PROCESS_TO_BASIC_FLOW = eINSTANCE.getProcessToBasicFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS_TO_BASIC_FLOW__SOURCE = eINSTANCE
+				.getProcessToBasicFlow_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS_TO_BASIC_FLOW__TARGET = eINSTANCE
+				.getProcessToBasicFlow_Target();
+
+		/**
+		 * The meta object literal for the '{@link BpmnToUseCaseIntegration.impl.StartEventToUCConditionImpl <em>Start Event To UC Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see BpmnToUseCaseIntegration.impl.StartEventToUCConditionImpl
+		 * @see BpmnToUseCaseIntegration.impl.BpmnToUseCaseIntegrationPackageImpl#getStartEventToUCCondition()
+		 * @generated
+		 */
+		EClass START_EVENT_TO_UC_CONDITION = eINSTANCE
+				.getStartEventToUCCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START_EVENT_TO_UC_CONDITION__SOURCE = eINSTANCE
+				.getStartEventToUCCondition_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START_EVENT_TO_UC_CONDITION__TARGET = eINSTANCE
+				.getStartEventToUCCondition_Target();
+
+		/**
+		 * The meta object literal for the '{@link BpmnToUseCaseIntegration.impl.EndEventToUCConditionImpl <em>End Event To UC Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see BpmnToUseCaseIntegration.impl.EndEventToUCConditionImpl
+		 * @see BpmnToUseCaseIntegration.impl.BpmnToUseCaseIntegrationPackageImpl#getEndEventToUCCondition()
+		 * @generated
+		 */
+		EClass END_EVENT_TO_UC_CONDITION = eINSTANCE.getEndEventToUCCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference END_EVENT_TO_UC_CONDITION__SOURCE = eINSTANCE
+				.getEndEventToUCCondition_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference END_EVENT_TO_UC_CONDITION__TARGET = eINSTANCE
+				.getEndEventToUCCondition_Target();
 
 	}
 

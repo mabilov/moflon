@@ -4,6 +4,7 @@ package UseCaseDSL.impl;
 
 import UseCaseDSL.Flow;
 import UseCaseDSL.Step;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCaseDSLPackage;
 
 import java.util.Collection;
@@ -50,24 +51,14 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 	protected EList<Step> steps;
 
 	/**
-	 * The default value of the '{@link #getFinalState() <em>Final State</em>}' attribute.
+	 * The cached value of the '{@link #getFinalState() <em>Final State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFinalState()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FINAL_STATE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFinalState() <em>Final State</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFinalState()
-	 * @generated
-	 * @ordered
-	 */
-	protected String finalState = FINAL_STATE_EDEFAULT;
+	protected UCCondition finalState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,7 +97,7 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFinalState() {
+	public UCCondition getFinalState() {
 		return finalState;
 	}
 
@@ -115,13 +106,47 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFinalState(String newFinalState) {
-		String oldFinalState = finalState;
+	public NotificationChain basicSetFinalState(UCCondition newFinalState,
+			NotificationChain msgs) {
+		UCCondition oldFinalState = finalState;
 		finalState = newFinalState;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this,
+					Notification.SET, UseCaseDSLPackage.FLOW__FINAL_STATE,
+					oldFinalState, newFinalState);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFinalState(UCCondition newFinalState) {
+		if (newFinalState != finalState) {
+			NotificationChain msgs = null;
+			if (finalState != null)
+				msgs = ((InternalEObject) finalState).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- UseCaseDSLPackage.FLOW__FINAL_STATE, null,
+						msgs);
+			if (newFinalState != null)
+				msgs = ((InternalEObject) newFinalState).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- UseCaseDSLPackage.FLOW__FINAL_STATE, null,
+						msgs);
+			msgs = basicSetFinalState(newFinalState, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					UseCaseDSLPackage.FLOW__FINAL_STATE, oldFinalState,
-					finalState));
+					UseCaseDSLPackage.FLOW__FINAL_STATE, newFinalState,
+					newFinalState));
 	}
 
 	/**
@@ -135,6 +160,8 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 		switch (featureID) {
 		case UseCaseDSLPackage.FLOW__STEPS:
 			return ((InternalEList<?>) getSteps()).basicRemove(otherEnd, msgs);
+		case UseCaseDSLPackage.FLOW__FINAL_STATE:
+			return basicSetFinalState(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -169,7 +196,7 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 			getSteps().addAll((Collection<? extends Step>) newValue);
 			return;
 		case UseCaseDSLPackage.FLOW__FINAL_STATE:
-			setFinalState((String) newValue);
+			setFinalState((UCCondition) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,7 +214,7 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 			getSteps().clear();
 			return;
 		case UseCaseDSLPackage.FLOW__FINAL_STATE:
-			setFinalState(FINAL_STATE_EDEFAULT);
+			setFinalState((UCCondition) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -204,27 +231,9 @@ public abstract class FlowImpl extends EObjectImpl implements Flow {
 		case UseCaseDSLPackage.FLOW__STEPS:
 			return steps != null && !steps.isEmpty();
 		case UseCaseDSLPackage.FLOW__FINAL_STATE:
-			return FINAL_STATE_EDEFAULT == null ? finalState != null
-					: !FINAL_STATE_EDEFAULT.equals(finalState);
+			return finalState != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (finalState: ");
-		result.append(finalState);
-		result.append(')');
-		return result.toString();
 	}
 	// <-- [user code injected with eMoflon]
 

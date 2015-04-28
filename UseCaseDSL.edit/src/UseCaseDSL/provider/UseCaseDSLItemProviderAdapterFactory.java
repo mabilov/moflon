@@ -376,6 +376,29 @@ public class UseCaseDSLItemProviderAdapterFactory extends
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link UseCaseDSL.UCCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UCConditionItemProvider ucConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link UseCaseDSL.UCCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUCConditionAdapter() {
+		if (ucConditionItemProvider == null) {
+			ucConditionItemProvider = new UCConditionItemProvider(this);
+		}
+
+		return ucConditionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -503,6 +526,8 @@ public class UseCaseDSLItemProviderAdapterFactory extends
 			useCaseItemProvider.dispose();
 		if (useCasesModelItemProvider != null)
 			useCasesModelItemProvider.dispose();
+		if (ucConditionItemProvider != null)
+			ucConditionItemProvider.dispose();
 	}
 
 }

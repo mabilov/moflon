@@ -141,7 +141,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	int FLOW__STEPS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Final State</b></em>' attribute.
+	 * The feature id for the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -187,7 +187,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	int NAMED_FLOW__STEPS = FLOW__STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Final State</b></em>' attribute.
+	 * The feature id for the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -242,7 +242,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	int ALTERNATIVE_FLOW__STEPS = NAMED_FLOW__STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Final State</b></em>' attribute.
+	 * The feature id for the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -398,7 +398,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	int BASIC_FLOW__STEPS = FLOW__STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Final State</b></em>' attribute.
+	 * The feature id for the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -490,7 +490,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	int EXCEPTION_FLOW__STEPS = NAMED_FLOW__STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Final State</b></em>' attribute.
+	 * The feature id for the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -837,7 +837,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	int PARALLEL_FLOW__STEPS = NAMED_FLOW__STEPS;
 
 	/**
-	 * The feature id for the '<em><b>Final State</b></em>' attribute.
+	 * The feature id for the '<em><b>Final State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -974,13 +974,31 @@ public interface UseCaseDSLPackage extends EPackage {
 	int USE_CASE__FLOWS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Preconditions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE__PRECONDITIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Postconditions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USE_CASE__POSTCONDITIONS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__DESCRIPTION = 2;
+	int USE_CASE__DESCRIPTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -989,25 +1007,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE__NAME = 3;
-
-	/**
-	 * The feature id for the '<em><b>Postcondition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USE_CASE__POSTCONDITION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Pre Conditions</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USE_CASE__PRE_CONDITIONS = 5;
+	int USE_CASE__NAME = 5;
 
 	/**
 	 * The number of structural features of the '<em>Use Case</em>' class.
@@ -1065,6 +1065,43 @@ public interface UseCaseDSLPackage extends EPackage {
 	int USE_CASES_MODEL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseDSL.impl.UCConditionImpl <em>UC Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseDSL.impl.UCConditionImpl
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUCCondition()
+	 * @generated
+	 */
+	int UC_CONDITION = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>UC Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>UC Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link UseCaseDSL.ActorType <em>Actor Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1072,7 +1109,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getActorType()
 	 * @generated
 	 */
-	int ACTOR_TYPE = 17;
+	int ACTOR_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link UseCaseDSL.CustomStepType <em>Custom Step Type</em>}' enum.
@@ -1082,7 +1119,7 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCustomStepType()
 	 * @generated
 	 */
-	int CUSTOM_STEP_TYPE = 18;
+	int CUSTOM_STEP_TYPE = 19;
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.Actor <em>Actor</em>}'.
@@ -1232,15 +1269,15 @@ public interface UseCaseDSLPackage extends EPackage {
 	EReference getFlow_Steps();
 
 	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.Flow#getFinalState <em>Final State</em>}'.
+	 * Returns the meta object for the containment reference '{@link UseCaseDSL.Flow#getFinalState <em>Final State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Final State</em>'.
+	 * @return the meta object for the containment reference '<em>Final State</em>'.
 	 * @see UseCaseDSL.Flow#getFinalState()
 	 * @see #getFlow()
 	 * @generated
 	 */
-	EAttribute getFlow_FinalState();
+	EReference getFlow_FinalState();
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.LocalAlternative <em>Local Alternative</em>}'.
@@ -1542,6 +1579,28 @@ public interface UseCaseDSLPackage extends EPackage {
 	EReference getUseCase_Flows();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.UseCase#getPreconditions <em>Preconditions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Preconditions</em>'.
+	 * @see UseCaseDSL.UseCase#getPreconditions()
+	 * @see #getUseCase()
+	 * @generated
+	 */
+	EReference getUseCase_Preconditions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link UseCaseDSL.UseCase#getPostconditions <em>Postconditions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Postconditions</em>'.
+	 * @see UseCaseDSL.UseCase#getPostconditions()
+	 * @see #getUseCase()
+	 * @generated
+	 */
+	EReference getUseCase_Postconditions();
+
+	/**
 	 * Returns the meta object for the attribute '{@link UseCaseDSL.UseCase#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1564,28 +1623,6 @@ public interface UseCaseDSLPackage extends EPackage {
 	EAttribute getUseCase_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.UseCase#getPostcondition <em>Postcondition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Postcondition</em>'.
-	 * @see UseCaseDSL.UseCase#getPostcondition()
-	 * @see #getUseCase()
-	 * @generated
-	 */
-	EAttribute getUseCase_Postcondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.UseCase#getPreConditions <em>Pre Conditions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pre Conditions</em>'.
-	 * @see UseCaseDSL.UseCase#getPreConditions()
-	 * @see #getUseCase()
-	 * @generated
-	 */
-	EAttribute getUseCase_PreConditions();
-
-	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.UseCasesModel <em>Use Cases Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1605,6 +1642,27 @@ public interface UseCaseDSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUseCasesModel_Packages();
+
+	/**
+	 * Returns the meta object for class '{@link UseCaseDSL.UCCondition <em>UC Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>UC Condition</em>'.
+	 * @see UseCaseDSL.UCCondition
+	 * @generated
+	 */
+	EClass getUCCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.UCCondition#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see UseCaseDSL.UCCondition#getName()
+	 * @see #getUCCondition()
+	 * @generated
+	 */
+	EAttribute getUCCondition_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link UseCaseDSL.ActorType <em>Actor Type</em>}'.
@@ -1779,12 +1837,12 @@ public interface UseCaseDSLPackage extends EPackage {
 		EReference FLOW__STEPS = eINSTANCE.getFlow_Steps();
 
 		/**
-		 * The meta object literal for the '<em><b>Final State</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Final State</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FLOW__FINAL_STATE = eINSTANCE.getFlow_FinalState();
+		EReference FLOW__FINAL_STATE = eINSTANCE.getFlow_FinalState();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.impl.LocalAlternativeImpl <em>Local Alternative</em>}' class.
@@ -2040,6 +2098,24 @@ public interface UseCaseDSLPackage extends EPackage {
 		EReference USE_CASE__FLOWS = eINSTANCE.getUseCase_Flows();
 
 		/**
+		 * The meta object literal for the '<em><b>Preconditions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USE_CASE__PRECONDITIONS = eINSTANCE
+				.getUseCase_Preconditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Postconditions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USE_CASE__POSTCONDITIONS = eINSTANCE
+				.getUseCase_Postconditions();
+
+		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2054,24 +2130,6 @@ public interface UseCaseDSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute USE_CASE__NAME = eINSTANCE.getUseCase_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Postcondition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USE_CASE__POSTCONDITION = eINSTANCE
-				.getUseCase_Postcondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Pre Conditions</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USE_CASE__PRE_CONDITIONS = eINSTANCE
-				.getUseCase_PreConditions();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.impl.UseCasesModelImpl <em>Use Cases Model</em>}' class.
@@ -2091,6 +2149,24 @@ public interface UseCaseDSLPackage extends EPackage {
 		 */
 		EReference USE_CASES_MODEL__PACKAGES = eINSTANCE
 				.getUseCasesModel_Packages();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseDSL.impl.UCConditionImpl <em>UC Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseDSL.impl.UCConditionImpl
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getUCCondition()
+		 * @generated
+		 */
+		EClass UC_CONDITION = eINSTANCE.getUCCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UC_CONDITION__NAME = eINSTANCE.getUCCondition_Name();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.ActorType <em>Actor Type</em>}' enum.

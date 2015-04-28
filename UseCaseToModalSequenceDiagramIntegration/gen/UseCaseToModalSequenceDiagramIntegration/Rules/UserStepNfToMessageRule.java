@@ -48,8 +48,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface UserStepNfToMessageRule extends AbstractRule,
-		NormalStepNFToMessageRule {
+public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +263,40 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_137(
+			EMoflonEdge _edge_coveredBy);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_138(EMoflonEdge _edge_covered);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_139(
+			EMoflonEdge _edge_coveredBy);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_140(EMoflonEdge _edge_covered);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	EObjectContainer isAppropriate_BWD_EMoflonEdge_141(
 			EMoflonEdge _edge_coveredBy);
 
@@ -282,7 +315,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_BWD_EMoflonEdge_143(
-			EMoflonEdge _edge_coveredBy);
+			EMoflonEdge _edge_fragment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -290,7 +323,8 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_144(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_144(
+			EMoflonEdge _edge_enclosingOperand);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,7 +350,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_BWD_EMoflonEdge_147(
-			EMoflonEdge _edge_fragment);
+			EMoflonEdge _edge_coveredBy);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -324,8 +358,23 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_148(
-			EMoflonEdge _edge_enclosingOperand);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_148(EMoflonEdge _edge_covered);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_245(EMoflonEdge _edge_steps);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_246(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -334,56 +383,6 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @generated
 	 */
 	EObjectContainer isAppropriate_BWD_EMoflonEdge_149(
-			EMoflonEdge _edge_coveredBy);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_150(EMoflonEdge _edge_covered);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_151(
-			EMoflonEdge _edge_coveredBy);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_152(EMoflonEdge _edge_covered);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_248(EMoflonEdge _edge_steps);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_249(EMoflonEdge _edge_actor);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_153(
 			EMoflonEdge _edge_sendEvent);
 
 	/**
@@ -392,7 +391,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_154(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_150(
 			EMoflonEdge _edge_receiveEvent);
 
 	/**
@@ -401,7 +400,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_155(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_151(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -410,7 +409,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_156(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_152(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -418,7 +417,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_157(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_153(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -426,7 +425,7 @@ public interface UserStepNfToMessageRule extends AbstractRule,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_158(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_154(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->

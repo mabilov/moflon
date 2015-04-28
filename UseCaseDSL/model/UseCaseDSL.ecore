@@ -23,9 +23,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Flow" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1" eType="//Step" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="finalState" ordered="false">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finalState" eType="//UCCondition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocalAlternative" eSuperTypes="//StepAlternative">
     <eStructuralFeatures xsi:type="ecore:EReference" name="invokedUseCase" eType="//UseCase"/>
@@ -76,16 +74,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="UseCase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="superCase" eType="//UseCase"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flows" upperBound="-1" eType="//Flow" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1" eType="//UCCondition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postconditions" upperBound="-1" eType="//UCCondition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1" iD="true">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postcondition" ordered="false">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="preConditions" ordered="false">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
@@ -102,5 +96,10 @@
     <eLiterals name="OUTPUT" value="1" literal="output"/>
     <eLiterals name="PROCESS" value="2" literal="process"/>
     <eLiterals name="MIX" value="3" literal="mix"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UCCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

@@ -520,6 +520,52 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	int NORMAL_STEP_TO_COMBINED_FRAGMENT_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UCConditionToMessageImpl <em>UC Condition To Message</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UCConditionToMessageImpl
+	 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUCConditionToMessage()
+	 * @generated
+	 */
+	int UC_CONDITION_TO_MESSAGE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION_TO_MESSAGE__SOURCE = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION_TO_MESSAGE__TARGET = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>UC Condition To Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION_TO_MESSAGE_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>UC Condition To Message</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UC_CONDITION_TO_MESSAGE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_CORRESPONDENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.UseCasesModelToModel <em>Use Cases Model To Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -840,6 +886,38 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 	EReference getNormalStepToCombinedFragment_Target();
 
 	/**
+	 * Returns the meta object for class '{@link UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage <em>UC Condition To Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>UC Condition To Message</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage
+	 * @generated
+	 */
+	EClass getUCConditionToMessage();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage#getSource()
+	 * @see #getUCConditionToMessage()
+	 * @generated
+	 */
+	EReference getUCConditionToMessage_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage#getTarget()
+	 * @see #getUCConditionToMessage()
+	 * @generated
+	 */
+	EReference getUCConditionToMessage_Target();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1146,6 +1224,34 @@ public interface UseCaseToModalSequenceDiagramIntegrationPackage extends
 		 */
 		EReference NORMAL_STEP_TO_COMBINED_FRAGMENT__TARGET = eINSTANCE
 				.getNormalStepToCombinedFragment_Target();
+
+		/**
+		 * The meta object literal for the '{@link UseCaseToModalSequenceDiagramIntegration.impl.UCConditionToMessageImpl <em>UC Condition To Message</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UCConditionToMessageImpl
+		 * @see UseCaseToModalSequenceDiagramIntegration.impl.UseCaseToModalSequenceDiagramIntegrationPackageImpl#getUCConditionToMessage()
+		 * @generated
+		 */
+		EClass UC_CONDITION_TO_MESSAGE = eINSTANCE.getUCConditionToMessage();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UC_CONDITION_TO_MESSAGE__SOURCE = eINSTANCE
+				.getUCConditionToMessage_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UC_CONDITION_TO_MESSAGE__TARGET = eINSTANCE
+				.getUCConditionToMessage_Target();
 
 	}
 

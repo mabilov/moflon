@@ -60,8 +60,6 @@ public class UseCaseItemProvider extends ItemProviderAdapter implements
 			addSuperCasePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addPostconditionPropertyDescriptor(object);
-			addPreConditionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,48 +119,6 @@ public class UseCaseItemProvider extends ItemProviderAdapter implements
 	}
 
 	/**
-	 * This adds a property descriptor for the Postcondition feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPostconditionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_UseCase_postcondition_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_UseCase_postcondition_feature",
-								"_UI_UseCase_type"),
-						UseCaseDSLPackage.Literals.USE_CASE__POSTCONDITION,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Pre Conditions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPreConditionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory) adapterFactory)
-								.getRootAdapterFactory(),
-						getResourceLocator(),
-						getString("_UI_UseCase_preConditions_feature"),
-						getString("_UI_PropertyDescriptor_description",
-								"_UI_UseCase_preConditions_feature",
-								"_UI_UseCase_type"),
-						UseCaseDSLPackage.Literals.USE_CASE__PRE_CONDITIONS,
-						true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -176,6 +132,10 @@ public class UseCaseItemProvider extends ItemProviderAdapter implements
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UseCaseDSLPackage.Literals.USE_CASE__FLOWS);
+			childrenFeatures
+					.add(UseCaseDSLPackage.Literals.USE_CASE__PRECONDITIONS);
+			childrenFeatures
+					.add(UseCaseDSLPackage.Literals.USE_CASE__POSTCONDITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -232,12 +192,12 @@ public class UseCaseItemProvider extends ItemProviderAdapter implements
 		switch (notification.getFeatureID(UseCase.class)) {
 		case UseCaseDSLPackage.USE_CASE__DESCRIPTION:
 		case UseCaseDSLPackage.USE_CASE__NAME:
-		case UseCaseDSLPackage.USE_CASE__POSTCONDITION:
-		case UseCaseDSLPackage.USE_CASE__PRE_CONDITIONS:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;
 		case UseCaseDSLPackage.USE_CASE__FLOWS:
+		case UseCaseDSLPackage.USE_CASE__PRECONDITIONS:
+		case UseCaseDSLPackage.USE_CASE__POSTCONDITIONS:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -272,6 +232,37 @@ public class UseCaseItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add(createChildParameter(
 				UseCaseDSLPackage.Literals.USE_CASE__FLOWS,
 				UseCaseDSLFactory.eINSTANCE.createParallelFlow()));
+
+		newChildDescriptors.add(createChildParameter(
+				UseCaseDSLPackage.Literals.USE_CASE__PRECONDITIONS,
+				UseCaseDSLFactory.eINSTANCE.createUCCondition()));
+
+		newChildDescriptors.add(createChildParameter(
+				UseCaseDSLPackage.Literals.USE_CASE__POSTCONDITIONS,
+				UseCaseDSLFactory.eINSTANCE.createUCCondition()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature,
+			Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == UseCaseDSLPackage.Literals.USE_CASE__PRECONDITIONS
+				|| childFeature == UseCaseDSLPackage.Literals.USE_CASE__POSTCONDITIONS;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] {
+					getTypeText(childObject), getFeatureText(childFeature),
+					getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

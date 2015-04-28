@@ -626,7 +626,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD__MATCH_DEFINITIONS_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
+	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD__MATCH_DEFINITIONS_PROCESS = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Perform FWD</em>' operation.
@@ -653,7 +653,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_DEFINITIONS_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
+	int PROCESS_TO_USE_CASE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_DEFINITIONS_PROCESS = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
@@ -662,7 +662,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_DEFINITIONS_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
+	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_DEFINITIONS_PROCESS = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
@@ -680,7 +680,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_DEFINITIONS_PACKAGEDECLARATION_DEFINITIONSTOPACKAGE_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
+	int PROCESS_TO_USE_CASE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_DEFINITIONS_PACKAGEDECLARATION_DEFINITIONSTOPACKAGE_PROCESS = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
@@ -698,7 +698,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int PROCESS_TO_USE_CASE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -788,7 +788,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int PROCESS_TO_USE_CASE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -827,49 +827,13 @@ public interface RulesPackage extends EPackage {
 	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_2__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_2__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 3</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_3__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
-
-	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 3</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_3__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 4</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 5</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_5__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_3__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -878,7 +842,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
@@ -887,7 +851,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -896,7 +860,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_DEFINITIONSTOPACKAGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int PROCESS_TO_USE_CASE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_DEFINITIONSTOPACKAGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -905,7 +869,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_DEFINITIONS_PACKAGEDECLARATION_DEFINITIONSTOPACKAGE_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int PROCESS_TO_USE_CASE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_DEFINITIONS_PACKAGEDECLARATION_DEFINITIONSTOPACKAGE_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -914,7 +878,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int PROCESS_TO_USE_CASE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The number of operations of the '<em>Process To Use Case Rule</em>' class.
@@ -923,7 +887,305 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_TO_USE_CASE_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int PROCESS_TO_USE_CASE_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+
+	/**
+	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.Class1Impl <em>Class1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see BpmnToUseCaseIntegration.Rules.impl.Class1Impl
+	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getClass1()
+	 * @generated
+	 */
+	int CLASS1 = 3;
+
+	/**
+	 * The number of structural features of the '<em>Class1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1_FEATURE_COUNT = TGGRuntimePackage.ABSTRACT_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_FWD__MATCH_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Perform FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___PERFORM_FWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Applicable FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPLICABLE_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Register Objects To Match FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate solve Csp FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_PROCESS_STARTEVENT_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate check Csp FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is Applicable solve Csp FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_PROCESS_USECASE_PROCESSTOUSECASE_STARTEVENT_BASICFLOW_PROCESSTOBASICFLOW_SEQUENCEFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Is Applicable check Csp FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPLICABLE_CHECK_CSP_FWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Register Objects FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Check Types FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_BWD__MATCH_USECASE_UCCONDITION_BASICFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Perform BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Is Applicable BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_USECASE_UCCONDITION_BASICFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_USECASE_UCCONDITION_BASICFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_USECASE_PROCESSTOUSECASE_UCCONDITION_BASICFLOW_PROCESSTOBASICFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
+
+	/**
+	 * The operation id for the '<em>Register Objects BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+
+	/**
+	 * The operation id for the '<em>Check Types BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 2</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_2__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 3</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_3__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 4</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_BWD_EMOFLON_EDGE_4__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 4</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 5</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_5__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+
+	/**
+	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+
+	/**
+	 * The operation id for the '<em>Generate Model</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___GENERATE_MODEL__RULEENTRYCONTAINER_PROCESSTOUSECASE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+
+	/**
+	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_USECASE_PROCESSTOUSECASE_BASICFLOW_PROCESSTOBASICFLOW_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+
+	/**
+	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+
+	/**
+	 * The number of operations of the '<em>Class1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS1_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.TaskToStepCoreRuleImpl <em>Task To Step Core Rule</em>}' class.
@@ -933,7 +1195,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getTaskToStepCoreRule()
 	 * @generated
 	 */
-	int TASK_TO_STEP_CORE_RULE = 3;
+	int TASK_TO_STEP_CORE_RULE = 4;
 
 	/**
 	 * The number of structural features of the '<em>Task To Step Core Rule</em>' class.
@@ -961,7 +1223,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getFirstServiceTaskToStepRule()
 	 * @generated
 	 */
-	int FIRST_SERVICE_TASK_TO_STEP_RULE = 4;
+	int FIRST_SERVICE_TASK_TO_STEP_RULE = 5;
 
 	/**
 	 * The number of structural features of the '<em>First Service Task To Step Rule</em>' class.
@@ -989,7 +1251,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getFirstUserTaskToStepRule()
 	 * @generated
 	 */
-	int FIRST_USER_TASK_TO_STEP_RULE = 5;
+	int FIRST_USER_TASK_TO_STEP_RULE = 6;
 
 	/**
 	 * The number of structural features of the '<em>First User Task To Step Rule</em>' class.
@@ -1017,7 +1279,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getLaneSetRule()
 	 * @generated
 	 */
-	int LANE_SET_RULE = 6;
+	int LANE_SET_RULE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Lane Set Rule</em>' class.
@@ -1180,7 +1442,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getLaneToActorRule()
 	 * @generated
 	 */
-	int LANE_TO_ACTOR_RULE = 7;
+	int LANE_TO_ACTOR_RULE = 8;
 
 	/**
 	 * The number of structural features of the '<em>Lane To Actor Rule</em>' class.
@@ -1381,13 +1643,13 @@ public interface RulesPackage extends EPackage {
 	int LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_7__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 4</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 5</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_4__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_5__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -1451,7 +1713,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getTaskToStepRule()
 	 * @generated
 	 */
-	int TASK_TO_STEP_RULE = 8;
+	int TASK_TO_STEP_RULE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Task To Step Rule</em>' class.
@@ -1479,7 +1741,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getServiceTaskToStepRule()
 	 * @generated
 	 */
-	int SERVICE_TASK_TO_STEP_RULE = 9;
+	int SERVICE_TASK_TO_STEP_RULE = 10;
 
 	/**
 	 * The number of structural features of the '<em>Service Task To Step Rule</em>' class.
@@ -1680,13 +1942,13 @@ public interface RulesPackage extends EPackage {
 	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_8__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 5</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 6</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_5__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_6__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 9</em>' operation.
@@ -1734,22 +1996,22 @@ public interface RulesPackage extends EPackage {
 	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_13__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 6</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_6__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
-
-	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 7</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_7__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_7__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 8</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_8__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 14</em>' operation.
@@ -1822,7 +2084,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getUserTaskToStepRule()
 	 * @generated
 	 */
-	int USER_TASK_TO_STEP_RULE = 10;
+	int USER_TASK_TO_STEP_RULE = 11;
 
 	/**
 	 * The number of structural features of the '<em>User Task To Step Rule</em>' class.
@@ -2023,13 +2285,13 @@ public interface RulesPackage extends EPackage {
 	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_15__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 8</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 9</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_8__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_9__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 16</em>' operation.
@@ -2086,22 +2348,22 @@ public interface RulesPackage extends EPackage {
 	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_21__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 9</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_9__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
-
-	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 10</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_10__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_10__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 11</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_TASK_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_11__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -2165,7 +2427,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getInterEventToStepCoreRule()
 	 * @generated
 	 */
-	int INTER_EVENT_TO_STEP_CORE_RULE = 11;
+	int INTER_EVENT_TO_STEP_CORE_RULE = 12;
 
 	/**
 	 * The number of structural features of the '<em>Inter Event To Step Core Rule</em>' class.
@@ -2193,7 +2455,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getITEToStepRule()
 	 * @generated
 	 */
-	int ITE_TO_STEP_RULE = 12;
+	int ITE_TO_STEP_RULE = 13;
 
 	/**
 	 * The number of structural features of the '<em>ITE To Step Rule</em>' class.
@@ -2385,13 +2647,13 @@ public interface RulesPackage extends EPackage {
 	int ITE_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 11</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 12</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_11__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_12__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 22</em>' operation.
@@ -2448,22 +2710,22 @@ public interface RulesPackage extends EPackage {
 	int ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_27__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 12</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_12__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
-
-	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 13</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_13__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_13__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 14</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_14__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 28</em>' operation.
@@ -2536,7 +2798,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_RULE = 13;
+	int ICE_TO_STEP_RULE = 14;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step Rule</em>' class.
@@ -2564,7 +2826,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getEndEventRule()
 	 * @generated
 	 */
-	int END_EVENT_RULE = 14;
+	int END_EVENT_RULE = 15;
 
 	/**
 	 * The number of structural features of the '<em>End Event Rule</em>' class.
@@ -2654,7 +2916,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int END_EVENT_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -2666,13 +2928,103 @@ public interface RulesPackage extends EPackage {
 	int END_EVENT_RULE___CHECK_TYPES_FWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Is Appropriate BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPROPRIATE_BWD__MATCH_FLOW_USECASE_UCCONDITION = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Perform BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___PERFORM_BWD__ISAPPLICABLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Is Applicable BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPLICABLE_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Register Objects To Match BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_FLOW_USECASE_UCCONDITION = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_FLOW_USECASE_UCCONDITION = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Is Applicable solve Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_USECASE_PROCESSTOUSECASE_LANE_LANESET_UCCONDITION = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
+
+	/**
+	 * The operation id for the '<em>Register Objects BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+
+	/**
+	 * The operation id for the '<em>Check Types BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
+
+	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 29</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_29__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_29__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 30</em>' operation.
@@ -2681,7 +3033,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_30__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 11;
+	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_30__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 31</em>' operation.
@@ -2690,7 +3042,16 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 12;
+	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 15</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_15__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 32</em>' operation.
@@ -2699,7 +3060,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -2708,7 +3069,16 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Generate Model</em>' operation.
@@ -2717,7 +3087,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 15;
+	int END_EVENT_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_SEQUENCEFLOWTOUCFLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Generate Model solve Csp BWD</em>' operation.
@@ -2726,7 +3096,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_USECASE_PROCESSTOUSECASE_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int END_EVENT_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_FLOW_SEQUENCEFLOWTOUCFLOW_USECASE_PROCESSTOUSECASE_LANE_LANESET_MODELGENERATORRULERESULT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Generate Model check Csp BWD</em>' operation.
@@ -2735,7 +3105,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 17;
+	int END_EVENT_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
 	 * The number of operations of the '<em>End Event Rule</em>' class.
@@ -2744,7 +3114,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int END_EVENT_RULE_OPERATION_COUNT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
 	 * The meta object id for the '{@link BpmnToUseCaseIntegration.Rules.impl.ExclusiveGatewayToStepCoreRuleImpl <em>Exclusive Gateway To Step Core Rule</em>}' class.
@@ -2754,7 +3124,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExclusiveGatewayToStepCoreRule()
 	 * @generated
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE = 15;
+	int EXCLUSIVE_GATEWAY_TO_STEP_CORE_RULE = 16;
 
 	/**
 	 * The number of structural features of the '<em>Exclusive Gateway To Step Core Rule</em>' class.
@@ -2782,7 +3152,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getInterEventToStepRule()
 	 * @generated
 	 */
-	int INTER_EVENT_TO_STEP_RULE = 16;
+	int INTER_EVENT_TO_STEP_RULE = 17;
 
 	/**
 	 * The number of structural features of the '<em>Inter Event To Step Rule</em>' class.
@@ -2810,7 +3180,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getFirstInterThrowEventToStepRule()
 	 * @generated
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE = 17;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE = 18;
 
 	/**
 	 * The number of structural features of the '<em>First Inter Throw Event To Step Rule</em>' class.
@@ -3056,22 +3426,22 @@ public interface RulesPackage extends EPackage {
 	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_38__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 14</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 16</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_14__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_16__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 15</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 17</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_15__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_17__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 39</em>' operation.
@@ -3144,7 +3514,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getFirstICEToStepRule()
 	 * @generated
 	 */
-	int FIRST_ICE_TO_STEP_RULE = 18;
+	int FIRST_ICE_TO_STEP_RULE = 19;
 
 	/**
 	 * The number of structural features of the '<em>First ICE To Step Rule</em>' class.
@@ -3172,7 +3542,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getParallelGatewayToParallelStepCoreRule()
 	 * @generated
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_CORE_RULE = 19;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_CORE_RULE = 20;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Gateway To Parallel Step Core Rule</em>' class.
@@ -3200,7 +3570,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getEventBasedGatewayToStepCoreRule()
 	 * @generated
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE = 20;
+	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE = 21;
 
 	/**
 	 * The number of structural features of the '<em>Event Based Gateway To Step Core Rule</em>' class.
@@ -3419,22 +3789,22 @@ public interface RulesPackage extends EPackage {
 	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_42__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 16</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 18</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_16__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_18__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 17</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 19</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_17__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_19__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 43</em>' operation.
@@ -3507,7 +3877,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExclusiveConvergingGatewayRule()
 	 * @generated
 	 */
-	int EXCLUSIVE_CONVERGING_GATEWAY_RULE = 21;
+	int EXCLUSIVE_CONVERGING_GATEWAY_RULE = 22;
 
 	/**
 	 * The number of structural features of the '<em>Exclusive Converging Gateway Rule</em>' class.
@@ -3535,7 +3905,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getParallelConvergingGatewayRule()
 	 * @generated
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_RULE = 22;
+	int PARALLEL_CONVERGING_GATEWAY_RULE = 23;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Converging Gateway Rule</em>' class.
@@ -3752,7 +4122,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getSeqFlowAfterEGToAltFlowRule()
 	 * @generated
 	 */
-	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE = 23;
+	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE = 24;
 
 	/**
 	 * The number of structural features of the '<em>Seq Flow After EG To Alt Flow Rule</em>' class.
@@ -3944,31 +4314,31 @@ public interface RulesPackage extends EPackage {
 	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 18</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_18__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 19</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_19__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
-
-	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 20</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_20__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_20__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 21</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_21__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 22</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_22__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 51</em>' operation.
@@ -4059,7 +4429,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getSeqFlowAfterPGToParallelFlowRule()
 	 * @generated
 	 */
-	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE = 24;
+	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE = 25;
 
 	/**
 	 * The number of structural features of the '<em>Seq Flow After PG To Parallel Flow Rule</em>' class.
@@ -4278,22 +4648,22 @@ public interface RulesPackage extends EPackage {
 	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_56__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 21</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 23</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_21__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_23__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 22</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 24</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_22__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_24__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -4357,7 +4727,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getCatchEventAfterEBGToStepRule()
 	 * @generated
 	 */
-	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE = 25;
+	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE = 26;
 
 	/**
 	 * The number of structural features of the '<em>Catch Event After EBG To Step Rule</em>' class.
@@ -4630,31 +5000,31 @@ public interface RulesPackage extends EPackage {
 	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_65__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 23</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_23__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
-
-	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 24</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_24__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
-
-	/**
 	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 25</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_25__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_25__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 26</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_26__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+
+	/**
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 27</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATCH_EVENT_AFTER_EBG_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_27__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 66</em>' operation.
@@ -4727,7 +5097,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExclusiveGatewayToStepRule()
 	 * @generated
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE = 26;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE = 27;
 
 	/**
 	 * The number of structural features of the '<em>Exclusive Gateway To Step Rule</em>' class.
@@ -4919,22 +5289,22 @@ public interface RulesPackage extends EPackage {
 	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 26</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 28</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_26__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_28__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 27</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 29</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_27__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_29__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 67</em>' operation.
@@ -5000,13 +5370,13 @@ public interface RulesPackage extends EPackage {
 	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_73__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 28</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 30</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_28__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int EXCLUSIVE_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_30__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 74</em>' operation.
@@ -5079,7 +5449,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getParallelGatewayToParallelStepRule()
 	 * @generated
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE = 27;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE = 28;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Gateway To Parallel Step Rule</em>' class.
@@ -5271,13 +5641,13 @@ public interface RulesPackage extends EPackage {
 	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 29</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 31</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_29__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 75</em>' operation.
@@ -5307,13 +5677,13 @@ public interface RulesPackage extends EPackage {
 	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_77__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 30</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 32</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_30__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int PARALLEL_GATEWAY_TO_PARALLEL_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 78</em>' operation.
@@ -5386,7 +5756,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getEventBasedGatewayToStepRule()
 	 * @generated
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE = 28;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE = 29;
 
 	/**
 	 * The number of structural features of the '<em>Event Based Gateway To Step Rule</em>' class.
@@ -5578,13 +5948,13 @@ public interface RulesPackage extends EPackage {
 	int EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 31</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 33</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_31__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 79</em>' operation.
@@ -5614,22 +5984,22 @@ public interface RulesPackage extends EPackage {
 	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_81__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 32</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 34</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_32__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 33</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 35</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_35__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 82</em>' operation.
@@ -5702,7 +6072,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getLaneStartEventRule()
 	 * @generated
 	 */
-	int LANE_START_EVENT_RULE = 29;
+	int LANE_START_EVENT_RULE = 30;
 
 	/**
 	 * The number of structural features of the '<em>Lane Start Event Rule</em>' class.
@@ -5865,7 +6235,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExcConvGwAfterEventGwRule()
 	 * @generated
 	 */
-	int EXC_CONV_GW_AFTER_EVENT_GW_RULE = 30;
+	int EXC_CONV_GW_AFTER_EVENT_GW_RULE = 31;
 
 	/**
 	 * The number of structural features of the '<em>Exc Conv Gw After Event Gw Rule</em>' class.
@@ -6082,7 +6452,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExcConvGwDefaultSeqFlowRule()
 	 * @generated
 	 */
-	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE = 31;
+	int EXC_CONV_GW_DEFAULT_SEQ_FLOW_RULE = 32;
 
 	/**
 	 * The number of structural features of the '<em>Exc Conv Gw Default Seq Flow Rule</em>' class.
@@ -6317,7 +6687,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getParallelConvergingGatewayTwoInputsRule()
 	 * @generated
 	 */
-	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE = 32;
+	int PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE = 33;
 
 	/**
 	 * The number of structural features of the '<em>Parallel Converging Gateway Two Inputs Rule</em>' class.
@@ -6552,7 +6922,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExcConvGwAfterExDivGwRule()
 	 * @generated
 	 */
-	int EXC_CONV_GW_AFTER_EX_DIV_GW_RULE = 33;
+	int EXC_CONV_GW_AFTER_EX_DIV_GW_RULE = 34;
 
 	/**
 	 * The number of structural features of the '<em>Exc Conv Gw After Ex Div Gw Rule</em>' class.
@@ -6769,7 +7139,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getExConvGwAfterEventGwIceSeqFlowRule()
 	 * @generated
 	 */
-	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE = 34;
+	int EX_CONV_GW_AFTER_EVENT_GW_ICE_SEQ_FLOW_RULE = 35;
 
 	/**
 	 * The number of structural features of the '<em>Ex Conv Gw After Event Gw Ice Seq Flow Rule</em>' class.
@@ -6986,7 +7356,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getContinuationRule()
 	 * @generated
 	 */
-	int CONTINUATION_RULE = 35;
+	int CONTINUATION_RULE = 36;
 
 	/**
 	 * The number of structural features of the '<em>Continuation Rule</em>' class.
@@ -7088,13 +7458,13 @@ public interface RulesPackage extends EPackage {
 	int CONTINUATION_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 34</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 36</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTINUATION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int CONTINUATION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_36__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Check Attributes BWD</em>' operation.
@@ -7149,7 +7519,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterSERule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE = 36;
+	int ICE_TO_STEP_AFTER_SE_RULE = 37;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After SE Rule</em>' class.
@@ -7395,22 +7765,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_128__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 35</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 37</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_35__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_37__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 36</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 38</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_36__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_38__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 129</em>' operation.
@@ -7483,7 +7853,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterExGwRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE = 37;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE = 38;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After Ex Gw Rule</em>' class.
@@ -7729,22 +8099,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_135__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 37</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 39</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_37__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_39__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 38</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 40</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_38__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_40__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 136</em>' operation.
@@ -7817,7 +8187,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterPGRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE = 38;
+	int ICE_TO_STEP_AFTER_PG_RULE = 39;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After PG Rule</em>' class.
@@ -8063,22 +8433,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_142__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 39</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 41</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_39__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_41__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 40</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 42</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_40__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_42__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 143</em>' operation.
@@ -8151,7 +8521,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterTaskRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE = 39;
+	int ICE_TO_STEP_AFTER_TASK_RULE = 40;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After Task Rule</em>' class.
@@ -8343,13 +8713,13 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_TASK_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 41</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 43</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_41__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_43__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 144</em>' operation.
@@ -8406,22 +8776,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_149__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 42</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 44</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_42__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_44__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 43</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 45</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_43__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_45__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 150</em>' operation.
@@ -8494,7 +8864,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterEventRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE = 40;
+	int ICE_TO_STEP_AFTER_EVENT_RULE = 41;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After Event Rule</em>' class.
@@ -8686,13 +9056,13 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_EVENT_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 44</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 46</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_44__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_46__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 151</em>' operation.
@@ -8749,22 +9119,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_156__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 45</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 47</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_45__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_47__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 46</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 48</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_46__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_48__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 157</em>' operation.
@@ -8837,7 +9207,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterExConvGwRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE = 41;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE = 42;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After Ex Conv Gw Rule</em>' class.
@@ -9029,13 +9399,13 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 47</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 49</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_47__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_49__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 158</em>' operation.
@@ -9092,22 +9462,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_163__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 48</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 50</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_48__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_50__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 49</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 51</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_49__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_51__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 164</em>' operation.
@@ -9180,7 +9550,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getICEToStepAfterPConvGwRule()
 	 * @generated
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE = 42;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE = 43;
 
 	/**
 	 * The number of structural features of the '<em>ICE To Step After PConv Gw Rule</em>' class.
@@ -9372,13 +9742,13 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 50</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 52</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_50__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_52__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 165</em>' operation.
@@ -9435,22 +9805,22 @@ public interface RulesPackage extends EPackage {
 	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_170__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 51</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 53</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_51__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_53__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 52</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 54</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_52__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_54__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 171</em>' operation.
@@ -9523,7 +9893,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getServiceTaskToStepAfterSERule()
 	 * @generated
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE = 43;
+	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE = 44;
 
 	/**
 	 * The number of structural features of the '<em>Service Task To Step After SE Rule</em>' class.
@@ -9769,22 +10139,22 @@ public interface RulesPackage extends EPackage {
 	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_177__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 53</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 55</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_53__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_55__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 54</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 56</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_54__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SERVICE_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_56__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 178</em>' operation.
@@ -9857,7 +10227,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getServiceTaskToStepAfterExGwRule()
 	 * @generated
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE = 44;
+	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE = 45;
 
 	/**
 	 * The number of structural features of the '<em>Service Task To Step After Ex Gw Rule</em>' class.
@@ -10103,22 +10473,22 @@ public interface RulesPackage extends EPackage {
 	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_184__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 55</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 57</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_55__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_57__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 56</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 58</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_56__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SERVICE_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_58__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 185</em>' operation.
@@ -10191,7 +10561,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getServiceTaskToStepAfterPGRule()
 	 * @generated
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE = 45;
+	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE = 46;
 
 	/**
 	 * The number of structural features of the '<em>Service Task To Step After PG Rule</em>' class.
@@ -10437,22 +10807,22 @@ public interface RulesPackage extends EPackage {
 	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_191__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 57</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 59</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_57__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_59__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 58</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 60</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_58__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SERVICE_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_60__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 192</em>' operation.
@@ -10525,7 +10895,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getServiceTaskToStepAfterEvGwRule()
 	 * @generated
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE = 46;
+	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE = 47;
 
 	/**
 	 * The number of structural features of the '<em>Service Task To Step After Ev Gw Rule</em>' class.
@@ -10771,22 +11141,22 @@ public interface RulesPackage extends EPackage {
 	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_198__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 59</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 61</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_59__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_61__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 60</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 62</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_60__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SERVICE_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_62__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 199</em>' operation.
@@ -10859,7 +11229,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getUserTaskToStepAfterSERule()
 	 * @generated
 	 */
-	int USER_TASK_TO_STEP_AFTER_SE_RULE = 47;
+	int USER_TASK_TO_STEP_AFTER_SE_RULE = 48;
 
 	/**
 	 * The number of structural features of the '<em>User Task To Step After SE Rule</em>' class.
@@ -11114,22 +11484,22 @@ public interface RulesPackage extends EPackage {
 	int USER_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_206__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 61</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 63</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_61__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USER_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_63__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 62</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 64</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_62__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USER_TASK_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_64__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -11193,7 +11563,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getUserTaskToStepAfterExGwRule()
 	 * @generated
 	 */
-	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE = 48;
+	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE = 49;
 
 	/**
 	 * The number of structural features of the '<em>User Task To Step After Ex Gw Rule</em>' class.
@@ -11448,22 +11818,22 @@ public interface RulesPackage extends EPackage {
 	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_213__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 63</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 65</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_63__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_65__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 64</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 66</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_64__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_66__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -11527,7 +11897,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getUserTaskToStepAfterPGRule()
 	 * @generated
 	 */
-	int USER_TASK_TO_STEP_AFTER_PG_RULE = 49;
+	int USER_TASK_TO_STEP_AFTER_PG_RULE = 50;
 
 	/**
 	 * The number of structural features of the '<em>User Task To Step After PG Rule</em>' class.
@@ -11782,22 +12152,22 @@ public interface RulesPackage extends EPackage {
 	int USER_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_220__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 65</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 67</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_65__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USER_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_67__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 66</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 68</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_66__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USER_TASK_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_68__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -11861,7 +12231,7 @@ public interface RulesPackage extends EPackage {
 	 * @see BpmnToUseCaseIntegration.Rules.impl.RulesPackageImpl#getUserTaskToStepAfterEvGwRule()
 	 * @generated
 	 */
-	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE = 50;
+	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE = 51;
 
 	/**
 	 * The number of structural features of the '<em>User Task To Step After Ev Gw Rule</em>' class.
@@ -12116,22 +12486,22 @@ public interface RulesPackage extends EPackage {
 	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_227__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 67</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 69</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_67__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_69__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 68</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 70</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_68__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USER_TASK_TO_STEP_AFTER_EV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_70__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -12758,14 +13128,14 @@ public interface RulesPackage extends EPackage {
 	EClass getProcessToUseCaseRule();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Is Appropriate FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process) <em>Is Appropriate FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process)
 	 * @generated
 	 */
-	EOperation getProcessToUseCaseRule__IsAppropriate_FWD__Match_Definitions_Process_StartEvent_SequenceFlow();
+	EOperation getProcessToUseCaseRule__IsAppropriate_FWD__Match_Definitions_Process();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#perform_FWD(TGGRuntime.IsApplicableMatch) <em>Perform FWD</em>}' operation.
@@ -12788,24 +13158,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getProcessToUseCaseRule__IsApplicable_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjectsToMatch_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Register Objects To Match FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjectsToMatch_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process) <em>Register Objects To Match FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjectsToMatch_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjectsToMatch_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process)
 	 * @generated
 	 */
-	EOperation getProcessToUseCaseRule__RegisterObjectsToMatch_FWD__Match_Definitions_Process_StartEvent_SequenceFlow();
+	EOperation getProcessToUseCaseRule__RegisterObjectsToMatch_FWD__Match_Definitions_Process();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_solveCsp_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Is Appropriate solve Csp FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_solveCsp_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process) <em>Is Appropriate solve Csp FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_solveCsp_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_solveCsp_FWD(TGGRuntime.Match, bpmn2.Definitions, bpmn2.Process)
 	 * @generated
 	 */
-	EOperation getProcessToUseCaseRule__IsAppropriate_solveCsp_FWD__Match_Definitions_Process_StartEvent_SequenceFlow();
+	EOperation getProcessToUseCaseRule__IsAppropriate_solveCsp_FWD__Match_Definitions_Process();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_checkCsp_FWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp FWD</em>}' operation.
@@ -12818,14 +13188,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getProcessToUseCaseRule__IsAppropriate_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isApplicable_solveCsp_FWD(TGGRuntime.IsApplicableMatch, bpmn2.Definitions, UseCaseDSL.PackageDeclaration, BpmnToUseCaseIntegration.DefinitionsToPackage, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Is Applicable solve Csp FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isApplicable_solveCsp_FWD(TGGRuntime.IsApplicableMatch, bpmn2.Definitions, UseCaseDSL.PackageDeclaration, BpmnToUseCaseIntegration.DefinitionsToPackage, bpmn2.Process) <em>Is Applicable solve Csp FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isApplicable_solveCsp_FWD(TGGRuntime.IsApplicableMatch, bpmn2.Definitions, UseCaseDSL.PackageDeclaration, BpmnToUseCaseIntegration.DefinitionsToPackage, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isApplicable_solveCsp_FWD(TGGRuntime.IsApplicableMatch, bpmn2.Definitions, UseCaseDSL.PackageDeclaration, BpmnToUseCaseIntegration.DefinitionsToPackage, bpmn2.Process)
 	 * @generated
 	 */
-	EOperation getProcessToUseCaseRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_Definitions_PackageDeclaration_DefinitionsToPackage_Process_StartEvent_SequenceFlow();
+	EOperation getProcessToUseCaseRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_Definitions_PackageDeclaration_DefinitionsToPackage_Process();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isApplicable_checkCsp_FWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp FWD</em>}' operation.
@@ -12838,14 +13208,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getProcessToUseCaseRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getProcessToUseCaseRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getProcessToUseCaseRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -12938,14 +13308,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getProcessToUseCaseRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getProcessToUseCaseRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getProcessToUseCaseRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -12988,26 +13358,6 @@ public interface RulesPackage extends EPackage {
 	EOperation getProcessToUseCaseRule__IsAppropriate_BWD_EMoflonEdge_2__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_2(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 2</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 2</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_2(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getProcessToUseCaseRule__IsAppropriate_FWD_EMoflonEdge_2__EMoflonEdge();
-
-	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_3(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 3</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 3</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_3(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getProcessToUseCaseRule__IsAppropriate_FWD_EMoflonEdge_3__EMoflonEdge();
-
-	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_BWD_EMoflonEdge_3(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 3</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13016,26 +13366,6 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getProcessToUseCaseRule__IsAppropriate_BWD_EMoflonEdge_3__EMoflonEdge();
-
-	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 4</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 4</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getProcessToUseCaseRule__IsAppropriate_FWD_EMoflonEdge_4__EMoflonEdge();
-
-	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 5</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 5</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#isAppropriate_FWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getProcessToUseCaseRule__IsAppropriate_FWD_EMoflonEdge_5__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ProcessToUseCaseRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -13086,6 +13416,316 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getProcessToUseCaseRule__GenerateModel_checkCsp_BWD__CSP();
+
+	/**
+	 * Returns the meta object for class '{@link BpmnToUseCaseIntegration.Rules.Class1 <em>Class1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class1</em>'.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1
+	 * @generated
+	 */
+	EClass getClass1();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD(TGGRuntime.Match, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Is Appropriate FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD(TGGRuntime.Match, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_FWD__Match_Process_StartEvent_SequenceFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#perform_FWD(TGGRuntime.IsApplicableMatch) <em>Perform FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Perform FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#perform_FWD(TGGRuntime.IsApplicableMatch)
+	 * @generated
+	 */
+	EOperation getClass1__Perform_FWD__IsApplicableMatch();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isApplicable_FWD(TGGRuntime.Match) <em>Is Applicable FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isApplicable_FWD(TGGRuntime.Match)
+	 * @generated
+	 */
+	EOperation getClass1__IsApplicable_FWD__Match();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#registerObjectsToMatch_FWD(TGGRuntime.Match, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Register Objects To Match FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register Objects To Match FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#registerObjectsToMatch_FWD(TGGRuntime.Match, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @generated
+	 */
+	EOperation getClass1__RegisterObjectsToMatch_FWD__Match_Process_StartEvent_SequenceFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_solveCsp_FWD(TGGRuntime.Match, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow) <em>Is Appropriate solve Csp FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate solve Csp FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_solveCsp_FWD(TGGRuntime.Match, bpmn2.Process, bpmn2.StartEvent, bpmn2.SequenceFlow)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_solveCsp_FWD__Match_Process_StartEvent_SequenceFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_checkCsp_FWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate check Csp FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_checkCsp_FWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_checkCsp_FWD__CSP();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isApplicable_solveCsp_FWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, bpmn2.StartEvent, UseCaseDSL.BasicFlow, BpmnToUseCaseIntegration.ProcessToBasicFlow, bpmn2.SequenceFlow) <em>Is Applicable solve Csp FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable solve Csp FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isApplicable_solveCsp_FWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, bpmn2.StartEvent, UseCaseDSL.BasicFlow, BpmnToUseCaseIntegration.ProcessToBasicFlow, bpmn2.SequenceFlow)
+	 * @generated
+	 */
+	EOperation getClass1__IsApplicable_solveCsp_FWD__IsApplicableMatch_Process_UseCase_ProcessToUseCase_StartEvent_BasicFlow_ProcessToBasicFlow_SequenceFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isApplicable_checkCsp_FWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable check Csp FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isApplicable_checkCsp_FWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getClass1__IsApplicable_checkCsp_FWD__CSP();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getClass1__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Types FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#checkTypes_FWD(TGGRuntime.Match)
+	 * @generated
+	 */
+	EOperation getClass1__CheckTypes_FWD__Match();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.UseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow) <em>Is Appropriate BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.UseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_BWD__Match_UseCase_UCCondition_BasicFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Perform BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#perform_BWD(TGGRuntime.IsApplicableMatch)
+	 * @generated
+	 */
+	EOperation getClass1__Perform_BWD__IsApplicableMatch();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isApplicable_BWD(TGGRuntime.Match) <em>Is Applicable BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isApplicable_BWD(TGGRuntime.Match)
+	 * @generated
+	 */
+	EOperation getClass1__IsApplicable_BWD__Match();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.UseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow) <em>Register Objects To Match BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.UseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow)
+	 * @generated
+	 */
+	EOperation getClass1__RegisterObjectsToMatch_BWD__Match_UseCase_UCCondition_BasicFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.UseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.UseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_solveCsp_BWD__Match_UseCase_UCCondition_BasicFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate check Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_checkCsp_BWD__CSP();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow, BpmnToUseCaseIntegration.ProcessToBasicFlow) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, UseCaseDSL.UCCondition, UseCaseDSL.BasicFlow, BpmnToUseCaseIntegration.ProcessToBasicFlow)
+	 * @generated
+	 */
+	EOperation getClass1__IsApplicable_solveCsp_BWD__IsApplicableMatch_Process_UseCase_ProcessToUseCase_UCCondition_BasicFlow_ProcessToBasicFlow();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable check Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getClass1__IsApplicable_checkCsp_BWD__CSP();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getClass1__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Types BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#checkTypes_BWD(TGGRuntime.Match)
+	 * @generated
+	 */
+	EOperation getClass1__CheckTypes_BWD__Match();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_2(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 2</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 2</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_2(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_FWD_EMoflonEdge_2__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_3(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 3</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 3</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_3(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_FWD_EMoflonEdge_3__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_BWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 4</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 4</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_BWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_BWD_EMoflonEdge_4__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 4</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 4</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_FWD_EMoflonEdge_4__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 5</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 5</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#isAppropriate_FWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getClass1__IsAppropriate_FWD_EMoflonEdge_5__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Attributes FWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#checkAttributes_FWD(TGGRuntime.TripleMatch)
+	 * @generated
+	 */
+	EOperation getClass1__CheckAttributes_FWD__TripleMatch();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#checkAttributes_BWD(TGGRuntime.TripleMatch) <em>Check Attributes BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Attributes BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#checkAttributes_BWD(TGGRuntime.TripleMatch)
+	 * @generated
+	 */
+	EOperation getClass1__CheckAttributes_BWD__TripleMatch();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#generateModel(TGGLanguage.modelgenerator.RuleEntryContainer, BpmnToUseCaseIntegration.ProcessToUseCase) <em>Generate Model</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Model</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#generateModel(TGGLanguage.modelgenerator.RuleEntryContainer, BpmnToUseCaseIntegration.ProcessToUseCase)
+	 * @generated
+	 */
+	EOperation getClass1__GenerateModel__RuleEntryContainer_ProcessToUseCase();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#generateModel_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, UseCaseDSL.BasicFlow, BpmnToUseCaseIntegration.ProcessToBasicFlow, TGGRuntime.ModelgeneratorRuleResult) <em>Generate Model solve Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Model solve Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#generateModel_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, UseCaseDSL.BasicFlow, BpmnToUseCaseIntegration.ProcessToBasicFlow, TGGRuntime.ModelgeneratorRuleResult)
+	 * @generated
+	 */
+	EOperation getClass1__GenerateModel_solveCsp_BWD__IsApplicableMatch_Process_UseCase_ProcessToUseCase_BasicFlow_ProcessToBasicFlow_ModelgeneratorRuleResult();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.Class1#generateModel_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Generate Model check Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Model check Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.Class1#generateModel_checkCsp_BWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getClass1__GenerateModel_checkCsp_BWD__CSP();
 
 	/**
 	 * Returns the meta object for class '{@link BpmnToUseCaseIntegration.Rules.TaskToStepCoreRule <em>Task To Step Core Rule</em>}'.
@@ -13498,14 +14138,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getLaneToActorRule__IsAppropriate_FWD_EMoflonEdge_7__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.LaneToActorRule#isAppropriate_BWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 4</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.LaneToActorRule#isAppropriate_BWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 5</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 4</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.LaneToActorRule#isAppropriate_BWD_EMoflonEdge_4(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 5</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.LaneToActorRule#isAppropriate_BWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getLaneToActorRule__IsAppropriate_BWD_EMoflonEdge_4__EMoflonEdge();
+	EOperation getLaneToActorRule__IsAppropriate_BWD_EMoflonEdge_5__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.LaneToActorRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -13788,14 +14428,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getServiceTaskToStepRule__IsAppropriate_FWD_EMoflonEdge_8__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 5</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_6(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 6</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 5</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_5(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 6</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_6(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_5__EMoflonEdge();
+	EOperation getServiceTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_6__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_FWD_EMoflonEdge_9(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 9</em>}' operation.
@@ -13848,16 +14488,6 @@ public interface RulesPackage extends EPackage {
 	EOperation getServiceTaskToStepRule__IsAppropriate_FWD_EMoflonEdge_13__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_6(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 6</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 6</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_6(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getServiceTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_6__EMoflonEdge();
-
-	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_7(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 7</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13866,6 +14496,16 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getServiceTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_7__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_8(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 8</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 8</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_BWD_EMoflonEdge_8(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getServiceTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_8__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepRule#isAppropriate_FWD_EMoflonEdge_14(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 14</em>}' operation.
@@ -14148,14 +14788,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserTaskToStepRule__IsAppropriate_FWD_EMoflonEdge_15__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_8(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 8</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_9(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 9</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 8</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_8(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 9</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_9(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_8__EMoflonEdge();
+	EOperation getUserTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_9__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_FWD_EMoflonEdge_16(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 16</em>}' operation.
@@ -14218,16 +14858,6 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserTaskToStepRule__IsAppropriate_FWD_EMoflonEdge_21__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_9(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 9</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 9</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_9(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getUserTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_9__EMoflonEdge();
-
-	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_10(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 10</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14236,6 +14866,16 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getUserTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_10__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_11(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 11</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 11</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#isAppropriate_BWD_EMoflonEdge_11(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getUserTaskToStepRule__IsAppropriate_BWD_EMoflonEdge_11__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -14508,14 +15148,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_11(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 11</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_12(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 12</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 11</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_11(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 12</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_12(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__IsAppropriate_BWD_EMoflonEdge_11__EMoflonEdge();
+	EOperation getITEToStepRule__IsAppropriate_BWD_EMoflonEdge_12__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_FWD_EMoflonEdge_22(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 22</em>}' operation.
@@ -14578,16 +15218,6 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__IsAppropriate_FWD_EMoflonEdge_27__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_12(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 12</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 12</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_12(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getITEToStepRule__IsAppropriate_BWD_EMoflonEdge_12__EMoflonEdge();
-
-	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_13(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 13</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14596,6 +15226,16 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getITEToStepRule__IsAppropriate_BWD_EMoflonEdge_13__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_14(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 14</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 14</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD_EMoflonEdge_14(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getITEToStepRule__IsAppropriate_BWD_EMoflonEdge_14__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_FWD_EMoflonEdge_28(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 28</em>}' operation.
@@ -14758,14 +15398,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getEndEventRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getEndEventRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getEndEventRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -14776,6 +15416,106 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getEndEventRule__CheckTypes_FWD__Match();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Flow, UseCaseDSL.UseCase, UseCaseDSL.UCCondition) <em>Is Appropriate BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Flow, UseCaseDSL.UseCase, UseCaseDSL.UCCondition)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsAppropriate_BWD__Match_Flow_UseCase_UCCondition();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Perform BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#perform_BWD(TGGRuntime.IsApplicableMatch)
+	 * @generated
+	 */
+	EOperation getEndEventRule__Perform_BWD__IsApplicableMatch();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isApplicable_BWD(TGGRuntime.Match) <em>Is Applicable BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isApplicable_BWD(TGGRuntime.Match)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsApplicable_BWD__Match();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Flow, UseCaseDSL.UseCase, UseCaseDSL.UCCondition) <em>Register Objects To Match BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Flow, UseCaseDSL.UseCase, UseCaseDSL.UCCondition)
+	 * @generated
+	 */
+	EOperation getEndEventRule__RegisterObjectsToMatch_BWD__Match_Flow_UseCase_UCCondition();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Flow, UseCaseDSL.UseCase, UseCaseDSL.UCCondition) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Flow, UseCaseDSL.UseCase, UseCaseDSL.UCCondition)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsAppropriate_solveCsp_BWD__Match_Flow_UseCase_UCCondition();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate check Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsAppropriate_checkCsp_BWD__CSP();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, bpmn2.Lane, bpmn2.LaneSet, UseCaseDSL.UCCondition) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, UseCaseDSL.UseCase, BpmnToUseCaseIntegration.ProcessToUseCase, bpmn2.Lane, bpmn2.LaneSet, UseCaseDSL.UCCondition)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Flow_SequenceFlowToUCFlow_UseCase_ProcessToUseCase_Lane_LaneSet_UCCondition();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Applicable check Csp BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsApplicable_checkCsp_BWD__CSP();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getEndEventRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Types BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#checkTypes_BWD(TGGRuntime.Match)
+	 * @generated
+	 */
+	EOperation getEndEventRule__CheckTypes_BWD__Match();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_FWD_EMoflonEdge_29(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 29</em>}' operation.
@@ -14808,6 +15548,16 @@ public interface RulesPackage extends EPackage {
 	EOperation getEndEventRule__IsAppropriate_FWD_EMoflonEdge_31__EMoflonEdge();
 
 	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_BWD_EMoflonEdge_15(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 15</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 15</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_BWD_EMoflonEdge_15(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getEndEventRule__IsAppropriate_BWD_EMoflonEdge_15__EMoflonEdge();
+
+	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#isAppropriate_FWD_EMoflonEdge_32(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 32</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14826,6 +15576,16 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getEndEventRule__CheckAttributes_FWD__TripleMatch();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#checkAttributes_BWD(TGGRuntime.TripleMatch) <em>Check Attributes BWD</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Attributes BWD</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EndEventRule#checkAttributes_BWD(TGGRuntime.TripleMatch)
+	 * @generated
+	 */
+	EOperation getEndEventRule__CheckAttributes_BWD__TripleMatch();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EndEventRule#generateModel(TGGLanguage.modelgenerator.RuleEntryContainer, BpmnToUseCaseIntegration.SequenceFlowToUCFlow) <em>Generate Model</em>}' operation.
@@ -15148,24 +15908,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_FWD_EMoflonEdge_38__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_14(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 14</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_16(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 16</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 14</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_14(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 16</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_16(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_14__EMoflonEdge();
+	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_16__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_15(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 15</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_17(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 17</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 15</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_15(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 17</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD_EMoflonEdge_17(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_15__EMoflonEdge();
+	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD_EMoflonEdge_17__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_FWD_EMoflonEdge_39(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 39</em>}' operation.
@@ -15488,24 +16248,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_FWD_EMoflonEdge_42__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_16(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 16</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_18(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 18</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 16</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_16(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 18</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_18(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_16__EMoflonEdge();
+	EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_18__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_17(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 17</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_19(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 19</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 17</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_17(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 19</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_BWD_EMoflonEdge_19(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_17__EMoflonEdge();
+	EOperation getEventBasedGatewayToStepCoreRule__IsAppropriate_BWD_EMoflonEdge_19__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepCoreRule#isAppropriate_FWD_EMoflonEdge_43(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 43</em>}' operation.
@@ -16008,26 +16768,6 @@ public interface RulesPackage extends EPackage {
 	EOperation getSeqFlowAfterEGToAltFlowRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_18(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 18</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 18</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_18(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_18__EMoflonEdge();
-
-	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_19(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 19</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 19</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_19(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_19__EMoflonEdge();
-
-	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_20(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 20</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16036,6 +16776,26 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_20__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_21(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 21</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 21</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_21(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_21__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_22(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 22</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 22</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_BWD_EMoflonEdge_22(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getSeqFlowAfterEGToAltFlowRule__IsAppropriate_BWD_EMoflonEdge_22__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterEGToAltFlowRule#isAppropriate_FWD_EMoflonEdge_51(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 51</em>}' operation.
@@ -16358,24 +17118,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_FWD_EMoflonEdge_56__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_21(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 21</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_23(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 23</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 21</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_21(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 23</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_23(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_21__EMoflonEdge();
+	EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_23__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_22(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 22</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_24(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 24</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 22</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_22(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 24</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#isAppropriate_BWD_EMoflonEdge_24(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_22__EMoflonEdge();
+	EOperation getSeqFlowAfterPGToParallelFlowRule__IsAppropriate_BWD_EMoflonEdge_24__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.SeqFlowAfterPGToParallelFlowRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -16728,26 +17488,6 @@ public interface RulesPackage extends EPackage {
 	EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_FWD_EMoflonEdge_65__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_23(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 23</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 23</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_23(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_23__EMoflonEdge();
-
-	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_24(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 24</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 24</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_24(TGGRuntime.EMoflonEdge)
-	 * @generated
-	 */
-	EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_24__EMoflonEdge();
-
-	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_25(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 25</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16756,6 +17496,26 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_25__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_26(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 26</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 26</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_26(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_26__EMoflonEdge();
+
+	/**
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_27(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 27</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 27</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_BWD_EMoflonEdge_27(TGGRuntime.EMoflonEdge)
+	 * @generated
+	 */
+	EOperation getCatchEventAfterEBGToStepRule__IsAppropriate_BWD_EMoflonEdge_27__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.CatchEventAfterEBGToStepRule#isAppropriate_FWD_EMoflonEdge_66(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 66</em>}' operation.
@@ -17028,24 +17788,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getExclusiveGatewayToStepRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_26(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 26</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_28(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 28</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 26</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_26(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 28</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_28(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_26__EMoflonEdge();
+	EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_28__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_27(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 27</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_29(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 29</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 27</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_27(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 29</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_29(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_27__EMoflonEdge();
+	EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_29__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_FWD_EMoflonEdge_67(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 67</em>}' operation.
@@ -17118,14 +17878,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getExclusiveGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_73__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_28(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 28</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_30(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 30</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 28</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_28(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 30</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_30(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_28__EMoflonEdge();
+	EOperation getExclusiveGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_30__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ExclusiveGatewayToStepRule#isAppropriate_FWD_EMoflonEdge_74(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 74</em>}' operation.
@@ -17398,14 +18158,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getParallelGatewayToParallelStepRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_29(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 29</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_31(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 31</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 29</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_29(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 31</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_31(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_29__EMoflonEdge();
+	EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_31__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_FWD_EMoflonEdge_75(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 75</em>}' operation.
@@ -17438,14 +18198,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getParallelGatewayToParallelStepRule__IsAppropriate_FWD_EMoflonEdge_77__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_30(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 30</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_32(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 32</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 30</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_30(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 32</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_BWD_EMoflonEdge_32(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_30__EMoflonEdge();
+	EOperation getParallelGatewayToParallelStepRule__IsAppropriate_BWD_EMoflonEdge_32__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ParallelGatewayToParallelStepRule#isAppropriate_FWD_EMoflonEdge_78(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 78</em>}' operation.
@@ -17718,14 +18478,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getEventBasedGatewayToStepRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_31(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 31</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_33(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 33</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 31</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_31(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 33</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_33(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_31__EMoflonEdge();
+	EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_33__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_FWD_EMoflonEdge_79(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 79</em>}' operation.
@@ -17758,24 +18518,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getEventBasedGatewayToStepRule__IsAppropriate_FWD_EMoflonEdge_81__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_32(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 32</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_34(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 34</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 32</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_32(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 34</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_34(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_32__EMoflonEdge();
+	EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_34__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_33(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 33</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_35(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 35</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 33</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_33(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 35</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_BWD_EMoflonEdge_35(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_33__EMoflonEdge();
+	EOperation getEventBasedGatewayToStepRule__IsAppropriate_BWD_EMoflonEdge_35__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.EventBasedGatewayToStepRule#isAppropriate_FWD_EMoflonEdge_82(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 82</em>}' operation.
@@ -19248,14 +20008,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getContinuationRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ContinuationRule#isAppropriate_BWD_EMoflonEdge_34(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 34</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ContinuationRule#isAppropriate_BWD_EMoflonEdge_36(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 36</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 34</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ContinuationRule#isAppropriate_BWD_EMoflonEdge_34(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 36</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ContinuationRule#isAppropriate_BWD_EMoflonEdge_36(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getContinuationRule__IsAppropriate_BWD_EMoflonEdge_34__EMoflonEdge();
+	EOperation getContinuationRule__IsAppropriate_BWD_EMoflonEdge_36__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ContinuationRule#checkAttributes_BWD(TGGRuntime.TripleMatch) <em>Check Attributes BWD</em>}' operation.
@@ -19568,24 +20328,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_128__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_35(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 35</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_37(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 37</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 35</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_35(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 37</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_37(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_35__EMoflonEdge();
+	EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_37__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_36(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 36</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_38(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 38</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 36</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_36(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 38</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_38(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_36__EMoflonEdge();
+	EOperation getICEToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_38__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_FWD_EMoflonEdge_129(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 129</em>}' operation.
@@ -19918,24 +20678,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_135__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_37(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 37</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_39(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 39</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 37</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_37(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 39</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_39(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_37__EMoflonEdge();
+	EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_39__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_38(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 38</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_40(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 40</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 38</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_38(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 40</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_40(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_38__EMoflonEdge();
+	EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_40__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_FWD_EMoflonEdge_136(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 136</em>}' operation.
@@ -20268,24 +21028,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_142__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_39(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 39</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_41(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 41</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 39</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_39(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 41</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_41(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_39__EMoflonEdge();
+	EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_41__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_40(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 40</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_42(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 42</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 40</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_40(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 42</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_42(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_40__EMoflonEdge();
+	EOperation getICEToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_42__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_FWD_EMoflonEdge_143(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 143</em>}' operation.
@@ -20558,14 +21318,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_41(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 41</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_43(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 43</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 41</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_41(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 43</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_43(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_41__EMoflonEdge();
+	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_43__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_FWD_EMoflonEdge_144(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 144</em>}' operation.
@@ -20628,24 +21388,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__IsAppropriate_FWD_EMoflonEdge_149__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_42(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 42</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_44(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 44</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 42</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_42(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 44</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_44(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_42__EMoflonEdge();
+	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_44__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_43(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 43</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_45(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 45</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 43</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_43(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 45</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD_EMoflonEdge_45(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_43__EMoflonEdge();
+	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD_EMoflonEdge_45__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_FWD_EMoflonEdge_150(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 150</em>}' operation.
@@ -20918,14 +21678,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_44(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 44</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_46(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 46</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 44</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_44(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 46</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_46(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_44__EMoflonEdge();
+	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_46__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_FWD_EMoflonEdge_151(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 151</em>}' operation.
@@ -20988,24 +21748,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__IsAppropriate_FWD_EMoflonEdge_156__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_45(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 45</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_47(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 47</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 45</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_45(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 47</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_47(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_45__EMoflonEdge();
+	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_47__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_46(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 46</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_48(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 48</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 46</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_46(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 48</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD_EMoflonEdge_48(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_46__EMoflonEdge();
+	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD_EMoflonEdge_48__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_FWD_EMoflonEdge_157(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 157</em>}' operation.
@@ -21278,14 +22038,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_47(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 47</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_49(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 49</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 47</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_47(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 49</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_49(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_47__EMoflonEdge();
+	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_49__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_FWD_EMoflonEdge_158(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 158</em>}' operation.
@@ -21348,24 +22108,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_FWD_EMoflonEdge_163__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_48(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 48</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_50(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 50</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 48</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_48(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 50</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_50(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_48__EMoflonEdge();
+	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_50__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_49(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 49</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_51(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 51</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 49</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_49(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 51</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD_EMoflonEdge_51(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_49__EMoflonEdge();
+	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD_EMoflonEdge_51__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_FWD_EMoflonEdge_164(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 164</em>}' operation.
@@ -21638,14 +22398,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_50(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 50</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_52(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 52</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 50</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_50(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 52</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_52(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_50__EMoflonEdge();
+	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_52__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_FWD_EMoflonEdge_165(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 165</em>}' operation.
@@ -21708,24 +22468,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_FWD_EMoflonEdge_170__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_51(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 51</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_53(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 53</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 51</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_51(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 53</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_53(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_51__EMoflonEdge();
+	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_53__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_52(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 52</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_54(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 54</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 52</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_52(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 54</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD_EMoflonEdge_54(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_52__EMoflonEdge();
+	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD_EMoflonEdge_54__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_FWD_EMoflonEdge_171(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 171</em>}' operation.
@@ -22058,24 +22818,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getServiceTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_177__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_53(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 53</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_55(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 55</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 53</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_53(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 55</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_55(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_53__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_55__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_54(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 54</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_56(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 56</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 54</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_54(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 56</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_56(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_54__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_56__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterSERule#isAppropriate_FWD_EMoflonEdge_178(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 178</em>}' operation.
@@ -22408,24 +23168,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_184__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_55(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 55</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_57(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 57</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 55</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_55(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 57</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_57(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_55__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_57__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_56(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 56</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_58(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 58</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 56</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_56(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 58</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_58(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_56__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_58__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterExGwRule#isAppropriate_FWD_EMoflonEdge_185(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 185</em>}' operation.
@@ -22758,24 +23518,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_191__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_57(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 57</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_59(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 59</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 57</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_57(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 59</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_59(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_57__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_59__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_58(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 58</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_60(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 60</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 58</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_58(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 60</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_60(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_58__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_60__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterPGRule#isAppropriate_FWD_EMoflonEdge_192(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 192</em>}' operation.
@@ -23108,24 +23868,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_198__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_59(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 59</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_61(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 61</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 59</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_59(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 61</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_61(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_59__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_61__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_60(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 60</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_62(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 62</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 60</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_60(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 62</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_62(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_60__EMoflonEdge();
+	EOperation getServiceTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_62__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ServiceTaskToStepAfterEvGwRule#isAppropriate_FWD_EMoflonEdge_199(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 199</em>}' operation.
@@ -23468,24 +24228,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserTaskToStepAfterSERule__IsAppropriate_FWD_EMoflonEdge_206__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_61(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 61</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_63(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 63</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 61</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_61(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 63</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_63(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_61__EMoflonEdge();
+	EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_63__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_62(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 62</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_64(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 64</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 62</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_62(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 64</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#isAppropriate_BWD_EMoflonEdge_64(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_62__EMoflonEdge();
+	EOperation getUserTaskToStepAfterSERule__IsAppropriate_BWD_EMoflonEdge_64__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterSERule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -23818,24 +24578,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_FWD_EMoflonEdge_213__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_63(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 63</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_65(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 65</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 63</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_63(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 65</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_65(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_63__EMoflonEdge();
+	EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_65__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_64(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 64</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_66(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 66</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 64</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_64(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 66</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#isAppropriate_BWD_EMoflonEdge_66(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_64__EMoflonEdge();
+	EOperation getUserTaskToStepAfterExGwRule__IsAppropriate_BWD_EMoflonEdge_66__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterExGwRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -24168,24 +24928,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserTaskToStepAfterPGRule__IsAppropriate_FWD_EMoflonEdge_220__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_65(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 65</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_67(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 67</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 65</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_65(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 67</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_67(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_65__EMoflonEdge();
+	EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_67__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_66(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 66</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_68(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 68</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 66</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_66(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 68</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#isAppropriate_BWD_EMoflonEdge_68(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_66__EMoflonEdge();
+	EOperation getUserTaskToStepAfterPGRule__IsAppropriate_BWD_EMoflonEdge_68__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterPGRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -24518,24 +25278,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_FWD_EMoflonEdge_227__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_67(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 67</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_69(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 69</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 67</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_67(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 69</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_69(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_67__EMoflonEdge();
+	EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_69__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_68(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 68</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_70(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 70</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 68</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_68(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 70</em>' operation.
+	 * @see BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#isAppropriate_BWD_EMoflonEdge_70(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_68__EMoflonEdge();
+	EOperation getUserTaskToStepAfterEvGwRule__IsAppropriate_BWD_EMoflonEdge_70__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.UserTaskToStepAfterEvGwRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.

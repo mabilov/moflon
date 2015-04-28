@@ -1941,15 +1941,15 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 		Model model = ModalSequenceDiagramFactory.eINSTANCE.createModel();
 		UseCasesModelToModel useCasesModelToModel = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createUseCasesModelToModel();
-		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
+		int _localVariable_0 = ruleResult.getIncrementedPerformCount();
 		ruleResult.getSourceObjects().add(useCasesModel);
 		ruleResult.getTargetObjects().add(model);
 		useCasesModelToModel.setSource(useCasesModel);
 		useCasesModelToModel.setTarget(model);
 		ruleResult.getCorrObjects().add(useCasesModelToModel);
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_0);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
 		return new Object[] { useCasesModel, model, useCasesModelToModel,

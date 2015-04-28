@@ -153,6 +153,11 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseUCCondition(UCCondition object) {
+			return createUCConditionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -406,6 +411,20 @@ public class UseCaseDSLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUseCasesModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseDSL.UCCondition <em>UC Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseDSL.UCCondition
+	 * @generated
+	 */
+	public Adapter createUCConditionAdapter() {
 		return null;
 	}
 

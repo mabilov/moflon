@@ -134,6 +134,22 @@ public class BpmnToUseCaseIntegrationAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseProcessToBasicFlow(ProcessToBasicFlow object) {
+			return createProcessToBasicFlowAdapter();
+		}
+
+		@Override
+		public Adapter caseStartEventToUCCondition(
+				StartEventToUCCondition object) {
+			return createStartEventToUCConditionAdapter();
+		}
+
+		@Override
+		public Adapter caseEndEventToUCCondition(EndEventToUCCondition object) {
+			return createEndEventToUCConditionAdapter();
+		}
+
+		@Override
 		public Adapter caseAbstractCorrespondence(AbstractCorrespondence object) {
 			return createAbstractCorrespondenceAdapter();
 		}
@@ -336,6 +352,48 @@ public class BpmnToUseCaseIntegrationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEndEventToFlowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link BpmnToUseCaseIntegration.ProcessToBasicFlow <em>Process To Basic Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see BpmnToUseCaseIntegration.ProcessToBasicFlow
+	 * @generated
+	 */
+	public Adapter createProcessToBasicFlowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link BpmnToUseCaseIntegration.StartEventToUCCondition <em>Start Event To UC Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see BpmnToUseCaseIntegration.StartEventToUCCondition
+	 * @generated
+	 */
+	public Adapter createStartEventToUCConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link BpmnToUseCaseIntegration.EndEventToUCCondition <em>End Event To UC Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see BpmnToUseCaseIntegration.EndEventToUCCondition
+	 * @generated
+	 */
+	public Adapter createEndEventToUCConditionAdapter() {
 		return null;
 	}
 

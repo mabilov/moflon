@@ -86,9 +86,10 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getDescriptionAssignment_2(), "rule__UseCase__DescriptionAssignment_2");
 					put(grammarAccess.getUseCaseAccess().getSuperCaseAssignment_3_1(), "rule__UseCase__SuperCaseAssignment_3_1");
-					put(grammarAccess.getUseCaseAccess().getPreConditionsAssignment_4_0_1(), "rule__UseCase__PreConditionsAssignment_4_0_1");
-					put(grammarAccess.getUseCaseAccess().getPostconditionAssignment_4_1_1(), "rule__UseCase__PostconditionAssignment_4_1_1");
+					put(grammarAccess.getUseCaseAccess().getPreconditionsAssignment_4_0_1(), "rule__UseCase__PreconditionsAssignment_4_0_1");
+					put(grammarAccess.getUseCaseAccess().getPostconditionsAssignment_4_1_1(), "rule__UseCase__PostconditionsAssignment_4_1_1");
 					put(grammarAccess.getUseCaseAccess().getFlowsAssignment_5(), "rule__UseCase__FlowsAssignment_5");
+					put(grammarAccess.getUCConditionAccess().getNameAssignment(), "rule__UCCondition__NameAssignment");
 					put(grammarAccess.getActorAccess().getNameAssignment_0(), "rule__Actor__NameAssignment_0");
 					put(grammarAccess.getActorAccess().getTypeAssignment_2(), "rule__Actor__TypeAssignment_2");
 					put(grammarAccess.getActorAccess().getDescriptionAssignment_3(), "rule__Actor__DescriptionAssignment_3");

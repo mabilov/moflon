@@ -21,6 +21,7 @@ import TGGRuntime.RuleResult;
 import TGGRuntime.TripleMatch;
 
 import UseCaseDSL.Flow;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 
 import bpmn2.EndEvent;
@@ -121,8 +122,9 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 */
 	void registerObjects_FWD(PerformRuleResult ruleresult, EObject process,
 			EObject inFlow, EObject endEvent, EObject flow,
-			EObject inFlowToFlow, EObject endEventToFlow, EObject useCase,
-			EObject processToUseCase, EObject lane, EObject laneSet);
+			EObject inFlowToFlow, EObject useCase, EObject processToUseCase,
+			EObject lane, EObject laneSet, EObject postcond,
+			EObject endEventToPostcond);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,6 +133,97 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	boolean checkTypes_FWD(Match match);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isAppropriate_BWD(Match match, Flow flow, UseCase useCase,
+			UCCondition postcond);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	IsApplicableRuleResult isApplicable_BWD(Match match);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void registerObjectsToMatch_BWD(Match match, Flow flow, UseCase useCase,
+			UCCondition postcond);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	CSP isAppropriate_solveCsp_BWD(Match match, Flow flow, UseCase useCase,
+			UCCondition postcond);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isAppropriate_checkCsp_BWD(CSP csp);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			bpmn2.Process process, SequenceFlow inFlow, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, UseCase useCase,
+			ProcessToUseCase processToUseCase, Lane lane, LaneSet laneSet,
+			UCCondition postcond);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isApplicable_checkCsp_BWD(CSP csp);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void registerObjects_BWD(PerformRuleResult ruleresult, EObject process,
+			EObject inFlow, EObject endEvent, EObject flow,
+			EObject inFlowToFlow, EObject useCase, EObject processToUseCase,
+			EObject lane, EObject laneSet, EObject postcond,
+			EObject endEventToPostcond);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean checkTypes_BWD(Match match);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +257,15 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_15(
+			EMoflonEdge _edge_finalState);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	EObjectContainer isAppropriate_FWD_EMoflonEdge_32(
 			EMoflonEdge _edge_flowNodeRefs);
 
@@ -174,6 +276,14 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	RuleResult checkAttributes_FWD(TripleMatch tripleMatch);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RuleResult checkAttributes_BWD(TripleMatch tripleMatch);
 
 	/**
 	 * <!-- begin-user-doc -->

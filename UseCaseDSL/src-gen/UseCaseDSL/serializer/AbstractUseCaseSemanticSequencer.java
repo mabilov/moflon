@@ -14,6 +14,7 @@ import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
 import UseCaseDSL.ParallelFlow;
 import UseCaseDSL.ParallelStep;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLPackage;
 import UseCaseDSL.UseCasesModel;
@@ -22,12 +23,15 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
+import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -71,6 +75,9 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 			case UseCaseDSLPackage.PARALLEL_STEP:
 				sequence_ParallelStep(context, (ParallelStep) semanticObject); 
 				return; 
+			case UseCaseDSLPackage.UC_CONDITION:
+				sequence_UCCondition(context, (UCCondition) semanticObject); 
+				return; 
 			case UseCaseDSLPackage.USE_CASE:
 				sequence_UseCase(context, (UseCase) semanticObject); 
 				return; 
@@ -101,7 +108,7 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     (name=ID steps+=Step* finalState=STRING?)
+	 *     (name=ID steps+=Step* finalState=UCCondition?)
 	 */
 	protected void sequence_AlternativeFlow(EObject context, AlternativeFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -110,7 +117,7 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     (steps+=Step* finalState=STRING?)
+	 *     (steps+=Step* finalState=UCCondition?)
 	 */
 	protected void sequence_BasicFlow(EObject context, BasicFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -128,7 +135,7 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     (name=ID condition=STRING steps+=Step* finalState=STRING?)
+	 *     (name=ID condition=STRING steps+=Step* finalState=UCCondition?)
 	 */
 	protected void sequence_ExceptionFlow(EObject context, ExceptionFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -171,7 +178,7 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
-	 *     (name=ID steps+=Step* finalState=STRING?)
+	 *     (name=ID steps+=Step* finalState=UCCondition?)
 	 */
 	protected void sequence_ParallelFlow(EObject context, ParallelFlow semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -189,12 +196,28 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 	
 	/**
 	 * Constraint:
+	 *     name=STRING
+	 */
+	protected void sequence_UCCondition(EObject context, UCCondition semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, UseCaseDSLPackage.Literals.UC_CONDITION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDSLPackage.Literals.UC_CONDITION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUCConditionAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         description=STRING? 
 	 *         superCase=[UseCase|ID]? 
-	 *         preConditions=STRING? 
-	 *         postcondition=STRING? 
+	 *         preconditions+=UCCondition* 
+	 *         postconditions+=UCCondition* 
 	 *         flows+=Flow*
 	 *     )
 	 */

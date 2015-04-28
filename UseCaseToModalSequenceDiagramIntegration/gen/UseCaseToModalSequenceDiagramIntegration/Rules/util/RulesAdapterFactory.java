@@ -96,11 +96,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseUseCaseNoPrecondRule(UseCaseNoPrecondRule object) {
-			return createUseCaseNoPrecondRuleAdapter();
-		}
-
-		@Override
 		public Adapter caseUserActorToLifelineRule(
 				UserActorToLifelineRule object) {
 			return createUserActorToLifelineRuleAdapter();
@@ -294,20 +289,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNormalStepToMessageRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseNoPrecondRule <em>Use Case No Precond Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseNoPrecondRule
-	 * @generated
-	 */
-	public Adapter createUseCaseNoPrecondRuleAdapter() {
 		return null;
 	}
 

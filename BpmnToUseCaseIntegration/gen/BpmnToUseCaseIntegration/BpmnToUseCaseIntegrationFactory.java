@@ -140,6 +140,33 @@ public interface BpmnToUseCaseIntegrationFactory extends EFactory {
 	EndEventToFlow createEndEventToFlow();
 
 	/**
+	 * Returns a new object of class '<em>Process To Basic Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Process To Basic Flow</em>'.
+	 * @generated
+	 */
+	ProcessToBasicFlow createProcessToBasicFlow();
+
+	/**
+	 * Returns a new object of class '<em>Start Event To UC Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Start Event To UC Condition</em>'.
+	 * @generated
+	 */
+	StartEventToUCCondition createStartEventToUCCondition();
+
+	/**
+	 * Returns a new object of class '<em>End Event To UC Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>End Event To UC Condition</em>'.
+	 * @generated
+	 */
+	EndEventToUCCondition createEndEventToUCCondition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

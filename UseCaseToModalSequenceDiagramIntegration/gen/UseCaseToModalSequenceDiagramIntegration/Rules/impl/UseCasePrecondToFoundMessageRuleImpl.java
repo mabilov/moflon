@@ -3,7 +3,6 @@
 package UseCaseToModalSequenceDiagramIntegration.Rules.impl;
 
 import ModalSequenceDiagram.Interaction;
-import ModalSequenceDiagram.InteractionFragment;
 import ModalSequenceDiagram.Lifeline;
 import ModalSequenceDiagram.Message;
 import ModalSequenceDiagram.MessageEnd;
@@ -31,21 +30,18 @@ import TGGRuntime.TripleMatch;
 import TGGRuntime.impl.AbstractRuleImpl;
 
 import UseCaseDSL.Actor;
-import UseCaseDSL.ActorType;
-import UseCaseDSL.BasicFlow;
-import UseCaseDSL.Flow;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 
 import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
-import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
-import UseCaseToModalSequenceDiagramIntegration.PackageDeclarationToPackage;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule;
 
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToMessage;
+import UseCaseToModalSequenceDiagramIntegration.UCConditionToMessage;
+import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 
 import java.lang.Iterable;
@@ -101,12 +97,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_FWD(Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+	public boolean isAppropriate_FWD(Match match, UCCondition precond,
+			UseCase useCase, Actor actor, PackageDeclaration packageDeclaration) {
 		// initial bindings
 		Object[] result1_black = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_0_1_blackBBBBBB(this,
-						match, useCase, actor, packageDeclaration, basicFlow);
+						match, precond, useCase, actor, packageDeclaration);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [initial bindings] failed");
@@ -115,8 +111,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		// Solve CSP
 		Object[] result2_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_0_2_bindingAndBlackFBBBBBB(
-						this, match, useCase, actor, packageDeclaration,
-						basicFlow);
+						this, match, precond, useCase, actor,
+						packageDeclaration);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [Solve CSP] failed");
@@ -130,38 +126,35 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			// collect elements to be translated
 			Object[] result4_black = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_0_4_blackBBBBB(
-							match, useCase, actor, packageDeclaration,
-							basicFlow);
+							match, precond, useCase, actor, packageDeclaration);
 			if (result4_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect elements to be translated] failed");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBBBFFF(
-							match, useCase, actor, packageDeclaration,
-							basicFlow);
-			// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result4_green[5];
-			// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result4_green[6];
-			// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result4_green[7];
+					.pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBF(
+							match, precond, useCase);
+			// EMoflonEdge useCase__precond____preconditions = (EMoflonEdge) result4_green[3];
 
 			// collect context elements
 			Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_0_5_blackBBBBB(
-							match, useCase, actor, packageDeclaration,
-							basicFlow);
+							match, precond, useCase, actor, packageDeclaration);
 			if (result5_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect context elements] failed");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_0_5_greenBB(
-							match, packageDeclaration);
+					.pattern_UseCasePrecondToFoundMessageRule_0_5_greenBBBBFF(
+							match, useCase, actor, packageDeclaration);
+			// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result5_green[4];
+			// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result5_green[5];
 
 			// register objects to match
 			UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_0_6_expressionBBBBBB(
-							this, match, useCase, actor, packageDeclaration,
-							basicFlow);
+							this, match, precond, useCase, actor,
+							packageDeclaration);
 			return UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_0_7_expressionF();
 		} else {
@@ -179,95 +172,74 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	public PerformRuleResult perform_FWD(IsApplicableMatch isApplicableMatch) {
 		// perform transformation
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_1_bindingAndBlackFFFFFFFBB(
+				.pattern_UseCasePrecondToFoundMessageRule_1_1_bindingAndBlackFFFFFFFFFBB(
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [perform transformation] failed");
 		}
-		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
-		Actor actor = (Actor) result1_bindingAndBlack[1];
-		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[2];
-		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result1_bindingAndBlack[3];
-		PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result1_bindingAndBlack[4];
-		BasicFlow basicFlow = (BasicFlow) result1_bindingAndBlack[5];
-		CSP csp = (CSP) result1_bindingAndBlack[6];
+		UCCondition precond = (UCCondition) result1_bindingAndBlack[0];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[1];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[2];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[3];
+		Actor actor = (Actor) result1_bindingAndBlack[4];
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[5];
+		Lifeline line = (Lifeline) result1_bindingAndBlack[6];
+		ActorToLifeline actorToLine = (ActorToLifeline) result1_bindingAndBlack[7];
+		CSP csp = (CSP) result1_bindingAndBlack[8];
 		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_1_greenFBFFFBFFBBFB(
-						useCase, actor, _package, basicFlow, csp);
-		UseCaseToMessage useCaseToMessage = (UseCaseToMessage) result1_green[0];
-		Message message = (Message) result1_green[2];
-		Interaction interaction = (Interaction) result1_green[3];
-		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_green[4];
-		Lifeline line = (Lifeline) result1_green[6];
-		ActorToLifeline actorToLine = (ActorToLifeline) result1_green[7];
-		FlowToInteractionFragment basicFlowToInteraction = (FlowToInteractionFragment) result1_green[10];
+				.pattern_UseCasePrecondToFoundMessageRule_1_1_greenBFBFBFB(
+						precond, interaction, line, csp);
+		Message message = (Message) result1_green[1];
+		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_green[3];
+		UCConditionToMessage precondToMessage = (UCConditionToMessage) result1_green[5];
 
 		// collect translated elements
 		Object[] result2_black = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_2_blackBBBBBBBBBB(
-						useCaseToMessage, useCase, message, interaction,
-						messageReceive, actor, line, actorToLine, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_1_2_blackBBBB(
+						precond, message, messageReceive, precondToMessage);
 		if (result2_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [collect translated elements] failed");
 		}
 		Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBBBBBBBB(
-						useCaseToMessage, useCase, message, interaction,
-						messageReceive, actor, line, actorToLine, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBB(
+						precond, message, messageReceive, precondToMessage);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		// bookkeeping for edges
 		Object[] result3_black = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_3_blackBBBBBBBBBBBBBB(
-						ruleresult, useCaseToMessage, useCase, message,
-						interaction, messageReceive, actor, packageDeclaration,
-						line, actorToLine, _package,
-						packageDeclarationToPackage, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_1_3_blackBBBBBBBBBBBB(
+						ruleresult, precond, useCaseToInteraction, useCase,
+						message, interaction, messageReceive, actor,
+						packageDeclaration, line, actorToLine, precondToMessage);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
-						ruleresult, useCaseToMessage, useCase, message,
-						interaction, messageReceive, actor, packageDeclaration,
-						line, actorToLine, _package, basicFlow,
-						basicFlowToInteraction);
-		// EMoflonEdge useCaseToMessage__useCase____source = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge useCaseToMessage__message____target = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[26];
-		// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[27];
-		// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[28];
-		// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result3_green[29];
-		// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result3_green[30];
-		// EMoflonEdge basicFlowToInteraction__basicFlow____source = (EMoflonEdge) result3_green[31];
-		// EMoflonEdge basicFlowToInteraction__interaction____target = (EMoflonEdge) result3_green[32];
+				.pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBFFFFFFFFFFF(
+						ruleresult, precond, useCase, message, interaction,
+						messageReceive, line, precondToMessage);
+		// EMoflonEdge useCase__precond____preconditions = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[9];
+		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge precondToMessage__precond____source = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge precondToMessage__message____target = (EMoflonEdge) result3_green[18];
 
 		// perform postprocessing story node is empty
 		// register objects
 		UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_1_5_expressionBBBBBBBBBBBBBBB(
-						this, ruleresult, useCaseToMessage, useCase, message,
-						interaction, messageReceive, actor, packageDeclaration,
-						line, actorToLine, _package,
-						packageDeclarationToPackage, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_1_5_expressionBBBBBBBBBBBBB(
+						this, ruleresult, precond, useCaseToInteraction,
+						useCase, message, interaction, messageReceive, actor,
+						packageDeclaration, line, actorToLine, precondToMessage);
 		return UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_1_6_expressionFB(ruleresult);
 	}
@@ -297,37 +269,45 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		if (result2_binding == null) {
 			throw new RuntimeException("Binding in node core match failed");
 		}
-		UseCase useCase = (UseCase) result2_binding[0];
-		Actor actor = (Actor) result2_binding[1];
-		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[2];
-		BasicFlow basicFlow = (BasicFlow) result2_binding[3];
+		UCCondition precond = (UCCondition) result2_binding[0];
+		UseCase useCase = (UseCase) result2_binding[1];
+		Actor actor = (Actor) result2_binding[2];
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[3];
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_2_2_blackBBBFFBB(
-						useCase, actor, packageDeclaration, basicFlow, match)) {
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[3];
-			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result2_black[4];
+				.pattern_UseCasePrecondToFoundMessageRule_2_2_blackBFBFBBFFB(
+						precond, useCase, actor, packageDeclaration, match)) {
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[1];
+			Interaction interaction = (Interaction) result2_black[3];
+			Lifeline line = (Lifeline) result2_black[6];
+			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[7];
 			// ForEach find context
 			for (Object[] result3_black : UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_2_3_blackBBBBBB(
-							useCase, actor, packageDeclaration, _package,
-							packageDeclarationToPackage, basicFlow)) {
+					.pattern_UseCasePrecondToFoundMessageRule_2_3_blackBBBBBBBB(
+							precond, useCaseToInteraction, useCase,
+							interaction, actor, packageDeclaration, line,
+							actorToLine)) {
 				Object[] result3_green = UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_2_3_greenBBBBBBFFFFFF(
-								useCase, actor, packageDeclaration, _package,
-								packageDeclarationToPackage, basicFlow);
-				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[6];
-				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[7];
-				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[8];
-				// EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = (EMoflonEdge) result3_green[9];
-				// EMoflonEdge packageDeclarationToPackage___package____target = (EMoflonEdge) result3_green[10];
-				// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result3_green[11];
+						.pattern_UseCasePrecondToFoundMessageRule_2_3_greenBBBBBBBBFFFFFFFFFF(
+								precond, useCaseToInteraction, useCase,
+								interaction, actor, packageDeclaration, line,
+								actorToLine);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[8];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[9];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge useCase__precond____preconditions = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[17];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_2_4_bindingAndBlackFBBBBBBBB(
-								this, isApplicableMatch, useCase, actor,
-								packageDeclaration, _package,
-								packageDeclarationToPackage, basicFlow);
+						.pattern_UseCasePrecondToFoundMessageRule_2_4_bindingAndBlackFBBBBBBBBBB(
+								this, isApplicableMatch, precond,
+								useCaseToInteraction, useCase, interaction,
+								actor, packageDeclaration, line, actorToLine);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -365,13 +345,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_FWD(Match match, UseCase useCase,
-			Actor actor, PackageDeclaration packageDeclaration,
-			BasicFlow basicFlow) {
+	public void registerObjectsToMatch_FWD(Match match, UCCondition precond,
+			UseCase useCase, Actor actor, PackageDeclaration packageDeclaration) {
+		match.registerObject("precond", precond);
 		match.registerObject("useCase", useCase);
 		match.registerObject("actor", actor);
 		match.registerObject("packageDeclaration", packageDeclaration);
-		match.registerObject("basicFlow", basicFlow);
 
 	}
 
@@ -380,9 +359,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_FWD(Match match, UseCase useCase,
-			Actor actor, PackageDeclaration packageDeclaration,
-			BasicFlow basicFlow) {// Create CSP
+	public CSP isAppropriate_solveCsp_FWD(Match match, UCCondition precond,
+			UseCase useCase, Actor actor, PackageDeclaration packageDeclaration) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -425,89 +403,68 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public CSP isApplicable_solveCsp_FWD(IsApplicableMatch isApplicableMatch,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow) {// Create CSP
+			UCCondition precond, UseCaseToInteraction useCaseToInteraction,
+			UseCase useCase, Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
-		literal0.setValue("found");
+		literal0.setValue("ASYNCH_SIGNAL");
 		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
-		literal1.setValue("ASYNCH_SIGNAL");
+		literal1.setValue("found");
 		literal1.setType("");
 
 		// Create attribute variables
-		Variable var_useCase_preConditions = CSPFactoryHelper.eINSTANCE
-				.createVariable("useCase.preConditions", true, csp);
-		var_useCase_preConditions.setValue(useCase.getPreConditions());
-		var_useCase_preConditions.setType("String");
-		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.name", true, csp);
-		var_actor_name.setValue(actor.getName());
-		var_actor_name.setType("String");
-		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"useCase.name", true, csp);
-		var_useCase_name.setValue(useCase.getName());
-		var_useCase_name.setType("String");
+		Variable var_precond_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"precond.name", true, csp);
+		var_precond_name.setValue(precond.getName());
+		var_precond_name.setType("String");
 
 		// Create unbound variables
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
-		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
-				.createVariable("message.messageKind", csp);
-		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
-		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"line.name", csp);
-		var_line_name.setType("String");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", csp);
 		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
-		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("interaction.name", csp);
-		var_interaction_name.setType("String");
+		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
+				.createVariable("message.messageKind", csp);
+		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
 
 		// Create constraints
 		Eq eq = new Eq();
-		EqMessageKind eqMessageKind = new EqMessageKind();
-		Eq eq_0 = new Eq();
 		EqMessageSort eqMessageSort = new EqMessageSort();
-		Eq eq_1 = new Eq();
+		EqMessageKind eqMessageKind = new EqMessageKind();
 
 		csp.getConstraints().add(eq);
-		csp.getConstraints().add(eqMessageKind);
-		csp.getConstraints().add(eq_0);
 		csp.getConstraints().add(eqMessageSort);
-		csp.getConstraints().add(eq_1);
+		csp.getConstraints().add(eqMessageKind);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_useCase_preConditions, var_message_name);
-		eqMessageKind.setRuleName("");
-		eqMessageKind.solve(var_message_messageKind, literal0);
-		eq_0.setRuleName("");
-		eq_0.solve(var_actor_name, var_line_name);
+		eq.solve(var_precond_name, var_message_name);
 		eqMessageSort.setRuleName("");
-		eqMessageSort.solve(var_message_messageSort, literal1);
-		eq_1.setRuleName("");
-		eq_1.solve(var_useCase_name, var_interaction_name);
+		eqMessageSort.solve(var_message_messageSort, literal0);
+		eqMessageKind.setRuleName("");
+		eqMessageKind.solve(var_message_messageKind, literal1);
 
 		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("precond", precond);
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
 		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("interaction", interaction);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("packageDeclaration",
 				packageDeclaration);
-		isApplicableMatch.registerObject("_package", _package);
-		isApplicableMatch.registerObject("packageDeclarationToPackage",
-				packageDeclarationToPackage);
-		isApplicableMatch.registerObject("basicFlow", basicFlow);
+		isApplicableMatch.registerObject("line", line);
+		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		return csp;
 	}
 
@@ -526,12 +483,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public void registerObjects_FWD(PerformRuleResult ruleresult,
-			EObject useCaseToMessage, EObject useCase, EObject message,
-			EObject interaction, EObject messageReceive, EObject actor,
-			EObject packageDeclaration, EObject line, EObject actorToLine,
-			EObject _package, EObject packageDeclarationToPackage,
-			EObject basicFlow, EObject basicFlowToInteraction) {
-		ruleresult.registerObject("useCaseToMessage", useCaseToMessage);
+			EObject precond, EObject useCaseToInteraction, EObject useCase,
+			EObject message, EObject interaction, EObject messageReceive,
+			EObject actor, EObject packageDeclaration, EObject line,
+			EObject actorToLine, EObject precondToMessage) {
+		ruleresult.registerObject("precond", precond);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("useCase", useCase);
 		ruleresult.registerObject("message", message);
 		ruleresult.registerObject("interaction", interaction);
@@ -540,12 +497,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actorToLine", actorToLine);
-		ruleresult.registerObject("_package", _package);
-		ruleresult.registerObject("packageDeclarationToPackage",
-				packageDeclarationToPackage);
-		ruleresult.registerObject("basicFlow", basicFlow);
-		ruleresult.registerObject("basicFlowToInteraction",
-				basicFlowToInteraction);
+		ruleresult.registerObject("precondToMessage", precondToMessage);
 
 	}
 
@@ -555,19 +507,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public boolean checkTypes_FWD(Match match) {
-		return true
-				&& match.getObject("useCase")
-						.eClass()
-						.equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE
-								.getUseCase())
-				&& match.getObject("actor")
-						.eClass()
-						.equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE
-								.getActor())
-				&& match.getObject("basicFlow")
-						.eClass()
-						.equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE
-								.getBasicFlow());
+		return true && match
+				.getObject("precond")
+				.eClass()
+				.equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getUCCondition());
 	}
 
 	/**
@@ -577,13 +520,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 */
 	public boolean isAppropriate_BWD(Match match, Message message,
 			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		// initial bindings
 		Object[] result1_black = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_10_1_blackBBBBBBB(
-						this, match, message, interaction, messageReceive,
-						line, _package);
+				.pattern_UseCasePrecondToFoundMessageRule_10_1_blackBBBBBB(
+						this, match, message, interaction, messageReceive, line);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [initial bindings] failed");
@@ -591,9 +532,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// Solve CSP
 		Object[] result2_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_10_2_bindingAndBlackFBBBBBBB(
-						this, match, message, interaction, messageReceive,
-						line, _package);
+				.pattern_UseCasePrecondToFoundMessageRule_10_2_bindingAndBlackFBBBBBB(
+						this, match, message, interaction, messageReceive, line);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [Solve CSP] failed");
@@ -606,47 +546,43 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 			// collect elements to be translated
 			Object[] result4_black = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_10_4_blackBBBBBB(
-							match, message, interaction, messageReceive, line,
-							_package);
+					.pattern_UseCasePrecondToFoundMessageRule_10_4_blackBBBBB(
+							match, message, interaction, messageReceive, line);
 			if (result4_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect elements to be translated] failed");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBBFFFFFFFFFFF(
-							match, message, interaction, messageReceive, line,
-							_package);
-			// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result4_green[6];
-			// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result4_green[7];
-			// EMoflonEdge interaction__message____message = (EMoflonEdge) result4_green[8];
-			// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result4_green[9];
-			// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result4_green[10];
-			// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result4_green[11];
-			// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result4_green[12];
-			// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result4_green[13];
-			// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result4_green[14];
-			// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result4_green[15];
-			// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result4_green[16];
+					.pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBFFFFFFFF(
+							match, message, interaction, messageReceive, line);
+			// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result4_green[5];
+			// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result4_green[6];
+			// EMoflonEdge interaction__message____message = (EMoflonEdge) result4_green[7];
+			// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result4_green[8];
+			// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result4_green[9];
+			// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result4_green[10];
+			// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result4_green[11];
+			// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result4_green[12];
 
 			// collect context elements
 			Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_10_5_blackBBBBBB(
-							match, message, interaction, messageReceive, line,
-							_package);
+					.pattern_UseCasePrecondToFoundMessageRule_10_5_blackBBBBB(
+							match, message, interaction, messageReceive, line);
 			if (result5_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect context elements] failed");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_10_5_greenBB(
-							match, _package);
+					.pattern_UseCasePrecondToFoundMessageRule_10_5_greenBBBFF(
+							match, interaction, line);
+			// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result5_green[3];
+			// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result5_green[4];
 
 			// register objects to match
 			UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_10_6_expressionBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_10_6_expressionBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package);
+							line);
 			return UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_10_7_expressionF();
 		} else {
@@ -664,95 +600,74 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	public PerformRuleResult perform_BWD(IsApplicableMatch isApplicableMatch) {
 		// perform transformation
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_1_bindingAndBlackFFFFFFFFBB(
+				.pattern_UseCasePrecondToFoundMessageRule_11_1_bindingAndBlackFFFFFFFFFFBB(
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [perform transformation] failed");
 		}
-		Message message = (Message) result1_bindingAndBlack[0];
-		Interaction interaction = (Interaction) result1_bindingAndBlack[1];
-		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_bindingAndBlack[2];
-		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[3];
-		Lifeline line = (Lifeline) result1_bindingAndBlack[4];
-		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result1_bindingAndBlack[5];
-		PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result1_bindingAndBlack[6];
-		CSP csp = (CSP) result1_bindingAndBlack[7];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[0];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[1];
+		Message message = (Message) result1_bindingAndBlack[2];
+		Interaction interaction = (Interaction) result1_bindingAndBlack[3];
+		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_bindingAndBlack[4];
+		Actor actor = (Actor) result1_bindingAndBlack[5];
+		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[6];
+		Lifeline line = (Lifeline) result1_bindingAndBlack[7];
+		ActorToLifeline actorToLine = (ActorToLifeline) result1_bindingAndBlack[8];
+		CSP csp = (CSP) result1_bindingAndBlack[9];
 		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_1_greenFFBBFBBFFFB(
-						message, interaction, packageDeclaration, line, csp);
-		UseCaseToMessage useCaseToMessage = (UseCaseToMessage) result1_green[0];
-		UseCase useCase = (UseCase) result1_green[1];
-		Actor actor = (Actor) result1_green[4];
-		ActorToLifeline actorToLine = (ActorToLifeline) result1_green[7];
-		BasicFlow basicFlow = (BasicFlow) result1_green[8];
-		FlowToInteractionFragment basicFlowToInteraction = (FlowToInteractionFragment) result1_green[9];
+				.pattern_UseCasePrecondToFoundMessageRule_11_1_greenFBBFB(
+						useCase, message, csp);
+		UCCondition precond = (UCCondition) result1_green[0];
+		UCConditionToMessage precondToMessage = (UCConditionToMessage) result1_green[3];
 
 		// collect translated elements
 		Object[] result2_black = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_2_blackBBBBBBBBBB(
-						useCaseToMessage, useCase, message, interaction,
-						messageReceive, actor, line, actorToLine, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_11_2_blackBBBB(
+						precond, message, messageReceive, precondToMessage);
 		if (result2_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [collect translated elements] failed");
 		}
 		Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBBBBBBBB(
-						useCaseToMessage, useCase, message, interaction,
-						messageReceive, actor, line, actorToLine, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBB(
+						precond, message, messageReceive, precondToMessage);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		// bookkeeping for edges
 		Object[] result3_black = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_3_blackBBBBBBBBBBBBBB(
-						ruleresult, useCaseToMessage, useCase, message,
-						interaction, messageReceive, actor, packageDeclaration,
-						line, actorToLine, _package,
-						packageDeclarationToPackage, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_11_3_blackBBBBBBBBBBBB(
+						ruleresult, precond, useCaseToInteraction, useCase,
+						message, interaction, messageReceive, actor,
+						packageDeclaration, line, actorToLine, precondToMessage);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
-						ruleresult, useCaseToMessage, useCase, message,
-						interaction, messageReceive, actor, packageDeclaration,
-						line, actorToLine, _package, basicFlow,
-						basicFlowToInteraction);
-		// EMoflonEdge useCaseToMessage__useCase____source = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge useCaseToMessage__message____target = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[26];
-		// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[27];
-		// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[28];
-		// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result3_green[29];
-		// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result3_green[30];
-		// EMoflonEdge basicFlowToInteraction__basicFlow____source = (EMoflonEdge) result3_green[31];
-		// EMoflonEdge basicFlowToInteraction__interaction____target = (EMoflonEdge) result3_green[32];
+				.pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBFFFFFFFFFFF(
+						ruleresult, precond, useCase, message, interaction,
+						messageReceive, line, precondToMessage);
+		// EMoflonEdge useCase__precond____preconditions = (EMoflonEdge) result3_green[8];
+		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[9];
+		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge precondToMessage__precond____source = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge precondToMessage__message____target = (EMoflonEdge) result3_green[18];
 
 		// perform postprocessing story node is empty
 		// register objects
 		UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_11_5_expressionBBBBBBBBBBBBBBB(
-						this, ruleresult, useCaseToMessage, useCase, message,
-						interaction, messageReceive, actor, packageDeclaration,
-						line, actorToLine, _package,
-						packageDeclarationToPackage, basicFlow,
-						basicFlowToInteraction);
+				.pattern_UseCasePrecondToFoundMessageRule_11_5_expressionBBBBBBBBBBBBB(
+						this, ruleresult, precond, useCaseToInteraction,
+						useCase, message, interaction, messageReceive, actor,
+						packageDeclaration, line, actorToLine, precondToMessage);
 		return UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_11_6_expressionFB(ruleresult);
 	}
@@ -778,7 +693,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach core match
 		Object[] result2_binding = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFFB(match);
+				.pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
 			throw new RuntimeException("Binding in node core match failed");
 		}
@@ -786,45 +701,49 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Interaction interaction = (Interaction) result2_binding[1];
 		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_binding[2];
 		Lifeline line = (Lifeline) result2_binding[3];
-		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_binding[4];
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_12_2_blackBBBFBBFB(
-						message, interaction, messageReceive, line, _package,
-						match)) {
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[3];
-			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result2_black[6];
+				.pattern_UseCasePrecondToFoundMessageRule_12_2_blackFFBBBFBFB(
+						message, interaction, messageReceive, line, match)) {
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[0];
+			UseCase useCase = (UseCase) result2_black[1];
+			Actor actor = (Actor) result2_black[5];
+			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[7];
 			// ForEach find context
 			for (Object[] result3_black : UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_12_3_blackBBBBBBB(
-							message, interaction, messageReceive,
-							packageDeclaration, line, _package,
-							packageDeclarationToPackage)) {
+					.pattern_UseCasePrecondToFoundMessageRule_12_3_blackBBBBBBFBB(
+							useCaseToInteraction, useCase, message,
+							interaction, messageReceive, actor, line,
+							actorToLine)) {
+				PackageDeclaration packageDeclaration = (PackageDeclaration) result3_black[6];
 				Object[] result3_green = UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_12_3_greenBBBBBBBFFFFFFFFFFFFFF(
-								message, interaction, messageReceive,
-								packageDeclaration, line, _package,
-								packageDeclarationToPackage);
-				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[7];
-				// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[8];
-				// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[9];
-				// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[10];
-				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[11];
-				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[12];
-				// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[13];
-				// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[14];
-				// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[15];
-				// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[16];
-				// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[17];
-				// EMoflonEdge _package__interaction____packagedElement = (EMoflonEdge) result3_green[18];
-				// EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = (EMoflonEdge) result3_green[19];
-				// EMoflonEdge packageDeclarationToPackage___package____target = (EMoflonEdge) result3_green[20];
+						.pattern_UseCasePrecondToFoundMessageRule_12_3_greenBBBBBBBBBFFFFFFFFFFFFFFFFF(
+								useCaseToInteraction, useCase, message,
+								interaction, messageReceive, actor,
+								packageDeclaration, line, actorToLine);
+				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[9];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[10];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[11];
+				// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[12];
+				// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[13];
+				// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[14];
+				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[15];
+				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[16];
+				// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[17];
+				// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[18];
+				// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[19];
+				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[20];
+				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[25];
 
 				// solve CSP
 				Object[] result4_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_12_4_bindingAndBlackFBBBBBBBBB(
-								this, isApplicableMatch, message, interaction,
-								messageReceive, packageDeclaration, line,
-								_package, packageDeclarationToPackage);
+						.pattern_UseCasePrecondToFoundMessageRule_12_4_bindingAndBlackFBBBBBBBBBBB(
+								this, isApplicableMatch, useCaseToInteraction,
+								useCase, message, interaction, messageReceive,
+								actor, packageDeclaration, line, actorToLine);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -864,13 +783,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 */
 	public void registerObjectsToMatch_BWD(Match match, Message message,
 			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		match.registerObject("message", message);
 		match.registerObject("interaction", interaction);
 		match.registerObject("messageReceive", messageReceive);
 		match.registerObject("line", line);
-		match.registerObject("_package", _package);
 
 	}
 
@@ -881,44 +798,43 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 */
 	public CSP isAppropriate_solveCsp_BWD(Match match, Message message,
 			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {// Create CSP
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
-		literal0.setValue("found");
+		literal0.setValue("ASYNCH_SIGNAL");
 		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
-		literal1.setValue("ASYNCH_SIGNAL");
+		literal1.setValue("found");
 		literal1.setType("");
 
 		// Create attribute variables
-		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
-				.createVariable("message.messageKind", true, csp);
-		var_message_messageKind.setValue(message.getMessageKind());
-		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", true, csp);
 		var_message_messageSort.setValue(message.getMessageSort());
 		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
+		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
+				.createVariable("message.messageKind", true, csp);
+		var_message_messageKind.setValue(message.getMessageKind());
+		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
 
 		// Create unbound variables
 
 		// Create constraints
-		EqMessageKind eqMessageKind = new EqMessageKind();
 		EqMessageSort eqMessageSort = new EqMessageSort();
+		EqMessageKind eqMessageKind = new EqMessageKind();
 
-		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eqMessageSort);
+		csp.getConstraints().add(eqMessageKind);
 
 		// Solve CSP
-		eqMessageKind.setRuleName("");
-		eqMessageKind.solve(var_message_messageKind, literal0);
 		eqMessageSort.setRuleName("");
-		eqMessageSort.solve(var_message_messageSort, literal1);
+		eqMessageSort.solve(var_message_messageSort, literal0);
+		eqMessageKind.setRuleName("");
+		eqMessageKind.solve(var_message_messageKind, literal1);
 		return csp;
 	}
 
@@ -937,11 +853,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
 			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {// Create CSP
+			ActorToLifeline actorToLine) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -956,60 +872,41 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				"message.name", true, csp);
 		var_message_name.setValue(message.getName());
 		var_message_name.setType("String");
-		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"line.name", true, csp);
-		var_line_name.setValue(line.getName());
-		var_line_name.setType("String");
-		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("interaction.name", true, csp);
-		var_interaction_name.setValue(interaction.getName());
-		var_interaction_name.setType("String");
+		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
+				"actor.type", true, csp);
+		var_actor_type.setValue(actor.getType());
+		var_actor_type.setType("UseCaseDSL.ActorType");
 
 		// Create unbound variables
-		Variable var_useCase_preConditions = CSPFactoryHelper.eINSTANCE
-				.createVariable("useCase.preConditions", csp);
-		var_useCase_preConditions.setType("String");
-		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.type", csp);
-		var_actor_type.setType("UseCaseDSL.ActorType");
-		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.name", csp);
-		var_actor_name.setType("String");
-		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"useCase.name", csp);
-		var_useCase_name.setType("String");
+		Variable var_precond_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"precond.name", csp);
+		var_precond_name.setType("String");
 
 		// Create constraints
-		Eq eq = new Eq();
 		EqActorType eqActorType = new EqActorType();
-		Eq eq_0 = new Eq();
-		Eq eq_1 = new Eq();
+		Eq eq = new Eq();
 
-		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eqActorType);
-		csp.getConstraints().add(eq_0);
-		csp.getConstraints().add(eq_1);
+		csp.getConstraints().add(eq);
 
 		// Solve CSP
-		eq.setRuleName("");
-		eq.solve(var_useCase_preConditions, var_message_name);
 		eqActorType.setRuleName("");
 		eqActorType.solve(var_actor_type, literal0);
-		eq_0.setRuleName("");
-		eq_0.solve(var_actor_name, var_line_name);
-		eq_1.setRuleName("");
-		eq_1.solve(var_useCase_name, var_interaction_name);
+		eq.setRuleName("");
+		eq.solve(var_precond_name, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
+		isApplicableMatch.registerObject("useCase", useCase);
 		isApplicableMatch.registerObject("message", message);
 		isApplicableMatch.registerObject("interaction", interaction);
 		isApplicableMatch.registerObject("messageReceive", messageReceive);
+		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("packageDeclaration",
 				packageDeclaration);
 		isApplicableMatch.registerObject("line", line);
-		isApplicableMatch.registerObject("_package", _package);
-		isApplicableMatch.registerObject("packageDeclarationToPackage",
-				packageDeclarationToPackage);
+		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		return csp;
 	}
 
@@ -1028,12 +925,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public void registerObjects_BWD(PerformRuleResult ruleresult,
-			EObject useCaseToMessage, EObject useCase, EObject message,
-			EObject interaction, EObject messageReceive, EObject actor,
-			EObject packageDeclaration, EObject line, EObject actorToLine,
-			EObject _package, EObject packageDeclarationToPackage,
-			EObject basicFlow, EObject basicFlowToInteraction) {
-		ruleresult.registerObject("useCaseToMessage", useCaseToMessage);
+			EObject precond, EObject useCaseToInteraction, EObject useCase,
+			EObject message, EObject interaction, EObject messageReceive,
+			EObject actor, EObject packageDeclaration, EObject line,
+			EObject actorToLine, EObject precondToMessage) {
+		ruleresult.registerObject("precond", precond);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("useCase", useCase);
 		ruleresult.registerObject("message", message);
 		ruleresult.registerObject("interaction", interaction);
@@ -1042,12 +939,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		ruleresult.registerObject("packageDeclaration", packageDeclaration);
 		ruleresult.registerObject("line", line);
 		ruleresult.registerObject("actorToLine", actorToLine);
-		ruleresult.registerObject("_package", _package);
-		ruleresult.registerObject("packageDeclarationToPackage",
-				packageDeclarationToPackage);
-		ruleresult.registerObject("basicFlow", basicFlow);
-		ruleresult.registerObject("basicFlowToInteraction",
-				basicFlowToInteraction);
+		ruleresult.registerObject("precondToMessage", precondToMessage);
 
 	}
 
@@ -1062,18 +954,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						.eClass()
 						.equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE
 								.getMessage())
-				&& match.getObject("interaction")
-						.eClass()
-						.equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE
-								.getInteraction())
 				&& match.getObject("messageReceive")
 						.eClass()
 						.equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE
-								.getMessageOccurrenceSpecification())
-				&& match.getObject("line")
-						.eClass()
-						.equals(ModalSequenceDiagram.ModalSequenceDiagramPackage.eINSTANCE
-								.getLifeline());
+								.getMessageOccurrenceSpecification());
 	}
 
 	/**
@@ -1081,8 +965,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
-			EMoflonEdge _edge_receiveEvent) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_235(
+			EMoflonEdge _edge_preconditions) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_20_1_bindingAndBlackFFB(this);
@@ -1098,21 +982,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_20_2_blackFFFFFB(_edge_receiveEvent)) {
-			Message message = (Message) result2_black[0];
-			Interaction interaction = (Interaction) result2_black[1];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
-			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
+				.pattern_UseCasePrecondToFoundMessageRule_20_2_blackFFFFB(_edge_preconditions)) {
+			UCCondition precond = (UCCondition) result2_black[0];
+			UseCase useCase = (UseCase) result2_black[1];
+			Actor actor = (Actor) result2_black[2];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[3];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_20_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_20_3_expressionFBBBBBBB(
-							this, match, message, interaction, messageReceive,
-							line, _package)) {
+					.pattern_UseCasePrecondToFoundMessageRule_20_3_expressionFBBBBBB(
+							this, match, precond, useCase, actor,
+							packageDeclaration)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_20_4_expressionFBB(
@@ -1146,8 +1029,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_82(
-			EMoflonEdge _edge_interaction) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_80(
+			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_21_1_bindingAndBlackFFB(this);
@@ -1163,21 +1046,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_21_2_blackFFFFFB(_edge_interaction)) {
+				.pattern_UseCasePrecondToFoundMessageRule_21_2_blackFFFFB(_edge_receiveEvent)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_21_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_21_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_21_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_21_4_expressionFBB(
@@ -1211,8 +1093,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_83(
-			EMoflonEdge _edge_message) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
+			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_22_1_bindingAndBlackFFB(this);
@@ -1228,21 +1110,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_22_2_blackFFFFFB(_edge_message)) {
+				.pattern_UseCasePrecondToFoundMessageRule_22_2_blackFFFFB(_edge_interaction)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_22_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_22_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_22_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_22_4_expressionFBB(
@@ -1276,8 +1157,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
-			EMoflonEdge _edge_interaction) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_82(
+			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_23_1_bindingAndBlackFFB(this);
@@ -1293,21 +1174,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_23_2_blackFFFFFB(_edge_interaction)) {
+				.pattern_UseCasePrecondToFoundMessageRule_23_2_blackFFFFB(_edge_message)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_23_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_23_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_23_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_23_4_expressionFBB(
@@ -1341,8 +1221,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_85(
-			EMoflonEdge _edge_lifeline) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_83(
+			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_24_1_bindingAndBlackFFB(this);
@@ -1358,21 +1238,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_24_2_blackFFFFFB(_edge_lifeline)) {
+				.pattern_UseCasePrecondToFoundMessageRule_24_2_blackFFFFB(_edge_enclosingInteraction)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_24_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_24_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_24_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_24_4_expressionFBB(
@@ -1406,8 +1285,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_86(
-			EMoflonEdge _edge_enclosingInteraction) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
+			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_25_1_bindingAndBlackFFB(this);
@@ -1423,21 +1302,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_25_2_blackFFFFFB(_edge_enclosingInteraction)) {
+				.pattern_UseCasePrecondToFoundMessageRule_25_2_blackFFFFB(_edge_fragment)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_25_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_25_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_25_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_25_4_expressionFBB(
@@ -1471,8 +1349,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_87(
-			EMoflonEdge _edge_fragment) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_85(
+			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_26_1_bindingAndBlackFFB(this);
@@ -1488,21 +1366,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_26_2_blackFFFFFB(_edge_fragment)) {
+				.pattern_UseCasePrecondToFoundMessageRule_26_2_blackFFFFB(_edge_message)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_26_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_26_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_26_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_26_4_expressionFBB(
@@ -1536,8 +1413,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_88(
-			EMoflonEdge _edge_message) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_86(
+			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_27_1_bindingAndBlackFFB(this);
@@ -1553,21 +1430,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_27_2_blackFFFFFB(_edge_message)) {
+				.pattern_UseCasePrecondToFoundMessageRule_27_2_blackFFFFB(_edge_coveredBy)) {
 			Message message = (Message) result2_black[0];
 			Interaction interaction = (Interaction) result2_black[1];
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
 			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_27_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
 
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_27_3_expressionFBBBBBBB(
+					.pattern_UseCasePrecondToFoundMessageRule_27_3_expressionFBBBBBB(
 							this, match, message, interaction, messageReceive,
-							line, _package)) {
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_27_4_expressionFBB(
@@ -1601,8 +1477,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_236(
-			EMoflonEdge _edge_useCases) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_87(
+			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_28_1_bindingAndBlackFFB(this);
@@ -1618,11 +1494,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_28_2_blackFFFFB(_edge_useCases)) {
-			UseCase useCase = (UseCase) result2_black[0];
-			Actor actor = (Actor) result2_black[1];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
-			BasicFlow basicFlow = (BasicFlow) result2_black[3];
+				.pattern_UseCasePrecondToFoundMessageRule_28_2_blackFFFFB(_edge_covered)) {
+			Message message = (Message) result2_black[0];
+			Interaction interaction = (Interaction) result2_black[1];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
+			Lifeline line = (Lifeline) result2_black[3];
 			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_28_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -1630,8 +1506,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			// bookkeeping with generic isAppropriate method
 			if (UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_28_3_expressionFBBBBBB(
-							this, match, useCase, actor, packageDeclaration,
-							basicFlow)) {
+							this, match, message, interaction, messageReceive,
+							line)) {
 				// Ensure that the correct types of elements are matched
 				if (UseCasePrecondToFoundMessageRuleImpl
 						.pattern_UseCasePrecondToFoundMessageRule_28_4_expressionFBB(
@@ -1665,329 +1541,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_237(
-			EMoflonEdge _edge_actors) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_29_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_29_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_29_2_blackFFFFB(_edge_actors)) {
-			UseCase useCase = (UseCase) result2_black[0];
-			Actor actor = (Actor) result2_black[1];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
-			BasicFlow basicFlow = (BasicFlow) result2_black[3];
-			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_29_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_29_3_expressionFBBBBBB(
-							this, match, useCase, actor, packageDeclaration,
-							basicFlow)) {
-				// Ensure that the correct types of elements are matched
-				if (UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_29_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_29_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_29_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_29_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_89(
-			EMoflonEdge _edge_coveredBy) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_30_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_30_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_30_2_blackFFFFFB(_edge_coveredBy)) {
-			Message message = (Message) result2_black[0];
-			Interaction interaction = (Interaction) result2_black[1];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
-			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
-			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_30_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_30_3_expressionFBBBBBBB(
-							this, match, message, interaction, messageReceive,
-							line, _package)) {
-				// Ensure that the correct types of elements are matched
-				if (UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_30_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_30_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_30_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_30_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_90(
-			EMoflonEdge _edge_covered) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_31_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_31_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_31_2_blackFFFFFB(_edge_covered)) {
-			Message message = (Message) result2_black[0];
-			Interaction interaction = (Interaction) result2_black[1];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
-			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
-			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_31_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_31_3_expressionFBBBBBBB(
-							this, match, message, interaction, messageReceive,
-							line, _package)) {
-				// Ensure that the correct types of elements are matched
-				if (UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_31_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_31_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_31_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_31_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_91(
-			EMoflonEdge _edge_packagedElement) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_32_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_32_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_32_2_blackFFFFFB(_edge_packagedElement)) {
-			Message message = (Message) result2_black[0];
-			Interaction interaction = (Interaction) result2_black[1];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[2];
-			Lifeline line = (Lifeline) result2_black[3];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[4];
-			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_32_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_32_3_expressionFBBBBBBB(
-							this, match, message, interaction, messageReceive,
-							line, _package)) {
-				// Ensure that the correct types of elements are matched
-				if (UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_32_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_32_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_32_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_32_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_238(
-			EMoflonEdge _edge_flows) {
-		// prepare return value
-		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_33_1_bindingAndBlackFFB(this);
-		if (result1_bindingAndBlack == null) {
-			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
-		}
-		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
-		EClass __eClass = (EClass) result1_bindingAndBlack[1];
-		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_33_1_greenF();
-		EObjectContainer __result = (EObjectContainer) result1_green[0];
-
-		// ForEach test core match and DECs
-		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_33_2_blackFFFFB(_edge_flows)) {
-			UseCase useCase = (UseCase) result2_black[0];
-			Actor actor = (Actor) result2_black[1];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
-			BasicFlow basicFlow = (BasicFlow) result2_black[3];
-			Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_33_2_greenFB(__eClass);
-			Match match = (Match) result2_green[0];
-
-			// bookkeeping with generic isAppropriate method
-			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_33_3_expressionFBBBBBB(
-							this, match, useCase, actor, packageDeclaration,
-							basicFlow)) {
-				// Ensure that the correct types of elements are matched
-				if (UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_33_4_expressionFBB(
-								this, match)) {
-
-					// Add match to rule result
-					Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_33_5_blackBBB(
-									match, __performOperation, __result);
-					if (result5_black == null) {
-						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
-					}
-					UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_33_5_greenBBB(
-									match, __performOperation, __result);
-
-				} else {
-				}
-
-			} else {
-			}
-
-		}
-		return UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_33_6_expressionFB(__result);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
 		return null;
 	}
@@ -2008,33 +1561,38 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 */
 	public ModelgeneratorRuleResult generateModel(
 			RuleEntryContainer ruleEntryContainer,
-			PackageDeclarationToPackage packageDeclarationToPackageParameter) {
+			UseCaseToInteraction useCaseToInteractionParameter) {
 		// create result
 		Object[] result1_black = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_36_1_blackB(this);
+				.pattern_UseCasePrecondToFoundMessageRule_31_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [create result] failed");
 		}
 		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_36_1_greenFF();
+				.pattern_UseCasePrecondToFoundMessageRule_31_1_greenFF();
 		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
 		ModelgeneratorRuleResult ruleResult = (ModelgeneratorRuleResult) result1_green[1];
 
 		// ForEach is applicable core
 		for (Object[] result2_black : UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_36_2_blackFFFFBB(
+				.pattern_UseCasePrecondToFoundMessageRule_31_2_blackFFFFFFFFBB(
 						ruleEntryContainer, ruleResult)) {
-			// RuleEntryList packageDeclarationToPackageList = (RuleEntryList) result2_black[0];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[1];
-			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result2_black[2];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_black[3];
+			// RuleEntryList useCaseToInteractionList = (RuleEntryList) result2_black[0];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[1];
+			UseCase useCase = (UseCase) result2_black[2];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[3];
+			Actor actor = (Actor) result2_black[4];
+			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[5];
+			Lifeline line = (Lifeline) result2_black[6];
+			Interaction interaction = (Interaction) result2_black[7];
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_36_3_bindingAndBlackFBBBBBB(
-							this, isApplicableMatch, packageDeclaration,
-							_package, packageDeclarationToPackage, ruleResult);
+					.pattern_UseCasePrecondToFoundMessageRule_31_3_bindingAndBlackFBBBBBBBBBB(
+							this, isApplicableMatch, useCaseToInteraction,
+							useCase, interaction, actor, packageDeclaration,
+							line, actorToLine, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [solve CSP] failed");
@@ -2042,38 +1600,32 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
 			if (UseCasePrecondToFoundMessageRuleImpl
-					.pattern_UseCasePrecondToFoundMessageRule_36_4_expressionFBB(
+					.pattern_UseCasePrecondToFoundMessageRule_31_4_expressionFBB(
 							this, csp)) {
 				// check nacs
 				Object[] result5_black = UseCasePrecondToFoundMessageRuleImpl
-						.pattern_UseCasePrecondToFoundMessageRule_36_5_blackBBB(
-								packageDeclaration, _package,
-								packageDeclarationToPackage);
+						.pattern_UseCasePrecondToFoundMessageRule_31_5_blackBBBBBBB(
+								useCaseToInteraction, useCase, interaction,
+								actor, packageDeclaration, line, actorToLine);
 				if (result5_black != null) {
 
 					// perform
 					Object[] result6_black = UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_36_6_blackBBBB(
-									packageDeclaration, _package,
-									packageDeclarationToPackage, ruleResult);
+							.pattern_UseCasePrecondToFoundMessageRule_31_6_blackBBBBBBBB(
+									useCaseToInteraction, useCase, interaction,
+									actor, packageDeclaration, line,
+									actorToLine, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
 								"Pattern matching in node [perform] failed");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
-							.pattern_UseCasePrecondToFoundMessageRule_36_6_greenFFFFFFBFFBFFBB(
-									packageDeclaration, _package, ruleResult,
-									csp);
-					// UseCaseToMessage useCaseToMessage = (UseCaseToMessage) result6_green[0];
-					// UseCase useCase = (UseCase) result6_green[1];
+							.pattern_UseCasePrecondToFoundMessageRule_31_6_greenFBFBFBFBB(
+									useCase, interaction, line, ruleResult, csp);
+					// UCCondition precond = (UCCondition) result6_green[0];
 					// Message message = (Message) result6_green[2];
-					// Interaction interaction = (Interaction) result6_green[3];
 					// MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result6_green[4];
-					// Actor actor = (Actor) result6_green[5];
-					// Lifeline line = (Lifeline) result6_green[7];
-					// ActorToLifeline actorToLine = (ActorToLifeline) result6_green[8];
-					// BasicFlow basicFlow = (BasicFlow) result6_green[10];
-					// FlowToInteractionFragment basicFlowToInteraction = (FlowToInteractionFragment) result6_green[11];
+					// UCConditionToMessage precondToMessage = (UCConditionToMessage) result6_green[6];
 
 				} else {
 				}
@@ -2083,7 +1635,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 		}
 		return UseCasePrecondToFoundMessageRuleImpl
-				.pattern_UseCasePrecondToFoundMessageRule_36_7_expressionFB(ruleResult);
+				.pattern_UseCasePrecondToFoundMessageRule_31_7_expressionFB(ruleResult);
 	}
 
 	/**
@@ -2092,93 +1644,78 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * @generated
 	 */
 	public CSP generateModel_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			ModelgeneratorRuleResult ruleResult) {// Create CSP
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
 		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal0", true, csp);
-		literal0.setValue("found");
+		literal0.setValue("system");
 		literal0.setType("");
 		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal1", true, csp);
-		literal1.setValue("system");
+		literal1.setValue("ASYNCH_SIGNAL");
 		literal1.setType("");
 		Variable literal2 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal2", true, csp);
-		literal2.setValue("ASYNCH_SIGNAL");
+		literal2.setValue("found");
 		literal2.setType("");
 
 		// Create attribute variables
+		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
+				"actor.type", true, csp);
+		var_actor_type.setValue(actor.getType());
+		var_actor_type.setType("UseCaseDSL.ActorType");
 
 		// Create unbound variables
-		Variable var_useCase_preConditions = CSPFactoryHelper.eINSTANCE
-				.createVariable("useCase.preConditions", csp);
-		var_useCase_preConditions.setType("String");
+		Variable var_precond_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"precond.name", csp);
+		var_precond_name.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
-		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
-				.createVariable("message.messageKind", csp);
-		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
-		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.type", csp);
-		var_actor_type.setType("UseCaseDSL.ActorType");
-		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"actor.name", csp);
-		var_actor_name.setType("String");
-		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"line.name", csp);
-		var_line_name.setType("String");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", csp);
 		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
-		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"useCase.name", csp);
-		var_useCase_name.setType("String");
-		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
-				.createVariable("interaction.name", csp);
-		var_interaction_name.setType("String");
+		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
+				.createVariable("message.messageKind", csp);
+		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
 
 		// Create constraints
-		EqMessageKind eqMessageKind = new EqMessageKind();
 		EqActorType eqActorType = new EqActorType();
 		EqMessageSort eqMessageSort = new EqMessageSort();
+		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
-		Eq eq_0 = new Eq();
-		Eq eq_1 = new Eq();
 
-		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eqActorType);
 		csp.getConstraints().add(eqMessageSort);
+		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
-		csp.getConstraints().add(eq_0);
-		csp.getConstraints().add(eq_1);
 
 		// Solve CSP
-		eqMessageKind.setRuleName("");
-		eqMessageKind.solve(var_message_messageKind, literal0);
 		eqActorType.setRuleName("");
-		eqActorType.solve(var_actor_type, literal1);
+		eqActorType.solve(var_actor_type, literal0);
 		eqMessageSort.setRuleName("");
-		eqMessageSort.solve(var_message_messageSort, literal2);
+		eqMessageSort.solve(var_message_messageSort, literal1);
+		eqMessageKind.setRuleName("");
+		eqMessageKind.solve(var_message_messageKind, literal2);
 		eq.setRuleName("");
-		eq.solve(var_useCase_preConditions, var_message_name);
-		eq_0.setRuleName("");
-		eq_0.solve(var_actor_name, var_line_name);
-		eq_1.setRuleName("");
-		eq_1.solve(var_useCase_name, var_interaction_name);
+		eq.solve(var_precond_name, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
+		isApplicableMatch.registerObject("useCaseToInteraction",
+				useCaseToInteraction);
+		isApplicableMatch.registerObject("useCase", useCase);
+		isApplicableMatch.registerObject("interaction", interaction);
+		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("packageDeclaration",
 				packageDeclaration);
-		isApplicableMatch.registerObject("_package", _package);
-		isApplicableMatch.registerObject("packageDeclarationToPackage",
-				packageDeclarationToPackage);
+		isApplicableMatch.registerObject("line", line);
+		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		return csp;
 	}
 
@@ -2200,98 +1737,103 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_USECASE_ACTOR_PACKAGEDECLARATION_BASICFLOW:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_UCCONDITION_USECASE_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_FWD((Match) arguments.get(0),
-					(UseCase) arguments.get(1), (Actor) arguments.get(2),
-					(PackageDeclaration) arguments.get(3),
-					(BasicFlow) arguments.get(4));
+					(UCCondition) arguments.get(1), (UseCase) arguments.get(2),
+					(Actor) arguments.get(3),
+					(PackageDeclaration) arguments.get(4));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_USECASE_ACTOR_PACKAGEDECLARATION_BASICFLOW:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_UCCONDITION_USECASE_ACTOR_PACKAGEDECLARATION:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
-					(UseCase) arguments.get(1), (Actor) arguments.get(2),
-					(PackageDeclaration) arguments.get(3),
-					(BasicFlow) arguments.get(4));
+					(UCCondition) arguments.get(1), (UseCase) arguments.get(2),
+					(Actor) arguments.get(3),
+					(PackageDeclaration) arguments.get(4));
 			return null;
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_USECASE_ACTOR_PACKAGEDECLARATION_BASICFLOW:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_UCCONDITION_USECASE_ACTOR_PACKAGEDECLARATION:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
-					(UseCase) arguments.get(1), (Actor) arguments.get(2),
-					(PackageDeclaration) arguments.get(3),
-					(BasicFlow) arguments.get(4));
+					(UCCondition) arguments.get(1), (UseCase) arguments.get(2),
+					(Actor) arguments.get(3),
+					(PackageDeclaration) arguments.get(4));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_USECASE_ACTOR_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_BASICFLOW:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_UCCONDITION_USECASETOINTERACTION_USECASE_INTERACTION_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
-					(UseCase) arguments.get(1), (Actor) arguments.get(2),
-					(PackageDeclaration) arguments.get(3),
-					(ModalSequenceDiagram.Package) arguments.get(4),
-					(PackageDeclarationToPackage) arguments.get(5),
-					(BasicFlow) arguments.get(6));
+					(UCCondition) arguments.get(1),
+					(UseCaseToInteraction) arguments.get(2),
+					(UseCase) arguments.get(3), (Interaction) arguments.get(4),
+					(Actor) arguments.get(5),
+					(PackageDeclaration) arguments.get(6),
+					(Lifeline) arguments.get(7),
+					(ActorToLifeline) arguments.get(8));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12),
-					(EObject) arguments.get(13));
+					(EObject) arguments.get(11));
 			return null;
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_PACKAGE:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
 			return isAppropriate_BWD((Match) arguments.get(0),
 					(Message) arguments.get(1), (Interaction) arguments.get(2),
 					(MessageOccurrenceSpecification) arguments.get(3),
-					(Lifeline) arguments.get(4),
-					(ModalSequenceDiagram.Package) arguments.get(5));
+					(Lifeline) arguments.get(4));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_BWD__MATCH:
 			return isApplicable_BWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_PACKAGE:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
 					(Message) arguments.get(1), (Interaction) arguments.get(2),
 					(MessageOccurrenceSpecification) arguments.get(3),
-					(Lifeline) arguments.get(4),
-					(ModalSequenceDiagram.Package) arguments.get(5));
+					(Lifeline) arguments.get(4));
 			return null;
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE_PACKAGE:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_LIFELINE:
 			return isAppropriate_solveCsp_BWD((Match) arguments.get(0),
 					(Message) arguments.get(1), (Interaction) arguments.get(2),
 					(MessageOccurrenceSpecification) arguments.get(3),
-					(Lifeline) arguments.get(4),
-					(ModalSequenceDiagram.Package) arguments.get(5));
+					(Lifeline) arguments.get(4));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_PACKAGEDECLARATION_LIFELINE_PACKAGE_PACKAGEDECLARATIONTOPACKAGE:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASETOINTERACTION_USECASE_MESSAGE_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
-					(Message) arguments.get(1), (Interaction) arguments.get(2),
-					(MessageOccurrenceSpecification) arguments.get(3),
-					(PackageDeclaration) arguments.get(4),
-					(Lifeline) arguments.get(5),
-					(ModalSequenceDiagram.Package) arguments.get(6),
-					(PackageDeclarationToPackage) arguments.get(7));
+					(UseCaseToInteraction) arguments.get(1),
+					(UseCase) arguments.get(2), (Message) arguments.get(3),
+					(Interaction) arguments.get(4),
+					(MessageOccurrenceSpecification) arguments.get(5),
+					(Actor) arguments.get(6),
+					(PackageDeclaration) arguments.get(7),
+					(Lifeline) arguments.get(8),
+					(ActorToLifeline) arguments.get(9));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
 					(EObject) arguments.get(5), (EObject) arguments.get(6),
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
-					(EObject) arguments.get(11), (EObject) arguments.get(12),
-					(EObject) arguments.get(13));
+					(EObject) arguments.get(11));
 			return null;
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_235__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_235((EMoflonEdge) arguments
+					.get(0));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_80__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_80((EMoflonEdge) arguments
+					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_81__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_81((EMoflonEdge) arguments
 					.get(0));
@@ -2313,41 +1855,23 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_87__EMOFLONEDGE:
 			return isAppropriate_BWD_EMoflonEdge_87((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_88__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_88((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_236__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_236((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_237__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_237((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_89__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_89((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_90__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_90((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_91__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_91((EMoflonEdge) arguments
-					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_238__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_238((EMoflonEdge) arguments
-					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_PACKAGEDECLARATIONTOPACKAGE:
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_USECASETOINTERACTION:
 			return generateModel((RuleEntryContainer) arguments.get(0),
-					(PackageDeclarationToPackage) arguments.get(1));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PACKAGEDECLARATION_PACKAGE_PACKAGEDECLARATIONTOPACKAGE_MODELGENERATORRULERESULT:
+					(UseCaseToInteraction) arguments.get(1));
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_USECASETOINTERACTION_USECASE_INTERACTION_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_MODELGENERATORRULERESULT:
 			return generateModel_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
-					(PackageDeclaration) arguments.get(1),
-					(ModalSequenceDiagram.Package) arguments.get(2),
-					(PackageDeclarationToPackage) arguments.get(3),
-					(ModelgeneratorRuleResult) arguments.get(4));
+					(UseCaseToInteraction) arguments.get(1),
+					(UseCase) arguments.get(2), (Interaction) arguments.get(3),
+					(Actor) arguments.get(4),
+					(PackageDeclaration) arguments.get(5),
+					(Lifeline) arguments.get(6),
+					(ActorToLifeline) arguments.get(7),
+					(ModelgeneratorRuleResult) arguments.get(8));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
 			return generateModel_checkCsp_BWD((CSP) arguments.get(0));
 		}
@@ -2356,22 +1880,22 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_1_blackBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		return new Object[] { _this, match, useCase, actor, packageDeclaration,
-				basicFlow };
+			UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
+		return new Object[] { _this, match, precond, useCase, actor,
+				packageDeclaration };
 	}
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_2_bindingFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, useCase,
-				actor, packageDeclaration, basicFlow);
+			UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, precond,
+				useCase, actor, packageDeclaration);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, useCase, actor,
-					packageDeclaration, basicFlow };
+			return new Object[] { csp, _this, match, precond, useCase, actor,
+					packageDeclaration };
 		}
 		return null;
 	}
@@ -2383,18 +1907,18 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_2_bindingAndBlackFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+			UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
 		Object[] result_pattern_UseCasePrecondToFoundMessageRule_0_2_binding = pattern_UseCasePrecondToFoundMessageRule_0_2_bindingFBBBBBB(
-				_this, match, useCase, actor, packageDeclaration, basicFlow);
+				_this, match, precond, useCase, actor, packageDeclaration);
 		if (result_pattern_UseCasePrecondToFoundMessageRule_0_2_binding != null) {
 			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_0_2_binding[0];
 
 			Object[] result_pattern_UseCasePrecondToFoundMessageRule_0_2_black = pattern_UseCasePrecondToFoundMessageRule_0_2_blackB(csp);
 			if (result_pattern_UseCasePrecondToFoundMessageRule_0_2_black != null) {
 
-				return new Object[] { csp, _this, match, useCase, actor,
-						packageDeclaration, basicFlow };
+				return new Object[] { csp, _this, match, precond, useCase,
+						actor, packageDeclaration };
 			}
 		}
 		return null;
@@ -2408,68 +1932,67 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	}
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_4_blackBBBBB(
-			Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		return new Object[] { match, useCase, actor, packageDeclaration,
-				basicFlow };
+			Match match, UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
+		return new Object[] { match, precond, useCase, actor,
+				packageDeclaration };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBBBFFF(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBF(
+			Match match, UCCondition precond, UseCase useCase) {
+		EMoflonEdge useCase__precond____preconditions = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getToBeTranslatedNodes().add(precond);
+		String useCase__precond____preconditions_name_prime = "preconditions";
+		useCase__precond____preconditions.setSrc(useCase);
+		useCase__precond____preconditions.setTrg(precond);
+		match.getToBeTranslatedEdges().add(useCase__precond____preconditions);
+		useCase__precond____preconditions
+				.setName(useCase__precond____preconditions_name_prime);
+		return new Object[] { match, precond, useCase,
+				useCase__precond____preconditions };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_5_blackBBBBB(
+			Match match, UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
+		return new Object[] { match, precond, useCase, actor,
+				packageDeclaration };
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_5_greenBBBBFF(
 			Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
+			PackageDeclaration packageDeclaration) {
 		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		match.getToBeTranslatedNodes().add(useCase);
-		match.getToBeTranslatedNodes().add(actor);
-		match.getToBeTranslatedNodes().add(basicFlow);
+		match.getContextNodes().add(useCase);
+		match.getContextNodes().add(actor);
+		match.getContextNodes().add(packageDeclaration);
 		String packageDeclaration__useCase____useCases_name_prime = "useCases";
 		String packageDeclaration__actor____actors_name_prime = "actors";
-		String useCase__basicFlow____flows_name_prime = "flows";
 		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
 		packageDeclaration__useCase____useCases.setTrg(useCase);
-		match.getToBeTranslatedEdges().add(
-				packageDeclaration__useCase____useCases);
+		match.getContextEdges().add(packageDeclaration__useCase____useCases);
 		packageDeclaration__actor____actors.setSrc(packageDeclaration);
 		packageDeclaration__actor____actors.setTrg(actor);
-		match.getToBeTranslatedEdges().add(packageDeclaration__actor____actors);
-		useCase__basicFlow____flows.setSrc(useCase);
-		useCase__basicFlow____flows.setTrg(basicFlow);
-		match.getToBeTranslatedEdges().add(useCase__basicFlow____flows);
+		match.getContextEdges().add(packageDeclaration__actor____actors);
 		packageDeclaration__useCase____useCases
 				.setName(packageDeclaration__useCase____useCases_name_prime);
 		packageDeclaration__actor____actors
 				.setName(packageDeclaration__actor____actors_name_prime);
-		useCase__basicFlow____flows
-				.setName(useCase__basicFlow____flows_name_prime);
 		return new Object[] { match, useCase, actor, packageDeclaration,
-				basicFlow, packageDeclaration__useCase____useCases,
-				packageDeclaration__actor____actors,
-				useCase__basicFlow____flows };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_5_blackBBBBB(
-			Match match, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		return new Object[] { match, useCase, actor, packageDeclaration,
-				basicFlow };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_0_5_greenBB(
-			Match match, PackageDeclaration packageDeclaration) {
-		match.getContextNodes().add(packageDeclaration);
-		return new Object[] { match, packageDeclaration };
+				packageDeclaration__useCase____useCases,
+				packageDeclaration__actor____actors };
 	}
 
 	public static final void pattern_UseCasePrecondToFoundMessageRule_0_6_expressionBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		_this.registerObjectsToMatch_FWD(match, useCase, actor,
-				packageDeclaration, basicFlow);
+			UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
+		_this.registerObjectsToMatch_FWD(match, precond, useCase, actor,
+				packageDeclaration);
 
 	}
 
@@ -2483,38 +2006,49 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_bindingFFFFFFB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_bindingFFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("useCase");
-		EObject _localVariable_1 = isApplicableMatch.getObject("actor");
-		EObject _localVariable_2 = isApplicableMatch
+		EObject _localVariable_0 = isApplicableMatch.getObject("precond");
+		EObject _localVariable_1 = isApplicableMatch
+				.getObject("useCaseToInteraction");
+		EObject _localVariable_2 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_3 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_4 = isApplicableMatch.getObject("actor");
+		EObject _localVariable_5 = isApplicableMatch
 				.getObject("packageDeclaration");
-		EObject _localVariable_3 = isApplicableMatch.getObject("_package");
-		EObject _localVariable_4 = isApplicableMatch
-				.getObject("packageDeclarationToPackage");
-		EObject _localVariable_5 = isApplicableMatch.getObject("basicFlow");
-		EObject tmpUseCase = _localVariable_0;
-		EObject tmpActor = _localVariable_1;
-		EObject tmpPackageDeclaration = _localVariable_2;
-		EObject tmp_package = _localVariable_3;
-		EObject tmpPackageDeclarationToPackage = _localVariable_4;
-		EObject tmpBasicFlow = _localVariable_5;
-		if (tmpUseCase instanceof UseCase) {
-			UseCase useCase = (UseCase) tmpUseCase;
-			if (tmpActor instanceof Actor) {
-				Actor actor = (Actor) tmpActor;
-				if (tmpPackageDeclaration instanceof PackageDeclaration) {
-					PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
-					if (tmp_package instanceof ModalSequenceDiagram.Package) {
-						ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
-						if (tmpPackageDeclarationToPackage instanceof PackageDeclarationToPackage) {
-							PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) tmpPackageDeclarationToPackage;
-							if (tmpBasicFlow instanceof BasicFlow) {
-								BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
-								return new Object[] { useCase, actor,
-										packageDeclaration, _package,
-										packageDeclarationToPackage, basicFlow,
-										isApplicableMatch };
+		EObject _localVariable_6 = isApplicableMatch.getObject("line");
+		EObject _localVariable_7 = isApplicableMatch.getObject("actorToLine");
+		EObject tmpPrecond = _localVariable_0;
+		EObject tmpUseCaseToInteraction = _localVariable_1;
+		EObject tmpUseCase = _localVariable_2;
+		EObject tmpInteraction = _localVariable_3;
+		EObject tmpActor = _localVariable_4;
+		EObject tmpPackageDeclaration = _localVariable_5;
+		EObject tmpLine = _localVariable_6;
+		EObject tmpActorToLine = _localVariable_7;
+		if (tmpPrecond instanceof UCCondition) {
+			UCCondition precond = (UCCondition) tmpPrecond;
+			if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+				UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+				if (tmpUseCase instanceof UseCase) {
+					UseCase useCase = (UseCase) tmpUseCase;
+					if (tmpInteraction instanceof Interaction) {
+						Interaction interaction = (Interaction) tmpInteraction;
+						if (tmpActor instanceof Actor) {
+							Actor actor = (Actor) tmpActor;
+							if (tmpPackageDeclaration instanceof PackageDeclaration) {
+								PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+								if (tmpLine instanceof Lifeline) {
+									Lifeline line = (Lifeline) tmpLine;
+									if (tmpActorToLine instanceof ActorToLifeline) {
+										ActorToLifeline actorToLine = (ActorToLifeline) tmpActorToLine;
+										return new Object[] { precond,
+												useCaseToInteraction, useCase,
+												interaction, actor,
+												packageDeclaration, line,
+												actorToLine, isApplicableMatch };
+									}
+								}
 							}
 						}
 					}
@@ -2524,325 +2058,222 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_blackBBBBBBFBB(
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow, UseCasePrecondToFoundMessageRule _this,
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_blackBBBBBBBBFBB(
+			UCCondition precond, UseCaseToInteraction useCaseToInteraction,
+			UseCase useCase, Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine,
+			UseCasePrecondToFoundMessageRule _this,
 			IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { useCase, actor, packageDeclaration,
-						_package, packageDeclarationToPackage, basicFlow, csp,
-						_this, isApplicableMatch };
+				return new Object[] { precond, useCaseToInteraction, useCase,
+						interaction, actor, packageDeclaration, line,
+						actorToLine, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_bindingAndBlackFFFFFFFBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_bindingAndBlackFFFFFFFFFBB(
 			UseCasePrecondToFoundMessageRule _this,
 			IsApplicableMatch isApplicableMatch) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding = pattern_UseCasePrecondToFoundMessageRule_1_1_bindingFFFFFFB(isApplicableMatch);
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding = pattern_UseCasePrecondToFoundMessageRule_1_1_bindingFFFFFFFFB(isApplicableMatch);
 		if (result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding != null) {
-			UseCase useCase = (UseCase) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[0];
-			Actor actor = (Actor) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[1];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[2];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[3];
-			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[4];
-			BasicFlow basicFlow = (BasicFlow) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[5];
+			UCCondition precond = (UCCondition) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[0];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[1];
+			UseCase useCase = (UseCase) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[2];
+			Interaction interaction = (Interaction) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[3];
+			Actor actor = (Actor) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[4];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[5];
+			Lifeline line = (Lifeline) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[6];
+			ActorToLifeline actorToLine = (ActorToLifeline) result_pattern_UseCasePrecondToFoundMessageRule_1_1_binding[7];
 
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_1_1_black = pattern_UseCasePrecondToFoundMessageRule_1_1_blackBBBBBBFBB(
-					useCase, actor, packageDeclaration, _package,
-					packageDeclarationToPackage, basicFlow, _this,
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_1_1_black = pattern_UseCasePrecondToFoundMessageRule_1_1_blackBBBBBBBBFBB(
+					precond, useCaseToInteraction, useCase, interaction, actor,
+					packageDeclaration, line, actorToLine, _this,
 					isApplicableMatch);
 			if (result_pattern_UseCasePrecondToFoundMessageRule_1_1_black != null) {
-				CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_1_1_black[6];
+				CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_1_1_black[8];
 
-				return new Object[] { useCase, actor, packageDeclaration,
-						_package, packageDeclarationToPackage, basicFlow, csp,
-						_this, isApplicableMatch };
+				return new Object[] { precond, useCaseToInteraction, useCase,
+						interaction, actor, packageDeclaration, line,
+						actorToLine, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_greenFBFFFBFFBBFB(
-			UseCase useCase, Actor actor,
-			ModalSequenceDiagram.Package _package, BasicFlow basicFlow, CSP csp) {
-		UseCaseToMessage useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createUseCaseToMessage();
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_1_greenBFBFBFB(
+			UCCondition precond, Interaction interaction, Lifeline line, CSP csp) {
 		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
-		Interaction interaction = ModalSequenceDiagramFactory.eINSTANCE
-				.createInteraction();
 		MessageOccurrenceSpecification messageReceive = ModalSequenceDiagramFactory.eINSTANCE
 				.createMessageOccurrenceSpecification();
-		Lifeline line = ModalSequenceDiagramFactory.eINSTANCE.createLifeline();
-		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createActorToLifeline();
-		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createFlowToInteractionFragment();
+		UCConditionToMessage precondToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createUCConditionToMessage();
 		Object _localVariable_0 = csp.getValue("message", "name");
-		Object _localVariable_1 = csp.getValue("message", "messageKind");
-		Object _localVariable_2 = csp.getValue("message", "messageSort");
-		Object _localVariable_3 = csp.getValue("interaction", "name");
-		Object _localVariable_4 = csp.getValue("line", "name");
-		useCaseToMessage.setSource(useCase);
-		useCaseToMessage.setTarget(message);
+		Object _localVariable_1 = csp.getValue("message", "messageSort");
+		Object _localVariable_2 = csp.getValue("message", "messageKind");
 		message.setInteraction(interaction);
-		_package.getPackagedElement().add(interaction);
 		message.setReceiveEvent(messageReceive);
 		messageReceive.setEnclosingInteraction(interaction);
 		messageReceive.setMessage(message);
-		line.setInteraction(interaction);
 		line.getCoveredBy().add(messageReceive);
-		actorToLine.setSource(actor);
-		actorToLine.setTarget(line);
-		basicFlowToInteraction.setSource(basicFlow);
-		basicFlowToInteraction.setTarget(interaction);
+		precondToMessage.setSource(precond);
+		precondToMessage.setTarget(message);
 		String message_name_prime = (String) _localVariable_0;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_1;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
-		String interaction_name_prime = (String) _localVariable_3;
-		String line_name_prime = (String) _localVariable_4;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_1;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_2;
 		message.setName(message_name_prime);
-		message.setMessageKind(message_messageKind_prime);
 		message.setMessageSort(message_messageSort_prime);
-		interaction.setName(interaction_name_prime);
-		line.setName(line_name_prime);
-		return new Object[] { useCaseToMessage, useCase, message, interaction,
-				messageReceive, actor, line, actorToLine, _package, basicFlow,
-				basicFlowToInteraction, csp };
+		message.setMessageKind(message_messageKind_prime);
+		return new Object[] { precond, message, interaction, messageReceive,
+				line, precondToMessage, csp };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_2_blackBBBBBBBBBB(
-			UseCaseToMessage useCaseToMessage, UseCase useCase,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Actor actor,
-			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
-			FlowToInteractionFragment basicFlowToInteraction) {
-		return new Object[] { useCaseToMessage, useCase, message, interaction,
-				messageReceive, actor, line, actorToLine, basicFlow,
-				basicFlowToInteraction };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_2_blackBBBB(
+			UCCondition precond, Message message,
+			MessageOccurrenceSpecification messageReceive,
+			UCConditionToMessage precondToMessage) {
+		return new Object[] { precond, message, messageReceive,
+				precondToMessage };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBBBBBBBB(
-			UseCaseToMessage useCaseToMessage, UseCase useCase,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Actor actor,
-			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
-			FlowToInteractionFragment basicFlowToInteraction) {
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBB(
+			UCCondition precond, Message message,
+			MessageOccurrenceSpecification messageReceive,
+			UCConditionToMessage precondToMessage) {
 		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
 				.createPerformRuleResult();
-		ruleresult.getCreatedLinkElements().add(useCaseToMessage);
-		ruleresult.getTranslatedElements().add(useCase);
+		ruleresult.getTranslatedElements().add(precond);
 		ruleresult.getCreatedElements().add(message);
-		ruleresult.getCreatedElements().add(interaction);
 		ruleresult.getCreatedElements().add(messageReceive);
-		ruleresult.getTranslatedElements().add(actor);
-		ruleresult.getCreatedElements().add(line);
-		ruleresult.getCreatedLinkElements().add(actorToLine);
-		ruleresult.getTranslatedElements().add(basicFlow);
-		ruleresult.getCreatedLinkElements().add(basicFlowToInteraction);
-		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
-				interaction, messageReceive, actor, line, actorToLine,
-				basicFlow, basicFlowToInteraction };
+		ruleresult.getCreatedLinkElements().add(precondToMessage);
+		return new Object[] { ruleresult, precond, message, messageReceive,
+				precondToMessage };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_3_blackBBBBBBBBBBBBBB(
-			PerformRuleResult ruleresult, EObject useCaseToMessage,
-			EObject useCase, EObject message, EObject interaction,
-			EObject messageReceive, EObject actor, EObject packageDeclaration,
-			EObject line, EObject actorToLine, EObject _package,
-			EObject packageDeclarationToPackage, EObject basicFlow,
-			EObject basicFlowToInteraction) {
-		if (!useCase.equals(useCaseToMessage)) {
-			if (!message.equals(useCaseToMessage)) {
-				if (!message.equals(useCase)) {
-					if (!message.equals(messageReceive)) {
-						if (!message.equals(packageDeclaration)) {
-							if (!message.equals(packageDeclarationToPackage)) {
-								if (!interaction.equals(useCaseToMessage)) {
-									if (!interaction.equals(useCase)) {
-										if (!interaction.equals(message)) {
-											if (!interaction
-													.equals(messageReceive)) {
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_3_blackBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject precond,
+			EObject useCaseToInteraction, EObject useCase, EObject message,
+			EObject interaction, EObject messageReceive, EObject actor,
+			EObject packageDeclaration, EObject line, EObject actorToLine,
+			EObject precondToMessage) {
+		if (!precond.equals(useCaseToInteraction)) {
+			if (!precond.equals(useCase)) {
+				if (!precond.equals(precondToMessage)) {
+					if (!useCase.equals(useCaseToInteraction)) {
+						if (!message.equals(precond)) {
+							if (!message.equals(useCaseToInteraction)) {
+								if (!message.equals(useCase)) {
+									if (!message.equals(messageReceive)) {
+										if (!message.equals(packageDeclaration)) {
+											if (!message
+													.equals(precondToMessage)) {
 												if (!interaction
-														.equals(packageDeclaration)) {
+														.equals(precond)) {
 													if (!interaction
-															.equals(line)) {
+															.equals(useCaseToInteraction)) {
 														if (!interaction
-																.equals(packageDeclarationToPackage)) {
-															if (!messageReceive
-																	.equals(useCaseToMessage)) {
-																if (!messageReceive
-																		.equals(useCase)) {
-																	if (!messageReceive
+																.equals(useCase)) {
+															if (!interaction
+																	.equals(message)) {
+																if (!interaction
+																		.equals(messageReceive)) {
+																	if (!interaction
 																			.equals(packageDeclaration)) {
-																		if (!messageReceive
-																				.equals(packageDeclarationToPackage)) {
-																			if (!actor
-																					.equals(useCaseToMessage)) {
-																				if (!actor
-																						.equals(useCase)) {
-																					if (!actor
-																							.equals(message)) {
-																						if (!actor
-																								.equals(interaction)) {
-																							if (!actor
-																									.equals(messageReceive)) {
-																								if (!actor
-																										.equals(packageDeclaration)) {
+																		if (!interaction
+																				.equals(line)) {
+																			if (!interaction
+																					.equals(precondToMessage)) {
+																				if (!messageReceive
+																						.equals(precond)) {
+																					if (!messageReceive
+																							.equals(useCaseToInteraction)) {
+																						if (!messageReceive
+																								.equals(useCase)) {
+																							if (!messageReceive
+																									.equals(packageDeclaration)) {
+																								if (!messageReceive
+																										.equals(precondToMessage)) {
 																									if (!actor
-																											.equals(line)) {
+																											.equals(precond)) {
 																										if (!actor
-																												.equals(actorToLine)) {
+																												.equals(useCaseToInteraction)) {
 																											if (!actor
-																													.equals(packageDeclarationToPackage)) {
+																													.equals(useCase)) {
 																												if (!actor
-																														.equals(basicFlow)) {
+																														.equals(message)) {
 																													if (!actor
-																															.equals(basicFlowToInteraction)) {
-																														if (!packageDeclaration
-																																.equals(useCaseToMessage)) {
-																															if (!packageDeclaration
-																																	.equals(useCase)) {
-																																if (!packageDeclaration
-																																		.equals(packageDeclarationToPackage)) {
-																																	if (!line
-																																			.equals(useCaseToMessage)) {
-																																		if (!line
-																																				.equals(useCase)) {
-																																			if (!line
-																																					.equals(message)) {
-																																				if (!line
-																																						.equals(messageReceive)) {
-																																					if (!line
-																																							.equals(packageDeclaration)) {
-																																						if (!line
-																																								.equals(packageDeclarationToPackage)) {
-																																							if (!actorToLine
-																																									.equals(useCaseToMessage)) {
-																																								if (!actorToLine
-																																										.equals(useCase)) {
-																																									if (!actorToLine
-																																											.equals(message)) {
-																																										if (!actorToLine
-																																												.equals(interaction)) {
-																																											if (!actorToLine
+																															.equals(interaction)) {
+																														if (!actor
+																																.equals(messageReceive)) {
+																															if (!actor
+																																	.equals(packageDeclaration)) {
+																																if (!actor
+																																		.equals(line)) {
+																																	if (!actor
+																																			.equals(actorToLine)) {
+																																		if (!actor
+																																				.equals(precondToMessage)) {
+																																			if (!packageDeclaration
+																																					.equals(precond)) {
+																																				if (!packageDeclaration
+																																						.equals(useCaseToInteraction)) {
+																																					if (!packageDeclaration
+																																							.equals(useCase)) {
+																																						if (!packageDeclaration
+																																								.equals(precondToMessage)) {
+																																							if (!line
+																																									.equals(precond)) {
+																																								if (!line
+																																										.equals(useCaseToInteraction)) {
+																																									if (!line
+																																											.equals(useCase)) {
+																																										if (!line
+																																												.equals(message)) {
+																																											if (!line
 																																													.equals(messageReceive)) {
-																																												if (!actorToLine
+																																												if (!line
 																																														.equals(packageDeclaration)) {
-																																													if (!actorToLine
-																																															.equals(line)) {
+																																													if (!line
+																																															.equals(precondToMessage)) {
 																																														if (!actorToLine
-																																																.equals(packageDeclarationToPackage)) {
+																																																.equals(precond)) {
 																																															if (!actorToLine
-																																																	.equals(basicFlow)) {
+																																																	.equals(useCaseToInteraction)) {
 																																																if (!actorToLine
-																																																		.equals(basicFlowToInteraction)) {
-																																																	if (!_package
-																																																			.equals(useCaseToMessage)) {
-																																																		if (!_package
-																																																				.equals(useCase)) {
-																																																			if (!_package
-																																																					.equals(message)) {
-																																																				if (!_package
-																																																						.equals(interaction)) {
-																																																					if (!_package
-																																																							.equals(messageReceive)) {
-																																																						if (!_package
-																																																								.equals(actor)) {
-																																																							if (!_package
-																																																									.equals(packageDeclaration)) {
-																																																								if (!_package
-																																																										.equals(line)) {
-																																																									if (!_package
-																																																											.equals(actorToLine)) {
-																																																										if (!_package
-																																																												.equals(packageDeclarationToPackage)) {
-																																																											if (!_package
-																																																													.equals(basicFlow)) {
-																																																												if (!_package
-																																																														.equals(basicFlowToInteraction)) {
-																																																													if (!packageDeclarationToPackage
-																																																															.equals(useCaseToMessage)) {
-																																																														if (!packageDeclarationToPackage
-																																																																.equals(useCase)) {
-																																																															if (!basicFlow
-																																																																	.equals(useCaseToMessage)) {
-																																																																if (!basicFlow
-																																																																		.equals(useCase)) {
-																																																																	if (!basicFlow
-																																																																			.equals(message)) {
-																																																																		if (!basicFlow
-																																																																				.equals(interaction)) {
-																																																																			if (!basicFlow
-																																																																					.equals(messageReceive)) {
-																																																																				if (!basicFlow
-																																																																						.equals(packageDeclaration)) {
-																																																																					if (!basicFlow
-																																																																							.equals(line)) {
-																																																																						if (!basicFlow
-																																																																								.equals(packageDeclarationToPackage)) {
-																																																																							if (!basicFlow
-																																																																									.equals(basicFlowToInteraction)) {
-																																																																								if (!basicFlowToInteraction
-																																																																										.equals(useCaseToMessage)) {
-																																																																									if (!basicFlowToInteraction
-																																																																											.equals(useCase)) {
-																																																																										if (!basicFlowToInteraction
-																																																																												.equals(message)) {
-																																																																											if (!basicFlowToInteraction
-																																																																													.equals(interaction)) {
-																																																																												if (!basicFlowToInteraction
-																																																																														.equals(messageReceive)) {
-																																																																													if (!basicFlowToInteraction
-																																																																															.equals(packageDeclaration)) {
-																																																																														if (!basicFlowToInteraction
-																																																																																.equals(line)) {
-																																																																															if (!basicFlowToInteraction
-																																																																																	.equals(packageDeclarationToPackage)) {
-																																																																																return new Object[] {
-																																																																																		ruleresult,
-																																																																																		useCaseToMessage,
-																																																																																		useCase,
-																																																																																		message,
-																																																																																		interaction,
-																																																																																		messageReceive,
-																																																																																		actor,
-																																																																																		packageDeclaration,
-																																																																																		line,
-																																																																																		actorToLine,
-																																																																																		_package,
-																																																																																		packageDeclarationToPackage,
-																																																																																		basicFlow,
-																																																																																		basicFlowToInteraction };
-																																																																															}
-																																																																														}
-																																																																													}
-																																																																												}
-																																																																											}
-																																																																										}
-																																																																									}
-																																																																								}
-																																																																							}
-																																																																						}
-																																																																					}
-																																																																				}
-																																																																			}
-																																																																		}
-																																																																	}
-																																																																}
-																																																															}
-																																																														}
-																																																													}
-																																																												}
-																																																											}
-																																																										}
-																																																									}
+																																																		.equals(useCase)) {
+																																																	if (!actorToLine
+																																																			.equals(message)) {
+																																																		if (!actorToLine
+																																																				.equals(interaction)) {
+																																																			if (!actorToLine
+																																																					.equals(messageReceive)) {
+																																																				if (!actorToLine
+																																																						.equals(packageDeclaration)) {
+																																																					if (!actorToLine
+																																																							.equals(line)) {
+																																																						if (!actorToLine
+																																																								.equals(precondToMessage)) {
+																																																							if (!precondToMessage
+																																																									.equals(useCaseToInteraction)) {
+																																																								if (!precondToMessage
+																																																										.equals(useCase)) {
+																																																									return new Object[] {
+																																																											ruleresult,
+																																																											precond,
+																																																											useCaseToInteraction,
+																																																											useCase,
+																																																											message,
+																																																											interaction,
+																																																											messageReceive,
+																																																											actor,
+																																																											packageDeclaration,
+																																																											line,
+																																																											actorToLine,
+																																																											precondToMessage };
 																																																								}
 																																																							}
 																																																						}
@@ -2901,15 +2332,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject useCaseToMessage,
-			EObject useCase, EObject message, EObject interaction,
-			EObject messageReceive, EObject actor, EObject packageDeclaration,
-			EObject line, EObject actorToLine, EObject _package,
-			EObject basicFlow, EObject basicFlowToInteraction) {
-		EMoflonEdge useCaseToMessage__useCase____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge useCaseToMessage__message____target = TGGRuntimeFactory.eINSTANCE
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject precond, EObject useCase,
+			EObject message, EObject interaction, EObject messageReceive,
+			EObject line, EObject precondToMessage) {
+		EMoflonEdge useCase__precond____preconditions = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -2917,63 +2344,35 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge precondToMessage__precond____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge actorToLine__line____target = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge basicFlowToInteraction__basicFlow____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge basicFlowToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge precondToMessage__message____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "UseCasePrecondToFoundMessageRule";
-		String useCaseToMessage__useCase____source_name_prime = "source";
-		String useCaseToMessage__message____target_name_prime = "target";
+		String useCase__precond____preconditions_name_prime = "preconditions";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
 		String message__interaction____interaction_name_prime = "interaction";
 		String interaction__message____message_name_prime = "message";
-		String line__interaction____interaction_name_prime = "interaction";
-		String interaction__line____lifeline_name_prime = "lifeline";
 		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
 		String interaction__messageReceive____fragment_name_prime = "fragment";
 		String messageReceive__message____message_name_prime = "message";
-		String packageDeclaration__useCase____useCases_name_prime = "useCases";
-		String packageDeclaration__actor____actors_name_prime = "actors";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
-		String actorToLine__actor____source_name_prime = "source";
-		String actorToLine__line____target_name_prime = "target";
-		String _package__interaction____packagedElement_name_prime = "packagedElement";
-		String useCase__basicFlow____flows_name_prime = "flows";
-		String basicFlowToInteraction__basicFlow____source_name_prime = "source";
-		String basicFlowToInteraction__interaction____target_name_prime = "target";
-		useCaseToMessage__useCase____source.setSrc(useCaseToMessage);
-		useCaseToMessage__useCase____source.setTrg(useCase);
-		ruleresult.getCreatedEdges().add(useCaseToMessage__useCase____source);
-		useCaseToMessage__message____target.setSrc(useCaseToMessage);
-		useCaseToMessage__message____target.setTrg(message);
-		ruleresult.getCreatedEdges().add(useCaseToMessage__message____target);
+		String precondToMessage__precond____source_name_prime = "source";
+		String precondToMessage__message____target_name_prime = "target";
+		useCase__precond____preconditions.setSrc(useCase);
+		useCase__precond____preconditions.setTrg(precond);
+		ruleresult.getTranslatedEdges().add(useCase__precond____preconditions);
 		message__messageReceive____receiveEvent.setSrc(message);
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		ruleresult.getCreatedEdges().add(
@@ -2984,12 +2383,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		interaction__message____message.setSrc(interaction);
 		interaction__message____message.setTrg(message);
 		ruleresult.getCreatedEdges().add(interaction__message____message);
-		line__interaction____interaction.setSrc(line);
-		line__interaction____interaction.setTrg(interaction);
-		ruleresult.getCreatedEdges().add(line__interaction____interaction);
-		interaction__line____lifeline.setSrc(interaction);
-		interaction__line____lifeline.setTrg(line);
-		ruleresult.getCreatedEdges().add(interaction__line____lifeline);
 		messageReceive__interaction____enclosingInteraction
 				.setSrc(messageReceive);
 		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
@@ -3002,120 +2395,66 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		messageReceive__message____message.setSrc(messageReceive);
 		messageReceive__message____message.setTrg(message);
 		ruleresult.getCreatedEdges().add(messageReceive__message____message);
-		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
-		packageDeclaration__useCase____useCases.setTrg(useCase);
-		ruleresult.getTranslatedEdges().add(
-				packageDeclaration__useCase____useCases);
-		packageDeclaration__actor____actors.setSrc(packageDeclaration);
-		packageDeclaration__actor____actors.setTrg(actor);
-		ruleresult.getTranslatedEdges()
-				.add(packageDeclaration__actor____actors);
 		line__messageReceive____coveredBy.setSrc(line);
 		line__messageReceive____coveredBy.setTrg(messageReceive);
 		ruleresult.getCreatedEdges().add(line__messageReceive____coveredBy);
 		messageReceive__line____covered.setSrc(messageReceive);
 		messageReceive__line____covered.setTrg(line);
 		ruleresult.getCreatedEdges().add(messageReceive__line____covered);
-		actorToLine__actor____source.setSrc(actorToLine);
-		actorToLine__actor____source.setTrg(actor);
-		ruleresult.getCreatedEdges().add(actorToLine__actor____source);
-		actorToLine__line____target.setSrc(actorToLine);
-		actorToLine__line____target.setTrg(line);
-		ruleresult.getCreatedEdges().add(actorToLine__line____target);
-		_package__interaction____packagedElement.setSrc(_package);
-		_package__interaction____packagedElement.setTrg(interaction);
-		ruleresult.getCreatedEdges().add(
-				_package__interaction____packagedElement);
-		useCase__basicFlow____flows.setSrc(useCase);
-		useCase__basicFlow____flows.setTrg(basicFlow);
-		ruleresult.getTranslatedEdges().add(useCase__basicFlow____flows);
-		basicFlowToInteraction__basicFlow____source
-				.setSrc(basicFlowToInteraction);
-		basicFlowToInteraction__basicFlow____source.setTrg(basicFlow);
-		ruleresult.getCreatedEdges().add(
-				basicFlowToInteraction__basicFlow____source);
-		basicFlowToInteraction__interaction____target
-				.setSrc(basicFlowToInteraction);
-		basicFlowToInteraction__interaction____target.setTrg(interaction);
-		ruleresult.getCreatedEdges().add(
-				basicFlowToInteraction__interaction____target);
+		precondToMessage__precond____source.setSrc(precondToMessage);
+		precondToMessage__precond____source.setTrg(precond);
+		ruleresult.getCreatedEdges().add(precondToMessage__precond____source);
+		precondToMessage__message____target.setSrc(precondToMessage);
+		precondToMessage__message____target.setTrg(message);
+		ruleresult.getCreatedEdges().add(precondToMessage__message____target);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
-		useCaseToMessage__useCase____source
-				.setName(useCaseToMessage__useCase____source_name_prime);
-		useCaseToMessage__message____target
-				.setName(useCaseToMessage__message____target_name_prime);
+		useCase__precond____preconditions
+				.setName(useCase__precond____preconditions_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
 		message__interaction____interaction
 				.setName(message__interaction____interaction_name_prime);
 		interaction__message____message
 				.setName(interaction__message____message_name_prime);
-		line__interaction____interaction
-				.setName(line__interaction____interaction_name_prime);
-		interaction__line____lifeline
-				.setName(interaction__line____lifeline_name_prime);
 		messageReceive__interaction____enclosingInteraction
 				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
 		interaction__messageReceive____fragment
 				.setName(interaction__messageReceive____fragment_name_prime);
 		messageReceive__message____message
 				.setName(messageReceive__message____message_name_prime);
-		packageDeclaration__useCase____useCases
-				.setName(packageDeclaration__useCase____useCases_name_prime);
-		packageDeclaration__actor____actors
-				.setName(packageDeclaration__actor____actors_name_prime);
 		line__messageReceive____coveredBy
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
-		actorToLine__actor____source
-				.setName(actorToLine__actor____source_name_prime);
-		actorToLine__line____target
-				.setName(actorToLine__line____target_name_prime);
-		_package__interaction____packagedElement
-				.setName(_package__interaction____packagedElement_name_prime);
-		useCase__basicFlow____flows
-				.setName(useCase__basicFlow____flows_name_prime);
-		basicFlowToInteraction__basicFlow____source
-				.setName(basicFlowToInteraction__basicFlow____source_name_prime);
-		basicFlowToInteraction__interaction____target
-				.setName(basicFlowToInteraction__interaction____target_name_prime);
-		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
-				interaction, messageReceive, actor, packageDeclaration, line,
-				actorToLine, _package, basicFlow, basicFlowToInteraction,
-				useCaseToMessage__useCase____source,
-				useCaseToMessage__message____target,
+		precondToMessage__precond____source
+				.setName(precondToMessage__precond____source_name_prime);
+		precondToMessage__message____target
+				.setName(precondToMessage__message____target_name_prime);
+		return new Object[] { ruleresult, precond, useCase, message,
+				interaction, messageReceive, line, precondToMessage,
+				useCase__precond____preconditions,
 				message__messageReceive____receiveEvent,
 				message__interaction____interaction,
 				interaction__message____message,
-				line__interaction____interaction,
-				interaction__line____lifeline,
 				messageReceive__interaction____enclosingInteraction,
 				interaction__messageReceive____fragment,
 				messageReceive__message____message,
-				packageDeclaration__useCase____useCases,
-				packageDeclaration__actor____actors,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered, actorToLine__actor____source,
-				actorToLine__line____target,
-				_package__interaction____packagedElement,
-				useCase__basicFlow____flows,
-				basicFlowToInteraction__basicFlow____source,
-				basicFlowToInteraction__interaction____target };
+				messageReceive__line____covered,
+				precondToMessage__precond____source,
+				precondToMessage__message____target };
 	}
 
-	public static final void pattern_UseCasePrecondToFoundMessageRule_1_5_expressionBBBBBBBBBBBBBBB(
+	public static final void pattern_UseCasePrecondToFoundMessageRule_1_5_expressionBBBBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
-			PerformRuleResult ruleresult, EObject useCaseToMessage,
-			EObject useCase, EObject message, EObject interaction,
-			EObject messageReceive, EObject actor, EObject packageDeclaration,
-			EObject line, EObject actorToLine, EObject _package,
-			EObject packageDeclarationToPackage, EObject basicFlow,
-			EObject basicFlowToInteraction) {
-		_this.registerObjects_FWD(ruleresult, useCaseToMessage, useCase,
-				message, interaction, messageReceive, actor,
-				packageDeclaration, line, actorToLine, _package,
-				packageDeclarationToPackage, basicFlow, basicFlowToInteraction);
+			PerformRuleResult ruleresult, EObject precond,
+			EObject useCaseToInteraction, EObject useCase, EObject message,
+			EObject interaction, EObject messageReceive, EObject actor,
+			EObject packageDeclaration, EObject line, EObject actorToLine,
+			EObject precondToMessage) {
+		_this.registerObjects_FWD(ruleresult, precond, useCaseToInteraction,
+				useCase, message, interaction, messageReceive, actor,
+				packageDeclaration, line, actorToLine, precondToMessage);
 
 	}
 
@@ -3178,24 +2517,24 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_2_bindingFFFFB(
 			Match match) {
-		EObject _localVariable_0 = match.getObject("useCase");
-		EObject _localVariable_1 = match.getObject("actor");
-		EObject _localVariable_2 = match.getObject("packageDeclaration");
-		EObject _localVariable_3 = match.getObject("basicFlow");
-		EObject tmpUseCase = _localVariable_0;
-		EObject tmpActor = _localVariable_1;
-		EObject tmpPackageDeclaration = _localVariable_2;
-		EObject tmpBasicFlow = _localVariable_3;
-		if (tmpUseCase instanceof UseCase) {
-			UseCase useCase = (UseCase) tmpUseCase;
-			if (tmpActor instanceof Actor) {
-				Actor actor = (Actor) tmpActor;
-				if (tmpPackageDeclaration instanceof PackageDeclaration) {
-					PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
-					if (tmpBasicFlow instanceof BasicFlow) {
-						BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
-						return new Object[] { useCase, actor,
-								packageDeclaration, basicFlow, match };
+		EObject _localVariable_0 = match.getObject("precond");
+		EObject _localVariable_1 = match.getObject("useCase");
+		EObject _localVariable_2 = match.getObject("actor");
+		EObject _localVariable_3 = match.getObject("packageDeclaration");
+		EObject tmpPrecond = _localVariable_0;
+		EObject tmpUseCase = _localVariable_1;
+		EObject tmpActor = _localVariable_2;
+		EObject tmpPackageDeclaration = _localVariable_3;
+		if (tmpPrecond instanceof UCCondition) {
+			UCCondition precond = (UCCondition) tmpPrecond;
+			if (tmpUseCase instanceof UseCase) {
+				UseCase useCase = (UseCase) tmpUseCase;
+				if (tmpActor instanceof Actor) {
+					Actor actor = (Actor) tmpActor;
+					if (tmpPackageDeclaration instanceof PackageDeclaration) {
+						PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+						return new Object[] { precond, useCase, actor,
+								packageDeclaration, match };
 					}
 				}
 			}
@@ -3203,42 +2542,55 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_2_2_blackBBBFFBB(
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow,
-			Match match) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_2_2_blackBFBFBBFFB(
+			UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(packageDeclaration,
-						PackageDeclarationToPackage.class, "source")) {
-			ModalSequenceDiagram.Package _package = packageDeclarationToPackage
-					.getTarget();
-			if (_package != null) {
-				_result.add(new Object[] { useCase, actor, packageDeclaration,
-						_package, packageDeclarationToPackage, basicFlow, match });
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
+						"source")) {
+			Interaction interaction = useCaseToInteraction.getTarget();
+			if (interaction != null) {
+				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+						.getOppositeReferenceTyped(actor,
+								ActorToLifeline.class, "source")) {
+					Lifeline line = actorToLine.getTarget();
+					if (line != null) {
+						_result.add(new Object[] { precond,
+								useCaseToInteraction, useCase, interaction,
+								actor, packageDeclaration, line, actorToLine,
+								match });
+					}
+
+				}
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_2_3_blackBBBBBB(
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_2_3_blackBBBBBBBB(
+			UCCondition precond, UseCaseToInteraction useCaseToInteraction,
+			UseCase useCase, Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		if (packageDeclaration.getUseCases().contains(useCase)) {
-			if (packageDeclaration.getActors().contains(actor)) {
-				if (packageDeclaration.equals(packageDeclarationToPackage
-						.getSource())) {
-					if (_package
-							.equals(packageDeclarationToPackage.getTarget())) {
-						if (useCase.getFlows().contains(basicFlow)) {
-							_result.add(new Object[] { useCase, actor,
-									packageDeclaration, _package,
-									packageDeclarationToPackage, basicFlow });
+		if (useCase.equals(useCaseToInteraction.getSource())) {
+			if (interaction.equals(useCaseToInteraction.getTarget())) {
+				if (useCase.getPreconditions().contains(precond)) {
+					if (interaction.equals(line.getInteraction())) {
+						if (packageDeclaration.getUseCases().contains(useCase)) {
+							if (packageDeclaration.getActors().contains(actor)) {
+								if (actor.equals(actorToLine.getSource())) {
+									if (line.equals(actorToLine.getTarget())) {
+										_result.add(new Object[] { precond,
+												useCaseToInteraction, useCase,
+												interaction, actor,
+												packageDeclaration, line,
+												actorToLine });
+									}
+								}
+							}
 						}
 					}
 				}
@@ -3247,36 +2599,69 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_3_greenBBBBBBFFFFFF(
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow) {
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_3_greenBBBBBBBBFFFFFFFFFF(
+			UCCondition precond, UseCaseToInteraction useCaseToInteraction,
+			UseCase useCase, Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__precond____preconditions = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge packageDeclarationToPackage___package____target = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge actorToLine__line____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
+		String useCase__precond____preconditions_name_prime = "preconditions";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
 		String packageDeclaration__useCase____useCases_name_prime = "useCases";
 		String packageDeclaration__actor____actors_name_prime = "actors";
-		String packageDeclarationToPackage__packageDeclaration____source_name_prime = "source";
-		String packageDeclarationToPackage___package____target_name_prime = "target";
-		String useCase__basicFlow____flows_name_prime = "flows";
+		String actorToLine__actor____source_name_prime = "source";
+		String actorToLine__line____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(precond);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(interaction);
 		isApplicableMatch.getAllContextElements().add(actor);
 		isApplicableMatch.getAllContextElements().add(packageDeclaration);
-		isApplicableMatch.getAllContextElements().add(_package);
+		isApplicableMatch.getAllContextElements().add(line);
+		isApplicableMatch.getAllContextElements().add(actorToLine);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
 		isApplicableMatch.getAllContextElements().add(
-				packageDeclarationToPackage);
-		isApplicableMatch.getAllContextElements().add(basicFlow);
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
+		useCase__precond____preconditions.setSrc(useCase);
+		useCase__precond____preconditions.setTrg(precond);
+		isApplicableMatch.getAllContextElements().add(
+				useCase__precond____preconditions);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__line____lifeline);
 		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
 		packageDeclaration__useCase____useCases.setTrg(useCase);
 		isApplicableMatch.getAllContextElements().add(
@@ -3285,55 +2670,59 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		packageDeclaration__actor____actors.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(
 				packageDeclaration__actor____actors);
-		packageDeclarationToPackage__packageDeclaration____source
-				.setSrc(packageDeclarationToPackage);
-		packageDeclarationToPackage__packageDeclaration____source
-				.setTrg(packageDeclaration);
+		actorToLine__actor____source.setSrc(actorToLine);
+		actorToLine__actor____source.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(
-				packageDeclarationToPackage__packageDeclaration____source);
-		packageDeclarationToPackage___package____target
-				.setSrc(packageDeclarationToPackage);
-		packageDeclarationToPackage___package____target.setTrg(_package);
+				actorToLine__actor____source);
+		actorToLine__line____target.setSrc(actorToLine);
+		actorToLine__line____target.setTrg(line);
 		isApplicableMatch.getAllContextElements().add(
-				packageDeclarationToPackage___package____target);
-		useCase__basicFlow____flows.setSrc(useCase);
-		useCase__basicFlow____flows.setTrg(basicFlow);
-		isApplicableMatch.getAllContextElements().add(
-				useCase__basicFlow____flows);
+				actorToLine__line____target);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
+		useCase__precond____preconditions
+				.setName(useCase__precond____preconditions_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
 		packageDeclaration__useCase____useCases
 				.setName(packageDeclaration__useCase____useCases_name_prime);
 		packageDeclaration__actor____actors
 				.setName(packageDeclaration__actor____actors_name_prime);
-		packageDeclarationToPackage__packageDeclaration____source
-				.setName(packageDeclarationToPackage__packageDeclaration____source_name_prime);
-		packageDeclarationToPackage___package____target
-				.setName(packageDeclarationToPackage___package____target_name_prime);
-		useCase__basicFlow____flows
-				.setName(useCase__basicFlow____flows_name_prime);
-		return new Object[] { useCase, actor, packageDeclaration, _package,
-				packageDeclarationToPackage, basicFlow, isApplicableMatch,
+		actorToLine__actor____source
+				.setName(actorToLine__actor____source_name_prime);
+		actorToLine__line____target
+				.setName(actorToLine__line____target_name_prime);
+		return new Object[] { precond, useCaseToInteraction, useCase,
+				interaction, actor, packageDeclaration, line, actorToLine,
+				isApplicableMatch, useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target,
+				useCase__precond____preconditions,
+				line__interaction____interaction,
+				interaction__line____lifeline,
 				packageDeclaration__useCase____useCases,
 				packageDeclaration__actor____actors,
-				packageDeclarationToPackage__packageDeclaration____source,
-				packageDeclarationToPackage___package____target,
-				useCase__basicFlow____flows };
+				actorToLine__actor____source, actorToLine__line____target };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_bindingFBBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_bindingFBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
-			IsApplicableMatch isApplicableMatch, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow) {
+			IsApplicableMatch isApplicableMatch, UCCondition precond,
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
-				isApplicableMatch, useCase, actor, packageDeclaration,
-				_package, packageDeclarationToPackage, basicFlow);
+				isApplicableMatch, precond, useCaseToInteraction, useCase,
+				interaction, actor, packageDeclaration, line, actorToLine);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, useCase,
-					actor, packageDeclaration, _package,
-					packageDeclarationToPackage, basicFlow };
+			return new Object[] { csp, _this, isApplicableMatch, precond,
+					useCaseToInteraction, useCase, interaction, actor,
+					packageDeclaration, line, actorToLine };
 		}
 		return null;
 	}
@@ -3343,25 +2732,26 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_bindingAndBlackFBBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_2_4_bindingAndBlackFBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
-			IsApplicableMatch isApplicableMatch, UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			BasicFlow basicFlow) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding = pattern_UseCasePrecondToFoundMessageRule_2_4_bindingFBBBBBBBB(
-				_this, isApplicableMatch, useCase, actor, packageDeclaration,
-				_package, packageDeclarationToPackage, basicFlow);
+			IsApplicableMatch isApplicableMatch, UCCondition precond,
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding = pattern_UseCasePrecondToFoundMessageRule_2_4_bindingFBBBBBBBBBB(
+				_this, isApplicableMatch, precond, useCaseToInteraction,
+				useCase, interaction, actor, packageDeclaration, line,
+				actorToLine);
 		if (result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding != null) {
 			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_2_4_binding[0];
 
 			Object[] result_pattern_UseCasePrecondToFoundMessageRule_2_4_black = pattern_UseCasePrecondToFoundMessageRule_2_4_blackB(csp);
 			if (result_pattern_UseCasePrecondToFoundMessageRule_2_4_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, useCase,
-						actor, packageDeclaration, _package,
-						packageDeclarationToPackage, basicFlow };
+				return new Object[] { csp, _this, isApplicableMatch, precond,
+						useCaseToInteraction, useCase, interaction, actor,
+						packageDeclaration, line, actorToLine };
 			}
 		}
 		return null;
@@ -3397,26 +2787,24 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_1_blackBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_1_blackBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		return new Object[] { _this, match, message, interaction,
-				messageReceive, line, _package };
+				messageReceive, line };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_bindingFBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_bindingFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, match, message, interaction,
-					messageReceive, line, _package };
+					messageReceive, line };
 		}
 		return null;
 	}
@@ -3426,14 +2814,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_bindingAndBlackFBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_2_bindingAndBlackFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding = pattern_UseCasePrecondToFoundMessageRule_10_2_bindingFBBBBBBB(
-				_this, match, message, interaction, messageReceive, line,
-				_package);
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding = pattern_UseCasePrecondToFoundMessageRule_10_2_bindingFBBBBBB(
+				_this, match, message, interaction, messageReceive, line);
 		if (result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding != null) {
 			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_10_2_binding[0];
 
@@ -3441,7 +2827,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			if (result_pattern_UseCasePrecondToFoundMessageRule_10_2_black != null) {
 
 				return new Object[] { csp, _this, match, message, interaction,
-						messageReceive, line, _package };
+						messageReceive, line };
 			}
 		}
 		return null;
@@ -3454,27 +2840,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_4_blackBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_4_blackBBBBB(
 			Match match, Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		return new Object[] { match, message, interaction, messageReceive,
-				line, _package };
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
+		return new Object[] { match, message, interaction, messageReceive, line };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBBFFFFFFFFFFF(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBFFFFFFFF(
 			Match match, Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -3486,23 +2865,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(message);
-		match.getToBeTranslatedNodes().add(interaction);
 		match.getToBeTranslatedNodes().add(messageReceive);
-		match.getToBeTranslatedNodes().add(line);
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
 		String message__interaction____interaction_name_prime = "interaction";
 		String interaction__message____message_name_prime = "message";
-		String line__interaction____interaction_name_prime = "interaction";
-		String interaction__line____lifeline_name_prime = "lifeline";
 		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
 		String interaction__messageReceive____fragment_name_prime = "fragment";
 		String messageReceive__message____message_name_prime = "message";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
-		String _package__interaction____packagedElement_name_prime = "packagedElement";
 		message__messageReceive____receiveEvent.setSrc(message);
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		match.getToBeTranslatedEdges().add(
@@ -3513,12 +2885,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		interaction__message____message.setSrc(interaction);
 		interaction__message____message.setTrg(message);
 		match.getToBeTranslatedEdges().add(interaction__message____message);
-		line__interaction____interaction.setSrc(line);
-		line__interaction____interaction.setTrg(interaction);
-		match.getToBeTranslatedEdges().add(line__interaction____interaction);
-		interaction__line____lifeline.setSrc(interaction);
-		interaction__line____lifeline.setTrg(line);
-		match.getToBeTranslatedEdges().add(interaction__line____lifeline);
 		messageReceive__interaction____enclosingInteraction
 				.setSrc(messageReceive);
 		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
@@ -3537,20 +2903,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		messageReceive__line____covered.setSrc(messageReceive);
 		messageReceive__line____covered.setTrg(line);
 		match.getToBeTranslatedEdges().add(messageReceive__line____covered);
-		_package__interaction____packagedElement.setSrc(_package);
-		_package__interaction____packagedElement.setTrg(interaction);
-		match.getToBeTranslatedEdges().add(
-				_package__interaction____packagedElement);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
 		message__interaction____interaction
 				.setName(message__interaction____interaction_name_prime);
 		interaction__message____message
 				.setName(interaction__message____message_name_prime);
-		line__interaction____interaction
-				.setName(line__interaction____interaction_name_prime);
-		interaction__line____lifeline
-				.setName(interaction__line____lifeline_name_prime);
 		messageReceive__interaction____enclosingInteraction
 				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
 		interaction__messageReceive____fragment
@@ -3561,43 +2919,53 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
-		_package__interaction____packagedElement
-				.setName(_package__interaction____packagedElement_name_prime);
 		return new Object[] { match, message, interaction, messageReceive,
-				line, _package, message__messageReceive____receiveEvent,
+				line, message__messageReceive____receiveEvent,
 				message__interaction____interaction,
 				interaction__message____message,
-				line__interaction____interaction,
-				interaction__line____lifeline,
 				messageReceive__interaction____enclosingInteraction,
 				interaction__messageReceive____fragment,
 				messageReceive__message____message,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered,
-				_package__interaction____packagedElement };
+				messageReceive__line____covered };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_5_blackBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_5_blackBBBBB(
 			Match match, Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		return new Object[] { match, message, interaction, messageReceive,
-				line, _package };
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
+		return new Object[] { match, message, interaction, messageReceive, line };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_5_greenBB(
-			Match match, ModalSequenceDiagram.Package _package) {
-		match.getContextNodes().add(_package);
-		return new Object[] { match, _package };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_10_5_greenBBBFF(
+			Match match, Interaction interaction, Lifeline line) {
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		match.getContextNodes().add(interaction);
+		match.getContextNodes().add(line);
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		match.getContextEdges().add(line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		match.getContextEdges().add(interaction__line____lifeline);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
+		return new Object[] { match, interaction, line,
+				line__interaction____interaction, interaction__line____lifeline };
 	}
 
-	public static final void pattern_UseCasePrecondToFoundMessageRule_10_6_expressionBBBBBBB(
+	public static final void pattern_UseCasePrecondToFoundMessageRule_10_6_expressionBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		_this.registerObjectsToMatch_BWD(match, message, interaction,
-				messageReceive, line, _package);
+				messageReceive, line);
 
 	}
 
@@ -3611,44 +2979,57 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_bindingFFFFFFFB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_bindingFFFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
-		EObject _localVariable_0 = isApplicableMatch.getObject("message");
-		EObject _localVariable_1 = isApplicableMatch.getObject("interaction");
-		EObject _localVariable_2 = isApplicableMatch
+		EObject _localVariable_0 = isApplicableMatch
+				.getObject("useCaseToInteraction");
+		EObject _localVariable_1 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_2 = isApplicableMatch.getObject("message");
+		EObject _localVariable_3 = isApplicableMatch.getObject("interaction");
+		EObject _localVariable_4 = isApplicableMatch
 				.getObject("messageReceive");
-		EObject _localVariable_3 = isApplicableMatch
-				.getObject("packageDeclaration");
-		EObject _localVariable_4 = isApplicableMatch.getObject("line");
-		EObject _localVariable_5 = isApplicableMatch.getObject("_package");
+		EObject _localVariable_5 = isApplicableMatch.getObject("actor");
 		EObject _localVariable_6 = isApplicableMatch
-				.getObject("packageDeclarationToPackage");
-		EObject tmpMessage = _localVariable_0;
-		EObject tmpInteraction = _localVariable_1;
-		EObject tmpMessageReceive = _localVariable_2;
-		EObject tmpPackageDeclaration = _localVariable_3;
-		EObject tmpLine = _localVariable_4;
-		EObject tmp_package = _localVariable_5;
-		EObject tmpPackageDeclarationToPackage = _localVariable_6;
-		if (tmpMessage instanceof Message) {
-			Message message = (Message) tmpMessage;
-			if (tmpInteraction instanceof Interaction) {
-				Interaction interaction = (Interaction) tmpInteraction;
-				if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-					MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-					if (tmpPackageDeclaration instanceof PackageDeclaration) {
-						PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
-						if (tmpLine instanceof Lifeline) {
-							Lifeline line = (Lifeline) tmpLine;
-							if (tmp_package instanceof ModalSequenceDiagram.Package) {
-								ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
-								if (tmpPackageDeclarationToPackage instanceof PackageDeclarationToPackage) {
-									PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) tmpPackageDeclarationToPackage;
-									return new Object[] { message, interaction,
-											messageReceive, packageDeclaration,
-											line, _package,
-											packageDeclarationToPackage,
-											isApplicableMatch };
+				.getObject("packageDeclaration");
+		EObject _localVariable_7 = isApplicableMatch.getObject("line");
+		EObject _localVariable_8 = isApplicableMatch.getObject("actorToLine");
+		EObject tmpUseCaseToInteraction = _localVariable_0;
+		EObject tmpUseCase = _localVariable_1;
+		EObject tmpMessage = _localVariable_2;
+		EObject tmpInteraction = _localVariable_3;
+		EObject tmpMessageReceive = _localVariable_4;
+		EObject tmpActor = _localVariable_5;
+		EObject tmpPackageDeclaration = _localVariable_6;
+		EObject tmpLine = _localVariable_7;
+		EObject tmpActorToLine = _localVariable_8;
+		if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+			if (tmpUseCase instanceof UseCase) {
+				UseCase useCase = (UseCase) tmpUseCase;
+				if (tmpMessage instanceof Message) {
+					Message message = (Message) tmpMessage;
+					if (tmpInteraction instanceof Interaction) {
+						Interaction interaction = (Interaction) tmpInteraction;
+						if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+							MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+							if (tmpActor instanceof Actor) {
+								Actor actor = (Actor) tmpActor;
+								if (tmpPackageDeclaration instanceof PackageDeclaration) {
+									PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
+									if (tmpLine instanceof Lifeline) {
+										Lifeline line = (Lifeline) tmpLine;
+										if (tmpActorToLine instanceof ActorToLifeline) {
+											ActorToLifeline actorToLine = (ActorToLifeline) tmpActorToLine;
+											return new Object[] {
+													useCaseToInteraction,
+													useCase, message,
+													interaction,
+													messageReceive, actor,
+													packageDeclaration, line,
+													actorToLine,
+													isApplicableMatch };
+										}
+									}
 								}
 							}
 						}
@@ -3659,319 +3040,211 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_blackBBBBBBBFBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_blackBBBBBBBBBFBB(
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
 			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
+			ActorToLifeline actorToLine,
 			UseCasePrecondToFoundMessageRule _this,
 			IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { message, interaction, messageReceive,
-						packageDeclaration, line, _package,
-						packageDeclarationToPackage, csp, _this,
-						isApplicableMatch };
+				return new Object[] { useCaseToInteraction, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_bindingAndBlackFFFFFFFFBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_bindingAndBlackFFFFFFFFFFBB(
 			UseCasePrecondToFoundMessageRule _this,
 			IsApplicableMatch isApplicableMatch) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding = pattern_UseCasePrecondToFoundMessageRule_11_1_bindingFFFFFFFB(isApplicableMatch);
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding = pattern_UseCasePrecondToFoundMessageRule_11_1_bindingFFFFFFFFFB(isApplicableMatch);
 		if (result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding != null) {
-			Message message = (Message) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[0];
-			Interaction interaction = (Interaction) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[1];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[2];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[3];
-			Lifeline line = (Lifeline) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[4];
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[5];
-			PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[6];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[0];
+			UseCase useCase = (UseCase) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[1];
+			Message message = (Message) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[2];
+			Interaction interaction = (Interaction) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[3];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[4];
+			Actor actor = (Actor) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[5];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[6];
+			Lifeline line = (Lifeline) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[7];
+			ActorToLifeline actorToLine = (ActorToLifeline) result_pattern_UseCasePrecondToFoundMessageRule_11_1_binding[8];
 
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_11_1_black = pattern_UseCasePrecondToFoundMessageRule_11_1_blackBBBBBBBFBB(
-					message, interaction, messageReceive, packageDeclaration,
-					line, _package, packageDeclarationToPackage, _this,
-					isApplicableMatch);
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_11_1_black = pattern_UseCasePrecondToFoundMessageRule_11_1_blackBBBBBBBBBFBB(
+					useCaseToInteraction, useCase, message, interaction,
+					messageReceive, actor, packageDeclaration, line,
+					actorToLine, _this, isApplicableMatch);
 			if (result_pattern_UseCasePrecondToFoundMessageRule_11_1_black != null) {
-				CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_11_1_black[7];
+				CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_11_1_black[9];
 
-				return new Object[] { message, interaction, messageReceive,
-						packageDeclaration, line, _package,
-						packageDeclarationToPackage, csp, _this,
-						isApplicableMatch };
+				return new Object[] { useCaseToInteraction, useCase, message,
+						interaction, messageReceive, actor, packageDeclaration,
+						line, actorToLine, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_greenFFBBFBBFFFB(
-			Message message, Interaction interaction,
-			PackageDeclaration packageDeclaration, Lifeline line, CSP csp) {
-		UseCaseToMessage useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createUseCaseToMessage();
-		UseCase useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
-		Actor actor = UseCaseDSLFactory.eINSTANCE.createActor();
-		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createActorToLifeline();
-		BasicFlow basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
-		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createFlowToInteractionFragment();
-		Object _localVariable_0 = csp.getValue("useCase", "preConditions");
-		Object _localVariable_1 = csp.getValue("useCase", "name");
-		Object _localVariable_2 = csp.getValue("actor", "type");
-		Object _localVariable_3 = csp.getValue("actor", "name");
-		useCaseToMessage.setTarget(message);
-		useCaseToMessage.setSource(useCase);
-		packageDeclaration.getUseCases().add(useCase);
-		packageDeclaration.getActors().add(actor);
-		actorToLine.setSource(actor);
-		actorToLine.setTarget(line);
-		useCase.getFlows().add(basicFlow);
-		basicFlowToInteraction.setSource(basicFlow);
-		basicFlowToInteraction.setTarget(interaction);
-		String useCase_preConditions_prime = (String) _localVariable_0;
-		String useCase_name_prime = (String) _localVariable_1;
-		ActorType actor_type_prime = (ActorType) _localVariable_2;
-		String actor_name_prime = (String) _localVariable_3;
-		useCase.setPreConditions(useCase_preConditions_prime);
-		useCase.setName(useCase_name_prime);
-		actor.setType(actor_type_prime);
-		actor.setName(actor_name_prime);
-		return new Object[] { useCaseToMessage, useCase, message, interaction,
-				actor, packageDeclaration, line, actorToLine, basicFlow,
-				basicFlowToInteraction, csp };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_1_greenFBBFB(
+			UseCase useCase, Message message, CSP csp) {
+		UCCondition precond = UseCaseDSLFactory.eINSTANCE.createUCCondition();
+		UCConditionToMessage precondToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createUCConditionToMessage();
+		Object _localVariable_0 = csp.getValue("precond", "name");
+		useCase.getPreconditions().add(precond);
+		precondToMessage.setSource(precond);
+		precondToMessage.setTarget(message);
+		String precond_name_prime = (String) _localVariable_0;
+		precond.setName(precond_name_prime);
+		return new Object[] { precond, useCase, message, precondToMessage, csp };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_2_blackBBBBBBBBBB(
-			UseCaseToMessage useCaseToMessage, UseCase useCase,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Actor actor,
-			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
-			FlowToInteractionFragment basicFlowToInteraction) {
-		return new Object[] { useCaseToMessage, useCase, message, interaction,
-				messageReceive, actor, line, actorToLine, basicFlow,
-				basicFlowToInteraction };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_2_blackBBBB(
+			UCCondition precond, Message message,
+			MessageOccurrenceSpecification messageReceive,
+			UCConditionToMessage precondToMessage) {
+		return new Object[] { precond, message, messageReceive,
+				precondToMessage };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBBBBBBBB(
-			UseCaseToMessage useCaseToMessage, UseCase useCase,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Actor actor,
-			Lifeline line, ActorToLifeline actorToLine, BasicFlow basicFlow,
-			FlowToInteractionFragment basicFlowToInteraction) {
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBB(
+			UCCondition precond, Message message,
+			MessageOccurrenceSpecification messageReceive,
+			UCConditionToMessage precondToMessage) {
 		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
 				.createPerformRuleResult();
-		ruleresult.getCreatedLinkElements().add(useCaseToMessage);
-		ruleresult.getCreatedElements().add(useCase);
+		ruleresult.getCreatedElements().add(precond);
 		ruleresult.getTranslatedElements().add(message);
-		ruleresult.getTranslatedElements().add(interaction);
 		ruleresult.getTranslatedElements().add(messageReceive);
-		ruleresult.getCreatedElements().add(actor);
-		ruleresult.getTranslatedElements().add(line);
-		ruleresult.getCreatedLinkElements().add(actorToLine);
-		ruleresult.getCreatedElements().add(basicFlow);
-		ruleresult.getCreatedLinkElements().add(basicFlowToInteraction);
-		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
-				interaction, messageReceive, actor, line, actorToLine,
-				basicFlow, basicFlowToInteraction };
+		ruleresult.getCreatedLinkElements().add(precondToMessage);
+		return new Object[] { ruleresult, precond, message, messageReceive,
+				precondToMessage };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_3_blackBBBBBBBBBBBBBB(
-			PerformRuleResult ruleresult, EObject useCaseToMessage,
-			EObject useCase, EObject message, EObject interaction,
-			EObject messageReceive, EObject actor, EObject packageDeclaration,
-			EObject line, EObject actorToLine, EObject _package,
-			EObject packageDeclarationToPackage, EObject basicFlow,
-			EObject basicFlowToInteraction) {
-		if (!useCase.equals(useCaseToMessage)) {
-			if (!message.equals(useCaseToMessage)) {
-				if (!message.equals(useCase)) {
-					if (!message.equals(messageReceive)) {
-						if (!message.equals(packageDeclaration)) {
-							if (!message.equals(packageDeclarationToPackage)) {
-								if (!interaction.equals(useCaseToMessage)) {
-									if (!interaction.equals(useCase)) {
-										if (!interaction.equals(message)) {
-											if (!interaction
-													.equals(messageReceive)) {
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_3_blackBBBBBBBBBBBB(
+			PerformRuleResult ruleresult, EObject precond,
+			EObject useCaseToInteraction, EObject useCase, EObject message,
+			EObject interaction, EObject messageReceive, EObject actor,
+			EObject packageDeclaration, EObject line, EObject actorToLine,
+			EObject precondToMessage) {
+		if (!precond.equals(useCaseToInteraction)) {
+			if (!precond.equals(useCase)) {
+				if (!precond.equals(precondToMessage)) {
+					if (!useCase.equals(useCaseToInteraction)) {
+						if (!message.equals(precond)) {
+							if (!message.equals(useCaseToInteraction)) {
+								if (!message.equals(useCase)) {
+									if (!message.equals(messageReceive)) {
+										if (!message.equals(packageDeclaration)) {
+											if (!message
+													.equals(precondToMessage)) {
 												if (!interaction
-														.equals(packageDeclaration)) {
+														.equals(precond)) {
 													if (!interaction
-															.equals(line)) {
+															.equals(useCaseToInteraction)) {
 														if (!interaction
-																.equals(packageDeclarationToPackage)) {
-															if (!messageReceive
-																	.equals(useCaseToMessage)) {
-																if (!messageReceive
-																		.equals(useCase)) {
-																	if (!messageReceive
+																.equals(useCase)) {
+															if (!interaction
+																	.equals(message)) {
+																if (!interaction
+																		.equals(messageReceive)) {
+																	if (!interaction
 																			.equals(packageDeclaration)) {
-																		if (!messageReceive
-																				.equals(packageDeclarationToPackage)) {
-																			if (!actor
-																					.equals(useCaseToMessage)) {
-																				if (!actor
-																						.equals(useCase)) {
-																					if (!actor
-																							.equals(message)) {
-																						if (!actor
-																								.equals(interaction)) {
-																							if (!actor
-																									.equals(messageReceive)) {
-																								if (!actor
-																										.equals(packageDeclaration)) {
+																		if (!interaction
+																				.equals(line)) {
+																			if (!interaction
+																					.equals(precondToMessage)) {
+																				if (!messageReceive
+																						.equals(precond)) {
+																					if (!messageReceive
+																							.equals(useCaseToInteraction)) {
+																						if (!messageReceive
+																								.equals(useCase)) {
+																							if (!messageReceive
+																									.equals(packageDeclaration)) {
+																								if (!messageReceive
+																										.equals(precondToMessage)) {
 																									if (!actor
-																											.equals(line)) {
+																											.equals(precond)) {
 																										if (!actor
-																												.equals(actorToLine)) {
+																												.equals(useCaseToInteraction)) {
 																											if (!actor
-																													.equals(packageDeclarationToPackage)) {
+																													.equals(useCase)) {
 																												if (!actor
-																														.equals(basicFlow)) {
+																														.equals(message)) {
 																													if (!actor
-																															.equals(basicFlowToInteraction)) {
-																														if (!packageDeclaration
-																																.equals(useCaseToMessage)) {
-																															if (!packageDeclaration
-																																	.equals(useCase)) {
-																																if (!packageDeclaration
-																																		.equals(packageDeclarationToPackage)) {
-																																	if (!line
-																																			.equals(useCaseToMessage)) {
-																																		if (!line
-																																				.equals(useCase)) {
-																																			if (!line
-																																					.equals(message)) {
-																																				if (!line
-																																						.equals(messageReceive)) {
-																																					if (!line
-																																							.equals(packageDeclaration)) {
-																																						if (!line
-																																								.equals(packageDeclarationToPackage)) {
-																																							if (!actorToLine
-																																									.equals(useCaseToMessage)) {
-																																								if (!actorToLine
-																																										.equals(useCase)) {
-																																									if (!actorToLine
-																																											.equals(message)) {
-																																										if (!actorToLine
-																																												.equals(interaction)) {
-																																											if (!actorToLine
+																															.equals(interaction)) {
+																														if (!actor
+																																.equals(messageReceive)) {
+																															if (!actor
+																																	.equals(packageDeclaration)) {
+																																if (!actor
+																																		.equals(line)) {
+																																	if (!actor
+																																			.equals(actorToLine)) {
+																																		if (!actor
+																																				.equals(precondToMessage)) {
+																																			if (!packageDeclaration
+																																					.equals(precond)) {
+																																				if (!packageDeclaration
+																																						.equals(useCaseToInteraction)) {
+																																					if (!packageDeclaration
+																																							.equals(useCase)) {
+																																						if (!packageDeclaration
+																																								.equals(precondToMessage)) {
+																																							if (!line
+																																									.equals(precond)) {
+																																								if (!line
+																																										.equals(useCaseToInteraction)) {
+																																									if (!line
+																																											.equals(useCase)) {
+																																										if (!line
+																																												.equals(message)) {
+																																											if (!line
 																																													.equals(messageReceive)) {
-																																												if (!actorToLine
+																																												if (!line
 																																														.equals(packageDeclaration)) {
-																																													if (!actorToLine
-																																															.equals(line)) {
+																																													if (!line
+																																															.equals(precondToMessage)) {
 																																														if (!actorToLine
-																																																.equals(packageDeclarationToPackage)) {
+																																																.equals(precond)) {
 																																															if (!actorToLine
-																																																	.equals(basicFlow)) {
+																																																	.equals(useCaseToInteraction)) {
 																																																if (!actorToLine
-																																																		.equals(basicFlowToInteraction)) {
-																																																	if (!_package
-																																																			.equals(useCaseToMessage)) {
-																																																		if (!_package
-																																																				.equals(useCase)) {
-																																																			if (!_package
-																																																					.equals(message)) {
-																																																				if (!_package
-																																																						.equals(interaction)) {
-																																																					if (!_package
-																																																							.equals(messageReceive)) {
-																																																						if (!_package
-																																																								.equals(actor)) {
-																																																							if (!_package
-																																																									.equals(packageDeclaration)) {
-																																																								if (!_package
-																																																										.equals(line)) {
-																																																									if (!_package
-																																																											.equals(actorToLine)) {
-																																																										if (!_package
-																																																												.equals(packageDeclarationToPackage)) {
-																																																											if (!_package
-																																																													.equals(basicFlow)) {
-																																																												if (!_package
-																																																														.equals(basicFlowToInteraction)) {
-																																																													if (!packageDeclarationToPackage
-																																																															.equals(useCaseToMessage)) {
-																																																														if (!packageDeclarationToPackage
-																																																																.equals(useCase)) {
-																																																															if (!basicFlow
-																																																																	.equals(useCaseToMessage)) {
-																																																																if (!basicFlow
-																																																																		.equals(useCase)) {
-																																																																	if (!basicFlow
-																																																																			.equals(message)) {
-																																																																		if (!basicFlow
-																																																																				.equals(interaction)) {
-																																																																			if (!basicFlow
-																																																																					.equals(messageReceive)) {
-																																																																				if (!basicFlow
-																																																																						.equals(packageDeclaration)) {
-																																																																					if (!basicFlow
-																																																																							.equals(line)) {
-																																																																						if (!basicFlow
-																																																																								.equals(packageDeclarationToPackage)) {
-																																																																							if (!basicFlow
-																																																																									.equals(basicFlowToInteraction)) {
-																																																																								if (!basicFlowToInteraction
-																																																																										.equals(useCaseToMessage)) {
-																																																																									if (!basicFlowToInteraction
-																																																																											.equals(useCase)) {
-																																																																										if (!basicFlowToInteraction
-																																																																												.equals(message)) {
-																																																																											if (!basicFlowToInteraction
-																																																																													.equals(interaction)) {
-																																																																												if (!basicFlowToInteraction
-																																																																														.equals(messageReceive)) {
-																																																																													if (!basicFlowToInteraction
-																																																																															.equals(packageDeclaration)) {
-																																																																														if (!basicFlowToInteraction
-																																																																																.equals(line)) {
-																																																																															if (!basicFlowToInteraction
-																																																																																	.equals(packageDeclarationToPackage)) {
-																																																																																return new Object[] {
-																																																																																		ruleresult,
-																																																																																		useCaseToMessage,
-																																																																																		useCase,
-																																																																																		message,
-																																																																																		interaction,
-																																																																																		messageReceive,
-																																																																																		actor,
-																																																																																		packageDeclaration,
-																																																																																		line,
-																																																																																		actorToLine,
-																																																																																		_package,
-																																																																																		packageDeclarationToPackage,
-																																																																																		basicFlow,
-																																																																																		basicFlowToInteraction };
-																																																																															}
-																																																																														}
-																																																																													}
-																																																																												}
-																																																																											}
-																																																																										}
-																																																																									}
-																																																																								}
-																																																																							}
-																																																																						}
-																																																																					}
-																																																																				}
-																																																																			}
-																																																																		}
-																																																																	}
-																																																																}
-																																																															}
-																																																														}
-																																																													}
-																																																												}
-																																																											}
-																																																										}
-																																																									}
+																																																		.equals(useCase)) {
+																																																	if (!actorToLine
+																																																			.equals(message)) {
+																																																		if (!actorToLine
+																																																				.equals(interaction)) {
+																																																			if (!actorToLine
+																																																					.equals(messageReceive)) {
+																																																				if (!actorToLine
+																																																						.equals(packageDeclaration)) {
+																																																					if (!actorToLine
+																																																							.equals(line)) {
+																																																						if (!actorToLine
+																																																								.equals(precondToMessage)) {
+																																																							if (!precondToMessage
+																																																									.equals(useCaseToInteraction)) {
+																																																								if (!precondToMessage
+																																																										.equals(useCase)) {
+																																																									return new Object[] {
+																																																											ruleresult,
+																																																											precond,
+																																																											useCaseToInteraction,
+																																																											useCase,
+																																																											message,
+																																																											interaction,
+																																																											messageReceive,
+																																																											actor,
+																																																											packageDeclaration,
+																																																											line,
+																																																											actorToLine,
+																																																											precondToMessage };
 																																																								}
 																																																							}
 																																																						}
@@ -4030,15 +3303,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject useCaseToMessage,
-			EObject useCase, EObject message, EObject interaction,
-			EObject messageReceive, EObject actor, EObject packageDeclaration,
-			EObject line, EObject actorToLine, EObject _package,
-			EObject basicFlow, EObject basicFlowToInteraction) {
-		EMoflonEdge useCaseToMessage__useCase____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge useCaseToMessage__message____target = TGGRuntimeFactory.eINSTANCE
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject precond, EObject useCase,
+			EObject message, EObject interaction, EObject messageReceive,
+			EObject line, EObject precondToMessage) {
+		EMoflonEdge useCase__precond____preconditions = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -4046,63 +3315,35 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge messageReceive__interaction____enclosingInteraction = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge precondToMessage__precond____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge actorToLine__line____target = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge useCase__basicFlow____flows = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge basicFlowToInteraction__basicFlow____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge basicFlowToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge precondToMessage__message____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "UseCasePrecondToFoundMessageRule";
-		String useCaseToMessage__useCase____source_name_prime = "source";
-		String useCaseToMessage__message____target_name_prime = "target";
+		String useCase__precond____preconditions_name_prime = "preconditions";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
 		String message__interaction____interaction_name_prime = "interaction";
 		String interaction__message____message_name_prime = "message";
-		String line__interaction____interaction_name_prime = "interaction";
-		String interaction__line____lifeline_name_prime = "lifeline";
 		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
 		String interaction__messageReceive____fragment_name_prime = "fragment";
 		String messageReceive__message____message_name_prime = "message";
-		String packageDeclaration__useCase____useCases_name_prime = "useCases";
-		String packageDeclaration__actor____actors_name_prime = "actors";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
-		String actorToLine__actor____source_name_prime = "source";
-		String actorToLine__line____target_name_prime = "target";
-		String _package__interaction____packagedElement_name_prime = "packagedElement";
-		String useCase__basicFlow____flows_name_prime = "flows";
-		String basicFlowToInteraction__basicFlow____source_name_prime = "source";
-		String basicFlowToInteraction__interaction____target_name_prime = "target";
-		useCaseToMessage__useCase____source.setSrc(useCaseToMessage);
-		useCaseToMessage__useCase____source.setTrg(useCase);
-		ruleresult.getCreatedEdges().add(useCaseToMessage__useCase____source);
-		useCaseToMessage__message____target.setSrc(useCaseToMessage);
-		useCaseToMessage__message____target.setTrg(message);
-		ruleresult.getCreatedEdges().add(useCaseToMessage__message____target);
+		String precondToMessage__precond____source_name_prime = "source";
+		String precondToMessage__message____target_name_prime = "target";
+		useCase__precond____preconditions.setSrc(useCase);
+		useCase__precond____preconditions.setTrg(precond);
+		ruleresult.getCreatedEdges().add(useCase__precond____preconditions);
 		message__messageReceive____receiveEvent.setSrc(message);
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		ruleresult.getTranslatedEdges().add(
@@ -4114,12 +3355,6 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		interaction__message____message.setSrc(interaction);
 		interaction__message____message.setTrg(message);
 		ruleresult.getTranslatedEdges().add(interaction__message____message);
-		line__interaction____interaction.setSrc(line);
-		line__interaction____interaction.setTrg(interaction);
-		ruleresult.getTranslatedEdges().add(line__interaction____interaction);
-		interaction__line____lifeline.setSrc(interaction);
-		interaction__line____lifeline.setTrg(line);
-		ruleresult.getTranslatedEdges().add(interaction__line____lifeline);
 		messageReceive__interaction____enclosingInteraction
 				.setSrc(messageReceive);
 		messageReceive__interaction____enclosingInteraction.setTrg(interaction);
@@ -4132,119 +3367,66 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		messageReceive__message____message.setSrc(messageReceive);
 		messageReceive__message____message.setTrg(message);
 		ruleresult.getTranslatedEdges().add(messageReceive__message____message);
-		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
-		packageDeclaration__useCase____useCases.setTrg(useCase);
-		ruleresult.getCreatedEdges().add(
-				packageDeclaration__useCase____useCases);
-		packageDeclaration__actor____actors.setSrc(packageDeclaration);
-		packageDeclaration__actor____actors.setTrg(actor);
-		ruleresult.getCreatedEdges().add(packageDeclaration__actor____actors);
 		line__messageReceive____coveredBy.setSrc(line);
 		line__messageReceive____coveredBy.setTrg(messageReceive);
 		ruleresult.getTranslatedEdges().add(line__messageReceive____coveredBy);
 		messageReceive__line____covered.setSrc(messageReceive);
 		messageReceive__line____covered.setTrg(line);
 		ruleresult.getTranslatedEdges().add(messageReceive__line____covered);
-		actorToLine__actor____source.setSrc(actorToLine);
-		actorToLine__actor____source.setTrg(actor);
-		ruleresult.getCreatedEdges().add(actorToLine__actor____source);
-		actorToLine__line____target.setSrc(actorToLine);
-		actorToLine__line____target.setTrg(line);
-		ruleresult.getCreatedEdges().add(actorToLine__line____target);
-		_package__interaction____packagedElement.setSrc(_package);
-		_package__interaction____packagedElement.setTrg(interaction);
-		ruleresult.getTranslatedEdges().add(
-				_package__interaction____packagedElement);
-		useCase__basicFlow____flows.setSrc(useCase);
-		useCase__basicFlow____flows.setTrg(basicFlow);
-		ruleresult.getCreatedEdges().add(useCase__basicFlow____flows);
-		basicFlowToInteraction__basicFlow____source
-				.setSrc(basicFlowToInteraction);
-		basicFlowToInteraction__basicFlow____source.setTrg(basicFlow);
-		ruleresult.getCreatedEdges().add(
-				basicFlowToInteraction__basicFlow____source);
-		basicFlowToInteraction__interaction____target
-				.setSrc(basicFlowToInteraction);
-		basicFlowToInteraction__interaction____target.setTrg(interaction);
-		ruleresult.getCreatedEdges().add(
-				basicFlowToInteraction__interaction____target);
+		precondToMessage__precond____source.setSrc(precondToMessage);
+		precondToMessage__precond____source.setTrg(precond);
+		ruleresult.getCreatedEdges().add(precondToMessage__precond____source);
+		precondToMessage__message____target.setSrc(precondToMessage);
+		precondToMessage__message____target.setTrg(message);
+		ruleresult.getCreatedEdges().add(precondToMessage__message____target);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
-		useCaseToMessage__useCase____source
-				.setName(useCaseToMessage__useCase____source_name_prime);
-		useCaseToMessage__message____target
-				.setName(useCaseToMessage__message____target_name_prime);
+		useCase__precond____preconditions
+				.setName(useCase__precond____preconditions_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
 		message__interaction____interaction
 				.setName(message__interaction____interaction_name_prime);
 		interaction__message____message
 				.setName(interaction__message____message_name_prime);
-		line__interaction____interaction
-				.setName(line__interaction____interaction_name_prime);
-		interaction__line____lifeline
-				.setName(interaction__line____lifeline_name_prime);
 		messageReceive__interaction____enclosingInteraction
 				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
 		interaction__messageReceive____fragment
 				.setName(interaction__messageReceive____fragment_name_prime);
 		messageReceive__message____message
 				.setName(messageReceive__message____message_name_prime);
-		packageDeclaration__useCase____useCases
-				.setName(packageDeclaration__useCase____useCases_name_prime);
-		packageDeclaration__actor____actors
-				.setName(packageDeclaration__actor____actors_name_prime);
 		line__messageReceive____coveredBy
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
-		actorToLine__actor____source
-				.setName(actorToLine__actor____source_name_prime);
-		actorToLine__line____target
-				.setName(actorToLine__line____target_name_prime);
-		_package__interaction____packagedElement
-				.setName(_package__interaction____packagedElement_name_prime);
-		useCase__basicFlow____flows
-				.setName(useCase__basicFlow____flows_name_prime);
-		basicFlowToInteraction__basicFlow____source
-				.setName(basicFlowToInteraction__basicFlow____source_name_prime);
-		basicFlowToInteraction__interaction____target
-				.setName(basicFlowToInteraction__interaction____target_name_prime);
-		return new Object[] { ruleresult, useCaseToMessage, useCase, message,
-				interaction, messageReceive, actor, packageDeclaration, line,
-				actorToLine, _package, basicFlow, basicFlowToInteraction,
-				useCaseToMessage__useCase____source,
-				useCaseToMessage__message____target,
+		precondToMessage__precond____source
+				.setName(precondToMessage__precond____source_name_prime);
+		precondToMessage__message____target
+				.setName(precondToMessage__message____target_name_prime);
+		return new Object[] { ruleresult, precond, useCase, message,
+				interaction, messageReceive, line, precondToMessage,
+				useCase__precond____preconditions,
 				message__messageReceive____receiveEvent,
 				message__interaction____interaction,
 				interaction__message____message,
-				line__interaction____interaction,
-				interaction__line____lifeline,
 				messageReceive__interaction____enclosingInteraction,
 				interaction__messageReceive____fragment,
 				messageReceive__message____message,
-				packageDeclaration__useCase____useCases,
-				packageDeclaration__actor____actors,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered, actorToLine__actor____source,
-				actorToLine__line____target,
-				_package__interaction____packagedElement,
-				useCase__basicFlow____flows,
-				basicFlowToInteraction__basicFlow____source,
-				basicFlowToInteraction__interaction____target };
+				messageReceive__line____covered,
+				precondToMessage__precond____source,
+				precondToMessage__message____target };
 	}
 
-	public static final void pattern_UseCasePrecondToFoundMessageRule_11_5_expressionBBBBBBBBBBBBBBB(
+	public static final void pattern_UseCasePrecondToFoundMessageRule_11_5_expressionBBBBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
-			PerformRuleResult ruleresult, EObject useCaseToMessage,
-			EObject useCase, EObject message, EObject interaction,
-			EObject messageReceive, EObject actor, EObject packageDeclaration,
-			EObject line, EObject actorToLine, EObject _package,
-			EObject packageDeclarationToPackage, EObject basicFlow,
-			EObject basicFlowToInteraction) {
-		_this.registerObjects_BWD(ruleresult, useCaseToMessage, useCase,
-				message, interaction, messageReceive, actor,
-				packageDeclaration, line, actorToLine, _package,
-				packageDeclarationToPackage, basicFlow, basicFlowToInteraction);
+			PerformRuleResult ruleresult, EObject precond,
+			EObject useCaseToInteraction, EObject useCase, EObject message,
+			EObject interaction, EObject messageReceive, EObject actor,
+			EObject packageDeclaration, EObject line, EObject actorToLine,
+			EObject precondToMessage) {
+		_this.registerObjects_BWD(ruleresult, precond, useCaseToInteraction,
+				useCase, message, interaction, messageReceive, actor,
+				packageDeclaration, line, actorToLine, precondToMessage);
 
 	}
 
@@ -4305,18 +3487,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return new Object[] { performOperation, ruleresult };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFFB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFB(
 			Match match) {
 		EObject _localVariable_0 = match.getObject("message");
 		EObject _localVariable_1 = match.getObject("interaction");
 		EObject _localVariable_2 = match.getObject("messageReceive");
 		EObject _localVariable_3 = match.getObject("line");
-		EObject _localVariable_4 = match.getObject("_package");
 		EObject tmpMessage = _localVariable_0;
 		EObject tmpInteraction = _localVariable_1;
 		EObject tmpMessageReceive = _localVariable_2;
 		EObject tmpLine = _localVariable_3;
-		EObject tmp_package = _localVariable_4;
 		if (tmpMessage instanceof Message) {
 			Message message = (Message) tmpMessage;
 			if (tmpInteraction instanceof Interaction) {
@@ -4325,11 +3505,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 					MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
 					if (tmpLine instanceof Lifeline) {
 						Lifeline line = (Lifeline) tmpLine;
-						if (tmp_package instanceof ModalSequenceDiagram.Package) {
-							ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
-							return new Object[] { message, interaction,
-									messageReceive, line, _package, match };
-						}
+						return new Object[] { message, interaction,
+								messageReceive, line, match };
 					}
 				}
 			}
@@ -4337,54 +3514,74 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_12_2_blackBBBFBBFB(
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_12_2_blackFFBBBFBFB(
 			Message message, Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package, Match match) {
+			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(_package,
-						PackageDeclarationToPackage.class, "target")) {
-			PackageDeclaration packageDeclaration = packageDeclarationToPackage
-					.getSource();
-			if (packageDeclaration != null) {
-				_result.add(new Object[] { message, interaction,
-						messageReceive, packageDeclaration, line, _package,
-						packageDeclarationToPackage, match });
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(interaction,
+						UseCaseToInteraction.class, "target")) {
+			UseCase useCase = useCaseToInteraction.getSource();
+			if (useCase != null) {
+				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+						.getOppositeReferenceTyped(line, ActorToLifeline.class,
+								"target")) {
+					Actor actor = actorToLine.getSource();
+					if (actor != null) {
+						_result.add(new Object[] { useCaseToInteraction,
+								useCase, message, interaction, messageReceive,
+								actor, line, actorToLine, match });
+					}
+
+				}
 			}
 
 		}
 		return _result;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_12_3_blackBBBBBBB(
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_12_3_blackBBBBBBFBB(
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
-			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
+			MessageOccurrenceSpecification messageReceive, Actor actor,
+			Lifeline line, ActorToLifeline actorToLine) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		if (messageReceive.equals(message.getReceiveEvent())) {
-			if (interaction.equals(message.getInteraction())) {
-				if (interaction.equals(line.getInteraction())) {
-					if (interaction.equals(messageReceive
-							.getEnclosingInteraction())) {
-						if (message.equals(messageReceive.getMessage())) {
-							if (line.getCoveredBy().contains(messageReceive)) {
-								if (_package.getPackagedElement().contains(
-										interaction)) {
-									if (packageDeclaration
-											.equals(packageDeclarationToPackage
-													.getSource())) {
-										if (_package
-												.equals(packageDeclarationToPackage
-														.getTarget())) {
-											_result.add(new Object[] { message,
-													interaction,
-													messageReceive,
-													packageDeclaration, line,
-													_package,
-													packageDeclarationToPackage });
+		if (useCase.equals(useCaseToInteraction.getSource())) {
+			if (interaction.equals(useCaseToInteraction.getTarget())) {
+				if (messageReceive.equals(message.getReceiveEvent())) {
+					if (interaction.equals(message.getInteraction())) {
+						if (interaction.equals(line.getInteraction())) {
+							if (interaction.equals(messageReceive
+									.getEnclosingInteraction())) {
+								if (message.equals(messageReceive.getMessage())) {
+									if (line.getCoveredBy().contains(
+											messageReceive)) {
+										if (actor.equals(actorToLine
+												.getSource())) {
+											if (line.equals(actorToLine
+													.getTarget())) {
+												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																useCase,
+																PackageDeclaration.class,
+																"useCases")) {
+													if (packageDeclaration
+															.getActors()
+															.contains(actor)) {
+														_result.add(new Object[] {
+																useCaseToInteraction,
+																useCase,
+																message,
+																interaction,
+																messageReceive,
+																actor,
+																packageDeclaration,
+																line,
+																actorToLine });
+													}
+												}
+											}
 										}
 									}
 								}
@@ -4397,14 +3594,18 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_3_greenBBBBBBBFFFFFFFFFFFFFF(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_3_greenBBBBBBBBBFFFFFFFFFFFFFFFFF(
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
 			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
+			ActorToLifeline actorToLine) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
@@ -4421,16 +3622,20 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__useCase____useCases = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge _package__interaction____packagedElement = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge packageDeclarationToPackage__packageDeclaration____source = TGGRuntimeFactory.eINSTANCE
+		EMoflonEdge actorToLine__line____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge packageDeclarationToPackage___package____target = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
 		String message__interaction____interaction_name_prime = "interaction";
 		String interaction__message____message_name_prime = "message";
@@ -4439,19 +3644,30 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
 		String interaction__messageReceive____fragment_name_prime = "fragment";
 		String messageReceive__message____message_name_prime = "message";
+		String packageDeclaration__useCase____useCases_name_prime = "useCases";
+		String packageDeclaration__actor____actors_name_prime = "actors";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
-		String _package__interaction____packagedElement_name_prime = "packagedElement";
-		String packageDeclarationToPackage__packageDeclaration____source_name_prime = "source";
-		String packageDeclarationToPackage___package____target_name_prime = "target";
+		String actorToLine__actor____source_name_prime = "source";
+		String actorToLine__line____target_name_prime = "target";
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
+		isApplicableMatch.getAllContextElements().add(useCase);
 		isApplicableMatch.getAllContextElements().add(message);
 		isApplicableMatch.getAllContextElements().add(interaction);
 		isApplicableMatch.getAllContextElements().add(messageReceive);
+		isApplicableMatch.getAllContextElements().add(actor);
 		isApplicableMatch.getAllContextElements().add(packageDeclaration);
 		isApplicableMatch.getAllContextElements().add(line);
-		isApplicableMatch.getAllContextElements().add(_package);
+		isApplicableMatch.getAllContextElements().add(actorToLine);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
 		isApplicableMatch.getAllContextElements().add(
-				packageDeclarationToPackage);
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
 		message__messageReceive____receiveEvent.setSrc(message);
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		isApplicableMatch.getAllContextElements().add(
@@ -4485,6 +3701,14 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		messageReceive__message____message.setTrg(message);
 		isApplicableMatch.getAllContextElements().add(
 				messageReceive__message____message);
+		packageDeclaration__useCase____useCases.setSrc(packageDeclaration);
+		packageDeclaration__useCase____useCases.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclaration__useCase____useCases);
+		packageDeclaration__actor____actors.setSrc(packageDeclaration);
+		packageDeclaration__actor____actors.setTrg(actor);
+		isApplicableMatch.getAllContextElements().add(
+				packageDeclaration__actor____actors);
 		line__messageReceive____coveredBy.setSrc(line);
 		line__messageReceive____coveredBy.setTrg(messageReceive);
 		isApplicableMatch.getAllContextElements().add(
@@ -4493,21 +3717,18 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		messageReceive__line____covered.setTrg(line);
 		isApplicableMatch.getAllContextElements().add(
 				messageReceive__line____covered);
-		_package__interaction____packagedElement.setSrc(_package);
-		_package__interaction____packagedElement.setTrg(interaction);
+		actorToLine__actor____source.setSrc(actorToLine);
+		actorToLine__actor____source.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(
-				_package__interaction____packagedElement);
-		packageDeclarationToPackage__packageDeclaration____source
-				.setSrc(packageDeclarationToPackage);
-		packageDeclarationToPackage__packageDeclaration____source
-				.setTrg(packageDeclaration);
+				actorToLine__actor____source);
+		actorToLine__line____target.setSrc(actorToLine);
+		actorToLine__line____target.setTrg(line);
 		isApplicableMatch.getAllContextElements().add(
-				packageDeclarationToPackage__packageDeclaration____source);
-		packageDeclarationToPackage___package____target
-				.setSrc(packageDeclarationToPackage);
-		packageDeclarationToPackage___package____target.setTrg(_package);
-		isApplicableMatch.getAllContextElements().add(
-				packageDeclarationToPackage___package____target);
+				actorToLine__line____target);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
 		message__interaction____interaction
@@ -4524,19 +3745,23 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.setName(interaction__messageReceive____fragment_name_prime);
 		messageReceive__message____message
 				.setName(messageReceive__message____message_name_prime);
+		packageDeclaration__useCase____useCases
+				.setName(packageDeclaration__useCase____useCases_name_prime);
+		packageDeclaration__actor____actors
+				.setName(packageDeclaration__actor____actors_name_prime);
 		line__messageReceive____coveredBy
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
-		_package__interaction____packagedElement
-				.setName(_package__interaction____packagedElement_name_prime);
-		packageDeclarationToPackage__packageDeclaration____source
-				.setName(packageDeclarationToPackage__packageDeclaration____source_name_prime);
-		packageDeclarationToPackage___package____target
-				.setName(packageDeclarationToPackage___package____target_name_prime);
-		return new Object[] { message, interaction, messageReceive,
-				packageDeclaration, line, _package,
-				packageDeclarationToPackage, isApplicableMatch,
+		actorToLine__actor____source
+				.setName(actorToLine__actor____source_name_prime);
+		actorToLine__line____target
+				.setName(actorToLine__line____target_name_prime);
+		return new Object[] { useCaseToInteraction, useCase, message,
+				interaction, messageReceive, actor, packageDeclaration, line,
+				actorToLine, isApplicableMatch,
+				useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target,
 				message__messageReceive____receiveEvent,
 				message__interaction____interaction,
 				interaction__message____message,
@@ -4545,30 +3770,31 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				messageReceive__interaction____enclosingInteraction,
 				interaction__messageReceive____fragment,
 				messageReceive__message____message,
+				packageDeclaration__useCase____useCases,
+				packageDeclaration__actor____actors,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered,
-				_package__interaction____packagedElement,
-				packageDeclarationToPackage__packageDeclaration____source,
-				packageDeclarationToPackage___package____target };
+				messageReceive__line____covered, actorToLine__actor____source,
+				actorToLine__line____target };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_bindingFBBBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_bindingFBBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
-			IsApplicableMatch isApplicableMatch, Message message,
-			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
+			IsApplicableMatch isApplicableMatch,
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
 			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
-		CSP _localVariable_0 = _this
-				.isApplicable_solveCsp_BWD(isApplicableMatch, message,
-						interaction, messageReceive, packageDeclaration, line,
-						_package, packageDeclarationToPackage);
+			ActorToLifeline actorToLine) {
+		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
+				isApplicableMatch, useCaseToInteraction, useCase, message,
+				interaction, messageReceive, actor, packageDeclaration, line,
+				actorToLine);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, isApplicableMatch, message,
-					interaction, messageReceive, packageDeclaration, line,
-					_package, packageDeclarationToPackage };
+			return new Object[] { csp, _this, isApplicableMatch,
+					useCaseToInteraction, useCase, message, interaction,
+					messageReceive, actor, packageDeclaration, line,
+					actorToLine };
 		}
 		return null;
 	}
@@ -4578,26 +3804,28 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_bindingAndBlackFBBBBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_12_4_bindingAndBlackFBBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
-			IsApplicableMatch isApplicableMatch, Message message,
-			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive,
+			IsApplicableMatch isApplicableMatch,
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Actor actor,
 			PackageDeclaration packageDeclaration, Lifeline line,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding = pattern_UseCasePrecondToFoundMessageRule_12_4_bindingFBBBBBBBBB(
-				_this, isApplicableMatch, message, interaction, messageReceive,
-				packageDeclaration, line, _package, packageDeclarationToPackage);
+			ActorToLifeline actorToLine) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding = pattern_UseCasePrecondToFoundMessageRule_12_4_bindingFBBBBBBBBBBB(
+				_this, isApplicableMatch, useCaseToInteraction, useCase,
+				message, interaction, messageReceive, actor,
+				packageDeclaration, line, actorToLine);
 		if (result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding != null) {
 			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_12_4_binding[0];
 
 			Object[] result_pattern_UseCasePrecondToFoundMessageRule_12_4_black = pattern_UseCasePrecondToFoundMessageRule_12_4_blackB(csp);
 			if (result_pattern_UseCasePrecondToFoundMessageRule_12_4_black != null) {
 
-				return new Object[] { csp, _this, isApplicableMatch, message,
-						interaction, messageReceive, packageDeclaration, line,
-						_package, packageDeclarationToPackage };
+				return new Object[] { csp, _this, isApplicableMatch,
+						useCaseToInteraction, useCase, message, interaction,
+						messageReceive, actor, packageDeclaration, line,
+						actorToLine };
 			}
 		}
 		return null;
@@ -4647,7 +3875,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -4679,98 +3907,38 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	}
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_558914 = message.getSendEvent();
-		if (__DEC_message_sendEvent_558914 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_558914)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_1BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_821554 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_821554)) {
-				return new Object[] { message, messageReceive };
+			UCCondition precond, UseCase useCase) {
+		for (UseCase __DEC_precond_preconditions_495218 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(precond, UseCase.class,
+						"preconditions")) {
+			if (!useCase.equals(__DEC_precond_preconditions_495218)) {
+				return new Object[] { precond, useCase };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_621839 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_621839 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_621839)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_3BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		if (messageReceive.equals(message.getSendEvent())) {
-			return new Object[] { message, messageReceive };
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_20_2_blackFFFFFB(
-			EMoflonEdge _edge_receiveEvent) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_20_2_blackFFFFB(
+			EMoflonEdge _edge_preconditions) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessage = _edge_receiveEvent.getSrc();
-		if (tmpMessage instanceof Message) {
-			Message message = (Message) tmpMessage;
-			EObject tmpMessageReceive = _edge_receiveEvent.getTrg();
-			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-				if (messageReceive.equals(message.getReceiveEvent())) {
-					if (message.equals(messageReceive.getMessage())) {
-						Interaction interaction = message.getInteraction();
-						if (interaction != null) {
-							if (interaction.equals(messageReceive
-									.getEnclosingInteraction())) {
-								if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
-										message, messageReceive) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_1BB(
-											message, messageReceive) == null) {
-										if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_3BB(
-												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_2B(interaction) == null) {
-												for (Lifeline line : messageReceive
-														.getCovered()) {
-													if (interaction.equals(line
-															.getInteraction())) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_receiveEvent });
-														}
-													}
-												}
-											}
-										}
-									}
-								}
+		EObject tmpUseCase = _edge_preconditions.getSrc();
+		if (tmpUseCase instanceof UseCase) {
+			UseCase useCase = (UseCase) tmpUseCase;
+			EObject tmpPrecond = _edge_preconditions.getTrg();
+			if (tmpPrecond instanceof UCCondition) {
+				UCCondition precond = (UCCondition) tmpPrecond;
+				if (useCase.getPreconditions().contains(precond)) {
+					if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
+							precond, useCase) == null) {
+						for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(useCase,
+										PackageDeclaration.class, "useCases")) {
+							for (Actor actor : packageDeclaration.getActors()) {
+								_result.add(new Object[] { precond, useCase,
+										actor, packageDeclaration,
+										_edge_preconditions });
 							}
 						}
-
 					}
 				}
 			}
@@ -4790,20 +3958,19 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_20_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_20_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+			UCCondition precond, UseCase useCase, Actor actor,
+			PackageDeclaration packageDeclaration) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, precond,
+				useCase, actor, packageDeclaration);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UseCasePrecondToFoundMessageRule_20_4_expressionFBB(
 			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -4875,9 +4042,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_714903 = message.getSendEvent();
-		if (__DEC_message_sendEvent_714903 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_714903)) {
+		MessageEnd __DEC_message_sendEvent_998975 = message.getSendEvent();
+		if (__DEC_message_sendEvent_998975 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_998975)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4887,30 +4054,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_784936 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_396385 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_784936)) {
+			if (!messageReceive.equals(__DEC_message_message_396385)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_307335 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_307335 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_307335)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -4918,48 +4071,37 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_21_2_blackFFFFFB(
-			EMoflonEdge _edge_interaction) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_21_2_blackFFFFB(
+			EMoflonEdge _edge_receiveEvent) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessage = _edge_interaction.getSrc();
+		EObject tmpMessage = _edge_receiveEvent.getSrc();
 		if (tmpMessage instanceof Message) {
 			Message message = (Message) tmpMessage;
-			EObject tmpInteraction = _edge_interaction.getTrg();
-			if (tmpInteraction instanceof Interaction) {
-				Interaction interaction = (Interaction) tmpInteraction;
-				if (interaction.equals(message.getInteraction())) {
-					MessageEnd tmpMessageReceive = message.getReceiveEvent();
-					if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-						MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-						if (interaction.equals(messageReceive
-								.getEnclosingInteraction())) {
-							if (message.equals(messageReceive.getMessage())) {
-								if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_2B(interaction) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
+			EObject tmpMessageReceive = _edge_receiveEvent.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (messageReceive.equals(message.getReceiveEvent())) {
+					if (message.equals(messageReceive.getMessage())) {
+						Interaction interaction = message.getInteraction();
+						if (interaction != null) {
+							if (interaction.equals(messageReceive
+									.getEnclosingInteraction())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
 											message, messageReceive) == null) {
-										if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
+										if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_2BB(
 												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_3BB(
-													message, messageReceive) == null) {
-												for (Lifeline line : interaction
-														.getLifeline()) {
-													if (line.getCoveredBy()
-															.contains(
-																	messageReceive)) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_interaction });
-														}
-													}
+											for (Lifeline line : messageReceive
+													.getCovered()) {
+												if (interaction.equals(line
+														.getInteraction())) {
+													_result.add(new Object[] {
+															message,
+															interaction,
+															messageReceive,
+															line,
+															_edge_receiveEvent });
 												}
 											}
 										}
@@ -4967,8 +4109,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								}
 							}
 						}
-					}
 
+					}
 				}
 			}
 
@@ -4987,13 +4129,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_21_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_21_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5072,9 +4213,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_239187 = message.getSendEvent();
-		if (__DEC_message_sendEvent_239187 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_239187)) {
+		MessageEnd __DEC_message_sendEvent_331294 = message.getSendEvent();
+		if (__DEC_message_sendEvent_331294 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_331294)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5084,30 +4225,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_177886 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_535285 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_177886)) {
+			if (!messageReceive.equals(__DEC_message_message_535285)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_76134 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_76134 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_76134)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -5115,15 +4242,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_22_2_blackFFFFFB(
-			EMoflonEdge _edge_message) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_22_2_blackFFFFB(
+			EMoflonEdge _edge_interaction) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInteraction = _edge_message.getSrc();
-		if (tmpInteraction instanceof Interaction) {
-			Interaction interaction = (Interaction) tmpInteraction;
-			EObject tmpMessage = _edge_message.getTrg();
-			if (tmpMessage instanceof Message) {
-				Message message = (Message) tmpMessage;
+		EObject tmpMessage = _edge_interaction.getSrc();
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			EObject tmpInteraction = _edge_interaction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
 				if (interaction.equals(message.getInteraction())) {
 					MessageEnd tmpMessageReceive = message.getReceiveEvent();
 					if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
@@ -5131,32 +4258,23 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						if (interaction.equals(messageReceive
 								.getEnclosingInteraction())) {
 							if (message.equals(messageReceive.getMessage())) {
-								if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_2B(interaction) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
+								if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
 											message, messageReceive) == null) {
-										if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
+										if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_2BB(
 												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_3BB(
-													message, messageReceive) == null) {
-												for (Lifeline line : interaction
-														.getLifeline()) {
-													if (line.getCoveredBy()
-															.contains(
-																	messageReceive)) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_message });
-														}
-													}
+											for (Lifeline line : interaction
+													.getLifeline()) {
+												if (line.getCoveredBy()
+														.contains(
+																messageReceive)) {
+													_result.add(new Object[] {
+															message,
+															interaction,
+															messageReceive,
+															line,
+															_edge_interaction });
 												}
 											}
 										}
@@ -5184,13 +4302,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_22_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_22_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5269,9 +4386,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_344970 = message.getSendEvent();
-		if (__DEC_message_sendEvent_344970 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_344970)) {
+		MessageEnd __DEC_message_sendEvent_626763 = message.getSendEvent();
+		if (__DEC_message_sendEvent_626763 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_626763)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5281,30 +4398,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_76461 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_122663 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_76461)) {
+			if (!messageReceive.equals(__DEC_message_message_122663)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_842782 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_842782 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_842782)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -5312,62 +4415,47 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_23_2_blackFFFFFB(
-			EMoflonEdge _edge_interaction) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_23_2_blackFFFFB(
+			EMoflonEdge _edge_message) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpLine = _edge_interaction.getSrc();
-		if (tmpLine instanceof Lifeline) {
-			Lifeline line = (Lifeline) tmpLine;
-			EObject tmpInteraction = _edge_interaction.getTrg();
-			if (tmpInteraction instanceof Interaction) {
-				Interaction interaction = (Interaction) tmpInteraction;
-				if (interaction.equals(line.getInteraction())) {
-					if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_2B(interaction) == null) {
-						for (InteractionFragment tmpMessageReceive : line
-								.getCoveredBy()) {
-							if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-								MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-								if (interaction.equals(messageReceive
-										.getEnclosingInteraction())) {
-									Message message = messageReceive
-											.getMessage();
-									if (message != null) {
-										if (messageReceive.equals(message
-												.getReceiveEvent())) {
-											if (interaction.equals(message
-													.getInteraction())) {
-												if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
-														message, messageReceive) == null) {
-													if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
+		EObject tmpInteraction = _edge_message.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			EObject tmpMessage = _edge_message.getTrg();
+			if (tmpMessage instanceof Message) {
+				Message message = (Message) tmpMessage;
+				if (interaction.equals(message.getInteraction())) {
+					MessageEnd tmpMessageReceive = message.getReceiveEvent();
+					if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+						MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+						if (interaction.equals(messageReceive
+								.getEnclosingInteraction())) {
+							if (message.equals(messageReceive.getMessage())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_2BB(
+												message, messageReceive) == null) {
+											for (Lifeline line : interaction
+													.getLifeline()) {
+												if (line.getCoveredBy()
+														.contains(
+																messageReceive)) {
+													_result.add(new Object[] {
 															message,
-															messageReceive) == null) {
-														if (pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_3BB(
-																message,
-																messageReceive) == null) {
-															for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																	.getOppositeReferenceTyped(
-																			interaction,
-																			ModalSequenceDiagram.Package.class,
-																			"packagedElement")) {
-																_result.add(new Object[] {
-																		message,
-																		interaction,
-																		messageReceive,
-																		line,
-																		_package,
-																		_edge_interaction });
-															}
-														}
-													}
+															interaction,
+															messageReceive,
+															line, _edge_message });
 												}
 											}
 										}
 									}
-
 								}
 							}
 						}
 					}
+
 				}
 			}
 
@@ -5386,13 +4474,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_23_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_23_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5471,9 +4558,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_450818 = message.getSendEvent();
-		if (__DEC_message_sendEvent_450818 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_450818)) {
+		MessageEnd __DEC_message_sendEvent_897594 = message.getSendEvent();
+		if (__DEC_message_sendEvent_897594 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_897594)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5483,30 +4570,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_571020 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_819967 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_571020)) {
+			if (!messageReceive.equals(__DEC_message_message_819967)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_91026 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_91026 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_91026)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -5514,58 +4587,46 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_24_2_blackFFFFFB(
-			EMoflonEdge _edge_lifeline) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_24_2_blackFFFFB(
+			EMoflonEdge _edge_enclosingInteraction) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInteraction = _edge_lifeline.getSrc();
-		if (tmpInteraction instanceof Interaction) {
-			Interaction interaction = (Interaction) tmpInteraction;
-			EObject tmpLine = _edge_lifeline.getTrg();
-			if (tmpLine instanceof Lifeline) {
-				Lifeline line = (Lifeline) tmpLine;
-				if (interaction.equals(line.getInteraction())) {
-					if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_2B(interaction) == null) {
-						for (Message message : interaction.getMessage()) {
-							MessageEnd tmpMessageReceive = message
-									.getReceiveEvent();
-							if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-								MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-								if (interaction.equals(messageReceive
-										.getEnclosingInteraction())) {
-									if (message.equals(messageReceive
-											.getMessage())) {
-										if (line.getCoveredBy().contains(
-												messageReceive)) {
-											if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
-													message, messageReceive) == null) {
-												if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
-														message, messageReceive) == null) {
-													if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_3BB(
+		EObject tmpMessageReceive = _edge_enclosingInteraction.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpInteraction = _edge_enclosingInteraction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (interaction
+						.equals(messageReceive.getEnclosingInteraction())) {
+					Message message = messageReceive.getMessage();
+					if (message != null) {
+						if (messageReceive.equals(message.getReceiveEvent())) {
+							if (interaction.equals(message.getInteraction())) {
+								if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
+											message, messageReceive) == null) {
+										if (pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_2BB(
+												message, messageReceive) == null) {
+											for (Lifeline line : messageReceive
+													.getCovered()) {
+												if (interaction.equals(line
+														.getInteraction())) {
+													_result.add(new Object[] {
 															message,
-															messageReceive) == null) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_lifeline });
-														}
-													}
+															interaction,
+															messageReceive,
+															line,
+															_edge_enclosingInteraction });
 												}
 											}
 										}
 									}
 								}
 							}
-
 						}
 					}
+
 				}
 			}
 
@@ -5584,13 +4645,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_24_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_24_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5669,9 +4729,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_130589 = message.getSendEvent();
-		if (__DEC_message_sendEvent_130589 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_130589)) {
+		MessageEnd __DEC_message_sendEvent_123629 = message.getSendEvent();
+		if (__DEC_message_sendEvent_123629 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_123629)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5681,30 +4741,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_317468 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_4403 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_317468)) {
+			if (!messageReceive.equals(__DEC_message_message_4403)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_958832 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_958832 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_958832)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -5712,46 +4758,38 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_25_2_blackFFFFFB(
-			EMoflonEdge _edge_enclosingInteraction) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_25_2_blackFFFFB(
+			EMoflonEdge _edge_fragment) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessageReceive = _edge_enclosingInteraction.getSrc();
-		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-			EObject tmpInteraction = _edge_enclosingInteraction.getTrg();
-			if (tmpInteraction instanceof Interaction) {
-				Interaction interaction = (Interaction) tmpInteraction;
+		EObject tmpInteraction = _edge_fragment.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
+			EObject tmpMessageReceive = _edge_fragment.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
 				if (interaction
 						.equals(messageReceive.getEnclosingInteraction())) {
 					Message message = messageReceive.getMessage();
 					if (message != null) {
 						if (messageReceive.equals(message.getReceiveEvent())) {
 							if (interaction.equals(message.getInteraction())) {
-								if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_2B(interaction) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
+								if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
 											message, messageReceive) == null) {
-										if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
+										if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_2BB(
 												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_3BB(
-													message, messageReceive) == null) {
-												for (Lifeline line : messageReceive
-														.getCovered()) {
-													if (interaction.equals(line
-															.getInteraction())) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_enclosingInteraction });
-														}
-													}
+											for (Lifeline line : interaction
+													.getLifeline()) {
+												if (line.getCoveredBy()
+														.contains(
+																messageReceive)) {
+													_result.add(new Object[] {
+															message,
+															interaction,
+															messageReceive,
+															line,
+															_edge_fragment });
 												}
 											}
 										}
@@ -5779,13 +4817,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_25_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_25_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5864,9 +4901,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_470398 = message.getSendEvent();
-		if (__DEC_message_sendEvent_470398 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_470398)) {
+		MessageEnd __DEC_message_sendEvent_334165 = message.getSendEvent();
+		if (__DEC_message_sendEvent_334165 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_334165)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5876,30 +4913,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_859320 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_420830 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_859320)) {
+			if (!messageReceive.equals(__DEC_message_message_420830)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_540010 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_540010 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_540010)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -5907,47 +4930,36 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_26_2_blackFFFFFB(
-			EMoflonEdge _edge_fragment) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_26_2_blackFFFFB(
+			EMoflonEdge _edge_message) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInteraction = _edge_fragment.getSrc();
-		if (tmpInteraction instanceof Interaction) {
-			Interaction interaction = (Interaction) tmpInteraction;
-			EObject tmpMessageReceive = _edge_fragment.getTrg();
-			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-				if (interaction
-						.equals(messageReceive.getEnclosingInteraction())) {
-					Message message = messageReceive.getMessage();
-					if (message != null) {
-						if (messageReceive.equals(message.getReceiveEvent())) {
+		EObject tmpMessageReceive = _edge_message.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpMessage = _edge_message.getTrg();
+			if (tmpMessage instanceof Message) {
+				Message message = (Message) tmpMessage;
+				if (messageReceive.equals(message.getReceiveEvent())) {
+					if (message.equals(messageReceive.getMessage())) {
+						Interaction interaction = messageReceive
+								.getEnclosingInteraction();
+						if (interaction != null) {
 							if (interaction.equals(message.getInteraction())) {
-								if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_2B(interaction) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
+								if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
+										message, messageReceive) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
 											message, messageReceive) == null) {
-										if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
+										if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_2BB(
 												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_3BB(
-													message, messageReceive) == null) {
-												for (Lifeline line : interaction
-														.getLifeline()) {
-													if (line.getCoveredBy()
-															.contains(
-																	messageReceive)) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_fragment });
-														}
-													}
+											for (Lifeline line : messageReceive
+													.getCovered()) {
+												if (interaction.equals(line
+														.getInteraction())) {
+													_result.add(new Object[] {
+															message,
+															interaction,
+															messageReceive,
+															line, _edge_message });
 												}
 											}
 										}
@@ -5955,8 +4967,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								}
 							}
 						}
-					}
 
+					}
 				}
 			}
 
@@ -5975,13 +4987,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_26_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_26_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -6060,9 +5071,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_289662 = message.getSendEvent();
-		if (__DEC_message_sendEvent_289662 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_289662)) {
+		MessageEnd __DEC_message_sendEvent_838320 = message.getSendEvent();
+		if (__DEC_message_sendEvent_838320 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_838320)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -6072,30 +5083,16 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_708866 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_862236 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_708866)) {
+			if (!messageReceive.equals(__DEC_message_message_862236)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_171980 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_171980 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_171980)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_3BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_2BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
 		if (messageReceive.equals(message.getSendEvent())) {
 			return new Object[] { message, messageReceive };
@@ -6103,55 +5100,48 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_27_2_blackFFFFFB(
-			EMoflonEdge _edge_message) {
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_27_2_blackFFFFB(
+			EMoflonEdge _edge_coveredBy) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessageReceive = _edge_message.getSrc();
-		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-			EObject tmpMessage = _edge_message.getTrg();
-			if (tmpMessage instanceof Message) {
-				Message message = (Message) tmpMessage;
-				if (messageReceive.equals(message.getReceiveEvent())) {
-					if (message.equals(messageReceive.getMessage())) {
-						Interaction interaction = messageReceive
-								.getEnclosingInteraction();
-						if (interaction != null) {
-							if (interaction.equals(message.getInteraction())) {
-								if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
-										message, messageReceive) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
-											message, messageReceive) == null) {
-										if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_3BB(
+		EObject tmpLine = _edge_coveredBy.getSrc();
+		if (tmpLine instanceof Lifeline) {
+			Lifeline line = (Lifeline) tmpLine;
+			EObject tmpMessageReceive = _edge_coveredBy.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (line.getCoveredBy().contains(messageReceive)) {
+					Interaction interaction = line.getInteraction();
+					if (interaction != null) {
+						if (interaction.equals(messageReceive
+								.getEnclosingInteraction())) {
+							Message message = messageReceive.getMessage();
+							if (message != null) {
+								if (messageReceive.equals(message
+										.getReceiveEvent())) {
+									if (interaction.equals(message
+											.getInteraction())) {
+										if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
 												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_2B(interaction) == null) {
-												for (Lifeline line : messageReceive
-														.getCovered()) {
-													if (interaction.equals(line
-															.getInteraction())) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_message });
-														}
-													}
+											if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
+													message, messageReceive) == null) {
+												if (pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_2BB(
+														message, messageReceive) == null) {
+													_result.add(new Object[] {
+															message,
+															interaction,
+															messageReceive,
+															line,
+															_edge_coveredBy });
 												}
 											}
 										}
 									}
 								}
 							}
-						}
 
+						}
 					}
+
 				}
 			}
 
@@ -6170,13 +5160,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_27_3_expressionFBBBBBBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_27_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
 			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
 		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -6222,7 +5211,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
+			if (__performOperationname.equals("isApplicable_BWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -6254,55 +5243,77 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	}
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
-			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_933250 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
-						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_933250)) {
-				return new Object[] { useCase, packageDeclaration };
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		MessageEnd __DEC_message_sendEvent_717769 = message.getSendEvent();
+		if (__DEC_message_sendEvent_717769 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_717769)) {
+				return new Object[] { message, messageReceive };
+			}
+		}
+
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		for (MessageEnd __DEC_message_message_8357 : org.moflon.util.eMoflonEMFUtil
+				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
+			if (!messageReceive.equals(__DEC_message_message_8357)) {
+				return new Object[] { message, messageReceive };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
-			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_425698 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
-						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_425698)) {
-				return new Object[] { actor, packageDeclaration };
-			}
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_2BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
 		}
 		return null;
 	}
 
 	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_28_2_blackFFFFB(
-			EMoflonEdge _edge_useCases) {
+			EMoflonEdge _edge_covered) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpPackageDeclaration = _edge_useCases.getSrc();
-		if (tmpPackageDeclaration instanceof PackageDeclaration) {
-			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
-			EObject tmpUseCase = _edge_useCases.getTrg();
-			if (tmpUseCase instanceof UseCase) {
-				UseCase useCase = (UseCase) tmpUseCase;
-				if (packageDeclaration.getUseCases().contains(useCase)) {
-					if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
-							useCase, packageDeclaration) == null) {
-						for (Actor actor : packageDeclaration.getActors()) {
-							if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
-									actor, packageDeclaration) == null) {
-								for (Flow tmpBasicFlow : useCase.getFlows()) {
-									if (tmpBasicFlow instanceof BasicFlow) {
-										BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
-										_result.add(new Object[] { useCase,
-												actor, packageDeclaration,
-												basicFlow, _edge_useCases });
+		EObject tmpMessageReceive = _edge_covered.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpLine = _edge_covered.getTrg();
+			if (tmpLine instanceof Lifeline) {
+				Lifeline line = (Lifeline) tmpLine;
+				if (line.getCoveredBy().contains(messageReceive)) {
+					Interaction interaction = messageReceive
+							.getEnclosingInteraction();
+					if (interaction != null) {
+						if (interaction.equals(line.getInteraction())) {
+							Message message = messageReceive.getMessage();
+							if (message != null) {
+								if (messageReceive.equals(message
+										.getReceiveEvent())) {
+									if (interaction.equals(message
+											.getInteraction())) {
+										if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
+												message, messageReceive) == null) {
+											if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
+													message, messageReceive) == null) {
+												if (pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_2BB(
+														message, messageReceive) == null) {
+													_result.add(new Object[] {
+															message,
+															interaction,
+															messageReceive,
+															line, _edge_covered });
+												}
+											}
+										}
 									}
 								}
 							}
+
 						}
 					}
+
 				}
 			}
 
@@ -6323,17 +5334,17 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final boolean pattern_UseCasePrecondToFoundMessageRule_28_3_expressionFBBBBBB(
 			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
-				actor, packageDeclaration, basicFlow);
+			Message message, Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Lifeline line) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
+				interaction, messageReceive, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UseCasePrecondToFoundMessageRule_28_4_expressionFBB(
 			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -6358,902 +5369,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_bindingFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		EClass _localVariable_0 = _this.eClass();
-		EClass __eClass = _localVariable_0;
-		if (__eClass != null) {
-			return new Object[] { __eClass, _this };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_blackFBB(
-			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
-		for (EOperation __performOperation : __eClass.getEOperations()) {
-			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_bindingAndBlackFFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_29_1_binding = pattern_UseCasePrecondToFoundMessageRule_29_1_bindingFB(_this);
-		if (result_pattern_UseCasePrecondToFoundMessageRule_29_1_binding != null) {
-			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_29_1_binding[0];
-
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_29_1_black = pattern_UseCasePrecondToFoundMessageRule_29_1_blackFBB(
-					__eClass, _this);
-			if (result_pattern_UseCasePrecondToFoundMessageRule_29_1_black != null) {
-				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_29_1_black[0];
-
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_1_greenF() {
-		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
-				.createEObjectContainer();
-		return new Object[] { __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_0BB(
-			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_953791 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
-						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_953791)) {
-				return new Object[] { useCase, packageDeclaration };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_1BB(
-			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_696850 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
-						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_696850)) {
-				return new Object[] { actor, packageDeclaration };
-			}
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_29_2_blackFFFFB(
-			EMoflonEdge _edge_actors) {
-		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpPackageDeclaration = _edge_actors.getSrc();
-		if (tmpPackageDeclaration instanceof PackageDeclaration) {
-			PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
-			EObject tmpActor = _edge_actors.getTrg();
-			if (tmpActor instanceof Actor) {
-				Actor actor = (Actor) tmpActor;
-				if (packageDeclaration.getActors().contains(actor)) {
-					if (pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_1BB(
-							actor, packageDeclaration) == null) {
-						for (UseCase useCase : packageDeclaration.getUseCases()) {
-							if (pattern_UseCasePrecondToFoundMessageRule_29_2_black_nac_0BB(
-									useCase, packageDeclaration) == null) {
-								for (Flow tmpBasicFlow : useCase.getFlows()) {
-									if (tmpBasicFlow instanceof BasicFlow) {
-										BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
-										_result.add(new Object[] { useCase,
-												actor, packageDeclaration,
-												basicFlow, _edge_actors });
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-
-		}
-
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_2_greenFB(
-			EClass __eClass) {
-		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
-		String __eClassname = __eClass.getName();
-		String match_ruleName_prime = __eClassname;
-		match.setRuleName(match_ruleName_prime);
-		return new Object[] { match, __eClass };
-
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_29_3_expressionFBBBBBB(
-			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
-				actor, packageDeclaration, basicFlow);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_29_4_expressionFBB(
-			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_5_blackBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_29_5_greenBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		__result.getContents().add(match);
-		match.setIsApplicableOperation(__performOperation);
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_29_6_expressionFB(
-			EObjectContainer __result) {
-		EObjectContainer _result = __result;
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_bindingFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		EClass _localVariable_0 = _this.eClass();
-		EClass __eClass = _localVariable_0;
-		if (__eClass != null) {
-			return new Object[] { __eClass, _this };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_blackFBB(
-			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
-		for (EOperation __performOperation : __eClass.getEOperations()) {
-			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_bindingAndBlackFFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_30_1_binding = pattern_UseCasePrecondToFoundMessageRule_30_1_bindingFB(_this);
-		if (result_pattern_UseCasePrecondToFoundMessageRule_30_1_binding != null) {
-			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_30_1_binding[0];
-
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_30_1_black = pattern_UseCasePrecondToFoundMessageRule_30_1_blackFBB(
-					__eClass, _this);
-			if (result_pattern_UseCasePrecondToFoundMessageRule_30_1_black != null) {
-				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_30_1_black[0];
-
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_1_greenF() {
-		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
-				.createEObjectContainer();
-		return new Object[] { __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_0BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_65966 = message.getSendEvent();
-		if (__DEC_message_sendEvent_65966 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_65966)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_1BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_173858 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_173858)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_591769 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_591769 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_591769)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_3BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		if (messageReceive.equals(message.getSendEvent())) {
-			return new Object[] { message, messageReceive };
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_30_2_blackFFFFFB(
-			EMoflonEdge _edge_coveredBy) {
-		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpLine = _edge_coveredBy.getSrc();
-		if (tmpLine instanceof Lifeline) {
-			Lifeline line = (Lifeline) tmpLine;
-			EObject tmpMessageReceive = _edge_coveredBy.getTrg();
-			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-				if (line.getCoveredBy().contains(messageReceive)) {
-					Interaction interaction = line.getInteraction();
-					if (interaction != null) {
-						if (interaction.equals(messageReceive
-								.getEnclosingInteraction())) {
-							Message message = messageReceive.getMessage();
-							if (message != null) {
-								if (messageReceive.equals(message
-										.getReceiveEvent())) {
-									if (interaction.equals(message
-											.getInteraction())) {
-										if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_2B(interaction) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_0BB(
-													message, messageReceive) == null) {
-												if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_1BB(
-														message, messageReceive) == null) {
-													if (pattern_UseCasePrecondToFoundMessageRule_30_2_black_nac_3BB(
-															message,
-															messageReceive) == null) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_coveredBy });
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-
-						}
-					}
-
-				}
-			}
-
-		}
-
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_2_greenFB(
-			EClass __eClass) {
-		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
-		String __eClassname = __eClass.getName();
-		String match_ruleName_prime = __eClassname;
-		match.setRuleName(match_ruleName_prime);
-		return new Object[] { match, __eClass };
-
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_30_3_expressionFBBBBBBB(
-			UseCasePrecondToFoundMessageRule _this, Match match,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_30_4_expressionFBB(
-			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_5_blackBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_30_5_greenBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		__result.getContents().add(match);
-		match.setIsApplicableOperation(__performOperation);
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_30_6_expressionFB(
-			EObjectContainer __result) {
-		EObjectContainer _result = __result;
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_bindingFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		EClass _localVariable_0 = _this.eClass();
-		EClass __eClass = _localVariable_0;
-		if (__eClass != null) {
-			return new Object[] { __eClass, _this };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_blackFBB(
-			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
-		for (EOperation __performOperation : __eClass.getEOperations()) {
-			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_bindingAndBlackFFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_31_1_binding = pattern_UseCasePrecondToFoundMessageRule_31_1_bindingFB(_this);
-		if (result_pattern_UseCasePrecondToFoundMessageRule_31_1_binding != null) {
-			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_31_1_binding[0];
-
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_31_1_black = pattern_UseCasePrecondToFoundMessageRule_31_1_blackFBB(
-					__eClass, _this);
-			if (result_pattern_UseCasePrecondToFoundMessageRule_31_1_black != null) {
-				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_31_1_black[0];
-
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_greenF() {
-		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
-				.createEObjectContainer();
-		return new Object[] { __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_0BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_288713 = message.getSendEvent();
-		if (__DEC_message_sendEvent_288713 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_288713)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_1BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_579108 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_579108)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_357021 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_357021 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_357021)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		if (messageReceive.equals(message.getSendEvent())) {
-			return new Object[] { message, messageReceive };
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_31_2_blackFFFFFB(
-			EMoflonEdge _edge_covered) {
-		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessageReceive = _edge_covered.getSrc();
-		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-			EObject tmpLine = _edge_covered.getTrg();
-			if (tmpLine instanceof Lifeline) {
-				Lifeline line = (Lifeline) tmpLine;
-				if (line.getCoveredBy().contains(messageReceive)) {
-					Interaction interaction = messageReceive
-							.getEnclosingInteraction();
-					if (interaction != null) {
-						if (interaction.equals(line.getInteraction())) {
-							Message message = messageReceive.getMessage();
-							if (message != null) {
-								if (messageReceive.equals(message
-										.getReceiveEvent())) {
-									if (interaction.equals(message
-											.getInteraction())) {
-										if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_2B(interaction) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_0BB(
-													message, messageReceive) == null) {
-												if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_1BB(
-														message, messageReceive) == null) {
-													if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
-															message,
-															messageReceive) == null) {
-														for (ModalSequenceDiagram.Package _package : org.moflon.util.eMoflonEMFUtil
-																.getOppositeReferenceTyped(
-																		interaction,
-																		ModalSequenceDiagram.Package.class,
-																		"packagedElement")) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_covered });
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-
-						}
-					}
-
-				}
-			}
-
-		}
-
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_greenFB(
-			EClass __eClass) {
-		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
-		String __eClassname = __eClass.getName();
-		String match_ruleName_prime = __eClassname;
-		match.setRuleName(match_ruleName_prime);
-		return new Object[] { match, __eClass };
-
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_31_3_expressionFBBBBBBB(
-			UseCasePrecondToFoundMessageRule _this, Match match,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_31_4_expressionFBB(
-			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_5_blackBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_5_greenBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		__result.getContents().add(match);
-		match.setIsApplicableOperation(__performOperation);
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_31_6_expressionFB(
-			EObjectContainer __result) {
-		EObjectContainer _result = __result;
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_bindingFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		EClass _localVariable_0 = _this.eClass();
-		EClass __eClass = _localVariable_0;
-		if (__eClass != null) {
-			return new Object[] { __eClass, _this };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_blackFBB(
-			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
-		for (EOperation __performOperation : __eClass.getEOperations()) {
-			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_bindingAndBlackFFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_32_1_binding = pattern_UseCasePrecondToFoundMessageRule_32_1_bindingFB(_this);
-		if (result_pattern_UseCasePrecondToFoundMessageRule_32_1_binding != null) {
-			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_32_1_binding[0];
-
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_32_1_black = pattern_UseCasePrecondToFoundMessageRule_32_1_blackFBB(
-					__eClass, _this);
-			if (result_pattern_UseCasePrecondToFoundMessageRule_32_1_black != null) {
-				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_32_1_black[0];
-
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_1_greenF() {
-		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
-				.createEObjectContainer();
-		return new Object[] { __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_0BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_146168 = message.getSendEvent();
-		if (__DEC_message_sendEvent_146168 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_146168)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_1BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_543255 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_543255)) {
-				return new Object[] { message, messageReceive };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_2B(
-			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_469654 = interaction
-				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_469654 != null) {
-			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_469654)) {
-				return new Object[] { interaction };
-			}
-		}
-
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_3BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		if (messageReceive.equals(message.getSendEvent())) {
-			return new Object[] { message, messageReceive };
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_32_2_blackFFFFFB(
-			EMoflonEdge _edge_packagedElement) {
-		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmp_package = _edge_packagedElement.getSrc();
-		if (tmp_package instanceof ModalSequenceDiagram.Package) {
-			ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) tmp_package;
-			EObject tmpInteraction = _edge_packagedElement.getTrg();
-			if (tmpInteraction instanceof Interaction) {
-				Interaction interaction = (Interaction) tmpInteraction;
-				if (_package.getPackagedElement().contains(interaction)) {
-					if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_2B(interaction) == null) {
-						for (Message message : interaction.getMessage()) {
-							MessageEnd tmpMessageReceive = message
-									.getReceiveEvent();
-							if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-								MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-								if (interaction.equals(messageReceive
-										.getEnclosingInteraction())) {
-									if (message.equals(messageReceive
-											.getMessage())) {
-										if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_0BB(
-												message, messageReceive) == null) {
-											if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_1BB(
-													message, messageReceive) == null) {
-												if (pattern_UseCasePrecondToFoundMessageRule_32_2_black_nac_3BB(
-														message, messageReceive) == null) {
-													for (Lifeline line : interaction
-															.getLifeline()) {
-														if (line.getCoveredBy()
-																.contains(
-																		messageReceive)) {
-															_result.add(new Object[] {
-																	message,
-																	interaction,
-																	messageReceive,
-																	line,
-																	_package,
-																	_edge_packagedElement });
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-
-						}
-					}
-				}
-			}
-
-		}
-
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_2_greenFB(
-			EClass __eClass) {
-		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
-		String __eClassname = __eClass.getName();
-		String match_ruleName_prime = __eClassname;
-		match.setRuleName(match_ruleName_prime);
-		return new Object[] { match, __eClass };
-
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_32_3_expressionFBBBBBBB(
-			UseCasePrecondToFoundMessageRule _this, Match match,
-			Message message, Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			ModalSequenceDiagram.Package _package) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, message,
-				interaction, messageReceive, line, _package);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_32_4_expressionFBB(
-			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_5_blackBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_32_5_greenBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		__result.getContents().add(match);
-		match.setIsApplicableOperation(__performOperation);
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_32_6_expressionFB(
-			EObjectContainer __result) {
-		EObjectContainer _result = __result;
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_bindingFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		EClass _localVariable_0 = _this.eClass();
-		EClass __eClass = _localVariable_0;
-		if (__eClass != null) {
-			return new Object[] { __eClass, _this };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_blackFBB(
-			EClass __eClass, UseCasePrecondToFoundMessageRule _this) {
-		for (EOperation __performOperation : __eClass.getEOperations()) {
-			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_bindingAndBlackFFB(
-			UseCasePrecondToFoundMessageRule _this) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_33_1_binding = pattern_UseCasePrecondToFoundMessageRule_33_1_bindingFB(_this);
-		if (result_pattern_UseCasePrecondToFoundMessageRule_33_1_binding != null) {
-			EClass __eClass = (EClass) result_pattern_UseCasePrecondToFoundMessageRule_33_1_binding[0];
-
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_33_1_black = pattern_UseCasePrecondToFoundMessageRule_33_1_blackFBB(
-					__eClass, _this);
-			if (result_pattern_UseCasePrecondToFoundMessageRule_33_1_black != null) {
-				EOperation __performOperation = (EOperation) result_pattern_UseCasePrecondToFoundMessageRule_33_1_black[0];
-
-				return new Object[] { __performOperation, __eClass, _this };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_1_greenF() {
-		EObjectContainer __result = TGGRuntimeFactory.eINSTANCE
-				.createEObjectContainer();
-		return new Object[] { __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_0BB(
-			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_131275 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
-						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_131275)) {
-				return new Object[] { useCase, packageDeclaration };
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_1BB(
-			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_133573 : org.moflon.util.eMoflonEMFUtil
-				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
-						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_133573)) {
-				return new Object[] { actor, packageDeclaration };
-			}
-		}
-		return null;
-	}
-
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_33_2_blackFFFFB(
-			EMoflonEdge _edge_flows) {
-		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpUseCase = _edge_flows.getSrc();
-		if (tmpUseCase instanceof UseCase) {
-			UseCase useCase = (UseCase) tmpUseCase;
-			EObject tmpBasicFlow = _edge_flows.getTrg();
-			if (tmpBasicFlow instanceof BasicFlow) {
-				BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
-				if (useCase.getFlows().contains(basicFlow)) {
-					for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
-							.getOppositeReferenceTyped(useCase,
-									PackageDeclaration.class, "useCases")) {
-						if (pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_0BB(
-								useCase, packageDeclaration) == null) {
-							for (Actor actor : packageDeclaration.getActors()) {
-								if (pattern_UseCasePrecondToFoundMessageRule_33_2_black_nac_1BB(
-										actor, packageDeclaration) == null) {
-									_result.add(new Object[] { useCase, actor,
-											packageDeclaration, basicFlow,
-											_edge_flows });
-								}
-							}
-						}
-					}
-				}
-			}
-
-		}
-
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_2_greenFB(
-			EClass __eClass) {
-		Match match = TGGRuntimeFactory.eINSTANCE.createMatch();
-		String __eClassname = __eClass.getName();
-		String match_ruleName_prime = __eClassname;
-		match.setRuleName(match_ruleName_prime);
-		return new Object[] { match, __eClass };
-
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_33_3_expressionFBBBBBB(
-			UseCasePrecondToFoundMessageRule _this, Match match,
-			UseCase useCase, Actor actor,
-			PackageDeclaration packageDeclaration, BasicFlow basicFlow) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, useCase,
-				actor, packageDeclaration, basicFlow);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_33_4_expressionFBB(
-			UseCasePrecondToFoundMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
-		boolean _result = Boolean.valueOf(_localVariable_0);
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_5_blackBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_33_5_greenBBB(
-			Match match, EOperation __performOperation,
-			EObjectContainer __result) {
-		__result.getContents().add(match);
-		match.setIsApplicableOperation(__performOperation);
-		return new Object[] { match, __performOperation, __result };
-	}
-
-	public static final EObjectContainer pattern_UseCasePrecondToFoundMessageRule_33_6_expressionFB(
-			EObjectContainer __result) {
-		EObjectContainer _result = __result;
-		return _result;
-	}
-
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_1_blackB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_blackB(
 			UseCasePrecondToFoundMessageRule _this) {
 		return new Object[] { _this };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_1_greenFF() {
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_1_greenFF() {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		ModelgeneratorRuleResult ruleResult = TGGRuntimeFactory.eINSTANCE
@@ -7263,7 +5384,24 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return new Object[] { isApplicableMatch, ruleResult };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_0BB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_0BB(
+			ModelgeneratorRuleResult ruleResult,
+			UseCaseToInteraction useCaseToInteraction) {
+		if (ruleResult.getCorrObjects().contains(useCaseToInteraction)) {
+			return new Object[] { ruleResult, useCaseToInteraction };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_1BB(
+			ModelgeneratorRuleResult ruleResult, UseCase useCase) {
+		if (ruleResult.getSourceObjects().contains(useCase)) {
+			return new Object[] { ruleResult, useCase };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_2BB(
 			ModelgeneratorRuleResult ruleResult,
 			PackageDeclaration packageDeclaration) {
 		if (ruleResult.getSourceObjects().contains(packageDeclaration)) {
@@ -7272,52 +5410,107 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_1BB(
-			ModelgeneratorRuleResult ruleResult,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
-		if (ruleResult.getCorrObjects().contains(packageDeclarationToPackage)) {
-			return new Object[] { ruleResult, packageDeclarationToPackage };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
+			ModelgeneratorRuleResult ruleResult, Actor actor) {
+		if (ruleResult.getSourceObjects().contains(actor)) {
+			return new Object[] { ruleResult, actor };
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_2BB(
-			ModelgeneratorRuleResult ruleResult,
-			ModalSequenceDiagram.Package _package) {
-		if (ruleResult.getTargetObjects().contains(_package)) {
-			return new Object[] { ruleResult, _package };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_4BB(
+			ModelgeneratorRuleResult ruleResult, ActorToLifeline actorToLine) {
+		if (ruleResult.getCorrObjects().contains(actorToLine)) {
+			return new Object[] { ruleResult, actorToLine };
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_36_2_blackFFFFBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_5BB(
+			ModelgeneratorRuleResult ruleResult, Lifeline line) {
+		if (ruleResult.getTargetObjects().contains(line)) {
+			return new Object[] { ruleResult, line };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_6BB(
+			ModelgeneratorRuleResult ruleResult, Interaction interaction) {
+		if (ruleResult.getTargetObjects().contains(interaction)) {
+			return new Object[] { ruleResult, interaction };
+		}
+		return null;
+	}
+
+	public static final Iterable<Object[]> pattern_UseCasePrecondToFoundMessageRule_31_2_blackFFFFFFFFBB(
 			RuleEntryContainer ruleEntryContainer,
 			ModelgeneratorRuleResult ruleResult) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (RuleEntryList packageDeclarationToPackageList : ruleEntryContainer
+		for (RuleEntryList useCaseToInteractionList : ruleEntryContainer
 				.getRuleEntryList()) {
-			for (EObject tmpPackageDeclarationToPackage : packageDeclarationToPackageList
+			for (EObject tmpUseCaseToInteraction : useCaseToInteractionList
 					.getEntryObjects()) {
-				if (tmpPackageDeclarationToPackage instanceof PackageDeclarationToPackage) {
-					PackageDeclarationToPackage packageDeclarationToPackage = (PackageDeclarationToPackage) tmpPackageDeclarationToPackage;
-					PackageDeclaration packageDeclaration = packageDeclarationToPackage
-							.getSource();
-					if (packageDeclaration != null) {
-						ModalSequenceDiagram.Package _package = packageDeclarationToPackage
+				if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+					UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
+					UseCase useCase = useCaseToInteraction.getSource();
+					if (useCase != null) {
+						Interaction interaction = useCaseToInteraction
 								.getTarget();
-						if (_package != null) {
-							if (pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_1BB(
-									ruleResult, packageDeclarationToPackage) == null) {
-								if (pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_0BB(
-										ruleResult, packageDeclaration) == null) {
-									if (pattern_UseCasePrecondToFoundMessageRule_36_2_black_nac_2BB(
-											ruleResult, _package) == null) {
-										_result.add(new Object[] {
-												packageDeclarationToPackageList,
-												packageDeclaration,
-												packageDeclarationToPackage,
-												_package, ruleEntryContainer,
-												ruleResult });
+						if (interaction != null) {
+							if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_0BB(
+									ruleResult, useCaseToInteraction) == null) {
+								if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_1BB(
+										ruleResult, useCase) == null) {
+									if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_6BB(
+											ruleResult, interaction) == null) {
+										for (Lifeline line : interaction
+												.getLifeline()) {
+											if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_5BB(
+													ruleResult, line) == null) {
+												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+														.getOppositeReferenceTyped(
+																useCase,
+																PackageDeclaration.class,
+																"useCases")) {
+													if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_2BB(
+															ruleResult,
+															packageDeclaration) == null) {
+														for (Actor actor : packageDeclaration
+																.getActors()) {
+															if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
+																	ruleResult,
+																	actor) == null) {
+																for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+																		.getOppositeReferenceTyped(
+																				line,
+																				ActorToLifeline.class,
+																				"target")) {
+																	if (actor
+																			.equals(actorToLine
+																					.getSource())) {
+																		if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_4BB(
+																				ruleResult,
+																				actorToLine) == null) {
+																			_result.add(new Object[] {
+																					useCaseToInteractionList,
+																					useCaseToInteraction,
+																					useCase,
+																					packageDeclaration,
+																					actor,
+																					actorToLine,
+																					line,
+																					interaction,
+																					ruleEntryContainer,
+																					ruleResult });
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
 									}
 								}
 							}
@@ -7331,162 +5524,124 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_3_bindingFBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_3_bindingFBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
 			IsApplicableMatch isApplicableMatch,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			ModelgeneratorRuleResult ruleResult) {
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {
 		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
-				isApplicableMatch, packageDeclaration, _package,
-				packageDeclarationToPackage, ruleResult);
+				isApplicableMatch, useCaseToInteraction, useCase, interaction,
+				actor, packageDeclaration, line, actorToLine, ruleResult);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch,
-					packageDeclaration, _package, packageDeclarationToPackage,
-					ruleResult };
+					useCaseToInteraction, useCase, interaction, actor,
+					packageDeclaration, line, actorToLine, ruleResult };
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_3_blackB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_3_blackB(
 			CSP csp) {
 		return new Object[] { csp };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_3_bindingAndBlackFBBBBBB(
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_3_bindingAndBlackFBBBBBBBBBB(
 			UseCasePrecondToFoundMessageRule _this,
 			IsApplicableMatch isApplicableMatch,
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			ModelgeneratorRuleResult ruleResult) {
-		Object[] result_pattern_UseCasePrecondToFoundMessageRule_36_3_binding = pattern_UseCasePrecondToFoundMessageRule_36_3_bindingFBBBBBB(
-				_this, isApplicableMatch, packageDeclaration, _package,
-				packageDeclarationToPackage, ruleResult);
-		if (result_pattern_UseCasePrecondToFoundMessageRule_36_3_binding != null) {
-			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_36_3_binding[0];
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {
+		Object[] result_pattern_UseCasePrecondToFoundMessageRule_31_3_binding = pattern_UseCasePrecondToFoundMessageRule_31_3_bindingFBBBBBBBBBB(
+				_this, isApplicableMatch, useCaseToInteraction, useCase,
+				interaction, actor, packageDeclaration, line, actorToLine,
+				ruleResult);
+		if (result_pattern_UseCasePrecondToFoundMessageRule_31_3_binding != null) {
+			CSP csp = (CSP) result_pattern_UseCasePrecondToFoundMessageRule_31_3_binding[0];
 
-			Object[] result_pattern_UseCasePrecondToFoundMessageRule_36_3_black = pattern_UseCasePrecondToFoundMessageRule_36_3_blackB(csp);
-			if (result_pattern_UseCasePrecondToFoundMessageRule_36_3_black != null) {
+			Object[] result_pattern_UseCasePrecondToFoundMessageRule_31_3_black = pattern_UseCasePrecondToFoundMessageRule_31_3_blackB(csp);
+			if (result_pattern_UseCasePrecondToFoundMessageRule_31_3_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch,
-						packageDeclaration, _package,
-						packageDeclarationToPackage, ruleResult };
+						useCaseToInteraction, useCase, interaction, actor,
+						packageDeclaration, line, actorToLine, ruleResult };
 			}
 		}
 		return null;
 	}
 
-	public static final boolean pattern_UseCasePrecondToFoundMessageRule_36_4_expressionFBB(
+	public static final boolean pattern_UseCasePrecondToFoundMessageRule_31_4_expressionFBB(
 			UseCasePrecondToFoundMessageRule _this, CSP csp) {
 		boolean _localVariable_0 = _this.generateModel_checkCsp_BWD(csp);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_5_blackBBB(
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage) {
-		return new Object[] { packageDeclaration, _package,
-				packageDeclarationToPackage };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_5_blackBBBBBBB(
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine) {
+		return new Object[] { useCaseToInteraction, useCase, interaction,
+				actor, packageDeclaration, line, actorToLine };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_6_blackBBBB(
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
-			PackageDeclarationToPackage packageDeclarationToPackage,
-			ModelgeneratorRuleResult ruleResult) {
-		return new Object[] { packageDeclaration, _package,
-				packageDeclarationToPackage, ruleResult };
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_6_blackBBBBBBBB(
+			UseCaseToInteraction useCaseToInteraction, UseCase useCase,
+			Interaction interaction, Actor actor,
+			PackageDeclaration packageDeclaration, Lifeline line,
+			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {
+		return new Object[] { useCaseToInteraction, useCase, interaction,
+				actor, packageDeclaration, line, actorToLine, ruleResult };
 	}
 
-	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_36_6_greenFFFFFFBFFBFFBB(
-			PackageDeclaration packageDeclaration,
-			ModalSequenceDiagram.Package _package,
+	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_31_6_greenFBFBFBFBB(
+			UseCase useCase, Interaction interaction, Lifeline line,
 			ModelgeneratorRuleResult ruleResult, CSP csp) {
-		UseCaseToMessage useCaseToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createUseCaseToMessage();
-		UseCase useCase = UseCaseDSLFactory.eINSTANCE.createUseCase();
+		UCCondition precond = UseCaseDSLFactory.eINSTANCE.createUCCondition();
 		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
-		Interaction interaction = ModalSequenceDiagramFactory.eINSTANCE
-				.createInteraction();
 		MessageOccurrenceSpecification messageReceive = ModalSequenceDiagramFactory.eINSTANCE
 				.createMessageOccurrenceSpecification();
-		Actor actor = UseCaseDSLFactory.eINSTANCE.createActor();
-		Lifeline line = ModalSequenceDiagramFactory.eINSTANCE.createLifeline();
-		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createActorToLifeline();
-		BasicFlow basicFlow = UseCaseDSLFactory.eINSTANCE.createBasicFlow();
-		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createFlowToInteractionFragment();
-		Object _localVariable_0 = csp.getValue("useCase", "preConditions");
-		Object _localVariable_1 = csp.getValue("useCase", "name");
-		Object _localVariable_2 = csp.getValue("message", "name");
+		UCConditionToMessage precondToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
+				.createUCConditionToMessage();
+		Object _localVariable_0 = csp.getValue("precond", "name");
+		Object _localVariable_1 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("message", "messageSort");
 		Object _localVariable_3 = csp.getValue("message", "messageKind");
-		Object _localVariable_4 = csp.getValue("message", "messageSort");
-		Object _localVariable_5 = csp.getValue("interaction", "name");
-		Object _localVariable_6 = csp.getValue("actor", "type");
-		Object _localVariable_7 = csp.getValue("actor", "name");
-		Object _localVariable_8 = csp.getValue("line", "name");
-		int _localVariable_9 = ruleResult.getIncrementedPerformCount();
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		ruleResult.getCorrObjects().add(useCaseToMessage);
-		useCaseToMessage.setSource(useCase);
-		packageDeclaration.getUseCases().add(useCase);
-		ruleResult.getSourceObjects().add(useCase);
-		useCaseToMessage.setTarget(message);
-		ruleResult.getTargetObjects().add(message);
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
+		useCase.getPreconditions().add(precond);
+		ruleResult.getSourceObjects().add(precond);
 		message.setInteraction(interaction);
-		_package.getPackagedElement().add(interaction);
-		ruleResult.getTargetObjects().add(interaction);
+		ruleResult.getTargetObjects().add(message);
 		message.setReceiveEvent(messageReceive);
 		messageReceive.setEnclosingInteraction(interaction);
 		messageReceive.setMessage(message);
-		ruleResult.getTargetObjects().add(messageReceive);
-		packageDeclaration.getActors().add(actor);
-		ruleResult.getSourceObjects().add(actor);
-		line.setInteraction(interaction);
 		line.getCoveredBy().add(messageReceive);
-		ruleResult.getTargetObjects().add(line);
-		actorToLine.setSource(actor);
-		actorToLine.setTarget(line);
-		ruleResult.getCorrObjects().add(actorToLine);
-		useCase.getFlows().add(basicFlow);
-		ruleResult.getSourceObjects().add(basicFlow);
-		basicFlowToInteraction.setSource(basicFlow);
-		basicFlowToInteraction.setTarget(interaction);
-		ruleResult.getCorrObjects().add(basicFlowToInteraction);
-		String useCase_preConditions_prime = (String) _localVariable_0;
-		String useCase_name_prime = (String) _localVariable_1;
-		String message_name_prime = (String) _localVariable_2;
+		ruleResult.getTargetObjects().add(messageReceive);
+		precondToMessage.setSource(precond);
+		precondToMessage.setTarget(message);
+		ruleResult.getCorrObjects().add(precondToMessage);
+		String precond_name_prime = (String) _localVariable_0;
+		String message_name_prime = (String) _localVariable_1;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
 		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_4;
-		String interaction_name_prime = (String) _localVariable_5;
-		ActorType actor_type_prime = (ActorType) _localVariable_6;
-		String actor_name_prime = (String) _localVariable_7;
-		String line_name_prime = (String) _localVariable_8;
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_9);
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		useCase.setPreConditions(useCase_preConditions_prime);
-		useCase.setName(useCase_name_prime);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
+		precond.setName(precond_name_prime);
 		message.setName(message_name_prime);
-		message.setMessageKind(message_messageKind_prime);
 		message.setMessageSort(message_messageSort_prime);
-		interaction.setName(interaction_name_prime);
-		actor.setType(actor_type_prime);
-		actor.setName(actor_name_prime);
-		line.setName(line_name_prime);
+		message.setMessageKind(message_messageKind_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
-		return new Object[] { useCaseToMessage, useCase, message, interaction,
-				messageReceive, actor, packageDeclaration, line, actorToLine,
-				_package, basicFlow, basicFlowToInteraction, ruleResult, csp };
+		return new Object[] { precond, useCase, message, interaction,
+				messageReceive, line, precondToMessage, ruleResult, csp };
 	}
 
-	public static final ModelgeneratorRuleResult pattern_UseCasePrecondToFoundMessageRule_36_7_expressionFB(
+	public static final ModelgeneratorRuleResult pattern_UseCasePrecondToFoundMessageRule_31_7_expressionFB(
 			ModelgeneratorRuleResult ruleResult) {
 		ModelgeneratorRuleResult _result = ruleResult;
 		return _result;

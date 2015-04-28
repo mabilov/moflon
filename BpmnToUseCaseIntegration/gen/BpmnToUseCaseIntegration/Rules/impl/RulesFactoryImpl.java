@@ -62,6 +62,8 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createDefinitionsToPackageRule();
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE:
 			return createProcessToUseCaseRule();
+		case RulesPackage.CLASS1:
+			return createClass1();
 		case RulesPackage.LANE_SET_RULE:
 			return createLaneSetRule();
 		case RulesPackage.LANE_TO_ACTOR_RULE:
@@ -170,6 +172,16 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public ProcessToUseCaseRule createProcessToUseCaseRule() {
 		ProcessToUseCaseRuleImpl processToUseCaseRule = new ProcessToUseCaseRuleImpl();
 		return processToUseCaseRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Class1 createClass1() {
+		Class1Impl class1 = new Class1Impl();
+		return class1;
 	}
 
 	/**
