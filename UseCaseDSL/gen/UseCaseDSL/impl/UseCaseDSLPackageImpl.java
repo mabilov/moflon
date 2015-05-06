@@ -8,7 +8,6 @@ import UseCaseDSL.AlternativeFlow;
 import UseCaseDSL.AlternativeFlowAlternative;
 import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Condition;
-import UseCaseDSL.CustomStepType;
 import UseCaseDSL.ExceptionFlow;
 import UseCaseDSL.Flow;
 import UseCaseDSL.LocalAlternative;
@@ -19,6 +18,7 @@ import UseCaseDSL.ParallelFlow;
 import UseCaseDSL.ParallelStep;
 import UseCaseDSL.Step;
 import UseCaseDSL.StepAlternative;
+import UseCaseDSL.StepType;
 import UseCaseDSL.UCCondition;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
@@ -179,7 +179,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum customStepTypeEEnum = null;
+	private EEnum stepTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -461,7 +461,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNormalStep_CustomStepType() {
+	public EAttribute getNormalStep_Type() {
 		return (EAttribute) normalStepEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -728,8 +728,8 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCustomStepType() {
-		return customStepTypeEEnum;
+	public EEnum getStepType() {
+		return stepTypeEEnum;
 	}
 
 	/**
@@ -795,7 +795,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 		normalStepEClass = createEClass(NORMAL_STEP);
 		createEReference(normalStepEClass, NORMAL_STEP__STEP_ALTERNATIVE);
 		createEReference(normalStepEClass, NORMAL_STEP__ACTOR);
-		createEAttribute(normalStepEClass, NORMAL_STEP__CUSTOM_STEP_TYPE);
+		createEAttribute(normalStepEClass, NORMAL_STEP__TYPE);
 
 		packageDeclarationEClass = createEClass(PACKAGE_DECLARATION);
 		createEReference(packageDeclarationEClass,
@@ -836,7 +836,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 
 		// Create enums
 		actorTypeEEnum = createEEnum(ACTOR_TYPE);
-		customStepTypeEEnum = createEEnum(CUSTOM_STEP_TYPE);
+		stepTypeEEnum = createEEnum(STEP_TYPE);
 	}
 
 	/**
@@ -968,10 +968,10 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 				null, 0, 1, NormalStep.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNormalStep_CustomStepType(),
-				this.getCustomStepType(), "customStepType", null, 0, 1,
-				NormalStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getNormalStep_Type(), this.getStepType(), "type", null,
+				1, 1, NormalStep.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
 
 		initEClass(packageDeclarationEClass, PackageDeclaration.class,
 				"PackageDeclaration", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1087,11 +1087,12 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 		addEEnumLiteral(actorTypeEEnum, ActorType.SYSTEM);
 		addEEnumLiteral(actorTypeEEnum, ActorType.ORGANIZATION);
 
-		initEEnum(customStepTypeEEnum, CustomStepType.class, "CustomStepType");
-		addEEnumLiteral(customStepTypeEEnum, CustomStepType.INPUT);
-		addEEnumLiteral(customStepTypeEEnum, CustomStepType.OUTPUT);
-		addEEnumLiteral(customStepTypeEEnum, CustomStepType.PROCESS);
-		addEEnumLiteral(customStepTypeEEnum, CustomStepType.MIX);
+		initEEnum(stepTypeEEnum, StepType.class, "StepType");
+		addEEnumLiteral(stepTypeEEnum, StepType.ALT);
+		addEEnumLiteral(stepTypeEEnum, StepType.WAIT);
+		addEEnumLiteral(stepTypeEEnum, StepType.SEND);
+		addEEnumLiteral(stepTypeEEnum, StepType.PERFORM);
+		addEEnumLiteral(stepTypeEEnum, StepType.CALL);
 
 		// Create resource
 		createResource(eNS_URI);

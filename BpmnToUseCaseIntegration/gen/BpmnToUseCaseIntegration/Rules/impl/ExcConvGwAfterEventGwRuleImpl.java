@@ -3379,15 +3379,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_271370 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_17626 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_271370 != null) {
+					if (__DEC_exConvGateway_default_17626 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_271370)) {
+								.equals(__DEC_exConvGateway_default_17626)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_271370)) {
+									.equals(__DEC_exConvGateway_default_17626)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_271370)) {
+										.equals(__DEC_exConvGateway_default_17626)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -3403,10 +3403,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_10_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_729172 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_109636 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_729172)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_109636)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -3673,15 +3673,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_407887 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_792756 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_407887 != null) {
+					if (__DEC_exConvGateway_default_792756 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_407887)) {
+								.equals(__DEC_exConvGateway_default_792756)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_407887)) {
+									.equals(__DEC_exConvGateway_default_792756)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_407887)) {
+										.equals(__DEC_exConvGateway_default_792756)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -3697,10 +3697,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_11_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_514141 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_723443 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_514141)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_723443)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -3969,15 +3969,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_997634 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_914031 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_997634 != null) {
+					if (__DEC_exConvGateway_default_914031 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_997634)) {
+								.equals(__DEC_exConvGateway_default_914031)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_997634)) {
+									.equals(__DEC_exConvGateway_default_914031)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_997634)) {
+										.equals(__DEC_exConvGateway_default_914031)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -3993,10 +3993,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_12_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_326061 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_347835 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_326061)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_347835)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4264,15 +4264,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_536516 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_480289 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_536516 != null) {
+					if (__DEC_exConvGateway_default_480289 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_536516)) {
+								.equals(__DEC_exConvGateway_default_480289)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_536516)) {
+									.equals(__DEC_exConvGateway_default_480289)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_536516)) {
+										.equals(__DEC_exConvGateway_default_480289)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -4288,10 +4288,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_13_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_666611 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_518189 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_666611)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_518189)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4559,15 +4559,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_719114 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_829801 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_719114 != null) {
+					if (__DEC_exConvGateway_default_829801 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_719114)) {
+								.equals(__DEC_exConvGateway_default_829801)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_719114)) {
+									.equals(__DEC_exConvGateway_default_829801)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_719114)) {
+										.equals(__DEC_exConvGateway_default_829801)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -4583,10 +4583,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_14_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_662130 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_538271 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_662130)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_538271)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -4855,15 +4855,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_106597 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_936714 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_106597 != null) {
+					if (__DEC_exConvGateway_default_936714 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_106597)) {
+								.equals(__DEC_exConvGateway_default_936714)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_106597)) {
+									.equals(__DEC_exConvGateway_default_936714)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_106597)) {
+										.equals(__DEC_exConvGateway_default_936714)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -4879,10 +4879,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_15_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_412571 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_195891 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_412571)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_195891)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}
@@ -5151,15 +5151,15 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 		if (!divergeFlow.equals(inFlow)) {
 			if (!divergeFlow.equals(outFlow)) {
 				if (!inFlow.equals(outFlow)) {
-					SequenceFlow __DEC_exConvGateway_default_115563 = exConvGateway
+					SequenceFlow __DEC_exConvGateway_default_132952 = exConvGateway
 							.getDefault();
-					if (__DEC_exConvGateway_default_115563 != null) {
+					if (__DEC_exConvGateway_default_132952 != null) {
 						if (!divergeFlow
-								.equals(__DEC_exConvGateway_default_115563)) {
+								.equals(__DEC_exConvGateway_default_132952)) {
 							if (!inFlow
-									.equals(__DEC_exConvGateway_default_115563)) {
+									.equals(__DEC_exConvGateway_default_132952)) {
 								if (!outFlow
-										.equals(__DEC_exConvGateway_default_115563)) {
+										.equals(__DEC_exConvGateway_default_132952)) {
 									return new Object[] { exConvGateway,
 											divergeFlow, inFlow, outFlow };
 								}
@@ -5175,10 +5175,10 @@ public class ExcConvGwAfterEventGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ExcConvGwAfterEventGwRule_16_2_black_nac_1BB(
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_915891 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_626484 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exConvGateway.equals(__DEC_outFlow_default_915891)) {
+			if (!exConvGateway.equals(__DEC_outFlow_default_626484)) {
 				return new Object[] { outFlow, exConvGateway };
 			}
 		}

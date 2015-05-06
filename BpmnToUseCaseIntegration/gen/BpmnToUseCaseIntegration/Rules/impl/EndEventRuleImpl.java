@@ -3566,9 +3566,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 	public static final Object[] pattern_EndEventRule_23_2_black_nac_0BB(
 			UCCondition postcond, Flow flow) {
-		for (Flow __DEC_postcond_finalState_963733 : org.moflon.util.eMoflonEMFUtil
+		for (Flow __DEC_postcond_finalState_203053 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(postcond, Flow.class, "finalState")) {
-			if (!flow.equals(__DEC_postcond_finalState_963733)) {
+			if (!flow.equals(__DEC_postcond_finalState_203053)) {
 				return new Object[] { postcond, flow };
 			}
 		}
@@ -3577,10 +3577,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 	public static final Object[] pattern_EndEventRule_23_2_black_nac_1BB(
 			UCCondition postcond, UseCase useCase) {
-		for (UseCase __DEC_postcond_preconditions_27047 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_postcond_preconditions_916790 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(postcond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_postcond_preconditions_27047)) {
+			if (!useCase.equals(__DEC_postcond_preconditions_916790)) {
 				return new Object[] { postcond, useCase };
 			}
 		}

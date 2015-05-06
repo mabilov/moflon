@@ -8,25 +8,37 @@
     <source href="booksale2.src.usecase.xmi#de.abilov.booksale"/>
     <target href="booksale2.trg.xmi#//@packagedElement.0"/>
   </correspondences>
-  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:UseCaseToMessage">
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:UseCaseToInteraction">
     <source href="booksale2.src.usecase.xmi#booksale"/>
-    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
-  </correspondences>
-  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
-    <source href="booksale2.src.usecase.xmi#sys"/>
-    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
   </correspondences>
   <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:FlowToInteractionFragment">
     <source xsi:type="UseCaseDSL:BasicFlow" href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
     <target xsi:type="ModalSequenceDiagram:Interaction" href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0"/>
   </correspondences>
   <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
-    <source href="booksale2.src.usecase.xmi#financing"/>
-    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+    <source href="booksale2.src.usecase.xmi#sys"/>
+    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:NormalStepToMessage">
+    <source href="booksale2.src.usecase.xmi#record_order"/>
+    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:UCConditionToMessage">
+    <source href="booksale2.src.usecase.xmi#//@packages.0/@useCases.0/@preconditions.0"/>
+    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.1"/>
   </correspondences>
   <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
     <source href="booksale2.src.usecase.xmi#shipping"/>
+    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
+    <source href="booksale2.src.usecase.xmi#financing"/>
     <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:NormalStepToMessage">
+    <source href="booksale2.src.usecase.xmi#check_stock"/>
+    <target href="booksale2.trg.xmi#//@packagedElement.0/@packagedElement.0/@message.2"/>
   </correspondences>
   <source href="booksale2.src.usecase.xmi#/"/>
   <target href="booksale2.trg.xmi#/"/>

@@ -156,8 +156,8 @@ public abstract class AbstractUseCaseSemanticSequencer extends AbstractDelegatin
 	 *     (
 	 *         name=ID 
 	 *         label=STRING? 
+	 *         type=StepType 
 	 *         actor=[Actor|ID] 
-	 *         customStepType=CustomStepType? 
 	 *         (stepAlternative+=StepAlternative+ | invokedUseCase=[UseCase|ID])? 
 	 *         next=[Step|ID]?
 	 *     )

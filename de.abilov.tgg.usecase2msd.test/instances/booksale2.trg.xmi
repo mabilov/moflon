@@ -2,11 +2,17 @@
 <ModalSequenceDiagram:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ModalSequenceDiagram="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore">
   <packagedElement xsi:type="ModalSequenceDiagram:Package" name="de.abilov.booksale">
     <packagedElement xsi:type="ModalSequenceDiagram:Interaction" name="booksale">
-      <lifeline name="sys" coveredBy="//@packagedElement.0/@packagedElement.0/@fragment.0"/>
-      <lifeline name="financing"/>
+      <lifeline name="sys" coveredBy="//@packagedElement.0/@packagedElement.0/@fragment.0 //@packagedElement.0/@packagedElement.0/@fragment.1 //@packagedElement.0/@packagedElement.0/@fragment.2"/>
       <lifeline name="shipping"/>
+      <lifeline name="financing" coveredBy="//@packagedElement.0/@packagedElement.0/@fragment.3 //@packagedElement.0/@packagedElement.0/@fragment.4"/>
       <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@packagedElement.0/@packagedElement.0/@message.0" covered="//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
-      <message name="Order Received" receiveEvent="//@packagedElement.0/@packagedElement.0/@fragment.0" messageKind="FOUND" messageSort="ASYNCH_SIGNAL"/>
+      <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@packagedElement.0/@packagedElement.0/@message.0" covered="//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+      <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@packagedElement.0/@packagedElement.0/@message.1" covered="//@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+      <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@packagedElement.0/@packagedElement.0/@message.2" covered="//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+      <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@packagedElement.0/@packagedElement.0/@message.2" covered="//@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+      <message name="record_order" receiveEvent="//@packagedElement.0/@packagedElement.0/@fragment.1" sendEvent="//@packagedElement.0/@packagedElement.0/@fragment.0" messageSort="ASYNCH_CALL"/>
+      <message name="Order Received" receiveEvent="//@packagedElement.0/@packagedElement.0/@fragment.2" messageKind="FOUND" messageSort="ASYNCH_SIGNAL"/>
+      <message name="check_stock" receiveEvent="//@packagedElement.0/@packagedElement.0/@fragment.4" sendEvent="//@packagedElement.0/@packagedElement.0/@fragment.3" messageSort="ASYNCH_CALL"/>
     </packagedElement>
   </packagedElement>
 </ModalSequenceDiagram:Model>

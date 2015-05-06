@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
 <UseCaseDSL:UseCasesModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UseCaseDSL="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore">
   <packages name="de.abilov.booksale">
-    <useCases description="Book Sale Process" name="booksale" preConditions="Order Received">
+    <useCases description="Book Sale Process" name="booksale">
       <flows xsi:type="UseCaseDSL:BasicFlow">
         <steps xsi:type="UseCaseDSL:NormalStep" label="Record Order" name="record_order" actor="sys"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Check Stock" name="check_stock" actor="sys"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="All books available" name="all_books_available" actor="sys">
+          <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="No" ref="ShipmentPrepare"/>
+        </steps>
       </flows>
+      <flows xsi:type="UseCaseDSL:AlternativeFlow" name="ShipmentPrepare">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Deliver books to stock" name="deliver_books_stock" actor="shipping"/>
+      </flows>
+      <preconditions name="Order Received"/>
     </useCases>
     <actors name="sys" type="system"/>
     <actors description="Shipping" name="shipping"/>

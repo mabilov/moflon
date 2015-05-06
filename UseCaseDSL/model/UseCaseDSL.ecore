@@ -39,7 +39,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="NormalStep" eSuperTypes="//Step">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stepAlternative" upperBound="-1" eType="//StepAlternative" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="//Actor"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customStepType" ordered="false" eType="//CustomStepType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false" lowerBound="1" eType="//StepType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="useCases" upperBound="-1" eType="//UseCase" containment="true"/>
@@ -91,11 +91,12 @@
     <eLiterals name="SYSTEM" value="1" literal="system"/>
     <eLiterals name="ORGANIZATION" value="2" literal="organization"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CustomStepType">
-    <eLiterals name="INPUT" literal="input"/>
-    <eLiterals name="OUTPUT" value="1" literal="output"/>
-    <eLiterals name="PROCESS" value="2" literal="process"/>
-    <eLiterals name="MIX" value="3" literal="mix"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="StepType">
+    <eLiterals name="ALT" value="5" literal="alt"/>
+    <eLiterals name="WAIT" value="1" literal="wait"/>
+    <eLiterals name="SEND" value="2" literal="send"/>
+    <eLiterals name="PERFORM" value="3" literal="perform"/>
+    <eLiterals name="CALL" value="4" literal="call"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UCCondition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1">

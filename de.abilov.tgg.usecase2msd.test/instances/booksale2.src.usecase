@@ -6,4 +6,12 @@ usecase booksale "Book Sale Process"
 preconditions "Order Received" 
 basic flow 
 	step record_order "Record Order" by sys
+	step check_stock "Check Stock" by sys 
+	step all_books_available "All books available" by sys
+	alternatives
+		if "No" then alternative flow ShipmentPrepare
+	else
 end flow 
+alternative flow ShipmentPrepare
+	step deliver_books_stock "Deliver books to stock" by shipping
+end flow

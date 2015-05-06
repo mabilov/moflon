@@ -2755,7 +2755,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getITEToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getITEToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getITEToStepRule().getEOperations().get(8);
 	}
 
@@ -2773,7 +2773,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getITEToStepRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getITEToStepRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getITEToStepRule().getEOperations().get(10);
 	}
 
@@ -2800,7 +2800,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getITEToStepRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getITEToStepRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getITEToStepRule().getEOperations().get(13);
 	}
 
@@ -2809,7 +2809,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getITEToStepRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getITEToStepRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getITEToStepRule().getEOperations().get(14);
 	}
 
@@ -2827,7 +2827,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getITEToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet() {
+	public EOperation getITEToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet() {
 		return getITEToStepRule().getEOperations().get(16);
 	}
 
@@ -2845,7 +2845,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getITEToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getITEToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getITEToStepRule().getEOperations().get(18);
 	}
 
@@ -3410,7 +3410,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getFirstInterThrowEventToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(8);
 	}
 
@@ -3428,7 +3428,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(10);
 	}
 
@@ -3455,7 +3455,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getFirstInterThrowEventToStepRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(13);
 	}
 
@@ -3464,7 +3464,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getFirstInterThrowEventToStepRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(14);
 	}
 
@@ -3482,7 +3482,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet() {
+	public EOperation getFirstInterThrowEventToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(16);
 	}
 
@@ -3500,7 +3500,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFirstInterThrowEventToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getFirstInterThrowEventToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getFirstInterThrowEventToStepRule().getEOperations().get(18);
 	}
 
@@ -7506,7 +7506,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterSERule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterSERule().getEOperations().get(8);
 	}
 
@@ -7524,7 +7524,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterSERule().getEOperations().get(10);
 	}
 
@@ -7551,7 +7551,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterSERule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterSERule().getEOperations().get(13);
 	}
 
@@ -7560,7 +7560,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterSERule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterSERule().getEOperations().get(14);
 	}
 
@@ -7578,7 +7578,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__IsApplicable_solveCsp_BWD__IsApplicableMatch_StartEvent_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterSERule__IsApplicable_solveCsp_BWD__IsApplicableMatch_StartEvent_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterSERule().getEOperations().get(16);
 	}
 
@@ -7596,7 +7596,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterSERule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterSERule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterSERule().getEOperations().get(18);
 	}
 
@@ -7826,7 +7826,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterExGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterExGwRule().getEOperations().get(8);
 	}
 
@@ -7844,7 +7844,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterExGwRule().getEOperations().get(10);
 	}
 
@@ -7871,7 +7871,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterExGwRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterExGwRule().getEOperations().get(13);
 	}
 
@@ -7880,7 +7880,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterExGwRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterExGwRule().getEOperations().get(14);
 	}
 
@@ -7898,7 +7898,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterExGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterExGwRule().getEOperations().get(16);
 	}
 
@@ -7916,7 +7916,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterExGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterExGwRule().getEOperations().get(18);
 	}
 
@@ -8146,7 +8146,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterPGRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterPGRule().getEOperations().get(8);
 	}
 
@@ -8164,7 +8164,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterPGRule().getEOperations().get(10);
 	}
 
@@ -8191,7 +8191,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterPGRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterPGRule().getEOperations().get(13);
 	}
 
@@ -8200,7 +8200,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow() {
+	public EOperation getICEToStepAfterPGRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow() {
 		return getICEToStepAfterPGRule().getEOperations().get(14);
 	}
 
@@ -8218,7 +8218,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterPGRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterPGRule().getEOperations().get(16);
 	}
 
@@ -8236,7 +8236,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPGRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterPGRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterPGRule().getEOperations().get(18);
 	}
 
@@ -8466,7 +8466,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterTaskRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterTaskRule().getEOperations().get(8);
 	}
 
@@ -8484,7 +8484,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterTaskRule().getEOperations().get(10);
 	}
 
@@ -8511,7 +8511,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterTaskRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterTaskRule().getEOperations().get(13);
 	}
 
@@ -8520,7 +8520,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterTaskRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterTaskRule().getEOperations().get(14);
 	}
 
@@ -8538,7 +8538,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Task_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterTaskRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Task_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterTaskRule().getEOperations().get(16);
 	}
 
@@ -8556,7 +8556,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterTaskRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterTaskRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterTaskRule().getEOperations().get(18);
 	}
 
@@ -8795,7 +8795,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterEventRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterEventRule().getEOperations().get(8);
 	}
 
@@ -8813,7 +8813,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterEventRule().getEOperations().get(10);
 	}
 
@@ -8840,7 +8840,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterEventRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterEventRule().getEOperations().get(13);
 	}
 
@@ -8849,7 +8849,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterEventRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterEventRule().getEOperations().get(14);
 	}
 
@@ -8867,7 +8867,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Event_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterEventRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Event_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterEventRule().getEOperations().get(16);
 	}
 
@@ -8885,7 +8885,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterEventRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterEventRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterEventRule().getEOperations().get(18);
 	}
 
@@ -9124,7 +9124,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterExConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(8);
 	}
 
@@ -9142,7 +9142,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(10);
 	}
 
@@ -9169,7 +9169,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterExConvGwRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(13);
 	}
 
@@ -9178,7 +9178,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterExConvGwRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(14);
 	}
 
@@ -9196,7 +9196,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterExConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(16);
 	}
 
@@ -9214,7 +9214,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterExConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterExConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterExConvGwRule().getEOperations().get(18);
 	}
 
@@ -9453,7 +9453,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterPConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(8);
 	}
 
@@ -9471,7 +9471,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(10);
 	}
 
@@ -9498,7 +9498,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterPConvGwRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(13);
 	}
 
@@ -9507,7 +9507,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow() {
+	public EOperation getICEToStepAfterPConvGwRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(14);
 	}
 
@@ -9525,7 +9525,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
+	public EOperation getICEToStepAfterPConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(16);
 	}
 
@@ -9543,7 +9543,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getICEToStepAfterPConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+	public EOperation getICEToStepAfterPConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
 		return getICEToStepAfterPConvGwRule().getEOperations().get(18);
 	}
 

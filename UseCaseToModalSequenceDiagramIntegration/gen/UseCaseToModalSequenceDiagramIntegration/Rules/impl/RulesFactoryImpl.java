@@ -62,8 +62,8 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createUCPackageToMSDPackage();
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE:
 			return createUseCaseToInteractionRule();
-		case RulesPackage.USER_ACTOR_TO_LIFELINE_RULE:
-			return createUserActorToLifelineRule();
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE:
+			return createActorToLifelineRule();
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE:
 			return createParallelStepToCombinedFragmentRule();
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE:
@@ -129,9 +129,9 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UserActorToLifelineRule createUserActorToLifelineRule() {
-		UserActorToLifelineRuleImpl userActorToLifelineRule = new UserActorToLifelineRuleImpl();
-		return userActorToLifelineRule;
+	public ActorToLifelineRule createActorToLifelineRule() {
+		ActorToLifelineRuleImpl actorToLifelineRule = new ActorToLifelineRuleImpl();
+		return actorToLifelineRule;
 	}
 
 	/**

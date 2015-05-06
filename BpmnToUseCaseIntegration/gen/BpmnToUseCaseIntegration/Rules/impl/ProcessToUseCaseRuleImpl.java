@@ -3123,10 +3123,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_809613 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_556554 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_809613)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_556554)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3135,10 +3135,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_665400 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_492695 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_665400)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_492695)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3274,10 +3274,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_66584 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_427211 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_66584)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_427211)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3286,10 +3286,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_779758 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_839795 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_779758)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_839795)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3424,10 +3424,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_948302 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_238070 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_948302)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_238070)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3436,10 +3436,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_39027 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_719062 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_39027)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_719062)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}

@@ -71,9 +71,9 @@ ParallelStep: 'parallel step' name = ID
 	('next' next = [Step|ID])?;
 
 NormalStep: 'step' name = ID 
-	(label = STRING)? 
+	(label = STRING)?
+	type = StepType 
 	'by' actor = [Actor|ID]  
-	('type' customStepType = CustomStepType)? 
 	(('alternatives' stepAlternative += StepAlternative+ 'else') |
 		('invoke usecase' invokedUseCase = [UseCase|ID]))?
 	('next' next = [Step|ID])?;
@@ -81,4 +81,4 @@ NormalStep: 'step' name = ID
 QualifiedName: ID ('.' ID)*;
 	
 enum ActorType: PERSON='person' | SYSTEM = 'system' | ORGANIZATION = 'organization';
-enum CustomStepType: INPUT = 'input' | OUTPUT = 'output' | PROCESS = 'process' | MIX = 'mix';
+enum StepType: WAIT = 'wait' | SEND = 'send' | PERFORM = 'perform' | CALL = 'call' | ALT = 'alt';

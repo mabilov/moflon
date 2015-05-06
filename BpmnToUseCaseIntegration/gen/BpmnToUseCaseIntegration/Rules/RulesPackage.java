@@ -2545,7 +2545,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ITE_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -2563,7 +2563,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -2590,7 +2590,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ITE_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -2599,7 +2599,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ITE_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -2617,7 +2617,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODE_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ITE_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_NORMALSTEP_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODE_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -2635,7 +2635,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITE_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ITE_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -3270,7 +3270,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -3288,7 +3288,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -3315,7 +3315,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -3324,7 +3324,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -3342,7 +3342,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_NORMALSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODE_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_NORMALSTEP_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_FLOWNODE_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -3360,7 +3360,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int FIRST_INTER_THROW_EVENT_TO_STEP_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -7609,7 +7609,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_SE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -7627,7 +7627,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -7654,7 +7654,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_SE_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -7663,7 +7663,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -7681,7 +7681,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_STARTEVENT_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_NORMALSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_SE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_STARTEVENT_NORMALSTEP_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -7699,7 +7699,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_SE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_SE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -7943,7 +7943,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -7961,7 +7961,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -7988,7 +7988,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -7997,7 +7997,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -8015,7 +8015,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_EXCLUSIVEGATEWAY_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_NORMALSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_EXCLUSIVEGATEWAY_NORMALSTEP_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -8033,7 +8033,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_GW_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_EX_GW_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -8277,7 +8277,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -8295,7 +8295,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -8322,7 +8322,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -8331,7 +8331,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_ACTOR_NORMALSTEP_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -8349,7 +8349,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PARALLELGATEWAY_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_NORMALSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PARALLELGATEWAY_NORMALSTEP_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -8367,7 +8367,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -8611,7 +8611,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_TASK_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -8629,7 +8629,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -8656,7 +8656,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_TASK_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -8665,7 +8665,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -8683,7 +8683,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_TASK_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_TASK_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_TASK_NORMALSTEP_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -8701,7 +8701,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_TASK_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_TASK_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -8954,7 +8954,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -8972,7 +8972,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -8999,7 +8999,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -9008,7 +9008,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -9026,7 +9026,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_EVENT_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_EVENT_NORMALSTEP_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -9044,7 +9044,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EVENT_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_EVENT_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -9297,7 +9297,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -9315,7 +9315,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -9342,7 +9342,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -9351,7 +9351,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -9369,7 +9369,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_EXCLUSIVEGATEWAY_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_EXCLUSIVEGATEWAY_NORMALSTEP_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -9387,7 +9387,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_EX_CONV_GW_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -9640,7 +9640,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Types FWD</em>' operation.
@@ -9658,7 +9658,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Perform BWD</em>' operation.
@@ -9685,7 +9685,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate solve Csp BWD</em>' operation.
@@ -9694,7 +9694,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_STEP_NORMALSTEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_STEP_ACTOR_FLOW = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Is Appropriate check Csp BWD</em>' operation.
@@ -9712,7 +9712,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PARALLELGATEWAY_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_NORMALSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PARALLELGATEWAY_NORMALSTEP_SEQUENCEFLOW_STEP_SEQUENCEFLOWTOSTEP_PROCESS_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Is Applicable check Csp BWD</em>' operation.
@@ -9730,7 +9730,7 @@ public interface RulesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
+	int ICE_TO_STEP_AFTER_PCONV_GW_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Check Types BWD</em>' operation.
@@ -15028,14 +15028,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getITEToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -15048,14 +15048,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getITEToStepRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -15078,24 +15078,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getITEToStepRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getITEToStepRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -15108,14 +15108,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet();
+	EOperation getITEToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -15128,14 +15128,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getITEToStepRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ITEToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getITEToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getITEToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ITEToStepRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -15728,14 +15728,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getFirstInterThrowEventToStepRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getFirstInterThrowEventToStepRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -15748,14 +15748,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getFirstInterThrowEventToStepRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -15778,24 +15778,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getFirstInterThrowEventToStepRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getFirstInterThrowEventToStepRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -15808,14 +15808,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getFirstInterThrowEventToStepRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.FlowNode, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet();
+	EOperation getFirstInterThrowEventToStepRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_FlowNode_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -15828,14 +15828,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getFirstInterThrowEventToStepRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getFirstInterThrowEventToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getFirstInterThrowEventToStepRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.FirstInterThrowEventToStepRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -20148,14 +20148,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterSERule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterSERule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -20168,14 +20168,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterSERule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterSERule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -20198,24 +20198,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterSERule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterSERule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterSERule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -20228,14 +20228,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterSERule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.StartEvent, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.StartEvent, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.StartEvent, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.StartEvent, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__IsApplicable_solveCsp_BWD__IsApplicableMatch_StartEvent_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterSERule__IsApplicable_solveCsp_BWD__IsApplicableMatch_StartEvent_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -20248,14 +20248,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterSERule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterSERule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterSERule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterSERule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -20498,14 +20498,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExGwRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterExGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -20518,14 +20518,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExGwRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterExGwRule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -20548,24 +20548,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExGwRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterExGwRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterExGwRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -20578,14 +20578,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExGwRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterExGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -20598,14 +20598,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExGwRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterExGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExGwRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -20848,14 +20848,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPGRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterPGRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -20868,14 +20868,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPGRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__IsAppropriate_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterPGRule__IsAppropriate_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -20898,24 +20898,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPGRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__RegisterObjectsToMatch_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterPGRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Actor, UseCaseDSL.NormalStep, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__IsAppropriate_solveCsp_BWD__Match_Actor_NormalStep_Flow();
+	EOperation getICEToStepAfterPGRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -20928,14 +20928,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPGRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.NormalStep, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, UseCaseDSL.NormalStep, bpmn2.Process, bpmn2.SequenceFlow, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_Process_SequenceFlow_Actor_ProcessToActor_NormalStep_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterPGRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_NormalStep_Process_SequenceFlow_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -20948,14 +20948,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPGRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPGRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterPGRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -21198,14 +21198,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterTaskRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -21218,14 +21218,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterTaskRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -21248,24 +21248,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterTaskRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterTaskRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -21278,14 +21278,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Task, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Task, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Task, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Task, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Task_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterTaskRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Task_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -21298,14 +21298,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterTaskRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterTaskRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterTaskRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterTaskRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -21558,14 +21558,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterEventRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -21578,14 +21578,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterEventRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -21608,24 +21608,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterEventRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterEventRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -21638,14 +21638,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Event, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Event, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Event, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.Event, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Event_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterEventRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_Event_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -21658,14 +21658,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterEventRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterEventRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterEventRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterEventRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -21918,14 +21918,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterExConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -21938,14 +21938,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -21968,24 +21968,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterExConvGwRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -21998,14 +21998,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ExclusiveGateway, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterExConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ExclusiveGateway_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -22018,14 +22018,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterExConvGwRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterExConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterExConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterExConvGwRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.
@@ -22278,14 +22278,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__IsApplicable_checkCsp_FWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects FWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects FWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_FWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterPConvGwRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#checkTypes_FWD(TGGRuntime.Match) <em>Check Types FWD</em>}' operation.
@@ -22298,14 +22298,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__CheckTypes_FWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#perform_BWD(TGGRuntime.IsApplicableMatch) <em>Perform BWD</em>}' operation.
@@ -22328,24 +22328,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__IsApplicable_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Register Objects To Match BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects To Match BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjectsToMatch_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__RegisterObjectsToMatch_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterPConvGwRule__RegisterObjectsToMatch_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow) <em>Is Appropriate solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Appropriate solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.Step, UseCaseDSL.NormalStep, UseCaseDSL.Actor, UseCaseDSL.Flow)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_solveCsp_BWD(TGGRuntime.Match, UseCaseDSL.NormalStep, UseCaseDSL.Step, UseCaseDSL.Actor, UseCaseDSL.Flow)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_solveCsp_BWD__Match_Step_NormalStep_Actor_Flow();
+	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_solveCsp_BWD__Match_NormalStep_Step_Actor_Flow();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isAppropriate_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Appropriate check Csp BWD</em>}' operation.
@@ -22358,14 +22358,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__IsAppropriate_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet) <em>Is Applicable solve Csp BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Applicable solve Csp BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, UseCaseDSL.NormalStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isApplicable_solveCsp_BWD(TGGRuntime.IsApplicableMatch, bpmn2.ParallelGateway, UseCaseDSL.NormalStep, bpmn2.SequenceFlow, UseCaseDSL.Step, BpmnToUseCaseIntegration.SequenceFlowToStep, bpmn2.Process, UseCaseDSL.Actor, BpmnToUseCaseIntegration.ProcessToActor, UseCaseDSL.Flow, BpmnToUseCaseIntegration.SequenceFlowToUCFlow, bpmn2.Lane, bpmn2.LaneSet)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_SequenceFlow_Step_SequenceFlowToStep_NormalStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
+	EOperation getICEToStepAfterPConvGwRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_ParallelGateway_NormalStep_SequenceFlow_Step_SequenceFlowToStep_Process_Actor_ProcessToActor_Flow_SequenceFlowToUCFlow_Lane_LaneSet();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#isApplicable_checkCsp_BWD(TGGLanguage.csp.CSP) <em>Is Applicable check Csp BWD</em>}' operation.
@@ -22378,14 +22378,14 @@ public interface RulesPackage extends EPackage {
 	EOperation getICEToStepAfterPConvGwRule__IsApplicable_checkCsp_BWD__CSP();
 
 	/**
-	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
+	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Register Objects BWD</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Register Objects BWD</em>' operation.
-	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
+	 * @see BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#registerObjects_BWD(TGGRuntime.PerformRuleResult, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getICEToStepAfterPConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
+	EOperation getICEToStepAfterPConvGwRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject();
 
 	/**
 	 * Returns the meta object for the '{@link BpmnToUseCaseIntegration.Rules.ICEToStepAfterPConvGwRule#checkTypes_BWD(TGGRuntime.Match) <em>Check Types BWD</em>}' operation.

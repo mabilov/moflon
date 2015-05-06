@@ -403,152 +403,151 @@
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/generateModel_checkCsp_BWD/csp"/>
         </genOperations>
       </genClasses>
-      <genClasses image="false" ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule"/>
-      <genClasses image="false" ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepToMessageRule"/>
-      <genClasses ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule">
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD/actor"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD/useCase"/>
+      <genClasses ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule">
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD/match"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD/actor"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD/useCase"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/perform_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/perform_FWD/isApplicableMatch"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/perform_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/perform_FWD/isApplicableMatch"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_FWD/match"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_FWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_FWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_FWD/actor"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_FWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_FWD/useCase"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_FWD/match"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_FWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_FWD/actor"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_FWD/useCase"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_FWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_FWD/actor"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_FWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_FWD/useCase"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_FWD/match"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_FWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_FWD/actor"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_FWD/useCase"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_checkCsp_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_checkCsp_FWD/csp"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_checkCsp_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_checkCsp_FWD/csp"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/isApplicableMatch"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/actor"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/packageDeclarationToP"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/useCase"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/useCaseToInteraction"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_FWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/isApplicableMatch"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/packageDeclarationToP"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/actor"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/useCase"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/useCaseToInteraction"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_FWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_checkCsp_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_checkCsp_FWD/csp"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_checkCsp_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_checkCsp_FWD/csp"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/ruleresult"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/actor"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/packageDeclarationToP"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/line"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/actorToLine"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/useCase"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/useCaseToInteraction"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_FWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/ruleresult"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/packageDeclarationToP"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/actor"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/line"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/actorToLine"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/useCase"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/useCaseToInteraction"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_FWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkTypes_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkTypes_FWD/match"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkTypes_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkTypes_FWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD/line"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD/match"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD/line"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/perform_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/perform_BWD/isApplicableMatch"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/perform_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/perform_BWD/isApplicableMatch"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_BWD/match"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_BWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_BWD/line"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjectsToMatch_BWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_BWD/match"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_BWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_BWD/line"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjectsToMatch_BWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_BWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_BWD/line"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_solveCsp_BWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_BWD/match"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_BWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_BWD/line"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_solveCsp_BWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_checkCsp_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_checkCsp_BWD/csp"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_checkCsp_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_checkCsp_BWD/csp"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/packageDeclarationToP"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/line"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/useCase"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/useCaseToInteraction"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_solveCsp_BWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/packageDeclarationToP"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/line"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/useCase"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/useCaseToInteraction"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_solveCsp_BWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_checkCsp_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isApplicable_checkCsp_BWD/csp"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_checkCsp_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isApplicable_checkCsp_BWD/csp"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/ruleresult"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/actor"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/packageDeclarationToP"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/line"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/actorToLine"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/useCase"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/useCaseToInteraction"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/registerObjects_BWD/interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/ruleresult"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/packageDeclarationToP"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/actor"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/line"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/actorToLine"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/useCase"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/useCaseToInteraction"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/registerObjects_BWD/interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkTypes_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkTypes_BWD/match"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkTypes_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_231">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_231/_edge_actors"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_231">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_231/_edge_actors"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_73">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_73/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_73">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_73/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_74">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_74/_edge_lifeline"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_74">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_74/_edge_lifeline"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkAttributes_FWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkAttributes_FWD/tripleMatch"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkAttributes_FWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkAttributes_FWD/tripleMatch"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkAttributes_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/checkAttributes_BWD/tripleMatch"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkAttributes_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkAttributes_BWD/tripleMatch"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel/ruleEntryContainer"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel/useCaseToInteractionParameter"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel/ruleEntryContainer"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel/useCaseToInteractionParameter"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/isApplicableMatch"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/packageDeclaration"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/p"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/packageDeclarationToP"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/useCase"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/useCaseToInteraction"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/interaction"/>
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_solveCsp_BWD/ruleResult"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/isApplicableMatch"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/packageDeclaration"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/p"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/packageDeclarationToP"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/useCase"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/useCaseToInteraction"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/interaction"/>
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_solveCsp_BWD/ruleResult"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_checkCsp_BWD">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserActorToLifelineRule/generateModel_checkCsp_BWD/csp"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_checkCsp_BWD">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/generateModel_checkCsp_BWD/csp"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false" ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepToMessageRule"/>
       <genClasses image="false" ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepBFToMessageRule"/>
       <genClasses image="false" ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/NormalStepNFToMessageRule"/>
       <genClasses image="false" ecoreClass="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule"/>

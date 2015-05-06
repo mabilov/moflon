@@ -50,13 +50,13 @@ public interface RulesFactory extends EFactory {
 	UseCaseToInteractionRule createUseCaseToInteractionRule();
 
 	/**
-	 * Returns a new object of class '<em>User Actor To Lifeline Rule</em>'.
+	 * Returns a new object of class '<em>Actor To Lifeline Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>User Actor To Lifeline Rule</em>'.
+	 * @return a new object of class '<em>Actor To Lifeline Rule</em>'.
 	 * @generated
 	 */
-	UserActorToLifelineRule createUserActorToLifelineRule();
+	ActorToLifelineRule createActorToLifelineRule();
 
 	/**
 	 * Returns a new object of class '<em>Parallel Step To Combined Fragment Rule</em>'.

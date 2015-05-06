@@ -69,13 +69,6 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass userActorToLifelineRuleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass normalStepBFToMessageRuleEClass = null;
 
 	/**
@@ -1059,6 +1052,258 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_FWD__Match_PackageDeclaration_Actor_UseCase() {
+		return getActorToLifelineRule().getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__Perform_FWD__IsApplicableMatch() {
+		return getActorToLifelineRule().getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsApplicable_FWD__Match() {
+		return getActorToLifelineRule().getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__RegisterObjectsToMatch_FWD__Match_PackageDeclaration_Actor_UseCase() {
+		return getActorToLifelineRule().getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_solveCsp_FWD__Match_PackageDeclaration_Actor_UseCase() {
+		return getActorToLifelineRule().getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_checkCsp_FWD__CSP() {
+		return getActorToLifelineRule().getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_PackageDeclaration_Package_PackageDeclarationToPackage_Actor_UseCase_UseCaseToInteraction_Interaction() {
+		return getActorToLifelineRule().getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsApplicable_checkCsp_FWD__CSP() {
+		return getActorToLifelineRule().getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getActorToLifelineRule().getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__CheckTypes_FWD__Match() {
+		return getActorToLifelineRule().getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_BWD__Match_Package_Lifeline_Interaction() {
+		return getActorToLifelineRule().getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__Perform_BWD__IsApplicableMatch() {
+		return getActorToLifelineRule().getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsApplicable_BWD__Match() {
+		return getActorToLifelineRule().getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__RegisterObjectsToMatch_BWD__Match_Package_Lifeline_Interaction() {
+		return getActorToLifelineRule().getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_solveCsp_BWD__Match_Package_Lifeline_Interaction() {
+		return getActorToLifelineRule().getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_checkCsp_BWD__CSP() {
+		return getActorToLifelineRule().getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_PackageDeclaration_Package_PackageDeclarationToPackage_Lifeline_UseCase_UseCaseToInteraction_Interaction() {
+		return getActorToLifelineRule().getEOperations().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsApplicable_checkCsp_BWD__CSP() {
+		return getActorToLifelineRule().getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
+		return getActorToLifelineRule().getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__CheckTypes_BWD__Match() {
+		return getActorToLifelineRule().getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_FWD_EMoflonEdge_231__EMoflonEdge() {
+		return getActorToLifelineRule().getEOperations().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_73__EMoflonEdge() {
+		return getActorToLifelineRule().getEOperations().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_74__EMoflonEdge() {
+		return getActorToLifelineRule().getEOperations().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__CheckAttributes_FWD__TripleMatch() {
+		return getActorToLifelineRule().getEOperations().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__CheckAttributes_BWD__TripleMatch() {
+		return getActorToLifelineRule().getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__GenerateModel__RuleEntryContainer_UseCaseToInteraction() {
+		return getActorToLifelineRule().getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_PackageDeclaration_Package_PackageDeclarationToPackage_UseCase_UseCaseToInteraction_Interaction_ModelgeneratorRuleResult() {
+		return getActorToLifelineRule().getEOperations().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getActorToLifelineRule__GenerateModel_checkCsp_BWD__CSP() {
+		return getActorToLifelineRule().getEOperations().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNormalStepToMessageRule() {
 		if (normalStepToMessageRuleEClass == null) {
 			normalStepToMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
@@ -1072,275 +1317,10 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUserActorToLifelineRule() {
-		if (userActorToLifelineRuleEClass == null) {
-			userActorToLifelineRuleEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(5);
-		}
-		return userActorToLifelineRuleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_FWD__Match_Actor_PackageDeclaration_UseCase() {
-		return getUserActorToLifelineRule().getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__Perform_FWD__IsApplicableMatch() {
-		return getUserActorToLifelineRule().getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsApplicable_FWD__Match() {
-		return getUserActorToLifelineRule().getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__RegisterObjectsToMatch_FWD__Match_Actor_PackageDeclaration_UseCase() {
-		return getUserActorToLifelineRule().getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_solveCsp_FWD__Match_Actor_PackageDeclaration_UseCase() {
-		return getUserActorToLifelineRule().getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_checkCsp_FWD__CSP() {
-		return getUserActorToLifelineRule().getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsApplicable_solveCsp_FWD__IsApplicableMatch_Actor_PackageDeclaration_Package_PackageDeclarationToPackage_UseCase_UseCaseToInteraction_Interaction() {
-		return getUserActorToLifelineRule().getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsApplicable_checkCsp_FWD__CSP() {
-		return getUserActorToLifelineRule().getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__RegisterObjects_FWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getUserActorToLifelineRule().getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__CheckTypes_FWD__Match() {
-		return getUserActorToLifelineRule().getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_BWD__Match_Package_Lifeline_Interaction() {
-		return getUserActorToLifelineRule().getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__Perform_BWD__IsApplicableMatch() {
-		return getUserActorToLifelineRule().getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsApplicable_BWD__Match() {
-		return getUserActorToLifelineRule().getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__RegisterObjectsToMatch_BWD__Match_Package_Lifeline_Interaction() {
-		return getUserActorToLifelineRule().getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_solveCsp_BWD__Match_Package_Lifeline_Interaction() {
-		return getUserActorToLifelineRule().getEOperations().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_checkCsp_BWD__CSP() {
-		return getUserActorToLifelineRule().getEOperations().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsApplicable_solveCsp_BWD__IsApplicableMatch_PackageDeclaration_Package_PackageDeclarationToPackage_Lifeline_UseCase_UseCaseToInteraction_Interaction() {
-		return getUserActorToLifelineRule().getEOperations().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsApplicable_checkCsp_BWD__CSP() {
-		return getUserActorToLifelineRule().getEOperations().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__RegisterObjects_BWD__PerformRuleResult_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject_EObject() {
-		return getUserActorToLifelineRule().getEOperations().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__CheckTypes_BWD__Match() {
-		return getUserActorToLifelineRule().getEOperations().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_FWD_EMoflonEdge_231__EMoflonEdge() {
-		return getUserActorToLifelineRule().getEOperations().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_73__EMoflonEdge() {
-		return getUserActorToLifelineRule().getEOperations().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_74__EMoflonEdge() {
-		return getUserActorToLifelineRule().getEOperations().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__CheckAttributes_FWD__TripleMatch() {
-		return getUserActorToLifelineRule().getEOperations().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__CheckAttributes_BWD__TripleMatch() {
-		return getUserActorToLifelineRule().getEOperations().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__GenerateModel__RuleEntryContainer_UseCaseToInteraction() {
-		return getUserActorToLifelineRule().getEOperations().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__GenerateModel_solveCsp_BWD__IsApplicableMatch_PackageDeclaration_Package_PackageDeclarationToPackage_UseCase_UseCaseToInteraction_Interaction_ModelgeneratorRuleResult() {
-		return getUserActorToLifelineRule().getEOperations().get(26);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getUserActorToLifelineRule__GenerateModel_checkCsp_BWD__CSP() {
-		return getUserActorToLifelineRule().getEOperations().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNormalStepBFToMessageRule() {
 		if (normalStepBFToMessageRuleEClass == null) {
 			normalStepBFToMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(6);
+					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(5);
 		}
 		return normalStepBFToMessageRuleEClass;
 	}
@@ -1353,7 +1333,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	public EClass getNormalStepNFToMessageRule() {
 		if (normalStepNFToMessageRuleEClass == null) {
 			normalStepNFToMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(7);
+					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(6);
 		}
 		return normalStepNFToMessageRuleEClass;
 	}
@@ -1366,7 +1346,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	public EClass getAltStepToComboRule() {
 		if (altStepToComboRuleEClass == null) {
 			altStepToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(8);
+					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(7);
 		}
 		return altStepToComboRuleEClass;
 	}
@@ -1379,7 +1359,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	public EClass getAltStepNFToComboRule() {
 		if (altStepNFToComboRuleEClass == null) {
 			altStepNFToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(9);
+					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(8);
 		}
 		return altStepNFToComboRuleEClass;
 	}
@@ -1392,8 +1372,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 	public EClass getParallelStepToCombinedFragmentRule() {
 		if (parallelStepToCombinedFragmentRuleEClass == null) {
 			parallelStepToCombinedFragmentRuleEClass = (EClass) EPackage.Registry.INSTANCE
-					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(10);
+					.getEPackage(RulesPackage.eNS_URI).getEClassifiers().get(9);
 		}
 		return parallelStepToCombinedFragmentRuleEClass;
 	}
@@ -1659,7 +1638,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (parallelFlowToOperandRuleEClass == null) {
 			parallelFlowToOperandRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(11);
+					.get(10);
 		}
 		return parallelFlowToOperandRuleEClass;
 	}
@@ -1943,7 +1922,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (useCasePrecondToFoundMessageRuleEClass == null) {
 			useCasePrecondToFoundMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(12);
+					.get(11);
 		}
 		return useCasePrecondToFoundMessageRuleEClass;
 	}
@@ -2263,7 +2242,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (systemStepBFToMessageRuleEClass == null) {
 			systemStepBFToMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(13);
+					.get(12);
 		}
 		return systemStepBFToMessageRuleEClass;
 	}
@@ -2646,7 +2625,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (stepAltToOperandRuleEClass == null) {
 			stepAltToOperandRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(14);
+					.get(13);
 		}
 		return stepAltToOperandRuleEClass;
 	}
@@ -2957,7 +2936,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (altStepBFToComboRuleEClass == null) {
 			altStepBFToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(15);
+					.get(14);
 		}
 		return altStepBFToComboRuleEClass;
 	}
@@ -2971,7 +2950,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (userStepBFMessageRuleEClass == null) {
 			userStepBFMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(16);
+					.get(15);
 		}
 		return userStepBFMessageRuleEClass;
 	}
@@ -3354,7 +3333,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (systemStepNFToMessageRuleEClass == null) {
 			systemStepNFToMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(17);
+					.get(16);
 		}
 		return systemStepNFToMessageRuleEClass;
 	}
@@ -3755,7 +3734,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (userStepNfToMessageRuleEClass == null) {
 			userStepNfToMessageRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(18);
+					.get(17);
 		}
 		return userStepNfToMessageRuleEClass;
 	}
@@ -4174,7 +4153,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (altSysStepBFToComboRuleEClass == null) {
 			altSysStepBFToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(19);
+					.get(18);
 		}
 		return altSysStepBFToComboRuleEClass;
 	}
@@ -4584,7 +4563,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (altUserStepBFToComboRuleEClass == null) {
 			altUserStepBFToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(20);
+					.get(19);
 		}
 		return altUserStepBFToComboRuleEClass;
 	}
@@ -5021,7 +5000,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (altSysStepNFToComboRuleEClass == null) {
 			altSysStepNFToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(21);
+					.get(20);
 		}
 		return altSysStepNFToComboRuleEClass;
 	}
@@ -5467,7 +5446,7 @@ public class RulesPackageImpl extends EPackageImpl implements RulesPackage {
 		if (altUserStepNFToComboRuleEClass == null) {
 			altUserStepNFToComboRuleEClass = (EClass) EPackage.Registry.INSTANCE
 					.getEPackage(RulesPackage.eNS_URI).getEClassifiers()
-					.get(22);
+					.get(21);
 		}
 		return altUserStepNFToComboRuleEClass;
 	}

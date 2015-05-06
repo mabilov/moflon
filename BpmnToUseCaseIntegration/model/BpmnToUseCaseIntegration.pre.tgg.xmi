@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration">
-  <domain name="Source" metamodel="//@metamodel.2" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.0"/>
+  <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
+  <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
+  <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="BpModelToUseCaseModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="documentRoot" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot"/>
@@ -409,10 +409,22 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
+      <constraints variables="//@tggRule.4/@csp/@variables.4 //@tggRule.4/@csp/@variables.5" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="task"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="task"/>
       <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000922504552464F524D22"/>
     </csp>
   </tggRule>
   <tggRule name="FirstServiceTaskToStepRule" refines="//@tggRule.4" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
@@ -791,13 +803,45 @@
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateThrowEvent"/>
     </objectVariable>
-    <csp/>
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" bindingOperator="CREATE" domain="//@domain.1">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.13/@csp/@variables.0 //@tggRule.13/@csp/@variables.1" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400062253454E4422"/>
+    </csp>
   </tggRule>
   <tggRule name="ICEToStepRule" refines="//@tggRule.17" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     </objectVariable>
-    <csp/>
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" bindingOperator="CREATE" domain="//@domain.1">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.14/@csp/@variables.0 //@tggRule.14/@csp/@variables.1" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED0005740006225741495422"/>
+    </csp>
   </tggRule>
   <tggRule name="EndEventRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.15/@linkVariable.8" outgoingLink="//@tggRule.15/@linkVariable.0 //@tggRule.15/@linkVariable.1 //@tggRule.15/@linkVariable.2" domain="//@domain.0">
@@ -1027,12 +1071,24 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
+      <constraints variables="//@tggRule.16/@csp/@variables.6 //@tggRule.16/@csp/@variables.7" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="exclusiveGateway"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="exclusiveGateway"/>
       <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
       <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="exclusiveGateway"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522414C5422"/>
     </csp>
   </tggRule>
   <tggRule name="InterEventToStepRule" refines="//@tggRule.12" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
@@ -1063,13 +1119,45 @@
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateThrowEvent"/>
     </objectVariable>
-    <csp/>
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" bindingOperator="CREATE" domain="//@domain.1">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.18/@csp/@variables.0 //@tggRule.18/@csp/@variables.1" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED00057400062253454E4422"/>
+    </csp>
   </tggRule>
   <tggRule name="FirstICEToStepRule" refines="//@tggRule.12" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="event" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//IntermediateCatchEvent"/>
     </objectVariable>
-    <csp/>
+    <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="normalStep" bindingOperator="CREATE" domain="//@domain.1">
+      <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
+    </objectVariable>
+    <csp>
+      <constraints variables="//@tggRule.19/@csp/@variables.0 //@tggRule.19/@csp/@variables.1" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED0005740006225741495422"/>
+    </csp>
   </tggRule>
   <tggRule name="ParallelGatewayToParallelStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" outgoingLink="//@tggRule.20/@linkVariable.0 //@tggRule.20/@linkVariable.1 //@tggRule.20/@linkVariable.2 //@tggRule.20/@linkVariable.3" domain="//@domain.0">
@@ -2681,13 +2769,13 @@
     </linkVariable>
     <csp/>
   </tggRule>
-  <metamodel name="BpmnToUseCaseIntegration">
-    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
-  </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
   <metamodel name="bpmn2">
     <outermostPackage href="platform:/plugin/bpmn2/model/Bpmn2.ecore#/"/>
+  </metamodel>
+  <metamodel name="BpmnToUseCaseIntegration">
+    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

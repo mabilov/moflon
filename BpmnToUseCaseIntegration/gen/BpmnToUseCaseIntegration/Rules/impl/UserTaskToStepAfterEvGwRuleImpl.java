@@ -33,6 +33,7 @@ import TGGRuntime.impl.AbstractRuleImpl;
 import UseCaseDSL.Actor;
 import UseCaseDSL.Flow;
 import UseCaseDSL.NormalStep;
+import UseCaseDSL.StepType;
 import UseCaseDSL.UseCaseDSLFactory;
 
 import bpmn2.Bpmn2Factory;
@@ -467,6 +468,10 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("PERFORM");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_task_id = CSPFactoryHelper.eINSTANCE.createVariable(
@@ -485,19 +490,26 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", csp);
 		var_normalStep_label.setType("String");
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", csp);
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create constraints
 		Eq eq = new Eq();
 		Eq eq_0 = new Eq();
+		EqStepType eqStepType = new EqStepType();
 
 		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eq_0);
+		csp.getConstraints().add(eqStepType);
 
 		// Solve CSP
 		eq.setRuleName("");
 		eq.solve(var_task_id, var_normalStep_name);
 		eq_0.setRuleName("");
 		eq_0.solve(var_task_name, var_normalStep_label);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("flowNode", flowNode);
@@ -864,14 +876,27 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("PERFORM");
+		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", true, csp);
+		var_normalStep_type.setValue(normalStep.getType());
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create unbound variables
 
 		// Create constraints
+		EqStepType eqStepType = new EqStepType();
+
+		csp.getConstraints().add(eqStepType);
 
 		// Solve CSP
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 		return csp;
 	}
 
@@ -1730,6 +1755,10 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("PERFORM");
+		literal0.setType("");
 
 		// Create attribute variables
 
@@ -1746,15 +1775,22 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", csp);
 		var_normalStep_label.setType("String");
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", csp);
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create constraints
+		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
 		Eq eq_0 = new Eq();
 
+		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 		eq.setRuleName("");
 		eq.solve(var_task_id, var_normalStep_name);
 		eq_0.setRuleName("");
@@ -2399,6 +2435,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 				.createSequenceFlowToStep();
 		Object _localVariable_0 = csp.getValue("normalStep", "name");
 		Object _localVariable_1 = csp.getValue("normalStep", "label");
+		Object _localVariable_2 = csp.getValue("normalStep", "type");
 		normalStep.setActor(actor);
 		flow.getSteps().add(normalStep);
 		taskToNormalStep.setSource(task);
@@ -2409,8 +2446,10 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		outFlowToNormalStep.setTarget(normalStep);
 		String normalStep_name_prime = (String) _localVariable_0;
 		String normalStep_label_prime = (String) _localVariable_1;
+		StepType normalStep_type_prime = (StepType) _localVariable_2;
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
+		normalStep.setType(normalStep_type_prime);
 		return new Object[] { task, actor, outFlow, normalStep,
 				taskToNormalStep, outFlowToFlow, outFlowToNormalStep, flow, csp };
 	}
@@ -4909,7 +4948,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_541406 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_368283 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5127,7 +5166,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_90622 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_349504 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5340,7 +5379,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_417469 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_287322 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5557,7 +5596,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_151543 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_20348 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5768,7 +5807,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_990155 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_874782 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5980,7 +6019,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_243689 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_321484 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6194,7 +6233,7 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterEvGwRule_26_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_208367 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_471281 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6932,8 +6971,9 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		Object _localVariable_1 = csp.getValue("task", "name");
 		Object _localVariable_2 = csp.getValue("normalStep", "name");
 		Object _localVariable_3 = csp.getValue("normalStep", "label");
+		Object _localVariable_4 = csp.getValue("normalStep", "type");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		lane.getFlowNodeRefs().add(task);
 		inFlow.setTargetRef(task);
 		process.getFlowElements().add(task);
@@ -6957,12 +6997,14 @@ public class UserTaskToStepAfterEvGwRuleImpl extends AbstractRuleImpl implements
 		String task_name_prime = (String) _localVariable_1;
 		String normalStep_name_prime = (String) _localVariable_2;
 		String normalStep_label_prime = (String) _localVariable_3;
+		StepType normalStep_type_prime = (StepType) _localVariable_4;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		task.setId(task_id_prime);
 		task.setName(task_name_prime);
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
+		normalStep.setType(normalStep_type_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
 		return new Object[] { lane, task, actor, inFlow, process, outFlow,

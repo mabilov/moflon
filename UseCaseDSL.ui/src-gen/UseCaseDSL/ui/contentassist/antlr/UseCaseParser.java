@@ -44,7 +44,7 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLocalAlternativeAccess().getAlternatives_3(), "rule__LocalAlternative__Alternatives_3");
 					put(grammarAccess.getNormalStepAccess().getAlternatives_6(), "rule__NormalStep__Alternatives_6");
 					put(grammarAccess.getActorTypeAccess().getAlternatives(), "rule__ActorType__Alternatives");
-					put(grammarAccess.getCustomStepTypeAccess().getAlternatives(), "rule__CustomStepType__Alternatives");
+					put(grammarAccess.getStepTypeAccess().getAlternatives(), "rule__StepType__Alternatives");
 					put(grammarAccess.getPackageDeclarationAccess().getGroup(), "rule__PackageDeclaration__Group__0");
 					put(grammarAccess.getPackageDeclarationAccess().getGroup_3(), "rule__PackageDeclaration__Group_3__0");
 					put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
@@ -72,7 +72,6 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParallelStepAccess().getGroup_4(), "rule__ParallelStep__Group_4__0");
 					put(grammarAccess.getParallelStepAccess().getGroup_5(), "rule__ParallelStep__Group_5__0");
 					put(grammarAccess.getNormalStepAccess().getGroup(), "rule__NormalStep__Group__0");
-					put(grammarAccess.getNormalStepAccess().getGroup_5(), "rule__NormalStep__Group_5__0");
 					put(grammarAccess.getNormalStepAccess().getGroup_6_0(), "rule__NormalStep__Group_6_0__0");
 					put(grammarAccess.getNormalStepAccess().getGroup_6_1(), "rule__NormalStep__Group_6_1__0");
 					put(grammarAccess.getNormalStepAccess().getGroup_7(), "rule__NormalStep__Group_7__0");
@@ -122,8 +121,8 @@ public class UseCaseParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParallelStepAccess().getNextAssignment_5_1(), "rule__ParallelStep__NextAssignment_5_1");
 					put(grammarAccess.getNormalStepAccess().getNameAssignment_1(), "rule__NormalStep__NameAssignment_1");
 					put(grammarAccess.getNormalStepAccess().getLabelAssignment_2(), "rule__NormalStep__LabelAssignment_2");
-					put(grammarAccess.getNormalStepAccess().getActorAssignment_4(), "rule__NormalStep__ActorAssignment_4");
-					put(grammarAccess.getNormalStepAccess().getCustomStepTypeAssignment_5_1(), "rule__NormalStep__CustomStepTypeAssignment_5_1");
+					put(grammarAccess.getNormalStepAccess().getTypeAssignment_3(), "rule__NormalStep__TypeAssignment_3");
+					put(grammarAccess.getNormalStepAccess().getActorAssignment_5(), "rule__NormalStep__ActorAssignment_5");
 					put(grammarAccess.getNormalStepAccess().getStepAlternativeAssignment_6_0_1(), "rule__NormalStep__StepAlternativeAssignment_6_0_1");
 					put(grammarAccess.getNormalStepAccess().getInvokedUseCaseAssignment_6_1_1(), "rule__NormalStep__InvokedUseCaseAssignment_6_1_1");
 					put(grammarAccess.getNormalStepAccess().getNextAssignment_7_1(), "rule__NormalStep__NextAssignment_7_1");

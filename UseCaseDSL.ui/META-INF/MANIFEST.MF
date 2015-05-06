@@ -22,5 +22,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: UseCaseDSL.ui.quickfix,
  UseCaseDSL.ui.contentassist,
  UseCaseDSL.ui.contentassist.antlr,
- UseCaseDSL.ui.internal
+ UseCaseDSL.ui.internal,
+ UseCaseDSL.ui.contentassist.antlr.internal
 Bundle-Activator: UseCaseDSL.ui.internal.UseCaseActivator

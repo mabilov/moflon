@@ -24,12 +24,12 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ANY_OTHER", "RULE_ID", "RULE_INT", 
 		"RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_STRING", "RULE_WS", "','", 
-		"'.'", "'actors'", "'alternative flow'", "'alternatives'", "'as'", "'basic flow'", 
-		"'by'", "'continue with step'", "'else'", "'end flow'", "'end package'", 
-		"'end usecase'", "'exception flow'", "'extends'", "'if'", "'input'", "'invoke usecase'", 
-		"'mix'", "'next'", "'organization'", "'output'", "'package'", "'parallel flow'", 
-		"'parallel step'", "'person'", "'postcondition'", "'preconditions'", "'process'", 
-		"'step'", "'system'", "'then'", "'type'", "'usecase'", "'with postcondition'"
+		"'.'", "'actors'", "'alt'", "'alternative flow'", "'alternatives'", "'as'", 
+		"'basic flow'", "'by'", "'call'", "'continue with step'", "'else'", "'end flow'", 
+		"'end package'", "'end usecase'", "'exception flow'", "'extends'", "'if'", 
+		"'invoke usecase'", "'next'", "'organization'", "'package'", "'parallel flow'", 
+		"'parallel step'", "'perform'", "'person'", "'postcondition'", "'preconditions'", 
+		"'send'", "'step'", "'system'", "'then'", "'usecase'", "'wait'", "'with postcondition'"
 	};
 	public static final int EOF=-1;
 	public static final int T__11=11;
@@ -171,7 +171,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt1=2;
 				int LA1_0 = input.LA(1);
-				if ( (LA1_0==33) ) {
+				if ( (LA1_0==32) ) {
 					alt1=1;
 				}
 
@@ -289,7 +289,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:120:3: (otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) ( (lv_description_2_0= RULE_STRING ) )? (otherlv_3= 'actors' ( (lv_actors_4_0= ruleActor ) )+ )? ( (lv_useCases_5_0= ruleUseCase ) )* otherlv_6= 'end package' )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:120:3: otherlv_0= 'package' ( (lv_name_1_0= ruleQualifiedName ) ) ( (lv_description_2_0= RULE_STRING ) )? (otherlv_3= 'actors' ( (lv_actors_4_0= ruleActor ) )+ )? ( (lv_useCases_5_0= ruleUseCase ) )* otherlv_6= 'end package'
 			{
-			otherlv_0=(Token)match(input,33,FOLLOW_33_in_rulePackageDeclaration213); 
+			otherlv_0=(Token)match(input,32,FOLLOW_32_in_rulePackageDeclaration213); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getPackageDeclarationAccess().getPackageKeyword_0());
 			    
@@ -427,7 +427,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt5=2;
 				int LA5_0 = input.LA(1);
-				if ( (LA5_0==44) ) {
+				if ( (LA5_0==43) ) {
 					alt5=1;
 				}
 
@@ -466,7 +466,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 				}
 			}
 
-			otherlv_6=(Token)match(input,22,FOLLOW_22_in_rulePackageDeclaration328); 
+			otherlv_6=(Token)match(input,24,FOLLOW_24_in_rulePackageDeclaration328); 
 
 			    	newLeafNode(otherlv_6, grammarAccess.getPackageDeclarationAccess().getEndPackageKeyword_5());
 			    
@@ -555,7 +555,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:225:3: (otherlv_0= 'usecase' ( (lv_name_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( ( ( ( ({...}? => ( ({...}? => (otherlv_6= 'preconditions' ( (lv_preconditions_7_0= ruleUCCondition ) )+ ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'postcondition' ( (lv_postconditions_9_0= ruleUCCondition ) )+ ) ) ) ) )* ) ) ) ( (lv_flows_10_0= ruleFlow ) )* otherlv_11= 'end usecase' )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:225:3: otherlv_0= 'usecase' ( (lv_name_1_0= RULE_ID ) ) ( (lv_description_2_0= RULE_STRING ) )? (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )? ( ( ( ( ({...}? => ( ({...}? => (otherlv_6= 'preconditions' ( (lv_preconditions_7_0= ruleUCCondition ) )+ ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'postcondition' ( (lv_postconditions_9_0= ruleUCCondition ) )+ ) ) ) ) )* ) ) ) ( (lv_flows_10_0= ruleFlow ) )* otherlv_11= 'end usecase'
 			{
-			otherlv_0=(Token)match(input,44,FOLLOW_44_in_ruleUseCase411); 
+			otherlv_0=(Token)match(input,43,FOLLOW_43_in_ruleUseCase411); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getUseCaseAccess().getUsecaseKeyword_0());
 			    
@@ -620,14 +620,14 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:265:3: (otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) ) )?
 			int alt7=2;
 			int LA7_0 = input.LA(1);
-			if ( (LA7_0==25) ) {
+			if ( (LA7_0==27) ) {
 				alt7=1;
 			}
 			switch (alt7) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:265:5: otherlv_3= 'extends' ( (otherlv_4= RULE_ID ) )
 					{
-					otherlv_3=(Token)match(input,25,FOLLOW_25_in_ruleUseCase469); 
+					otherlv_3=(Token)match(input,27,FOLLOW_27_in_ruleUseCase469); 
 
 					    	newLeafNode(otherlv_3, grammarAccess.getUseCaseAccess().getExtendsKeyword_3_0());
 					    
@@ -878,7 +878,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt11=2;
 				int LA11_0 = input.LA(1);
-				if ( (LA11_0==14||LA11_0==17||LA11_0==24||LA11_0==34) ) {
+				if ( (LA11_0==15||LA11_0==18||LA11_0==26||LA11_0==33) ) {
 					alt11=1;
 				}
 
@@ -917,7 +917,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 				}
 			}
 
-			otherlv_11=(Token)match(input,23,FOLLOW_23_in_ruleUseCase736); 
+			otherlv_11=(Token)match(input,25,FOLLOW_25_in_ruleUseCase736); 
 
 			    	newLeafNode(otherlv_11, grammarAccess.getUseCaseAccess().getEndUsecaseKeyword_6());
 			    
@@ -1119,7 +1119,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			}
 
-			otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleActor932); 
+			otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleActor932); 
 
 			    	newLeafNode(otherlv_1, grammarAccess.getActorAccess().getAsKeyword_1());
 			    
@@ -1188,14 +1188,14 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:506:3: (otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) ) )?
 			int alt13=2;
 			int LA13_0 = input.LA(1);
-			if ( (LA13_0==25) ) {
+			if ( (LA13_0==27) ) {
 				alt13=1;
 			}
 			switch (alt13) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:506:5: otherlv_4= 'extends' ( (otherlv_5= RULE_ID ) )
 					{
-					otherlv_4=(Token)match(input,25,FOLLOW_25_in_ruleActor989); 
+					otherlv_4=(Token)match(input,27,FOLLOW_27_in_ruleActor989); 
 
 					    	newLeafNode(otherlv_4, grammarAccess.getActorAccess().getExtendsKeyword_4_0());
 					    
@@ -1302,7 +1302,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			if ( (LA14_0==40) ) {
 				alt14=1;
 			}
-			else if ( (LA14_0==35) ) {
+			else if ( (LA14_0==34) ) {
 				alt14=2;
 			}
 
@@ -1422,10 +1422,10 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:584:5: (this_BasicFlow_0= ruleBasicFlow |this_NamedFlow_1= ruleNamedFlow )
 			int alt15=2;
 			int LA15_0 = input.LA(1);
-			if ( (LA15_0==17) ) {
+			if ( (LA15_0==18) ) {
 				alt15=1;
 			}
-			else if ( (LA15_0==14||LA15_0==24||LA15_0==34) ) {
+			else if ( (LA15_0==15||LA15_0==26||LA15_0==33) ) {
 				alt15=2;
 			}
 
@@ -1548,7 +1548,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:624:3: (otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= ruleUCCondition ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:624:3: otherlv_0= 'basic flow' () ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= ruleUCCondition ) ) )?
 			{
-			otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleBasicFlow1332); 
+			otherlv_0=(Token)match(input,18,FOLLOW_18_in_ruleBasicFlow1332); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getBasicFlowAccess().getBasicFlowKeyword_0());
 			    
@@ -1567,7 +1567,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt16=2;
 				int LA16_0 = input.LA(1);
-				if ( (LA16_0==35||LA16_0==40) ) {
+				if ( (LA16_0==34||LA16_0==40) ) {
 					alt16=1;
 				}
 
@@ -1606,7 +1606,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 				}
 			}
 
-			otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleBasicFlow1375); 
+			otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleBasicFlow1375); 
 
 			    	newLeafNode(otherlv_3, grammarAccess.getBasicFlowAccess().getEndFlowKeyword_3());
 			    
@@ -1734,17 +1734,17 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:699:5: (this_ExceptionFlow_0= ruleExceptionFlow |this_AlternativeFlow_1= ruleAlternativeFlow |this_ParallelFlow_2= ruleParallelFlow )
 			int alt18=3;
 			switch ( input.LA(1) ) {
-			case 24:
+			case 26:
 				{
 				alt18=1;
 				}
 				break;
-			case 14:
+			case 15:
 				{
 				alt18=2;
 				}
 				break;
-			case 34:
+			case 33:
 				{
 				alt18=3;
 				}
@@ -1887,7 +1887,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:749:3: (otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= ruleUCCondition ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:749:3: otherlv_0= 'exception flow' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'if' ( (lv_condition_3_0= RULE_STRING ) ) otherlv_4= 'then' ( (lv_steps_5_0= ruleStep ) )* otherlv_6= 'end flow' (otherlv_7= 'with postcondition' ( (lv_finalState_8_0= ruleUCCondition ) ) )?
 			{
-			otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleExceptionFlow1640); 
+			otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleExceptionFlow1640); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getExceptionFlowAccess().getExceptionFlowKeyword_0());
 			    
@@ -1915,7 +1915,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			}
 
-			otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleExceptionFlow1674); 
+			otherlv_2=(Token)match(input,28,FOLLOW_28_in_ruleExceptionFlow1674); 
 
 			    	newLeafNode(otherlv_2, grammarAccess.getExceptionFlowAccess().getIfKeyword_2());
 			    
@@ -1952,7 +1952,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt19=2;
 				int LA19_0 = input.LA(1);
-				if ( (LA19_0==35||LA19_0==40) ) {
+				if ( (LA19_0==34||LA19_0==40) ) {
 					alt19=1;
 				}
 
@@ -1991,7 +1991,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 				}
 			}
 
-			otherlv_6=(Token)match(input,21,FOLLOW_21_in_ruleExceptionFlow1742); 
+			otherlv_6=(Token)match(input,23,FOLLOW_23_in_ruleExceptionFlow1742); 
 
 			    	newLeafNode(otherlv_6, grammarAccess.getExceptionFlowAccess().getEndFlowKeyword_6());
 			    
@@ -2122,7 +2122,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:862:3: (otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= ruleUCCondition ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:862:3: otherlv_0= 'alternative flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= ruleUCCondition ) ) )?
 			{
-			otherlv_0=(Token)match(input,14,FOLLOW_14_in_ruleAlternativeFlow1861); 
+			otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleAlternativeFlow1861); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getAlternativeFlowAccess().getAlternativeFlowKeyword_0());
 			    
@@ -2155,7 +2155,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt21=2;
 				int LA21_0 = input.LA(1);
-				if ( (LA21_0==35||LA21_0==40) ) {
+				if ( (LA21_0==34||LA21_0==40) ) {
 					alt21=1;
 				}
 
@@ -2194,7 +2194,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 				}
 			}
 
-			otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleAlternativeFlow1917); 
+			otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleAlternativeFlow1917); 
 
 			    	newLeafNode(otherlv_3, grammarAccess.getAlternativeFlowAccess().getEndFlowKeyword_3());
 			    
@@ -2325,7 +2325,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:949:3: (otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= ruleUCCondition ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:949:3: otherlv_0= 'parallel flow' ( (lv_name_1_0= RULE_ID ) ) ( (lv_steps_2_0= ruleStep ) )* otherlv_3= 'end flow' (otherlv_4= 'with postcondition' ( (lv_finalState_5_0= ruleUCCondition ) ) )?
 			{
-			otherlv_0=(Token)match(input,34,FOLLOW_34_in_ruleParallelFlow2036); 
+			otherlv_0=(Token)match(input,33,FOLLOW_33_in_ruleParallelFlow2036); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getParallelFlowAccess().getParallelFlowKeyword_0());
 			    
@@ -2358,7 +2358,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			while (true) {
 				int alt23=2;
 				int LA23_0 = input.LA(1);
-				if ( (LA23_0==35||LA23_0==40) ) {
+				if ( (LA23_0==34||LA23_0==40) ) {
 					alt23=1;
 				}
 
@@ -2397,7 +2397,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 				}
 			}
 
-			otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleParallelFlow2092); 
+			otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleParallelFlow2092); 
 
 			    	newLeafNode(otherlv_3, grammarAccess.getParallelFlowAccess().getEndFlowKeyword_3());
 			    
@@ -2525,27 +2525,27 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1036:5: (this_Condition_0= ruleCondition |this_LocalAlternative_1= ruleLocalAlternative |this_AlternativeFlowAlternative_2= ruleAlternativeFlowAlternative )
 			int alt25=3;
 			int LA25_0 = input.LA(1);
-			if ( (LA25_0==26) ) {
+			if ( (LA25_0==28) ) {
 				int LA25_1 = input.LA(2);
 				if ( (LA25_1==RULE_STRING) ) {
 					int LA25_2 = input.LA(3);
 					if ( (LA25_2==42) ) {
 						switch ( input.LA(4) ) {
 						case EOF:
-						case 19:
-						case 20:
-						case 26:
+						case 21:
+						case 22:
+						case 28:
 							{
 							alt25=1;
 							}
 							break;
 						case RULE_STRING:
-						case 28:
+						case 29:
 							{
 							alt25=2;
 							}
 							break;
-						case 14:
+						case 15:
 							{
 							alt25=3;
 							}
@@ -2730,7 +2730,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1086:3: (otherlv_0= 'if' ( (lv_condition_1_0= RULE_STRING ) ) otherlv_2= 'then' (otherlv_3= 'continue with step' ( (otherlv_4= RULE_ID ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1086:3: otherlv_0= 'if' ( (lv_condition_1_0= RULE_STRING ) ) otherlv_2= 'then' (otherlv_3= 'continue with step' ( (otherlv_4= RULE_ID ) ) )?
 			{
-			otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleCondition2357); 
+			otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleCondition2357); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getIfKeyword_0());
 			    
@@ -2765,14 +2765,14 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1112:3: (otherlv_3= 'continue with step' ( (otherlv_4= RULE_ID ) ) )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
-			if ( (LA26_0==19) ) {
+			if ( (LA26_0==21) ) {
 				alt26=1;
 			}
 			switch (alt26) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1112:3: otherlv_3= 'continue with step' ( (otherlv_4= RULE_ID ) )
 					{
-					otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleCondition2404); 
+					otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleCondition2404); 
 
 					    	newLeafNode(otherlv_3, grammarAccess.getConditionAccess().getContinueWithStepKeyword_3_0());
 					    
@@ -2882,7 +2882,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1150:3: (otherlv_0= 'if' ( (lv_condition_1_0= RULE_STRING ) ) otherlv_2= 'then' ( ( (lv_description_3_0= RULE_STRING ) ) | (otherlv_4= 'invoke usecase' ( (otherlv_5= RULE_ID ) ) ) ) (otherlv_6= 'continue with step' ( (otherlv_7= RULE_ID ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1150:3: otherlv_0= 'if' ( (lv_condition_1_0= RULE_STRING ) ) otherlv_2= 'then' ( ( (lv_description_3_0= RULE_STRING ) ) | (otherlv_4= 'invoke usecase' ( (otherlv_5= RULE_ID ) ) ) ) (otherlv_6= 'continue with step' ( (otherlv_7= RULE_ID ) ) )?
 			{
-			otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleLocalAlternative2509); 
+			otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleLocalAlternative2509); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getLocalAlternativeAccess().getIfKeyword_0());
 			    
@@ -2920,7 +2920,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			if ( (LA27_0==RULE_STRING) ) {
 				alt27=1;
 			}
-			else if ( (LA27_0==28) ) {
+			else if ( (LA27_0==29) ) {
 				alt27=2;
 			}
 
@@ -2966,7 +2966,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1195:6: (otherlv_4= 'invoke usecase' ( (otherlv_5= RULE_ID ) ) )
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1195:8: otherlv_4= 'invoke usecase' ( (otherlv_5= RULE_ID ) )
 					{
-					otherlv_4=(Token)match(input,28,FOLLOW_28_in_ruleLocalAlternative2585); 
+					otherlv_4=(Token)match(input,29,FOLLOW_29_in_ruleLocalAlternative2585); 
 
 					    	newLeafNode(otherlv_4, grammarAccess.getLocalAlternativeAccess().getInvokeUsecaseKeyword_3_1_0());
 					    
@@ -2999,14 +2999,14 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1212:4: (otherlv_6= 'continue with step' ( (otherlv_7= RULE_ID ) ) )?
 			int alt28=2;
 			int LA28_0 = input.LA(1);
-			if ( (LA28_0==19) ) {
+			if ( (LA28_0==21) ) {
 				alt28=1;
 			}
 			switch (alt28) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1212:6: otherlv_6= 'continue with step' ( (otherlv_7= RULE_ID ) )
 					{
-					otherlv_6=(Token)match(input,19,FOLLOW_19_in_ruleLocalAlternative2620); 
+					otherlv_6=(Token)match(input,21,FOLLOW_21_in_ruleLocalAlternative2620); 
 
 					    	newLeafNode(otherlv_6, grammarAccess.getLocalAlternativeAccess().getContinueWithStepKeyword_4_0());
 					    
@@ -3115,7 +3115,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1250:3: (otherlv_0= 'if' ( (lv_condition_1_0= RULE_STRING ) ) otherlv_2= 'then' otherlv_3= 'alternative flow' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'continue with step' ( (otherlv_6= RULE_ID ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1250:3: otherlv_0= 'if' ( (lv_condition_1_0= RULE_STRING ) ) otherlv_2= 'then' otherlv_3= 'alternative flow' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'continue with step' ( (otherlv_6= RULE_ID ) ) )?
 			{
-			otherlv_0=(Token)match(input,26,FOLLOW_26_in_ruleAlternativeFlowAlternative2725); 
+			otherlv_0=(Token)match(input,28,FOLLOW_28_in_ruleAlternativeFlowAlternative2725); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getAlternativeFlowAlternativeAccess().getIfKeyword_0());
 			    
@@ -3147,7 +3147,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			    	newLeafNode(otherlv_2, grammarAccess.getAlternativeFlowAlternativeAccess().getThenKeyword_2());
 			    
-			otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleAlternativeFlowAlternative2771); 
+			otherlv_3=(Token)match(input,15,FOLLOW_15_in_ruleAlternativeFlowAlternative2771); 
 
 			    	newLeafNode(otherlv_3, grammarAccess.getAlternativeFlowAlternativeAccess().getAlternativeFlowKeyword_3());
 			    
@@ -3173,14 +3173,14 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1293:2: (otherlv_5= 'continue with step' ( (otherlv_6= RULE_ID ) ) )?
 			int alt29=2;
 			int LA29_0 = input.LA(1);
-			if ( (LA29_0==19) ) {
+			if ( (LA29_0==21) ) {
 				alt29=1;
 			}
 			switch (alt29) {
 				case 1 :
 					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1293:4: otherlv_5= 'continue with step' ( (otherlv_6= RULE_ID ) )
 					{
-					otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleAlternativeFlowAlternative2804); 
+					otherlv_5=(Token)match(input,21,FOLLOW_21_in_ruleAlternativeFlowAlternative2804); 
 
 					    	newLeafNode(otherlv_5, grammarAccess.getAlternativeFlowAlternativeAccess().getContinueWithStepKeyword_5_0());
 					    
@@ -3290,7 +3290,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1331:3: (otherlv_0= 'parallel step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) )* (otherlv_6= 'next' ( (otherlv_7= RULE_ID ) ) )? )
 			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1331:3: otherlv_0= 'parallel step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (otherlv_3= RULE_ID ) ) (otherlv_4= ',' ( (otherlv_5= RULE_ID ) ) )* (otherlv_6= 'next' ( (otherlv_7= RULE_ID ) ) )?
 			{
-			otherlv_0=(Token)match(input,35,FOLLOW_35_in_ruleParallelStep2909); 
+			otherlv_0=(Token)match(input,34,FOLLOW_34_in_ruleParallelStep2909); 
 
 			    	newLeafNode(otherlv_0, grammarAccess.getParallelStepAccess().getParallelStepKeyword_0());
 			    
@@ -3512,7 +3512,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleNormalStep"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1435:1: ruleNormalStep returns [EObject current=null] : (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? otherlv_3= 'by' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) ) )? ( (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' ) | (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) ) )? (otherlv_12= 'next' ( (otherlv_13= RULE_ID ) ) )? ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1435:1: ruleNormalStep returns [EObject current=null] : (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (lv_type_3_0= ruleStepType ) ) otherlv_4= 'by' ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' ) | (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) ) )? (otherlv_11= 'next' ( (otherlv_12= RULE_ID ) ) )? ) ;
 	public final EObject ruleNormalStep() throws RecognitionException {
 		EObject current = null;
 
@@ -3520,26 +3520,25 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		Token otherlv_0=null;
 		Token lv_name_1_0=null;
 		Token lv_label_2_0=null;
-		Token otherlv_3=null;
 		Token otherlv_4=null;
 		Token otherlv_5=null;
-		Token otherlv_7=null;
+		Token otherlv_6=null;
+		Token otherlv_8=null;
 		Token otherlv_9=null;
 		Token otherlv_10=null;
 		Token otherlv_11=null;
 		Token otherlv_12=null;
-		Token otherlv_13=null;
-		Enumerator lv_customStepType_6_0 =null;
-		EObject lv_stepAlternative_8_0 =null;
+		Enumerator lv_type_3_0 =null;
+		EObject lv_stepAlternative_7_0 =null;
 
 		 enterRule(); 
 		    
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1438:28: ( (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? otherlv_3= 'by' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) ) )? ( (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' ) | (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) ) )? (otherlv_12= 'next' ( (otherlv_13= RULE_ID ) ) )? ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1439:3: (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? otherlv_3= 'by' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) ) )? ( (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' ) | (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) ) )? (otherlv_12= 'next' ( (otherlv_13= RULE_ID ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1438:28: ( (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (lv_type_3_0= ruleStepType ) ) otherlv_4= 'by' ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' ) | (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) ) )? (otherlv_11= 'next' ( (otherlv_12= RULE_ID ) ) )? ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1439:3: (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (lv_type_3_0= ruleStepType ) ) otherlv_4= 'by' ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' ) | (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) ) )? (otherlv_11= 'next' ( (otherlv_12= RULE_ID ) ) )? )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1439:3: (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? otherlv_3= 'by' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) ) )? ( (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' ) | (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) ) )? (otherlv_12= 'next' ( (otherlv_13= RULE_ID ) ) )? )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1439:3: otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? otherlv_3= 'by' ( (otherlv_4= RULE_ID ) ) (otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) ) )? ( (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' ) | (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) ) )? (otherlv_12= 'next' ( (otherlv_13= RULE_ID ) ) )?
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1439:3: (otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (lv_type_3_0= ruleStepType ) ) otherlv_4= 'by' ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' ) | (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) ) )? (otherlv_11= 'next' ( (otherlv_12= RULE_ID ) ) )? )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1439:3: otherlv_0= 'step' ( (lv_name_1_0= RULE_ID ) ) ( (lv_label_2_0= RULE_STRING ) )? ( (lv_type_3_0= ruleStepType ) ) otherlv_4= 'by' ( (otherlv_5= RULE_ID ) ) ( (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' ) | (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) ) )? (otherlv_11= 'next' ( (otherlv_12= RULE_ID ) ) )?
 			{
 			otherlv_0=(Token)match(input,40,FOLLOW_40_in_ruleNormalStep3127); 
 
@@ -3603,118 +3602,99 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			}
 
-			otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleNormalStep3184); 
-
-			    	newLeafNode(otherlv_3, grammarAccess.getNormalStepAccess().getByKeyword_3());
-			    
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1483:3: ( (otherlv_4= RULE_ID ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1484:3: (otherlv_4= RULE_ID )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1479:3: ( (lv_type_3_0= ruleStepType ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1480:3: (lv_type_3_0= ruleStepType )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1484:3: (otherlv_4= RULE_ID )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1485:3: otherlv_4= RULE_ID
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1480:3: (lv_type_3_0= ruleStepType )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1481:3: lv_type_3_0= ruleStepType
+			{
+			 
+				        newCompositeNode(grammarAccess.getNormalStepAccess().getTypeStepTypeEnumRuleCall_3_0()); 
+				    
+			pushFollow(FOLLOW_ruleStepType_in_ruleNormalStep3193);
+			lv_type_3_0=ruleStepType();
+			state._fsp--;
+
+
+				        if (current==null) {
+				            current = createModelElementForParent(grammarAccess.getNormalStepRule());
+				        }
+			       		set(
+			       			current, 
+			       			"type",
+			        		lv_type_3_0, 
+			        		"StepType");
+				        afterParserOrEnumRuleCall();
+				    
+			}
+
+			}
+
+			otherlv_4=(Token)match(input,19,FOLLOW_19_in_ruleNormalStep3205); 
+
+			    	newLeafNode(otherlv_4, grammarAccess.getNormalStepAccess().getByKeyword_4());
+			    
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1501:3: ( (otherlv_5= RULE_ID ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1502:3: (otherlv_5= RULE_ID )
+			{
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1502:3: (otherlv_5= RULE_ID )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1503:3: otherlv_5= RULE_ID
 			{
 
 						if (current==null) {
 				            current = createModelElement(grammarAccess.getNormalStepRule());
 				        }
 			        
-			otherlv_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNormalStep3204); 
+			otherlv_5=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNormalStep3225); 
 
-					newLeafNode(otherlv_4, grammarAccess.getNormalStepAccess().getActorActorCrossReference_4_0()); 
+					newLeafNode(otherlv_5, grammarAccess.getNormalStepAccess().getActorActorCrossReference_5_0()); 
 				
 			}
 
 			}
 
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1496:2: (otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) ) )?
-			int alt34=2;
-			int LA34_0 = input.LA(1);
-			if ( (LA34_0==43) ) {
-				alt34=1;
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1514:2: ( (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' ) | (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) ) )?
+			int alt35=3;
+			int LA35_0 = input.LA(1);
+			if ( (LA35_0==16) ) {
+				alt35=1;
 			}
-			switch (alt34) {
+			else if ( (LA35_0==29) ) {
+				alt35=2;
+			}
+			switch (alt35) {
 				case 1 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1496:4: otherlv_5= 'type' ( (lv_customStepType_6_0= ruleCustomStepType ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1514:3: (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' )
 					{
-					otherlv_5=(Token)match(input,43,FOLLOW_43_in_ruleNormalStep3217); 
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1514:3: (otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1514:5: otherlv_6= 'alternatives' ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+ otherlv_8= 'else'
+					{
+					otherlv_6=(Token)match(input,16,FOLLOW_16_in_ruleNormalStep3239); 
 
-					    	newLeafNode(otherlv_5, grammarAccess.getNormalStepAccess().getTypeKeyword_5_0());
+					    	newLeafNode(otherlv_6, grammarAccess.getNormalStepAccess().getAlternativesKeyword_6_0_0());
 					    
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1500:3: ( (lv_customStepType_6_0= ruleCustomStepType ) )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1501:3: (lv_customStepType_6_0= ruleCustomStepType )
-					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1501:3: (lv_customStepType_6_0= ruleCustomStepType )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1502:3: lv_customStepType_6_0= ruleCustomStepType
-					{
-					 
-						        newCompositeNode(grammarAccess.getNormalStepAccess().getCustomStepTypeCustomStepTypeEnumRuleCall_5_1_0()); 
-						    
-					pushFollow(FOLLOW_ruleCustomStepType_in_ruleNormalStep3238);
-					lv_customStepType_6_0=ruleCustomStepType();
-					state._fsp--;
-
-
-						        if (current==null) {
-						            current = createModelElementForParent(grammarAccess.getNormalStepRule());
-						        }
-					       		set(
-					       			current, 
-					       			"customStepType",
-					        		lv_customStepType_6_0, 
-					        		"CustomStepType");
-						        afterParserOrEnumRuleCall();
-						    
-					}
-
-					}
-
-					}
-					break;
-
-			}
-
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1518:4: ( (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' ) | (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) ) )?
-			int alt36=3;
-			int LA36_0 = input.LA(1);
-			if ( (LA36_0==15) ) {
-				alt36=1;
-			}
-			else if ( (LA36_0==28) ) {
-				alt36=2;
-			}
-			switch (alt36) {
-				case 1 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1518:5: (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' )
-					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1518:5: (otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1518:7: otherlv_7= 'alternatives' ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+ otherlv_9= 'else'
-					{
-					otherlv_7=(Token)match(input,15,FOLLOW_15_in_ruleNormalStep3254); 
-
-					    	newLeafNode(otherlv_7, grammarAccess.getNormalStepAccess().getAlternativesKeyword_6_0_0());
-					    
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1522:3: ( (lv_stepAlternative_8_0= ruleStepAlternative ) )+
-					int cnt35=0;
-					loop35:
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1518:3: ( (lv_stepAlternative_7_0= ruleStepAlternative ) )+
+					int cnt34=0;
+					loop34:
 					while (true) {
-						int alt35=2;
-						int LA35_0 = input.LA(1);
-						if ( (LA35_0==26) ) {
-							alt35=1;
+						int alt34=2;
+						int LA34_0 = input.LA(1);
+						if ( (LA34_0==28) ) {
+							alt34=1;
 						}
 
-						switch (alt35) {
+						switch (alt34) {
 						case 1 :
-							// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1523:3: (lv_stepAlternative_8_0= ruleStepAlternative )
+							// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1519:3: (lv_stepAlternative_7_0= ruleStepAlternative )
 							{
-							// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1523:3: (lv_stepAlternative_8_0= ruleStepAlternative )
-							// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1524:3: lv_stepAlternative_8_0= ruleStepAlternative
+							// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1519:3: (lv_stepAlternative_7_0= ruleStepAlternative )
+							// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1520:3: lv_stepAlternative_7_0= ruleStepAlternative
 							{
 							 
 								        newCompositeNode(grammarAccess.getNormalStepAccess().getStepAlternativeStepAlternativeParserRuleCall_6_0_1_0()); 
 								    
-							pushFollow(FOLLOW_ruleStepAlternative_in_ruleNormalStep3275);
-							lv_stepAlternative_8_0=ruleStepAlternative();
+							pushFollow(FOLLOW_ruleStepAlternative_in_ruleNormalStep3260);
+							lv_stepAlternative_7_0=ruleStepAlternative();
 							state._fsp--;
 
 
@@ -3724,7 +3704,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 							       		add(
 							       			current, 
 							       			"stepAlternative",
-							        		lv_stepAlternative_8_0, 
+							        		lv_stepAlternative_7_0, 
 							        		"StepAlternative");
 								        afterParserOrEnumRuleCall();
 								    
@@ -3734,45 +3714,45 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 							break;
 
 						default :
-							if ( cnt35 >= 1 ) break loop35;
-							EarlyExitException eee = new EarlyExitException(35, input);
+							if ( cnt34 >= 1 ) break loop34;
+							EarlyExitException eee = new EarlyExitException(34, input);
 							throw eee;
 						}
-						cnt35++;
+						cnt34++;
 					}
 
-					otherlv_9=(Token)match(input,20,FOLLOW_20_in_ruleNormalStep3288); 
+					otherlv_8=(Token)match(input,22,FOLLOW_22_in_ruleNormalStep3273); 
 
-					    	newLeafNode(otherlv_9, grammarAccess.getNormalStepAccess().getElseKeyword_6_0_2());
+					    	newLeafNode(otherlv_8, grammarAccess.getNormalStepAccess().getElseKeyword_6_0_2());
 					    
 					}
 
 					}
 					break;
 				case 2 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1545:6: (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1541:6: (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1545:6: (otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) ) )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1545:8: otherlv_10= 'invoke usecase' ( (otherlv_11= RULE_ID ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1541:6: (otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1541:8: otherlv_9= 'invoke usecase' ( (otherlv_10= RULE_ID ) )
 					{
-					otherlv_10=(Token)match(input,28,FOLLOW_28_in_ruleNormalStep3308); 
+					otherlv_9=(Token)match(input,29,FOLLOW_29_in_ruleNormalStep3293); 
 
-					    	newLeafNode(otherlv_10, grammarAccess.getNormalStepAccess().getInvokeUsecaseKeyword_6_1_0());
+					    	newLeafNode(otherlv_9, grammarAccess.getNormalStepAccess().getInvokeUsecaseKeyword_6_1_0());
 					    
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1549:3: ( (otherlv_11= RULE_ID ) )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1550:3: (otherlv_11= RULE_ID )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1545:3: ( (otherlv_10= RULE_ID ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1546:3: (otherlv_10= RULE_ID )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1550:3: (otherlv_11= RULE_ID )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1551:3: otherlv_11= RULE_ID
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1546:3: (otherlv_10= RULE_ID )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1547:3: otherlv_10= RULE_ID
 					{
 
 								if (current==null) {
 						            current = createModelElement(grammarAccess.getNormalStepRule());
 						        }
 					        
-					otherlv_11=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNormalStep3328); 
+					otherlv_10=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNormalStep3313); 
 
-							newLeafNode(otherlv_11, grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseCrossReference_6_1_1_0()); 
+							newLeafNode(otherlv_10, grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseCrossReference_6_1_1_0()); 
 						
 					}
 
@@ -3785,34 +3765,34 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 			}
 
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1562:5: (otherlv_12= 'next' ( (otherlv_13= RULE_ID ) ) )?
-			int alt37=2;
-			int LA37_0 = input.LA(1);
-			if ( (LA37_0==30) ) {
-				alt37=1;
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1558:5: (otherlv_11= 'next' ( (otherlv_12= RULE_ID ) ) )?
+			int alt36=2;
+			int LA36_0 = input.LA(1);
+			if ( (LA36_0==30) ) {
+				alt36=1;
 			}
-			switch (alt37) {
+			switch (alt36) {
 				case 1 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1562:7: otherlv_12= 'next' ( (otherlv_13= RULE_ID ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1558:7: otherlv_11= 'next' ( (otherlv_12= RULE_ID ) )
 					{
-					otherlv_12=(Token)match(input,30,FOLLOW_30_in_ruleNormalStep3344); 
+					otherlv_11=(Token)match(input,30,FOLLOW_30_in_ruleNormalStep3329); 
 
-					    	newLeafNode(otherlv_12, grammarAccess.getNormalStepAccess().getNextKeyword_7_0());
+					    	newLeafNode(otherlv_11, grammarAccess.getNormalStepAccess().getNextKeyword_7_0());
 					    
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1566:3: ( (otherlv_13= RULE_ID ) )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1567:3: (otherlv_13= RULE_ID )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1562:3: ( (otherlv_12= RULE_ID ) )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1563:3: (otherlv_12= RULE_ID )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1567:3: (otherlv_13= RULE_ID )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1568:3: otherlv_13= RULE_ID
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1563:3: (otherlv_12= RULE_ID )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1564:3: otherlv_12= RULE_ID
 					{
 
 								if (current==null) {
 						            current = createModelElement(grammarAccess.getNormalStepRule());
 						        }
 					        
-					otherlv_13=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNormalStep3364); 
+					otherlv_12=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNormalStep3349); 
 
-							newLeafNode(otherlv_13, grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
+							newLeafNode(otherlv_12, grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
 						
 					}
 
@@ -3845,7 +3825,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "entryRuleQualifiedName"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1587:1: entryRuleQualifiedName returns [String current=null] :iv_ruleQualifiedName= ruleQualifiedName EOF ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1583:1: entryRuleQualifiedName returns [String current=null] :iv_ruleQualifiedName= ruleQualifiedName EOF ;
 	public final String entryRuleQualifiedName() throws RecognitionException {
 		String current = null;
 
@@ -3853,16 +3833,16 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		AntlrDatatypeRuleToken iv_ruleQualifiedName =null;
 
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1588:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1589:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1584:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1585:2: iv_ruleQualifiedName= ruleQualifiedName EOF
 			{
 			 newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-			pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName3403);
+			pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName3388);
 			iv_ruleQualifiedName=ruleQualifiedName();
 			state._fsp--;
 
 			 current =iv_ruleQualifiedName.getText(); 
-			match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName3414); 
+			match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName3399); 
 			}
 
 		}
@@ -3882,7 +3862,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleQualifiedName"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1596:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1592:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
 	public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
 		AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3894,38 +3874,38 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		 enterRule(); 
 		    
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1599:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1600:6: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1595:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1596:6: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1600:6: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1600:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1596:6: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1596:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
 			{
-			this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName3454); 
+			this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName3439); 
 
 					current.merge(this_ID_0);
 			    
 			 
 			    newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
 			    
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1607:2: (kw= '.' this_ID_2= RULE_ID )*
-			loop38:
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1603:2: (kw= '.' this_ID_2= RULE_ID )*
+			loop37:
 			while (true) {
-				int alt38=2;
-				int LA38_0 = input.LA(1);
-				if ( (LA38_0==12) ) {
-					alt38=1;
+				int alt37=2;
+				int LA37_0 = input.LA(1);
+				if ( (LA37_0==12) ) {
+					alt37=1;
 				}
 
-				switch (alt38) {
+				switch (alt37) {
 				case 1 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1608:2: kw= '.' this_ID_2= RULE_ID
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1604:2: kw= '.' this_ID_2= RULE_ID
 					{
-					kw=(Token)match(input,12,FOLLOW_12_in_ruleQualifiedName3473); 
+					kw=(Token)match(input,12,FOLLOW_12_in_ruleQualifiedName3458); 
 
 					        current.merge(kw);
 					        newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
 					    
-					this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName3488); 
+					this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName3473); 
 
 							current.merge(this_ID_2);
 					    
@@ -3936,7 +3916,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					break;
 
 				default :
-					break loop38;
+					break loop37;
 				}
 			}
 
@@ -3962,7 +3942,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 	// $ANTLR start "ruleActorType"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1628:1: ruleActorType returns [Enumerator current=null] : ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) ) ;
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1624:1: ruleActorType returns [Enumerator current=null] : ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) ) ;
 	public final Enumerator ruleActorType() throws RecognitionException {
 		Enumerator current = null;
 
@@ -3973,40 +3953,40 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 		 enterRule(); 
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1630:28: ( ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1631:2: ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1626:28: ( ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1627:2: ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1631:2: ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) )
-			int alt39=3;
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1627:2: ( (enumLiteral_0= 'person' ) | (enumLiteral_1= 'system' ) | (enumLiteral_2= 'organization' ) )
+			int alt38=3;
 			switch ( input.LA(1) ) {
 			case 36:
 				{
-				alt39=1;
+				alt38=1;
 				}
 				break;
 			case 41:
 				{
-				alt39=2;
+				alt38=2;
 				}
 				break;
 			case 31:
 				{
-				alt39=3;
+				alt38=3;
 				}
 				break;
 			default:
 				NoViableAltException nvae =
-					new NoViableAltException("", 39, 0, input);
+					new NoViableAltException("", 38, 0, input);
 				throw nvae;
 			}
-			switch (alt39) {
+			switch (alt38) {
 				case 1 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1631:2: (enumLiteral_0= 'person' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1627:2: (enumLiteral_0= 'person' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1631:2: (enumLiteral_0= 'person' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1631:4: enumLiteral_0= 'person'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1627:2: (enumLiteral_0= 'person' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1627:4: enumLiteral_0= 'person'
 					{
-					enumLiteral_0=(Token)match(input,36,FOLLOW_36_in_ruleActorType3549); 
+					enumLiteral_0=(Token)match(input,36,FOLLOW_36_in_ruleActorType3534); 
 
 					        current = grammarAccess.getActorTypeAccess().getPERSONEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
 					        newLeafNode(enumLiteral_0, grammarAccess.getActorTypeAccess().getPERSONEnumLiteralDeclaration_0()); 
@@ -4016,12 +3996,12 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 2 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1637:6: (enumLiteral_1= 'system' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1633:6: (enumLiteral_1= 'system' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1637:6: (enumLiteral_1= 'system' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1637:8: enumLiteral_1= 'system'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1633:6: (enumLiteral_1= 'system' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1633:8: enumLiteral_1= 'system'
 					{
-					enumLiteral_1=(Token)match(input,41,FOLLOW_41_in_ruleActorType3566); 
+					enumLiteral_1=(Token)match(input,41,FOLLOW_41_in_ruleActorType3551); 
 
 					        current = grammarAccess.getActorTypeAccess().getSYSTEMEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 					        newLeafNode(enumLiteral_1, grammarAccess.getActorTypeAccess().getSYSTEMEnumLiteralDeclaration_1()); 
@@ -4031,12 +4011,12 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 					}
 					break;
 				case 3 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1643:6: (enumLiteral_2= 'organization' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1639:6: (enumLiteral_2= 'organization' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1643:6: (enumLiteral_2= 'organization' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1643:8: enumLiteral_2= 'organization'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1639:6: (enumLiteral_2= 'organization' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1639:8: enumLiteral_2= 'organization'
 					{
-					enumLiteral_2=(Token)match(input,31,FOLLOW_31_in_ruleActorType3583); 
+					enumLiteral_2=(Token)match(input,31,FOLLOW_31_in_ruleActorType3568); 
 
 					        current = grammarAccess.getActorTypeAccess().getORGANIZATIONEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
 					        newLeafNode(enumLiteral_2, grammarAccess.getActorTypeAccess().getORGANIZATIONEnumLiteralDeclaration_2()); 
@@ -4067,9 +4047,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 
 
-	// $ANTLR start "ruleCustomStepType"
-	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1653:1: ruleCustomStepType returns [Enumerator current=null] : ( (enumLiteral_0= 'input' ) | (enumLiteral_1= 'output' ) | (enumLiteral_2= 'process' ) | (enumLiteral_3= 'mix' ) ) ;
-	public final Enumerator ruleCustomStepType() throws RecognitionException {
+	// $ANTLR start "ruleStepType"
+	// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1649:1: ruleStepType returns [Enumerator current=null] : ( (enumLiteral_0= 'wait' ) | (enumLiteral_1= 'send' ) | (enumLiteral_2= 'perform' ) | (enumLiteral_3= 'call' ) | (enumLiteral_4= 'alt' ) ) ;
+	public final Enumerator ruleStepType() throws RecognitionException {
 		Enumerator current = null;
 
 
@@ -4077,96 +4057,117 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		Token enumLiteral_1=null;
 		Token enumLiteral_2=null;
 		Token enumLiteral_3=null;
+		Token enumLiteral_4=null;
 
 		 enterRule(); 
 		try {
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1655:28: ( ( (enumLiteral_0= 'input' ) | (enumLiteral_1= 'output' ) | (enumLiteral_2= 'process' ) | (enumLiteral_3= 'mix' ) ) )
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1656:2: ( (enumLiteral_0= 'input' ) | (enumLiteral_1= 'output' ) | (enumLiteral_2= 'process' ) | (enumLiteral_3= 'mix' ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1651:28: ( ( (enumLiteral_0= 'wait' ) | (enumLiteral_1= 'send' ) | (enumLiteral_2= 'perform' ) | (enumLiteral_3= 'call' ) | (enumLiteral_4= 'alt' ) ) )
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1652:2: ( (enumLiteral_0= 'wait' ) | (enumLiteral_1= 'send' ) | (enumLiteral_2= 'perform' ) | (enumLiteral_3= 'call' ) | (enumLiteral_4= 'alt' ) )
 			{
-			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1656:2: ( (enumLiteral_0= 'input' ) | (enumLiteral_1= 'output' ) | (enumLiteral_2= 'process' ) | (enumLiteral_3= 'mix' ) )
-			int alt40=4;
+			// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1652:2: ( (enumLiteral_0= 'wait' ) | (enumLiteral_1= 'send' ) | (enumLiteral_2= 'perform' ) | (enumLiteral_3= 'call' ) | (enumLiteral_4= 'alt' ) )
+			int alt39=5;
 			switch ( input.LA(1) ) {
-			case 27:
+			case 44:
 				{
-				alt40=1;
-				}
-				break;
-			case 32:
-				{
-				alt40=2;
+				alt39=1;
 				}
 				break;
 			case 39:
 				{
-				alt40=3;
+				alt39=2;
 				}
 				break;
-			case 29:
+			case 35:
 				{
-				alt40=4;
+				alt39=3;
+				}
+				break;
+			case 20:
+				{
+				alt39=4;
+				}
+				break;
+			case 14:
+				{
+				alt39=5;
 				}
 				break;
 			default:
 				NoViableAltException nvae =
-					new NoViableAltException("", 40, 0, input);
+					new NoViableAltException("", 39, 0, input);
 				throw nvae;
 			}
-			switch (alt40) {
+			switch (alt39) {
 				case 1 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1656:2: (enumLiteral_0= 'input' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1652:2: (enumLiteral_0= 'wait' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1656:2: (enumLiteral_0= 'input' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1656:4: enumLiteral_0= 'input'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1652:2: (enumLiteral_0= 'wait' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1652:4: enumLiteral_0= 'wait'
 					{
-					enumLiteral_0=(Token)match(input,27,FOLLOW_27_in_ruleCustomStepType3628); 
+					enumLiteral_0=(Token)match(input,44,FOLLOW_44_in_ruleStepType3613); 
 
-					        current = grammarAccess.getCustomStepTypeAccess().getINPUTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-					        newLeafNode(enumLiteral_0, grammarAccess.getCustomStepTypeAccess().getINPUTEnumLiteralDeclaration_0()); 
+					        current = grammarAccess.getStepTypeAccess().getWAITEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+					        newLeafNode(enumLiteral_0, grammarAccess.getStepTypeAccess().getWAITEnumLiteralDeclaration_0()); 
 					    
 					}
 
 					}
 					break;
 				case 2 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1662:6: (enumLiteral_1= 'output' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1658:6: (enumLiteral_1= 'send' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1662:6: (enumLiteral_1= 'output' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1662:8: enumLiteral_1= 'output'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1658:6: (enumLiteral_1= 'send' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1658:8: enumLiteral_1= 'send'
 					{
-					enumLiteral_1=(Token)match(input,32,FOLLOW_32_in_ruleCustomStepType3645); 
+					enumLiteral_1=(Token)match(input,39,FOLLOW_39_in_ruleStepType3630); 
 
-					        current = grammarAccess.getCustomStepTypeAccess().getOUTPUTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-					        newLeafNode(enumLiteral_1, grammarAccess.getCustomStepTypeAccess().getOUTPUTEnumLiteralDeclaration_1()); 
+					        current = grammarAccess.getStepTypeAccess().getSENDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+					        newLeafNode(enumLiteral_1, grammarAccess.getStepTypeAccess().getSENDEnumLiteralDeclaration_1()); 
 					    
 					}
 
 					}
 					break;
 				case 3 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1668:6: (enumLiteral_2= 'process' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1664:6: (enumLiteral_2= 'perform' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1668:6: (enumLiteral_2= 'process' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1668:8: enumLiteral_2= 'process'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1664:6: (enumLiteral_2= 'perform' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1664:8: enumLiteral_2= 'perform'
 					{
-					enumLiteral_2=(Token)match(input,39,FOLLOW_39_in_ruleCustomStepType3662); 
+					enumLiteral_2=(Token)match(input,35,FOLLOW_35_in_ruleStepType3647); 
 
-					        current = grammarAccess.getCustomStepTypeAccess().getPROCESSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-					        newLeafNode(enumLiteral_2, grammarAccess.getCustomStepTypeAccess().getPROCESSEnumLiteralDeclaration_2()); 
+					        current = grammarAccess.getStepTypeAccess().getPERFORMEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+					        newLeafNode(enumLiteral_2, grammarAccess.getStepTypeAccess().getPERFORMEnumLiteralDeclaration_2()); 
 					    
 					}
 
 					}
 					break;
 				case 4 :
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1674:6: (enumLiteral_3= 'mix' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1670:6: (enumLiteral_3= 'call' )
 					{
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1674:6: (enumLiteral_3= 'mix' )
-					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1674:8: enumLiteral_3= 'mix'
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1670:6: (enumLiteral_3= 'call' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1670:8: enumLiteral_3= 'call'
 					{
-					enumLiteral_3=(Token)match(input,29,FOLLOW_29_in_ruleCustomStepType3679); 
+					enumLiteral_3=(Token)match(input,20,FOLLOW_20_in_ruleStepType3664); 
 
-					        current = grammarAccess.getCustomStepTypeAccess().getMIXEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-					        newLeafNode(enumLiteral_3, grammarAccess.getCustomStepTypeAccess().getMIXEnumLiteralDeclaration_3()); 
+					        current = grammarAccess.getStepTypeAccess().getCALLEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+					        newLeafNode(enumLiteral_3, grammarAccess.getStepTypeAccess().getCALLEnumLiteralDeclaration_3()); 
+					    
+					}
+
+					}
+					break;
+				case 5 :
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1676:6: (enumLiteral_4= 'alt' )
+					{
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1676:6: (enumLiteral_4= 'alt' )
+					// ../UseCaseDSL/src-gen/UseCaseDSL/parser/antlr/internal/InternalUseCase.g:1676:8: enumLiteral_4= 'alt'
+					{
+					enumLiteral_4=(Token)match(input,14,FOLLOW_14_in_ruleStepType3681); 
+
+					        current = grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+					        newLeafNode(enumLiteral_4, grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4()); 
 					    
 					}
 
@@ -4190,7 +4191,7 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 		}
 		return current;
 	}
-	// $ANTLR end "ruleCustomStepType"
+	// $ANTLR end "ruleStepType"
 
 	// Delegated rules
 
@@ -4198,39 +4199,39 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 
 	public static final BitSet FOLLOW_ruleUseCasesModel_in_entryRuleUseCasesModel75 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleUseCasesModel85 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rulePackageDeclaration_in_ruleUseCasesModel130 = new BitSet(new long[]{0x0000000200000002L});
+	public static final BitSet FOLLOW_rulePackageDeclaration_in_ruleUseCasesModel130 = new BitSet(new long[]{0x0000000100000002L});
 	public static final BitSet FOLLOW_rulePackageDeclaration_in_entryRulePackageDeclaration166 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRulePackageDeclaration176 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_33_in_rulePackageDeclaration213 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ruleQualifiedName_in_rulePackageDeclaration234 = new BitSet(new long[]{0x0000100000402200L});
-	public static final BitSet FOLLOW_RULE_STRING_in_rulePackageDeclaration251 = new BitSet(new long[]{0x0000100000402000L});
+	public static final BitSet FOLLOW_32_in_rulePackageDeclaration213 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ruleQualifiedName_in_rulePackageDeclaration234 = new BitSet(new long[]{0x0000080001002200L});
+	public static final BitSet FOLLOW_RULE_STRING_in_rulePackageDeclaration251 = new BitSet(new long[]{0x0000080001002000L});
 	public static final BitSet FOLLOW_13_in_rulePackageDeclaration270 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ruleActor_in_rulePackageDeclaration291 = new BitSet(new long[]{0x0000100000400020L});
-	public static final BitSet FOLLOW_ruleUseCase_in_rulePackageDeclaration315 = new BitSet(new long[]{0x0000100000400000L});
-	public static final BitSet FOLLOW_22_in_rulePackageDeclaration328 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleActor_in_rulePackageDeclaration291 = new BitSet(new long[]{0x0000080001000020L});
+	public static final BitSet FOLLOW_ruleUseCase_in_rulePackageDeclaration315 = new BitSet(new long[]{0x0000080001000000L});
+	public static final BitSet FOLLOW_24_in_rulePackageDeclaration328 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleUseCase_in_entryRuleUseCase364 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleUseCase374 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_44_in_ruleUseCase411 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleUseCase428 = new BitSet(new long[]{0x0000006403824200L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruleUseCase450 = new BitSet(new long[]{0x0000006403824000L});
-	public static final BitSet FOLLOW_25_in_ruleUseCase469 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleUseCase489 = new BitSet(new long[]{0x0000006401824000L});
+	public static final BitSet FOLLOW_43_in_ruleUseCase411 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleUseCase428 = new BitSet(new long[]{0x000000620E048200L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruleUseCase450 = new BitSet(new long[]{0x000000620E048000L});
+	public static final BitSet FOLLOW_27_in_ruleUseCase469 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleUseCase489 = new BitSet(new long[]{0x0000006206048000L});
 	public static final BitSet FOLLOW_38_in_ruleUseCase549 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_ruleUCCondition_in_ruleUseCase570 = new BitSet(new long[]{0x0000006401824200L});
+	public static final BitSet FOLLOW_ruleUCCondition_in_ruleUseCase570 = new BitSet(new long[]{0x0000006206048200L});
 	public static final BitSet FOLLOW_37_in_ruleUseCase639 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_ruleUCCondition_in_ruleUseCase660 = new BitSet(new long[]{0x0000006401824200L});
-	public static final BitSet FOLLOW_ruleFlow_in_ruleUseCase723 = new BitSet(new long[]{0x0000000401824000L});
-	public static final BitSet FOLLOW_23_in_ruleUseCase736 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleUCCondition_in_ruleUseCase660 = new BitSet(new long[]{0x0000006206048200L});
+	public static final BitSet FOLLOW_ruleFlow_in_ruleUseCase723 = new BitSet(new long[]{0x0000000206048000L});
+	public static final BitSet FOLLOW_25_in_ruleUseCase736 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleUCCondition_in_entryRuleUCCondition772 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleUCCondition782 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleUCCondition823 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleActor_in_entryRuleActor863 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleActor873 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleActor915 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_16_in_ruleActor932 = new BitSet(new long[]{0x0000021080000000L});
-	public static final BitSet FOLLOW_ruleActorType_in_ruleActor953 = new BitSet(new long[]{0x0000000002000202L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruleActor970 = new BitSet(new long[]{0x0000000002000002L});
-	public static final BitSet FOLLOW_25_in_ruleActor989 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleActor915 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_17_in_ruleActor932 = new BitSet(new long[]{0x0000021080000000L});
+	public static final BitSet FOLLOW_ruleActorType_in_ruleActor953 = new BitSet(new long[]{0x0000000008000202L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruleActor970 = new BitSet(new long[]{0x0000000008000002L});
+	public static final BitSet FOLLOW_27_in_ruleActor989 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleActor1009 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleStep_in_entryRuleStep1047 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleStep1057 = new BitSet(new long[]{0x0000000000000002L});
@@ -4242,9 +4243,9 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_ruleNamedFlow_in_ruleFlow1250 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleBasicFlow_in_entryRuleBasicFlow1285 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleBasicFlow1295 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_17_in_ruleBasicFlow1332 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleBasicFlow1362 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_21_in_ruleBasicFlow1375 = new BitSet(new long[]{0x0000200000000002L});
+	public static final BitSet FOLLOW_18_in_ruleBasicFlow1332 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleBasicFlow1362 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_23_in_ruleBasicFlow1375 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleBasicFlow1388 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_ruleUCCondition_in_ruleBasicFlow1409 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleNamedFlow_in_entryRuleNamedFlow1447 = new BitSet(new long[]{0x0000000000000000L});
@@ -4254,29 +4255,29 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_ruleParallelFlow_in_ruleNamedFlow1558 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleExceptionFlow_in_entryRuleExceptionFlow1593 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleExceptionFlow1603 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_24_in_ruleExceptionFlow1640 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleExceptionFlow1657 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_26_in_ruleExceptionFlow1674 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_26_in_ruleExceptionFlow1640 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleExceptionFlow1657 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_28_in_ruleExceptionFlow1674 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleExceptionFlow1691 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_ruleExceptionFlow1708 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleExceptionFlow1729 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_21_in_ruleExceptionFlow1742 = new BitSet(new long[]{0x0000200000000002L});
+	public static final BitSet FOLLOW_42_in_ruleExceptionFlow1708 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleExceptionFlow1729 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_23_in_ruleExceptionFlow1742 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleExceptionFlow1755 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_ruleUCCondition_in_ruleExceptionFlow1776 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleAlternativeFlow_in_entryRuleAlternativeFlow1814 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleAlternativeFlow1824 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_14_in_ruleAlternativeFlow1861 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleAlternativeFlow1878 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleAlternativeFlow1904 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_21_in_ruleAlternativeFlow1917 = new BitSet(new long[]{0x0000200000000002L});
+	public static final BitSet FOLLOW_15_in_ruleAlternativeFlow1861 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleAlternativeFlow1878 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleAlternativeFlow1904 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_23_in_ruleAlternativeFlow1917 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleAlternativeFlow1930 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_ruleUCCondition_in_ruleAlternativeFlow1951 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleParallelFlow_in_entryRuleParallelFlow1989 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleParallelFlow1999 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_34_in_ruleParallelFlow2036 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleParallelFlow2053 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_ruleStep_in_ruleParallelFlow2079 = new BitSet(new long[]{0x0000010800200000L});
-	public static final BitSet FOLLOW_21_in_ruleParallelFlow2092 = new BitSet(new long[]{0x0000200000000002L});
+	public static final BitSet FOLLOW_33_in_ruleParallelFlow2036 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleParallelFlow2053 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_ruleStep_in_ruleParallelFlow2079 = new BitSet(new long[]{0x0000010400800000L});
+	public static final BitSet FOLLOW_23_in_ruleParallelFlow2092 = new BitSet(new long[]{0x0000200000000002L});
 	public static final BitSet FOLLOW_45_in_ruleParallelFlow2105 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_ruleUCCondition_in_ruleParallelFlow2126 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleStepAlternative_in_entryRuleStepAlternative2164 = new BitSet(new long[]{0x0000000000000000L});
@@ -4286,33 +4287,33 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_ruleAlternativeFlowAlternative_in_ruleStepAlternative2275 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleCondition_in_entryRuleCondition2310 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleCondition2320 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_26_in_ruleCondition2357 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_28_in_ruleCondition2357 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleCondition2374 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_ruleCondition2391 = new BitSet(new long[]{0x0000000000080002L});
-	public static final BitSet FOLLOW_19_in_ruleCondition2404 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_42_in_ruleCondition2391 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_21_in_ruleCondition2404 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleCondition2424 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleLocalAlternative_in_entryRuleLocalAlternative2462 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleLocalAlternative2472 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_26_in_ruleLocalAlternative2509 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_28_in_ruleLocalAlternative2509 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleLocalAlternative2526 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_ruleLocalAlternative2543 = new BitSet(new long[]{0x0000000010000200L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruleLocalAlternative2561 = new BitSet(new long[]{0x0000000000080002L});
-	public static final BitSet FOLLOW_28_in_ruleLocalAlternative2585 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleLocalAlternative2605 = new BitSet(new long[]{0x0000000000080002L});
-	public static final BitSet FOLLOW_19_in_ruleLocalAlternative2620 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_42_in_ruleLocalAlternative2543 = new BitSet(new long[]{0x0000000020000200L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruleLocalAlternative2561 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_29_in_ruleLocalAlternative2585 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleLocalAlternative2605 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_21_in_ruleLocalAlternative2620 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleLocalAlternative2640 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleAlternativeFlowAlternative_in_entryRuleAlternativeFlowAlternative2678 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleAlternativeFlowAlternative2688 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_26_in_ruleAlternativeFlowAlternative2725 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_28_in_ruleAlternativeFlowAlternative2725 = new BitSet(new long[]{0x0000000000000200L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleAlternativeFlowAlternative2742 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_42_in_ruleAlternativeFlowAlternative2759 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_14_in_ruleAlternativeFlowAlternative2771 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleAlternativeFlowAlternative2791 = new BitSet(new long[]{0x0000000000080002L});
-	public static final BitSet FOLLOW_19_in_ruleAlternativeFlowAlternative2804 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_42_in_ruleAlternativeFlowAlternative2759 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_ruleAlternativeFlowAlternative2771 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleAlternativeFlowAlternative2791 = new BitSet(new long[]{0x0000000000200002L});
+	public static final BitSet FOLLOW_21_in_ruleAlternativeFlowAlternative2804 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleAlternativeFlowAlternative2824 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ruleParallelStep_in_entryRuleParallelStep2862 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleParallelStep2872 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_35_in_ruleParallelStep2909 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_34_in_ruleParallelStep2909 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleParallelStep2926 = new BitSet(new long[]{0x0000000000000220L});
 	public static final BitSet FOLLOW_RULE_STRING_in_ruleParallelStep2948 = new BitSet(new long[]{0x0000000000000020L});
 	public static final BitSet FOLLOW_RULE_ID_in_ruleParallelStep2974 = new BitSet(new long[]{0x0000000040000802L});
@@ -4323,29 +4324,29 @@ public class InternalUseCaseParser extends AbstractInternalAntlrParser {
 	public static final BitSet FOLLOW_ruleNormalStep_in_entryRuleNormalStep3080 = new BitSet(new long[]{0x0000000000000000L});
 	public static final BitSet FOLLOW_EOF_in_entryRuleNormalStep3090 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_40_in_ruleNormalStep3127 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3144 = new BitSet(new long[]{0x0000000000040200L});
-	public static final BitSet FOLLOW_RULE_STRING_in_ruleNormalStep3166 = new BitSet(new long[]{0x0000000000040000L});
-	public static final BitSet FOLLOW_18_in_ruleNormalStep3184 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3204 = new BitSet(new long[]{0x0000080050008002L});
-	public static final BitSet FOLLOW_43_in_ruleNormalStep3217 = new BitSet(new long[]{0x0000008128000000L});
-	public static final BitSet FOLLOW_ruleCustomStepType_in_ruleNormalStep3238 = new BitSet(new long[]{0x0000000050008002L});
-	public static final BitSet FOLLOW_15_in_ruleNormalStep3254 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_ruleStepAlternative_in_ruleNormalStep3275 = new BitSet(new long[]{0x0000000004100000L});
-	public static final BitSet FOLLOW_20_in_ruleNormalStep3288 = new BitSet(new long[]{0x0000000040000002L});
-	public static final BitSet FOLLOW_28_in_ruleNormalStep3308 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3328 = new BitSet(new long[]{0x0000000040000002L});
-	public static final BitSet FOLLOW_30_in_ruleNormalStep3344 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3364 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName3403 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName3414 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName3454 = new BitSet(new long[]{0x0000000000001002L});
-	public static final BitSet FOLLOW_12_in_ruleQualifiedName3473 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName3488 = new BitSet(new long[]{0x0000000000001002L});
-	public static final BitSet FOLLOW_36_in_ruleActorType3549 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_41_in_ruleActorType3566 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_31_in_ruleActorType3583 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_27_in_ruleCustomStepType3628 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_32_in_ruleCustomStepType3645 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_39_in_ruleCustomStepType3662 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_29_in_ruleCustomStepType3679 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3144 = new BitSet(new long[]{0x0000108800104200L});
+	public static final BitSet FOLLOW_RULE_STRING_in_ruleNormalStep3166 = new BitSet(new long[]{0x0000108800104000L});
+	public static final BitSet FOLLOW_ruleStepType_in_ruleNormalStep3193 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_ruleNormalStep3205 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3225 = new BitSet(new long[]{0x0000000060010002L});
+	public static final BitSet FOLLOW_16_in_ruleNormalStep3239 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_ruleStepAlternative_in_ruleNormalStep3260 = new BitSet(new long[]{0x0000000010400000L});
+	public static final BitSet FOLLOW_22_in_ruleNormalStep3273 = new BitSet(new long[]{0x0000000040000002L});
+	public static final BitSet FOLLOW_29_in_ruleNormalStep3293 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3313 = new BitSet(new long[]{0x0000000040000002L});
+	public static final BitSet FOLLOW_30_in_ruleNormalStep3329 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleNormalStep3349 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName3388 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName3399 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName3439 = new BitSet(new long[]{0x0000000000001002L});
+	public static final BitSet FOLLOW_12_in_ruleQualifiedName3458 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName3473 = new BitSet(new long[]{0x0000000000001002L});
+	public static final BitSet FOLLOW_36_in_ruleActorType3534 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_41_in_ruleActorType3551 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_ruleActorType3568 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_44_in_ruleStepType3613 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_39_in_ruleStepType3630 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_35_in_ruleStepType3647 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_20_in_ruleStepType3664 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_14_in_ruleStepType3681 = new BitSet(new long[]{0x0000000000000002L});
 }

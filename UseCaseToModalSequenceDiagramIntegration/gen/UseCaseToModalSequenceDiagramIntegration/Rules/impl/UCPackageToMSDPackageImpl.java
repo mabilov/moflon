@@ -2272,10 +2272,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UCPackageToMSDPackage_20_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_11893 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_440805 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_11893)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_440805)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}

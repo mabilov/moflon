@@ -102,8 +102,8 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 		switch (eDataType.getClassifierID()) {
 		case UseCaseDSLPackage.ACTOR_TYPE:
 			return createActorTypeFromString(eDataType, initialValue);
-		case UseCaseDSLPackage.CUSTOM_STEP_TYPE:
-			return createCustomStepTypeFromString(eDataType, initialValue);
+		case UseCaseDSLPackage.STEP_TYPE:
+			return createStepTypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -120,8 +120,8 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 		switch (eDataType.getClassifierID()) {
 		case UseCaseDSLPackage.ACTOR_TYPE:
 			return convertActorTypeToString(eDataType, instanceValue);
-		case UseCaseDSLPackage.CUSTOM_STEP_TYPE:
-			return convertCustomStepTypeToString(eDataType, instanceValue);
+		case UseCaseDSLPackage.STEP_TYPE:
+			return convertStepTypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -298,9 +298,9 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomStepType createCustomStepTypeFromString(EDataType eDataType,
+	public StepType createStepTypeFromString(EDataType eDataType,
 			String initialValue) {
-		CustomStepType result = CustomStepType.get(initialValue);
+		StepType result = StepType.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException("The value '" + initialValue
 					+ "' is not a valid enumerator of '" + eDataType.getName()
@@ -313,7 +313,7 @@ public class UseCaseDSLFactoryImpl extends EFactoryImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCustomStepTypeToString(EDataType eDataType,
+	public String convertStepTypeToString(EDataType eDataType,
 			Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}

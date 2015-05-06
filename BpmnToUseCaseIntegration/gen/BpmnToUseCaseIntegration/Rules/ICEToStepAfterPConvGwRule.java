@@ -133,12 +133,11 @@ public interface ICEToStepAfterPConvGwRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	void registerObjects_FWD(PerformRuleResult ruleresult, EObject flowNode,
-			EObject event, EObject inFlow, EObject prevStep,
-			EObject inFlowToPrevStep, EObject normalStep, EObject process,
+			EObject event, EObject normalStep, EObject inFlow,
+			EObject prevStep, EObject inFlowToPrevStep, EObject process,
 			EObject outFlow, EObject actor, EObject processToActor,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject inFlowToFlow, EObject outFlowToFlow,
-			EObject lane, EObject laneSet);
+			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
+			EObject outFlowToFlow, EObject lane, EObject laneSet);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,8 +153,8 @@ public interface ICEToStepAfterPConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_BWD(Match match, Step prevStep,
-			NormalStep normalStep, Actor actor, Flow flow);
+	boolean isAppropriate_BWD(Match match, NormalStep normalStep,
+			Step prevStep, Actor actor, Flow flow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,8 +178,8 @@ public interface ICEToStepAfterPConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_BWD(Match match, Step prevStep,
-			NormalStep normalStep, Actor actor, Flow flow);
+	void registerObjectsToMatch_BWD(Match match, NormalStep normalStep,
+			Step prevStep, Actor actor, Flow flow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,8 +187,8 @@ public interface ICEToStepAfterPConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_BWD(Match match, Step prevStep,
-			NormalStep normalStep, Actor actor, Flow flow);
+	CSP isAppropriate_solveCsp_BWD(Match match, NormalStep normalStep,
+			Step prevStep, Actor actor, Flow flow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,11 +205,11 @@ public interface ICEToStepAfterPConvGwRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			ParallelGateway flowNode, SequenceFlow inFlow, Step prevStep,
-			SequenceFlowToStep inFlowToPrevStep, NormalStep normalStep,
-			bpmn2.Process process, Actor actor, ProcessToActor processToActor,
-			Flow flow, SequenceFlowToUCFlow inFlowToFlow, Lane lane,
-			LaneSet laneSet);
+			ParallelGateway flowNode, NormalStep normalStep,
+			SequenceFlow inFlow, Step prevStep,
+			SequenceFlowToStep inFlowToPrevStep, bpmn2.Process process,
+			Actor actor, ProcessToActor processToActor, Flow flow,
+			SequenceFlowToUCFlow inFlowToFlow, Lane lane, LaneSet laneSet);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,12 +226,11 @@ public interface ICEToStepAfterPConvGwRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	void registerObjects_BWD(PerformRuleResult ruleresult, EObject flowNode,
-			EObject event, EObject inFlow, EObject prevStep,
-			EObject inFlowToPrevStep, EObject normalStep, EObject process,
+			EObject event, EObject normalStep, EObject inFlow,
+			EObject prevStep, EObject inFlowToPrevStep, EObject process,
 			EObject outFlow, EObject actor, EObject processToActor,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject inFlowToFlow, EObject outFlowToFlow,
-			EObject lane, EObject laneSet);
+			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
+			EObject outFlowToFlow, EObject lane, EObject laneSet);
 
 	/**
 	 * <!-- begin-user-doc -->

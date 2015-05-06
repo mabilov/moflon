@@ -1476,9 +1476,27 @@ ruleNormalStep returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_3='by' 
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getNormalStepAccess().getTypeStepTypeEnumRuleCall_3_0()); 
+	    }
+		lv_type_3_0=ruleStepType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getNormalStepRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_3_0, 
+        		"StepType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_4='by' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getNormalStepAccess().getByKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getNormalStepAccess().getByKeyword_4());
     }
 (
 (
@@ -1487,64 +1505,42 @@ ruleNormalStep returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getNormalStepRule());
 	        }
         }
-	otherlv_4=RULE_ID
+	otherlv_5=RULE_ID
 	{
-		newLeafNode(otherlv_4, grammarAccess.getNormalStepAccess().getActorActorCrossReference_4_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getNormalStepAccess().getActorActorCrossReference_5_0()); 
 	}
 
 )
-)(	otherlv_5='type' 
+)((	otherlv_6='alternatives' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getNormalStepAccess().getTypeKeyword_5_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getNormalStepAccess().getCustomStepTypeCustomStepTypeEnumRuleCall_5_1_0()); 
-	    }
-		lv_customStepType_6_0=ruleCustomStepType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getNormalStepRule());
-	        }
-       		set(
-       			$current, 
-       			"customStepType",
-        		lv_customStepType_6_0, 
-        		"CustomStepType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?((	otherlv_7='alternatives' 
-    {
-    	newLeafNode(otherlv_7, grammarAccess.getNormalStepAccess().getAlternativesKeyword_6_0_0());
+    	newLeafNode(otherlv_6, grammarAccess.getNormalStepAccess().getAlternativesKeyword_6_0_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getNormalStepAccess().getStepAlternativeStepAlternativeParserRuleCall_6_0_1_0()); 
 	    }
-		lv_stepAlternative_8_0=ruleStepAlternative		{
+		lv_stepAlternative_7_0=ruleStepAlternative		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getNormalStepRule());
 	        }
        		add(
        			$current, 
        			"stepAlternative",
-        		lv_stepAlternative_8_0, 
+        		lv_stepAlternative_7_0, 
         		"StepAlternative");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_9='else' 
+)+	otherlv_8='else' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getNormalStepAccess().getElseKeyword_6_0_2());
+    	newLeafNode(otherlv_8, grammarAccess.getNormalStepAccess().getElseKeyword_6_0_2());
     }
 )
-    |(	otherlv_10='invoke usecase' 
+    |(	otherlv_9='invoke usecase' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getNormalStepAccess().getInvokeUsecaseKeyword_6_1_0());
+    	newLeafNode(otherlv_9, grammarAccess.getNormalStepAccess().getInvokeUsecaseKeyword_6_1_0());
     }
 (
 (
@@ -1553,15 +1549,15 @@ ruleNormalStep returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getNormalStepRule());
 	        }
         }
-	otherlv_11=RULE_ID
+	otherlv_10=RULE_ID
 	{
-		newLeafNode(otherlv_11, grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseCrossReference_6_1_1_0()); 
+		newLeafNode(otherlv_10, grammarAccess.getNormalStepAccess().getInvokedUseCaseUseCaseCrossReference_6_1_1_0()); 
 	}
 
 )
-)))?(	otherlv_12='next' 
+)))?(	otherlv_11='next' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getNormalStepAccess().getNextKeyword_7_0());
+    	newLeafNode(otherlv_11, grammarAccess.getNormalStepAccess().getNextKeyword_7_0());
     }
 (
 (
@@ -1570,9 +1566,9 @@ ruleNormalStep returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getNormalStepRule());
 	        }
         }
-	otherlv_13=RULE_ID
+	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_13, grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getNormalStepAccess().getNextStepCrossReference_7_1_0()); 
 	}
 
 )
@@ -1649,32 +1645,38 @@ ruleActorType returns [Enumerator current=null]
 
 
 
-// Rule CustomStepType
-ruleCustomStepType returns [Enumerator current=null] 
+// Rule StepType
+ruleStepType returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='input' 
+((	enumLiteral_0='wait' 
 	{
-        $current = grammarAccess.getCustomStepTypeAccess().getINPUTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getCustomStepTypeAccess().getINPUTEnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getStepTypeAccess().getWAITEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getStepTypeAccess().getWAITEnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='output' 
+    |(	enumLiteral_1='send' 
 	{
-        $current = grammarAccess.getCustomStepTypeAccess().getOUTPUTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getCustomStepTypeAccess().getOUTPUTEnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getStepTypeAccess().getSENDEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getStepTypeAccess().getSENDEnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='process' 
+    |(	enumLiteral_2='perform' 
 	{
-        $current = grammarAccess.getCustomStepTypeAccess().getPROCESSEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getCustomStepTypeAccess().getPROCESSEnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getStepTypeAccess().getPERFORMEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getStepTypeAccess().getPERFORMEnumLiteralDeclaration_2()); 
     }
 )
-    |(	enumLiteral_3='mix' 
+    |(	enumLiteral_3='call' 
 	{
-        $current = grammarAccess.getCustomStepTypeAccess().getMIXEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getCustomStepTypeAccess().getMIXEnumLiteralDeclaration_3()); 
+        $current = grammarAccess.getStepTypeAccess().getCALLEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getStepTypeAccess().getCALLEnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='alt' 
+	{
+        $current = grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4()); 
     }
 ));
 

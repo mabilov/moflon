@@ -22,6 +22,7 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.formatting2.IHiddenRegionFormatter;
 import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegion;
+import org.eclipse.xtext.formatting2.regionaccess.ISemanticRegionsFinder;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -34,22 +35,22 @@ public class UseCaseFormatter extends AbstractFormatter2 {
   
   protected void _format(final UseCasesModel usecasesmodel, @Extension final IFormattableDocument document) {
     EList<PackageDeclaration> _packages = usecasesmodel.getPackages();
-    for (final PackageDeclaration packages : _packages) {
-      this.format(packages, document);
+    for (final PackageDeclaration _package : _packages) {
+      document.<PackageDeclaration>format(_package);
     }
   }
   
   protected void _format(final PackageDeclaration packageDeclaration, @Extension final IFormattableDocument document) {
-    ISemanticRegion _regionForKeyword = this.regionAccess.regionForKeyword(packageDeclaration, "actors");
+    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(packageDeclaration);
+    ISemanticRegion _keyword = _regionFor.keyword("actors");
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.prepend(_regionForKeyword, _function);
-    boolean first = true;
+    document.prepend(_keyword, _function);
     EList<Actor> _actors = packageDeclaration.getActors();
     for (final Actor actor : _actors) {
       {
-        this.format(actor, document);
+        document.<Actor>format(actor);
         final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
           it.newLine();
         };
@@ -59,7 +60,7 @@ public class UseCaseFormatter extends AbstractFormatter2 {
     EList<UseCase> _useCases = packageDeclaration.getUseCases();
     for (final UseCase useCase : _useCases) {
       {
-        this.format(useCase, document);
+        document.<UseCase>format(useCase);
         final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
           it.newLine();
         };
@@ -73,7 +74,8 @@ public class UseCaseFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final UseCase useCase, @Extension final IFormattableDocument document) {
-    ISemanticRegion open = this.regionAccess.regionForKeyword(useCase, "preconditions");
+    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(useCase);
+    ISemanticRegion open = _regionFor.keyword("preconditions");
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
@@ -101,8 +103,10 @@ public class UseCaseFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final BasicFlow flow, @Extension final IFormattableDocument document) {
-    final ISemanticRegion open = this.regionAccess.regionForKeyword(flow, "basic flow");
-    final ISemanticRegion close = this.regionAccess.regionForKeyword(flow, "end flow");
+    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(flow);
+    final ISemanticRegion open = _regionFor.keyword("basic flow");
+    ISemanticRegionsFinder _regionFor_1 = this.textRegionExtensions.regionFor(flow);
+    final ISemanticRegion close = _regionFor_1.keyword("end flow");
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
@@ -114,7 +118,7 @@ public class UseCaseFormatter extends AbstractFormatter2 {
     EList<Step> _steps = flow.getSteps();
     for (final Step step : _steps) {
       {
-        this.format(step, document);
+        document.<Step>format(step);
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.newLine();
         };
@@ -124,8 +128,10 @@ public class UseCaseFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final NamedFlow flow, @Extension final IFormattableDocument document) {
-    ISemanticRegion open = this.regionAccess.regionForFeature(flow, UseCaseDSLPackage.Literals.NAMED_FLOW__NAME);
-    final ISemanticRegion close = this.regionAccess.regionForKeyword(flow, "end flow");
+    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(flow);
+    ISemanticRegion open = _regionFor.feature(UseCaseDSLPackage.Literals.NAMED_FLOW__NAME);
+    ISemanticRegionsFinder _regionFor_1 = this.textRegionExtensions.regionFor(flow);
+    final ISemanticRegion close = _regionFor_1.keyword("end flow");
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
@@ -137,27 +143,24 @@ public class UseCaseFormatter extends AbstractFormatter2 {
     EList<Step> _steps = flow.getSteps();
     for (final Step step : _steps) {
       {
-        this.format(step, document);
+        document.<Step>format(step);
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.newLine();
         };
         document.<Step>append(step, _function_2);
       }
     }
-    ISemanticRegion _regionForKeyword = this.regionAccess.regionForKeyword(flow, "end flow");
-    final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
-      it.noIndentation();
-    };
-    document.prepend(_regionForKeyword, _function_2);
   }
   
   protected void _format(final NormalStep step, @Extension final IFormattableDocument document) {
-    ISemanticRegion _regionForKeyword = this.regionAccess.regionForKeyword(step, "alternatives");
+    ISemanticRegionsFinder _regionFor = this.textRegionExtensions.regionFor(step);
+    ISemanticRegion _keyword = _regionFor.keyword("alternatives");
     final Procedure1<IHiddenRegionFormatter> _function = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    ISemanticRegion open = document.prepend(_regionForKeyword, _function);
-    ISemanticRegion close = this.regionAccess.regionForKeyword(step, "else");
+    ISemanticRegion open = document.prepend(_keyword, _function);
+    ISemanticRegionsFinder _regionFor_1 = this.textRegionExtensions.regionFor(step);
+    ISemanticRegion close = _regionFor_1.keyword("else");
     final Procedure1<IHiddenRegionFormatter> _function_1 = (IHiddenRegionFormatter it) -> {
       it.indent();
     };
@@ -165,18 +168,19 @@ public class UseCaseFormatter extends AbstractFormatter2 {
     EList<StepAlternative> _stepAlternative = step.getStepAlternative();
     for (final StepAlternative alt : _stepAlternative) {
       {
-        this.format(alt, document);
+        document.<StepAlternative>format(alt);
         final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
           it.newLine();
         };
         document.<StepAlternative>prepend(alt, _function_2);
       }
     }
-    ISemanticRegion _regionForKeyword_1 = this.regionAccess.regionForKeyword(step, "else");
+    ISemanticRegionsFinder _regionFor_2 = this.textRegionExtensions.regionFor(step);
+    ISemanticRegion _keyword_1 = _regionFor_2.keyword("else");
     final Procedure1<IHiddenRegionFormatter> _function_2 = (IHiddenRegionFormatter it) -> {
       it.newLine();
     };
-    document.prepend(_regionForKeyword_1, _function_2);
+    document.prepend(_keyword_1, _function_2);
   }
   
   public void format(final Object flow, final IFormattableDocument document) {

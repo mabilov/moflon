@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link UseCaseDSL.NormalStep#getStepAlternative <em>Step Alternative</em>}</li>
  *   <li>{@link UseCaseDSL.NormalStep#getActor <em>Actor</em>}</li>
- *   <li>{@link UseCaseDSL.NormalStep#getCustomStepType <em>Custom Step Type</em>}</li>
+ *   <li>{@link UseCaseDSL.NormalStep#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,33 +68,33 @@ public interface NormalStep extends Step {
 	void setActor(Actor value);
 
 	/**
-	 * Returns the value of the '<em><b>Custom Step Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link UseCaseDSL.CustomStepType}.
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link UseCaseDSL.StepType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Custom Step Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Step Type</em>' attribute.
-	 * @see UseCaseDSL.CustomStepType
-	 * @see #setCustomStepType(CustomStepType)
-	 * @see UseCaseDSL.UseCaseDSLPackage#getNormalStep_CustomStepType()
-	 * @model ordered="false"
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see UseCaseDSL.StepType
+	 * @see #setType(StepType)
+	 * @see UseCaseDSL.UseCaseDSLPackage#getNormalStep_Type()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	CustomStepType getCustomStepType();
+	StepType getType();
 
 	/**
-	 * Sets the value of the '{@link UseCaseDSL.NormalStep#getCustomStepType <em>Custom Step Type</em>}' attribute.
+	 * Sets the value of the '{@link UseCaseDSL.NormalStep#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Custom Step Type</em>' attribute.
-	 * @see UseCaseDSL.CustomStepType
-	 * @see #getCustomStepType()
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see UseCaseDSL.StepType
+	 * @see #getType()
 	 * @generated
 	 */
-	void setCustomStepType(CustomStepType value);
+	void setType(StepType value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

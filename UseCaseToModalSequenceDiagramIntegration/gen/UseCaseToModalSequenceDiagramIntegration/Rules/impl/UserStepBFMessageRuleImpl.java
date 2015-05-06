@@ -35,6 +35,7 @@ import UseCaseDSL.BasicFlow;
 import UseCaseDSL.Flow;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.PackageDeclaration;
+import UseCaseDSL.StepType;
 import UseCaseDSL.UseCase;
 import UseCaseDSL.UseCaseDSLFactory;
 
@@ -420,6 +421,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				"literal1", true, csp);
 		literal1.setValue("system");
 		literal1.setType("");
+		Variable literal2 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal2", true, csp);
+		literal2.setValue("PERFORM");
+		literal2.setType("");
 
 		// Create attribute variables
 		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
@@ -430,21 +435,29 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				"sysActor.type", true, csp);
 		var_sysActor_type.setValue(sysActor.getType());
 		var_sysActor_type.setType("UseCaseDSL.ActorType");
+		Variable var_step_type = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.type", true, csp);
+		var_step_type.setValue(step.getType());
+		var_step_type.setType("UseCaseDSL.StepType");
 
 		// Create unbound variables
 
 		// Create constraints
 		EqActorType eqActorType = new EqActorType();
 		EqActorType eqActorType_0 = new EqActorType();
+		EqStepType eqStepType = new EqStepType();
 
 		csp.getConstraints().add(eqActorType);
 		csp.getConstraints().add(eqActorType_0);
+		csp.getConstraints().add(eqStepType);
 
 		// Solve CSP
 		eqActorType.setRuleName("");
 		eqActorType.solve(var_actor_type, literal0);
 		eqActorType_0.setRuleName("");
 		eqActorType_0.solve(var_sysActor_type, literal1);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_step_type, literal2);
 		return csp;
 	}
 
@@ -1009,6 +1022,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				"literal1", true, csp);
 		literal1.setValue("system");
 		literal1.setType("");
+		Variable literal2 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal2", true, csp);
+		literal2.setValue("PERFORM");
+		literal2.setType("");
 
 		// Create attribute variables
 		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
@@ -1025,6 +1042,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		var_message_name.setType("String");
 
 		// Create unbound variables
+		Variable var_step_type = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.type", csp);
+		var_step_type.setType("UseCaseDSL.StepType");
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
@@ -1032,10 +1052,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		// Create constraints
 		EqActorType eqActorType = new EqActorType();
 		EqActorType eqActorType_0 = new EqActorType();
+		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
 
 		csp.getConstraints().add(eqActorType);
 		csp.getConstraints().add(eqActorType_0);
+		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
 
 		// Solve CSP
@@ -1043,6 +1065,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		eqActorType.solve(var_actor_type, literal0);
 		eqActorType_0.setRuleName("");
 		eqActorType_0.solve(var_sysActor_type, literal1);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_step_type, literal2);
 		eq.setRuleName("");
 		eq.solve(var_step_name, var_message_name);
 
@@ -2326,12 +2350,16 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		literal1.setType("");
 		Variable literal2 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal2", true, csp);
-		literal2.setValue("ASYNCH_CALL");
+		literal2.setValue("PERFORM");
 		literal2.setType("");
 		Variable literal3 = CSPFactoryHelper.eINSTANCE.createVariable(
 				"literal3", true, csp);
-		literal3.setValue("COMPLETE");
+		literal3.setValue("ASYNCH_CALL");
 		literal3.setType("");
+		Variable literal4 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal4", true, csp);
+		literal4.setValue("COMPLETE");
+		literal4.setType("");
 
 		// Create attribute variables
 		Variable var_actor_type = CSPFactoryHelper.eINSTANCE.createVariable(
@@ -2344,6 +2372,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		var_sysActor_type.setType("UseCaseDSL.ActorType");
 
 		// Create unbound variables
+		Variable var_step_type = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.type", csp);
+		var_step_type.setType("UseCaseDSL.StepType");
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
@@ -2360,12 +2391,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		// Create constraints
 		EqActorType eqActorType = new EqActorType();
 		EqActorType eqActorType_0 = new EqActorType();
+		EqStepType eqStepType = new EqStepType();
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
 
 		csp.getConstraints().add(eqActorType);
 		csp.getConstraints().add(eqActorType_0);
+		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
@@ -2375,10 +2408,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		eqActorType.solve(var_actor_type, literal0);
 		eqActorType_0.setRuleName("");
 		eqActorType_0.solve(var_sysActor_type, literal1);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_step_type, literal2);
 		eqMessageSort.setRuleName("");
-		eqMessageSort.solve(var_message_messageSort, literal2);
+		eqMessageSort.solve(var_message_messageSort, literal3);
 		eqMessageKind.setRuleName("");
-		eqMessageKind.solve(var_message_messageKind, literal3);
+		eqMessageKind.solve(var_message_messageKind, literal4);
 		eq.setRuleName("");
 		eq.solve(var_step_name, var_message_name);
 
@@ -4579,12 +4614,15 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		NormalStep step = UseCaseDSLFactory.eINSTANCE.createNormalStep();
 		NormalStepToMessage stepToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createNormalStepToMessage();
-		Object _localVariable_0 = csp.getValue("step", "name");
+		Object _localVariable_0 = csp.getValue("step", "type");
+		Object _localVariable_1 = csp.getValue("step", "name");
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		stepToMessage.setSource(step);
 		stepToMessage.setTarget(message);
-		String step_name_prime = (String) _localVariable_0;
+		StepType step_type_prime = (StepType) _localVariable_0;
+		String step_name_prime = (String) _localVariable_1;
+		step.setType(step_type_prime);
 		step.setName(step_name_prime);
 		return new Object[] { actor, flow, step, message, stepToMessage, csp };
 	}
@@ -5970,11 +6008,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_562851 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_679747 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_562851)) {
-					if (!messageReceive.equals(__DEC_message_message_562851)) {
+				if (!messageSend.equals(__DEC_message_message_679747)) {
+					if (!messageReceive.equals(__DEC_message_message_679747)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6177,11 +6215,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_385410 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_212562 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_385410)) {
-					if (!messageReceive.equals(__DEC_message_message_385410)) {
+				if (!messageSend.equals(__DEC_message_message_212562)) {
+					if (!messageReceive.equals(__DEC_message_message_212562)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6384,11 +6422,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_686070 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_924950 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_686070)) {
-					if (!messageReceive.equals(__DEC_message_message_686070)) {
+				if (!messageSend.equals(__DEC_message_message_924950)) {
+					if (!messageReceive.equals(__DEC_message_message_924950)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6585,11 +6623,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_205566 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_357264 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_205566)) {
-					if (!messageReceive.equals(__DEC_message_message_205566)) {
+				if (!messageSend.equals(__DEC_message_message_357264)) {
+					if (!messageReceive.equals(__DEC_message_message_357264)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6786,11 +6824,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_553276 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_582810 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_553276)) {
-					if (!messageReceive.equals(__DEC_message_message_553276)) {
+				if (!messageSend.equals(__DEC_message_message_582810)) {
+					if (!messageReceive.equals(__DEC_message_message_582810)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6988,11 +7026,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_104183 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_442456 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_104183)) {
-					if (!messageReceive.equals(__DEC_message_message_104183)) {
+				if (!messageSend.equals(__DEC_message_message_442456)) {
+					if (!messageReceive.equals(__DEC_message_message_442456)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7461,11 +7499,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_768139 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_254598 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_768139)) {
-					if (!messageReceive.equals(__DEC_message_message_768139)) {
+				if (!messageSend.equals(__DEC_message_message_254598)) {
+					if (!messageReceive.equals(__DEC_message_message_254598)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7664,11 +7702,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_417642 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_632199 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_417642)) {
-					if (!messageReceive.equals(__DEC_message_message_417642)) {
+				if (!messageSend.equals(__DEC_message_message_632199)) {
+					if (!messageReceive.equals(__DEC_message_message_632199)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7866,11 +7904,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_284743 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_529485 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_284743)) {
-					if (!messageReceive.equals(__DEC_message_message_284743)) {
+				if (!messageSend.equals(__DEC_message_message_529485)) {
+					if (!messageReceive.equals(__DEC_message_message_529485)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8069,11 +8107,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_875093 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_302695 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_875093)) {
-					if (!messageReceive.equals(__DEC_message_message_875093)) {
+				if (!messageSend.equals(__DEC_message_message_302695)) {
+					if (!messageReceive.equals(__DEC_message_message_302695)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8272,11 +8310,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_79862 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_983239 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_79862)) {
-					if (!messageReceive.equals(__DEC_message_message_79862)) {
+				if (!messageSend.equals(__DEC_message_message_983239)) {
+					if (!messageReceive.equals(__DEC_message_message_983239)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8474,11 +8512,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_999247 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_780979 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_999247)) {
-					if (!messageReceive.equals(__DEC_message_message_999247)) {
+				if (!messageSend.equals(__DEC_message_message_780979)) {
+					if (!messageReceive.equals(__DEC_message_message_780979)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8676,11 +8714,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_861837 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_25467 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_861837)) {
-					if (!messageReceive.equals(__DEC_message_message_861837)) {
+				if (!messageSend.equals(__DEC_message_message_25467)) {
+					if (!messageReceive.equals(__DEC_message_message_25467)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8883,11 +8921,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_645267 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_934444 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_645267)) {
-					if (!messageReceive.equals(__DEC_message_message_645267)) {
+				if (!messageSend.equals(__DEC_message_message_934444)) {
+					if (!messageReceive.equals(__DEC_message_message_934444)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9419,12 +9457,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
 		NormalStepToMessage stepToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createNormalStepToMessage();
-		Object _localVariable_0 = csp.getValue("step", "name");
-		Object _localVariable_1 = csp.getValue("message", "name");
-		Object _localVariable_2 = csp.getValue("message", "messageSort");
-		Object _localVariable_3 = csp.getValue("message", "messageKind");
+		Object _localVariable_0 = csp.getValue("step", "type");
+		Object _localVariable_1 = csp.getValue("step", "name");
+		Object _localVariable_2 = csp.getValue("message", "name");
+		Object _localVariable_3 = csp.getValue("message", "messageSort");
+		Object _localVariable_4 = csp.getValue("message", "messageKind");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		sysLine.getCoveredBy().add(messageSend);
 		messageSend.setEnclosingInteraction(interaction);
 		ruleResult.getTargetObjects().add(messageSend);
@@ -9443,12 +9482,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		stepToMessage.setSource(step);
 		stepToMessage.setTarget(message);
 		ruleResult.getCorrObjects().add(stepToMessage);
-		String step_name_prime = (String) _localVariable_0;
-		String message_name_prime = (String) _localVariable_1;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
+		StepType step_type_prime = (StepType) _localVariable_0;
+		String step_name_prime = (String) _localVariable_1;
+		String message_name_prime = (String) _localVariable_2;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_3;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_4;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		step.setType(step_type_prime);
 		step.setName(step_name_prime);
 		message.setName(message_name_prime);
 		message.setMessageSort(message_messageSort_prime);

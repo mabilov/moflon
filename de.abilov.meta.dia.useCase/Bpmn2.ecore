@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:activities="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//activities"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:patternExpressions="platform:/plugin/SDMLanguage/model/SDMLanguage.ecore#//patterns/patternExpressions"
+    name="bpmn2" nsURI="platform:/plugin/bpmn2/model/Bpmn2.ecore" nsPrefix="bpmn2">
+  <eClassifiers xsi:type="ecore:EClass" name="BaseElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowElement" abstract="true" eSuperTypes="#//BaseElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowNode" abstract="true" eSuperTypes="#//FlowElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+        eType="#//SequenceFlow" eOpposite="#//SequenceFlow/sourceRef"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
+        eType="#//SequenceFlow" eOpposite="#//SequenceFlow/targetRef"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow" eSuperTypes="#//FlowElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRef" lowerBound="1"
+        eType="#//FlowNode" eOpposite="#//FlowNode/outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetRef" lowerBound="1"
+        eType="#//FlowNode" eOpposite="#//FlowNode/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpression" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//FlowNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallableElement" eSuperTypes="#//RootElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CatchEvent" abstract="true" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Definitions">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootElements" upperBound="-1"
+        eType="#//RootElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNamespace" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
+        eType="#//Definitions" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndEvent" eSuperTypes="#//ThrowEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventBasedGateway" eSuperTypes="#//Gateway"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExclusiveGateway" eSuperTypes="#//Gateway">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="default" eType="#//SequenceFlow"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//BaseElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowElementsContainer" abstract="true"
+      eSuperTypes="#//BaseElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="laneSets" upperBound="-1"
+        eType="#//LaneSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowElements" upperBound="-1"
+        eType="#//FlowElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormalExpression" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Gateway" abstract="true" eSuperTypes="#//FlowNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gatewayDirection" ordered="false"
+        lowerBound="1" eType="#//GatewayDirection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GatewayDirection">
+    <eLiterals name="Converging" value="1" literal="Converging"/>
+    <eLiterals name="Diverging" value="2" literal="Diverging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntermediateCatchEvent" eSuperTypes="#//CatchEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntermediateThrowEvent" eSuperTypes="#//ThrowEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Lane">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowNodeRefs" upperBound="-1"
+        eType="#//FlowNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LaneSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lanes" upperBound="-1"
+        eType="#//Lane" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManualTask" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParallelGateway" eSuperTypes="#//Gateway"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//CallableElement #//FlowElementsContainer">
+    <eOperations xsi:type="activities:MoflonEOperation" name="removeNode" eType="#//FlowNode">
+      <eParameters name="node" eType="#//FlowNode"/>
+      <activity owningOperation="#//Process/removeNode">
+        <ownedActivityNode xsi:type="activities:StartNode" outgoing="#//Process/removeNode/@activity/@ownedActivityEdge.0"/>
+        <ownedActivityNode xsi:type="activities:StoryNode" name="removeNodeFromProcess"
+            comment="removeNodeFromProcess" outgoing="#//Process/removeNode/@activity/@ownedActivityEdge.1"
+            incoming="#//Process/removeNode/@activity/@ownedActivityEdge.0">
+          <storyPattern comment="removeNodeFromProcess">
+            <objectVariable type="#//Process" name="this" outgoingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.0 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.1 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.2 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.3"
+                bindingState="BOUND"/>
+            <objectVariable type="#//FlowNode" name="node" incomingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.3 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.4 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.6"
+                bindingOperator="DESTROY" bindingState="BOUND"/>
+            <objectVariable type="#//SequenceFlow" name="inFlow" incomingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.0"
+                outgoingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.4 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.5"/>
+            <objectVariable type="#//SequenceFlow" name="outFlow" incomingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.1"
+                outgoingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.6 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.7"
+                bindingOperator="DESTROY"/>
+            <objectVariable type="#//FlowNode" name="nextNode" incomingLink="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.2 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.5 #//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@linkVariable.7"/>
+            <linkVariable name="flowElements" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.2"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.0"
+                type="#//FlowElementsContainer/flowElements"/>
+            <linkVariable name="flowElements" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.3"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.0"
+                type="#//FlowElementsContainer/flowElements" bindingOperator="DESTROY"/>
+            <linkVariable name="flowElements" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.4"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.0"
+                type="#//FlowElementsContainer/flowElements"/>
+            <linkVariable name="flowElements" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.1"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.0"
+                type="#//FlowElementsContainer/flowElements" bindingOperator="DESTROY"/>
+            <linkVariable name="targetRef" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.1"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.2"
+                type="#//SequenceFlow/targetRef" bindingOperator="DESTROY"/>
+            <linkVariable name="targetRef" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.4"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.2"
+                type="#//SequenceFlow/targetRef" bindingOperator="CREATE"/>
+            <linkVariable name="sourceRef" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.1"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.3"
+                type="#//SequenceFlow/sourceRef" bindingOperator="DESTROY"/>
+            <linkVariable name="targetRef" target="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.4"
+                source="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.3"
+                type="#//SequenceFlow/targetRef" bindingOperator="DESTROY"/>
+          </storyPattern>
+        </ownedActivityNode>
+        <ownedActivityNode xsi:type="activities:StopNode" incoming="#//Process/removeNode/@activity/@ownedActivityEdge.1">
+          <returnValue xsi:type="patternExpressions:ObjectVariableExpression" object="#//Process/removeNode/@activity/@ownedActivityNode.1/@storyPattern/@objectVariable.4"/>
+        </ownedActivityNode>
+        <ownedActivityEdge source="#//Process/removeNode/@activity/@ownedActivityNode.0"
+            target="#//Process/removeNode/@activity/@ownedActivityNode.1"/>
+        <ownedActivityEdge source="#//Process/removeNode/@activity/@ownedActivityNode.1"
+            target="#//Process/removeNode/@activity/@ownedActivityNode.2"/>
+      </activity>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceTask" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StartEvent" eSuperTypes="#//CatchEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Activity #//InteractionNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true" eSuperTypes="#//FlowNode #//InteractionNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrowEvent" abstract="true" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UserTask" eSuperTypes="#//Task"/>
+</ecore:EPackage>

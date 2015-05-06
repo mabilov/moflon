@@ -2631,10 +2631,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_20_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_425752 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_50279 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_425752)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_50279)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -2763,11 +2763,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_21_2_black_nac_0B(
 			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_158438 = interaction
+		Interaction __DEC_interaction_enclosingInteraction_735564 = interaction
 				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_158438 != null) {
+		if (__DEC_interaction_enclosingInteraction_735564 != null) {
 			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_158438)) {
+					.equals(__DEC_interaction_enclosingInteraction_735564)) {
 				return new Object[] { interaction };
 			}
 		}
@@ -2890,10 +2890,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_421125 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_871526 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_421125)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_871526)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}

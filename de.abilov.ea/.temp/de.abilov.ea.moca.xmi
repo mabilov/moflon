@@ -10363,12 +10363,12 @@
           </children>
           <children name="attributes" index="1" xsi:type="MocaTree:Node">
             <children name="EAttribute" index="0" xsi:type="MocaTree:Node">
-              <attribute name="type" value="CustomStepType" index="0" />
+              <attribute name="type" value="StepType" index="0" />
               <attribute name="typeGuid" value="{4E258EFE-F58F-4844-90D8-0F81D41EA738}" index="1" />
-              <attribute name="name" value="customStepType" index="2" />
+              <attribute name="name" value="type" index="2" />
               <attribute name="guid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="3" />
               <attribute name="ordered" value="false" index="4" />
-              <attribute name="lowerBound" value="0" index="5" />
+              <attribute name="lowerBound" value="1" index="5" />
               <attribute name="upperBound" value="1" index="6" />
               <attribute name="isId" value="false" index="7" />
             </children>
@@ -10650,27 +10650,32 @@
         <children name="EEnum" index="18" xsi:type="MocaTree:Node">
           <children name="literals" index="0" xsi:type="MocaTree:Node">
             <children name="EEnumLiteral" index="0" xsi:type="MocaTree:Node">
-              <attribute name="name" value="INPUT" index="0" />
-              <attribute name="value" value="0" index="1" />
-              <attribute name="literal" value="input" index="2" />
+              <attribute name="name" value="ALT" index="0" />
+              <attribute name="value" value="5" index="1" />
+              <attribute name="literal" value="alt" index="2" />
             </children>
             <children name="EEnumLiteral" index="1" xsi:type="MocaTree:Node">
-              <attribute name="name" value="OUTPUT" index="0" />
+              <attribute name="name" value="WAIT" index="0" />
               <attribute name="value" value="1" index="1" />
-              <attribute name="literal" value="output" index="2" />
+              <attribute name="literal" value="wait" index="2" />
             </children>
             <children name="EEnumLiteral" index="2" xsi:type="MocaTree:Node">
-              <attribute name="name" value="PROCESS" index="0" />
+              <attribute name="name" value="SEND" index="0" />
               <attribute name="value" value="2" index="1" />
-              <attribute name="literal" value="process" index="2" />
+              <attribute name="literal" value="send" index="2" />
             </children>
             <children name="EEnumLiteral" index="3" xsi:type="MocaTree:Node">
-              <attribute name="name" value="MIX" index="0" />
+              <attribute name="name" value="PERFORM" index="0" />
               <attribute name="value" value="3" index="1" />
-              <attribute name="literal" value="mix" index="2" />
+              <attribute name="literal" value="perform" index="2" />
+            </children>
+            <children name="EEnumLiteral" index="4" xsi:type="MocaTree:Node">
+              <attribute name="name" value="CALL" index="0" />
+              <attribute name="value" value="4" index="1" />
+              <attribute name="literal" value="call" index="2" />
             </children>
           </children>
-          <attribute name="name" value="CustomStepType" index="0" />
+          <attribute name="name" value="StepType" index="0" />
           <attribute name="guid" value="{4E258EFE-F58F-4844-90D8-0F81D41EA738}" index="1" />
         </children>
         <children name="EClass" index="19" xsi:type="MocaTree:Node">
@@ -12850,13 +12855,34 @@
                     </children>
                   </children>
                 </children>
+                <children name="ConstraintInstance" index="1" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{5ECE75B4-54F8-4a9a-8957-9F2BA99381AA}" index="3" />
+                          <attribute name="objectVariableName" value="normalStep" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;PERFORM&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
               </children>
               <attribute name="name" value="TaskToStepCoreRule" index="0" />
               <attribute name="isAbstract" value="true" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{A5FC745F-8F47-41a5-85F7-E8ED681D77CE}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="eq(task.id, normalStep.name)eq(task.name, normalStep.label)" index="5" />
+              <attribute name="cspSpec" value="eq(task.id, normalStep.name)eq(task.name, normalStep.label)eqStepType(normalStep.type, &quot;PERFORM&quot;)" index="5" />
               <attribute name="refines" value="" index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
@@ -14527,13 +14553,50 @@
                   <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
                   <attribute name="domain" value="source" index="8" />
                 </children>
+                <children name="TGGObjectVariable" index="1" xsi:type="MocaTree:Node">
+                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
+                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
+                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node" />
+                  <attribute name="guid" value="{29A38203-E999-4d48-8E23-1ABCB0F03DDE}" index="0" />
+                  <attribute name="typeGuid" value="{E9C66D68-82C6-4e92-8009-6BFE04C63A74}" index="1" />
+                  <attribute name="bindingState" value="unbound" index="2" />
+                  <attribute name="bindingOperator" value="create" index="3" />
+                  <attribute name="name" value="normalStep" index="4" />
+                  <attribute name="bindingSemantics" value="mandatory" index="5" />
+                  <attribute name="nacIndex" value="-1" index="6" />
+                  <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
+                  <attribute name="domain" value="target" index="8" />
+                </children>
+              </children>
+              <children name="csps" index="4" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="0" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{29A38203-E999-4d48-8E23-1ABCB0F03DDE}" index="3" />
+                          <attribute name="objectVariableName" value="normalStep" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;SEND&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
               </children>
               <attribute name="name" value="ITEToStepRule" index="0" />
               <attribute name="isAbstract" value="false" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{9D5DC1D8-6F14-4ca0-96A9-2AD6A52FC5C5}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="" index="5" />
+              <attribute name="cspSpec" value="eqStepType(normalStep.type, &quot;SEND&quot;)" index="5" />
               <attribute name="refines" value="{DE292F5B-E79D-48e4-8E21-D355092F964D} " index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
@@ -14557,13 +14620,50 @@
                   <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
                   <attribute name="domain" value="source" index="8" />
                 </children>
+                <children name="TGGObjectVariable" index="1" xsi:type="MocaTree:Node">
+                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
+                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
+                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node" />
+                  <attribute name="guid" value="{6A547701-A300-4e28-AC27-6D6015793815}" index="0" />
+                  <attribute name="typeGuid" value="{E9C66D68-82C6-4e92-8009-6BFE04C63A74}" index="1" />
+                  <attribute name="bindingState" value="unbound" index="2" />
+                  <attribute name="bindingOperator" value="create" index="3" />
+                  <attribute name="name" value="normalStep" index="4" />
+                  <attribute name="bindingSemantics" value="mandatory" index="5" />
+                  <attribute name="nacIndex" value="-1" index="6" />
+                  <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
+                  <attribute name="domain" value="target" index="8" />
+                </children>
+              </children>
+              <children name="csps" index="4" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="0" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{6A547701-A300-4e28-AC27-6D6015793815}" index="3" />
+                          <attribute name="objectVariableName" value="normalStep" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;WAIT&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
               </children>
               <attribute name="name" value="ICEToStepRule" index="0" />
               <attribute name="isAbstract" value="true" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{A6DB47F5-A5FB-4561-94E2-F1F73AF008E3}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="" index="5" />
+              <attribute name="cspSpec" value="eqStepType(normalStep.type, &quot;WAIT&quot;)" index="5" />
               <attribute name="refines" value="{DE292F5B-E79D-48e4-8E21-D355092F964D} " index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
@@ -15574,13 +15674,34 @@
                     </children>
                   </children>
                 </children>
+                <children name="ConstraintInstance" index="1" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{ECABD977-0231-41bf-8B41-3064E5861158}" index="3" />
+                          <attribute name="objectVariableName" value="normalStep" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;ALT&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
               </children>
               <attribute name="name" value="ExclusiveGatewayToStepCoreRule" index="0" />
               <attribute name="isAbstract" value="true" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{3C183A9A-F7CF-4a12-BFE6-5CA0AF85E5AE}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="eq(exclusiveGateway.id, normalStep.name)eq(exclusiveGateway.name, normalStep.label)eqGatewayDirection(exclusiveGateway.gatewayDirection, &quot;Diverging&quot;)" index="5" />
+              <attribute name="cspSpec" value="eq(exclusiveGateway.id, normalStep.name)eq(exclusiveGateway.name, normalStep.label)eqGatewayDirection(exclusiveGateway.gatewayDirection, &quot;Diverging&quot;)eqStepType(normalStep.type, &quot;ALT&quot;)" index="5" />
               <attribute name="refines" value="" index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
@@ -15723,13 +15844,50 @@
                   <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
                   <attribute name="domain" value="source" index="8" />
                 </children>
+                <children name="TGGObjectVariable" index="1" xsi:type="MocaTree:Node">
+                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
+                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
+                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node" />
+                  <attribute name="guid" value="{4385F2AD-447B-4306-99A1-A962040335F9}" index="0" />
+                  <attribute name="typeGuid" value="{E9C66D68-82C6-4e92-8009-6BFE04C63A74}" index="1" />
+                  <attribute name="bindingState" value="unbound" index="2" />
+                  <attribute name="bindingOperator" value="create" index="3" />
+                  <attribute name="name" value="normalStep" index="4" />
+                  <attribute name="bindingSemantics" value="mandatory" index="5" />
+                  <attribute name="nacIndex" value="-1" index="6" />
+                  <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
+                  <attribute name="domain" value="target" index="8" />
+                </children>
+              </children>
+              <children name="csps" index="4" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="0" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{4385F2AD-447B-4306-99A1-A962040335F9}" index="3" />
+                          <attribute name="objectVariableName" value="normalStep" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;SEND&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
               </children>
               <attribute name="name" value="FirstInterThrowEventToStepRule" index="0" />
               <attribute name="isAbstract" value="false" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{7CFEB86E-AC70-48c3-937C-9E76F8751F2C}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="" index="5" />
+              <attribute name="cspSpec" value="eqStepType(normalStep.type, &quot;SEND&quot;)" index="5" />
               <attribute name="refines" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
@@ -15753,13 +15911,50 @@
                   <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
                   <attribute name="domain" value="source" index="8" />
                 </children>
+                <children name="TGGObjectVariable" index="1" xsi:type="MocaTree:Node">
+                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
+                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
+                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node" />
+                  <attribute name="guid" value="{FFB99569-ED8D-48c7-91EF-40226F857073}" index="0" />
+                  <attribute name="typeGuid" value="{E9C66D68-82C6-4e92-8009-6BFE04C63A74}" index="1" />
+                  <attribute name="bindingState" value="unbound" index="2" />
+                  <attribute name="bindingOperator" value="create" index="3" />
+                  <attribute name="name" value="normalStep" index="4" />
+                  <attribute name="bindingSemantics" value="mandatory" index="5" />
+                  <attribute name="nacIndex" value="-1" index="6" />
+                  <attribute name="metamodelGuid" value="{362EA379-FC84-46eb-AF41-2B43E65C0F95}" index="7" />
+                  <attribute name="domain" value="target" index="8" />
+                </children>
+              </children>
+              <children name="csps" index="4" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="0" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{FFB99569-ED8D-48c7-91EF-40226F857073}" index="3" />
+                          <attribute name="objectVariableName" value="normalStep" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;WAIT&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
               </children>
               <attribute name="name" value="FirstICEToStepRule" index="0" />
               <attribute name="isAbstract" value="true" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{FB8A7660-21F1-4d7e-AC66-A347F53873A2}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="" index="5" />
+              <attribute name="cspSpec" value="eqStepType(normalStep.type, &quot;WAIT&quot;)" index="5" />
               <attribute name="refines" value="{7156BD47-5952-4b36-85D6-FF8774CB140B} " index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
@@ -22985,7 +23180,31 @@
       </children>
       <children name="constraints" index="4" xsi:type="MocaTree:Node">
         <children name="DECLARATIONS" index="0" xsi:type="MocaTree:Node">
-          <children name="notInstanceOf" index="0" xsi:type="MocaTree:Node">
+          <children name="eqStepType" index="0" xsi:type="MocaTree:Node">
+            <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
+              <children name="BB" index="0" xsi:type="MocaTree:Node" />
+              <children name="BF" index="1" xsi:type="MocaTree:Node" />
+              <children name="FB" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="MODELGEN_ADORNMENTS" index="1" xsi:type="MocaTree:Node">
+              <children name="BB" index="0" xsi:type="MocaTree:Node" />
+              <children name="BF" index="1" xsi:type="MocaTree:Node" />
+              <children name="FB" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="SIGNATURE" index="2" xsi:type="MocaTree:Node">
+              <children name="EObject" index="0" xsi:type="MocaTree:Node" />
+              <children name="EString" index="1" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="SIGNATURE_INFORMATION" index="3" xsi:type="MocaTree:Node">
+              <children name="attribute value" index="0" xsi:type="MocaTree:Node" />
+              <children name="literal value" index="1" xsi:type="MocaTree:Node" />
+              <children name="" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <attribute name="INFORMATION_TEXT" value="" index="0" />
+            <attribute name="USER_DEFINED" value="true" index="1" />
+            <attribute name="INDEX" value="0" index="2" />
+          </children>
+          <children name="notInstanceOf" index="1" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
             </children>
@@ -23001,9 +23220,9 @@
             </children>
             <attribute name="INFORMATION_TEXT" value="" index="0" />
             <attribute name="USER_DEFINED" value="true" index="1" />
-            <attribute name="INDEX" value="0" index="2" />
+            <attribute name="INDEX" value="1" index="2" />
           </children>
-          <children name="eqGatewayDirection" index="1" xsi:type="MocaTree:Node">
+          <children name="eqGatewayDirection" index="2" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -23021,9 +23240,9 @@
             </children>
             <attribute name="INFORMATION_TEXT" value="" index="0" />
             <attribute name="USER_DEFINED" value="true" index="1" />
-            <attribute name="INDEX" value="1" index="2" />
+            <attribute name="INDEX" value="2" index="2" />
           </children>
-          <children name="setCheckEqStr" index="2" xsi:type="MocaTree:Node">
+          <children name="setCheckEqStr" index="3" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -23041,9 +23260,9 @@
             </children>
             <attribute name="INFORMATION_TEXT" value="" index="0" />
             <attribute name="USER_DEFINED" value="true" index="1" />
-            <attribute name="INDEX" value="2" index="2" />
+            <attribute name="INDEX" value="3" index="2" />
           </children>
-          <children name="eqActorType" index="3" xsi:type="MocaTree:Node">
+          <children name="eqActorType" index="4" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -23061,9 +23280,9 @@
             </children>
             <attribute name="INFORMATION_TEXT" value="" index="0" />
             <attribute name="USER_DEFINED" value="true" index="1" />
-            <attribute name="INDEX" value="3" index="2" />
+            <attribute name="INDEX" value="4" index="2" />
           </children>
-          <children name="eq" index="4" xsi:type="MocaTree:Node">
+          <children name="eq" index="5" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -23087,7 +23306,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="0" index="2" />
           </children>
-          <children name="addPrefix" index="5" xsi:type="MocaTree:Node">
+          <children name="addPrefix" index="6" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23116,7 +23335,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="1" index="2" />
           </children>
-          <children name="addSuffix" index="6" xsi:type="MocaTree:Node">
+          <children name="addSuffix" index="7" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23146,7 +23365,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="2" index="2" />
           </children>
-          <children name="concat" index="7" xsi:type="MocaTree:Node">
+          <children name="concat" index="8" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBBF" index="1" xsi:type="MocaTree:Node" />
@@ -23180,7 +23399,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="3" index="2" />
           </children>
-          <children name="setDefaultString" index="8" xsi:type="MocaTree:Node">
+          <children name="setDefaultString" index="9" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="FB" index="1" xsi:type="MocaTree:Node" />
@@ -23202,7 +23421,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="4" index="2" />
           </children>
-          <children name="setDefaultNumber" index="9" xsi:type="MocaTree:Node">
+          <children name="setDefaultNumber" index="10" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="FB" index="1" xsi:type="MocaTree:Node" />
@@ -23224,7 +23443,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="5" index="2" />
           </children>
-          <children name="stringToDouble" index="10" xsi:type="MocaTree:Node">
+          <children name="stringToDouble" index="11" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -23248,7 +23467,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="6" index="2" />
           </children>
-          <children name="stringToInt" index="11" xsi:type="MocaTree:Node">
+          <children name="stringToInt" index="12" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -23272,7 +23491,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="7" index="2" />
           </children>
-          <children name="multiply" index="12" xsi:type="MocaTree:Node">
+          <children name="multiply" index="13" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23299,7 +23518,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="8" index="2" />
           </children>
-          <children name="divide" index="13" xsi:type="MocaTree:Node">
+          <children name="divide" index="14" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23326,7 +23545,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="9" index="2" />
           </children>
-          <children name="add" index="14" xsi:type="MocaTree:Node">
+          <children name="add" index="15" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23356,7 +23575,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="10" index="2" />
           </children>
-          <children name="sub" index="15" xsi:type="MocaTree:Node">
+          <children name="sub" index="16" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23387,7 +23606,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="11" index="2" />
           </children>
-          <children name="max" index="16" xsi:type="MocaTree:Node">
+          <children name="max" index="17" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -23414,7 +23633,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="12" index="2" />
           </children>
-          <children name="smallerOrEqual" index="17" xsi:type="MocaTree:Node">
+          <children name="smallerOrEqual" index="18" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -26142,7 +26361,7 @@
                 </children>
               </children>
               <attribute name="name" value="ActorToLifelineRule" index="0" />
-              <attribute name="isAbstract" value="true" index="1" />
+              <attribute name="isAbstract" value="false" index="1" />
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{95F87FF3-9523-4696-A8DD-3FD9EB9E10B2}" index="3" />
               <attribute name="alias" value="" index="4" />
@@ -26627,6 +26846,27 @@
                       <children name="expressions" index="0" xsi:type="MocaTree:Node">
                         <children name="Expression" index="0" xsi:type="MocaTree:Node">
                           <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{26C980D6-2EE7-4fc8-9D94-F2D3F667CBE7}" index="3" />
+                          <attribute name="objectVariableName" value="step" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;PERFORM&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
+                <children name="ConstraintInstance" index="1" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
                           <attribute name="attributeGuid" value="{404877F4-5EBC-4cb6-AF7B-AE18F1802E48}" index="1" />
                           <attribute name="attributeName" value="name" index="2" />
                           <attribute name="objectVariableGuid" value="{26C980D6-2EE7-4fc8-9D94-F2D3F667CBE7}" index="3" />
@@ -26644,7 +26884,7 @@
                     </children>
                   </children>
                 </children>
-                <children name="ConstraintInstance" index="1" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="2" xsi:type="MocaTree:Node">
                   <children name="entries" index="0" xsi:type="MocaTree:Node">
                     <children name="Entry" index="0" xsi:type="MocaTree:Node">
                       <children name="expressions" index="0" xsi:type="MocaTree:Node">
@@ -26688,65 +26928,12 @@
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{C861F5DE-E761-4322-91BD-0423CE354334}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="eq(step.name, message.name)eqMessageSort(message.messageSort, &quot;ASYNCH_CALL&quot;)eqMessageKind(message.messageKind, &quot;COMPLETE&quot;)" index="5" />
+              <attribute name="cspSpec" value="eqStepType(step.type, &quot;PERFORM&quot;)eq(step.name, message.name)eqMessageSort(message.messageSort, &quot;ASYNCH_CALL&quot;)eqMessageKind(message.messageKind, &quot;COMPLETE&quot;)" index="5" />
               <attribute name="refines" value="" index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
             <children name="Rule" index="5" xsi:type="MocaTree:Node">
-              <children name="references" index="0" xsi:type="MocaTree:Node" />
-              <children name="attributes" index="1" xsi:type="MocaTree:Node" />
-              <children name="operations" index="2" xsi:type="MocaTree:Node" />
-              <children name="objectVariables" index="3" xsi:type="MocaTree:Node">
-                <children name="TGGObjectVariable" index="0" xsi:type="MocaTree:Node">
-                  <children name="constraints" index="0" xsi:type="MocaTree:Node" />
-                  <children name="attributeAssignments" index="1" xsi:type="MocaTree:Node" />
-                  <children name="outgoingLinks" index="2" xsi:type="MocaTree:Node" />
-                  <attribute name="guid" value="{11A11F02-B46B-4ffd-B6BC-374EB9934010}" index="0" />
-                  <attribute name="typeGuid" value="{11DBB7BC-04B9-40ba-A835-065876FA6E8B}" index="1" />
-                  <attribute name="bindingState" value="unbound" index="2" />
-                  <attribute name="bindingOperator" value="create" index="3" />
-                  <attribute name="name" value="actor" index="4" />
-                  <attribute name="bindingSemantics" value="mandatory" index="5" />
-                  <attribute name="nacIndex" value="-1" index="6" />
-                  <attribute name="metamodelGuid" value="{C24E31AF-7205-4a57-9770-0F73AC933F12}" index="7" />
-                  <attribute name="domain" value="source" index="8" />
-                </children>
-              </children>
-              <children name="csps" index="4" xsi:type="MocaTree:Node">
-                <children name="ConstraintInstance" index="0" xsi:type="MocaTree:Node">
-                  <children name="entries" index="0" xsi:type="MocaTree:Node">
-                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
-                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
-                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
-                          <attribute name="type" value="AttributeValueExpression" index="0" />
-                          <attribute name="attributeGuid" value="{6F32E662-B476-40a8-9F6B-E16797CCD933}" index="1" />
-                          <attribute name="attributeName" value="type" index="2" />
-                          <attribute name="objectVariableGuid" value="{11A11F02-B46B-4ffd-B6BC-374EB9934010}" index="3" />
-                          <attribute name="objectVariableName" value="actor" index="4" />
-                        </children>
-                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
-                          <attribute name="type" value="LiteralExpression" index="0" />
-                          <attribute name="value" value="&quot;PERSON&quot;" index="1" />
-                          <attribute name="datatype" value="" index="2" />
-                        </children>
-                      </children>
-                      <attribute name="constraintName" value="eqActorType" index="0" />
-                    </children>
-                  </children>
-                </children>
-              </children>
-              <attribute name="name" value="UserActorToLifelineRule" index="0" />
-              <attribute name="isAbstract" value="false" index="1" />
-              <attribute name="isInterface" value="false" index="2" />
-              <attribute name="guid" value="{2FB3A1B1-AB15-4aa3-990D-CEA332F8E531}" index="3" />
-              <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="eqActorType(actor.type, &quot;PERSON&quot;)" index="5" />
-              <attribute name="refines" value="{95F87FF3-9523-4696-A8DD-3FD9EB9E10B2} " index="6" />
-              <attribute name="baseClasses" value="" index="7" />
-              <attribute name="kernel" value="" index="8" />
-            </children>
-            <children name="Rule" index="6" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -26894,7 +27081,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="7" xsi:type="MocaTree:Node">
+            <children name="Rule" index="6" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -27117,7 +27304,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="8" xsi:type="MocaTree:Node">
+            <children name="Rule" index="7" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -27757,6 +27944,27 @@
                       <children name="expressions" index="0" xsi:type="MocaTree:Node">
                         <children name="Expression" index="0" xsi:type="MocaTree:Node">
                           <attribute name="type" value="AttributeValueExpression" index="0" />
+                          <attribute name="attributeGuid" value="{E5D6B297-6310-4f9d-A626-B042F5FA8E9A}" index="1" />
+                          <attribute name="attributeName" value="type" index="2" />
+                          <attribute name="objectVariableGuid" value="{2A3C9410-5943-4c66-AC34-9738B217AF9A}" index="3" />
+                          <attribute name="objectVariableName" value="step" index="4" />
+                        </children>
+                        <children name="Expression" index="1" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="LiteralExpression" index="0" />
+                          <attribute name="value" value="&quot;ALT&quot;" index="1" />
+                          <attribute name="datatype" value="" index="2" />
+                        </children>
+                      </children>
+                      <attribute name="constraintName" value="eqStepType" index="0" />
+                    </children>
+                  </children>
+                </children>
+                <children name="ConstraintInstance" index="1" xsi:type="MocaTree:Node">
+                  <children name="entries" index="0" xsi:type="MocaTree:Node">
+                    <children name="Entry" index="0" xsi:type="MocaTree:Node">
+                      <children name="expressions" index="0" xsi:type="MocaTree:Node">
+                        <children name="Expression" index="0" xsi:type="MocaTree:Node">
+                          <attribute name="type" value="AttributeValueExpression" index="0" />
                           <attribute name="attributeGuid" value="{8E92BD35-5FF7-4091-B87C-F37B01921224}" index="1" />
                           <attribute name="attributeName" value="name" index="2" />
                           <attribute name="objectVariableGuid" value="{007AE538-4C97-40f4-822E-CBF28A0684F3}" index="3" />
@@ -27774,7 +27982,7 @@
                     </children>
                   </children>
                 </children>
-                <children name="ConstraintInstance" index="1" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="2" xsi:type="MocaTree:Node">
                   <children name="entries" index="0" xsi:type="MocaTree:Node">
                     <children name="Entry" index="0" xsi:type="MocaTree:Node">
                       <children name="expressions" index="0" xsi:type="MocaTree:Node">
@@ -27797,7 +28005,7 @@
                     </children>
                   </children>
                 </children>
-                <children name="ConstraintInstance" index="2" xsi:type="MocaTree:Node">
+                <children name="ConstraintInstance" index="3" xsi:type="MocaTree:Node">
                   <children name="entries" index="0" xsi:type="MocaTree:Node">
                     <children name="Entry" index="0" xsi:type="MocaTree:Node">
                       <children name="expressions" index="0" xsi:type="MocaTree:Node">
@@ -27824,12 +28032,12 @@
               <attribute name="isInterface" value="false" index="2" />
               <attribute name="guid" value="{6D7CB553-5D69-46b3-826C-6B201BEAC930}" index="3" />
               <attribute name="alias" value="" index="4" />
-              <attribute name="cspSpec" value="eq(altFlow.name, guard.name)eq(alt.condition, spec.value)eqInterOperKind(combo.interactionOperator, &quot;alt&quot;)" index="5" />
+              <attribute name="cspSpec" value="eqStepType(step.type, &quot;ALT&quot;)eq(altFlow.name, guard.name)eq(alt.condition, spec.value)eqInterOperKind(combo.interactionOperator, &quot;alt&quot;)" index="5" />
               <attribute name="refines" value="" index="6" />
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="9" xsi:type="MocaTree:Node">
+            <children name="Rule" index="8" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -28082,7 +28290,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="10" xsi:type="MocaTree:Node">
+            <children name="Rule" index="9" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -28329,7 +28537,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="11" xsi:type="MocaTree:Node">
+            <children name="Rule" index="10" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -28683,7 +28891,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="12" xsi:type="MocaTree:Node">
+            <children name="Rule" index="11" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -29171,7 +29379,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="13" xsi:type="MocaTree:Node">
+            <children name="Rule" index="12" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -29268,7 +29476,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="14" xsi:type="MocaTree:Node">
+            <children name="Rule" index="13" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -29883,7 +30091,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="15" xsi:type="MocaTree:Node">
+            <children name="Rule" index="14" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -30060,7 +30268,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="16" xsi:type="MocaTree:Node">
+            <children name="Rule" index="15" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -30282,7 +30490,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="17" xsi:type="MocaTree:Node">
+            <children name="Rule" index="16" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -30379,7 +30587,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="18" xsi:type="MocaTree:Node">
+            <children name="Rule" index="17" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -30675,7 +30883,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="19" xsi:type="MocaTree:Node">
+            <children name="Rule" index="18" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -30772,7 +30980,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="20" xsi:type="MocaTree:Node">
+            <children name="Rule" index="19" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -31052,7 +31260,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="21" xsi:type="MocaTree:Node">
+            <children name="Rule" index="20" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -31149,7 +31357,7 @@
               <attribute name="baseClasses" value="" index="7" />
               <attribute name="kernel" value="" index="8" />
             </children>
-            <children name="Rule" index="22" xsi:type="MocaTree:Node">
+            <children name="Rule" index="21" xsi:type="MocaTree:Node">
               <children name="references" index="0" xsi:type="MocaTree:Node" />
               <children name="attributes" index="1" xsi:type="MocaTree:Node" />
               <children name="operations" index="2" xsi:type="MocaTree:Node" />
@@ -31537,7 +31745,31 @@
       </children>
       <children name="constraints" index="4" xsi:type="MocaTree:Node">
         <children name="DECLARATIONS" index="0" xsi:type="MocaTree:Node">
-          <children name="isEmpty" index="0" xsi:type="MocaTree:Node">
+          <children name="eqStepType" index="0" xsi:type="MocaTree:Node">
+            <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
+              <children name="BB" index="0" xsi:type="MocaTree:Node" />
+              <children name="BF" index="1" xsi:type="MocaTree:Node" />
+              <children name="FB" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="MODELGEN_ADORNMENTS" index="1" xsi:type="MocaTree:Node">
+              <children name="BB" index="0" xsi:type="MocaTree:Node" />
+              <children name="BF" index="1" xsi:type="MocaTree:Node" />
+              <children name="FB" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="SIGNATURE" index="2" xsi:type="MocaTree:Node">
+              <children name="EObject" index="0" xsi:type="MocaTree:Node" />
+              <children name="EString" index="1" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="SIGNATURE_INFORMATION" index="3" xsi:type="MocaTree:Node">
+              <children name="attribute value" index="0" xsi:type="MocaTree:Node" />
+              <children name="literal value" index="1" xsi:type="MocaTree:Node" />
+              <children name="" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <attribute name="INFORMATION_TEXT" value="" index="0" />
+            <attribute name="USER_DEFINED" value="true" index="1" />
+            <attribute name="INDEX" value="0" index="2" />
+          </children>
+          <children name="isEmpty" index="1" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="B" index="0" xsi:type="MocaTree:Node" />
               <children name="F" index="1" xsi:type="MocaTree:Node" />
@@ -31555,33 +31787,9 @@
             </children>
             <attribute name="INFORMATION_TEXT" value="" index="0" />
             <attribute name="USER_DEFINED" value="true" index="1" />
-            <attribute name="INDEX" value="0" index="2" />
-          </children>
-          <children name="eqMessageSort" index="1" xsi:type="MocaTree:Node">
-            <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
-              <children name="BB" index="0" xsi:type="MocaTree:Node" />
-              <children name="BF" index="1" xsi:type="MocaTree:Node" />
-              <children name="FB" index="2" xsi:type="MocaTree:Node" />
-            </children>
-            <children name="MODELGEN_ADORNMENTS" index="1" xsi:type="MocaTree:Node">
-              <children name="BB" index="0" xsi:type="MocaTree:Node" />
-              <children name="BF" index="1" xsi:type="MocaTree:Node" />
-              <children name="FB" index="2" xsi:type="MocaTree:Node" />
-            </children>
-            <children name="SIGNATURE" index="2" xsi:type="MocaTree:Node">
-              <children name="EObject" index="0" xsi:type="MocaTree:Node" />
-              <children name="EString" index="1" xsi:type="MocaTree:Node" />
-            </children>
-            <children name="SIGNATURE_INFORMATION" index="3" xsi:type="MocaTree:Node">
-              <children name="attribute value" index="0" xsi:type="MocaTree:Node" />
-              <children name="literal value" index="1" xsi:type="MocaTree:Node" />
-              <children name="" index="2" xsi:type="MocaTree:Node" />
-            </children>
-            <attribute name="INFORMATION_TEXT" value="" index="0" />
-            <attribute name="USER_DEFINED" value="true" index="1" />
             <attribute name="INDEX" value="1" index="2" />
           </children>
-          <children name="eqActorType" index="2" xsi:type="MocaTree:Node">
+          <children name="eqMessageSort" index="2" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -31591,7 +31799,6 @@
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
               <children name="FB" index="2" xsi:type="MocaTree:Node" />
-              <children name="FF" index="3" xsi:type="MocaTree:Node" />
             </children>
             <children name="SIGNATURE" index="2" xsi:type="MocaTree:Node">
               <children name="EObject" index="0" xsi:type="MocaTree:Node" />
@@ -31606,7 +31813,7 @@
             <attribute name="USER_DEFINED" value="true" index="1" />
             <attribute name="INDEX" value="2" index="2" />
           </children>
-          <children name="eqMessageKind" index="3" xsi:type="MocaTree:Node">
+          <children name="eqActorType" index="3" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -31631,7 +31838,32 @@
             <attribute name="USER_DEFINED" value="true" index="1" />
             <attribute name="INDEX" value="3" index="2" />
           </children>
-          <children name="eqInterOperKind" index="4" xsi:type="MocaTree:Node">
+          <children name="eqMessageKind" index="4" xsi:type="MocaTree:Node">
+            <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
+              <children name="BB" index="0" xsi:type="MocaTree:Node" />
+              <children name="BF" index="1" xsi:type="MocaTree:Node" />
+              <children name="FB" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="MODELGEN_ADORNMENTS" index="1" xsi:type="MocaTree:Node">
+              <children name="BB" index="0" xsi:type="MocaTree:Node" />
+              <children name="BF" index="1" xsi:type="MocaTree:Node" />
+              <children name="FB" index="2" xsi:type="MocaTree:Node" />
+              <children name="FF" index="3" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="SIGNATURE" index="2" xsi:type="MocaTree:Node">
+              <children name="EObject" index="0" xsi:type="MocaTree:Node" />
+              <children name="EString" index="1" xsi:type="MocaTree:Node" />
+            </children>
+            <children name="SIGNATURE_INFORMATION" index="3" xsi:type="MocaTree:Node">
+              <children name="attribute value" index="0" xsi:type="MocaTree:Node" />
+              <children name="literal value" index="1" xsi:type="MocaTree:Node" />
+              <children name="" index="2" xsi:type="MocaTree:Node" />
+            </children>
+            <attribute name="INFORMATION_TEXT" value="" index="0" />
+            <attribute name="USER_DEFINED" value="true" index="1" />
+            <attribute name="INDEX" value="4" index="2" />
+          </children>
+          <children name="eqInterOperKind" index="5" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -31654,9 +31886,9 @@
             </children>
             <attribute name="INFORMATION_TEXT" value="" index="0" />
             <attribute name="USER_DEFINED" value="true" index="1" />
-            <attribute name="INDEX" value="4" index="2" />
+            <attribute name="INDEX" value="5" index="2" />
           </children>
-          <children name="eq" index="5" xsi:type="MocaTree:Node">
+          <children name="eq" index="6" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -31680,7 +31912,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="0" index="2" />
           </children>
-          <children name="addPrefix" index="6" xsi:type="MocaTree:Node">
+          <children name="addPrefix" index="7" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -31709,7 +31941,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="1" index="2" />
           </children>
-          <children name="addSuffix" index="7" xsi:type="MocaTree:Node">
+          <children name="addSuffix" index="8" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -31739,7 +31971,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="2" index="2" />
           </children>
-          <children name="concat" index="8" xsi:type="MocaTree:Node">
+          <children name="concat" index="9" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBBF" index="1" xsi:type="MocaTree:Node" />
@@ -31773,7 +32005,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="3" index="2" />
           </children>
-          <children name="setDefaultString" index="9" xsi:type="MocaTree:Node">
+          <children name="setDefaultString" index="10" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="FB" index="1" xsi:type="MocaTree:Node" />
@@ -31795,7 +32027,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="4" index="2" />
           </children>
-          <children name="setDefaultNumber" index="10" xsi:type="MocaTree:Node">
+          <children name="setDefaultNumber" index="11" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="FB" index="1" xsi:type="MocaTree:Node" />
@@ -31817,7 +32049,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="5" index="2" />
           </children>
-          <children name="stringToDouble" index="11" xsi:type="MocaTree:Node">
+          <children name="stringToDouble" index="12" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -31841,7 +32073,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="6" index="2" />
           </children>
-          <children name="stringToInt" index="12" xsi:type="MocaTree:Node">
+          <children name="stringToInt" index="13" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />
@@ -31865,7 +32097,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="7" index="2" />
           </children>
-          <children name="multiply" index="13" xsi:type="MocaTree:Node">
+          <children name="multiply" index="14" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -31892,7 +32124,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="8" index="2" />
           </children>
-          <children name="divide" index="14" xsi:type="MocaTree:Node">
+          <children name="divide" index="15" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -31919,7 +32151,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="9" index="2" />
           </children>
-          <children name="add" index="15" xsi:type="MocaTree:Node">
+          <children name="add" index="16" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -31949,7 +32181,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="10" index="2" />
           </children>
-          <children name="sub" index="16" xsi:type="MocaTree:Node">
+          <children name="sub" index="17" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -31980,7 +32212,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="11" index="2" />
           </children>
-          <children name="max" index="17" xsi:type="MocaTree:Node">
+          <children name="max" index="18" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BBB" index="0" xsi:type="MocaTree:Node" />
               <children name="BBF" index="1" xsi:type="MocaTree:Node" />
@@ -32007,7 +32239,7 @@
             <attribute name="USER_DEFINED" value="false" index="1" />
             <attribute name="INDEX" value="12" index="2" />
           </children>
-          <children name="smallerOrEqual" index="18" xsi:type="MocaTree:Node">
+          <children name="smallerOrEqual" index="19" xsi:type="MocaTree:Node">
             <children name="ALLOWED_ADORNMENTS" index="0" xsi:type="MocaTree:Node">
               <children name="BB" index="0" xsi:type="MocaTree:Node" />
               <children name="BF" index="1" xsi:type="MocaTree:Node" />

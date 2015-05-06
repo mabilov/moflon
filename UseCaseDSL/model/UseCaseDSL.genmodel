@@ -10,11 +10,12 @@
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ActorType/SYSTEM"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//ActorType/ORGANIZATION"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//CustomStepType">
-      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//CustomStepType/INPUT"/>
-      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//CustomStepType/OUTPUT"/>
-      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//CustomStepType/PROCESS"/>
-      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//CustomStepType/MIX"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType">
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/ALT"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/WAIT"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/SEND"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/PERFORM"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/CALL"/>
     </genEnums>
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//Actor/extends"/>
@@ -45,7 +46,7 @@
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep/stepAlternative"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep/actor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep/customStepType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep/type"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//PackageDeclaration/useCases"/>

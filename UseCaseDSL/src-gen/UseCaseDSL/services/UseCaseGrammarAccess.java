@@ -870,14 +870,12 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cLabelAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cLabelSTRINGTerminalRuleCall_2_0 = (RuleCall)cLabelAssignment_2.eContents().get(0);
-		private final Keyword cByKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cActorAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cActorActorCrossReference_4_0 = (CrossReference)cActorAssignment_4.eContents().get(0);
-		private final RuleCall cActorActorIDTerminalRuleCall_4_0_1 = (RuleCall)cActorActorCrossReference_4_0.eContents().get(1);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cTypeKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cCustomStepTypeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cCustomStepTypeCustomStepTypeEnumRuleCall_5_1_0 = (RuleCall)cCustomStepTypeAssignment_5_1.eContents().get(0);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeStepTypeEnumRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Keyword cByKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cActorAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cActorActorCrossReference_5_0 = (CrossReference)cActorAssignment_5.eContents().get(0);
+		private final RuleCall cActorActorIDTerminalRuleCall_5_0_1 = (RuleCall)cActorActorCrossReference_5_0.eContents().get(1);
 		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
 		private final Group cGroup_6_0 = (Group)cAlternatives_6.eContents().get(0);
 		private final Keyword cAlternativesKeyword_6_0_0 = (Keyword)cGroup_6_0.eContents().get(0);
@@ -896,12 +894,12 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNextStepIDTerminalRuleCall_7_1_0_1 = (RuleCall)cNextStepCrossReference_7_1_0.eContents().get(1);
 		
 		//NormalStep:
-		//	"step" name=ID label=STRING? "by" actor=[Actor] ("type" customStepType=CustomStepType)? ("alternatives"
-		//	stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?;
+		//	"step" name=ID label=STRING? type=StepType "by" actor=[Actor] ("alternatives" stepAlternative+=StepAlternative+
+		//	"else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"step" name=ID label=STRING? "by" actor=[Actor] ("type" customStepType=CustomStepType)? ("alternatives"
-		//stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?
+		//"step" name=ID label=STRING? type=StepType "by" actor=[Actor] ("alternatives" stepAlternative+=StepAlternative+ "else" |
+		//"invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?
 		public Group getGroup() { return cGroup; }
 
 		//"step"
@@ -919,29 +917,23 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getLabelSTRINGTerminalRuleCall_2_0() { return cLabelSTRINGTerminalRuleCall_2_0; }
 
+		//type=StepType
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+
+		//StepType
+		public RuleCall getTypeStepTypeEnumRuleCall_3_0() { return cTypeStepTypeEnumRuleCall_3_0; }
+
 		//"by"
-		public Keyword getByKeyword_3() { return cByKeyword_3; }
+		public Keyword getByKeyword_4() { return cByKeyword_4; }
 
 		//actor=[Actor]
-		public Assignment getActorAssignment_4() { return cActorAssignment_4; }
+		public Assignment getActorAssignment_5() { return cActorAssignment_5; }
 
 		//[Actor]
-		public CrossReference getActorActorCrossReference_4_0() { return cActorActorCrossReference_4_0; }
+		public CrossReference getActorActorCrossReference_5_0() { return cActorActorCrossReference_5_0; }
 
 		//ID
-		public RuleCall getActorActorIDTerminalRuleCall_4_0_1() { return cActorActorIDTerminalRuleCall_4_0_1; }
-
-		//("type" customStepType=CustomStepType)?
-		public Group getGroup_5() { return cGroup_5; }
-
-		//"type"
-		public Keyword getTypeKeyword_5_0() { return cTypeKeyword_5_0; }
-
-		//customStepType=CustomStepType
-		public Assignment getCustomStepTypeAssignment_5_1() { return cCustomStepTypeAssignment_5_1; }
-
-		//CustomStepType
-		public RuleCall getCustomStepTypeCustomStepTypeEnumRuleCall_5_1_0() { return cCustomStepTypeCustomStepTypeEnumRuleCall_5_1_0; }
+		public RuleCall getActorActorIDTerminalRuleCall_5_0_1() { return cActorActorIDTerminalRuleCall_5_0_1; }
 
 		//("alternatives" stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])?
 		public Alternatives getAlternatives_6() { return cAlternatives_6; }
@@ -1057,48 +1049,56 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getORGANIZATIONOrganizationKeyword_2_0() { return cORGANIZATIONOrganizationKeyword_2_0; }
 	}
 
-	public class CustomStepTypeElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "CustomStepType");
+	public class StepTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "StepType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cINPUTEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cINPUTInputKeyword_0_0 = (Keyword)cINPUTEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cOUTPUTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cOUTPUTOutputKeyword_1_0 = (Keyword)cOUTPUTEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cPROCESSEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cPROCESSProcessKeyword_2_0 = (Keyword)cPROCESSEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cMIXEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cMIXMixKeyword_3_0 = (Keyword)cMIXEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cWAITEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cWAITWaitKeyword_0_0 = (Keyword)cWAITEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSENDEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSENDSendKeyword_1_0 = (Keyword)cSENDEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cPERFORMEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cPERFORMPerformKeyword_2_0 = (Keyword)cPERFORMEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cCALLEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cCALLCallKeyword_3_0 = (Keyword)cCALLEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cALTEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cALTAltKeyword_4_0 = (Keyword)cALTEnumLiteralDeclaration_4.eContents().get(0);
 		
-		//enum CustomStepType:
-		//	INPUT="input" | OUTPUT="output" | PROCESS="process" | MIX="mix";
+		//enum StepType:
+		//	WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt";
 		public EnumRule getRule() { return rule; }
 
-		//INPUT="input" | OUTPUT="output" | PROCESS="process" | MIX="mix"
+		//WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//INPUT="input"
-		public EnumLiteralDeclaration getINPUTEnumLiteralDeclaration_0() { return cINPUTEnumLiteralDeclaration_0; }
+		//WAIT="wait"
+		public EnumLiteralDeclaration getWAITEnumLiteralDeclaration_0() { return cWAITEnumLiteralDeclaration_0; }
 
-		//"input"
-		public Keyword getINPUTInputKeyword_0_0() { return cINPUTInputKeyword_0_0; }
+		//"wait"
+		public Keyword getWAITWaitKeyword_0_0() { return cWAITWaitKeyword_0_0; }
 
-		//OUTPUT="output"
-		public EnumLiteralDeclaration getOUTPUTEnumLiteralDeclaration_1() { return cOUTPUTEnumLiteralDeclaration_1; }
+		//SEND="send"
+		public EnumLiteralDeclaration getSENDEnumLiteralDeclaration_1() { return cSENDEnumLiteralDeclaration_1; }
 
-		//"output"
-		public Keyword getOUTPUTOutputKeyword_1_0() { return cOUTPUTOutputKeyword_1_0; }
+		//"send"
+		public Keyword getSENDSendKeyword_1_0() { return cSENDSendKeyword_1_0; }
 
-		//PROCESS="process"
-		public EnumLiteralDeclaration getPROCESSEnumLiteralDeclaration_2() { return cPROCESSEnumLiteralDeclaration_2; }
+		//PERFORM="perform"
+		public EnumLiteralDeclaration getPERFORMEnumLiteralDeclaration_2() { return cPERFORMEnumLiteralDeclaration_2; }
 
-		//"process"
-		public Keyword getPROCESSProcessKeyword_2_0() { return cPROCESSProcessKeyword_2_0; }
+		//"perform"
+		public Keyword getPERFORMPerformKeyword_2_0() { return cPERFORMPerformKeyword_2_0; }
 
-		//MIX="mix"
-		public EnumLiteralDeclaration getMIXEnumLiteralDeclaration_3() { return cMIXEnumLiteralDeclaration_3; }
+		//CALL="call"
+		public EnumLiteralDeclaration getCALLEnumLiteralDeclaration_3() { return cCALLEnumLiteralDeclaration_3; }
 
-		//"mix"
-		public Keyword getMIXMixKeyword_3_0() { return cMIXMixKeyword_3_0; }
+		//"call"
+		public Keyword getCALLCallKeyword_3_0() { return cCALLCallKeyword_3_0; }
+
+		//ALT="alt"
+		public EnumLiteralDeclaration getALTEnumLiteralDeclaration_4() { return cALTEnumLiteralDeclaration_4; }
+
+		//"alt"
+		public Keyword getALTAltKeyword_4_0() { return cALTAltKeyword_4_0; }
 	}
 	
 	private final UseCasesModelElements pUseCasesModel;
@@ -1121,7 +1121,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	private final NormalStepElements pNormalStep;
 	private final QualifiedNameElements pQualifiedName;
 	private final ActorTypeElements unknownRuleActorType;
-	private final CustomStepTypeElements unknownRuleCustomStepType;
+	private final StepTypeElements unknownRuleStepType;
 	
 	private final Grammar grammar;
 
@@ -1152,7 +1152,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		this.pNormalStep = new NormalStepElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.unknownRuleActorType = new ActorTypeElements();
-		this.unknownRuleCustomStepType = new CustomStepTypeElements();
+		this.unknownRuleStepType = new StepTypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1357,8 +1357,8 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NormalStep:
-	//	"step" name=ID label=STRING? "by" actor=[Actor] ("type" customStepType=CustomStepType)? ("alternatives"
-	//	stepAlternative+=StepAlternative+ "else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?;
+	//	"step" name=ID label=STRING? type=StepType "by" actor=[Actor] ("alternatives" stepAlternative+=StepAlternative+
+	//	"else" | "invoke usecase" invokedUseCase=[UseCase])? ("next" next=[Step])?;
 	public NormalStepElements getNormalStepAccess() {
 		return pNormalStep;
 	}
@@ -1387,14 +1387,14 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		return getActorTypeAccess().getRule();
 	}
 
-	//enum CustomStepType:
-	//	INPUT="input" | OUTPUT="output" | PROCESS="process" | MIX="mix";
-	public CustomStepTypeElements getCustomStepTypeAccess() {
-		return unknownRuleCustomStepType;
+	//enum StepType:
+	//	WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt";
+	public StepTypeElements getStepTypeAccess() {
+		return unknownRuleStepType;
 	}
 	
-	public EnumRule getCustomStepTypeRule() {
-		return getCustomStepTypeAccess().getRule();
+	public EnumRule getStepTypeRule() {
+		return getStepTypeAccess().getRule();
 	}
 
 	//terminal ID:

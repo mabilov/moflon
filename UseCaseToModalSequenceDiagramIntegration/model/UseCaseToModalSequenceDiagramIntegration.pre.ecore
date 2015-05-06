@@ -109,13 +109,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="UseCaseToInteractionRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ActorToLifelineRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="ActorToLifelineRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NormalStepToMessageRule" abstract="true">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UserActorToLifelineRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NormalStepBFToMessageRule" abstract="true">

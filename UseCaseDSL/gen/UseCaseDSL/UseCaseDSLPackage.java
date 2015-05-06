@@ -727,13 +727,13 @@ public interface UseCaseDSLPackage extends EPackage {
 	int NORMAL_STEP__ACTOR = STEP_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Custom Step Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NORMAL_STEP__CUSTOM_STEP_TYPE = STEP_FEATURE_COUNT + 2;
+	int NORMAL_STEP__TYPE = STEP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Normal Step</em>' class.
@@ -1112,14 +1112,14 @@ public interface UseCaseDSLPackage extends EPackage {
 	int ACTOR_TYPE = 18;
 
 	/**
-	 * The meta object id for the '{@link UseCaseDSL.CustomStepType <em>Custom Step Type</em>}' enum.
+	 * The meta object id for the '{@link UseCaseDSL.StepType <em>Step Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see UseCaseDSL.CustomStepType
-	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCustomStepType()
+	 * @see UseCaseDSL.StepType
+	 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStepType()
 	 * @generated
 	 */
-	int CUSTOM_STEP_TYPE = 19;
+	int STEP_TYPE = 19;
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.Actor <em>Actor</em>}'.
@@ -1365,15 +1365,15 @@ public interface UseCaseDSLPackage extends EPackage {
 	EReference getNormalStep_Actor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link UseCaseDSL.NormalStep#getCustomStepType <em>Custom Step Type</em>}'.
+	 * Returns the meta object for the attribute '{@link UseCaseDSL.NormalStep#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Custom Step Type</em>'.
-	 * @see UseCaseDSL.NormalStep#getCustomStepType()
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see UseCaseDSL.NormalStep#getType()
 	 * @see #getNormalStep()
 	 * @generated
 	 */
-	EAttribute getNormalStep_CustomStepType();
+	EAttribute getNormalStep_Type();
 
 	/**
 	 * Returns the meta object for class '{@link UseCaseDSL.PackageDeclaration <em>Package Declaration</em>}'.
@@ -1675,14 +1675,14 @@ public interface UseCaseDSLPackage extends EPackage {
 	EEnum getActorType();
 
 	/**
-	 * Returns the meta object for enum '{@link UseCaseDSL.CustomStepType <em>Custom Step Type</em>}'.
+	 * Returns the meta object for enum '{@link UseCaseDSL.StepType <em>Step Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Custom Step Type</em>'.
-	 * @see UseCaseDSL.CustomStepType
+	 * @return the meta object for enum '<em>Step Type</em>'.
+	 * @see UseCaseDSL.StepType
 	 * @generated
 	 */
-	EEnum getCustomStepType();
+	EEnum getStepType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1918,13 +1918,12 @@ public interface UseCaseDSLPackage extends EPackage {
 		EReference NORMAL_STEP__ACTOR = eINSTANCE.getNormalStep_Actor();
 
 		/**
-		 * The meta object literal for the '<em><b>Custom Step Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NORMAL_STEP__CUSTOM_STEP_TYPE = eINSTANCE
-				.getNormalStep_CustomStepType();
+		EAttribute NORMAL_STEP__TYPE = eINSTANCE.getNormalStep_Type();
 
 		/**
 		 * The meta object literal for the '{@link UseCaseDSL.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
@@ -2179,14 +2178,14 @@ public interface UseCaseDSLPackage extends EPackage {
 		EEnum ACTOR_TYPE = eINSTANCE.getActorType();
 
 		/**
-		 * The meta object literal for the '{@link UseCaseDSL.CustomStepType <em>Custom Step Type</em>}' enum.
+		 * The meta object literal for the '{@link UseCaseDSL.StepType <em>Step Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see UseCaseDSL.CustomStepType
-		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getCustomStepType()
+		 * @see UseCaseDSL.StepType
+		 * @see UseCaseDSL.impl.UseCaseDSLPackageImpl#getStepType()
 		 * @generated
 		 */
-		EEnum CUSTOM_STEP_TYPE = eINSTANCE.getCustomStepType();
+		EEnum STEP_TYPE = eINSTANCE.getStepType();
 
 	}
 

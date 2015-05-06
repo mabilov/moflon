@@ -3,7 +3,6 @@
 package BpmnToUseCaseIntegration.Rules.impl;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationFactory;
-import BpmnToUseCaseIntegration.FlowNodeToStep;
 import BpmnToUseCaseIntegration.ProcessToActor;
 
 import BpmnToUseCaseIntegration.Rules.ICEToStepAfterPGRule;
@@ -33,6 +32,7 @@ import TGGRuntime.impl.AbstractRuleImpl;
 import UseCaseDSL.Actor;
 import UseCaseDSL.Flow;
 import UseCaseDSL.NormalStep;
+import UseCaseDSL.StepType;
 import UseCaseDSL.UseCaseDSLFactory;
 
 import bpmn2.Bpmn2Factory;
@@ -206,33 +206,30 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[10];
 		CSP csp = (CSP) result1_bindingAndBlack[11];
 		Object[] result1_green = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_1_1_greenBBBFFFBFB(event,
-						outFlow, actor, flow, csp);
-		NormalStep normalStep = (NormalStep) result1_green[3];
-		FlowNodeToStep eventToNormalStep = (FlowNodeToStep) result1_green[4];
-		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[5];
-		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[7];
+				.pattern_ICEToStepAfterPGRule_1_1_greenFBBFBFB(outFlow, actor,
+						flow, csp);
+		NormalStep normalStep = (NormalStep) result1_green[0];
+		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[3];
+		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[5];
 
 		// collect translated elements
 		Object[] result2_black = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_1_2_blackBBBBBB(event, outFlow,
-						normalStep, eventToNormalStep, outFlowToNormalStep,
-						outFlowToFlow);
+				.pattern_ICEToStepAfterPGRule_1_2_blackBBBBB(event, normalStep,
+						outFlow, outFlowToNormalStep, outFlowToFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [collect translated elements] failed");
 		}
 		Object[] result2_green = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_1_2_greenFBBBBBB(event, outFlow,
-						normalStep, eventToNormalStep, outFlowToNormalStep,
-						outFlowToFlow);
+				.pattern_ICEToStepAfterPGRule_1_2_greenFBBBBB(event,
+						normalStep, outFlow, outFlowToNormalStep, outFlowToFlow);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		// bookkeeping for edges
 		Object[] result3_black = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_1_3_blackBBBBBBBBBBBBBBBB(
-						ruleresult, flowNode, event, process, inFlow, outFlow,
-						actor, processToActor, normalStep, eventToNormalStep,
+				.pattern_ICEToStepAfterPGRule_1_3_blackBBBBBBBBBBBBBBB(
+						ruleresult, flowNode, event, normalStep, process,
+						inFlow, outFlow, actor, processToActor,
 						outFlowToNormalStep, flow, inFlowToFlow, outFlowToFlow,
 						lane, laneSet);
 		if (result3_black == null) {
@@ -240,34 +237,32 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_1_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-						ruleresult, event, process, inFlow, outFlow, actor,
-						normalStep, eventToNormalStep, outFlowToNormalStep,
-						flow, outFlowToFlow, lane);
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge process__event____flowElements = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge inFlow__event____targetRef = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge event__inFlow____incoming = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge outFlow__event____sourceRef = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge event__outFlow____outgoing = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge eventToNormalStep__event____source = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge eventToNormalStep__normalStep____target = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge lane__event____flowNodeRefs = (EMoflonEdge) result3_green[26];
+				.pattern_ICEToStepAfterPGRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
+						ruleresult, event, normalStep, process, inFlow,
+						outFlow, actor, outFlowToNormalStep, flow,
+						outFlowToFlow, lane);
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge process__event____flowElements = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge inFlow__event____targetRef = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge event__inFlow____incoming = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge outFlow__event____sourceRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge event__outFlow____outgoing = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge lane__event____flowNodeRefs = (EMoflonEdge) result3_green[23];
 
 		// perform postprocessing story node is empty
 		// register objects
 		ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_1_5_expressionBBBBBBBBBBBBBBBBB(
-						this, ruleresult, flowNode, event, process, inFlow,
-						outFlow, actor, processToActor, normalStep,
-						eventToNormalStep, outFlowToNormalStep, flow,
-						inFlowToFlow, outFlowToFlow, lane, laneSet);
+				.pattern_ICEToStepAfterPGRule_1_5_expressionBBBBBBBBBBBBBBBB(
+						this, ruleresult, flowNode, event, normalStep, process,
+						inFlow, outFlow, actor, processToActor,
+						outFlowToNormalStep, flow, inFlowToFlow, outFlowToFlow,
+						lane, laneSet);
 		return ICEToStepAfterPGRuleImpl
 				.pattern_ICEToStepAfterPGRule_1_6_expressionFB(ruleresult);
 	}
@@ -456,6 +451,10 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("WAIT");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_event_id = CSPFactoryHelper.eINSTANCE.createVariable(
@@ -468,6 +467,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		var_event_name.setType("String");
 
 		// Create unbound variables
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", csp);
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 		Variable var_normalStep_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.name", csp);
 		var_normalStep_name.setType("String");
@@ -476,13 +478,17 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		var_normalStep_label.setType("String");
 
 		// Create constraints
+		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
 		Eq eq_0 = new Eq();
 
+		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 		eq.setRuleName("");
 		eq.solve(var_event_id, var_normalStep_name);
 		eq_0.setRuleName("");
@@ -518,20 +524,19 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjects_FWD(PerformRuleResult ruleresult,
-			EObject flowNode, EObject event, EObject process, EObject inFlow,
-			EObject outFlow, EObject actor, EObject processToActor,
-			EObject normalStep, EObject eventToNormalStep,
-			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
-			EObject outFlowToFlow, EObject lane, EObject laneSet) {
+			EObject flowNode, EObject event, EObject normalStep,
+			EObject process, EObject inFlow, EObject outFlow, EObject actor,
+			EObject processToActor, EObject outFlowToNormalStep, EObject flow,
+			EObject inFlowToFlow, EObject outFlowToFlow, EObject lane,
+			EObject laneSet) {
 		ruleresult.registerObject("flowNode", flowNode);
 		ruleresult.registerObject("event", event);
+		ruleresult.registerObject("normalStep", normalStep);
 		ruleresult.registerObject("process", process);
 		ruleresult.registerObject("inFlow", inFlow);
 		ruleresult.registerObject("outFlow", outFlow);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("processToActor", processToActor);
-		ruleresult.registerObject("normalStep", normalStep);
-		ruleresult.registerObject("eventToNormalStep", eventToNormalStep);
 		ruleresult.registerObject("outFlowToNormalStep", outFlowToNormalStep);
 		ruleresult.registerObject("flow", flow);
 		ruleresult.registerObject("inFlowToFlow", inFlowToFlow);
@@ -561,12 +566,12 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAppropriate_BWD(Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
+	public boolean isAppropriate_BWD(Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
 		// initial bindings
 		Object[] result1_black = ICEToStepAfterPGRuleImpl
 				.pattern_ICEToStepAfterPGRule_10_1_blackBBBBB(this, match,
-						actor, normalStep, flow);
+						normalStep, actor, flow);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [initial bindings] failed");
@@ -575,7 +580,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		// Solve CSP
 		Object[] result2_bindingAndBlack = ICEToStepAfterPGRuleImpl
 				.pattern_ICEToStepAfterPGRule_10_2_bindingAndBlackFBBBBB(this,
-						match, actor, normalStep, flow);
+						match, normalStep, actor, flow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [Solve CSP] failed");
@@ -587,22 +592,22 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 			// collect elements to be translated
 			Object[] result4_black = ICEToStepAfterPGRuleImpl
-					.pattern_ICEToStepAfterPGRule_10_4_blackBBBB(match, actor,
-							normalStep, flow);
+					.pattern_ICEToStepAfterPGRule_10_4_blackBBBB(match,
+							normalStep, actor, flow);
 			if (result4_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect elements to be translated] failed");
 			}
 			ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_10_4_greenBBBBFF(match,
-							actor, normalStep, flow);
+							normalStep, actor, flow);
 			// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result4_green[4];
 			// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result4_green[5];
 
 			// collect context elements
 			Object[] result5_black = ICEToStepAfterPGRuleImpl
-					.pattern_ICEToStepAfterPGRule_10_5_blackBBBB(match, actor,
-							normalStep, flow);
+					.pattern_ICEToStepAfterPGRule_10_5_blackBBBB(match,
+							normalStep, actor, flow);
 			if (result5_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect context elements] failed");
@@ -614,7 +619,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 			// register objects to match
 			ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_10_6_expressionBBBBB(this,
-							match, actor, normalStep, flow);
+							match, normalStep, actor, flow);
 			return ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_10_7_expressionF();
 		} else {
@@ -639,45 +644,42 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [perform transformation] failed");
 		}
 		ParallelGateway flowNode = (ParallelGateway) result1_bindingAndBlack[0];
-		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[1];
-		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[2];
-		Actor actor = (Actor) result1_bindingAndBlack[3];
-		ProcessToActor processToActor = (ProcessToActor) result1_bindingAndBlack[4];
-		NormalStep normalStep = (NormalStep) result1_bindingAndBlack[5];
+		NormalStep normalStep = (NormalStep) result1_bindingAndBlack[1];
+		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[2];
+		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[3];
+		Actor actor = (Actor) result1_bindingAndBlack[4];
+		ProcessToActor processToActor = (ProcessToActor) result1_bindingAndBlack[5];
 		Flow flow = (Flow) result1_bindingAndBlack[6];
 		SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result1_bindingAndBlack[7];
 		Lane lane = (Lane) result1_bindingAndBlack[8];
 		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[9];
 		CSP csp = (CSP) result1_bindingAndBlack[10];
 		Object[] result1_green = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_11_1_greenFBBFBFFBFBB(process,
-						inFlow, normalStep, flow, lane, csp);
+				.pattern_ICEToStepAfterPGRule_11_1_greenFBBBFFBFBB(normalStep,
+						process, inFlow, flow, lane, csp);
 		IntermediateCatchEvent event = (IntermediateCatchEvent) result1_green[0];
-		SequenceFlow outFlow = (SequenceFlow) result1_green[3];
-		FlowNodeToStep eventToNormalStep = (FlowNodeToStep) result1_green[5];
-		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[6];
-		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[8];
+		SequenceFlow outFlow = (SequenceFlow) result1_green[4];
+		SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result1_green[5];
+		SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result1_green[7];
 
 		// collect translated elements
 		Object[] result2_black = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_11_2_blackBBBBBB(event, outFlow,
-						normalStep, eventToNormalStep, outFlowToNormalStep,
-						outFlowToFlow);
+				.pattern_ICEToStepAfterPGRule_11_2_blackBBBBB(event,
+						normalStep, outFlow, outFlowToNormalStep, outFlowToFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [collect translated elements] failed");
 		}
 		Object[] result2_green = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_11_2_greenFBBBBBB(event, outFlow,
-						normalStep, eventToNormalStep, outFlowToNormalStep,
-						outFlowToFlow);
+				.pattern_ICEToStepAfterPGRule_11_2_greenFBBBBB(event,
+						normalStep, outFlow, outFlowToNormalStep, outFlowToFlow);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		// bookkeeping for edges
 		Object[] result3_black = ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_11_3_blackBBBBBBBBBBBBBBBB(
-						ruleresult, flowNode, event, process, inFlow, outFlow,
-						actor, processToActor, normalStep, eventToNormalStep,
+				.pattern_ICEToStepAfterPGRule_11_3_blackBBBBBBBBBBBBBBB(
+						ruleresult, flowNode, event, normalStep, process,
+						inFlow, outFlow, actor, processToActor,
 						outFlowToNormalStep, flow, inFlowToFlow, outFlowToFlow,
 						lane, laneSet);
 		if (result3_black == null) {
@@ -685,34 +687,32 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_11_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-						ruleresult, event, process, inFlow, outFlow, actor,
-						normalStep, eventToNormalStep, outFlowToNormalStep,
-						flow, outFlowToFlow, lane);
-		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge process__event____flowElements = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge inFlow__event____targetRef = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge event__inFlow____incoming = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge outFlow__event____sourceRef = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge event__outFlow____outgoing = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge eventToNormalStep__event____source = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge eventToNormalStep__normalStep____target = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge lane__event____flowNodeRefs = (EMoflonEdge) result3_green[26];
+				.pattern_ICEToStepAfterPGRule_11_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
+						ruleresult, event, normalStep, process, inFlow,
+						outFlow, actor, outFlowToNormalStep, flow,
+						outFlowToFlow, lane);
+		// EMoflonEdge process__outFlow____flowElements = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge process__event____flowElements = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge inFlow__event____targetRef = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge event__inFlow____incoming = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge outFlow__event____sourceRef = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge event__outFlow____outgoing = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge normalStep__actor____actor = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge outFlowToNormalStep__outFlow____source = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge outFlowToNormalStep__normalStep____target = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge flow__normalStep____steps = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge outFlowToFlow__outFlow____source = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge outFlowToFlow__flow____target = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge lane__event____flowNodeRefs = (EMoflonEdge) result3_green[23];
 
 		// perform postprocessing story node is empty
 		// register objects
 		ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_11_5_expressionBBBBBBBBBBBBBBBBB(
-						this, ruleresult, flowNode, event, process, inFlow,
-						outFlow, actor, processToActor, normalStep,
-						eventToNormalStep, outFlowToNormalStep, flow,
-						inFlowToFlow, outFlowToFlow, lane, laneSet);
+				.pattern_ICEToStepAfterPGRule_11_5_expressionBBBBBBBBBBBBBBBB(
+						this, ruleresult, flowNode, event, normalStep, process,
+						inFlow, outFlow, actor, processToActor,
+						outFlowToNormalStep, flow, inFlowToFlow, outFlowToFlow,
+						lane, laneSet);
 		return ICEToStepAfterPGRuleImpl
 				.pattern_ICEToStepAfterPGRule_11_6_expressionFB(ruleresult);
 	}
@@ -742,29 +742,29 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		if (result2_binding == null) {
 			throw new RuntimeException("Binding in node core match failed");
 		}
-		Actor actor = (Actor) result2_binding[0];
-		NormalStep normalStep = (NormalStep) result2_binding[1];
+		NormalStep normalStep = (NormalStep) result2_binding[0];
+		Actor actor = (Actor) result2_binding[1];
 		Flow flow = (Flow) result2_binding[2];
 		for (Object[] result2_black : ICEToStepAfterPGRuleImpl
-				.pattern_ICEToStepAfterPGRule_12_2_blackFFBFBBFB(actor,
-						normalStep, flow, match)) {
-			bpmn2.Process process = (bpmn2.Process) result2_black[0];
-			SequenceFlow inFlow = (SequenceFlow) result2_black[1];
-			ProcessToActor processToActor = (ProcessToActor) result2_black[3];
+				.pattern_ICEToStepAfterPGRule_12_2_blackBFFBFBFB(normalStep,
+						actor, flow, match)) {
+			bpmn2.Process process = (bpmn2.Process) result2_black[1];
+			SequenceFlow inFlow = (SequenceFlow) result2_black[2];
+			ProcessToActor processToActor = (ProcessToActor) result2_black[4];
 			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result2_black[6];
 			// ForEach find context
 			for (Object[] result3_black : ICEToStepAfterPGRuleImpl
-					.pattern_ICEToStepAfterPGRule_12_3_blackFBBBBBBBFF(process,
-							inFlow, actor, processToActor, normalStep, flow,
-							inFlowToFlow)) {
+					.pattern_ICEToStepAfterPGRule_12_3_blackFBBBBBBBFF(
+							normalStep, process, inFlow, actor, processToActor,
+							flow, inFlowToFlow)) {
 				ParallelGateway flowNode = (ParallelGateway) result3_black[0];
 				Lane lane = (Lane) result3_black[8];
 				LaneSet laneSet = (LaneSet) result3_black[9];
 				Object[] result3_green = ICEToStepAfterPGRuleImpl
 						.pattern_ICEToStepAfterPGRule_12_3_greenBBBBBBBBBBFFFFFFFFFFFF(
-								flowNode, process, inFlow, actor,
-								processToActor, normalStep, flow, inFlowToFlow,
-								lane, laneSet);
+								flowNode, normalStep, process, inFlow, actor,
+								processToActor, flow, inFlowToFlow, lane,
+								laneSet);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[10];
 				// EMoflonEdge process__laneSet____laneSets = (EMoflonEdge) result3_green[11];
 				// EMoflonEdge process__inFlow____flowElements = (EMoflonEdge) result3_green[12];
@@ -781,9 +781,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				// solve CSP
 				Object[] result4_bindingAndBlack = ICEToStepAfterPGRuleImpl
 						.pattern_ICEToStepAfterPGRule_12_4_bindingAndBlackFBBBBBBBBBBBB(
-								this, isApplicableMatch, flowNode, process,
-								inFlow, actor, processToActor, normalStep,
-								flow, inFlowToFlow, lane, laneSet);
+								this, isApplicableMatch, flowNode, normalStep,
+								process, inFlow, actor, processToActor, flow,
+								inFlowToFlow, lane, laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -821,10 +821,10 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void registerObjectsToMatch_BWD(Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
-		match.registerObject("actor", actor);
+	public void registerObjectsToMatch_BWD(Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
 		match.registerObject("normalStep", normalStep);
+		match.registerObject("actor", actor);
 		match.registerObject("flow", flow);
 
 	}
@@ -834,19 +834,32 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSP isAppropriate_solveCsp_BWD(Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {// Create CSP
+	public CSP isAppropriate_solveCsp_BWD(Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("WAIT");
+		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", true, csp);
+		var_normalStep_type.setValue(normalStep.getType());
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create unbound variables
 
 		// Create constraints
+		EqStepType eqStepType = new EqStepType();
+
+		csp.getConstraints().add(eqStepType);
 
 		// Solve CSP
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 		return csp;
 	}
 
@@ -865,9 +878,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			ParallelGateway flowNode, bpmn2.Process process,
-			SequenceFlow inFlow, Actor actor, ProcessToActor processToActor,
-			NormalStep normalStep, Flow flow,
+			ParallelGateway flowNode, NormalStep normalStep,
+			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
+			ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, Lane lane, LaneSet laneSet) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -919,11 +932,11 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("flowNode", flowNode);
+		isApplicableMatch.registerObject("normalStep", normalStep);
 		isApplicableMatch.registerObject("process", process);
 		isApplicableMatch.registerObject("inFlow", inFlow);
 		isApplicableMatch.registerObject("actor", actor);
 		isApplicableMatch.registerObject("processToActor", processToActor);
-		isApplicableMatch.registerObject("normalStep", normalStep);
 		isApplicableMatch.registerObject("flow", flow);
 		isApplicableMatch.registerObject("inFlowToFlow", inFlowToFlow);
 		isApplicableMatch.registerObject("lane", lane);
@@ -946,20 +959,19 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	 * @generated
 	 */
 	public void registerObjects_BWD(PerformRuleResult ruleresult,
-			EObject flowNode, EObject event, EObject process, EObject inFlow,
-			EObject outFlow, EObject actor, EObject processToActor,
-			EObject normalStep, EObject eventToNormalStep,
-			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
-			EObject outFlowToFlow, EObject lane, EObject laneSet) {
+			EObject flowNode, EObject event, EObject normalStep,
+			EObject process, EObject inFlow, EObject outFlow, EObject actor,
+			EObject processToActor, EObject outFlowToNormalStep, EObject flow,
+			EObject inFlowToFlow, EObject outFlowToFlow, EObject lane,
+			EObject laneSet) {
 		ruleresult.registerObject("flowNode", flowNode);
 		ruleresult.registerObject("event", event);
+		ruleresult.registerObject("normalStep", normalStep);
 		ruleresult.registerObject("process", process);
 		ruleresult.registerObject("inFlow", inFlow);
 		ruleresult.registerObject("outFlow", outFlow);
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("processToActor", processToActor);
-		ruleresult.registerObject("normalStep", normalStep);
-		ruleresult.registerObject("eventToNormalStep", eventToNormalStep);
 		ruleresult.registerObject("outFlowToNormalStep", outFlowToNormalStep);
 		ruleresult.registerObject("flow", flow);
 		ruleresult.registerObject("inFlowToFlow", inFlowToFlow);
@@ -1404,8 +1416,8 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ICEToStepAfterPGRuleImpl
 				.pattern_ICEToStepAfterPGRule_26_2_blackFFFB(_edge_actor)) {
-			Actor actor = (Actor) result2_black[0];
-			NormalStep normalStep = (NormalStep) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[0];
+			Actor actor = (Actor) result2_black[1];
 			Flow flow = (Flow) result2_black[2];
 			Object[] result2_green = ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_26_2_greenFB(__eClass);
@@ -1414,7 +1426,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 			// bookkeeping with generic isAppropriate method
 			if (ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_26_3_expressionFBBBBB(this,
-							match, actor, normalStep, flow)) {
+							match, normalStep, actor, flow)) {
 				// Ensure that the correct types of elements are matched
 				if (ICEToStepAfterPGRuleImpl
 						.pattern_ICEToStepAfterPGRule_26_4_expressionFBB(this,
@@ -1466,8 +1478,8 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		// ForEach test core match and DECs
 		for (Object[] result2_black : ICEToStepAfterPGRuleImpl
 				.pattern_ICEToStepAfterPGRule_27_2_blackFFFB(_edge_steps)) {
-			Actor actor = (Actor) result2_black[0];
-			NormalStep normalStep = (NormalStep) result2_black[1];
+			NormalStep normalStep = (NormalStep) result2_black[0];
+			Actor actor = (Actor) result2_black[1];
 			Flow flow = (Flow) result2_black[2];
 			Object[] result2_green = ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_27_2_greenFB(__eClass);
@@ -1476,7 +1488,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 			// bookkeeping with generic isAppropriate method
 			if (ICEToStepAfterPGRuleImpl
 					.pattern_ICEToStepAfterPGRule_27_3_expressionFBBBBB(this,
-							match, actor, normalStep, flow)) {
+							match, normalStep, actor, flow)) {
 				// Ensure that the correct types of elements are matched
 				if (ICEToStepAfterPGRuleImpl
 						.pattern_ICEToStepAfterPGRule_27_4_expressionFBB(this,
@@ -1658,15 +1670,14 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 								"Pattern matching in node [perform] failed");
 					}
 					ICEToStepAfterPGRuleImpl
-							.pattern_ICEToStepAfterPGRule_31_6_greenFBBFBFFFBFBBB(
+							.pattern_ICEToStepAfterPGRule_31_6_greenFFBBFBFBFBBB(
 									process, inFlow, actor, flow, lane,
 									ruleResult, csp);
 					// IntermediateCatchEvent event = (IntermediateCatchEvent) result6_green[0];
-					// SequenceFlow outFlow = (SequenceFlow) result6_green[3];
-					// NormalStep normalStep = (NormalStep) result6_green[5];
-					// FlowNodeToStep eventToNormalStep = (FlowNodeToStep) result6_green[6];
-					// SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result6_green[7];
-					// SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result6_green[9];
+					// NormalStep normalStep = (NormalStep) result6_green[1];
+					// SequenceFlow outFlow = (SequenceFlow) result6_green[4];
+					// SequenceFlowToStep outFlowToNormalStep = (SequenceFlowToStep) result6_green[6];
+					// SequenceFlowToUCFlow outFlowToFlow = (SequenceFlowToUCFlow) result6_green[8];
 
 				} else {
 				}
@@ -1697,6 +1708,10 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				"literal0", true, csp);
 		literal0.setValue("Diverging");
 		literal0.setType("");
+		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal1", true, csp);
+		literal1.setValue("WAIT");
+		literal1.setType("");
 
 		// Create attribute variables
 		Variable var_flowNode_gatewayDirection = CSPFactoryHelper.eINSTANCE
@@ -1705,6 +1720,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		var_flowNode_gatewayDirection.setType("bpmn2.GatewayDirection");
 
 		// Create unbound variables
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", csp);
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 		Variable var_event_id = CSPFactoryHelper.eINSTANCE.createVariable(
 				"event.id", csp);
 		var_event_id.setType("String");
@@ -1720,16 +1738,20 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 		// Create constraints
 		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
+		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
 		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqGatewayDirection);
+		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqGatewayDirection.setRuleName("");
 		eqGatewayDirection.solve(var_flowNode_gatewayDirection, literal0);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal1);
 		eq.setRuleName("");
 		eq.solve(var_event_id, var_normalStep_name);
 		eq_0.setRuleName("");
@@ -1810,7 +1832,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					(Lane) arguments.get(10), (LaneSet) arguments.get(11));
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -1818,43 +1840,42 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
 					(EObject) arguments.get(11), (EObject) arguments.get(12),
-					(EObject) arguments.get(13), (EObject) arguments.get(14),
-					(EObject) arguments.get(15));
+					(EObject) arguments.get(13), (EObject) arguments.get(14));
 			return null;
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD__MATCH_ACTOR_NORMALSTEP_FLOW:
+		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_BWD__MATCH_NORMALSTEP_ACTOR_FLOW:
 			return isAppropriate_BWD((Match) arguments.get(0),
-					(Actor) arguments.get(1), (NormalStep) arguments.get(2),
+					(NormalStep) arguments.get(1), (Actor) arguments.get(2),
 					(Flow) arguments.get(3));
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___PERFORM_BWD__ISAPPLICABLEMATCH:
 			return perform_BWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_BWD__MATCH:
 			return isApplicable_BWD((Match) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_ACTOR_NORMALSTEP_FLOW:
+		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_TO_MATCH_BWD__MATCH_NORMALSTEP_ACTOR_FLOW:
 			registerObjectsToMatch_BWD((Match) arguments.get(0),
-					(Actor) arguments.get(1), (NormalStep) arguments.get(2),
+					(NormalStep) arguments.get(1), (Actor) arguments.get(2),
 					(Flow) arguments.get(3));
 			return null;
-		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_ACTOR_NORMALSTEP_FLOW:
+		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_SOLVE_CSP_BWD__MATCH_NORMALSTEP_ACTOR_FLOW:
 			return isAppropriate_solveCsp_BWD((Match) arguments.get(0),
-					(Actor) arguments.get(1), (NormalStep) arguments.get(2),
+					(NormalStep) arguments.get(1), (Actor) arguments.get(2),
 					(Flow) arguments.get(3));
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PARALLELGATEWAY_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_NORMALSTEP_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET:
+		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_PARALLELGATEWAY_NORMALSTEP_PROCESS_SEQUENCEFLOW_ACTOR_PROCESSTOACTOR_FLOW_SEQUENCEFLOWTOUCFLOW_LANE_LANESET:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(ParallelGateway) arguments.get(1),
-					(bpmn2.Process) arguments.get(2),
-					(SequenceFlow) arguments.get(3), (Actor) arguments.get(4),
-					(ProcessToActor) arguments.get(5),
-					(NormalStep) arguments.get(6), (Flow) arguments.get(7),
+					(NormalStep) arguments.get(2),
+					(bpmn2.Process) arguments.get(3),
+					(SequenceFlow) arguments.get(4), (Actor) arguments.get(5),
+					(ProcessToActor) arguments.get(6), (Flow) arguments.get(7),
 					(SequenceFlowToUCFlow) arguments.get(8),
 					(Lane) arguments.get(9), (LaneSet) arguments.get(10));
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -1862,8 +1883,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(7), (EObject) arguments.get(8),
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
 					(EObject) arguments.get(11), (EObject) arguments.get(12),
-					(EObject) arguments.get(13), (EObject) arguments.get(14),
-					(EObject) arguments.get(15));
+					(EObject) arguments.get(13), (EObject) arguments.get(14));
 			return null;
 		case RulesPackage.ICE_TO_STEP_AFTER_PG_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
@@ -2259,297 +2279,248 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_1_1_greenBBBFFFBFB(
-			IntermediateCatchEvent event, SequenceFlow outFlow, Actor actor,
-			Flow flow, CSP csp) {
+	public static final Object[] pattern_ICEToStepAfterPGRule_1_1_greenFBBFBFB(
+			SequenceFlow outFlow, Actor actor, Flow flow, CSP csp) {
 		NormalStep normalStep = UseCaseDSLFactory.eINSTANCE.createNormalStep();
-		FlowNodeToStep eventToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-				.createFlowNodeToStep();
 		SequenceFlowToStep outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createSequenceFlowToStep();
 		SequenceFlowToUCFlow outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createSequenceFlowToUCFlow();
-		Object _localVariable_0 = csp.getValue("normalStep", "name");
-		Object _localVariable_1 = csp.getValue("normalStep", "label");
+		Object _localVariable_0 = csp.getValue("normalStep", "type");
+		Object _localVariable_1 = csp.getValue("normalStep", "name");
+		Object _localVariable_2 = csp.getValue("normalStep", "label");
 		normalStep.setActor(actor);
 		flow.getSteps().add(normalStep);
-		eventToNormalStep.setSource(event);
-		eventToNormalStep.setTarget(normalStep);
 		outFlowToNormalStep.setSource(outFlow);
 		outFlowToNormalStep.setTarget(normalStep);
 		outFlowToFlow.setSource(outFlow);
 		outFlowToFlow.setTarget(flow);
-		String normalStep_name_prime = (String) _localVariable_0;
-		String normalStep_label_prime = (String) _localVariable_1;
+		StepType normalStep_type_prime = (StepType) _localVariable_0;
+		String normalStep_name_prime = (String) _localVariable_1;
+		String normalStep_label_prime = (String) _localVariable_2;
+		normalStep.setType(normalStep_type_prime);
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
-		return new Object[] { event, outFlow, actor, normalStep,
-				eventToNormalStep, outFlowToNormalStep, flow, outFlowToFlow,
-				csp };
+		return new Object[] { normalStep, outFlow, actor, outFlowToNormalStep,
+				flow, outFlowToFlow, csp };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_1_2_blackBBBBBB(
-			IntermediateCatchEvent event, SequenceFlow outFlow,
-			NormalStep normalStep, FlowNodeToStep eventToNormalStep,
-			SequenceFlowToStep outFlowToNormalStep,
+	public static final Object[] pattern_ICEToStepAfterPGRule_1_2_blackBBBBB(
+			IntermediateCatchEvent event, NormalStep normalStep,
+			SequenceFlow outFlow, SequenceFlowToStep outFlowToNormalStep,
 			SequenceFlowToUCFlow outFlowToFlow) {
-		return new Object[] { event, outFlow, normalStep, eventToNormalStep,
-				outFlowToNormalStep, outFlowToFlow };
+		return new Object[] { event, normalStep, outFlow, outFlowToNormalStep,
+				outFlowToFlow };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_1_2_greenFBBBBBB(
-			IntermediateCatchEvent event, SequenceFlow outFlow,
-			NormalStep normalStep, FlowNodeToStep eventToNormalStep,
-			SequenceFlowToStep outFlowToNormalStep,
+	public static final Object[] pattern_ICEToStepAfterPGRule_1_2_greenFBBBBB(
+			IntermediateCatchEvent event, NormalStep normalStep,
+			SequenceFlow outFlow, SequenceFlowToStep outFlowToNormalStep,
 			SequenceFlowToUCFlow outFlowToFlow) {
 		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
 				.createPerformRuleResult();
 		ruleresult.getTranslatedElements().add(event);
-		ruleresult.getTranslatedElements().add(outFlow);
 		ruleresult.getCreatedElements().add(normalStep);
-		ruleresult.getCreatedLinkElements().add(eventToNormalStep);
+		ruleresult.getTranslatedElements().add(outFlow);
 		ruleresult.getCreatedLinkElements().add(outFlowToNormalStep);
 		ruleresult.getCreatedLinkElements().add(outFlowToFlow);
-		return new Object[] { ruleresult, event, outFlow, normalStep,
-				eventToNormalStep, outFlowToNormalStep, outFlowToFlow };
+		return new Object[] { ruleresult, event, normalStep, outFlow,
+				outFlowToNormalStep, outFlowToFlow };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_1_3_blackBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ICEToStepAfterPGRule_1_3_blackBBBBBBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject flowNode, EObject event,
-			EObject process, EObject inFlow, EObject outFlow, EObject actor,
-			EObject processToActor, EObject normalStep,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject inFlowToFlow, EObject outFlowToFlow,
-			EObject lane, EObject laneSet) {
-		if (!flowNode.equals(process)) {
-			if (!flowNode.equals(inFlow)) {
-				if (!flowNode.equals(outFlow)) {
-					if (!flowNode.equals(processToActor)) {
-						if (!flowNode.equals(normalStep)) {
+			EObject normalStep, EObject process, EObject inFlow,
+			EObject outFlow, EObject actor, EObject processToActor,
+			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
+			EObject outFlowToFlow, EObject lane, EObject laneSet) {
+		if (!flowNode.equals(normalStep)) {
+			if (!flowNode.equals(process)) {
+				if (!flowNode.equals(inFlow)) {
+					if (!flowNode.equals(outFlow)) {
+						if (!flowNode.equals(processToActor)) {
 							if (!flowNode.equals(outFlowToNormalStep)) {
 								if (!flowNode.equals(inFlowToFlow)) {
 									if (!flowNode.equals(outFlowToFlow)) {
 										if (!flowNode.equals(lane)) {
 											if (!flowNode.equals(laneSet)) {
 												if (!event.equals(flowNode)) {
-													if (!event.equals(process)) {
+													if (!event
+															.equals(normalStep)) {
 														if (!event
-																.equals(inFlow)) {
+																.equals(process)) {
 															if (!event
-																	.equals(outFlow)) {
+																	.equals(inFlow)) {
 																if (!event
-																		.equals(processToActor)) {
+																		.equals(outFlow)) {
 																	if (!event
-																			.equals(normalStep)) {
+																			.equals(processToActor)) {
 																		if (!event
-																				.equals(eventToNormalStep)) {
+																				.equals(outFlowToNormalStep)) {
 																			if (!event
-																					.equals(outFlowToNormalStep)) {
+																					.equals(flow)) {
 																				if (!event
-																						.equals(flow)) {
+																						.equals(inFlowToFlow)) {
 																					if (!event
-																							.equals(inFlowToFlow)) {
+																							.equals(outFlowToFlow)) {
 																						if (!event
-																								.equals(outFlowToFlow)) {
+																								.equals(lane)) {
 																							if (!event
-																									.equals(lane)) {
-																								if (!event
-																										.equals(laneSet)) {
-																									if (!process
-																											.equals(processToActor)) {
-																										if (!inFlow
-																												.equals(process)) {
-																											if (!inFlow
-																													.equals(outFlow)) {
-																												if (!inFlow
-																														.equals(processToActor)) {
-																													if (!inFlow
-																															.equals(normalStep)) {
+																									.equals(laneSet)) {
+																								if (!normalStep
+																										.equals(process)) {
+																									if (!normalStep
+																											.equals(outFlow)) {
+																										if (!normalStep
+																												.equals(processToActor)) {
+																											if (!normalStep
+																													.equals(outFlowToNormalStep)) {
+																												if (!normalStep
+																														.equals(outFlowToFlow)) {
+																													if (!process
+																															.equals(processToActor)) {
 																														if (!inFlow
-																																.equals(outFlowToNormalStep)) {
+																																.equals(normalStep)) {
 																															if (!inFlow
-																																	.equals(inFlowToFlow)) {
+																																	.equals(process)) {
 																																if (!inFlow
-																																		.equals(outFlowToFlow)) {
+																																		.equals(outFlow)) {
 																																	if (!inFlow
-																																			.equals(lane)) {
+																																			.equals(processToActor)) {
 																																		if (!inFlow
-																																				.equals(laneSet)) {
-																																			if (!outFlow
-																																					.equals(process)) {
-																																				if (!outFlow
-																																						.equals(processToActor)) {
-																																					if (!outFlow
-																																							.equals(outFlowToNormalStep)) {
-																																						if (!outFlow
-																																								.equals(outFlowToFlow)) {
-																																							if (!actor
-																																									.equals(flowNode)) {
-																																								if (!actor
-																																										.equals(event)) {
-																																									if (!actor
-																																											.equals(process)) {
-																																										if (!actor
-																																												.equals(inFlow)) {
+																																				.equals(outFlowToNormalStep)) {
+																																			if (!inFlow
+																																					.equals(inFlowToFlow)) {
+																																				if (!inFlow
+																																						.equals(outFlowToFlow)) {
+																																					if (!inFlow
+																																							.equals(lane)) {
+																																						if (!inFlow
+																																								.equals(laneSet)) {
+																																							if (!outFlow
+																																									.equals(process)) {
+																																								if (!outFlow
+																																										.equals(processToActor)) {
+																																									if (!outFlow
+																																											.equals(outFlowToNormalStep)) {
+																																										if (!outFlow
+																																												.equals(outFlowToFlow)) {
 																																											if (!actor
-																																													.equals(outFlow)) {
+																																													.equals(flowNode)) {
 																																												if (!actor
-																																														.equals(processToActor)) {
+																																														.equals(event)) {
 																																													if (!actor
 																																															.equals(normalStep)) {
 																																														if (!actor
-																																																.equals(eventToNormalStep)) {
+																																																.equals(process)) {
 																																															if (!actor
-																																																	.equals(outFlowToNormalStep)) {
+																																																	.equals(inFlow)) {
 																																																if (!actor
-																																																		.equals(flow)) {
+																																																		.equals(outFlow)) {
 																																																	if (!actor
-																																																			.equals(inFlowToFlow)) {
+																																																			.equals(processToActor)) {
 																																																		if (!actor
-																																																				.equals(outFlowToFlow)) {
+																																																				.equals(outFlowToNormalStep)) {
 																																																			if (!actor
-																																																					.equals(lane)) {
+																																																					.equals(flow)) {
 																																																				if (!actor
-																																																						.equals(laneSet)) {
-																																																					if (!normalStep
-																																																							.equals(process)) {
-																																																						if (!normalStep
-																																																								.equals(outFlow)) {
-																																																							if (!normalStep
-																																																									.equals(processToActor)) {
-																																																								if (!normalStep
-																																																										.equals(outFlowToNormalStep)) {
-																																																									if (!normalStep
-																																																											.equals(outFlowToFlow)) {
-																																																										if (!eventToNormalStep
+																																																						.equals(inFlowToFlow)) {
+																																																					if (!actor
+																																																							.equals(outFlowToFlow)) {
+																																																						if (!actor
+																																																								.equals(lane)) {
+																																																							if (!actor
+																																																									.equals(laneSet)) {
+																																																								if (!outFlowToNormalStep
+																																																										.equals(process)) {
+																																																									if (!outFlowToNormalStep
+																																																											.equals(processToActor)) {
+																																																										if (!flow
 																																																												.equals(flowNode)) {
-																																																											if (!eventToNormalStep
-																																																													.equals(process)) {
-																																																												if (!eventToNormalStep
-																																																														.equals(inFlow)) {
-																																																													if (!eventToNormalStep
-																																																															.equals(outFlow)) {
-																																																														if (!eventToNormalStep
-																																																																.equals(processToActor)) {
-																																																															if (!eventToNormalStep
-																																																																	.equals(normalStep)) {
-																																																																if (!eventToNormalStep
+																																																											if (!flow
+																																																													.equals(normalStep)) {
+																																																												if (!flow
+																																																														.equals(process)) {
+																																																													if (!flow
+																																																															.equals(inFlow)) {
+																																																														if (!flow
+																																																																.equals(outFlow)) {
+																																																															if (!flow
+																																																																	.equals(processToActor)) {
+																																																																if (!flow
 																																																																		.equals(outFlowToNormalStep)) {
-																																																																	if (!eventToNormalStep
-																																																																			.equals(flow)) {
-																																																																		if (!eventToNormalStep
-																																																																				.equals(inFlowToFlow)) {
-																																																																			if (!eventToNormalStep
-																																																																					.equals(outFlowToFlow)) {
-																																																																				if (!eventToNormalStep
-																																																																						.equals(lane)) {
-																																																																					if (!eventToNormalStep
-																																																																							.equals(laneSet)) {
-																																																																						if (!outFlowToNormalStep
+																																																																	if (!flow
+																																																																			.equals(inFlowToFlow)) {
+																																																																		if (!flow
+																																																																				.equals(outFlowToFlow)) {
+																																																																			if (!flow
+																																																																					.equals(lane)) {
+																																																																				if (!flow
+																																																																						.equals(laneSet)) {
+																																																																					if (!inFlowToFlow
+																																																																							.equals(normalStep)) {
+																																																																						if (!inFlowToFlow
 																																																																								.equals(process)) {
-																																																																							if (!outFlowToNormalStep
-																																																																									.equals(processToActor)) {
-																																																																								if (!flow
-																																																																										.equals(flowNode)) {
-																																																																									if (!flow
-																																																																											.equals(process)) {
-																																																																										if (!flow
-																																																																												.equals(inFlow)) {
-																																																																											if (!flow
-																																																																													.equals(outFlow)) {
-																																																																												if (!flow
-																																																																														.equals(processToActor)) {
-																																																																													if (!flow
-																																																																															.equals(normalStep)) {
-																																																																														if (!flow
-																																																																																.equals(outFlowToNormalStep)) {
-																																																																															if (!flow
-																																																																																	.equals(inFlowToFlow)) {
-																																																																																if (!flow
-																																																																																		.equals(outFlowToFlow)) {
-																																																																																	if (!flow
-																																																																																			.equals(lane)) {
-																																																																																		if (!flow
-																																																																																				.equals(laneSet)) {
-																																																																																			if (!inFlowToFlow
-																																																																																					.equals(process)) {
-																																																																																				if (!inFlowToFlow
-																																																																																						.equals(outFlow)) {
-																																																																																					if (!inFlowToFlow
-																																																																																							.equals(processToActor)) {
-																																																																																						if (!inFlowToFlow
-																																																																																								.equals(normalStep)) {
-																																																																																							if (!inFlowToFlow
-																																																																																									.equals(outFlowToNormalStep)) {
-																																																																																								if (!inFlowToFlow
-																																																																																										.equals(outFlowToFlow)) {
-																																																																																									if (!inFlowToFlow
-																																																																																											.equals(lane)) {
-																																																																																										if (!inFlowToFlow
-																																																																																												.equals(laneSet)) {
-																																																																																											if (!outFlowToFlow
-																																																																																													.equals(process)) {
-																																																																																												if (!outFlowToFlow
-																																																																																														.equals(processToActor)) {
-																																																																																													if (!outFlowToFlow
-																																																																																															.equals(outFlowToNormalStep)) {
-																																																																																														if (!lane
-																																																																																																.equals(process)) {
-																																																																																															if (!lane
-																																																																																																	.equals(outFlow)) {
-																																																																																																if (!lane
-																																																																																																		.equals(processToActor)) {
-																																																																																																	if (!lane
-																																																																																																			.equals(normalStep)) {
-																																																																																																		if (!lane
-																																																																																																				.equals(outFlowToNormalStep)) {
-																																																																																																			if (!lane
-																																																																																																					.equals(outFlowToFlow)) {
-																																																																																																				if (!lane
-																																																																																																						.equals(laneSet)) {
-																																																																																																					if (!laneSet
-																																																																																																							.equals(process)) {
-																																																																																																						if (!laneSet
-																																																																																																								.equals(outFlow)) {
-																																																																																																							if (!laneSet
-																																																																																																									.equals(processToActor)) {
-																																																																																																								if (!laneSet
-																																																																																																										.equals(normalStep)) {
-																																																																																																									if (!laneSet
-																																																																																																											.equals(outFlowToNormalStep)) {
-																																																																																																										if (!laneSet
-																																																																																																												.equals(outFlowToFlow)) {
-																																																																																																											return new Object[] {
-																																																																																																													ruleresult,
-																																																																																																													flowNode,
-																																																																																																													event,
-																																																																																																													process,
-																																																																																																													inFlow,
-																																																																																																													outFlow,
-																																																																																																													actor,
-																																																																																																													processToActor,
-																																																																																																													normalStep,
-																																																																																																													eventToNormalStep,
-																																																																																																													outFlowToNormalStep,
-																																																																																																													flow,
-																																																																																																													inFlowToFlow,
-																																																																																																													outFlowToFlow,
-																																																																																																													lane,
-																																																																																																													laneSet };
-																																																																																																										}
-																																																																																																									}
-																																																																																																								}
-																																																																																																							}
-																																																																																																						}
-																																																																																																					}
-																																																																																																				}
-																																																																																																			}
-																																																																																																		}
-																																																																																																	}
-																																																																																																}
-																																																																																															}
-																																																																																														}
-																																																																																													}
+																																																																							if (!inFlowToFlow
+																																																																									.equals(outFlow)) {
+																																																																								if (!inFlowToFlow
+																																																																										.equals(processToActor)) {
+																																																																									if (!inFlowToFlow
+																																																																											.equals(outFlowToNormalStep)) {
+																																																																										if (!inFlowToFlow
+																																																																												.equals(outFlowToFlow)) {
+																																																																											if (!inFlowToFlow
+																																																																													.equals(lane)) {
+																																																																												if (!inFlowToFlow
+																																																																														.equals(laneSet)) {
+																																																																													if (!outFlowToFlow
+																																																																															.equals(process)) {
+																																																																														if (!outFlowToFlow
+																																																																																.equals(processToActor)) {
+																																																																															if (!outFlowToFlow
+																																																																																	.equals(outFlowToNormalStep)) {
+																																																																																if (!lane
+																																																																																		.equals(normalStep)) {
+																																																																																	if (!lane
+																																																																																			.equals(process)) {
+																																																																																		if (!lane
+																																																																																				.equals(outFlow)) {
+																																																																																			if (!lane
+																																																																																					.equals(processToActor)) {
+																																																																																				if (!lane
+																																																																																						.equals(outFlowToNormalStep)) {
+																																																																																					if (!lane
+																																																																																							.equals(outFlowToFlow)) {
+																																																																																						if (!lane
+																																																																																								.equals(laneSet)) {
+																																																																																							if (!laneSet
+																																																																																									.equals(normalStep)) {
+																																																																																								if (!laneSet
+																																																																																										.equals(process)) {
+																																																																																									if (!laneSet
+																																																																																											.equals(outFlow)) {
+																																																																																										if (!laneSet
+																																																																																												.equals(processToActor)) {
+																																																																																											if (!laneSet
+																																																																																													.equals(outFlowToNormalStep)) {
+																																																																																												if (!laneSet
+																																																																																														.equals(outFlowToFlow)) {
+																																																																																													return new Object[] {
+																																																																																															ruleresult,
+																																																																																															flowNode,
+																																																																																															event,
+																																																																																															normalStep,
+																																																																																															process,
+																																																																																															inFlow,
+																																																																																															outFlow,
+																																																																																															actor,
+																																																																																															processToActor,
+																																																																																															outFlowToNormalStep,
+																																																																																															flow,
+																																																																																															inFlowToFlow,
+																																																																																															outFlowToFlow,
+																																																																																															lane,
+																																																																																															laneSet };
 																																																																																												}
 																																																																																											}
 																																																																																										}
@@ -2644,11 +2615,11 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_1_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject event, EObject process,
-			EObject inFlow, EObject outFlow, EObject actor, EObject normalStep,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject outFlowToFlow, EObject lane) {
+	public static final Object[] pattern_ICEToStepAfterPGRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject event, EObject normalStep,
+			EObject process, EObject inFlow, EObject outFlow, EObject actor,
+			EObject outFlowToNormalStep, EObject flow, EObject outFlowToFlow,
+			EObject lane) {
 		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge process__event____flowElements = TGGRuntimeFactory.eINSTANCE
@@ -2662,10 +2633,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge event__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge eventToNormalStep__event____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge eventToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge outFlowToNormalStep__outFlow____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -2687,8 +2654,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		String outFlow__event____sourceRef_name_prime = "sourceRef";
 		String event__outFlow____outgoing_name_prime = "outgoing";
 		String normalStep__actor____actor_name_prime = "actor";
-		String eventToNormalStep__event____source_name_prime = "source";
-		String eventToNormalStep__normalStep____target_name_prime = "target";
 		String outFlowToNormalStep__outFlow____source_name_prime = "source";
 		String outFlowToNormalStep__normalStep____target_name_prime = "target";
 		String flow__normalStep____steps_name_prime = "steps";
@@ -2716,13 +2681,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		normalStep__actor____actor.setSrc(normalStep);
 		normalStep__actor____actor.setTrg(actor);
 		ruleresult.getCreatedEdges().add(normalStep__actor____actor);
-		eventToNormalStep__event____source.setSrc(eventToNormalStep);
-		eventToNormalStep__event____source.setTrg(event);
-		ruleresult.getCreatedEdges().add(eventToNormalStep__event____source);
-		eventToNormalStep__normalStep____target.setSrc(eventToNormalStep);
-		eventToNormalStep__normalStep____target.setTrg(normalStep);
-		ruleresult.getCreatedEdges().add(
-				eventToNormalStep__normalStep____target);
 		outFlowToNormalStep__outFlow____source.setSrc(outFlowToNormalStep);
 		outFlowToNormalStep__outFlow____source.setTrg(outFlow);
 		ruleresult.getCreatedEdges()
@@ -2757,10 +2715,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				.setName(event__outFlow____outgoing_name_prime);
 		normalStep__actor____actor
 				.setName(normalStep__actor____actor_name_prime);
-		eventToNormalStep__event____source
-				.setName(eventToNormalStep__event____source_name_prime);
-		eventToNormalStep__normalStep____target
-				.setName(eventToNormalStep__normalStep____target_name_prime);
 		outFlowToNormalStep__outFlow____source
 				.setName(outFlowToNormalStep__outFlow____source_name_prime);
 		outFlowToNormalStep__normalStep____target
@@ -2772,29 +2726,27 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				.setName(outFlowToFlow__flow____target_name_prime);
 		lane__event____flowNodeRefs
 				.setName(lane__event____flowNodeRefs_name_prime);
-		return new Object[] { ruleresult, event, process, inFlow, outFlow,
-				actor, normalStep, eventToNormalStep, outFlowToNormalStep,
-				flow, outFlowToFlow, lane, process__outFlow____flowElements,
+		return new Object[] { ruleresult, event, normalStep, process, inFlow,
+				outFlow, actor, outFlowToNormalStep, flow, outFlowToFlow, lane,
+				process__outFlow____flowElements,
 				process__event____flowElements, inFlow__event____targetRef,
 				event__inFlow____incoming, outFlow__event____sourceRef,
 				event__outFlow____outgoing, normalStep__actor____actor,
-				eventToNormalStep__event____source,
-				eventToNormalStep__normalStep____target,
 				outFlowToNormalStep__outFlow____source,
 				outFlowToNormalStep__normalStep____target,
 				flow__normalStep____steps, outFlowToFlow__outFlow____source,
 				outFlowToFlow__flow____target, lane__event____flowNodeRefs };
 	}
 
-	public static final void pattern_ICEToStepAfterPGRule_1_5_expressionBBBBBBBBBBBBBBBBB(
+	public static final void pattern_ICEToStepAfterPGRule_1_5_expressionBBBBBBBBBBBBBBBB(
 			ICEToStepAfterPGRule _this, PerformRuleResult ruleresult,
-			EObject flowNode, EObject event, EObject process, EObject inFlow,
-			EObject outFlow, EObject actor, EObject processToActor,
-			EObject normalStep, EObject eventToNormalStep,
-			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
-			EObject outFlowToFlow, EObject lane, EObject laneSet) {
-		_this.registerObjects_FWD(ruleresult, flowNode, event, process, inFlow,
-				outFlow, actor, processToActor, normalStep, eventToNormalStep,
+			EObject flowNode, EObject event, EObject normalStep,
+			EObject process, EObject inFlow, EObject outFlow, EObject actor,
+			EObject processToActor, EObject outFlowToNormalStep, EObject flow,
+			EObject inFlowToFlow, EObject outFlowToFlow, EObject lane,
+			EObject laneSet) {
+		_this.registerObjects_FWD(ruleresult, flowNode, event, normalStep,
+				process, inFlow, outFlow, actor, processToActor,
 				outFlowToNormalStep, flow, inFlowToFlow, outFlowToFlow, lane,
 				laneSet);
 
@@ -3238,19 +3190,19 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_1_blackBBBBB(
-			ICEToStepAfterPGRule _this, Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
-		return new Object[] { _this, match, actor, normalStep, flow };
+			ICEToStepAfterPGRule _this, Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
+		return new Object[] { _this, match, normalStep, actor, flow };
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_2_bindingFBBBBB(
-			ICEToStepAfterPGRule _this, Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
-		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match, actor,
-				normalStep, flow);
+			ICEToStepAfterPGRule _this, Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
+		CSP _localVariable_0 = _this.isAppropriate_solveCsp_BWD(match,
+				normalStep, actor, flow);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
-			return new Object[] { csp, _this, match, actor, normalStep, flow };
+			return new Object[] { csp, _this, match, normalStep, actor, flow };
 		}
 		return null;
 	}
@@ -3261,17 +3213,17 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_2_bindingAndBlackFBBBBB(
-			ICEToStepAfterPGRule _this, Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
+			ICEToStepAfterPGRule _this, Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
 		Object[] result_pattern_ICEToStepAfterPGRule_10_2_binding = pattern_ICEToStepAfterPGRule_10_2_bindingFBBBBB(
-				_this, match, actor, normalStep, flow);
+				_this, match, normalStep, actor, flow);
 		if (result_pattern_ICEToStepAfterPGRule_10_2_binding != null) {
 			CSP csp = (CSP) result_pattern_ICEToStepAfterPGRule_10_2_binding[0];
 
 			Object[] result_pattern_ICEToStepAfterPGRule_10_2_black = pattern_ICEToStepAfterPGRule_10_2_blackB(csp);
 			if (result_pattern_ICEToStepAfterPGRule_10_2_black != null) {
 
-				return new Object[] { csp, _this, match, actor, normalStep,
+				return new Object[] { csp, _this, match, normalStep, actor,
 						flow };
 			}
 		}
@@ -3286,12 +3238,12 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_4_blackBBBB(
-			Match match, Actor actor, NormalStep normalStep, Flow flow) {
-		return new Object[] { match, actor, normalStep, flow };
+			Match match, NormalStep normalStep, Actor actor, Flow flow) {
+		return new Object[] { match, normalStep, actor, flow };
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_4_greenBBBBFF(
-			Match match, Actor actor, NormalStep normalStep, Flow flow) {
+			Match match, NormalStep normalStep, Actor actor, Flow flow) {
 		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge flow__normalStep____steps = TGGRuntimeFactory.eINSTANCE
@@ -3308,13 +3260,13 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		normalStep__actor____actor
 				.setName(normalStep__actor____actor_name_prime);
 		flow__normalStep____steps.setName(flow__normalStep____steps_name_prime);
-		return new Object[] { match, actor, normalStep, flow,
+		return new Object[] { match, normalStep, actor, flow,
 				normalStep__actor____actor, flow__normalStep____steps };
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_5_blackBBBB(
-			Match match, Actor actor, NormalStep normalStep, Flow flow) {
-		return new Object[] { match, actor, normalStep, flow };
+			Match match, NormalStep normalStep, Actor actor, Flow flow) {
+		return new Object[] { match, normalStep, actor, flow };
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_10_5_greenBBB(
@@ -3325,9 +3277,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final void pattern_ICEToStepAfterPGRule_10_6_expressionBBBBB(
-			ICEToStepAfterPGRule _this, Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
-		_this.registerObjectsToMatch_BWD(match, actor, normalStep, flow);
+			ICEToStepAfterPGRule _this, Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
+		_this.registerObjectsToMatch_BWD(match, normalStep, actor, flow);
 
 	}
 
@@ -3344,38 +3296,38 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_ICEToStepAfterPGRule_11_1_bindingFFFFFFFFFFB(
 			IsApplicableMatch isApplicableMatch) {
 		EObject _localVariable_0 = isApplicableMatch.getObject("flowNode");
-		EObject _localVariable_1 = isApplicableMatch.getObject("process");
-		EObject _localVariable_2 = isApplicableMatch.getObject("inFlow");
-		EObject _localVariable_3 = isApplicableMatch.getObject("actor");
-		EObject _localVariable_4 = isApplicableMatch
+		EObject _localVariable_1 = isApplicableMatch.getObject("normalStep");
+		EObject _localVariable_2 = isApplicableMatch.getObject("process");
+		EObject _localVariable_3 = isApplicableMatch.getObject("inFlow");
+		EObject _localVariable_4 = isApplicableMatch.getObject("actor");
+		EObject _localVariable_5 = isApplicableMatch
 				.getObject("processToActor");
-		EObject _localVariable_5 = isApplicableMatch.getObject("normalStep");
 		EObject _localVariable_6 = isApplicableMatch.getObject("flow");
 		EObject _localVariable_7 = isApplicableMatch.getObject("inFlowToFlow");
 		EObject _localVariable_8 = isApplicableMatch.getObject("lane");
 		EObject _localVariable_9 = isApplicableMatch.getObject("laneSet");
 		EObject tmpFlowNode = _localVariable_0;
-		EObject tmpProcess = _localVariable_1;
-		EObject tmpInFlow = _localVariable_2;
-		EObject tmpActor = _localVariable_3;
-		EObject tmpProcessToActor = _localVariable_4;
-		EObject tmpNormalStep = _localVariable_5;
+		EObject tmpNormalStep = _localVariable_1;
+		EObject tmpProcess = _localVariable_2;
+		EObject tmpInFlow = _localVariable_3;
+		EObject tmpActor = _localVariable_4;
+		EObject tmpProcessToActor = _localVariable_5;
 		EObject tmpFlow = _localVariable_6;
 		EObject tmpInFlowToFlow = _localVariable_7;
 		EObject tmpLane = _localVariable_8;
 		EObject tmpLaneSet = _localVariable_9;
 		if (tmpFlowNode instanceof ParallelGateway) {
 			ParallelGateway flowNode = (ParallelGateway) tmpFlowNode;
-			if (tmpProcess instanceof bpmn2.Process) {
-				bpmn2.Process process = (bpmn2.Process) tmpProcess;
-				if (tmpInFlow instanceof SequenceFlow) {
-					SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
-					if (tmpActor instanceof Actor) {
-						Actor actor = (Actor) tmpActor;
-						if (tmpProcessToActor instanceof ProcessToActor) {
-							ProcessToActor processToActor = (ProcessToActor) tmpProcessToActor;
-							if (tmpNormalStep instanceof NormalStep) {
-								NormalStep normalStep = (NormalStep) tmpNormalStep;
+			if (tmpNormalStep instanceof NormalStep) {
+				NormalStep normalStep = (NormalStep) tmpNormalStep;
+				if (tmpProcess instanceof bpmn2.Process) {
+					bpmn2.Process process = (bpmn2.Process) tmpProcess;
+					if (tmpInFlow instanceof SequenceFlow) {
+						SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
+						if (tmpActor instanceof Actor) {
+							Actor actor = (Actor) tmpActor;
+							if (tmpProcessToActor instanceof ProcessToActor) {
+								ProcessToActor processToActor = (ProcessToActor) tmpProcessToActor;
 								if (tmpFlow instanceof Flow) {
 									Flow flow = (Flow) tmpFlow;
 									if (tmpInFlowToFlow instanceof SequenceFlowToUCFlow) {
@@ -3385,9 +3337,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 											if (tmpLaneSet instanceof LaneSet) {
 												LaneSet laneSet = (LaneSet) tmpLaneSet;
 												return new Object[] { flowNode,
-														process, inFlow, actor,
-														processToActor,
-														normalStep, flow,
+														normalStep, process,
+														inFlow, actor,
+														processToActor, flow,
 														inFlowToFlow, lane,
 														laneSet,
 														isApplicableMatch };
@@ -3405,16 +3357,16 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_11_1_blackBBBBBBBBBBFBB(
-			ParallelGateway flowNode, bpmn2.Process process,
-			SequenceFlow inFlow, Actor actor, ProcessToActor processToActor,
-			NormalStep normalStep, Flow flow,
+			ParallelGateway flowNode, NormalStep normalStep,
+			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
+			ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, Lane lane, LaneSet laneSet,
 			ICEToStepAfterPGRule _this, IsApplicableMatch isApplicableMatch) {
 		for (EObject tmpCsp : isApplicableMatch.getAttributeInfo()) {
 			if (tmpCsp instanceof CSP) {
 				CSP csp = (CSP) tmpCsp;
-				return new Object[] { flowNode, process, inFlow, actor,
-						processToActor, normalStep, flow, inFlowToFlow, lane,
+				return new Object[] { flowNode, normalStep, process, inFlow,
+						actor, processToActor, flow, inFlowToFlow, lane,
 						laneSet, csp, _this, isApplicableMatch };
 			}
 		}
@@ -3426,39 +3378,37 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		Object[] result_pattern_ICEToStepAfterPGRule_11_1_binding = pattern_ICEToStepAfterPGRule_11_1_bindingFFFFFFFFFFB(isApplicableMatch);
 		if (result_pattern_ICEToStepAfterPGRule_11_1_binding != null) {
 			ParallelGateway flowNode = (ParallelGateway) result_pattern_ICEToStepAfterPGRule_11_1_binding[0];
-			bpmn2.Process process = (bpmn2.Process) result_pattern_ICEToStepAfterPGRule_11_1_binding[1];
-			SequenceFlow inFlow = (SequenceFlow) result_pattern_ICEToStepAfterPGRule_11_1_binding[2];
-			Actor actor = (Actor) result_pattern_ICEToStepAfterPGRule_11_1_binding[3];
-			ProcessToActor processToActor = (ProcessToActor) result_pattern_ICEToStepAfterPGRule_11_1_binding[4];
-			NormalStep normalStep = (NormalStep) result_pattern_ICEToStepAfterPGRule_11_1_binding[5];
+			NormalStep normalStep = (NormalStep) result_pattern_ICEToStepAfterPGRule_11_1_binding[1];
+			bpmn2.Process process = (bpmn2.Process) result_pattern_ICEToStepAfterPGRule_11_1_binding[2];
+			SequenceFlow inFlow = (SequenceFlow) result_pattern_ICEToStepAfterPGRule_11_1_binding[3];
+			Actor actor = (Actor) result_pattern_ICEToStepAfterPGRule_11_1_binding[4];
+			ProcessToActor processToActor = (ProcessToActor) result_pattern_ICEToStepAfterPGRule_11_1_binding[5];
 			Flow flow = (Flow) result_pattern_ICEToStepAfterPGRule_11_1_binding[6];
 			SequenceFlowToUCFlow inFlowToFlow = (SequenceFlowToUCFlow) result_pattern_ICEToStepAfterPGRule_11_1_binding[7];
 			Lane lane = (Lane) result_pattern_ICEToStepAfterPGRule_11_1_binding[8];
 			LaneSet laneSet = (LaneSet) result_pattern_ICEToStepAfterPGRule_11_1_binding[9];
 
 			Object[] result_pattern_ICEToStepAfterPGRule_11_1_black = pattern_ICEToStepAfterPGRule_11_1_blackBBBBBBBBBBFBB(
-					flowNode, process, inFlow, actor, processToActor,
-					normalStep, flow, inFlowToFlow, lane, laneSet, _this,
+					flowNode, normalStep, process, inFlow, actor,
+					processToActor, flow, inFlowToFlow, lane, laneSet, _this,
 					isApplicableMatch);
 			if (result_pattern_ICEToStepAfterPGRule_11_1_black != null) {
 				CSP csp = (CSP) result_pattern_ICEToStepAfterPGRule_11_1_black[10];
 
-				return new Object[] { flowNode, process, inFlow, actor,
-						processToActor, normalStep, flow, inFlowToFlow, lane,
+				return new Object[] { flowNode, normalStep, process, inFlow,
+						actor, processToActor, flow, inFlowToFlow, lane,
 						laneSet, csp, _this, isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_11_1_greenFBBFBFFBFBB(
-			bpmn2.Process process, SequenceFlow inFlow, NormalStep normalStep,
+	public static final Object[] pattern_ICEToStepAfterPGRule_11_1_greenFBBBFFBFBB(
+			NormalStep normalStep, bpmn2.Process process, SequenceFlow inFlow,
 			Flow flow, Lane lane, CSP csp) {
 		IntermediateCatchEvent event = Bpmn2Factory.eINSTANCE
 				.createIntermediateCatchEvent();
 		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
-		FlowNodeToStep eventToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-				.createFlowNodeToStep();
 		SequenceFlowToStep outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createSequenceFlowToStep();
 		SequenceFlowToUCFlow outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
@@ -3470,8 +3420,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		lane.getFlowNodeRefs().add(event);
 		process.getFlowElements().add(outFlow);
 		outFlow.setSourceRef(event);
-		eventToNormalStep.setSource(event);
-		eventToNormalStep.setTarget(normalStep);
 		outFlowToNormalStep.setSource(outFlow);
 		outFlowToNormalStep.setTarget(normalStep);
 		outFlowToFlow.setSource(outFlow);
@@ -3480,273 +3428,226 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		String event_name_prime = (String) _localVariable_1;
 		event.setId(event_id_prime);
 		event.setName(event_name_prime);
-		return new Object[] { event, process, inFlow, outFlow, normalStep,
-				eventToNormalStep, outFlowToNormalStep, flow, outFlowToFlow,
-				lane, csp };
+		return new Object[] { event, normalStep, process, inFlow, outFlow,
+				outFlowToNormalStep, flow, outFlowToFlow, lane, csp };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_11_2_blackBBBBBB(
-			IntermediateCatchEvent event, SequenceFlow outFlow,
-			NormalStep normalStep, FlowNodeToStep eventToNormalStep,
-			SequenceFlowToStep outFlowToNormalStep,
+	public static final Object[] pattern_ICEToStepAfterPGRule_11_2_blackBBBBB(
+			IntermediateCatchEvent event, NormalStep normalStep,
+			SequenceFlow outFlow, SequenceFlowToStep outFlowToNormalStep,
 			SequenceFlowToUCFlow outFlowToFlow) {
-		return new Object[] { event, outFlow, normalStep, eventToNormalStep,
-				outFlowToNormalStep, outFlowToFlow };
+		return new Object[] { event, normalStep, outFlow, outFlowToNormalStep,
+				outFlowToFlow };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_11_2_greenFBBBBBB(
-			IntermediateCatchEvent event, SequenceFlow outFlow,
-			NormalStep normalStep, FlowNodeToStep eventToNormalStep,
-			SequenceFlowToStep outFlowToNormalStep,
+	public static final Object[] pattern_ICEToStepAfterPGRule_11_2_greenFBBBBB(
+			IntermediateCatchEvent event, NormalStep normalStep,
+			SequenceFlow outFlow, SequenceFlowToStep outFlowToNormalStep,
 			SequenceFlowToUCFlow outFlowToFlow) {
 		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
 				.createPerformRuleResult();
 		ruleresult.getCreatedElements().add(event);
-		ruleresult.getCreatedElements().add(outFlow);
 		ruleresult.getTranslatedElements().add(normalStep);
-		ruleresult.getCreatedLinkElements().add(eventToNormalStep);
+		ruleresult.getCreatedElements().add(outFlow);
 		ruleresult.getCreatedLinkElements().add(outFlowToNormalStep);
 		ruleresult.getCreatedLinkElements().add(outFlowToFlow);
-		return new Object[] { ruleresult, event, outFlow, normalStep,
-				eventToNormalStep, outFlowToNormalStep, outFlowToFlow };
+		return new Object[] { ruleresult, event, normalStep, outFlow,
+				outFlowToNormalStep, outFlowToFlow };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_11_3_blackBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_ICEToStepAfterPGRule_11_3_blackBBBBBBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject flowNode, EObject event,
-			EObject process, EObject inFlow, EObject outFlow, EObject actor,
-			EObject processToActor, EObject normalStep,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject inFlowToFlow, EObject outFlowToFlow,
-			EObject lane, EObject laneSet) {
-		if (!flowNode.equals(process)) {
-			if (!flowNode.equals(inFlow)) {
-				if (!flowNode.equals(outFlow)) {
-					if (!flowNode.equals(processToActor)) {
-						if (!flowNode.equals(normalStep)) {
+			EObject normalStep, EObject process, EObject inFlow,
+			EObject outFlow, EObject actor, EObject processToActor,
+			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
+			EObject outFlowToFlow, EObject lane, EObject laneSet) {
+		if (!flowNode.equals(normalStep)) {
+			if (!flowNode.equals(process)) {
+				if (!flowNode.equals(inFlow)) {
+					if (!flowNode.equals(outFlow)) {
+						if (!flowNode.equals(processToActor)) {
 							if (!flowNode.equals(outFlowToNormalStep)) {
 								if (!flowNode.equals(inFlowToFlow)) {
 									if (!flowNode.equals(outFlowToFlow)) {
 										if (!flowNode.equals(lane)) {
 											if (!flowNode.equals(laneSet)) {
 												if (!event.equals(flowNode)) {
-													if (!event.equals(process)) {
+													if (!event
+															.equals(normalStep)) {
 														if (!event
-																.equals(inFlow)) {
+																.equals(process)) {
 															if (!event
-																	.equals(outFlow)) {
+																	.equals(inFlow)) {
 																if (!event
-																		.equals(processToActor)) {
+																		.equals(outFlow)) {
 																	if (!event
-																			.equals(normalStep)) {
+																			.equals(processToActor)) {
 																		if (!event
-																				.equals(eventToNormalStep)) {
+																				.equals(outFlowToNormalStep)) {
 																			if (!event
-																					.equals(outFlowToNormalStep)) {
+																					.equals(flow)) {
 																				if (!event
-																						.equals(flow)) {
+																						.equals(inFlowToFlow)) {
 																					if (!event
-																							.equals(inFlowToFlow)) {
+																							.equals(outFlowToFlow)) {
 																						if (!event
-																								.equals(outFlowToFlow)) {
+																								.equals(lane)) {
 																							if (!event
-																									.equals(lane)) {
-																								if (!event
-																										.equals(laneSet)) {
-																									if (!process
-																											.equals(processToActor)) {
-																										if (!inFlow
-																												.equals(process)) {
-																											if (!inFlow
-																													.equals(outFlow)) {
-																												if (!inFlow
-																														.equals(processToActor)) {
-																													if (!inFlow
-																															.equals(normalStep)) {
+																									.equals(laneSet)) {
+																								if (!normalStep
+																										.equals(process)) {
+																									if (!normalStep
+																											.equals(outFlow)) {
+																										if (!normalStep
+																												.equals(processToActor)) {
+																											if (!normalStep
+																													.equals(outFlowToNormalStep)) {
+																												if (!normalStep
+																														.equals(outFlowToFlow)) {
+																													if (!process
+																															.equals(processToActor)) {
 																														if (!inFlow
-																																.equals(outFlowToNormalStep)) {
+																																.equals(normalStep)) {
 																															if (!inFlow
-																																	.equals(inFlowToFlow)) {
+																																	.equals(process)) {
 																																if (!inFlow
-																																		.equals(outFlowToFlow)) {
+																																		.equals(outFlow)) {
 																																	if (!inFlow
-																																			.equals(lane)) {
+																																			.equals(processToActor)) {
 																																		if (!inFlow
-																																				.equals(laneSet)) {
-																																			if (!outFlow
-																																					.equals(process)) {
-																																				if (!outFlow
-																																						.equals(processToActor)) {
-																																					if (!outFlow
-																																							.equals(outFlowToNormalStep)) {
-																																						if (!outFlow
-																																								.equals(outFlowToFlow)) {
-																																							if (!actor
-																																									.equals(flowNode)) {
-																																								if (!actor
-																																										.equals(event)) {
-																																									if (!actor
-																																											.equals(process)) {
-																																										if (!actor
-																																												.equals(inFlow)) {
+																																				.equals(outFlowToNormalStep)) {
+																																			if (!inFlow
+																																					.equals(inFlowToFlow)) {
+																																				if (!inFlow
+																																						.equals(outFlowToFlow)) {
+																																					if (!inFlow
+																																							.equals(lane)) {
+																																						if (!inFlow
+																																								.equals(laneSet)) {
+																																							if (!outFlow
+																																									.equals(process)) {
+																																								if (!outFlow
+																																										.equals(processToActor)) {
+																																									if (!outFlow
+																																											.equals(outFlowToNormalStep)) {
+																																										if (!outFlow
+																																												.equals(outFlowToFlow)) {
 																																											if (!actor
-																																													.equals(outFlow)) {
+																																													.equals(flowNode)) {
 																																												if (!actor
-																																														.equals(processToActor)) {
+																																														.equals(event)) {
 																																													if (!actor
 																																															.equals(normalStep)) {
 																																														if (!actor
-																																																.equals(eventToNormalStep)) {
+																																																.equals(process)) {
 																																															if (!actor
-																																																	.equals(outFlowToNormalStep)) {
+																																																	.equals(inFlow)) {
 																																																if (!actor
-																																																		.equals(flow)) {
+																																																		.equals(outFlow)) {
 																																																	if (!actor
-																																																			.equals(inFlowToFlow)) {
+																																																			.equals(processToActor)) {
 																																																		if (!actor
-																																																				.equals(outFlowToFlow)) {
+																																																				.equals(outFlowToNormalStep)) {
 																																																			if (!actor
-																																																					.equals(lane)) {
+																																																					.equals(flow)) {
 																																																				if (!actor
-																																																						.equals(laneSet)) {
-																																																					if (!normalStep
-																																																							.equals(process)) {
-																																																						if (!normalStep
-																																																								.equals(outFlow)) {
-																																																							if (!normalStep
-																																																									.equals(processToActor)) {
-																																																								if (!normalStep
-																																																										.equals(outFlowToNormalStep)) {
-																																																									if (!normalStep
-																																																											.equals(outFlowToFlow)) {
-																																																										if (!eventToNormalStep
+																																																						.equals(inFlowToFlow)) {
+																																																					if (!actor
+																																																							.equals(outFlowToFlow)) {
+																																																						if (!actor
+																																																								.equals(lane)) {
+																																																							if (!actor
+																																																									.equals(laneSet)) {
+																																																								if (!outFlowToNormalStep
+																																																										.equals(process)) {
+																																																									if (!outFlowToNormalStep
+																																																											.equals(processToActor)) {
+																																																										if (!flow
 																																																												.equals(flowNode)) {
-																																																											if (!eventToNormalStep
-																																																													.equals(process)) {
-																																																												if (!eventToNormalStep
-																																																														.equals(inFlow)) {
-																																																													if (!eventToNormalStep
-																																																															.equals(outFlow)) {
-																																																														if (!eventToNormalStep
-																																																																.equals(processToActor)) {
-																																																															if (!eventToNormalStep
-																																																																	.equals(normalStep)) {
-																																																																if (!eventToNormalStep
+																																																											if (!flow
+																																																													.equals(normalStep)) {
+																																																												if (!flow
+																																																														.equals(process)) {
+																																																													if (!flow
+																																																															.equals(inFlow)) {
+																																																														if (!flow
+																																																																.equals(outFlow)) {
+																																																															if (!flow
+																																																																	.equals(processToActor)) {
+																																																																if (!flow
 																																																																		.equals(outFlowToNormalStep)) {
-																																																																	if (!eventToNormalStep
-																																																																			.equals(flow)) {
-																																																																		if (!eventToNormalStep
-																																																																				.equals(inFlowToFlow)) {
-																																																																			if (!eventToNormalStep
-																																																																					.equals(outFlowToFlow)) {
-																																																																				if (!eventToNormalStep
-																																																																						.equals(lane)) {
-																																																																					if (!eventToNormalStep
-																																																																							.equals(laneSet)) {
-																																																																						if (!outFlowToNormalStep
+																																																																	if (!flow
+																																																																			.equals(inFlowToFlow)) {
+																																																																		if (!flow
+																																																																				.equals(outFlowToFlow)) {
+																																																																			if (!flow
+																																																																					.equals(lane)) {
+																																																																				if (!flow
+																																																																						.equals(laneSet)) {
+																																																																					if (!inFlowToFlow
+																																																																							.equals(normalStep)) {
+																																																																						if (!inFlowToFlow
 																																																																								.equals(process)) {
-																																																																							if (!outFlowToNormalStep
-																																																																									.equals(processToActor)) {
-																																																																								if (!flow
-																																																																										.equals(flowNode)) {
-																																																																									if (!flow
-																																																																											.equals(process)) {
-																																																																										if (!flow
-																																																																												.equals(inFlow)) {
-																																																																											if (!flow
-																																																																													.equals(outFlow)) {
-																																																																												if (!flow
-																																																																														.equals(processToActor)) {
-																																																																													if (!flow
-																																																																															.equals(normalStep)) {
-																																																																														if (!flow
-																																																																																.equals(outFlowToNormalStep)) {
-																																																																															if (!flow
-																																																																																	.equals(inFlowToFlow)) {
-																																																																																if (!flow
-																																																																																		.equals(outFlowToFlow)) {
-																																																																																	if (!flow
-																																																																																			.equals(lane)) {
-																																																																																		if (!flow
-																																																																																				.equals(laneSet)) {
-																																																																																			if (!inFlowToFlow
-																																																																																					.equals(process)) {
-																																																																																				if (!inFlowToFlow
-																																																																																						.equals(outFlow)) {
-																																																																																					if (!inFlowToFlow
-																																																																																							.equals(processToActor)) {
-																																																																																						if (!inFlowToFlow
-																																																																																								.equals(normalStep)) {
-																																																																																							if (!inFlowToFlow
-																																																																																									.equals(outFlowToNormalStep)) {
-																																																																																								if (!inFlowToFlow
-																																																																																										.equals(outFlowToFlow)) {
-																																																																																									if (!inFlowToFlow
-																																																																																											.equals(lane)) {
-																																																																																										if (!inFlowToFlow
-																																																																																												.equals(laneSet)) {
-																																																																																											if (!outFlowToFlow
-																																																																																													.equals(process)) {
-																																																																																												if (!outFlowToFlow
-																																																																																														.equals(processToActor)) {
-																																																																																													if (!outFlowToFlow
-																																																																																															.equals(outFlowToNormalStep)) {
-																																																																																														if (!lane
-																																																																																																.equals(process)) {
-																																																																																															if (!lane
-																																																																																																	.equals(outFlow)) {
-																																																																																																if (!lane
-																																																																																																		.equals(processToActor)) {
-																																																																																																	if (!lane
-																																																																																																			.equals(normalStep)) {
-																																																																																																		if (!lane
-																																																																																																				.equals(outFlowToNormalStep)) {
-																																																																																																			if (!lane
-																																																																																																					.equals(outFlowToFlow)) {
-																																																																																																				if (!lane
-																																																																																																						.equals(laneSet)) {
-																																																																																																					if (!laneSet
-																																																																																																							.equals(process)) {
-																																																																																																						if (!laneSet
-																																																																																																								.equals(outFlow)) {
-																																																																																																							if (!laneSet
-																																																																																																									.equals(processToActor)) {
-																																																																																																								if (!laneSet
-																																																																																																										.equals(normalStep)) {
-																																																																																																									if (!laneSet
-																																																																																																											.equals(outFlowToNormalStep)) {
-																																																																																																										if (!laneSet
-																																																																																																												.equals(outFlowToFlow)) {
-																																																																																																											return new Object[] {
-																																																																																																													ruleresult,
-																																																																																																													flowNode,
-																																																																																																													event,
-																																																																																																													process,
-																																																																																																													inFlow,
-																																																																																																													outFlow,
-																																																																																																													actor,
-																																																																																																													processToActor,
-																																																																																																													normalStep,
-																																																																																																													eventToNormalStep,
-																																																																																																													outFlowToNormalStep,
-																																																																																																													flow,
-																																																																																																													inFlowToFlow,
-																																																																																																													outFlowToFlow,
-																																																																																																													lane,
-																																																																																																													laneSet };
-																																																																																																										}
-																																																																																																									}
-																																																																																																								}
-																																																																																																							}
-																																																																																																						}
-																																																																																																					}
-																																																																																																				}
-																																																																																																			}
-																																																																																																		}
-																																																																																																	}
-																																																																																																}
-																																																																																															}
-																																																																																														}
-																																																																																													}
+																																																																							if (!inFlowToFlow
+																																																																									.equals(outFlow)) {
+																																																																								if (!inFlowToFlow
+																																																																										.equals(processToActor)) {
+																																																																									if (!inFlowToFlow
+																																																																											.equals(outFlowToNormalStep)) {
+																																																																										if (!inFlowToFlow
+																																																																												.equals(outFlowToFlow)) {
+																																																																											if (!inFlowToFlow
+																																																																													.equals(lane)) {
+																																																																												if (!inFlowToFlow
+																																																																														.equals(laneSet)) {
+																																																																													if (!outFlowToFlow
+																																																																															.equals(process)) {
+																																																																														if (!outFlowToFlow
+																																																																																.equals(processToActor)) {
+																																																																															if (!outFlowToFlow
+																																																																																	.equals(outFlowToNormalStep)) {
+																																																																																if (!lane
+																																																																																		.equals(normalStep)) {
+																																																																																	if (!lane
+																																																																																			.equals(process)) {
+																																																																																		if (!lane
+																																																																																				.equals(outFlow)) {
+																																																																																			if (!lane
+																																																																																					.equals(processToActor)) {
+																																																																																				if (!lane
+																																																																																						.equals(outFlowToNormalStep)) {
+																																																																																					if (!lane
+																																																																																							.equals(outFlowToFlow)) {
+																																																																																						if (!lane
+																																																																																								.equals(laneSet)) {
+																																																																																							if (!laneSet
+																																																																																									.equals(normalStep)) {
+																																																																																								if (!laneSet
+																																																																																										.equals(process)) {
+																																																																																									if (!laneSet
+																																																																																											.equals(outFlow)) {
+																																																																																										if (!laneSet
+																																																																																												.equals(processToActor)) {
+																																																																																											if (!laneSet
+																																																																																													.equals(outFlowToNormalStep)) {
+																																																																																												if (!laneSet
+																																																																																														.equals(outFlowToFlow)) {
+																																																																																													return new Object[] {
+																																																																																															ruleresult,
+																																																																																															flowNode,
+																																																																																															event,
+																																																																																															normalStep,
+																																																																																															process,
+																																																																																															inFlow,
+																																																																																															outFlow,
+																																																																																															actor,
+																																																																																															processToActor,
+																																																																																															outFlowToNormalStep,
+																																																																																															flow,
+																																																																																															inFlowToFlow,
+																																																																																															outFlowToFlow,
+																																																																																															lane,
+																																																																																															laneSet };
 																																																																																												}
 																																																																																											}
 																																																																																										}
@@ -3841,11 +3742,11 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_11_3_greenBBBBBBBBBBBBFFFFFFFFFFFFFFF(
-			PerformRuleResult ruleresult, EObject event, EObject process,
-			EObject inFlow, EObject outFlow, EObject actor, EObject normalStep,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject outFlowToFlow, EObject lane) {
+	public static final Object[] pattern_ICEToStepAfterPGRule_11_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
+			PerformRuleResult ruleresult, EObject event, EObject normalStep,
+			EObject process, EObject inFlow, EObject outFlow, EObject actor,
+			EObject outFlowToNormalStep, EObject flow, EObject outFlowToFlow,
+			EObject lane) {
 		EMoflonEdge process__outFlow____flowElements = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge process__event____flowElements = TGGRuntimeFactory.eINSTANCE
@@ -3859,10 +3760,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge event__outFlow____outgoing = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge normalStep__actor____actor = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge eventToNormalStep__event____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge eventToNormalStep__normalStep____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge outFlowToNormalStep__outFlow____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -3884,8 +3781,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		String outFlow__event____sourceRef_name_prime = "sourceRef";
 		String event__outFlow____outgoing_name_prime = "outgoing";
 		String normalStep__actor____actor_name_prime = "actor";
-		String eventToNormalStep__event____source_name_prime = "source";
-		String eventToNormalStep__normalStep____target_name_prime = "target";
 		String outFlowToNormalStep__outFlow____source_name_prime = "source";
 		String outFlowToNormalStep__normalStep____target_name_prime = "target";
 		String flow__normalStep____steps_name_prime = "steps";
@@ -3913,13 +3808,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		normalStep__actor____actor.setSrc(normalStep);
 		normalStep__actor____actor.setTrg(actor);
 		ruleresult.getTranslatedEdges().add(normalStep__actor____actor);
-		eventToNormalStep__event____source.setSrc(eventToNormalStep);
-		eventToNormalStep__event____source.setTrg(event);
-		ruleresult.getCreatedEdges().add(eventToNormalStep__event____source);
-		eventToNormalStep__normalStep____target.setSrc(eventToNormalStep);
-		eventToNormalStep__normalStep____target.setTrg(normalStep);
-		ruleresult.getCreatedEdges().add(
-				eventToNormalStep__normalStep____target);
 		outFlowToNormalStep__outFlow____source.setSrc(outFlowToNormalStep);
 		outFlowToNormalStep__outFlow____source.setTrg(outFlow);
 		ruleresult.getCreatedEdges()
@@ -3954,10 +3842,6 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				.setName(event__outFlow____outgoing_name_prime);
 		normalStep__actor____actor
 				.setName(normalStep__actor____actor_name_prime);
-		eventToNormalStep__event____source
-				.setName(eventToNormalStep__event____source_name_prime);
-		eventToNormalStep__normalStep____target
-				.setName(eventToNormalStep__normalStep____target_name_prime);
 		outFlowToNormalStep__outFlow____source
 				.setName(outFlowToNormalStep__outFlow____source_name_prime);
 		outFlowToNormalStep__normalStep____target
@@ -3969,29 +3853,27 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				.setName(outFlowToFlow__flow____target_name_prime);
 		lane__event____flowNodeRefs
 				.setName(lane__event____flowNodeRefs_name_prime);
-		return new Object[] { ruleresult, event, process, inFlow, outFlow,
-				actor, normalStep, eventToNormalStep, outFlowToNormalStep,
-				flow, outFlowToFlow, lane, process__outFlow____flowElements,
+		return new Object[] { ruleresult, event, normalStep, process, inFlow,
+				outFlow, actor, outFlowToNormalStep, flow, outFlowToFlow, lane,
+				process__outFlow____flowElements,
 				process__event____flowElements, inFlow__event____targetRef,
 				event__inFlow____incoming, outFlow__event____sourceRef,
 				event__outFlow____outgoing, normalStep__actor____actor,
-				eventToNormalStep__event____source,
-				eventToNormalStep__normalStep____target,
 				outFlowToNormalStep__outFlow____source,
 				outFlowToNormalStep__normalStep____target,
 				flow__normalStep____steps, outFlowToFlow__outFlow____source,
 				outFlowToFlow__flow____target, lane__event____flowNodeRefs };
 	}
 
-	public static final void pattern_ICEToStepAfterPGRule_11_5_expressionBBBBBBBBBBBBBBBBB(
+	public static final void pattern_ICEToStepAfterPGRule_11_5_expressionBBBBBBBBBBBBBBBB(
 			ICEToStepAfterPGRule _this, PerformRuleResult ruleresult,
-			EObject flowNode, EObject event, EObject process, EObject inFlow,
-			EObject outFlow, EObject actor, EObject processToActor,
-			EObject normalStep, EObject eventToNormalStep,
-			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
-			EObject outFlowToFlow, EObject lane, EObject laneSet) {
-		_this.registerObjects_BWD(ruleresult, flowNode, event, process, inFlow,
-				outFlow, actor, processToActor, normalStep, eventToNormalStep,
+			EObject flowNode, EObject event, EObject normalStep,
+			EObject process, EObject inFlow, EObject outFlow, EObject actor,
+			EObject processToActor, EObject outFlowToNormalStep, EObject flow,
+			EObject inFlowToFlow, EObject outFlowToFlow, EObject lane,
+			EObject laneSet) {
+		_this.registerObjects_BWD(ruleresult, flowNode, event, normalStep,
+				process, inFlow, outFlow, actor, processToActor,
 				outFlowToNormalStep, flow, inFlowToFlow, outFlowToFlow, lane,
 				laneSet);
 
@@ -4056,27 +3938,27 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_12_2_bindingFFFB(
 			Match match) {
-		EObject _localVariable_0 = match.getObject("actor");
-		EObject _localVariable_1 = match.getObject("normalStep");
+		EObject _localVariable_0 = match.getObject("normalStep");
+		EObject _localVariable_1 = match.getObject("actor");
 		EObject _localVariable_2 = match.getObject("flow");
-		EObject tmpActor = _localVariable_0;
-		EObject tmpNormalStep = _localVariable_1;
+		EObject tmpNormalStep = _localVariable_0;
+		EObject tmpActor = _localVariable_1;
 		EObject tmpFlow = _localVariable_2;
-		if (tmpActor instanceof Actor) {
-			Actor actor = (Actor) tmpActor;
-			if (tmpNormalStep instanceof NormalStep) {
-				NormalStep normalStep = (NormalStep) tmpNormalStep;
+		if (tmpNormalStep instanceof NormalStep) {
+			NormalStep normalStep = (NormalStep) tmpNormalStep;
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
 				if (tmpFlow instanceof Flow) {
 					Flow flow = (Flow) tmpFlow;
-					return new Object[] { actor, normalStep, flow, match };
+					return new Object[] { normalStep, actor, flow, match };
 				}
 			}
 		}
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_ICEToStepAfterPGRule_12_2_blackFFBFBBFB(
-			Actor actor, NormalStep normalStep, Flow flow, Match match) {
+	public static final Iterable<Object[]> pattern_ICEToStepAfterPGRule_12_2_blackBFFBFBFB(
+			NormalStep normalStep, Actor actor, Flow flow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, ProcessToActor.class,
@@ -4088,8 +3970,8 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 								SequenceFlowToUCFlow.class, "target")) {
 					SequenceFlow inFlow = inFlowToFlow.getSource();
 					if (inFlow != null) {
-						_result.add(new Object[] { process, inFlow, actor,
-								processToActor, normalStep, flow, inFlowToFlow,
+						_result.add(new Object[] { normalStep, process, inFlow,
+								actor, processToActor, flow, inFlowToFlow,
 								match });
 					}
 
@@ -4101,8 +3983,8 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_ICEToStepAfterPGRule_12_3_blackFBBBBBBBFF(
-			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
-			ProcessToActor processToActor, NormalStep normalStep, Flow flow,
+			NormalStep normalStep, bpmn2.Process process, SequenceFlow inFlow,
+			Actor actor, ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (process.getFlowElements().contains(inFlow)) {
@@ -4120,10 +4002,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 												.getLaneSets()) {
 											for (Lane lane : laneSet.getLanes()) {
 												_result.add(new Object[] {
-														flowNode, process,
-														inFlow, actor,
-														processToActor,
-														normalStep, flow,
+														flowNode, normalStep,
+														process, inFlow, actor,
+														processToActor, flow,
 														inFlowToFlow, lane,
 														laneSet });
 											}
@@ -4141,9 +4022,9 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_12_3_greenBBBBBBBBBBFFFFFFFFFFFF(
-			ParallelGateway flowNode, bpmn2.Process process,
-			SequenceFlow inFlow, Actor actor, ProcessToActor processToActor,
-			NormalStep normalStep, Flow flow,
+			ParallelGateway flowNode, NormalStep normalStep,
+			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
+			ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, Lane lane, LaneSet laneSet) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
@@ -4181,11 +4062,11 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		String flowNode__inFlow____outgoing_name_prime = "outgoing";
 		String laneSet__lane____lanes_name_prime = "lanes";
 		isApplicableMatch.getAllContextElements().add(flowNode);
+		isApplicableMatch.getAllContextElements().add(normalStep);
 		isApplicableMatch.getAllContextElements().add(process);
 		isApplicableMatch.getAllContextElements().add(inFlow);
 		isApplicableMatch.getAllContextElements().add(actor);
 		isApplicableMatch.getAllContextElements().add(processToActor);
-		isApplicableMatch.getAllContextElements().add(normalStep);
 		isApplicableMatch.getAllContextElements().add(flow);
 		isApplicableMatch.getAllContextElements().add(inFlowToFlow);
 		isApplicableMatch.getAllContextElements().add(lane);
@@ -4253,8 +4134,8 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		flowNode__inFlow____outgoing
 				.setName(flowNode__inFlow____outgoing_name_prime);
 		laneSet__lane____lanes.setName(laneSet__lane____lanes_name_prime);
-		return new Object[] { flowNode, process, inFlow, actor, processToActor,
-				normalStep, flow, inFlowToFlow, lane, laneSet,
+		return new Object[] { flowNode, normalStep, process, inFlow, actor,
+				processToActor, flow, inFlowToFlow, lane, laneSet,
 				isApplicableMatch, process__laneSet____laneSets,
 				process__inFlow____flowElements,
 				processToActor__process____source,
@@ -4266,17 +4147,17 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_12_4_bindingFBBBBBBBBBBBB(
 			ICEToStepAfterPGRule _this, IsApplicableMatch isApplicableMatch,
-			ParallelGateway flowNode, bpmn2.Process process,
-			SequenceFlow inFlow, Actor actor, ProcessToActor processToActor,
-			NormalStep normalStep, Flow flow,
+			ParallelGateway flowNode, NormalStep normalStep,
+			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
+			ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, Lane lane, LaneSet laneSet) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
-				isApplicableMatch, flowNode, process, inFlow, actor,
-				processToActor, normalStep, flow, inFlowToFlow, lane, laneSet);
+				isApplicableMatch, flowNode, normalStep, process, inFlow,
+				actor, processToActor, flow, inFlowToFlow, lane, laneSet);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, flowNode,
-					process, inFlow, actor, processToActor, normalStep, flow,
+					normalStep, process, inFlow, actor, processToActor, flow,
 					inFlowToFlow, lane, laneSet };
 		}
 		return null;
@@ -4289,13 +4170,14 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_12_4_bindingAndBlackFBBBBBBBBBBBB(
 			ICEToStepAfterPGRule _this, IsApplicableMatch isApplicableMatch,
-			ParallelGateway flowNode, bpmn2.Process process,
-			SequenceFlow inFlow, Actor actor, ProcessToActor processToActor,
-			NormalStep normalStep, Flow flow,
+			ParallelGateway flowNode, NormalStep normalStep,
+			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
+			ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, Lane lane, LaneSet laneSet) {
 		Object[] result_pattern_ICEToStepAfterPGRule_12_4_binding = pattern_ICEToStepAfterPGRule_12_4_bindingFBBBBBBBBBBBB(
-				_this, isApplicableMatch, flowNode, process, inFlow, actor,
-				processToActor, normalStep, flow, inFlowToFlow, lane, laneSet);
+				_this, isApplicableMatch, flowNode, normalStep, process,
+				inFlow, actor, processToActor, flow, inFlowToFlow, lane,
+				laneSet);
 		if (result_pattern_ICEToStepAfterPGRule_12_4_binding != null) {
 			CSP csp = (CSP) result_pattern_ICEToStepAfterPGRule_12_4_binding[0];
 
@@ -4303,7 +4185,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 			if (result_pattern_ICEToStepAfterPGRule_12_4_black != null) {
 
 				return new Object[] { csp, _this, isApplicableMatch, flowNode,
-						process, inFlow, actor, processToActor, normalStep,
+						normalStep, process, inFlow, actor, processToActor,
 						flow, inFlowToFlow, lane, laneSet };
 			}
 		}
@@ -4387,7 +4269,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_20_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_567014 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_757132 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4564,7 +4446,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_14995 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_950451 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4741,7 +4623,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_796202 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_563705 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4919,7 +4801,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_605998 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_494491 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5097,7 +4979,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_331220 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_137375 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5276,7 +5158,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_330169 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_579126 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5466,7 +5348,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 					for (Flow flow : org.moflon.util.eMoflonEMFUtil
 							.getOppositeReferenceTyped(normalStep, Flow.class,
 									"steps")) {
-						_result.add(new Object[] { actor, normalStep, flow,
+						_result.add(new Object[] { normalStep, actor, flow,
 								_edge_actor });
 					}
 				}
@@ -5488,10 +5370,10 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final boolean pattern_ICEToStepAfterPGRule_26_3_expressionFBBBBB(
-			ICEToStepAfterPGRule _this, Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
-				normalStep, flow);
+			ICEToStepAfterPGRule _this, Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, normalStep,
+				actor, flow);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5580,7 +5462,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				if (flow.getSteps().contains(normalStep)) {
 					Actor actor = normalStep.getActor();
 					if (actor != null) {
-						_result.add(new Object[] { actor, normalStep, flow,
+						_result.add(new Object[] { normalStep, actor, flow,
 								_edge_steps });
 					}
 
@@ -5603,10 +5485,10 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final boolean pattern_ICEToStepAfterPGRule_27_3_expressionFBBBBB(
-			ICEToStepAfterPGRule _this, Match match, Actor actor,
-			NormalStep normalStep, Flow flow) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, actor,
-				normalStep, flow);
+			ICEToStepAfterPGRule _this, Match match, NormalStep normalStep,
+			Actor actor, Flow flow) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, normalStep,
+				actor, flow);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -5685,7 +5567,7 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPGRule_28_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_779415 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_431311 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6079,38 +5961,34 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 				flow, inFlowToFlow, lane, laneSet, ruleResult };
 	}
 
-	public static final Object[] pattern_ICEToStepAfterPGRule_31_6_greenFBBFBFFFBFBBB(
+	public static final Object[] pattern_ICEToStepAfterPGRule_31_6_greenFFBBFBFBFBBB(
 			bpmn2.Process process, SequenceFlow inFlow, Actor actor, Flow flow,
 			Lane lane, ModelgeneratorRuleResult ruleResult, CSP csp) {
 		IntermediateCatchEvent event = Bpmn2Factory.eINSTANCE
 				.createIntermediateCatchEvent();
-		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
 		NormalStep normalStep = UseCaseDSLFactory.eINSTANCE.createNormalStep();
-		FlowNodeToStep eventToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
-				.createFlowNodeToStep();
+		SequenceFlow outFlow = Bpmn2Factory.eINSTANCE.createSequenceFlow();
 		SequenceFlowToStep outFlowToNormalStep = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createSequenceFlowToStep();
 		SequenceFlowToUCFlow outFlowToFlow = BpmnToUseCaseIntegrationFactory.eINSTANCE
 				.createSequenceFlowToUCFlow();
 		Object _localVariable_0 = csp.getValue("event", "id");
 		Object _localVariable_1 = csp.getValue("event", "name");
-		Object _localVariable_2 = csp.getValue("normalStep", "name");
-		Object _localVariable_3 = csp.getValue("normalStep", "label");
+		Object _localVariable_2 = csp.getValue("normalStep", "type");
+		Object _localVariable_3 = csp.getValue("normalStep", "name");
+		Object _localVariable_4 = csp.getValue("normalStep", "label");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		process.getFlowElements().add(event);
 		inFlow.setTargetRef(event);
 		lane.getFlowNodeRefs().add(event);
 		ruleResult.getSourceObjects().add(event);
-		process.getFlowElements().add(outFlow);
-		outFlow.setSourceRef(event);
-		ruleResult.getSourceObjects().add(outFlow);
 		normalStep.setActor(actor);
 		flow.getSteps().add(normalStep);
 		ruleResult.getTargetObjects().add(normalStep);
-		eventToNormalStep.setSource(event);
-		eventToNormalStep.setTarget(normalStep);
-		ruleResult.getCorrObjects().add(eventToNormalStep);
+		process.getFlowElements().add(outFlow);
+		outFlow.setSourceRef(event);
+		ruleResult.getSourceObjects().add(outFlow);
 		outFlowToNormalStep.setSource(outFlow);
 		outFlowToNormalStep.setTarget(normalStep);
 		ruleResult.getCorrObjects().add(outFlowToNormalStep);
@@ -6119,19 +5997,21 @@ public class ICEToStepAfterPGRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getCorrObjects().add(outFlowToFlow);
 		String event_id_prime = (String) _localVariable_0;
 		String event_name_prime = (String) _localVariable_1;
-		String normalStep_name_prime = (String) _localVariable_2;
-		String normalStep_label_prime = (String) _localVariable_3;
+		StepType normalStep_type_prime = (StepType) _localVariable_2;
+		String normalStep_name_prime = (String) _localVariable_3;
+		String normalStep_label_prime = (String) _localVariable_4;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		event.setId(event_id_prime);
 		event.setName(event_name_prime);
+		normalStep.setType(normalStep_type_prime);
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
-		return new Object[] { event, process, inFlow, outFlow, actor,
-				normalStep, eventToNormalStep, outFlowToNormalStep, flow,
-				outFlowToFlow, lane, ruleResult, csp };
+		return new Object[] { event, normalStep, process, inFlow, outFlow,
+				actor, outFlowToNormalStep, flow, outFlowToFlow, lane,
+				ruleResult, csp };
 	}
 
 	public static final ModelgeneratorRuleResult pattern_ICEToStepAfterPGRule_31_7_expressionFB(

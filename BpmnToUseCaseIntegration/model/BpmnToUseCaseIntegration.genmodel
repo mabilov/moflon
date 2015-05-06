@@ -1284,15 +1284,14 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_FWD/inFlowToFlow"/>
@@ -1306,8 +1305,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD/flow"/>
         </genOperations>
@@ -1319,15 +1318,15 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
@@ -1336,10 +1335,10 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isApplicable_solveCsp_BWD/processToActor"/>
@@ -1355,15 +1354,14 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/registerObjects_BWD/inFlowToFlow"/>
@@ -1663,13 +1661,12 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_FWD/inFlowToFlow"/>
@@ -1683,8 +1680,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/perform_BWD">
@@ -1695,14 +1692,14 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_checkCsp_BWD">
@@ -1710,11 +1707,11 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/inFlowToFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isApplicable_solveCsp_BWD/flowNode"/>
@@ -1727,13 +1724,12 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/registerObjects_BWD/inFlowToFlow"/>
@@ -4265,13 +4261,12 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_FWD/inFlowToFlow"/>
@@ -4284,8 +4279,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/perform_BWD">
@@ -4296,14 +4291,14 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_checkCsp_BWD">
@@ -4312,11 +4307,11 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/inFlowToFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isApplicable_solveCsp_BWD/lane"/>
@@ -4329,13 +4324,12 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/registerObjects_BWD/inFlowToFlow"/>
@@ -4461,13 +4455,12 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_FWD/inFlowToFlow"/>
@@ -4480,8 +4473,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/perform_BWD">
@@ -4492,14 +4485,14 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_checkCsp_BWD">
@@ -4508,11 +4501,11 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/inFlowToFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isApplicable_solveCsp_BWD/lane"/>
@@ -4525,13 +4518,12 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/registerObjects_BWD/inFlowToFlow"/>
@@ -4657,13 +4649,12 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_FWD/inFlowToFlow"/>
@@ -4676,8 +4667,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/perform_BWD">
@@ -4688,14 +4679,14 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_checkCsp_BWD">
@@ -4704,11 +4695,11 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/inFlowToFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isApplicable_solveCsp_BWD/lane"/>
@@ -4721,13 +4712,12 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/normalStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/registerObjects_BWD/inFlowToFlow"/>
@@ -4855,15 +4845,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_FWD/inFlowToFlow"/>
@@ -4876,8 +4865,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD/flow"/>
         </genOperations>
@@ -4889,15 +4878,15 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
@@ -4907,10 +4896,10 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isApplicable_solveCsp_BWD/processToActor"/>
@@ -4926,15 +4915,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/registerObjects_BWD/inFlowToFlow"/>
@@ -5067,15 +5055,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_FWD/inFlowToFlow"/>
@@ -5088,8 +5075,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD/flow"/>
         </genOperations>
@@ -5101,15 +5088,15 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
@@ -5119,10 +5106,10 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isApplicable_solveCsp_BWD/processToActor"/>
@@ -5138,15 +5125,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/registerObjects_BWD/inFlowToFlow"/>
@@ -5279,15 +5265,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_FWD/inFlowToFlow"/>
@@ -5300,8 +5285,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD/flow"/>
         </genOperations>
@@ -5313,15 +5298,15 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
@@ -5331,10 +5316,10 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isApplicable_solveCsp_BWD/processToActor"/>
@@ -5350,15 +5335,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/registerObjects_BWD/inFlowToFlow"/>
@@ -5491,15 +5475,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_FWD/inFlowToFlow"/>
@@ -5512,8 +5495,8 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD/flow"/>
         </genOperations>
@@ -5525,15 +5508,15 @@
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjectsToMatch_BWD/flow"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD/match"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD/normalStep"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_solveCsp_BWD/flow"/>
         </genOperations>
@@ -5543,10 +5526,10 @@
         <genOperations ecoreOperation="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD">
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/isApplicableMatch"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/flowNode"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isApplicable_solveCsp_BWD/processToActor"/>
@@ -5562,15 +5545,14 @@
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/ruleresult"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/flowNode"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/event"/>
+          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/inFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/prevStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/inFlowToPrevStep"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/normalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/process"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/outFlow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/actor"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/processToActor"/>
-          <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/eventToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/outFlowToNormalStep"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/flow"/>
           <genParameters ecoreParameter="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/registerObjects_BWD/inFlowToFlow"/>

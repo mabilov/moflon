@@ -2986,7 +2986,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_20_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_359633 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_493203 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3124,7 +3124,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_21_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_154544 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_622567 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3262,9 +3262,9 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_22_2_black_nac_0BB(
 			UCCondition precond, BasicFlow basicFlow) {
-		for (Flow __DEC_precond_finalState_627173 : org.moflon.util.eMoflonEMFUtil
+		for (Flow __DEC_precond_finalState_399543 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, Flow.class, "finalState")) {
-			if (!basicFlow.equals(__DEC_precond_finalState_627173)) {
+			if (!basicFlow.equals(__DEC_precond_finalState_399543)) {
 				return new Object[] { precond, basicFlow };
 			}
 		}
@@ -3273,10 +3273,10 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_22_2_black_nac_1BB(
 			UCCondition precond, UseCase useCase) {
-		for (UseCase __DEC_precond_preconditions_175997 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_precond_preconditions_977855 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_precond_preconditions_175997)) {
+			if (!useCase.equals(__DEC_precond_preconditions_977855)) {
 				return new Object[] { precond, useCase };
 			}
 		}
@@ -3414,7 +3414,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_23_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_781758 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_642927 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3556,7 +3556,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_24_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_850153 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_560624 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };

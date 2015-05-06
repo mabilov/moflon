@@ -3,9 +3,9 @@
 package UseCaseDSL.impl;
 
 import UseCaseDSL.Actor;
-import UseCaseDSL.CustomStepType;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.StepAlternative;
+import UseCaseDSL.StepType;
 import UseCaseDSL.UseCaseDSLPackage;
 
 import java.util.Collection;
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link UseCaseDSL.impl.NormalStepImpl#getStepAlternative <em>Step Alternative</em>}</li>
  *   <li>{@link UseCaseDSL.impl.NormalStepImpl#getActor <em>Actor</em>}</li>
- *   <li>{@link UseCaseDSL.impl.NormalStepImpl#getCustomStepType <em>Custom Step Type</em>}</li>
+ *   <li>{@link UseCaseDSL.impl.NormalStepImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,24 +62,24 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 	protected Actor actor;
 
 	/**
-	 * The default value of the '{@link #getCustomStepType() <em>Custom Step Type</em>}' attribute.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCustomStepType()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CustomStepType CUSTOM_STEP_TYPE_EDEFAULT = CustomStepType.INPUT;
+	protected static final StepType TYPE_EDEFAULT = StepType.ALT;
 
 	/**
-	 * The cached value of the '{@link #getCustomStepType() <em>Custom Step Type</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCustomStepType()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected CustomStepType customStepType = CUSTOM_STEP_TYPE_EDEFAULT;
+	protected StepType type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,8 +160,8 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomStepType getCustomStepType() {
-		return customStepType;
+	public StepType getType() {
+		return type;
 	}
 
 	/**
@@ -169,14 +169,12 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomStepType(CustomStepType newCustomStepType) {
-		CustomStepType oldCustomStepType = customStepType;
-		customStepType = newCustomStepType == null ? CUSTOM_STEP_TYPE_EDEFAULT
-				: newCustomStepType;
+	public void setType(StepType newType) {
+		StepType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					UseCaseDSLPackage.NORMAL_STEP__CUSTOM_STEP_TYPE,
-					oldCustomStepType, customStepType));
+					UseCaseDSLPackage.NORMAL_STEP__TYPE, oldType, type));
 	}
 
 	/**
@@ -209,8 +207,8 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 			if (resolve)
 				return getActor();
 			return basicGetActor();
-		case UseCaseDSLPackage.NORMAL_STEP__CUSTOM_STEP_TYPE:
-			return getCustomStepType();
+		case UseCaseDSLPackage.NORMAL_STEP__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,8 +230,8 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 		case UseCaseDSLPackage.NORMAL_STEP__ACTOR:
 			setActor((Actor) newValue);
 			return;
-		case UseCaseDSLPackage.NORMAL_STEP__CUSTOM_STEP_TYPE:
-			setCustomStepType((CustomStepType) newValue);
+		case UseCaseDSLPackage.NORMAL_STEP__TYPE:
+			setType((StepType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,8 +251,8 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 		case UseCaseDSLPackage.NORMAL_STEP__ACTOR:
 			setActor((Actor) null);
 			return;
-		case UseCaseDSLPackage.NORMAL_STEP__CUSTOM_STEP_TYPE:
-			setCustomStepType(CUSTOM_STEP_TYPE_EDEFAULT);
+		case UseCaseDSLPackage.NORMAL_STEP__TYPE:
+			setType(TYPE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -272,8 +270,8 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 			return stepAlternative != null && !stepAlternative.isEmpty();
 		case UseCaseDSLPackage.NORMAL_STEP__ACTOR:
 			return actor != null;
-		case UseCaseDSLPackage.NORMAL_STEP__CUSTOM_STEP_TYPE:
-			return customStepType != CUSTOM_STEP_TYPE_EDEFAULT;
+		case UseCaseDSLPackage.NORMAL_STEP__TYPE:
+			return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -289,8 +287,8 @@ public class NormalStepImpl extends StepImpl implements NormalStep {
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (customStepType: ");
-		result.append(customStepType);
+		result.append(" (type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

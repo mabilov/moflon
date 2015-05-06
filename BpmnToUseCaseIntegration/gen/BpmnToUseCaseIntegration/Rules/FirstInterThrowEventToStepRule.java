@@ -127,11 +127,11 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	void registerObjects_FWD(PerformRuleResult ruleresult, EObject event,
-			EObject process, EObject inFlow, EObject outFlow, EObject actor,
-			EObject processToActor, EObject normalStep,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject inFlowToFlow, EObject outFlowToFlow,
-			EObject flowNode, EObject lane, EObject laneSet);
+			EObject normalStep, EObject process, EObject inFlow,
+			EObject outFlow, EObject actor, EObject processToActor,
+			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
+			EObject outFlowToFlow, EObject flowNode, EObject lane,
+			EObject laneSet);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,7 +147,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	boolean isAppropriate_BWD(Match match, Actor actor, NormalStep normalStep,
+	boolean isAppropriate_BWD(Match match, NormalStep normalStep, Actor actor,
 			Flow flow);
 
 	/**
@@ -172,8 +172,8 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	void registerObjectsToMatch_BWD(Match match, Actor actor,
-			NormalStep normalStep, Flow flow);
+	void registerObjectsToMatch_BWD(Match match, NormalStep normalStep,
+			Actor actor, Flow flow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,8 +181,8 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	CSP isAppropriate_solveCsp_BWD(Match match, Actor actor,
-			NormalStep normalStep, Flow flow);
+	CSP isAppropriate_solveCsp_BWD(Match match, NormalStep normalStep,
+			Actor actor, Flow flow);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,8 +199,8 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	CSP isApplicable_solveCsp_BWD(IsApplicableMatch isApplicableMatch,
-			bpmn2.Process process, SequenceFlow inFlow, Actor actor,
-			ProcessToActor processToActor, NormalStep normalStep, Flow flow,
+			NormalStep normalStep, bpmn2.Process process, SequenceFlow inFlow,
+			Actor actor, ProcessToActor processToActor, Flow flow,
 			SequenceFlowToUCFlow inFlowToFlow, FlowNode flowNode, Lane lane,
 			LaneSet laneSet);
 
@@ -219,11 +219,11 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @generated
 	 */
 	void registerObjects_BWD(PerformRuleResult ruleresult, EObject event,
-			EObject process, EObject inFlow, EObject outFlow, EObject actor,
-			EObject processToActor, EObject normalStep,
-			EObject eventToNormalStep, EObject outFlowToNormalStep,
-			EObject flow, EObject inFlowToFlow, EObject outFlowToFlow,
-			EObject flowNode, EObject lane, EObject laneSet);
+			EObject normalStep, EObject process, EObject inFlow,
+			EObject outFlow, EObject actor, EObject processToActor,
+			EObject outFlowToNormalStep, EObject flow, EObject inFlowToFlow,
+			EObject outFlowToFlow, EObject flowNode, EObject lane,
+			EObject laneSet);
 
 	/**
 	 * <!-- begin-user-doc -->

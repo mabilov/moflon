@@ -4015,17 +4015,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_217439 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_290412 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_217439 != null) {
+								if (__DEC_exConvGateway_default_290412 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_217439)) {
+											.equals(__DEC_exConvGateway_default_290412)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_217439)) {
+												.equals(__DEC_exConvGateway_default_290412)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_217439)) {
+													.equals(__DEC_exConvGateway_default_290412)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_217439)) {
+														.equals(__DEC_exConvGateway_default_290412)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -4051,11 +4051,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_685603 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_271733 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_685603)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_685603)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_271733)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_271733)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -4368,17 +4368,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_640144 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_921092 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_640144 != null) {
+								if (__DEC_exConvGateway_default_921092 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_640144)) {
+											.equals(__DEC_exConvGateway_default_921092)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_640144)) {
+												.equals(__DEC_exConvGateway_default_921092)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_640144)) {
+													.equals(__DEC_exConvGateway_default_921092)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_640144)) {
+														.equals(__DEC_exConvGateway_default_921092)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -4404,11 +4404,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_374203 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_43011 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_374203)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_374203)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_43011)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_43011)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -4721,17 +4721,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_463324 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_883281 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_463324 != null) {
+								if (__DEC_exConvGateway_default_883281 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_463324)) {
+											.equals(__DEC_exConvGateway_default_883281)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_463324)) {
+												.equals(__DEC_exConvGateway_default_883281)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_463324)) {
+													.equals(__DEC_exConvGateway_default_883281)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_463324)) {
+														.equals(__DEC_exConvGateway_default_883281)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -4757,11 +4757,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_424014 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_913329 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_424014)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_424014)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_913329)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_913329)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -5076,17 +5076,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_66959 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_418784 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_66959 != null) {
+								if (__DEC_exConvGateway_default_418784 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_66959)) {
+											.equals(__DEC_exConvGateway_default_418784)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_66959)) {
+												.equals(__DEC_exConvGateway_default_418784)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_66959)) {
+													.equals(__DEC_exConvGateway_default_418784)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_66959)) {
+														.equals(__DEC_exConvGateway_default_418784)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -5112,11 +5112,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_285900 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_281500 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_285900)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_285900)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_281500)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_281500)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -5431,17 +5431,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_868821 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_598646 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_868821 != null) {
+								if (__DEC_exConvGateway_default_598646 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_868821)) {
+											.equals(__DEC_exConvGateway_default_598646)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_868821)) {
+												.equals(__DEC_exConvGateway_default_598646)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_868821)) {
+													.equals(__DEC_exConvGateway_default_598646)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_868821)) {
+														.equals(__DEC_exConvGateway_default_598646)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -5467,11 +5467,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_33868 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_374781 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_33868)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_33868)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_374781)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_374781)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -5785,17 +5785,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_946533 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_123656 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_946533 != null) {
+								if (__DEC_exConvGateway_default_123656 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_946533)) {
+											.equals(__DEC_exConvGateway_default_123656)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_946533)) {
+												.equals(__DEC_exConvGateway_default_123656)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_946533)) {
+													.equals(__DEC_exConvGateway_default_123656)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_946533)) {
+														.equals(__DEC_exConvGateway_default_123656)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -5821,11 +5821,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_295672 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_778355 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_295672)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_295672)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_778355)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_778355)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -6139,17 +6139,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_9591 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_626372 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_9591 != null) {
+								if (__DEC_exConvGateway_default_626372 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_9591)) {
+											.equals(__DEC_exConvGateway_default_626372)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_9591)) {
+												.equals(__DEC_exConvGateway_default_626372)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_9591)) {
+													.equals(__DEC_exConvGateway_default_626372)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_9591)) {
+														.equals(__DEC_exConvGateway_default_626372)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -6175,11 +6175,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_199660 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_962050 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_199660)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_199660)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_962050)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_962050)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -6493,17 +6493,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_871717 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_649694 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_871717 != null) {
+								if (__DEC_exConvGateway_default_649694 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_871717)) {
+											.equals(__DEC_exConvGateway_default_649694)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_871717)) {
+												.equals(__DEC_exConvGateway_default_649694)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_871717)) {
+													.equals(__DEC_exConvGateway_default_649694)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_871717)) {
+														.equals(__DEC_exConvGateway_default_649694)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -6529,11 +6529,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_524273 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_101844 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_524273)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_524273)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_101844)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_101844)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
@@ -6847,17 +6847,17 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 					if (!inFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_744349 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_926331 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_744349 != null) {
+								if (__DEC_exConvGateway_default_926331 != null) {
 									if (!defaultFlow
-											.equals(__DEC_exConvGateway_default_744349)) {
+											.equals(__DEC_exConvGateway_default_926331)) {
 										if (!inFlow
-												.equals(__DEC_exConvGateway_default_744349)) {
+												.equals(__DEC_exConvGateway_default_926331)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_744349)) {
+													.equals(__DEC_exConvGateway_default_926331)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_744349)) {
+														.equals(__DEC_exConvGateway_default_926331)) {
 													return new Object[] {
 															exConvGateway,
 															defaultFlow,
@@ -6883,11 +6883,11 @@ public class ExcConvGwDefaultSeqFlowRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exConvGateway,
 			ExclusiveGateway exclusiveGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_325318 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_86956 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exConvGateway.equals(__DEC_outFlow_default_325318)) {
-					if (!exclusiveGateway.equals(__DEC_outFlow_default_325318)) {
+				if (!exConvGateway.equals(__DEC_outFlow_default_86956)) {
+					if (!exclusiveGateway.equals(__DEC_outFlow_default_86956)) {
 						return new Object[] { outFlow, exConvGateway,
 								exclusiveGateway };
 					}
