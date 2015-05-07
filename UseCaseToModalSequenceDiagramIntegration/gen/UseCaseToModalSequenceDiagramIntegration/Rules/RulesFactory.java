@@ -77,6 +77,15 @@ public interface RulesFactory extends EFactory {
 	ActorToLifelineRule createActorToLifelineRule();
 
 	/**
+	 * Returns a new object of class '<em>Alt Step To Combo Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Alt Step To Combo Rule</em>'.
+	 * @generated
+	 */
+	AltStepToComboRule createAltStepToComboRule();
+
+	/**
 	 * Returns a new object of class '<em>Parallel Step To Combined Fragment Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,42 +156,6 @@ public interface RulesFactory extends EFactory {
 	 * @generated
 	 */
 	UserStepNfToMessageRule createUserStepNfToMessageRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt Sys Step BF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt Sys Step BF To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltSysStepBFToComboRule createAltSysStepBFToComboRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt User Step BF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt User Step BF To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltUserStepBFToComboRule createAltUserStepBFToComboRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt Sys Step NF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt Sys Step NF To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltSysStepNFToComboRule createAltSysStepNFToComboRule();
-
-	/**
-	 * Returns a new object of class '<em>Alt User Step NF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alt User Step NF To Combo Rule</em>'.
-	 * @generated
-	 */
-	AltUserStepNFToComboRule createAltUserStepNFToComboRule();
 
 	/**
 	 * Returns the package supported by this factory.

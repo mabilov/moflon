@@ -68,6 +68,8 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createUseCaseToInteractionRule();
 		case RulesPackage.ACTOR_TO_LIFELINE_RULE:
 			return createActorToLifelineRule();
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE:
+			return createAltStepToComboRule();
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE:
 			return createParallelStepToCombinedFragmentRule();
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE:
@@ -84,14 +86,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createSystemStepNFToMessageRule();
 		case RulesPackage.USER_STEP_NF_TO_MESSAGE_RULE:
 			return createUserStepNfToMessageRule();
-		case RulesPackage.ALT_SYS_STEP_BF_TO_COMBO_RULE:
-			return createAltSysStepBFToComboRule();
-		case RulesPackage.ALT_USER_STEP_BF_TO_COMBO_RULE:
-			return createAltUserStepBFToComboRule();
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE:
-			return createAltSysStepNFToComboRule();
-		case RulesPackage.ALT_USER_STEP_NF_TO_COMBO_RULE:
-			return createAltUserStepNFToComboRule();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -156,6 +150,16 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public ActorToLifelineRule createActorToLifelineRule() {
 		ActorToLifelineRuleImpl actorToLifelineRule = new ActorToLifelineRuleImpl();
 		return actorToLifelineRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AltStepToComboRule createAltStepToComboRule() {
+		AltStepToComboRuleImpl altStepToComboRule = new AltStepToComboRuleImpl();
+		return altStepToComboRule;
 	}
 
 	/**
@@ -236,46 +240,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public UserStepNfToMessageRule createUserStepNfToMessageRule() {
 		UserStepNfToMessageRuleImpl userStepNfToMessageRule = new UserStepNfToMessageRuleImpl();
 		return userStepNfToMessageRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltSysStepBFToComboRule createAltSysStepBFToComboRule() {
-		AltSysStepBFToComboRuleImpl altSysStepBFToComboRule = new AltSysStepBFToComboRuleImpl();
-		return altSysStepBFToComboRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltUserStepBFToComboRule createAltUserStepBFToComboRule() {
-		AltUserStepBFToComboRuleImpl altUserStepBFToComboRule = new AltUserStepBFToComboRuleImpl();
-		return altUserStepBFToComboRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltSysStepNFToComboRule createAltSysStepNFToComboRule() {
-		AltSysStepNFToComboRuleImpl altSysStepNFToComboRule = new AltSysStepNFToComboRuleImpl();
-		return altSysStepNFToComboRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AltUserStepNFToComboRule createAltUserStepNFToComboRule() {
-		AltUserStepNFToComboRuleImpl altUserStepNFToComboRule = new AltUserStepNFToComboRuleImpl();
-		return altUserStepNFToComboRule;
 	}
 
 	/**

@@ -1145,7 +1145,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_186(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_360(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1211,7 +1211,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_187(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_361(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1277,7 +1277,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_188(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_362(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1343,7 +1343,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_189(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_363(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1409,7 +1409,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_190(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_364(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1475,7 +1475,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_191(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_365(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1541,7 +1541,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_192(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_366(
 			EMoflonEdge _edge_sendEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1607,7 +1607,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_193(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_367(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1673,7 +1673,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_194(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_368(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1739,7 +1739,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_195(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_369(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1805,7 +1805,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_196(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_370(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1871,7 +1871,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_197(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_371(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1937,7 +1937,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_198(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_372(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -2003,7 +2003,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_199(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_373(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -2069,7 +2069,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_465(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_506(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -2135,7 +2135,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_466(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_507(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -2553,53 +2553,53 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_186__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_186((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_360__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_360((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_187__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_187((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_361__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_361((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_188__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_188((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_362__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_362((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_189__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_189((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_363__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_363((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_190__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_190((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_364__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_364((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_191__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_191((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_365__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_365((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_192__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_192((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_366__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_366((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_193__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_193((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_367__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_367((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_194__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_194((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_368__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_368((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_195__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_195((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_369__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_369((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_196__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_196((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_370__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_370((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_197__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_197((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_371__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_371((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_198__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_198((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_372__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_372((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_199__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_199((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_373__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_373((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_465__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_465((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_506__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_506((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_466__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_466((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_507__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_507((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -5854,11 +5854,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_607777 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_216606 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_607777)) {
-					if (!messageReceive.equals(__DEC_message_message_607777)) {
+				if (!messageSend.equals(__DEC_message_message_216606)) {
+					if (!messageReceive.equals(__DEC_message_message_216606)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6061,11 +6061,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_61217 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_483705 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_61217)) {
-					if (!messageReceive.equals(__DEC_message_message_61217)) {
+				if (!messageSend.equals(__DEC_message_message_483705)) {
+					if (!messageReceive.equals(__DEC_message_message_483705)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6268,11 +6268,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_741420 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_30571 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_741420)) {
-					if (!messageReceive.equals(__DEC_message_message_741420)) {
+				if (!messageSend.equals(__DEC_message_message_30571)) {
+					if (!messageReceive.equals(__DEC_message_message_30571)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6469,11 +6469,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_634948 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_851890 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_634948)) {
-					if (!messageReceive.equals(__DEC_message_message_634948)) {
+				if (!messageSend.equals(__DEC_message_message_851890)) {
+					if (!messageReceive.equals(__DEC_message_message_851890)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6670,11 +6670,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_116961 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_923507 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_116961)) {
-					if (!messageReceive.equals(__DEC_message_message_116961)) {
+				if (!messageSend.equals(__DEC_message_message_923507)) {
+					if (!messageReceive.equals(__DEC_message_message_923507)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6872,11 +6872,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_6786 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_480158 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_6786)) {
-					if (!messageReceive.equals(__DEC_message_message_6786)) {
+				if (!messageSend.equals(__DEC_message_message_480158)) {
+					if (!messageReceive.equals(__DEC_message_message_480158)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7074,11 +7074,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_827371 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_861435 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_827371)) {
-					if (!messageReceive.equals(__DEC_message_message_827371)) {
+				if (!messageSend.equals(__DEC_message_message_861435)) {
+					if (!messageReceive.equals(__DEC_message_message_861435)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7277,11 +7277,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_753877 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_310025 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_753877)) {
-					if (!messageReceive.equals(__DEC_message_message_753877)) {
+				if (!messageSend.equals(__DEC_message_message_310025)) {
+					if (!messageReceive.equals(__DEC_message_message_310025)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7479,11 +7479,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_26198 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_669448 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_26198)) {
-					if (!messageReceive.equals(__DEC_message_message_26198)) {
+				if (!messageSend.equals(__DEC_message_message_669448)) {
+					if (!messageReceive.equals(__DEC_message_message_669448)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7681,11 +7681,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_855122 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_900518 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_855122)) {
-					if (!messageReceive.equals(__DEC_message_message_855122)) {
+				if (!messageSend.equals(__DEC_message_message_900518)) {
+					if (!messageReceive.equals(__DEC_message_message_900518)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7883,11 +7883,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_809532 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_94442 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_809532)) {
-					if (!messageReceive.equals(__DEC_message_message_809532)) {
+				if (!messageSend.equals(__DEC_message_message_94442)) {
+					if (!messageReceive.equals(__DEC_message_message_94442)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8090,11 +8090,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_221598 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_110670 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_221598)) {
-					if (!messageReceive.equals(__DEC_message_message_221598)) {
+				if (!messageSend.equals(__DEC_message_message_110670)) {
+					if (!messageReceive.equals(__DEC_message_message_110670)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8297,11 +8297,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_181613 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_393152 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_181613)) {
-					if (!messageReceive.equals(__DEC_message_message_181613)) {
+				if (!messageSend.equals(__DEC_message_message_393152)) {
+					if (!messageReceive.equals(__DEC_message_message_393152)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8500,11 +8500,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_382529 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_853849 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_382529)) {
-					if (!messageReceive.equals(__DEC_message_message_382529)) {
+				if (!messageSend.equals(__DEC_message_message_853849)) {
+					if (!messageReceive.equals(__DEC_message_message_853849)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}

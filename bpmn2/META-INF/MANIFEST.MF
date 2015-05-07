@@ -6,7 +6,8 @@ Export-Package: bpmn2.util,
 Bundle-Name: bpmn2
 Bundle-Version: 1.0
 Require-Bundle: org.eclipse.emf.ecore,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ org.moflon.dependencies
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

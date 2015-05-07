@@ -237,7 +237,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_459(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_500(
 			EMoflonEdge _edge_preconditions);
 
 	/**
@@ -246,7 +246,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_159(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_333(
 			EMoflonEdge _edge_receiveEvent);
 
 	/**
@@ -255,7 +255,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_160(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_334(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -264,7 +264,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_161(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_335(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,7 +272,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_162(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_336(
 			EMoflonEdge _edge_enclosingInteraction);
 
 	/**
@@ -281,7 +281,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_163(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_337(
 			EMoflonEdge _edge_fragment);
 
 	/**
@@ -290,7 +290,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_164(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_338(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -298,7 +298,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_165(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_339(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -307,7 +307,7 @@ public interface UseCasePrecondToFoundMessageRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_166(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_340(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->

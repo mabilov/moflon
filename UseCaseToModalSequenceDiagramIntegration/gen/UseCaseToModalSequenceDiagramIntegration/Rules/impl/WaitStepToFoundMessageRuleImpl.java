@@ -964,7 +964,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_138(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_308(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1028,7 +1028,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_139(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_309(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1092,7 +1092,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_140(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_310(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1156,7 +1156,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_141(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_311(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1220,7 +1220,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_142(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_312(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1284,7 +1284,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_143(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_313(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1348,7 +1348,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_448(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_487(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1413,7 +1413,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_449(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_488(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
@@ -1766,29 +1766,29 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_138__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_138((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_308__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_308((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_139__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_139((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_309__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_309((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_140__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_140((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_310__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_310((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_141__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_141((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_311__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_311((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_142__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_142((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_312__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_312((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_143__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_143((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_313__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_313((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_448__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_448((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_487__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_487((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_449__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_449((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_488__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_488((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3772,9 +3772,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_20_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_939507 = message.getSendEvent();
-		if (__DEC_message_sendEvent_939507 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_939507)) {
+		MessageEnd __DEC_message_sendEvent_156170 = message.getSendEvent();
+		if (__DEC_message_sendEvent_156170 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_156170)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3784,9 +3784,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_20_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_904736 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_211711 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_904736)) {
+			if (!messageReceive.equals(__DEC_message_message_211711)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3796,11 +3796,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_20_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_8557 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_549622 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_8557 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_549622 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_8557)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_549622)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -3970,9 +3970,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_798382 = message.getSendEvent();
-		if (__DEC_message_sendEvent_798382 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_798382)) {
+		MessageEnd __DEC_message_sendEvent_987957 = message.getSendEvent();
+		if (__DEC_message_sendEvent_987957 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_987957)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3982,9 +3982,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_611968 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_220838 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_611968)) {
+			if (!messageReceive.equals(__DEC_message_message_220838)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3994,11 +3994,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_21_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_312749 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_726241 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_312749 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_726241 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_312749)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_726241)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4168,9 +4168,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_904797 = message.getSendEvent();
-		if (__DEC_message_sendEvent_904797 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_904797)) {
+		MessageEnd __DEC_message_sendEvent_71375 = message.getSendEvent();
+		if (__DEC_message_sendEvent_71375 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_71375)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4180,9 +4180,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_632960 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_672416 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_632960)) {
+			if (!messageReceive.equals(__DEC_message_message_672416)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4192,11 +4192,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_22_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_909042 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_286427 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_909042 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_286427 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_909042)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_286427)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4369,9 +4369,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_641693 = message.getSendEvent();
-		if (__DEC_message_sendEvent_641693 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_641693)) {
+		MessageEnd __DEC_message_sendEvent_107505 = message.getSendEvent();
+		if (__DEC_message_sendEvent_107505 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_107505)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4381,9 +4381,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_724196 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_867999 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_724196)) {
+			if (!messageReceive.equals(__DEC_message_message_867999)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4393,11 +4393,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_23_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_659863 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_327939 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_659863 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_327939 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_659863)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_327939)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4570,9 +4570,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_550255 = message.getSendEvent();
-		if (__DEC_message_sendEvent_550255 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_550255)) {
+		MessageEnd __DEC_message_sendEvent_152176 = message.getSendEvent();
+		if (__DEC_message_sendEvent_152176 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_152176)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4582,9 +4582,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_137571 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_938081 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_137571)) {
+			if (!messageReceive.equals(__DEC_message_message_938081)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4594,11 +4594,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_24_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_862204 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_576826 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_862204 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_576826 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_862204)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_576826)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4770,9 +4770,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_821199 = message.getSendEvent();
-		if (__DEC_message_sendEvent_821199 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_821199)) {
+		MessageEnd __DEC_message_sendEvent_864371 = message.getSendEvent();
+		if (__DEC_message_sendEvent_864371 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_864371)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4782,9 +4782,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_60603 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_191309 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_60603)) {
+			if (!messageReceive.equals(__DEC_message_message_191309)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4794,11 +4794,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_25_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_658588 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_696373 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_658588 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_696373 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_658588)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_696373)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}

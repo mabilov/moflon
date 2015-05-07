@@ -232,7 +232,7 @@ public interface ParallelFlowToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_156(EMoflonEdge _edge_operand);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_330(EMoflonEdge _edge_operand);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,7 +240,7 @@ public interface ParallelFlowToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_457(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_498(
 			EMoflonEdge _edge_invokedFlows);
 
 	/**
@@ -249,7 +249,7 @@ public interface ParallelFlowToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_458(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_499(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -257,7 +257,7 @@ public interface ParallelFlowToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_157(EMoflonEdge _edge_guard);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_331(EMoflonEdge _edge_guard);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,7 +265,7 @@ public interface ParallelFlowToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_158(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_332(
 			EMoflonEdge _edge_specification);
 
 	/**

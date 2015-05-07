@@ -223,7 +223,7 @@ public interface UCPackageToMSDPackage extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_452(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_491(
 			EMoflonEdge _edge_packages);
 
 	/**
@@ -232,7 +232,7 @@ public interface UCPackageToMSDPackage extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_150(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_320(
 			EMoflonEdge _edge_packagedElement);
 
 	/**

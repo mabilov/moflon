@@ -837,7 +837,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_156(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_330(
 			EMoflonEdge _edge_operand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
@@ -900,7 +900,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_457(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_498(
 			EMoflonEdge _edge_invokedFlows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
@@ -963,7 +963,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_458(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_499(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
@@ -1026,7 +1026,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_157(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_331(
 			EMoflonEdge _edge_guard) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
@@ -1089,7 +1089,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_158(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_332(
 			EMoflonEdge _edge_specification) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
@@ -1394,20 +1394,20 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_156__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_156((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_330__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_330((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_457__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_457((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_498__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_498((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_458__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_458((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_499__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_499((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_157__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_157((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_331__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_331((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_158__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_158((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_332__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_332((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2978,9 +2978,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_20_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_863633 = operand
+		Interaction __DEC_operand_enclosingInteraction_921042 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_863633 != null) {
+		if (__DEC_operand_enclosingInteraction_921042 != null) {
 			return new Object[] { operand };
 		}
 
@@ -2989,10 +2989,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_20_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_730560 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_18224 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_730560)) {
+			if (!combo.equals(__DEC_operand_operand_18224)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -3001,10 +3001,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_20_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_4297 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_209214 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_4297)) {
+			if (!operand.equals(__DEC_guard_guard_209214)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -3143,10 +3143,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_21_2_black_nac_0BB(
 			ParallelFlow parFlow, ParallelStep step) {
-		for (ParallelStep __DEC_parFlow_invokedFlows_176192 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parFlow_invokedFlows_178494 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!step.equals(__DEC_parFlow_invokedFlows_176192)) {
+			if (!step.equals(__DEC_parFlow_invokedFlows_178494)) {
 				return new Object[] { parFlow, step };
 			}
 		}
@@ -3282,10 +3282,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_22_2_black_nac_0BB(
 			ParallelFlow parFlow, ParallelStep step) {
-		for (ParallelStep __DEC_parFlow_invokedFlows_150352 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parFlow_invokedFlows_74784 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!step.equals(__DEC_parFlow_invokedFlows_150352)) {
+			if (!step.equals(__DEC_parFlow_invokedFlows_74784)) {
 				return new Object[] { parFlow, step };
 			}
 		}
@@ -3421,9 +3421,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_23_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_184140 = operand
+		Interaction __DEC_operand_enclosingInteraction_430131 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_184140 != null) {
+		if (__DEC_operand_enclosingInteraction_430131 != null) {
 			return new Object[] { operand };
 		}
 
@@ -3432,10 +3432,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_23_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_403312 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_73198 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_403312)) {
+			if (!combo.equals(__DEC_operand_operand_73198)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -3444,10 +3444,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_23_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_313513 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_91582 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_313513)) {
+			if (!operand.equals(__DEC_guard_guard_91582)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -3587,9 +3587,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_24_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_83625 = operand
+		Interaction __DEC_operand_enclosingInteraction_294894 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_83625 != null) {
+		if (__DEC_operand_enclosingInteraction_294894 != null) {
 			return new Object[] { operand };
 		}
 
@@ -3598,10 +3598,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_24_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_333955 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_663791 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_333955)) {
+			if (!combo.equals(__DEC_operand_operand_663791)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -3610,10 +3610,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_24_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_521240 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_45367 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_521240)) {
+			if (!operand.equals(__DEC_guard_guard_45367)) {
 				return new Object[] { guard, operand };
 			}
 		}

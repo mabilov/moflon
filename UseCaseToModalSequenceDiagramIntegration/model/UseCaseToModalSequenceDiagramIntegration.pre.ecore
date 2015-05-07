@@ -130,10 +130,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="NormalStepNFToMessageRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltStepToComboRule" abstract="true">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltStepNFToComboRule" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="AltStepToComboRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParallelStepToCombinedFragmentRule">
@@ -151,9 +148,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="StepAltToOperandRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltStepBFToComboRule" abstract="true">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserStepBFMessageRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
@@ -161,18 +155,6 @@
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UserStepNfToMessageRule">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltSysStepBFToComboRule">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltUserStepBFToComboRule">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltSysStepNFToComboRule">
-      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AltUserStepNFToComboRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
   </eSubpackages>

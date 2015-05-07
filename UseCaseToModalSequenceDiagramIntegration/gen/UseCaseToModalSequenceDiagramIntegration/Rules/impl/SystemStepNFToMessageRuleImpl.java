@@ -1089,7 +1089,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_200(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_374(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1156,7 +1156,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_201(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_375(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1223,7 +1223,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_202(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_376(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1290,7 +1290,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_203(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_377(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1357,7 +1357,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_204(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_378(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1424,7 +1424,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_205(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_379(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1491,7 +1491,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_206(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_380(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1558,7 +1558,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_207(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_381(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1625,7 +1625,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_208(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_382(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1692,7 +1692,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_209(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_383(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1759,7 +1759,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_210(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_384(
 			EMoflonEdge _edge_sendEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1826,7 +1826,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_211(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_385(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1893,7 +1893,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_212(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_386(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -1960,7 +1960,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_213(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_387(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -2027,7 +2027,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_214(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_388(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -2094,7 +2094,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_215(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_389(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -2161,7 +2161,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_467(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_508(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -2226,7 +2226,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_468(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_509(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
@@ -2617,59 +2617,59 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_200__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_200((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_374__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_374((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_201__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_201((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_375__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_375((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_202__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_202((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_376__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_376((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_203__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_203((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_377__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_377((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_204__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_204((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_378__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_378((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_205__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_205((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_379__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_379((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_206__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_206((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_380__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_380((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_207__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_207((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_381__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_381((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_208__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_208((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_382__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_382((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_209__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_209((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_383__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_383((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_210__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_210((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_384__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_384((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_211__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_211((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_385__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_385((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_212__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_212((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_386__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_386((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_213__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_213((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_387__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_387((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_214__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_214((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_388__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_388((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_215__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_215((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_389__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_389((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_467__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_467((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_508__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_508((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_468__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_468((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_509__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_509((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -5464,11 +5464,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_20_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_965656 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_755859 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_965656 != null) {
+		if (__DEC_messageSend_enclosingInteraction_755859 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_965656)) {
+					.equals(__DEC_messageSend_enclosingInteraction_755859)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -5479,11 +5479,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_20_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_868195 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_549426 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_868195 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_549426 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_868195)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_549426)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -5495,11 +5495,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_955417 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_918930 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_955417)) {
-					if (!messageReceive.equals(__DEC_message_message_955417)) {
+				if (!messageSend.equals(__DEC_message_message_918930)) {
+					if (!messageReceive.equals(__DEC_message_message_918930)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -5745,11 +5745,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_21_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_650325 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_65970 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_650325 != null) {
+		if (__DEC_messageSend_enclosingInteraction_65970 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_650325)) {
+					.equals(__DEC_messageSend_enclosingInteraction_65970)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -5760,11 +5760,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_21_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_128199 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_761331 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_128199 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_761331 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_128199)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_761331)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -5776,11 +5776,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_176267 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_565517 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_176267)) {
-					if (!messageReceive.equals(__DEC_message_message_176267)) {
+				if (!messageSend.equals(__DEC_message_message_565517)) {
+					if (!messageReceive.equals(__DEC_message_message_565517)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6026,11 +6026,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_22_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_326601 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_872034 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_326601 != null) {
+		if (__DEC_messageSend_enclosingInteraction_872034 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_326601)) {
+					.equals(__DEC_messageSend_enclosingInteraction_872034)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6041,11 +6041,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_22_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_592950 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_467480 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_592950 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_467480 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_592950)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_467480)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6057,11 +6057,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_392261 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_520930 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_392261)) {
-					if (!messageReceive.equals(__DEC_message_message_392261)) {
+				if (!messageSend.equals(__DEC_message_message_520930)) {
+					if (!messageReceive.equals(__DEC_message_message_520930)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6303,11 +6303,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_23_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_779350 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_222374 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_779350 != null) {
+		if (__DEC_messageSend_enclosingInteraction_222374 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_779350)) {
+					.equals(__DEC_messageSend_enclosingInteraction_222374)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6318,11 +6318,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_23_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_595291 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_177528 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_595291 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_177528 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_595291)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_177528)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6334,11 +6334,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_959268 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_422227 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_959268)) {
-					if (!messageReceive.equals(__DEC_message_message_959268)) {
+				if (!messageSend.equals(__DEC_message_message_422227)) {
+					if (!messageReceive.equals(__DEC_message_message_422227)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6580,11 +6580,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_24_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_960528 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_294944 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_960528 != null) {
+		if (__DEC_messageSend_enclosingInteraction_294944 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_960528)) {
+					.equals(__DEC_messageSend_enclosingInteraction_294944)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6595,11 +6595,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_24_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_503177 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_669953 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_503177 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_669953 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_503177)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_669953)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6611,11 +6611,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_772290 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_787452 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_772290)) {
-					if (!messageReceive.equals(__DEC_message_message_772290)) {
+				if (!messageSend.equals(__DEC_message_message_787452)) {
+					if (!messageReceive.equals(__DEC_message_message_787452)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6856,11 +6856,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_25_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_224075 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_80925 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_224075 != null) {
+		if (__DEC_messageSend_enclosingInteraction_80925 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_224075)) {
+					.equals(__DEC_messageSend_enclosingInteraction_80925)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6871,11 +6871,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_25_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_477599 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_507470 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_477599 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_507470 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_477599)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_507470)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6887,11 +6887,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_990968 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_762981 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_990968)) {
-					if (!messageReceive.equals(__DEC_message_message_990968)) {
+				if (!messageSend.equals(__DEC_message_message_762981)) {
+					if (!messageReceive.equals(__DEC_message_message_762981)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7132,11 +7132,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_26_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_546136 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_822777 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_546136 != null) {
+		if (__DEC_messageSend_enclosingInteraction_822777 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_546136)) {
+					.equals(__DEC_messageSend_enclosingInteraction_822777)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7147,11 +7147,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_26_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_171716 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_132047 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_171716 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_132047 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_171716)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_132047)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7163,11 +7163,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_918327 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_816943 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_918327)) {
-					if (!messageReceive.equals(__DEC_message_message_918327)) {
+				if (!messageSend.equals(__DEC_message_message_816943)) {
+					if (!messageReceive.equals(__DEC_message_message_816943)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7414,11 +7414,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_27_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_779655 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_351903 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_779655 != null) {
+		if (__DEC_messageSend_enclosingInteraction_351903 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_779655)) {
+					.equals(__DEC_messageSend_enclosingInteraction_351903)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7429,11 +7429,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_27_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_122536 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_110607 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_122536 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_110607 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_122536)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_110607)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7445,11 +7445,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_115236 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_910769 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_115236)) {
-					if (!messageReceive.equals(__DEC_message_message_115236)) {
+				if (!messageSend.equals(__DEC_message_message_910769)) {
+					if (!messageReceive.equals(__DEC_message_message_910769)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7696,11 +7696,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_28_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_853422 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_461254 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_853422 != null) {
+		if (__DEC_messageSend_enclosingInteraction_461254 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_853422)) {
+					.equals(__DEC_messageSend_enclosingInteraction_461254)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7711,11 +7711,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_28_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_37373 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_752839 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_37373 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_752839 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_37373)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_752839)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7727,11 +7727,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_59593 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_427315 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_59593)) {
-					if (!messageReceive.equals(__DEC_message_message_59593)) {
+				if (!messageSend.equals(__DEC_message_message_427315)) {
+					if (!messageReceive.equals(__DEC_message_message_427315)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7977,11 +7977,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_29_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_521113 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_345087 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_521113 != null) {
+		if (__DEC_messageSend_enclosingInteraction_345087 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_521113)) {
+					.equals(__DEC_messageSend_enclosingInteraction_345087)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7992,11 +7992,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_29_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_524026 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_753479 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_524026 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_753479 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_524026)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_753479)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8008,11 +8008,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_602612 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_294325 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_602612)) {
-					if (!messageReceive.equals(__DEC_message_message_602612)) {
+				if (!messageSend.equals(__DEC_message_message_294325)) {
+					if (!messageReceive.equals(__DEC_message_message_294325)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8255,11 +8255,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_30_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_821519 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_108036 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_821519 != null) {
+		if (__DEC_messageSend_enclosingInteraction_108036 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_821519)) {
+					.equals(__DEC_messageSend_enclosingInteraction_108036)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8270,11 +8270,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_30_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_393332 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_700763 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_393332 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_700763 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_393332)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_700763)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8286,11 +8286,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_299697 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_622117 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_299697)) {
-					if (!messageReceive.equals(__DEC_message_message_299697)) {
+				if (!messageSend.equals(__DEC_message_message_622117)) {
+					if (!messageReceive.equals(__DEC_message_message_622117)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8532,11 +8532,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_31_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_740028 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_67353 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_740028 != null) {
+		if (__DEC_messageSend_enclosingInteraction_67353 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_740028)) {
+					.equals(__DEC_messageSend_enclosingInteraction_67353)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8547,11 +8547,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_31_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_46744 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_77382 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_46744 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_77382 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_46744)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_77382)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8563,11 +8563,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_435455 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_574837 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_435455)) {
-					if (!messageReceive.equals(__DEC_message_message_435455)) {
+				if (!messageSend.equals(__DEC_message_message_574837)) {
+					if (!messageReceive.equals(__DEC_message_message_574837)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8808,11 +8808,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_32_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_215094 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_987830 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_215094 != null) {
+		if (__DEC_messageSend_enclosingInteraction_987830 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_215094)) {
+					.equals(__DEC_messageSend_enclosingInteraction_987830)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8823,11 +8823,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_32_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_364713 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_365669 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_364713 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_365669 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_364713)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_365669)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8839,11 +8839,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_756918 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_41747 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_756918)) {
-					if (!messageReceive.equals(__DEC_message_message_756918)) {
+				if (!messageSend.equals(__DEC_message_message_41747)) {
+					if (!messageReceive.equals(__DEC_message_message_41747)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9086,11 +9086,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_33_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_903835 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_806008 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_903835 != null) {
+		if (__DEC_messageSend_enclosingInteraction_806008 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_903835)) {
+					.equals(__DEC_messageSend_enclosingInteraction_806008)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9101,11 +9101,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_33_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_630768 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_267396 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_630768 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_267396 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_630768)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_267396)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9117,11 +9117,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_248881 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_657220 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_248881)) {
-					if (!messageReceive.equals(__DEC_message_message_248881)) {
+				if (!messageSend.equals(__DEC_message_message_657220)) {
+					if (!messageReceive.equals(__DEC_message_message_657220)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9363,11 +9363,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_34_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_58315 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_509838 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_58315 != null) {
+		if (__DEC_messageSend_enclosingInteraction_509838 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_58315)) {
+					.equals(__DEC_messageSend_enclosingInteraction_509838)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9378,11 +9378,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_34_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_497159 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_137003 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_497159 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_137003 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_497159)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_137003)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9394,11 +9394,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_999979 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_745553 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_999979)) {
-					if (!messageReceive.equals(__DEC_message_message_999979)) {
+				if (!messageSend.equals(__DEC_message_message_745553)) {
+					if (!messageReceive.equals(__DEC_message_message_745553)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9642,11 +9642,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_35_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_934428 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_373475 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_934428 != null) {
+		if (__DEC_messageSend_enclosingInteraction_373475 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_934428)) {
+					.equals(__DEC_messageSend_enclosingInteraction_373475)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9657,11 +9657,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_35_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_321113 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_771137 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_321113 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_771137 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_321113)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_771137)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9673,11 +9673,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_439056 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_226398 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_439056)) {
-					if (!messageReceive.equals(__DEC_message_message_439056)) {
+				if (!messageSend.equals(__DEC_message_message_226398)) {
+					if (!messageReceive.equals(__DEC_message_message_226398)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}

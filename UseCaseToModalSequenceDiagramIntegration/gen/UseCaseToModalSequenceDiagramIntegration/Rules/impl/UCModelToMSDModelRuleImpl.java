@@ -658,7 +658,7 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_UseCasesModel_0(
+	public EObjectContainer isAppropriate_FWD_UseCasesModel_1(
 			UseCasesModel useCasesModel) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCModelToMSDModelRuleImpl
@@ -717,7 +717,7 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_Model_0(Model model) {
+	public EObjectContainer isAppropriate_BWD_Model_1(Model model) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_21_1_bindingAndBlackFFB(this);
@@ -948,11 +948,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_0__USECASESMODEL:
-			return isAppropriate_FWD_UseCasesModel_0((UseCasesModel) arguments
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_1__USECASESMODEL:
+			return isAppropriate_FWD_UseCasesModel_1((UseCasesModel) arguments
 					.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_0__MODEL:
-			return isAppropriate_BWD_Model_0((Model) arguments.get(0));
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_1__MODEL:
+			return isAppropriate_BWD_Model_1((Model) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:

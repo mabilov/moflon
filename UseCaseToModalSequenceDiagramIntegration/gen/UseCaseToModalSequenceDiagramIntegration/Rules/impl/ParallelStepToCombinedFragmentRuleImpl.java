@@ -789,7 +789,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_154(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_328(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
@@ -850,7 +850,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_155(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_329(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
@@ -911,7 +911,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_456(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_497(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
@@ -1200,14 +1200,14 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_154__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_154((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_328__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_328((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_155__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_155((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_329__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_329((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_456__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_456((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_497__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_497((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

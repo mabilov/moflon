@@ -167,15 +167,6 @@ public class RulesSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.ALT_STEP_NF_TO_COMBO_RULE: {
-			AltStepNFToComboRule altStepNFToComboRule = (AltStepNFToComboRule) theEObject;
-			T result = caseAltStepNFToComboRule(altStepNFToComboRule);
-			if (result == null)
-				result = caseAbstractRule(altStepNFToComboRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE: {
 			ParallelStepToCombinedFragmentRule parallelStepToCombinedFragmentRule = (ParallelStepToCombinedFragmentRule) theEObject;
 			T result = caseParallelStepToCombinedFragmentRule(parallelStepToCombinedFragmentRule);
@@ -221,15 +212,6 @@ public class RulesSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RulesPackage.ALT_STEP_BF_TO_COMBO_RULE: {
-			AltStepBFToComboRule altStepBFToComboRule = (AltStepBFToComboRule) theEObject;
-			T result = caseAltStepBFToComboRule(altStepBFToComboRule);
-			if (result == null)
-				result = caseAbstractRule(altStepBFToComboRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE: {
 			UserStepBFMessageRule userStepBFMessageRule = (UserStepBFMessageRule) theEObject;
 			T result = caseUserStepBFMessageRule(userStepBFMessageRule);
@@ -253,42 +235,6 @@ public class RulesSwitch<T> extends Switch<T> {
 			T result = caseUserStepNfToMessageRule(userStepNfToMessageRule);
 			if (result == null)
 				result = caseAbstractRule(userStepNfToMessageRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.ALT_SYS_STEP_BF_TO_COMBO_RULE: {
-			AltSysStepBFToComboRule altSysStepBFToComboRule = (AltSysStepBFToComboRule) theEObject;
-			T result = caseAltSysStepBFToComboRule(altSysStepBFToComboRule);
-			if (result == null)
-				result = caseAbstractRule(altSysStepBFToComboRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.ALT_USER_STEP_BF_TO_COMBO_RULE: {
-			AltUserStepBFToComboRule altUserStepBFToComboRule = (AltUserStepBFToComboRule) theEObject;
-			T result = caseAltUserStepBFToComboRule(altUserStepBFToComboRule);
-			if (result == null)
-				result = caseAbstractRule(altUserStepBFToComboRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.ALT_SYS_STEP_NF_TO_COMBO_RULE: {
-			AltSysStepNFToComboRule altSysStepNFToComboRule = (AltSysStepNFToComboRule) theEObject;
-			T result = caseAltSysStepNFToComboRule(altSysStepNFToComboRule);
-			if (result == null)
-				result = caseAbstractRule(altSysStepNFToComboRule);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RulesPackage.ALT_USER_STEP_NF_TO_COMBO_RULE: {
-			AltUserStepNFToComboRule altUserStepNFToComboRule = (AltUserStepNFToComboRule) theEObject;
-			T result = caseAltUserStepNFToComboRule(altUserStepNFToComboRule);
-			if (result == null)
-				result = caseAbstractRule(altUserStepNFToComboRule);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -464,21 +410,6 @@ public class RulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alt Step NF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alt Step NF To Combo Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAltStepNFToComboRule(AltStepNFToComboRule object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Parallel Step To Combined Fragment Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -556,21 +487,6 @@ public class RulesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alt Step BF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alt Step BF To Combo Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAltStepBFToComboRule(AltStepBFToComboRule object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>User Step BF Message Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -612,66 +528,6 @@ public class RulesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUserStepNfToMessageRule(UserStepNfToMessageRule object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alt Sys Step BF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alt Sys Step BF To Combo Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAltSysStepBFToComboRule(AltSysStepBFToComboRule object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alt User Step BF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alt User Step BF To Combo Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAltUserStepBFToComboRule(AltUserStepBFToComboRule object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alt Sys Step NF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alt Sys Step NF To Combo Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAltSysStepNFToComboRule(AltSysStepNFToComboRule object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alt User Step NF To Combo Rule</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alt User Step NF To Combo Rule</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAltUserStepNFToComboRule(AltUserStepNFToComboRule object) {
 		return null;
 	}
 

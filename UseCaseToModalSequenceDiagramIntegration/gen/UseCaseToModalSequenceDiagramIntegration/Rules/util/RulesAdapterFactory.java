@@ -130,11 +130,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAltStepNFToComboRule(AltStepNFToComboRule object) {
-			return createAltStepNFToComboRuleAdapter();
-		}
-
-		@Override
 		public Adapter caseParallelStepToCombinedFragmentRule(
 				ParallelStepToCombinedFragmentRule object) {
 			return createParallelStepToCombinedFragmentRuleAdapter();
@@ -164,11 +159,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAltStepBFToComboRule(AltStepBFToComboRule object) {
-			return createAltStepBFToComboRuleAdapter();
-		}
-
-		@Override
 		public Adapter caseUserStepBFMessageRule(UserStepBFMessageRule object) {
 			return createUserStepBFMessageRuleAdapter();
 		}
@@ -183,30 +173,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 		public Adapter caseUserStepNfToMessageRule(
 				UserStepNfToMessageRule object) {
 			return createUserStepNfToMessageRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseAltSysStepBFToComboRule(
-				AltSysStepBFToComboRule object) {
-			return createAltSysStepBFToComboRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseAltUserStepBFToComboRule(
-				AltUserStepBFToComboRule object) {
-			return createAltUserStepBFToComboRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseAltSysStepNFToComboRule(
-				AltSysStepNFToComboRule object) {
-			return createAltSysStepNFToComboRuleAdapter();
-		}
-
-		@Override
-		public Adapter caseAltUserStepNFToComboRule(
-				AltUserStepNFToComboRule object) {
-			return createAltUserStepNFToComboRuleAdapter();
 		}
 
 		@Override
@@ -388,20 +354,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepNFToComboRule <em>Alt Step NF To Combo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepNFToComboRule
-	 * @generated
-	 */
-	public Adapter createAltStepNFToComboRuleAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule <em>Parallel Step To Combined Fragment Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -472,20 +424,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepBFToComboRule <em>Alt Step BF To Combo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepBFToComboRule
-	 * @generated
-	 */
-	public Adapter createAltStepBFToComboRuleAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule <em>User Step BF Message Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -524,62 +462,6 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUserStepNfToMessageRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltSysStepBFToComboRule <em>Alt Sys Step BF To Combo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltSysStepBFToComboRule
-	 * @generated
-	 */
-	public Adapter createAltSysStepBFToComboRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltUserStepBFToComboRule <em>Alt User Step BF To Combo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltUserStepBFToComboRule
-	 * @generated
-	 */
-	public Adapter createAltUserStepBFToComboRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltSysStepNFToComboRule <em>Alt Sys Step NF To Combo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltSysStepNFToComboRule
-	 * @generated
-	 */
-	public Adapter createAltSysStepNFToComboRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltUserStepNFToComboRule <em>Alt User Step NF To Combo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltUserStepNFToComboRule
-	 * @generated
-	 */
-	public Adapter createAltUserStepNFToComboRuleAdapter() {
 		return null;
 	}
 

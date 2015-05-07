@@ -961,7 +961,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_144(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_314(
 			EMoflonEdge _edge_sendEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1025,7 +1025,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_145(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_315(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1089,7 +1089,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_146(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_316(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1153,7 +1153,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_147(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_317(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1217,7 +1217,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_148(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_318(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1281,7 +1281,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_149(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_319(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1345,7 +1345,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_450(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_489(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1410,7 +1410,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_451(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_490(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
@@ -1763,29 +1763,29 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_144__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_144((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_314__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_314((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_145__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_145((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_315__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_315((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_146__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_146((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_316__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_316((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_147__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_147((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_317__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_317((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_148__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_148((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_318__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_318((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_149__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_149((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_319__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_319((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_450__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_450((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_489__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_489((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_451__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_451((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_490__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_490((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3755,10 +3755,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_20_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_813138 = message
+		MessageEnd __DEC_message_receiveEvent_157940 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_813138 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_813138)) {
+		if (__DEC_message_receiveEvent_157940 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_157940)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3768,9 +3768,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_20_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_250791 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_79118 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_250791)) {
+			if (!messageSend.equals(__DEC_message_message_79118)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3779,11 +3779,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_20_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_472225 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_549014 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_472225 != null) {
+		if (__DEC_messageSend_enclosingInteraction_549014 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_472225)) {
+					.equals(__DEC_messageSend_enclosingInteraction_549014)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -3952,10 +3952,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_987434 = message
+		MessageEnd __DEC_message_receiveEvent_488885 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_987434 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_987434)) {
+		if (__DEC_message_receiveEvent_488885 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_488885)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3965,9 +3965,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_111412 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_174596 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_111412)) {
+			if (!messageSend.equals(__DEC_message_message_174596)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3976,11 +3976,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_21_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_90344 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_254150 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_90344 != null) {
+		if (__DEC_messageSend_enclosingInteraction_254150 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_90344)) {
+					.equals(__DEC_messageSend_enclosingInteraction_254150)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4149,10 +4149,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_581762 = message
+		MessageEnd __DEC_message_receiveEvent_606448 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_581762 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_581762)) {
+		if (__DEC_message_receiveEvent_606448 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_606448)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4162,9 +4162,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_640595 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_450597 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_640595)) {
+			if (!messageSend.equals(__DEC_message_message_450597)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4173,11 +4173,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_22_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_703219 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_145479 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_703219 != null) {
+		if (__DEC_messageSend_enclosingInteraction_145479 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_703219)) {
+					.equals(__DEC_messageSend_enclosingInteraction_145479)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4348,10 +4348,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_278187 = message
+		MessageEnd __DEC_message_receiveEvent_439928 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_278187 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_278187)) {
+		if (__DEC_message_receiveEvent_439928 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_439928)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4361,9 +4361,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_235407 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_202361 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_235407)) {
+			if (!messageSend.equals(__DEC_message_message_202361)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4372,11 +4372,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_23_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_525209 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_935236 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_525209 != null) {
+		if (__DEC_messageSend_enclosingInteraction_935236 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_525209)) {
+					.equals(__DEC_messageSend_enclosingInteraction_935236)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4548,9 +4548,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_94427 = message.getReceiveEvent();
-		if (__DEC_message_receiveEvent_94427 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_94427)) {
+		MessageEnd __DEC_message_receiveEvent_676806 = message
+				.getReceiveEvent();
+		if (__DEC_message_receiveEvent_676806 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_676806)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4560,9 +4561,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_595242 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_388392 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_595242)) {
+			if (!messageSend.equals(__DEC_message_message_388392)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4571,11 +4572,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_24_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_475480 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_188126 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_475480 != null) {
+		if (__DEC_messageSend_enclosingInteraction_188126 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_475480)) {
+					.equals(__DEC_messageSend_enclosingInteraction_188126)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4746,10 +4747,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_665600 = message
+		MessageEnd __DEC_message_receiveEvent_703510 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_665600 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_665600)) {
+		if (__DEC_message_receiveEvent_703510 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_703510)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4759,9 +4760,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_579786 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_436924 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_579786)) {
+			if (!messageSend.equals(__DEC_message_message_436924)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4770,11 +4771,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_25_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_508420 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_308326 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_508420 != null) {
+		if (__DEC_messageSend_enclosingInteraction_308326 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_508420)) {
+					.equals(__DEC_messageSend_enclosingInteraction_308326)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}

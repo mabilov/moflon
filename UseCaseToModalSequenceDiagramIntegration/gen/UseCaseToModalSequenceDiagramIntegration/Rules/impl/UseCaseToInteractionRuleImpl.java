@@ -821,7 +821,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_453(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_492(
 			EMoflonEdge _edge_useCases) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCaseToInteractionRuleImpl
@@ -883,7 +883,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_151(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_321(
 			EMoflonEdge _edge_packagedElement) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCaseToInteractionRuleImpl
@@ -944,7 +944,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_454(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_493(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCaseToInteractionRuleImpl
@@ -1234,14 +1234,14 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_453__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_453((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_492__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_492((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_151__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_151((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_321__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_321((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_454__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_454((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_493__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_493((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2631,10 +2631,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_20_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_792284 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_762379 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_792284)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_762379)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -2763,11 +2763,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_21_2_black_nac_0B(
 			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_534479 = interaction
+		Interaction __DEC_interaction_enclosingInteraction_265915 = interaction
 				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_534479 != null) {
+		if (__DEC_interaction_enclosingInteraction_265915 != null) {
 			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_534479)) {
+					.equals(__DEC_interaction_enclosingInteraction_265915)) {
 				return new Object[] { interaction };
 			}
 		}
@@ -2890,10 +2890,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_468094 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_289102 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_468094)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_289102)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
