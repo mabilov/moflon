@@ -81,4 +81,4 @@ NormalStep: 'step' name = ID
 QualifiedName: ID ('.' ID)*;
 	
 enum ActorType: PERSON='person' | SYSTEM = 'system' | ORGANIZATION = 'organization';
-enum StepType: WAIT = 'wait' | SEND = 'send' | PERFORM = 'perform' | CALL = 'call' | ALT = 'alt';
+enum StepType: WAIT = 'wait' | SEND = 'send' | PERFORM = 'perform' | CALL = 'call' | ALT = 'alt' | WAIT_ALT = 'wait-alt';

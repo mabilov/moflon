@@ -1032,7 +1032,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_52(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_119(
 			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1095,7 +1095,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_165(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_385(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1162,7 +1162,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_166(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_386(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1229,7 +1229,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_167(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_387(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1296,7 +1296,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_168(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_388(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1363,7 +1363,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_169(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_389(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1430,7 +1430,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_170(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_390(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1497,7 +1497,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_53(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_120(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1560,7 +1560,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_54(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_121(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -1623,7 +1623,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_171(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_391(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterPConvGwRuleImpl
@@ -2001,35 +2001,35 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_52__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_52((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_119__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_119((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_165__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_165((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_385__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_385((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_166__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_166((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_386__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_386((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_167__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_167((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_387__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_387((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_168__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_168((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_388__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_388((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_169__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_169((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_389__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_389((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_170__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_170((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_390__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_390((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_53__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_53((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_120__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_120((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_54__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_54((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_121__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_121((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_171__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_171((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_391__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_391((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ICE_TO_STEP_AFTER_PCONV_GW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4910,7 +4910,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_21_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_320069 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_72380 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5087,7 +5087,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_22_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_70589 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_913472 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5264,7 +5264,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_23_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_443329 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_941861 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5442,7 +5442,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_24_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_760869 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_588862 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5620,7 +5620,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_25_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_99634 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_190689 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5799,7 +5799,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_26_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_39922 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_639736 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6220,7 +6220,7 @@ public class ICEToStepAfterPConvGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterPConvGwRule_29_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_798321 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_453369 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };

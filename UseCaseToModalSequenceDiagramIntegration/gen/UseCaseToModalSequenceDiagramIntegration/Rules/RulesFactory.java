@@ -23,6 +23,24 @@ public interface RulesFactory extends EFactory {
 			.init();
 
 	/**
+	 * Returns a new object of class '<em>Wait Step To Found Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Wait Step To Found Message Rule</em>'.
+	 * @generated
+	 */
+	WaitStepToFoundMessageRule createWaitStepToFoundMessageRule();
+
+	/**
+	 * Returns a new object of class '<em>Send Step To Lost Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Send Step To Lost Message Rule</em>'.
+	 * @generated
+	 */
+	SendStepToLostMessageRule createSendStepToLostMessageRule();
+
+	/**
 	 * Returns a new object of class '<em>UC Model To MSD Model Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

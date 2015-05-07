@@ -984,7 +984,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_12(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
 			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1044,7 +1044,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_22(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_246(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1109,7 +1109,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_23(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_247(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1174,7 +1174,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_24(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_248(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1239,7 +1239,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_25(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_249(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1304,7 +1304,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_26(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_250(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1369,7 +1369,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_27(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_251(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1434,7 +1434,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_13(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_82(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1494,7 +1494,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_14(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_83(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1554,7 +1554,7 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_28(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_252(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ITEToStepRuleImpl
@@ -1916,35 +1916,35 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ITE_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_12__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_12((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_81__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_81((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_22__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_22((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_246__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_246((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_23__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_23((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_247__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_247((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_24__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_24((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_248__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_248((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_25__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_25((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_249__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_249((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_26__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_26((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_250__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_250((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_27__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_27((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_251__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_251((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_13__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_13((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_82__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_82((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_14__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_14((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_83__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_83((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_28__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_28((EMoflonEdge) arguments
+		case RulesPackage.ITE_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_252__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_252((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ITE_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4819,10 +4819,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_924089 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_407805 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_924089)) {
+			if (!flowNode.equals(__DEC_outFlow_default_407805)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5000,10 +5000,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_499574 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_683556 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_499574)) {
+			if (!flowNode.equals(__DEC_outFlow_default_683556)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5181,10 +5181,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_520160 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_472275 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_520160)) {
+			if (!flowNode.equals(__DEC_outFlow_default_472275)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5363,10 +5363,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_587737 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_708282 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_587737)) {
+			if (!flowNode.equals(__DEC_outFlow_default_708282)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5546,10 +5546,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_92451 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_43997 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_92451)) {
+			if (!flowNode.equals(__DEC_outFlow_default_43997)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5727,10 +5727,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_401319 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_352441 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_401319)) {
+			if (!flowNode.equals(__DEC_outFlow_default_352441)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -6151,10 +6151,10 @@ public class ITEToStepRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ITEToStepRule_29_2_black_nac_0BB(
 			SequenceFlow outFlow, FlowNode flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_926466 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_664557 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_926466)) {
+			if (!flowNode.equals(__DEC_outFlow_default_664557)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

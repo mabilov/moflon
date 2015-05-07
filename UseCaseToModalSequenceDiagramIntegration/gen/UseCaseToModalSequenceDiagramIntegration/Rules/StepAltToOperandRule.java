@@ -250,7 +250,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_102(EMoflonEdge _edge_operand);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_181(EMoflonEdge _edge_operand);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,7 +258,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_238(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_462(
 			EMoflonEdge _edge_stepAlternative);
 
 	/**
@@ -267,7 +267,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_239(EMoflonEdge _edge_ref);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_463(EMoflonEdge _edge_ref);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,7 +275,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_103(EMoflonEdge _edge_guard);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_182(EMoflonEdge _edge_guard);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,7 +283,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_104(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_183(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -292,7 +292,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_105(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_184(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,7 +300,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_106(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_185(
 			EMoflonEdge _edge_specification);
 
 	/**
@@ -309,7 +309,7 @@ public interface StepAltToOperandRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_240(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_464(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -787,7 +787,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_0(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_224(
 			EMoflonEdge _edge_definitions) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
@@ -848,7 +848,7 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_0(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_69(
 			EMoflonEdge _edge_packages) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = DefinitionsToPackageRuleImpl
@@ -1137,11 +1137,11 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_0__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_0((EMoflonEdge) arguments
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_224__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_224((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_0__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_0((EMoflonEdge) arguments
+		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_69__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_69((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.DEFINITIONS_TO_PACKAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2321,10 +2321,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_DefinitionsToPackageRule_20_2_black_nac_0BB(
 			Definitions definitions, DocumentRoot documentRoot) {
-		for (DocumentRoot __DEC_definitions_definitions_593762 : org.moflon.util.eMoflonEMFUtil
+		for (DocumentRoot __DEC_definitions_definitions_360938 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(definitions, DocumentRoot.class,
 						"definitions")) {
-			if (!documentRoot.equals(__DEC_definitions_definitions_593762)) {
+			if (!documentRoot.equals(__DEC_definitions_definitions_360938)) {
 				return new Object[] { definitions, documentRoot };
 			}
 		}
@@ -2447,10 +2447,10 @@ public class DefinitionsToPackageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_DefinitionsToPackageRule_21_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_538898 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_911527 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_538898)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_911527)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}

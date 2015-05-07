@@ -125,7 +125,8 @@ public interface LaneSetRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_6(EMoflonEdge _edge_laneSets);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_230(
+			EMoflonEdge _edge_laneSets);
 
 	/**
 	 * <!-- begin-user-doc -->

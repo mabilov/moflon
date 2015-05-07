@@ -231,7 +231,7 @@ public interface UseCaseToInteractionRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_453(
 			EMoflonEdge _edge_useCases);
 
 	/**
@@ -240,7 +240,7 @@ public interface UseCaseToInteractionRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_72(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_151(
 			EMoflonEdge _edge_packagedElement);
 
 	/**
@@ -249,7 +249,7 @@ public interface UseCaseToInteractionRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_230(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_454(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->

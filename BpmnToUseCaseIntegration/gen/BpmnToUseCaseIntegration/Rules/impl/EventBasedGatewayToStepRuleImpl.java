@@ -34,6 +34,7 @@ import UseCaseDSL.Actor;
 import UseCaseDSL.Flow;
 import UseCaseDSL.NormalStep;
 import UseCaseDSL.Step;
+import UseCaseDSL.StepType;
 import UseCaseDSL.UseCaseDSLFactory;
 
 import bpmn2.Bpmn2Factory;
@@ -436,6 +437,10 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAttributeInfo().add(csp);
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("WAIT_ALT");
+		literal0.setType("");
 
 		// Create attribute variables
 		Variable var_eventBasedGateway_id = CSPFactoryHelper.eINSTANCE
@@ -454,19 +459,26 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Variable var_normalStep_label = CSPFactoryHelper.eINSTANCE
 				.createVariable("normalStep.label", csp);
 		var_normalStep_label.setType("String");
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", csp);
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create constraints
 		Eq eq = new Eq();
 		Eq eq_0 = new Eq();
+		EqStepType eqStepType = new EqStepType();
 
 		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eq_0);
+		csp.getConstraints().add(eqStepType);
 
 		// Solve CSP
 		eq.setRuleName("");
 		eq.solve(var_eventBasedGateway_id, var_normalStep_name);
 		eq_0.setRuleName("");
 		eq_0.solve(var_eventBasedGateway_name, var_normalStep_label);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("inFlow", inFlow);
@@ -808,14 +820,27 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
+		Variable literal0 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal0", true, csp);
+		literal0.setValue("WAIT_ALT");
+		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", true, csp);
+		var_normalStep_type.setValue(normalStep.getType());
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create unbound variables
 
 		// Create constraints
+		EqStepType eqStepType = new EqStepType();
+
+		csp.getConstraints().add(eqStepType);
 
 		// Solve CSP
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal0);
 		return csp;
 	}
 
@@ -954,7 +979,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_33(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_100(
 			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1017,7 +1042,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_79(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_299(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1082,7 +1107,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_80(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_300(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1147,7 +1172,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_81(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_301(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1212,7 +1237,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_34(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_101(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1275,7 +1300,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_35(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_102(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1338,7 +1363,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_82(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_302(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
@@ -1523,6 +1548,10 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				"literal0", true, csp);
 		literal0.setValue("Diverging");
 		literal0.setType("");
+		Variable literal1 = CSPFactoryHelper.eINSTANCE.createVariable(
+				"literal1", true, csp);
+		literal1.setValue("WAIT_ALT");
+		literal1.setType("");
 
 		// Create attribute variables
 
@@ -1543,13 +1572,18 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				.createVariable("eventBasedGateway.gatewayDirection", csp);
 		var_eventBasedGateway_gatewayDirection
 				.setType("bpmn2.GatewayDirection");
+		Variable var_normalStep_type = CSPFactoryHelper.eINSTANCE
+				.createVariable("normalStep.type", csp);
+		var_normalStep_type.setType("UseCaseDSL.StepType");
 
 		// Create constraints
 		EqGatewayDirection eqGatewayDirection = new EqGatewayDirection();
+		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
 		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqGatewayDirection);
+		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eq_0);
 
@@ -1557,6 +1591,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		eqGatewayDirection.setRuleName("");
 		eqGatewayDirection.solve(var_eventBasedGateway_gatewayDirection,
 				literal0);
+		eqStepType.setRuleName("");
+		eqStepType.solve(var_normalStep_type, literal1);
 		eq.setRuleName("");
 		eq.solve(var_eventBasedGateway_id, var_normalStep_name);
 		eq_0.setRuleName("");
@@ -1687,26 +1723,26 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_33__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_33((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_100__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_100((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_79__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_79((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_299__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_299((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_80__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_80((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_300__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_300((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_81__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_81((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_301__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_301((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_34__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_34((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_101__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_101((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_35__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_35((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_102__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_102((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_82__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_82((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_302__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_302((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2033,6 +2069,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				.createFlowNodeToStep();
 		Object _localVariable_0 = csp.getValue("normalStep", "name");
 		Object _localVariable_1 = csp.getValue("normalStep", "label");
+		Object _localVariable_2 = csp.getValue("normalStep", "type");
 		prevStep.setNext(normalStep);
 		normalStep.setActor(actor);
 		flow.getSteps().add(normalStep);
@@ -2040,8 +2077,10 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		ebgToNormalStep.setTarget(normalStep);
 		String normalStep_name_prime = (String) _localVariable_0;
 		String normalStep_label_prime = (String) _localVariable_1;
+		StepType normalStep_type_prime = (StepType) _localVariable_2;
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
+		normalStep.setType(normalStep_type_prime);
 		return new Object[] { prevStep, normalStep, eventBasedGateway, actor,
 				flow, ebgToNormalStep, csp };
 	}
@@ -5057,12 +5096,13 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				.createFlowNodeToStep();
 		Object _localVariable_0 = csp.getValue("normalStep", "name");
 		Object _localVariable_1 = csp.getValue("normalStep", "label");
-		Object _localVariable_2 = csp.getValue("eventBasedGateway", "id");
-		Object _localVariable_3 = csp.getValue("eventBasedGateway", "name");
-		Object _localVariable_4 = csp.getValue("eventBasedGateway",
+		Object _localVariable_2 = csp.getValue("normalStep", "type");
+		Object _localVariable_3 = csp.getValue("eventBasedGateway", "id");
+		Object _localVariable_4 = csp.getValue("eventBasedGateway", "name");
+		Object _localVariable_5 = csp.getValue("eventBasedGateway",
 				"gatewayDirection");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_6 = ruleResult.getIncrementedPerformCount();
 		prevStep.setNext(normalStep);
 		normalStep.setActor(actor);
 		flow.getSteps().add(normalStep);
@@ -5076,13 +5116,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getCorrObjects().add(ebgToNormalStep);
 		String normalStep_name_prime = (String) _localVariable_0;
 		String normalStep_label_prime = (String) _localVariable_1;
-		String eventBasedGateway_id_prime = (String) _localVariable_2;
-		String eventBasedGateway_name_prime = (String) _localVariable_3;
-		GatewayDirection eventBasedGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_4;
+		StepType normalStep_type_prime = (StepType) _localVariable_2;
+		String eventBasedGateway_id_prime = (String) _localVariable_3;
+		String eventBasedGateway_name_prime = (String) _localVariable_4;
+		GatewayDirection eventBasedGateway_gatewayDirection_prime = (GatewayDirection) _localVariable_5;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_6);
 		normalStep.setName(normalStep_name_prime);
 		normalStep.setLabel(normalStep_label_prime);
+		normalStep.setType(normalStep_type_prime);
 		eventBasedGateway.setId(eventBasedGateway_id_prime);
 		eventBasedGateway.setName(eventBasedGateway_name_prime);
 		eventBasedGateway

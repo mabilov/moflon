@@ -41,13 +41,11 @@ import UseCaseDSL.UseCaseDSLFactory;
 
 import UseCaseToModalSequenceDiagramIntegration.ActorToLifeline;
 import UseCaseToModalSequenceDiagramIntegration.FlowToInteractionFragment;
-import UseCaseToModalSequenceDiagramIntegration.NormalStepToMessage;
 
 import UseCaseToModalSequenceDiagramIntegration.Rules.RulesPackage;
 import UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule;
 
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToInteraction;
-import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationFactory;
 
 import java.lang.Iterable;
 
@@ -104,12 +102,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public boolean isAppropriate_FWD(Match match, Actor actor, Actor sysActor,
 			PackageDeclaration packageDeclaration, BasicFlow flow,
-			UseCase useCase, NormalStep step) {
+			NormalStep step, UseCase useCase) {
 		// initial bindings
 		Object[] result1_black = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_0_1_blackBBBBBBBB(this, match,
-						actor, sysActor, packageDeclaration, flow, useCase,
-						step);
+						actor, sysActor, packageDeclaration, flow, step,
+						useCase);
 		if (result1_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [initial bindings] failed");
@@ -119,7 +117,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_0_2_bindingAndBlackFBBBBBBBB(
 						this, match, actor, sysActor, packageDeclaration, flow,
-						useCase, step);
+						step, useCase);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [Solve CSP] failed");
@@ -132,8 +130,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// collect elements to be translated
 			Object[] result4_black = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_0_4_blackBBBBBBB(match,
-							actor, sysActor, packageDeclaration, flow, useCase,
-							step);
+							actor, sysActor, packageDeclaration, flow, step,
+							useCase);
 			if (result4_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect elements to be translated] failed");
@@ -147,8 +145,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// collect context elements
 			Object[] result5_black = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_0_5_blackBBBBBBB(match,
-							actor, sysActor, packageDeclaration, flow, useCase,
-							step);
+							actor, sysActor, packageDeclaration, flow, step,
+							useCase);
 			if (result5_black == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [collect context elements] failed");
@@ -165,7 +163,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_0_6_expressionBBBBBBBB(this,
 							match, actor, sysActor, packageDeclaration, flow,
-							useCase, step);
+							step, useCase);
 			return UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_0_7_expressionF();
 		} else {
@@ -197,78 +195,72 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		Interaction interaction = (Interaction) result1_bindingAndBlack[5];
 		BasicFlow flow = (BasicFlow) result1_bindingAndBlack[6];
 		FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result1_bindingAndBlack[7];
-		UseCase useCase = (UseCase) result1_bindingAndBlack[8];
-		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[9];
-		NormalStep step = (NormalStep) result1_bindingAndBlack[10];
-		Lifeline line = (Lifeline) result1_bindingAndBlack[11];
+		NormalStep step = (NormalStep) result1_bindingAndBlack[8];
+		Lifeline line = (Lifeline) result1_bindingAndBlack[9];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[10];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[11];
 		ActorToLifeline actorToLine = (ActorToLifeline) result1_bindingAndBlack[12];
 		CSP csp = (CSP) result1_bindingAndBlack[13];
 		Object[] result1_green = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_1_1_greenBFBFBFFBB(sysLine,
-						interaction, step, line, csp);
+				.pattern_UserStepBFMessageRule_1_1_greenBFBFFBB(sysLine,
+						interaction, line, csp);
 		MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result1_green[1];
 		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_green[3];
-		Message message = (Message) result1_green[5];
-		NormalStepToMessage stepToMessage = (NormalStepToMessage) result1_green[6];
+		Message message = (Message) result1_green[4];
 
 		// collect translated elements
 		Object[] result2_black = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_1_2_blackBBBBB(messageSend,
-						messageReceive, step, message, stepToMessage);
+				.pattern_UserStepBFMessageRule_1_2_blackBBBB(messageSend,
+						messageReceive, step, message);
 		if (result2_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [collect translated elements] failed");
 		}
 		Object[] result2_green = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_1_2_greenFBBBBB(messageSend,
-						messageReceive, step, message, stepToMessage);
+				.pattern_UserStepBFMessageRule_1_2_greenFBBBB(messageSend,
+						messageReceive, step, message);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		// bookkeeping for edges
 		Object[] result3_black = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_1_3_blackBBBBBBBBBBBBBBBBBB(
+				.pattern_UserStepBFMessageRule_1_3_blackBBBBBBBBBBBBBBBBB(
 						ruleresult, actor, sysActor, packageDeclaration,
 						sysLine, sysActorToSysLine, messageSend, interaction,
-						messageReceive, flow, flowToInteraction, useCase,
-						useCaseToInteraction, step, message, stepToMessage,
-						line, actorToLine);
+						messageReceive, flow, flowToInteraction, step, message,
+						line, useCase, useCaseToInteraction, actorToLine);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
+				.pattern_UserStepBFMessageRule_1_3_greenBBBBBBBBBBFFFFFFFFFFFFFFFF(
 						ruleresult, actor, sysLine, messageSend, interaction,
-						messageReceive, flow, step, message, stepToMessage,
-						line);
-		// EMoflonEdge sysLine__messageSend____coveredBy = (EMoflonEdge) result3_green[11];
-		// EMoflonEdge messageSend__sysLine____covered = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge messageSend__interaction____enclosingInteraction = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge interaction__messageSend____fragment = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge step__actor____actor = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge stepToMessage__step____source = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge stepToMessage__message____target = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge messageSend__message____message = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[26];
-		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[27];
-		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[28];
+						messageReceive, flow, step, message, line);
+		// EMoflonEdge sysLine__messageSend____coveredBy = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge messageSend__sysLine____covered = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge messageSend__interaction____enclosingInteraction = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge interaction__messageSend____fragment = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge messageSend__message____message = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge step__actor____actor = (EMoflonEdge) result3_green[25];
 
 		// perform postprocessing story node is empty
 		// register objects
 		UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_1_5_expressionBBBBBBBBBBBBBBBBBBB(
+				.pattern_UserStepBFMessageRule_1_5_expressionBBBBBBBBBBBBBBBBBB(
 						this, ruleresult, actor, sysActor, packageDeclaration,
 						sysLine, sysActorToSysLine, messageSend, interaction,
-						messageReceive, flow, flowToInteraction, useCase,
-						useCaseToInteraction, step, message, stepToMessage,
-						line, actorToLine);
+						messageReceive, flow, flowToInteraction, step, message,
+						line, useCase, useCaseToInteraction, actorToLine);
 		return UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_1_6_expressionFB(ruleresult);
 	}
@@ -302,32 +294,32 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		Actor sysActor = (Actor) result2_binding[1];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[2];
 		BasicFlow flow = (BasicFlow) result2_binding[3];
-		UseCase useCase = (UseCase) result2_binding[4];
-		NormalStep step = (NormalStep) result2_binding[5];
+		NormalStep step = (NormalStep) result2_binding[4];
+		UseCase useCase = (UseCase) result2_binding[5];
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_2_2_blackBBBFFFBFBFBFFB(actor,
-						sysActor, packageDeclaration, flow, useCase, step,
+						sysActor, packageDeclaration, flow, step, useCase,
 						match)) {
 			Lifeline sysLine = (Lifeline) result2_black[3];
 			ActorToLifeline sysActorToSysLine = (ActorToLifeline) result2_black[4];
 			Interaction interaction = (Interaction) result2_black[5];
 			FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result2_black[7];
-			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[9];
-			Lifeline line = (Lifeline) result2_black[11];
+			Lifeline line = (Lifeline) result2_black[9];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[11];
 			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[12];
 			// ForEach find context
 			for (Object[] result3_black : UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_2_3_blackBBBBBBBBBBBBB(
 							actor, sysActor, packageDeclaration, sysLine,
 							sysActorToSysLine, interaction, flow,
-							flowToInteraction, useCase, useCaseToInteraction,
-							step, line, actorToLine)) {
+							flowToInteraction, step, line, useCase,
+							useCaseToInteraction, actorToLine)) {
 				Object[] result3_green = UserStepBFMessageRuleImpl
 						.pattern_UserStepBFMessageRule_2_3_greenBBBBBBBBBBBBBFFFFFFFFFFFFFFFFF(
 								actor, sysActor, packageDeclaration, sysLine,
 								sysActorToSysLine, interaction, flow,
-								flowToInteraction, useCase,
-								useCaseToInteraction, step, line, actorToLine);
+								flowToInteraction, step, line, useCase,
+								useCaseToInteraction, actorToLine);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[13];
 				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[14];
 				// EMoflonEdge packageDeclaration__sysActor____actors = (EMoflonEdge) result3_green[15];
@@ -336,12 +328,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				// EMoflonEdge flowToInteraction__flow____source = (EMoflonEdge) result3_green[18];
 				// EMoflonEdge flowToInteraction__interaction____target = (EMoflonEdge) result3_green[19];
 				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[20];
-				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[21];
-				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[22];
-				// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[23];
-				// EMoflonEdge step__actor____actor = (EMoflonEdge) result3_green[24];
-				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[25];
-				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[26];
+				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[21];
+				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[22];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[23];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[24];
+				// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[25];
+				// EMoflonEdge step__actor____actor = (EMoflonEdge) result3_green[26];
 				// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[27];
 				// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[28];
 				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[29];
@@ -351,8 +343,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 						.pattern_UserStepBFMessageRule_2_4_bindingAndBlackFBBBBBBBBBBBBBBB(
 								this, isApplicableMatch, actor, sysActor,
 								packageDeclaration, sysLine, sysActorToSysLine,
-								interaction, flow, flowToInteraction, useCase,
-								useCaseToInteraction, step, line, actorToLine);
+								interaction, flow, flowToInteraction, step,
+								line, useCase, useCaseToInteraction,
+								actorToLine);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -392,13 +385,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public void registerObjectsToMatch_FWD(Match match, Actor actor,
 			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, NormalStep step, UseCase useCase) {
 		match.registerObject("actor", actor);
 		match.registerObject("sysActor", sysActor);
 		match.registerObject("packageDeclaration", packageDeclaration);
 		match.registerObject("flow", flow);
-		match.registerObject("useCase", useCase);
 		match.registerObject("step", step);
+		match.registerObject("useCase", useCase);
 
 	}
 
@@ -409,7 +402,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 */
 	public CSP isAppropriate_solveCsp_FWD(Match match, Actor actor,
 			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {// Create CSP
+			BasicFlow flow, NormalStep step, UseCase useCase) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 
 		// Create literals
@@ -479,9 +472,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, ActorToLifeline actorToLine) {// Create CSP
+			FlowToInteractionFragment flowToInteraction, NormalStep step,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -502,32 +496,32 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		var_step_name.setType("String");
 
 		// Create unbound variables
-		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"message.name", csp);
-		var_message_name.setType("String");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", csp);
 		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", csp);
 		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
+		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message.name", csp);
+		var_message_name.setType("String");
 
 		// Create constraints
-		Eq eq = new Eq();
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
+		Eq eq = new Eq();
 
-		csp.getConstraints().add(eq);
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
+		csp.getConstraints().add(eq);
 
 		// Solve CSP
-		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
 		eqMessageSort.setRuleName("");
 		eqMessageSort.solve(var_message_messageSort, literal0);
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal1);
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("actor", actor);
@@ -541,11 +535,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("flow", flow);
 		isApplicableMatch
 				.registerObject("flowToInteraction", flowToInteraction);
+		isApplicableMatch.registerObject("step", step);
+		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("useCase", useCase);
 		isApplicableMatch.registerObject("useCaseToInteraction",
 				useCaseToInteraction);
-		isApplicableMatch.registerObject("step", step);
-		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		return csp;
 	}
@@ -568,9 +562,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			EObject actor, EObject sysActor, EObject packageDeclaration,
 			EObject sysLine, EObject sysActorToSysLine, EObject messageSend,
 			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage, EObject line, EObject actorToLine) {
+			EObject flowToInteraction, EObject step, EObject message,
+			EObject line, EObject useCase, EObject useCaseToInteraction,
+			EObject actorToLine) {
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("sysActor", sysActor);
 		ruleresult.registerObject("packageDeclaration", packageDeclaration);
@@ -581,12 +575,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("messageReceive", messageReceive);
 		ruleresult.registerObject("flow", flow);
 		ruleresult.registerObject("flowToInteraction", flowToInteraction);
-		ruleresult.registerObject("useCase", useCase);
-		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("message", message);
-		ruleresult.registerObject("stepToMessage", stepToMessage);
 		ruleresult.registerObject("line", line);
+		ruleresult.registerObject("useCase", useCase);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("actorToLine", actorToLine);
 
 	}
@@ -656,12 +649,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result4_green[12];
 			// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result4_green[13];
 			// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result4_green[14];
-			// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result4_green[15];
-			// EMoflonEdge interaction__message____message = (EMoflonEdge) result4_green[16];
-			// EMoflonEdge messageSend__message____message = (EMoflonEdge) result4_green[17];
-			// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result4_green[18];
-			// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result4_green[19];
-			// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result4_green[20];
+			// EMoflonEdge messageSend__message____message = (EMoflonEdge) result4_green[15];
+			// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result4_green[16];
+			// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result4_green[17];
+			// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result4_green[18];
+			// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result4_green[19];
+			// EMoflonEdge interaction__message____message = (EMoflonEdge) result4_green[20];
 
 			// collect context elements
 			Object[] result5_black = UserStepBFMessageRuleImpl
@@ -716,76 +709,69 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_bindingAndBlack[7];
 		BasicFlow flow = (BasicFlow) result1_bindingAndBlack[8];
 		FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result1_bindingAndBlack[9];
-		UseCase useCase = (UseCase) result1_bindingAndBlack[10];
-		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[11];
-		Message message = (Message) result1_bindingAndBlack[12];
-		Lifeline line = (Lifeline) result1_bindingAndBlack[13];
+		Message message = (Message) result1_bindingAndBlack[10];
+		Lifeline line = (Lifeline) result1_bindingAndBlack[11];
+		UseCase useCase = (UseCase) result1_bindingAndBlack[12];
+		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[13];
 		ActorToLifeline actorToLine = (ActorToLifeline) result1_bindingAndBlack[14];
 		CSP csp = (CSP) result1_bindingAndBlack[15];
 		Object[] result1_green = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_11_1_greenBBFBFB(actor, flow,
-						message, csp);
+				.pattern_UserStepBFMessageRule_11_1_greenBBFB(actor, flow, csp);
 		NormalStep step = (NormalStep) result1_green[2];
-		NormalStepToMessage stepToMessage = (NormalStepToMessage) result1_green[4];
 
 		// collect translated elements
 		Object[] result2_black = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_11_2_blackBBBBB(messageSend,
-						messageReceive, step, message, stepToMessage);
+				.pattern_UserStepBFMessageRule_11_2_blackBBBB(messageSend,
+						messageReceive, step, message);
 		if (result2_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [collect translated elements] failed");
 		}
 		Object[] result2_green = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_11_2_greenFBBBBB(messageSend,
-						messageReceive, step, message, stepToMessage);
+				.pattern_UserStepBFMessageRule_11_2_greenFBBBB(messageSend,
+						messageReceive, step, message);
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
 		// bookkeeping for edges
 		Object[] result3_black = UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_11_3_blackBBBBBBBBBBBBBBBBBB(
+				.pattern_UserStepBFMessageRule_11_3_blackBBBBBBBBBBBBBBBBB(
 						ruleresult, actor, sysActor, packageDeclaration,
 						sysLine, sysActorToSysLine, messageSend, interaction,
-						messageReceive, flow, flowToInteraction, useCase,
-						useCaseToInteraction, step, message, stepToMessage,
-						line, actorToLine);
+						messageReceive, flow, flowToInteraction, step, message,
+						line, useCase, useCaseToInteraction, actorToLine);
 		if (result3_black == null) {
 			throw new RuntimeException(
 					"Pattern matching in node [bookkeeping for edges] failed");
 		}
 		UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_11_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
+				.pattern_UserStepBFMessageRule_11_3_greenBBBBBBBBBBFFFFFFFFFFFFFFFF(
 						ruleresult, actor, sysLine, messageSend, interaction,
-						messageReceive, flow, step, message, stepToMessage,
-						line);
-		// EMoflonEdge sysLine__messageSend____coveredBy = (EMoflonEdge) result3_green[11];
-		// EMoflonEdge messageSend__sysLine____covered = (EMoflonEdge) result3_green[12];
-		// EMoflonEdge messageSend__interaction____enclosingInteraction = (EMoflonEdge) result3_green[13];
-		// EMoflonEdge interaction__messageSend____fragment = (EMoflonEdge) result3_green[14];
-		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[15];
-		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[16];
-		// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[17];
-		// EMoflonEdge step__actor____actor = (EMoflonEdge) result3_green[18];
-		// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result3_green[19];
-		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[20];
-		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[21];
-		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[22];
-		// EMoflonEdge stepToMessage__step____source = (EMoflonEdge) result3_green[23];
-		// EMoflonEdge stepToMessage__message____target = (EMoflonEdge) result3_green[24];
-		// EMoflonEdge messageSend__message____message = (EMoflonEdge) result3_green[25];
-		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[26];
-		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[27];
-		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[28];
+						messageReceive, flow, step, message, line);
+		// EMoflonEdge sysLine__messageSend____coveredBy = (EMoflonEdge) result3_green[10];
+		// EMoflonEdge messageSend__sysLine____covered = (EMoflonEdge) result3_green[11];
+		// EMoflonEdge messageSend__interaction____enclosingInteraction = (EMoflonEdge) result3_green[12];
+		// EMoflonEdge interaction__messageSend____fragment = (EMoflonEdge) result3_green[13];
+		// EMoflonEdge messageReceive__interaction____enclosingInteraction = (EMoflonEdge) result3_green[14];
+		// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[15];
+		// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result3_green[16];
+		// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[17];
+		// EMoflonEdge messageSend__message____message = (EMoflonEdge) result3_green[18];
+		// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[19];
+		// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[20];
+		// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[21];
+		// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[22];
+		// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[23];
+		// EMoflonEdge flow__step____steps = (EMoflonEdge) result3_green[24];
+		// EMoflonEdge step__actor____actor = (EMoflonEdge) result3_green[25];
 
 		// perform postprocessing story node is empty
 		// register objects
 		UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_11_5_expressionBBBBBBBBBBBBBBBBBBB(
+				.pattern_UserStepBFMessageRule_11_5_expressionBBBBBBBBBBBBBBBBBB(
 						this, ruleresult, actor, sysActor, packageDeclaration,
 						sysLine, sysActorToSysLine, messageSend, interaction,
-						messageReceive, flow, flowToInteraction, useCase,
-						useCaseToInteraction, step, message, stepToMessage,
-						line, actorToLine);
+						messageReceive, flow, flowToInteraction, step, message,
+						line, useCase, useCaseToInteraction, actorToLine);
 		return UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_11_6_expressionFB(ruleresult);
 	}
@@ -822,7 +808,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		Message message = (Message) result2_binding[4];
 		Lifeline line = (Lifeline) result2_binding[5];
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_12_2_blackFFBFBBBFFFFBBFB(
+				.pattern_UserStepBFMessageRule_12_2_blackFFBFBBBFFBBFFFB(
 						sysLine, messageSend, interaction, messageReceive,
 						message, line, match)) {
 			Actor actor = (Actor) result2_black[0];
@@ -830,23 +816,23 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			ActorToLifeline sysActorToSysLine = (ActorToLifeline) result2_black[3];
 			BasicFlow flow = (BasicFlow) result2_black[7];
 			FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result2_black[8];
-			UseCase useCase = (UseCase) result2_black[9];
-			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[10];
+			UseCase useCase = (UseCase) result2_black[11];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[12];
 			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[13];
 			// ForEach find context
 			for (Object[] result3_black : UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_12_3_blackBBFBBBBBBBBBBBB(
 							actor, sysActor, sysLine, sysActorToSysLine,
 							messageSend, interaction, messageReceive, flow,
-							flowToInteraction, useCase, useCaseToInteraction,
-							message, line, actorToLine)) {
+							flowToInteraction, message, line, useCase,
+							useCaseToInteraction, actorToLine)) {
 				PackageDeclaration packageDeclaration = (PackageDeclaration) result3_black[2];
 				Object[] result3_green = UserStepBFMessageRuleImpl
 						.pattern_UserStepBFMessageRule_12_3_greenBBBBBBBBBBBBBBBFFFFFFFFFFFFFFFFFFFFFFFFFFFFF(
 								actor, sysActor, packageDeclaration, sysLine,
 								sysActorToSysLine, messageSend, interaction,
 								messageReceive, flow, flowToInteraction,
-								useCase, useCaseToInteraction, message, line,
+								message, line, useCase, useCaseToInteraction,
 								actorToLine);
 				IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result3_green[15];
 				// EMoflonEdge packageDeclaration__actor____actors = (EMoflonEdge) result3_green[16];
@@ -861,19 +847,19 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				// EMoflonEdge interaction__messageReceive____fragment = (EMoflonEdge) result3_green[25];
 				// EMoflonEdge flowToInteraction__flow____source = (EMoflonEdge) result3_green[26];
 				// EMoflonEdge flowToInteraction__interaction____target = (EMoflonEdge) result3_green[27];
-				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[28];
-				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[29];
-				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[30];
-				// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result3_green[31];
-				// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[32];
-				// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[33];
-				// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[34];
+				// EMoflonEdge message__messageSend____sendEvent = (EMoflonEdge) result3_green[28];
+				// EMoflonEdge message__messageReceive____receiveEvent = (EMoflonEdge) result3_green[29];
+				// EMoflonEdge messageSend__message____message = (EMoflonEdge) result3_green[30];
+				// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[31];
+				// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[32];
+				// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[33];
+				// EMoflonEdge useCase__flow____flows = (EMoflonEdge) result3_green[34];
 				// EMoflonEdge line__interaction____interaction = (EMoflonEdge) result3_green[35];
 				// EMoflonEdge interaction__line____lifeline = (EMoflonEdge) result3_green[36];
-				// EMoflonEdge messageSend__message____message = (EMoflonEdge) result3_green[37];
-				// EMoflonEdge messageReceive__message____message = (EMoflonEdge) result3_green[38];
-				// EMoflonEdge line__messageReceive____coveredBy = (EMoflonEdge) result3_green[39];
-				// EMoflonEdge messageReceive__line____covered = (EMoflonEdge) result3_green[40];
+				// EMoflonEdge message__interaction____interaction = (EMoflonEdge) result3_green[37];
+				// EMoflonEdge interaction__message____message = (EMoflonEdge) result3_green[38];
+				// EMoflonEdge useCaseToInteraction__useCase____source = (EMoflonEdge) result3_green[39];
+				// EMoflonEdge useCaseToInteraction__interaction____target = (EMoflonEdge) result3_green[40];
 				// EMoflonEdge actorToLine__actor____source = (EMoflonEdge) result3_green[41];
 				// EMoflonEdge actorToLine__line____target = (EMoflonEdge) result3_green[42];
 				// EMoflonEdge packageDeclaration__useCase____useCases = (EMoflonEdge) result3_green[43];
@@ -884,9 +870,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 								this, isApplicableMatch, actor, sysActor,
 								packageDeclaration, sysLine, sysActorToSysLine,
 								messageSend, interaction, messageReceive, flow,
-								flowToInteraction, useCase,
-								useCaseToInteraction, message, line,
-								actorToLine);
+								flowToInteraction, message, line, useCase,
+								useCaseToInteraction, actorToLine);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
 							"Pattern matching in node [solve CSP] failed");
@@ -1007,9 +992,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, ActorToLifeline actorToLine) {// Create CSP
+			FlowToInteractionFragment flowToInteraction, Message message,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
 
@@ -1084,11 +1070,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("flow", flow);
 		isApplicableMatch
 				.registerObject("flowToInteraction", flowToInteraction);
+		isApplicableMatch.registerObject("message", message);
+		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("useCase", useCase);
 		isApplicableMatch.registerObject("useCaseToInteraction",
 				useCaseToInteraction);
-		isApplicableMatch.registerObject("message", message);
-		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		return csp;
 	}
@@ -1111,9 +1097,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			EObject actor, EObject sysActor, EObject packageDeclaration,
 			EObject sysLine, EObject sysActorToSysLine, EObject messageSend,
 			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage, EObject line, EObject actorToLine) {
+			EObject flowToInteraction, EObject step, EObject message,
+			EObject line, EObject useCase, EObject useCaseToInteraction,
+			EObject actorToLine) {
 		ruleresult.registerObject("actor", actor);
 		ruleresult.registerObject("sysActor", sysActor);
 		ruleresult.registerObject("packageDeclaration", packageDeclaration);
@@ -1124,12 +1110,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		ruleresult.registerObject("messageReceive", messageReceive);
 		ruleresult.registerObject("flow", flow);
 		ruleresult.registerObject("flowToInteraction", flowToInteraction);
-		ruleresult.registerObject("useCase", useCase);
-		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("step", step);
 		ruleresult.registerObject("message", message);
-		ruleresult.registerObject("stepToMessage", stepToMessage);
 		ruleresult.registerObject("line", line);
+		ruleresult.registerObject("useCase", useCase);
+		ruleresult.registerObject("useCaseToInteraction", useCaseToInteraction);
 		ruleresult.registerObject("actorToLine", actorToLine);
 
 	}
@@ -1160,7 +1145,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_107(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_186(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1226,7 +1211,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_108(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_187(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1292,7 +1277,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_109(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_188(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1358,7 +1343,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_110(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_189(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1424,7 +1409,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_111(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_190(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1490,7 +1475,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_112(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_191(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -1556,8 +1541,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_241(
-			EMoflonEdge _edge_steps) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_192(
+			EMoflonEdge _edge_sendEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_26_1_bindingAndBlackFFB(this);
@@ -1573,13 +1558,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_26_2_blackFFFFFFB(_edge_steps)) {
-			Actor actor = (Actor) result2_black[0];
-			Actor sysActor = (Actor) result2_black[1];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
-			BasicFlow flow = (BasicFlow) result2_black[3];
-			UseCase useCase = (UseCase) result2_black[4];
-			NormalStep step = (NormalStep) result2_black[5];
+				.pattern_UserStepBFMessageRule_26_2_blackFFFFFFB(_edge_sendEvent)) {
+			Lifeline sysLine = (Lifeline) result2_black[0];
+			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
+			Interaction interaction = (Interaction) result2_black[2];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[3];
+			Message message = (Message) result2_black[4];
+			Lifeline line = (Lifeline) result2_black[5];
 			Object[] result2_green = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_26_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -1587,8 +1572,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// bookkeeping with generic isAppropriate method
 			if (UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_26_3_expressionFBBBBBBBB(
-							this, match, actor, sysActor, packageDeclaration,
-							flow, useCase, step)) {
+							this, match, sysLine, messageSend, interaction,
+							messageReceive, message, line)) {
 				// Ensure that the correct types of elements are matched
 				if (UserStepBFMessageRuleImpl
 						.pattern_UserStepBFMessageRule_26_4_expressionFBB(this,
@@ -1622,8 +1607,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_242(
-			EMoflonEdge _edge_actor) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_193(
+			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_27_1_bindingAndBlackFFB(this);
@@ -1639,13 +1624,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_27_2_blackFFFFFFB(_edge_actor)) {
-			Actor actor = (Actor) result2_black[0];
-			Actor sysActor = (Actor) result2_black[1];
-			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
-			BasicFlow flow = (BasicFlow) result2_black[3];
-			UseCase useCase = (UseCase) result2_black[4];
-			NormalStep step = (NormalStep) result2_black[5];
+				.pattern_UserStepBFMessageRule_27_2_blackFFFFFFB(_edge_receiveEvent)) {
+			Lifeline sysLine = (Lifeline) result2_black[0];
+			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
+			Interaction interaction = (Interaction) result2_black[2];
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[3];
+			Message message = (Message) result2_black[4];
+			Lifeline line = (Lifeline) result2_black[5];
 			Object[] result2_green = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_27_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -1653,8 +1638,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// bookkeeping with generic isAppropriate method
 			if (UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_27_3_expressionFBBBBBBBB(
-							this, match, actor, sysActor, packageDeclaration,
-							flow, useCase, step)) {
+							this, match, sysLine, messageSend, interaction,
+							messageReceive, message, line)) {
 				// Ensure that the correct types of elements are matched
 				if (UserStepBFMessageRuleImpl
 						.pattern_UserStepBFMessageRule_27_4_expressionFBB(this,
@@ -1688,8 +1673,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_113(
-			EMoflonEdge _edge_sendEvent) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_194(
+			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_28_1_bindingAndBlackFFB(this);
@@ -1705,7 +1690,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_28_2_blackFFFFFFB(_edge_sendEvent)) {
+				.pattern_UserStepBFMessageRule_28_2_blackFFFFFFB(_edge_message)) {
 			Lifeline sysLine = (Lifeline) result2_black[0];
 			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
 			Interaction interaction = (Interaction) result2_black[2];
@@ -1754,8 +1739,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_114(
-			EMoflonEdge _edge_receiveEvent) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_195(
+			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_29_1_bindingAndBlackFFB(this);
@@ -1771,7 +1756,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_29_2_blackFFFFFFB(_edge_receiveEvent)) {
+				.pattern_UserStepBFMessageRule_29_2_blackFFFFFFB(_edge_message)) {
 			Lifeline sysLine = (Lifeline) result2_black[0];
 			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
 			Interaction interaction = (Interaction) result2_black[2];
@@ -1820,8 +1805,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_115(
-			EMoflonEdge _edge_interaction) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_196(
+			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_30_1_bindingAndBlackFFB(this);
@@ -1837,7 +1822,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_30_2_blackFFFFFFB(_edge_interaction)) {
+				.pattern_UserStepBFMessageRule_30_2_blackFFFFFFB(_edge_coveredBy)) {
 			Lifeline sysLine = (Lifeline) result2_black[0];
 			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
 			Interaction interaction = (Interaction) result2_black[2];
@@ -1886,8 +1871,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_116(
-			EMoflonEdge _edge_message) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_197(
+			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_31_1_bindingAndBlackFFB(this);
@@ -1903,7 +1888,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_31_2_blackFFFFFFB(_edge_message)) {
+				.pattern_UserStepBFMessageRule_31_2_blackFFFFFFB(_edge_covered)) {
 			Lifeline sysLine = (Lifeline) result2_black[0];
 			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
 			Interaction interaction = (Interaction) result2_black[2];
@@ -1952,8 +1937,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_117(
-			EMoflonEdge _edge_message) {
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_198(
+			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_32_1_bindingAndBlackFFB(this);
@@ -1969,7 +1954,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_32_2_blackFFFFFFB(_edge_message)) {
+				.pattern_UserStepBFMessageRule_32_2_blackFFFFFFB(_edge_interaction)) {
 			Lifeline sysLine = (Lifeline) result2_black[0];
 			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
 			Interaction interaction = (Interaction) result2_black[2];
@@ -2018,7 +2003,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_118(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_199(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
@@ -2084,8 +2069,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_119(
-			EMoflonEdge _edge_coveredBy) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_465(
+			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_34_1_bindingAndBlackFFB(this);
@@ -2101,13 +2086,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_34_2_blackFFFFFFB(_edge_coveredBy)) {
-			Lifeline sysLine = (Lifeline) result2_black[0];
-			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
-			Interaction interaction = (Interaction) result2_black[2];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[3];
-			Message message = (Message) result2_black[4];
-			Lifeline line = (Lifeline) result2_black[5];
+				.pattern_UserStepBFMessageRule_34_2_blackFFFFFFB(_edge_steps)) {
+			Actor actor = (Actor) result2_black[0];
+			Actor sysActor = (Actor) result2_black[1];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
+			BasicFlow flow = (BasicFlow) result2_black[3];
+			NormalStep step = (NormalStep) result2_black[4];
+			UseCase useCase = (UseCase) result2_black[5];
 			Object[] result2_green = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_34_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -2115,8 +2100,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// bookkeeping with generic isAppropriate method
 			if (UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_34_3_expressionFBBBBBBBB(
-							this, match, sysLine, messageSend, interaction,
-							messageReceive, message, line)) {
+							this, match, actor, sysActor, packageDeclaration,
+							flow, step, useCase)) {
 				// Ensure that the correct types of elements are matched
 				if (UserStepBFMessageRuleImpl
 						.pattern_UserStepBFMessageRule_34_4_expressionFBB(this,
@@ -2150,8 +2135,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_120(
-			EMoflonEdge _edge_covered) {
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_466(
+			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserStepBFMessageRuleImpl
 				.pattern_UserStepBFMessageRule_35_1_bindingAndBlackFFB(this);
@@ -2167,13 +2152,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 		// ForEach test core match and DECs
 		for (Object[] result2_black : UserStepBFMessageRuleImpl
-				.pattern_UserStepBFMessageRule_35_2_blackFFFFFFB(_edge_covered)) {
-			Lifeline sysLine = (Lifeline) result2_black[0];
-			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_black[1];
-			Interaction interaction = (Interaction) result2_black[2];
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_black[3];
-			Message message = (Message) result2_black[4];
-			Lifeline line = (Lifeline) result2_black[5];
+				.pattern_UserStepBFMessageRule_35_2_blackFFFFFFB(_edge_actor)) {
+			Actor actor = (Actor) result2_black[0];
+			Actor sysActor = (Actor) result2_black[1];
+			PackageDeclaration packageDeclaration = (PackageDeclaration) result2_black[2];
+			BasicFlow flow = (BasicFlow) result2_black[3];
+			NormalStep step = (NormalStep) result2_black[4];
+			UseCase useCase = (UseCase) result2_black[5];
 			Object[] result2_green = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_35_2_greenFB(__eClass);
 			Match match = (Match) result2_green[0];
@@ -2181,8 +2166,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			// bookkeeping with generic isAppropriate method
 			if (UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_35_3_expressionFBBBBBBBB(
-							this, match, sysLine, messageSend, interaction,
-							messageReceive, message, line)) {
+							this, match, actor, sysActor, packageDeclaration,
+							flow, step, useCase)) {
 				// Ensure that the correct types of elements are matched
 				if (UserStepBFMessageRuleImpl
 						.pattern_UserStepBFMessageRule_35_4_expressionFBB(this,
@@ -2263,17 +2248,18 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			BasicFlow flow = (BasicFlow) result2_black[7];
 			FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result2_black[8];
 			Interaction interaction = (Interaction) result2_black[9];
-			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[10];
-			Lifeline line = (Lifeline) result2_black[11];
-			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[12];
+			Lifeline line = (Lifeline) result2_black[10];
+			ActorToLifeline actorToLine = (ActorToLifeline) result2_black[11];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result2_black[12];
 
 			// solve CSP
 			Object[] result3_bindingAndBlack = UserStepBFMessageRuleImpl
 					.pattern_UserStepBFMessageRule_38_3_bindingAndBlackFBBBBBBBBBBBBBBB(
 							this, isApplicableMatch, actor, sysActor,
 							packageDeclaration, sysLine, sysActorToSysLine,
-							interaction, flow, flowToInteraction, useCase,
-							useCaseToInteraction, line, actorToLine, ruleResult);
+							interaction, flow, flowToInteraction, line,
+							useCase, useCaseToInteraction, actorToLine,
+							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
 						"Pattern matching in node [solve CSP] failed");
@@ -2287,8 +2273,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 						.pattern_UserStepBFMessageRule_38_5_blackBBBBBBBBBBBB(
 								actor, sysActor, packageDeclaration, sysLine,
 								sysActorToSysLine, interaction, flow,
-								flowToInteraction, useCase,
-								useCaseToInteraction, line, actorToLine);
+								flowToInteraction, line, useCase,
+								useCaseToInteraction, actorToLine);
 				if (result5_black != null) {
 
 					// perform
@@ -2296,22 +2282,21 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 							.pattern_UserStepBFMessageRule_38_6_blackBBBBBBBBBBBBB(
 									actor, sysActor, packageDeclaration,
 									sysLine, sysActorToSysLine, interaction,
-									flow, flowToInteraction, useCase,
-									useCaseToInteraction, line, actorToLine,
+									flow, flowToInteraction, line, useCase,
+									useCaseToInteraction, actorToLine,
 									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
 								"Pattern matching in node [perform] failed");
 					}
 					UserStepBFMessageRuleImpl
-							.pattern_UserStepBFMessageRule_38_6_greenBBFBFBFFFBBB(
+							.pattern_UserStepBFMessageRule_38_6_greenBBFBFBFFBBB(
 									actor, sysLine, interaction, flow, line,
 									ruleResult, csp);
 					// MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result6_green[2];
 					// MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result6_green[4];
 					// NormalStep step = (NormalStep) result6_green[6];
 					// Message message = (Message) result6_green[7];
-					// NormalStepToMessage stepToMessage = (NormalStepToMessage) result6_green[8];
 
 				} else {
 				}
@@ -2333,8 +2318,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Lifeline line,
+			FlowToInteractionFragment flowToInteraction, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {// Create CSP
 		CSP csp = CspFactory.eINSTANCE.createCSP();
 		isApplicableMatch.getAttributeInfo().add(csp);
@@ -2375,18 +2360,18 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_type = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.type", csp);
 		var_step_type.setType("UseCaseDSL.StepType");
-		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"step.name", csp);
-		var_step_name.setType("String");
-		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
-				"message.name", csp);
-		var_message_name.setType("String");
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageSort", csp);
 		var_message_messageSort.setType("ModalSequenceDiagram.MessageSort");
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", csp);
 		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", csp);
+		var_step_name.setType("String");
+		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message.name", csp);
+		var_message_name.setType("String");
 
 		// Create constraints
 		EqActorType eqActorType = new EqActorType();
@@ -2429,10 +2414,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.registerObject("flow", flow);
 		isApplicableMatch
 				.registerObject("flowToInteraction", flowToInteraction);
+		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("useCase", useCase);
 		isApplicableMatch.registerObject("useCaseToInteraction",
 				useCaseToInteraction);
-		isApplicableMatch.registerObject("line", line);
 		isApplicableMatch.registerObject("actorToLine", actorToLine);
 		return csp;
 	}
@@ -2455,32 +2440,32 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_ACTOR_PACKAGEDECLARATION_BASICFLOW_USECASE_NORMALSTEP:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD__MATCH_ACTOR_ACTOR_PACKAGEDECLARATION_BASICFLOW_NORMALSTEP_USECASE:
 			return isAppropriate_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (Actor) arguments.get(2),
 					(PackageDeclaration) arguments.get(3),
-					(BasicFlow) arguments.get(4), (UseCase) arguments.get(5),
-					(NormalStep) arguments.get(6));
+					(BasicFlow) arguments.get(4),
+					(NormalStep) arguments.get(5), (UseCase) arguments.get(6));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___PERFORM_FWD__ISAPPLICABLEMATCH:
 			return perform_FWD((IsApplicableMatch) arguments.get(0));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_FWD__MATCH:
 			return isApplicable_FWD((Match) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_ACTOR_PACKAGEDECLARATION_BASICFLOW_USECASE_NORMALSTEP:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___REGISTER_OBJECTS_TO_MATCH_FWD__MATCH_ACTOR_ACTOR_PACKAGEDECLARATION_BASICFLOW_NORMALSTEP_USECASE:
 			registerObjectsToMatch_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (Actor) arguments.get(2),
 					(PackageDeclaration) arguments.get(3),
-					(BasicFlow) arguments.get(4), (UseCase) arguments.get(5),
-					(NormalStep) arguments.get(6));
+					(BasicFlow) arguments.get(4),
+					(NormalStep) arguments.get(5), (UseCase) arguments.get(6));
 			return null;
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_ACTOR_PACKAGEDECLARATION_BASICFLOW_USECASE_NORMALSTEP:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_SOLVE_CSP_FWD__MATCH_ACTOR_ACTOR_PACKAGEDECLARATION_BASICFLOW_NORMALSTEP_USECASE:
 			return isAppropriate_solveCsp_FWD((Match) arguments.get(0),
 					(Actor) arguments.get(1), (Actor) arguments.get(2),
 					(PackageDeclaration) arguments.get(3),
-					(BasicFlow) arguments.get(4), (UseCase) arguments.get(5),
-					(NormalStep) arguments.get(6));
+					(BasicFlow) arguments.get(4),
+					(NormalStep) arguments.get(5), (UseCase) arguments.get(6));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_FWD__CSP:
 			return isAppropriate_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_NORMALSTEP_LIFELINE_ACTORTOLIFELINE:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_FWD__ISAPPLICABLEMATCH_ACTOR_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_NORMALSTEP_LIFELINE_USECASE_USECASETOINTERACTION_ACTORTOLIFELINE:
 			return isApplicable_solveCsp_FWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Actor) arguments.get(1), (Actor) arguments.get(2),
@@ -2490,14 +2475,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					(Interaction) arguments.get(6),
 					(BasicFlow) arguments.get(7),
 					(FlowToInteractionFragment) arguments.get(8),
-					(UseCase) arguments.get(9),
-					(UseCaseToInteraction) arguments.get(10),
-					(NormalStep) arguments.get(11),
-					(Lifeline) arguments.get(12),
+					(NormalStep) arguments.get(9),
+					(Lifeline) arguments.get(10), (UseCase) arguments.get(11),
+					(UseCaseToInteraction) arguments.get(12),
 					(ActorToLifeline) arguments.get(13));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_FWD__CSP:
 			return isApplicable_checkCsp_FWD((CSP) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___REGISTER_OBJECTS_FWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_FWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -2506,8 +2490,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
 					(EObject) arguments.get(11), (EObject) arguments.get(12),
 					(EObject) arguments.get(13), (EObject) arguments.get(14),
-					(EObject) arguments.get(15), (EObject) arguments.get(16),
-					(EObject) arguments.get(17));
+					(EObject) arguments.get(15), (EObject) arguments.get(16));
 			return null;
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
@@ -2539,7 +2522,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					(Message) arguments.get(5), (Lifeline) arguments.get(6));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_CHECK_CSP_BWD__CSP:
 			return isAppropriate_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_MESSAGEOCCURRENCESPECIFICATION_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_MESSAGE_LIFELINE_ACTORTOLIFELINE:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_MESSAGEOCCURRENCESPECIFICATION_INTERACTION_MESSAGEOCCURRENCESPECIFICATION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_MESSAGE_LIFELINE_USECASE_USECASETOINTERACTION_ACTORTOLIFELINE:
 			return isApplicable_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Actor) arguments.get(1), (Actor) arguments.get(2),
@@ -2551,13 +2534,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					(MessageOccurrenceSpecification) arguments.get(8),
 					(BasicFlow) arguments.get(9),
 					(FlowToInteractionFragment) arguments.get(10),
-					(UseCase) arguments.get(11),
-					(UseCaseToInteraction) arguments.get(12),
-					(Message) arguments.get(13), (Lifeline) arguments.get(14),
+					(Message) arguments.get(11), (Lifeline) arguments.get(12),
+					(UseCase) arguments.get(13),
+					(UseCaseToInteraction) arguments.get(14),
 					(ActorToLifeline) arguments.get(15));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPLICABLE_CHECK_CSP_BWD__CSP:
 			return isApplicable_checkCsp_BWD((CSP) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___REGISTER_OBJECTS_BWD__PERFORMRULERESULT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT_EOBJECT:
 			registerObjects_BWD((PerformRuleResult) arguments.get(0),
 					(EObject) arguments.get(1), (EObject) arguments.get(2),
 					(EObject) arguments.get(3), (EObject) arguments.get(4),
@@ -2566,58 +2549,57 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					(EObject) arguments.get(9), (EObject) arguments.get(10),
 					(EObject) arguments.get(11), (EObject) arguments.get(12),
 					(EObject) arguments.get(13), (EObject) arguments.get(14),
-					(EObject) arguments.get(15), (EObject) arguments.get(16),
-					(EObject) arguments.get(17));
+					(EObject) arguments.get(15), (EObject) arguments.get(16));
 			return null;
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_107__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_107((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_186__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_186((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_108__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_108((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_187__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_187((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_109__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_109((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_188__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_188((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_110__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_110((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_189__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_189((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_111__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_111((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_190__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_190((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_112__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_112((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_191__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_191((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_241__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_241((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_192__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_192((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_242__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_242((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_193__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_193((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_113__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_113((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_194__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_194((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_114__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_114((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_195__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_195((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_115__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_115((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_196__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_196((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_116__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_116((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_197__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_197((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_117__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_117((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_198__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_198((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_118__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_118((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_199__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_199((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_119__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_119((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_465__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_465((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_120__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_120((EMoflonEdge) arguments
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_466__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_466((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2626,7 +2608,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___GENERATE_MODEL__RULEENTRYCONTAINER_ACTORTOLIFELINE:
 			return generateModel((RuleEntryContainer) arguments.get(0),
 					(ActorToLifeline) arguments.get(1));
-		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_USECASE_USECASETOINTERACTION_LIFELINE_ACTORTOLIFELINE_MODELGENERATORRULERESULT:
+		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___GENERATE_MODEL_SOLVE_CSP_BWD__ISAPPLICABLEMATCH_ACTOR_ACTOR_PACKAGEDECLARATION_LIFELINE_ACTORTOLIFELINE_INTERACTION_BASICFLOW_FLOWTOINTERACTIONFRAGMENT_LIFELINE_USECASE_USECASETOINTERACTION_ACTORTOLIFELINE_MODELGENERATORRULERESULT:
 			return generateModel_solveCsp_BWD(
 					(IsApplicableMatch) arguments.get(0),
 					(Actor) arguments.get(1), (Actor) arguments.get(2),
@@ -2636,9 +2618,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					(Interaction) arguments.get(6),
 					(BasicFlow) arguments.get(7),
 					(FlowToInteractionFragment) arguments.get(8),
-					(UseCase) arguments.get(9),
-					(UseCaseToInteraction) arguments.get(10),
-					(Lifeline) arguments.get(11),
+					(Lifeline) arguments.get(9), (UseCase) arguments.get(10),
+					(UseCaseToInteraction) arguments.get(11),
 					(ActorToLifeline) arguments.get(12),
 					(ModelgeneratorRuleResult) arguments.get(13));
 		case RulesPackage.USER_STEP_BF_MESSAGE_RULE___GENERATE_MODEL_CHECK_CSP_BWD__CSP:
@@ -2650,10 +2631,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_UserStepBFMessageRule_0_1_blackBBBBBBBB(
 			UserStepBFMessageRule _this, Match match, Actor actor,
 			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, NormalStep step, UseCase useCase) {
 		if (!actor.equals(sysActor)) {
 			return new Object[] { _this, match, actor, sysActor,
-					packageDeclaration, flow, useCase, step };
+					packageDeclaration, flow, step, useCase };
 		}
 		return null;
 	}
@@ -2661,13 +2642,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_UserStepBFMessageRule_0_2_bindingFBBBBBBBB(
 			UserStepBFMessageRule _this, Match match, Actor actor,
 			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, NormalStep step, UseCase useCase) {
 		CSP _localVariable_0 = _this.isAppropriate_solveCsp_FWD(match, actor,
-				sysActor, packageDeclaration, flow, useCase, step);
+				sysActor, packageDeclaration, flow, step, useCase);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, match, actor, sysActor,
-					packageDeclaration, flow, useCase, step };
+					packageDeclaration, flow, step, useCase };
 		}
 		return null;
 	}
@@ -2680,10 +2661,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_UserStepBFMessageRule_0_2_bindingAndBlackFBBBBBBBB(
 			UserStepBFMessageRule _this, Match match, Actor actor,
 			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, NormalStep step, UseCase useCase) {
 		Object[] result_pattern_UserStepBFMessageRule_0_2_binding = pattern_UserStepBFMessageRule_0_2_bindingFBBBBBBBB(
-				_this, match, actor, sysActor, packageDeclaration, flow,
-				useCase, step);
+				_this, match, actor, sysActor, packageDeclaration, flow, step,
+				useCase);
 		if (result_pattern_UserStepBFMessageRule_0_2_binding != null) {
 			CSP csp = (CSP) result_pattern_UserStepBFMessageRule_0_2_binding[0];
 
@@ -2691,7 +2672,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			if (result_pattern_UserStepBFMessageRule_0_2_black != null) {
 
 				return new Object[] { csp, _this, match, actor, sysActor,
-						packageDeclaration, flow, useCase, step };
+						packageDeclaration, flow, step, useCase };
 			}
 		}
 		return null;
@@ -2707,10 +2688,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_UserStepBFMessageRule_0_4_blackBBBBBBB(
 			Match match, Actor actor, Actor sysActor,
 			PackageDeclaration packageDeclaration, BasicFlow flow,
-			UseCase useCase, NormalStep step) {
+			NormalStep step, UseCase useCase) {
 		if (!actor.equals(sysActor)) {
 			return new Object[] { match, actor, sysActor, packageDeclaration,
-					flow, useCase, step };
+					flow, step, useCase };
 		}
 		return null;
 	}
@@ -2739,10 +2720,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_UserStepBFMessageRule_0_5_blackBBBBBBB(
 			Match match, Actor actor, Actor sysActor,
 			PackageDeclaration packageDeclaration, BasicFlow flow,
-			UseCase useCase, NormalStep step) {
+			NormalStep step, UseCase useCase) {
 		if (!actor.equals(sysActor)) {
 			return new Object[] { match, actor, sysActor, packageDeclaration,
-					flow, useCase, step };
+					flow, step, useCase };
 		}
 		return null;
 	}
@@ -2796,9 +2777,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final void pattern_UserStepBFMessageRule_0_6_expressionBBBBBBBB(
 			UserStepBFMessageRule _this, Match match, Actor actor,
 			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
+			BasicFlow flow, NormalStep step, UseCase useCase) {
 		_this.registerObjectsToMatch_FWD(match, actor, sysActor,
-				packageDeclaration, flow, useCase, step);
+				packageDeclaration, flow, step, useCase);
 
 	}
 
@@ -2825,11 +2806,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EObject _localVariable_6 = isApplicableMatch.getObject("flow");
 		EObject _localVariable_7 = isApplicableMatch
 				.getObject("flowToInteraction");
-		EObject _localVariable_8 = isApplicableMatch.getObject("useCase");
-		EObject _localVariable_9 = isApplicableMatch
+		EObject _localVariable_8 = isApplicableMatch.getObject("step");
+		EObject _localVariable_9 = isApplicableMatch.getObject("line");
+		EObject _localVariable_10 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_11 = isApplicableMatch
 				.getObject("useCaseToInteraction");
-		EObject _localVariable_10 = isApplicableMatch.getObject("step");
-		EObject _localVariable_11 = isApplicableMatch.getObject("line");
 		EObject _localVariable_12 = isApplicableMatch.getObject("actorToLine");
 		EObject tmpActor = _localVariable_0;
 		EObject tmpSysActor = _localVariable_1;
@@ -2839,10 +2820,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EObject tmpInteraction = _localVariable_5;
 		EObject tmpFlow = _localVariable_6;
 		EObject tmpFlowToInteraction = _localVariable_7;
-		EObject tmpUseCase = _localVariable_8;
-		EObject tmpUseCaseToInteraction = _localVariable_9;
-		EObject tmpStep = _localVariable_10;
-		EObject tmpLine = _localVariable_11;
+		EObject tmpStep = _localVariable_8;
+		EObject tmpLine = _localVariable_9;
+		EObject tmpUseCase = _localVariable_10;
+		EObject tmpUseCaseToInteraction = _localVariable_11;
 		EObject tmpActorToLine = _localVariable_12;
 		if (tmpActor instanceof Actor) {
 			Actor actor = (Actor) tmpActor;
@@ -2860,14 +2841,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 									BasicFlow flow = (BasicFlow) tmpFlow;
 									if (tmpFlowToInteraction instanceof FlowToInteractionFragment) {
 										FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) tmpFlowToInteraction;
-										if (tmpUseCase instanceof UseCase) {
-											UseCase useCase = (UseCase) tmpUseCase;
-											if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
-												UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
-												if (tmpStep instanceof NormalStep) {
-													NormalStep step = (NormalStep) tmpStep;
-													if (tmpLine instanceof Lifeline) {
-														Lifeline line = (Lifeline) tmpLine;
+										if (tmpStep instanceof NormalStep) {
+											NormalStep step = (NormalStep) tmpStep;
+											if (tmpLine instanceof Lifeline) {
+												Lifeline line = (Lifeline) tmpLine;
+												if (tmpUseCase instanceof UseCase) {
+													UseCase useCase = (UseCase) tmpUseCase;
+													if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+														UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
 														if (tmpActorToLine instanceof ActorToLifeline) {
 															ActorToLifeline actorToLine = (ActorToLifeline) tmpActorToLine;
 															return new Object[] {
@@ -2879,10 +2860,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																	interaction,
 																	flow,
 																	flowToInteraction,
-																	useCase,
-																	useCaseToInteraction,
 																	step,
 																	line,
+																	useCase,
+																	useCaseToInteraction,
 																	actorToLine,
 																	isApplicableMatch };
 														}
@@ -2905,10 +2886,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, ActorToLifeline actorToLine,
-			UserStepBFMessageRule _this, IsApplicableMatch isApplicableMatch) {
+			FlowToInteractionFragment flowToInteraction, NormalStep step,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine, UserStepBFMessageRule _this,
+			IsApplicableMatch isApplicableMatch) {
 		if (!actor.equals(sysActor)) {
 			if (!line.equals(sysLine)) {
 				if (!actorToLine.equals(sysActorToSysLine)) {
@@ -2918,9 +2900,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 							return new Object[] { actor, sysActor,
 									packageDeclaration, sysLine,
 									sysActorToSysLine, interaction, flow,
-									flowToInteraction, useCase,
-									useCaseToInteraction, step, line,
-									actorToLine, csp, _this, isApplicableMatch };
+									flowToInteraction, step, line, useCase,
+									useCaseToInteraction, actorToLine, csp,
+									_this, isApplicableMatch };
 						}
 					}
 				}
@@ -2941,97 +2923,91 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Interaction interaction = (Interaction) result_pattern_UserStepBFMessageRule_1_1_binding[5];
 			BasicFlow flow = (BasicFlow) result_pattern_UserStepBFMessageRule_1_1_binding[6];
 			FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result_pattern_UserStepBFMessageRule_1_1_binding[7];
-			UseCase useCase = (UseCase) result_pattern_UserStepBFMessageRule_1_1_binding[8];
-			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UserStepBFMessageRule_1_1_binding[9];
-			NormalStep step = (NormalStep) result_pattern_UserStepBFMessageRule_1_1_binding[10];
-			Lifeline line = (Lifeline) result_pattern_UserStepBFMessageRule_1_1_binding[11];
+			NormalStep step = (NormalStep) result_pattern_UserStepBFMessageRule_1_1_binding[8];
+			Lifeline line = (Lifeline) result_pattern_UserStepBFMessageRule_1_1_binding[9];
+			UseCase useCase = (UseCase) result_pattern_UserStepBFMessageRule_1_1_binding[10];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UserStepBFMessageRule_1_1_binding[11];
 			ActorToLifeline actorToLine = (ActorToLifeline) result_pattern_UserStepBFMessageRule_1_1_binding[12];
 
 			Object[] result_pattern_UserStepBFMessageRule_1_1_black = pattern_UserStepBFMessageRule_1_1_blackBBBBBBBBBBBBBFBB(
 					actor, sysActor, packageDeclaration, sysLine,
 					sysActorToSysLine, interaction, flow, flowToInteraction,
-					useCase, useCaseToInteraction, step, line, actorToLine,
+					step, line, useCase, useCaseToInteraction, actorToLine,
 					_this, isApplicableMatch);
 			if (result_pattern_UserStepBFMessageRule_1_1_black != null) {
 				CSP csp = (CSP) result_pattern_UserStepBFMessageRule_1_1_black[13];
 
 				return new Object[] { actor, sysActor, packageDeclaration,
 						sysLine, sysActorToSysLine, interaction, flow,
-						flowToInteraction, useCase, useCaseToInteraction, step,
-						line, actorToLine, csp, _this, isApplicableMatch };
+						flowToInteraction, step, line, useCase,
+						useCaseToInteraction, actorToLine, csp, _this,
+						isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_1_1_greenBFBFBFFBB(
-			Lifeline sysLine, Interaction interaction, NormalStep step,
-			Lifeline line, CSP csp) {
+	public static final Object[] pattern_UserStepBFMessageRule_1_1_greenBFBFFBB(
+			Lifeline sysLine, Interaction interaction, Lifeline line, CSP csp) {
 		MessageOccurrenceSpecification messageSend = ModalSequenceDiagramFactory.eINSTANCE
 				.createMessageOccurrenceSpecification();
 		MessageOccurrenceSpecification messageReceive = ModalSequenceDiagramFactory.eINSTANCE
 				.createMessageOccurrenceSpecification();
 		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
-		NormalStepToMessage stepToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createNormalStepToMessage();
-		Object _localVariable_0 = csp.getValue("message", "name");
-		Object _localVariable_1 = csp.getValue("message", "messageSort");
-		Object _localVariable_2 = csp.getValue("message", "messageKind");
+		Object _localVariable_0 = csp.getValue("message", "messageSort");
+		Object _localVariable_1 = csp.getValue("message", "messageKind");
+		Object _localVariable_2 = csp.getValue("message", "name");
 		sysLine.getCoveredBy().add(messageSend);
 		messageSend.setEnclosingInteraction(interaction);
 		messageReceive.setEnclosingInteraction(interaction);
 		line.getCoveredBy().add(messageReceive);
 		message.setSendEvent(messageSend);
 		message.setReceiveEvent(messageReceive);
-		message.setInteraction(interaction);
 		messageSend.setMessage(message);
 		messageReceive.setMessage(message);
-		stepToMessage.setSource(step);
-		stepToMessage.setTarget(message);
-		String message_name_prime = (String) _localVariable_0;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_1;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_2;
-		message.setName(message_name_prime);
+		message.setInteraction(interaction);
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_0;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_1;
+		String message_name_prime = (String) _localVariable_2;
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.setName(message_name_prime);
 		return new Object[] { sysLine, messageSend, interaction,
-				messageReceive, step, message, stepToMessage, line, csp };
+				messageReceive, message, line, csp };
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_1_2_blackBBBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_1_2_blackBBBB(
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, NormalStep step,
-			Message message, NormalStepToMessage stepToMessage) {
+			Message message) {
 		if (!messageReceive.equals(messageSend)) {
-			return new Object[] { messageSend, messageReceive, step, message,
-					stepToMessage };
+			return new Object[] { messageSend, messageReceive, step, message };
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_1_2_greenFBBBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_1_2_greenFBBBB(
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, NormalStep step,
-			Message message, NormalStepToMessage stepToMessage) {
+			Message message) {
 		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
 				.createPerformRuleResult();
 		ruleresult.getCreatedElements().add(messageSend);
 		ruleresult.getCreatedElements().add(messageReceive);
 		ruleresult.getTranslatedElements().add(step);
 		ruleresult.getCreatedElements().add(message);
-		ruleresult.getCreatedLinkElements().add(stepToMessage);
 		return new Object[] { ruleresult, messageSend, messageReceive, step,
-				message, stepToMessage };
+				message };
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_1_3_blackBBBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_1_3_blackBBBBBBBBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject actor, EObject sysActor,
 			EObject packageDeclaration, EObject sysLine,
 			EObject sysActorToSysLine, EObject messageSend,
 			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage, EObject line, EObject actorToLine) {
+			EObject flowToInteraction, EObject step, EObject message,
+			EObject line, EObject useCase, EObject useCaseToInteraction,
+			EObject actorToLine) {
 		if (!actor.equals(sysActor)) {
 			if (!actor.equals(packageDeclaration)) {
 				if (!actor.equals(sysLine)) {
@@ -3041,293 +3017,243 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 								if (!actor.equals(messageReceive)) {
 									if (!actor.equals(flow)) {
 										if (!actor.equals(flowToInteraction)) {
-											if (!actor.equals(useCase)) {
-												if (!actor
-														.equals(useCaseToInteraction)) {
-													if (!actor.equals(step)) {
+											if (!actor.equals(step)) {
+												if (!actor.equals(message)) {
+													if (!actor.equals(line)) {
 														if (!actor
-																.equals(message)) {
+																.equals(useCase)) {
 															if (!actor
-																	.equals(stepToMessage)) {
+																	.equals(useCaseToInteraction)) {
 																if (!actor
-																		.equals(line)) {
-																	if (!actor
-																			.equals(actorToLine)) {
+																		.equals(actorToLine)) {
+																	if (!sysActor
+																			.equals(sysLine)) {
 																		if (!sysActor
-																				.equals(sysLine)) {
+																				.equals(sysActorToSysLine)) {
 																			if (!sysActor
-																					.equals(sysActorToSysLine)) {
+																					.equals(useCase)) {
 																				if (!sysActor
-																						.equals(useCase)) {
-																					if (!sysActor
-																							.equals(useCaseToInteraction)) {
+																						.equals(useCaseToInteraction)) {
+																					if (!packageDeclaration
+																							.equals(sysActor)) {
 																						if (!packageDeclaration
-																								.equals(sysActor)) {
+																								.equals(sysLine)) {
 																							if (!packageDeclaration
-																									.equals(sysLine)) {
+																									.equals(sysActorToSysLine)) {
 																								if (!packageDeclaration
-																										.equals(sysActorToSysLine)) {
+																										.equals(step)) {
 																									if (!packageDeclaration
 																											.equals(useCase)) {
 																										if (!packageDeclaration
 																												.equals(useCaseToInteraction)) {
-																											if (!packageDeclaration
-																													.equals(step)) {
-																												if (!packageDeclaration
-																														.equals(stepToMessage)) {
-																													if (!sysLine
-																															.equals(useCase)) {
-																														if (!sysLine
-																																.equals(useCaseToInteraction)) {
+																											if (!sysLine
+																													.equals(useCase)) {
+																												if (!sysLine
+																														.equals(useCaseToInteraction)) {
+																													if (!sysActorToSysLine
+																															.equals(sysLine)) {
+																														if (!sysActorToSysLine
+																																.equals(useCase)) {
 																															if (!sysActorToSysLine
-																																	.equals(sysLine)) {
-																																if (!sysActorToSysLine
-																																		.equals(useCase)) {
-																																	if (!sysActorToSysLine
-																																			.equals(useCaseToInteraction)) {
+																																	.equals(useCaseToInteraction)) {
+																																if (!messageSend
+																																		.equals(sysActor)) {
+																																	if (!messageSend
+																																			.equals(packageDeclaration)) {
 																																		if (!messageSend
-																																				.equals(sysActor)) {
+																																				.equals(sysLine)) {
 																																			if (!messageSend
-																																					.equals(packageDeclaration)) {
+																																					.equals(sysActorToSysLine)) {
 																																				if (!messageSend
-																																						.equals(sysLine)) {
+																																						.equals(step)) {
 																																					if (!messageSend
-																																							.equals(sysActorToSysLine)) {
+																																							.equals(useCase)) {
 																																						if (!messageSend
-																																								.equals(useCase)) {
-																																							if (!messageSend
-																																									.equals(useCaseToInteraction)) {
-																																								if (!messageSend
-																																										.equals(step)) {
-																																									if (!messageSend
-																																											.equals(stepToMessage)) {
+																																								.equals(useCaseToInteraction)) {
+																																							if (!interaction
+																																									.equals(sysActor)) {
+																																								if (!interaction
+																																										.equals(packageDeclaration)) {
+																																									if (!interaction
+																																											.equals(sysLine)) {
 																																										if (!interaction
-																																												.equals(sysActor)) {
+																																												.equals(sysActorToSysLine)) {
 																																											if (!interaction
-																																													.equals(packageDeclaration)) {
+																																													.equals(messageSend)) {
 																																												if (!interaction
-																																														.equals(sysLine)) {
+																																														.equals(messageReceive)) {
 																																													if (!interaction
-																																															.equals(sysActorToSysLine)) {
+																																															.equals(step)) {
 																																														if (!interaction
-																																																.equals(messageSend)) {
+																																																.equals(message)) {
 																																															if (!interaction
-																																																	.equals(messageReceive)) {
+																																																	.equals(line)) {
 																																																if (!interaction
 																																																		.equals(useCase)) {
 																																																	if (!interaction
 																																																			.equals(useCaseToInteraction)) {
-																																																		if (!interaction
-																																																				.equals(step)) {
-																																																			if (!interaction
-																																																					.equals(message)) {
-																																																				if (!interaction
-																																																						.equals(stepToMessage)) {
-																																																					if (!interaction
-																																																							.equals(line)) {
+																																																		if (!messageReceive
+																																																				.equals(sysActor)) {
+																																																			if (!messageReceive
+																																																					.equals(packageDeclaration)) {
+																																																				if (!messageReceive
+																																																						.equals(sysLine)) {
+																																																					if (!messageReceive
+																																																							.equals(sysActorToSysLine)) {
 																																																						if (!messageReceive
-																																																								.equals(sysActor)) {
+																																																								.equals(messageSend)) {
 																																																							if (!messageReceive
-																																																									.equals(packageDeclaration)) {
+																																																									.equals(step)) {
 																																																								if (!messageReceive
-																																																										.equals(sysLine)) {
+																																																										.equals(useCase)) {
 																																																									if (!messageReceive
-																																																											.equals(sysActorToSysLine)) {
-																																																										if (!messageReceive
-																																																												.equals(messageSend)) {
-																																																											if (!messageReceive
-																																																													.equals(useCase)) {
-																																																												if (!messageReceive
-																																																														.equals(useCaseToInteraction)) {
-																																																													if (!messageReceive
-																																																															.equals(step)) {
-																																																														if (!messageReceive
-																																																																.equals(stepToMessage)) {
+																																																											.equals(useCaseToInteraction)) {
+																																																										if (!flow
+																																																												.equals(sysActor)) {
+																																																											if (!flow
+																																																													.equals(packageDeclaration)) {
+																																																												if (!flow
+																																																														.equals(sysLine)) {
+																																																													if (!flow
+																																																															.equals(sysActorToSysLine)) {
+																																																														if (!flow
+																																																																.equals(messageSend)) {
 																																																															if (!flow
-																																																																	.equals(sysActor)) {
+																																																																	.equals(interaction)) {
 																																																																if (!flow
-																																																																		.equals(packageDeclaration)) {
+																																																																		.equals(messageReceive)) {
 																																																																	if (!flow
-																																																																			.equals(sysLine)) {
+																																																																			.equals(flowToInteraction)) {
 																																																																		if (!flow
-																																																																				.equals(sysActorToSysLine)) {
+																																																																				.equals(step)) {
 																																																																			if (!flow
-																																																																					.equals(messageSend)) {
+																																																																					.equals(message)) {
 																																																																				if (!flow
-																																																																						.equals(interaction)) {
+																																																																						.equals(line)) {
 																																																																					if (!flow
-																																																																							.equals(messageReceive)) {
+																																																																							.equals(useCase)) {
 																																																																						if (!flow
-																																																																								.equals(flowToInteraction)) {
-																																																																							if (!flow
-																																																																									.equals(useCase)) {
-																																																																								if (!flow
-																																																																										.equals(useCaseToInteraction)) {
-																																																																									if (!flow
-																																																																											.equals(step)) {
-																																																																										if (!flow
-																																																																												.equals(message)) {
-																																																																											if (!flow
-																																																																													.equals(stepToMessage)) {
-																																																																												if (!flow
-																																																																														.equals(line)) {
+																																																																								.equals(useCaseToInteraction)) {
+																																																																							if (!flowToInteraction
+																																																																									.equals(sysActor)) {
+																																																																								if (!flowToInteraction
+																																																																										.equals(packageDeclaration)) {
+																																																																									if (!flowToInteraction
+																																																																											.equals(sysLine)) {
+																																																																										if (!flowToInteraction
+																																																																												.equals(sysActorToSysLine)) {
+																																																																											if (!flowToInteraction
+																																																																													.equals(messageSend)) {
+																																																																												if (!flowToInteraction
+																																																																														.equals(interaction)) {
 																																																																													if (!flowToInteraction
-																																																																															.equals(sysActor)) {
+																																																																															.equals(messageReceive)) {
 																																																																														if (!flowToInteraction
-																																																																																.equals(packageDeclaration)) {
+																																																																																.equals(step)) {
 																																																																															if (!flowToInteraction
-																																																																																	.equals(sysLine)) {
+																																																																																	.equals(message)) {
 																																																																																if (!flowToInteraction
-																																																																																		.equals(sysActorToSysLine)) {
+																																																																																		.equals(line)) {
 																																																																																	if (!flowToInteraction
-																																																																																			.equals(messageSend)) {
+																																																																																			.equals(useCase)) {
 																																																																																		if (!flowToInteraction
-																																																																																				.equals(interaction)) {
-																																																																																			if (!flowToInteraction
-																																																																																					.equals(messageReceive)) {
-																																																																																				if (!flowToInteraction
-																																																																																						.equals(useCase)) {
-																																																																																					if (!flowToInteraction
-																																																																																							.equals(useCaseToInteraction)) {
-																																																																																						if (!flowToInteraction
-																																																																																								.equals(step)) {
-																																																																																							if (!flowToInteraction
-																																																																																									.equals(message)) {
-																																																																																								if (!flowToInteraction
-																																																																																										.equals(stepToMessage)) {
-																																																																																									if (!flowToInteraction
-																																																																																											.equals(line)) {
-																																																																																										if (!useCase
-																																																																																												.equals(useCaseToInteraction)) {
-																																																																																											if (!step
-																																																																																													.equals(sysActor)) {
-																																																																																												if (!step
-																																																																																														.equals(sysLine)) {
-																																																																																													if (!step
-																																																																																															.equals(sysActorToSysLine)) {
-																																																																																														if (!step
-																																																																																																.equals(useCase)) {
-																																																																																															if (!step
-																																																																																																	.equals(useCaseToInteraction)) {
-																																																																																																if (!step
-																																																																																																		.equals(stepToMessage)) {
-																																																																																																	if (!message
+																																																																																				.equals(useCaseToInteraction)) {
+																																																																																			if (!step
+																																																																																					.equals(sysActor)) {
+																																																																																				if (!step
+																																																																																						.equals(sysLine)) {
+																																																																																					if (!step
+																																																																																							.equals(sysActorToSysLine)) {
+																																																																																						if (!step
+																																																																																								.equals(useCase)) {
+																																																																																							if (!step
+																																																																																									.equals(useCaseToInteraction)) {
+																																																																																								if (!message
+																																																																																										.equals(sysActor)) {
+																																																																																									if (!message
+																																																																																											.equals(packageDeclaration)) {
+																																																																																										if (!message
+																																																																																												.equals(sysLine)) {
+																																																																																											if (!message
+																																																																																													.equals(sysActorToSysLine)) {
+																																																																																												if (!message
+																																																																																														.equals(messageSend)) {
+																																																																																													if (!message
+																																																																																															.equals(messageReceive)) {
+																																																																																														if (!message
+																																																																																																.equals(step)) {
+																																																																																															if (!message
+																																																																																																	.equals(useCase)) {
+																																																																																																if (!message
+																																																																																																		.equals(useCaseToInteraction)) {
+																																																																																																	if (!line
 																																																																																																			.equals(sysActor)) {
-																																																																																																		if (!message
+																																																																																																		if (!line
 																																																																																																				.equals(packageDeclaration)) {
-																																																																																																			if (!message
+																																																																																																			if (!line
 																																																																																																					.equals(sysLine)) {
-																																																																																																				if (!message
+																																																																																																				if (!line
 																																																																																																						.equals(sysActorToSysLine)) {
-																																																																																																					if (!message
+																																																																																																					if (!line
 																																																																																																							.equals(messageSend)) {
-																																																																																																						if (!message
+																																																																																																						if (!line
 																																																																																																								.equals(messageReceive)) {
-																																																																																																							if (!message
-																																																																																																									.equals(useCase)) {
-																																																																																																								if (!message
-																																																																																																										.equals(useCaseToInteraction)) {
-																																																																																																									if (!message
-																																																																																																											.equals(step)) {
-																																																																																																										if (!message
-																																																																																																												.equals(stepToMessage)) {
-																																																																																																											if (!stepToMessage
-																																																																																																													.equals(sysActor)) {
-																																																																																																												if (!stepToMessage
-																																																																																																														.equals(sysLine)) {
-																																																																																																													if (!stepToMessage
-																																																																																																															.equals(sysActorToSysLine)) {
-																																																																																																														if (!stepToMessage
-																																																																																																																.equals(useCase)) {
-																																																																																																															if (!stepToMessage
-																																																																																																																	.equals(useCaseToInteraction)) {
-																																																																																																																if (!line
-																																																																																																																		.equals(sysActor)) {
-																																																																																																																	if (!line
-																																																																																																																			.equals(packageDeclaration)) {
-																																																																																																																		if (!line
-																																																																																																																				.equals(sysLine)) {
-																																																																																																																			if (!line
-																																																																																																																					.equals(sysActorToSysLine)) {
-																																																																																																																				if (!line
-																																																																																																																						.equals(messageSend)) {
-																																																																																																																					if (!line
-																																																																																																																							.equals(messageReceive)) {
-																																																																																																																						if (!line
-																																																																																																																								.equals(useCase)) {
-																																																																																																																							if (!line
-																																																																																																																									.equals(useCaseToInteraction)) {
-																																																																																																																								if (!line
-																																																																																																																										.equals(step)) {
-																																																																																																																									if (!line
-																																																																																																																											.equals(message)) {
-																																																																																																																										if (!line
-																																																																																																																												.equals(stepToMessage)) {
-																																																																																																																											if (!actorToLine
-																																																																																																																													.equals(sysActor)) {
-																																																																																																																												if (!actorToLine
-																																																																																																																														.equals(packageDeclaration)) {
-																																																																																																																													if (!actorToLine
-																																																																																																																															.equals(sysLine)) {
-																																																																																																																														if (!actorToLine
-																																																																																																																																.equals(sysActorToSysLine)) {
-																																																																																																																															if (!actorToLine
-																																																																																																																																	.equals(messageSend)) {
-																																																																																																																																if (!actorToLine
-																																																																																																																																		.equals(interaction)) {
-																																																																																																																																	if (!actorToLine
-																																																																																																																																			.equals(messageReceive)) {
-																																																																																																																																		if (!actorToLine
-																																																																																																																																				.equals(flow)) {
-																																																																																																																																			if (!actorToLine
-																																																																																																																																					.equals(flowToInteraction)) {
-																																																																																																																																				if (!actorToLine
-																																																																																																																																						.equals(useCase)) {
-																																																																																																																																					if (!actorToLine
-																																																																																																																																							.equals(useCaseToInteraction)) {
-																																																																																																																																						if (!actorToLine
-																																																																																																																																								.equals(step)) {
-																																																																																																																																							if (!actorToLine
-																																																																																																																																									.equals(message)) {
-																																																																																																																																								if (!actorToLine
-																																																																																																																																										.equals(stepToMessage)) {
-																																																																																																																																									if (!actorToLine
-																																																																																																																																											.equals(line)) {
-																																																																																																																																										return new Object[] {
-																																																																																																																																												ruleresult,
-																																																																																																																																												actor,
-																																																																																																																																												sysActor,
-																																																																																																																																												packageDeclaration,
-																																																																																																																																												sysLine,
-																																																																																																																																												sysActorToSysLine,
-																																																																																																																																												messageSend,
-																																																																																																																																												interaction,
-																																																																																																																																												messageReceive,
-																																																																																																																																												flow,
-																																																																																																																																												flowToInteraction,
-																																																																																																																																												useCase,
-																																																																																																																																												useCaseToInteraction,
-																																																																																																																																												step,
-																																																																																																																																												message,
-																																																																																																																																												stepToMessage,
-																																																																																																																																												line,
-																																																																																																																																												actorToLine };
-																																																																																																																																									}
-																																																																																																																																								}
-																																																																																																																																							}
-																																																																																																																																						}
-																																																																																																																																					}
-																																																																																																																																				}
-																																																																																																																																			}
-																																																																																																																																		}
-																																																																																																																																	}
-																																																																																																																																}
-																																																																																																																															}
-																																																																																																																														}
-																																																																																																																													}
-																																																																																																																												}
-																																																																																																																											}
-																																																																																																																										}
+																																																																																																							if (!line
+																																																																																																									.equals(step)) {
+																																																																																																								if (!line
+																																																																																																										.equals(message)) {
+																																																																																																									if (!line
+																																																																																																											.equals(useCase)) {
+																																																																																																										if (!line
+																																																																																																												.equals(useCaseToInteraction)) {
+																																																																																																											if (!useCase
+																																																																																																													.equals(useCaseToInteraction)) {
+																																																																																																												if (!actorToLine
+																																																																																																														.equals(sysActor)) {
+																																																																																																													if (!actorToLine
+																																																																																																															.equals(packageDeclaration)) {
+																																																																																																														if (!actorToLine
+																																																																																																																.equals(sysLine)) {
+																																																																																																															if (!actorToLine
+																																																																																																																	.equals(sysActorToSysLine)) {
+																																																																																																																if (!actorToLine
+																																																																																																																		.equals(messageSend)) {
+																																																																																																																	if (!actorToLine
+																																																																																																																			.equals(interaction)) {
+																																																																																																																		if (!actorToLine
+																																																																																																																				.equals(messageReceive)) {
+																																																																																																																			if (!actorToLine
+																																																																																																																					.equals(flow)) {
+																																																																																																																				if (!actorToLine
+																																																																																																																						.equals(flowToInteraction)) {
+																																																																																																																					if (!actorToLine
+																																																																																																																							.equals(step)) {
+																																																																																																																						if (!actorToLine
+																																																																																																																								.equals(message)) {
+																																																																																																																							if (!actorToLine
+																																																																																																																									.equals(line)) {
+																																																																																																																								if (!actorToLine
+																																																																																																																										.equals(useCase)) {
+																																																																																																																									if (!actorToLine
+																																																																																																																											.equals(useCaseToInteraction)) {
+																																																																																																																										return new Object[] {
+																																																																																																																												ruleresult,
+																																																																																																																												actor,
+																																																																																																																												sysActor,
+																																																																																																																												packageDeclaration,
+																																																																																																																												sysLine,
+																																																																																																																												sysActorToSysLine,
+																																																																																																																												messageSend,
+																																																																																																																												interaction,
+																																																																																																																												messageReceive,
+																																																																																																																												flow,
+																																																																																																																												flowToInteraction,
+																																																																																																																												step,
+																																																																																																																												message,
+																																																																																																																												line,
+																																																																																																																												useCase,
+																																																																																																																												useCaseToInteraction,
+																																																																																																																												actorToLine };
 																																																																																																																									}
 																																																																																																																								}
 																																																																																																																							}
@@ -3451,11 +3377,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_UserStepBFMessageRule_1_3_greenBBBBBBBBBBFFFFFFFFFFFFFFFF(
 			PerformRuleResult ruleresult, EObject actor, EObject sysLine,
 			EObject messageSend, EObject interaction, EObject messageReceive,
-			EObject flow, EObject step, EObject message, EObject stepToMessage,
-			EObject line) {
+			EObject flow, EObject step, EObject message, EObject line) {
 		EMoflonEdge sysLine__messageSend____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageSend__sysLine____covered = TGGRuntimeFactory.eINSTANCE
@@ -3468,21 +3393,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge step__actor____actor = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge message__messageSend____sendEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge stepToMessage__step____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge stepToMessage__message____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageSend__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -3492,6 +3405,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge step__actor____actor = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "UserStepBFMessageRule";
 		String sysLine__messageSend____coveredBy_name_prime = "coveredBy";
 		String messageSend__sysLine____covered_name_prime = "covered";
@@ -3499,18 +3420,16 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		String interaction__messageSend____fragment_name_prime = "fragment";
 		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
 		String interaction__messageReceive____fragment_name_prime = "fragment";
-		String flow__step____steps_name_prime = "steps";
-		String step__actor____actor_name_prime = "actor";
 		String message__messageSend____sendEvent_name_prime = "sendEvent";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
-		String message__interaction____interaction_name_prime = "interaction";
-		String interaction__message____message_name_prime = "message";
-		String stepToMessage__step____source_name_prime = "source";
-		String stepToMessage__message____target_name_prime = "target";
 		String messageSend__message____message_name_prime = "message";
 		String messageReceive__message____message_name_prime = "message";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String flow__step____steps_name_prime = "steps";
+		String step__actor____actor_name_prime = "actor";
 		sysLine__messageSend____coveredBy.setSrc(sysLine);
 		sysLine__messageSend____coveredBy.setTrg(messageSend);
 		ruleresult.getCreatedEdges().add(sysLine__messageSend____coveredBy);
@@ -3533,12 +3452,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		interaction__messageReceive____fragment.setTrg(messageReceive);
 		ruleresult.getCreatedEdges().add(
 				interaction__messageReceive____fragment);
-		flow__step____steps.setSrc(flow);
-		flow__step____steps.setTrg(step);
-		ruleresult.getTranslatedEdges().add(flow__step____steps);
-		step__actor____actor.setSrc(step);
-		step__actor____actor.setTrg(actor);
-		ruleresult.getTranslatedEdges().add(step__actor____actor);
 		message__messageSend____sendEvent.setSrc(message);
 		message__messageSend____sendEvent.setTrg(messageSend);
 		ruleresult.getCreatedEdges().add(message__messageSend____sendEvent);
@@ -3546,18 +3459,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		ruleresult.getCreatedEdges().add(
 				message__messageReceive____receiveEvent);
-		message__interaction____interaction.setSrc(message);
-		message__interaction____interaction.setTrg(interaction);
-		ruleresult.getCreatedEdges().add(message__interaction____interaction);
-		interaction__message____message.setSrc(interaction);
-		interaction__message____message.setTrg(message);
-		ruleresult.getCreatedEdges().add(interaction__message____message);
-		stepToMessage__step____source.setSrc(stepToMessage);
-		stepToMessage__step____source.setTrg(step);
-		ruleresult.getCreatedEdges().add(stepToMessage__step____source);
-		stepToMessage__message____target.setSrc(stepToMessage);
-		stepToMessage__message____target.setTrg(message);
-		ruleresult.getCreatedEdges().add(stepToMessage__message____target);
 		messageSend__message____message.setSrc(messageSend);
 		messageSend__message____message.setTrg(message);
 		ruleresult.getCreatedEdges().add(messageSend__message____message);
@@ -3570,6 +3471,18 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		messageReceive__line____covered.setSrc(messageReceive);
 		messageReceive__line____covered.setTrg(line);
 		ruleresult.getCreatedEdges().add(messageReceive__line____covered);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		ruleresult.getCreatedEdges().add(message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		ruleresult.getCreatedEdges().add(interaction__message____message);
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		ruleresult.getTranslatedEdges().add(flow__step____steps);
+		step__actor____actor.setSrc(step);
+		step__actor____actor.setTrg(actor);
+		ruleresult.getTranslatedEdges().add(step__actor____actor);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
 		sysLine__messageSend____coveredBy
 				.setName(sysLine__messageSend____coveredBy_name_prime);
@@ -3583,20 +3496,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
 		interaction__messageReceive____fragment
 				.setName(interaction__messageReceive____fragment_name_prime);
-		flow__step____steps.setName(flow__step____steps_name_prime);
-		step__actor____actor.setName(step__actor____actor_name_prime);
 		message__messageSend____sendEvent
 				.setName(message__messageSend____sendEvent_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
-		message__interaction____interaction
-				.setName(message__interaction____interaction_name_prime);
-		interaction__message____message
-				.setName(interaction__message____message_name_prime);
-		stepToMessage__step____source
-				.setName(stepToMessage__step____source_name_prime);
-		stepToMessage__message____target
-				.setName(stepToMessage__message____target_name_prime);
 		messageSend__message____message
 				.setName(messageSend__message____message_name_prime);
 		messageReceive__message____message
@@ -3605,38 +3508,43 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		step__actor____actor.setName(step__actor____actor_name_prime);
 		return new Object[] { ruleresult, actor, sysLine, messageSend,
-				interaction, messageReceive, flow, step, message,
-				stepToMessage, line, sysLine__messageSend____coveredBy,
+				interaction, messageReceive, flow, step, message, line,
+				sysLine__messageSend____coveredBy,
 				messageSend__sysLine____covered,
 				messageSend__interaction____enclosingInteraction,
 				interaction__messageSend____fragment,
 				messageReceive__interaction____enclosingInteraction,
-				interaction__messageReceive____fragment, flow__step____steps,
-				step__actor____actor, message__messageSend____sendEvent,
+				interaction__messageReceive____fragment,
+				message__messageSend____sendEvent,
 				message__messageReceive____receiveEvent,
-				message__interaction____interaction,
-				interaction__message____message, stepToMessage__step____source,
-				stepToMessage__message____target,
 				messageSend__message____message,
 				messageReceive__message____message,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered };
+				messageReceive__line____covered,
+				message__interaction____interaction,
+				interaction__message____message, flow__step____steps,
+				step__actor____actor };
 	}
 
-	public static final void pattern_UserStepBFMessageRule_1_5_expressionBBBBBBBBBBBBBBBBBBB(
+	public static final void pattern_UserStepBFMessageRule_1_5_expressionBBBBBBBBBBBBBBBBBB(
 			UserStepBFMessageRule _this, PerformRuleResult ruleresult,
 			EObject actor, EObject sysActor, EObject packageDeclaration,
 			EObject sysLine, EObject sysActorToSysLine, EObject messageSend,
 			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage, EObject line, EObject actorToLine) {
+			EObject flowToInteraction, EObject step, EObject message,
+			EObject line, EObject useCase, EObject useCaseToInteraction,
+			EObject actorToLine) {
 		_this.registerObjects_FWD(ruleresult, actor, sysActor,
 				packageDeclaration, sysLine, sysActorToSysLine, messageSend,
-				interaction, messageReceive, flow, flowToInteraction, useCase,
-				useCaseToInteraction, step, message, stepToMessage, line,
-				actorToLine);
+				interaction, messageReceive, flow, flowToInteraction, step,
+				message, line, useCase, useCaseToInteraction, actorToLine);
 
 	}
 
@@ -3703,14 +3611,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EObject _localVariable_1 = match.getObject("sysActor");
 		EObject _localVariable_2 = match.getObject("packageDeclaration");
 		EObject _localVariable_3 = match.getObject("flow");
-		EObject _localVariable_4 = match.getObject("useCase");
-		EObject _localVariable_5 = match.getObject("step");
+		EObject _localVariable_4 = match.getObject("step");
+		EObject _localVariable_5 = match.getObject("useCase");
 		EObject tmpActor = _localVariable_0;
 		EObject tmpSysActor = _localVariable_1;
 		EObject tmpPackageDeclaration = _localVariable_2;
 		EObject tmpFlow = _localVariable_3;
-		EObject tmpUseCase = _localVariable_4;
-		EObject tmpStep = _localVariable_5;
+		EObject tmpStep = _localVariable_4;
+		EObject tmpUseCase = _localVariable_5;
 		if (tmpActor instanceof Actor) {
 			Actor actor = (Actor) tmpActor;
 			if (tmpSysActor instanceof Actor) {
@@ -3719,13 +3627,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 					PackageDeclaration packageDeclaration = (PackageDeclaration) tmpPackageDeclaration;
 					if (tmpFlow instanceof BasicFlow) {
 						BasicFlow flow = (BasicFlow) tmpFlow;
-						if (tmpUseCase instanceof UseCase) {
-							UseCase useCase = (UseCase) tmpUseCase;
-							if (tmpStep instanceof NormalStep) {
-								NormalStep step = (NormalStep) tmpStep;
+						if (tmpStep instanceof NormalStep) {
+							NormalStep step = (NormalStep) tmpStep;
+							if (tmpUseCase instanceof UseCase) {
+								UseCase useCase = (UseCase) tmpUseCase;
 								return new Object[] { actor, sysActor,
-										packageDeclaration, flow, useCase,
-										step, match };
+										packageDeclaration, flow, step,
+										useCase, match };
 							}
 						}
 					}
@@ -3737,7 +3645,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_2_2_blackBBBFFFBFBFBFFB(
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step, Match match) {
+			BasicFlow flow, NormalStep step, UseCase useCase, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!actor.equals(sysActor)) {
 			for (ActorToLifeline sysActorToSysLine : org.moflon.util.eMoflonEMFUtil
@@ -3777,9 +3685,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 															interaction,
 															flow,
 															flowToInteraction,
+															step,
+															line,
 															useCase,
 															useCaseToInteraction,
-															step, line,
 															actorToLine, match });
 												}
 											}
@@ -3802,9 +3711,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, NormalStep step,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!actor.equals(sysActor)) {
 			if (!line.equals(sysLine)) {
@@ -3821,20 +3731,20 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 														.getTarget())) {
 											if (useCase.getFlows().contains(
 													flow)) {
-												if (useCase
-														.equals(useCaseToInteraction
-																.getSource())) {
-													if (interaction
+												if (interaction.equals(line
+														.getInteraction())) {
+													if (useCase
 															.equals(useCaseToInteraction
-																	.getTarget())) {
-														if (flow.getSteps()
-																.contains(step)) {
-															if (actor
-																	.equals(step
-																			.getActor())) {
-																if (interaction
-																		.equals(line
-																				.getInteraction())) {
+																	.getSource())) {
+														if (interaction
+																.equals(useCaseToInteraction
+																		.getTarget())) {
+															if (flow.getSteps()
+																	.contains(
+																			step)) {
+																if (actor
+																		.equals(step
+																				.getActor())) {
 																	if (actor
 																			.equals(actorToLine
 																					.getSource())) {
@@ -3853,10 +3763,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																						interaction,
 																						flow,
 																						flowToInteraction,
-																						useCase,
-																						useCaseToInteraction,
 																						step,
 																						line,
+																						useCase,
+																						useCaseToInteraction,
 																						actorToLine });
 																			}
 																		}
@@ -3883,9 +3793,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, NormalStep step,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
@@ -3902,6 +3813,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
@@ -3909,10 +3824,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge step__actor____actor = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -3927,12 +3838,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		String flowToInteraction__flow____source_name_prime = "source";
 		String flowToInteraction__interaction____target_name_prime = "target";
 		String useCase__flow____flows_name_prime = "flows";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
 		String useCaseToInteraction__useCase____source_name_prime = "source";
 		String useCaseToInteraction__interaction____target_name_prime = "target";
 		String flow__step____steps_name_prime = "steps";
 		String step__actor____actor_name_prime = "actor";
-		String line__interaction____interaction_name_prime = "interaction";
-		String interaction__line____lifeline_name_prime = "lifeline";
 		String actorToLine__actor____source_name_prime = "source";
 		String actorToLine__line____target_name_prime = "target";
 		String packageDeclaration__useCase____useCases_name_prime = "useCases";
@@ -3944,10 +3855,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAllContextElements().add(interaction);
 		isApplicableMatch.getAllContextElements().add(flow);
 		isApplicableMatch.getAllContextElements().add(flowToInteraction);
-		isApplicableMatch.getAllContextElements().add(useCase);
-		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(step);
 		isApplicableMatch.getAllContextElements().add(line);
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(actorToLine);
 		packageDeclaration__actor____actors.setSrc(packageDeclaration);
 		packageDeclaration__actor____actors.setTrg(actor);
@@ -3976,6 +3887,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		useCase__flow____flows.setSrc(useCase);
 		useCase__flow____flows.setTrg(flow);
 		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__line____lifeline);
 		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
 		useCaseToInteraction__useCase____source.setTrg(useCase);
 		isApplicableMatch.getAllContextElements().add(
@@ -3991,14 +3910,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		step__actor____actor.setSrc(step);
 		step__actor____actor.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(step__actor____actor);
-		line__interaction____interaction.setSrc(line);
-		line__interaction____interaction.setTrg(interaction);
-		isApplicableMatch.getAllContextElements().add(
-				line__interaction____interaction);
-		interaction__line____lifeline.setSrc(interaction);
-		interaction__line____lifeline.setTrg(line);
-		isApplicableMatch.getAllContextElements().add(
-				interaction__line____lifeline);
 		actorToLine__actor____source.setSrc(actorToLine);
 		actorToLine__actor____source.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(
@@ -4024,16 +3935,16 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		flowToInteraction__interaction____target
 				.setName(flowToInteraction__interaction____target_name_prime);
 		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
 		useCaseToInteraction__useCase____source
 				.setName(useCaseToInteraction__useCase____source_name_prime);
 		useCaseToInteraction__interaction____target
 				.setName(useCaseToInteraction__interaction____target_name_prime);
 		flow__step____steps.setName(flow__step____steps_name_prime);
 		step__actor____actor.setName(step__actor____actor_name_prime);
-		line__interaction____interaction
-				.setName(line__interaction____interaction_name_prime);
-		interaction__line____lifeline
-				.setName(interaction__line____lifeline_name_prime);
 		actorToLine__actor____source
 				.setName(actorToLine__actor____source_name_prime);
 		actorToLine__line____target
@@ -4041,21 +3952,20 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		packageDeclaration__useCase____useCases
 				.setName(packageDeclaration__useCase____useCases_name_prime);
 		return new Object[] { actor, sysActor, packageDeclaration, sysLine,
-				sysActorToSysLine, interaction, flow, flowToInteraction,
-				useCase, useCaseToInteraction, step, line, actorToLine,
+				sysActorToSysLine, interaction, flow, flowToInteraction, step,
+				line, useCase, useCaseToInteraction, actorToLine,
 				isApplicableMatch, packageDeclaration__actor____actors,
 				packageDeclaration__sysActor____actors,
 				sysActorToSysLine__sysActor____source,
 				sysActorToSysLine__sysLine____target,
 				flowToInteraction__flow____source,
 				flowToInteraction__interaction____target,
-				useCase__flow____flows,
+				useCase__flow____flows, line__interaction____interaction,
+				interaction__line____lifeline,
 				useCaseToInteraction__useCase____source,
 				useCaseToInteraction__interaction____target,
 				flow__step____steps, step__actor____actor,
-				line__interaction____interaction,
-				interaction__line____lifeline, actorToLine__actor____source,
-				actorToLine__line____target,
+				actorToLine__actor____source, actorToLine__line____target,
 				packageDeclaration__useCase____useCases };
 	}
 
@@ -4064,20 +3974,21 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, NormalStep step,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_FWD(
 				isApplicableMatch, actor, sysActor, packageDeclaration,
 				sysLine, sysActorToSysLine, interaction, flow,
-				flowToInteraction, useCase, useCaseToInteraction, step, line,
+				flowToInteraction, step, line, useCase, useCaseToInteraction,
 				actorToLine);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, actor,
 					sysActor, packageDeclaration, sysLine, sysActorToSysLine,
-					interaction, flow, flowToInteraction, useCase,
-					useCaseToInteraction, step, line, actorToLine };
+					interaction, flow, flowToInteraction, step, line, useCase,
+					useCaseToInteraction, actorToLine };
 		}
 		return null;
 	}
@@ -4092,13 +4003,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, NormalStep step,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, NormalStep step,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		Object[] result_pattern_UserStepBFMessageRule_2_4_binding = pattern_UserStepBFMessageRule_2_4_bindingFBBBBBBBBBBBBBBB(
 				_this, isApplicableMatch, actor, sysActor, packageDeclaration,
 				sysLine, sysActorToSysLine, interaction, flow,
-				flowToInteraction, useCase, useCaseToInteraction, step, line,
+				flowToInteraction, step, line, useCase, useCaseToInteraction,
 				actorToLine);
 		if (result_pattern_UserStepBFMessageRule_2_4_binding != null) {
 			CSP csp = (CSP) result_pattern_UserStepBFMessageRule_2_4_binding[0];
@@ -4109,8 +4021,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				return new Object[] { csp, _this, isApplicableMatch, actor,
 						sysActor, packageDeclaration, sysLine,
 						sysActorToSysLine, interaction, flow,
-						flowToInteraction, useCase, useCaseToInteraction, step,
-						line, actorToLine };
+						flowToInteraction, step, line, useCase,
+						useCaseToInteraction, actorToLine };
 			}
 		}
 		return null;
@@ -4248,10 +4160,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge messageSend__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__message____message = TGGRuntimeFactory.eINSTANCE
@@ -4259,6 +4167,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		match.getToBeTranslatedNodes().add(messageSend);
 		match.getToBeTranslatedNodes().add(messageReceive);
@@ -4271,12 +4183,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		String interaction__messageReceive____fragment_name_prime = "fragment";
 		String message__messageSend____sendEvent_name_prime = "sendEvent";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
-		String message__interaction____interaction_name_prime = "interaction";
-		String interaction__message____message_name_prime = "message";
 		String messageSend__message____message_name_prime = "message";
 		String messageReceive__message____message_name_prime = "message";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
 		sysLine__messageSend____coveredBy.setSrc(sysLine);
 		sysLine__messageSend____coveredBy.setTrg(messageSend);
 		match.getToBeTranslatedEdges().add(sysLine__messageSend____coveredBy);
@@ -4307,12 +4219,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		match.getToBeTranslatedEdges().add(
 				message__messageReceive____receiveEvent);
-		message__interaction____interaction.setSrc(message);
-		message__interaction____interaction.setTrg(interaction);
-		match.getToBeTranslatedEdges().add(message__interaction____interaction);
-		interaction__message____message.setSrc(interaction);
-		interaction__message____message.setTrg(message);
-		match.getToBeTranslatedEdges().add(interaction__message____message);
 		messageSend__message____message.setSrc(messageSend);
 		messageSend__message____message.setTrg(message);
 		match.getToBeTranslatedEdges().add(messageSend__message____message);
@@ -4325,6 +4231,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		messageReceive__line____covered.setSrc(messageReceive);
 		messageReceive__line____covered.setTrg(line);
 		match.getToBeTranslatedEdges().add(messageReceive__line____covered);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		match.getToBeTranslatedEdges().add(message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		match.getToBeTranslatedEdges().add(interaction__message____message);
 		sysLine__messageSend____coveredBy
 				.setName(sysLine__messageSend____coveredBy_name_prime);
 		messageSend__sysLine____covered
@@ -4341,10 +4253,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(message__messageSend____sendEvent_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
-		message__interaction____interaction
-				.setName(message__interaction____interaction_name_prime);
-		interaction__message____message
-				.setName(interaction__message____message_name_prime);
 		messageSend__message____message
 				.setName(messageSend__message____message_name_prime);
 		messageReceive__message____message
@@ -4353,6 +4261,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
 		return new Object[] { match, sysLine, messageSend, interaction,
 				messageReceive, message, line,
 				sysLine__messageSend____coveredBy,
@@ -4363,12 +4275,12 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				interaction__messageReceive____fragment,
 				message__messageSend____sendEvent,
 				message__messageReceive____receiveEvent,
-				message__interaction____interaction,
-				interaction__message____message,
 				messageSend__message____message,
 				messageReceive__message____message,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered };
+				messageReceive__line____covered,
+				message__interaction____interaction,
+				interaction__message____message };
 	}
 
 	public static final Object[] pattern_UserStepBFMessageRule_10_5_blackBBBBBBB(
@@ -4449,11 +4361,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EObject _localVariable_8 = isApplicableMatch.getObject("flow");
 		EObject _localVariable_9 = isApplicableMatch
 				.getObject("flowToInteraction");
-		EObject _localVariable_10 = isApplicableMatch.getObject("useCase");
-		EObject _localVariable_11 = isApplicableMatch
+		EObject _localVariable_10 = isApplicableMatch.getObject("message");
+		EObject _localVariable_11 = isApplicableMatch.getObject("line");
+		EObject _localVariable_12 = isApplicableMatch.getObject("useCase");
+		EObject _localVariable_13 = isApplicableMatch
 				.getObject("useCaseToInteraction");
-		EObject _localVariable_12 = isApplicableMatch.getObject("message");
-		EObject _localVariable_13 = isApplicableMatch.getObject("line");
 		EObject _localVariable_14 = isApplicableMatch.getObject("actorToLine");
 		EObject tmpActor = _localVariable_0;
 		EObject tmpSysActor = _localVariable_1;
@@ -4465,10 +4377,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EObject tmpMessageReceive = _localVariable_7;
 		EObject tmpFlow = _localVariable_8;
 		EObject tmpFlowToInteraction = _localVariable_9;
-		EObject tmpUseCase = _localVariable_10;
-		EObject tmpUseCaseToInteraction = _localVariable_11;
-		EObject tmpMessage = _localVariable_12;
-		EObject tmpLine = _localVariable_13;
+		EObject tmpMessage = _localVariable_10;
+		EObject tmpLine = _localVariable_11;
+		EObject tmpUseCase = _localVariable_12;
+		EObject tmpUseCaseToInteraction = _localVariable_13;
 		EObject tmpActorToLine = _localVariable_14;
 		if (tmpActor instanceof Actor) {
 			Actor actor = (Actor) tmpActor;
@@ -4490,14 +4402,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 											BasicFlow flow = (BasicFlow) tmpFlow;
 											if (tmpFlowToInteraction instanceof FlowToInteractionFragment) {
 												FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) tmpFlowToInteraction;
-												if (tmpUseCase instanceof UseCase) {
-													UseCase useCase = (UseCase) tmpUseCase;
-													if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
-														UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
-														if (tmpMessage instanceof Message) {
-															Message message = (Message) tmpMessage;
-															if (tmpLine instanceof Lifeline) {
-																Lifeline line = (Lifeline) tmpLine;
+												if (tmpMessage instanceof Message) {
+													Message message = (Message) tmpMessage;
+													if (tmpLine instanceof Lifeline) {
+														Lifeline line = (Lifeline) tmpLine;
+														if (tmpUseCase instanceof UseCase) {
+															UseCase useCase = (UseCase) tmpUseCase;
+															if (tmpUseCaseToInteraction instanceof UseCaseToInteraction) {
+																UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) tmpUseCaseToInteraction;
 																if (tmpActorToLine instanceof ActorToLifeline) {
 																	ActorToLifeline actorToLine = (ActorToLifeline) tmpActorToLine;
 																	return new Object[] {
@@ -4511,10 +4423,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																			messageReceive,
 																			flow,
 																			flowToInteraction,
-																			useCase,
-																			useCaseToInteraction,
 																			message,
 																			line,
+																			useCase,
+																			useCaseToInteraction,
 																			actorToLine,
 																			isApplicableMatch };
 																}
@@ -4541,10 +4453,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, ActorToLifeline actorToLine,
-			UserStepBFMessageRule _this, IsApplicableMatch isApplicableMatch) {
+			FlowToInteractionFragment flowToInteraction, Message message,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine, UserStepBFMessageRule _this,
+			IsApplicableMatch isApplicableMatch) {
 		if (!actor.equals(sysActor)) {
 			if (!messageReceive.equals(messageSend)) {
 				if (!line.equals(sysLine)) {
@@ -4557,8 +4470,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 										packageDeclaration, sysLine,
 										sysActorToSysLine, messageSend,
 										interaction, messageReceive, flow,
-										flowToInteraction, useCase,
-										useCaseToInteraction, message, line,
+										flowToInteraction, message, line,
+										useCase, useCaseToInteraction,
 										actorToLine, csp, _this,
 										isApplicableMatch };
 							}
@@ -4584,83 +4497,77 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result_pattern_UserStepBFMessageRule_11_1_binding[7];
 			BasicFlow flow = (BasicFlow) result_pattern_UserStepBFMessageRule_11_1_binding[8];
 			FlowToInteractionFragment flowToInteraction = (FlowToInteractionFragment) result_pattern_UserStepBFMessageRule_11_1_binding[9];
-			UseCase useCase = (UseCase) result_pattern_UserStepBFMessageRule_11_1_binding[10];
-			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UserStepBFMessageRule_11_1_binding[11];
-			Message message = (Message) result_pattern_UserStepBFMessageRule_11_1_binding[12];
-			Lifeline line = (Lifeline) result_pattern_UserStepBFMessageRule_11_1_binding[13];
+			Message message = (Message) result_pattern_UserStepBFMessageRule_11_1_binding[10];
+			Lifeline line = (Lifeline) result_pattern_UserStepBFMessageRule_11_1_binding[11];
+			UseCase useCase = (UseCase) result_pattern_UserStepBFMessageRule_11_1_binding[12];
+			UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result_pattern_UserStepBFMessageRule_11_1_binding[13];
 			ActorToLifeline actorToLine = (ActorToLifeline) result_pattern_UserStepBFMessageRule_11_1_binding[14];
 
 			Object[] result_pattern_UserStepBFMessageRule_11_1_black = pattern_UserStepBFMessageRule_11_1_blackBBBBBBBBBBBBBBBFBB(
 					actor, sysActor, packageDeclaration, sysLine,
 					sysActorToSysLine, messageSend, interaction,
-					messageReceive, flow, flowToInteraction, useCase,
-					useCaseToInteraction, message, line, actorToLine, _this,
+					messageReceive, flow, flowToInteraction, message, line,
+					useCase, useCaseToInteraction, actorToLine, _this,
 					isApplicableMatch);
 			if (result_pattern_UserStepBFMessageRule_11_1_black != null) {
 				CSP csp = (CSP) result_pattern_UserStepBFMessageRule_11_1_black[15];
 
 				return new Object[] { actor, sysActor, packageDeclaration,
 						sysLine, sysActorToSysLine, messageSend, interaction,
-						messageReceive, flow, flowToInteraction, useCase,
-						useCaseToInteraction, message, line, actorToLine, csp,
-						_this, isApplicableMatch };
+						messageReceive, flow, flowToInteraction, message, line,
+						useCase, useCaseToInteraction, actorToLine, csp, _this,
+						isApplicableMatch };
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_11_1_greenBBFBFB(
-			Actor actor, BasicFlow flow, Message message, CSP csp) {
+	public static final Object[] pattern_UserStepBFMessageRule_11_1_greenBBFB(
+			Actor actor, BasicFlow flow, CSP csp) {
 		NormalStep step = UseCaseDSLFactory.eINSTANCE.createNormalStep();
-		NormalStepToMessage stepToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createNormalStepToMessage();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
 		flow.getSteps().add(step);
 		step.setActor(actor);
-		stepToMessage.setSource(step);
-		stepToMessage.setTarget(message);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
-		return new Object[] { actor, flow, step, message, stepToMessage, csp };
+		return new Object[] { actor, flow, step, csp };
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_11_2_blackBBBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_11_2_blackBBBB(
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, NormalStep step,
-			Message message, NormalStepToMessage stepToMessage) {
+			Message message) {
 		if (!messageReceive.equals(messageSend)) {
-			return new Object[] { messageSend, messageReceive, step, message,
-					stepToMessage };
+			return new Object[] { messageSend, messageReceive, step, message };
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_11_2_greenFBBBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_11_2_greenFBBBB(
 			MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive, NormalStep step,
-			Message message, NormalStepToMessage stepToMessage) {
+			Message message) {
 		PerformRuleResult ruleresult = TGGRuntimeFactory.eINSTANCE
 				.createPerformRuleResult();
 		ruleresult.getTranslatedElements().add(messageSend);
 		ruleresult.getTranslatedElements().add(messageReceive);
 		ruleresult.getCreatedElements().add(step);
 		ruleresult.getTranslatedElements().add(message);
-		ruleresult.getCreatedLinkElements().add(stepToMessage);
 		return new Object[] { ruleresult, messageSend, messageReceive, step,
-				message, stepToMessage };
+				message };
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_11_3_blackBBBBBBBBBBBBBBBBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_11_3_blackBBBBBBBBBBBBBBBBB(
 			PerformRuleResult ruleresult, EObject actor, EObject sysActor,
 			EObject packageDeclaration, EObject sysLine,
 			EObject sysActorToSysLine, EObject messageSend,
 			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage, EObject line, EObject actorToLine) {
+			EObject flowToInteraction, EObject step, EObject message,
+			EObject line, EObject useCase, EObject useCaseToInteraction,
+			EObject actorToLine) {
 		if (!actor.equals(sysActor)) {
 			if (!actor.equals(packageDeclaration)) {
 				if (!actor.equals(sysLine)) {
@@ -4670,293 +4577,243 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 								if (!actor.equals(messageReceive)) {
 									if (!actor.equals(flow)) {
 										if (!actor.equals(flowToInteraction)) {
-											if (!actor.equals(useCase)) {
-												if (!actor
-														.equals(useCaseToInteraction)) {
-													if (!actor.equals(step)) {
+											if (!actor.equals(step)) {
+												if (!actor.equals(message)) {
+													if (!actor.equals(line)) {
 														if (!actor
-																.equals(message)) {
+																.equals(useCase)) {
 															if (!actor
-																	.equals(stepToMessage)) {
+																	.equals(useCaseToInteraction)) {
 																if (!actor
-																		.equals(line)) {
-																	if (!actor
-																			.equals(actorToLine)) {
+																		.equals(actorToLine)) {
+																	if (!sysActor
+																			.equals(sysLine)) {
 																		if (!sysActor
-																				.equals(sysLine)) {
+																				.equals(sysActorToSysLine)) {
 																			if (!sysActor
-																					.equals(sysActorToSysLine)) {
+																					.equals(useCase)) {
 																				if (!sysActor
-																						.equals(useCase)) {
-																					if (!sysActor
-																							.equals(useCaseToInteraction)) {
+																						.equals(useCaseToInteraction)) {
+																					if (!packageDeclaration
+																							.equals(sysActor)) {
 																						if (!packageDeclaration
-																								.equals(sysActor)) {
+																								.equals(sysLine)) {
 																							if (!packageDeclaration
-																									.equals(sysLine)) {
+																									.equals(sysActorToSysLine)) {
 																								if (!packageDeclaration
-																										.equals(sysActorToSysLine)) {
+																										.equals(step)) {
 																									if (!packageDeclaration
 																											.equals(useCase)) {
 																										if (!packageDeclaration
 																												.equals(useCaseToInteraction)) {
-																											if (!packageDeclaration
-																													.equals(step)) {
-																												if (!packageDeclaration
-																														.equals(stepToMessage)) {
-																													if (!sysLine
-																															.equals(useCase)) {
-																														if (!sysLine
-																																.equals(useCaseToInteraction)) {
+																											if (!sysLine
+																													.equals(useCase)) {
+																												if (!sysLine
+																														.equals(useCaseToInteraction)) {
+																													if (!sysActorToSysLine
+																															.equals(sysLine)) {
+																														if (!sysActorToSysLine
+																																.equals(useCase)) {
 																															if (!sysActorToSysLine
-																																	.equals(sysLine)) {
-																																if (!sysActorToSysLine
-																																		.equals(useCase)) {
-																																	if (!sysActorToSysLine
-																																			.equals(useCaseToInteraction)) {
+																																	.equals(useCaseToInteraction)) {
+																																if (!messageSend
+																																		.equals(sysActor)) {
+																																	if (!messageSend
+																																			.equals(packageDeclaration)) {
 																																		if (!messageSend
-																																				.equals(sysActor)) {
+																																				.equals(sysLine)) {
 																																			if (!messageSend
-																																					.equals(packageDeclaration)) {
+																																					.equals(sysActorToSysLine)) {
 																																				if (!messageSend
-																																						.equals(sysLine)) {
+																																						.equals(step)) {
 																																					if (!messageSend
-																																							.equals(sysActorToSysLine)) {
+																																							.equals(useCase)) {
 																																						if (!messageSend
-																																								.equals(useCase)) {
-																																							if (!messageSend
-																																									.equals(useCaseToInteraction)) {
-																																								if (!messageSend
-																																										.equals(step)) {
-																																									if (!messageSend
-																																											.equals(stepToMessage)) {
+																																								.equals(useCaseToInteraction)) {
+																																							if (!interaction
+																																									.equals(sysActor)) {
+																																								if (!interaction
+																																										.equals(packageDeclaration)) {
+																																									if (!interaction
+																																											.equals(sysLine)) {
 																																										if (!interaction
-																																												.equals(sysActor)) {
+																																												.equals(sysActorToSysLine)) {
 																																											if (!interaction
-																																													.equals(packageDeclaration)) {
+																																													.equals(messageSend)) {
 																																												if (!interaction
-																																														.equals(sysLine)) {
+																																														.equals(messageReceive)) {
 																																													if (!interaction
-																																															.equals(sysActorToSysLine)) {
+																																															.equals(step)) {
 																																														if (!interaction
-																																																.equals(messageSend)) {
+																																																.equals(message)) {
 																																															if (!interaction
-																																																	.equals(messageReceive)) {
+																																																	.equals(line)) {
 																																																if (!interaction
 																																																		.equals(useCase)) {
 																																																	if (!interaction
 																																																			.equals(useCaseToInteraction)) {
-																																																		if (!interaction
-																																																				.equals(step)) {
-																																																			if (!interaction
-																																																					.equals(message)) {
-																																																				if (!interaction
-																																																						.equals(stepToMessage)) {
-																																																					if (!interaction
-																																																							.equals(line)) {
+																																																		if (!messageReceive
+																																																				.equals(sysActor)) {
+																																																			if (!messageReceive
+																																																					.equals(packageDeclaration)) {
+																																																				if (!messageReceive
+																																																						.equals(sysLine)) {
+																																																					if (!messageReceive
+																																																							.equals(sysActorToSysLine)) {
 																																																						if (!messageReceive
-																																																								.equals(sysActor)) {
+																																																								.equals(messageSend)) {
 																																																							if (!messageReceive
-																																																									.equals(packageDeclaration)) {
+																																																									.equals(step)) {
 																																																								if (!messageReceive
-																																																										.equals(sysLine)) {
+																																																										.equals(useCase)) {
 																																																									if (!messageReceive
-																																																											.equals(sysActorToSysLine)) {
-																																																										if (!messageReceive
-																																																												.equals(messageSend)) {
-																																																											if (!messageReceive
-																																																													.equals(useCase)) {
-																																																												if (!messageReceive
-																																																														.equals(useCaseToInteraction)) {
-																																																													if (!messageReceive
-																																																															.equals(step)) {
-																																																														if (!messageReceive
-																																																																.equals(stepToMessage)) {
+																																																											.equals(useCaseToInteraction)) {
+																																																										if (!flow
+																																																												.equals(sysActor)) {
+																																																											if (!flow
+																																																													.equals(packageDeclaration)) {
+																																																												if (!flow
+																																																														.equals(sysLine)) {
+																																																													if (!flow
+																																																															.equals(sysActorToSysLine)) {
+																																																														if (!flow
+																																																																.equals(messageSend)) {
 																																																															if (!flow
-																																																																	.equals(sysActor)) {
+																																																																	.equals(interaction)) {
 																																																																if (!flow
-																																																																		.equals(packageDeclaration)) {
+																																																																		.equals(messageReceive)) {
 																																																																	if (!flow
-																																																																			.equals(sysLine)) {
+																																																																			.equals(flowToInteraction)) {
 																																																																		if (!flow
-																																																																				.equals(sysActorToSysLine)) {
+																																																																				.equals(step)) {
 																																																																			if (!flow
-																																																																					.equals(messageSend)) {
+																																																																					.equals(message)) {
 																																																																				if (!flow
-																																																																						.equals(interaction)) {
+																																																																						.equals(line)) {
 																																																																					if (!flow
-																																																																							.equals(messageReceive)) {
+																																																																							.equals(useCase)) {
 																																																																						if (!flow
-																																																																								.equals(flowToInteraction)) {
-																																																																							if (!flow
-																																																																									.equals(useCase)) {
-																																																																								if (!flow
-																																																																										.equals(useCaseToInteraction)) {
-																																																																									if (!flow
-																																																																											.equals(step)) {
-																																																																										if (!flow
-																																																																												.equals(message)) {
-																																																																											if (!flow
-																																																																													.equals(stepToMessage)) {
-																																																																												if (!flow
-																																																																														.equals(line)) {
+																																																																								.equals(useCaseToInteraction)) {
+																																																																							if (!flowToInteraction
+																																																																									.equals(sysActor)) {
+																																																																								if (!flowToInteraction
+																																																																										.equals(packageDeclaration)) {
+																																																																									if (!flowToInteraction
+																																																																											.equals(sysLine)) {
+																																																																										if (!flowToInteraction
+																																																																												.equals(sysActorToSysLine)) {
+																																																																											if (!flowToInteraction
+																																																																													.equals(messageSend)) {
+																																																																												if (!flowToInteraction
+																																																																														.equals(interaction)) {
 																																																																													if (!flowToInteraction
-																																																																															.equals(sysActor)) {
+																																																																															.equals(messageReceive)) {
 																																																																														if (!flowToInteraction
-																																																																																.equals(packageDeclaration)) {
+																																																																																.equals(step)) {
 																																																																															if (!flowToInteraction
-																																																																																	.equals(sysLine)) {
+																																																																																	.equals(message)) {
 																																																																																if (!flowToInteraction
-																																																																																		.equals(sysActorToSysLine)) {
+																																																																																		.equals(line)) {
 																																																																																	if (!flowToInteraction
-																																																																																			.equals(messageSend)) {
+																																																																																			.equals(useCase)) {
 																																																																																		if (!flowToInteraction
-																																																																																				.equals(interaction)) {
-																																																																																			if (!flowToInteraction
-																																																																																					.equals(messageReceive)) {
-																																																																																				if (!flowToInteraction
-																																																																																						.equals(useCase)) {
-																																																																																					if (!flowToInteraction
-																																																																																							.equals(useCaseToInteraction)) {
-																																																																																						if (!flowToInteraction
-																																																																																								.equals(step)) {
-																																																																																							if (!flowToInteraction
-																																																																																									.equals(message)) {
-																																																																																								if (!flowToInteraction
-																																																																																										.equals(stepToMessage)) {
-																																																																																									if (!flowToInteraction
-																																																																																											.equals(line)) {
-																																																																																										if (!useCase
-																																																																																												.equals(useCaseToInteraction)) {
-																																																																																											if (!step
-																																																																																													.equals(sysActor)) {
-																																																																																												if (!step
-																																																																																														.equals(sysLine)) {
-																																																																																													if (!step
-																																																																																															.equals(sysActorToSysLine)) {
-																																																																																														if (!step
-																																																																																																.equals(useCase)) {
-																																																																																															if (!step
-																																																																																																	.equals(useCaseToInteraction)) {
-																																																																																																if (!step
-																																																																																																		.equals(stepToMessage)) {
-																																																																																																	if (!message
+																																																																																				.equals(useCaseToInteraction)) {
+																																																																																			if (!step
+																																																																																					.equals(sysActor)) {
+																																																																																				if (!step
+																																																																																						.equals(sysLine)) {
+																																																																																					if (!step
+																																																																																							.equals(sysActorToSysLine)) {
+																																																																																						if (!step
+																																																																																								.equals(useCase)) {
+																																																																																							if (!step
+																																																																																									.equals(useCaseToInteraction)) {
+																																																																																								if (!message
+																																																																																										.equals(sysActor)) {
+																																																																																									if (!message
+																																																																																											.equals(packageDeclaration)) {
+																																																																																										if (!message
+																																																																																												.equals(sysLine)) {
+																																																																																											if (!message
+																																																																																													.equals(sysActorToSysLine)) {
+																																																																																												if (!message
+																																																																																														.equals(messageSend)) {
+																																																																																													if (!message
+																																																																																															.equals(messageReceive)) {
+																																																																																														if (!message
+																																																																																																.equals(step)) {
+																																																																																															if (!message
+																																																																																																	.equals(useCase)) {
+																																																																																																if (!message
+																																																																																																		.equals(useCaseToInteraction)) {
+																																																																																																	if (!line
 																																																																																																			.equals(sysActor)) {
-																																																																																																		if (!message
+																																																																																																		if (!line
 																																																																																																				.equals(packageDeclaration)) {
-																																																																																																			if (!message
+																																																																																																			if (!line
 																																																																																																					.equals(sysLine)) {
-																																																																																																				if (!message
+																																																																																																				if (!line
 																																																																																																						.equals(sysActorToSysLine)) {
-																																																																																																					if (!message
+																																																																																																					if (!line
 																																																																																																							.equals(messageSend)) {
-																																																																																																						if (!message
+																																																																																																						if (!line
 																																																																																																								.equals(messageReceive)) {
-																																																																																																							if (!message
-																																																																																																									.equals(useCase)) {
-																																																																																																								if (!message
-																																																																																																										.equals(useCaseToInteraction)) {
-																																																																																																									if (!message
-																																																																																																											.equals(step)) {
-																																																																																																										if (!message
-																																																																																																												.equals(stepToMessage)) {
-																																																																																																											if (!stepToMessage
-																																																																																																													.equals(sysActor)) {
-																																																																																																												if (!stepToMessage
-																																																																																																														.equals(sysLine)) {
-																																																																																																													if (!stepToMessage
-																																																																																																															.equals(sysActorToSysLine)) {
-																																																																																																														if (!stepToMessage
-																																																																																																																.equals(useCase)) {
-																																																																																																															if (!stepToMessage
-																																																																																																																	.equals(useCaseToInteraction)) {
-																																																																																																																if (!line
-																																																																																																																		.equals(sysActor)) {
-																																																																																																																	if (!line
-																																																																																																																			.equals(packageDeclaration)) {
-																																																																																																																		if (!line
-																																																																																																																				.equals(sysLine)) {
-																																																																																																																			if (!line
-																																																																																																																					.equals(sysActorToSysLine)) {
-																																																																																																																				if (!line
-																																																																																																																						.equals(messageSend)) {
-																																																																																																																					if (!line
-																																																																																																																							.equals(messageReceive)) {
-																																																																																																																						if (!line
-																																																																																																																								.equals(useCase)) {
-																																																																																																																							if (!line
-																																																																																																																									.equals(useCaseToInteraction)) {
-																																																																																																																								if (!line
-																																																																																																																										.equals(step)) {
-																																																																																																																									if (!line
-																																																																																																																											.equals(message)) {
-																																																																																																																										if (!line
-																																																																																																																												.equals(stepToMessage)) {
-																																																																																																																											if (!actorToLine
-																																																																																																																													.equals(sysActor)) {
-																																																																																																																												if (!actorToLine
-																																																																																																																														.equals(packageDeclaration)) {
-																																																																																																																													if (!actorToLine
-																																																																																																																															.equals(sysLine)) {
-																																																																																																																														if (!actorToLine
-																																																																																																																																.equals(sysActorToSysLine)) {
-																																																																																																																															if (!actorToLine
-																																																																																																																																	.equals(messageSend)) {
-																																																																																																																																if (!actorToLine
-																																																																																																																																		.equals(interaction)) {
-																																																																																																																																	if (!actorToLine
-																																																																																																																																			.equals(messageReceive)) {
-																																																																																																																																		if (!actorToLine
-																																																																																																																																				.equals(flow)) {
-																																																																																																																																			if (!actorToLine
-																																																																																																																																					.equals(flowToInteraction)) {
-																																																																																																																																				if (!actorToLine
-																																																																																																																																						.equals(useCase)) {
-																																																																																																																																					if (!actorToLine
-																																																																																																																																							.equals(useCaseToInteraction)) {
-																																																																																																																																						if (!actorToLine
-																																																																																																																																								.equals(step)) {
-																																																																																																																																							if (!actorToLine
-																																																																																																																																									.equals(message)) {
-																																																																																																																																								if (!actorToLine
-																																																																																																																																										.equals(stepToMessage)) {
-																																																																																																																																									if (!actorToLine
-																																																																																																																																											.equals(line)) {
-																																																																																																																																										return new Object[] {
-																																																																																																																																												ruleresult,
-																																																																																																																																												actor,
-																																																																																																																																												sysActor,
-																																																																																																																																												packageDeclaration,
-																																																																																																																																												sysLine,
-																																																																																																																																												sysActorToSysLine,
-																																																																																																																																												messageSend,
-																																																																																																																																												interaction,
-																																																																																																																																												messageReceive,
-																																																																																																																																												flow,
-																																																																																																																																												flowToInteraction,
-																																																																																																																																												useCase,
-																																																																																																																																												useCaseToInteraction,
-																																																																																																																																												step,
-																																																																																																																																												message,
-																																																																																																																																												stepToMessage,
-																																																																																																																																												line,
-																																																																																																																																												actorToLine };
-																																																																																																																																									}
-																																																																																																																																								}
-																																																																																																																																							}
-																																																																																																																																						}
-																																																																																																																																					}
-																																																																																																																																				}
-																																																																																																																																			}
-																																																																																																																																		}
-																																																																																																																																	}
-																																																																																																																																}
-																																																																																																																															}
-																																																																																																																														}
-																																																																																																																													}
-																																																																																																																												}
-																																																																																																																											}
-																																																																																																																										}
+																																																																																																							if (!line
+																																																																																																									.equals(step)) {
+																																																																																																								if (!line
+																																																																																																										.equals(message)) {
+																																																																																																									if (!line
+																																																																																																											.equals(useCase)) {
+																																																																																																										if (!line
+																																																																																																												.equals(useCaseToInteraction)) {
+																																																																																																											if (!useCase
+																																																																																																													.equals(useCaseToInteraction)) {
+																																																																																																												if (!actorToLine
+																																																																																																														.equals(sysActor)) {
+																																																																																																													if (!actorToLine
+																																																																																																															.equals(packageDeclaration)) {
+																																																																																																														if (!actorToLine
+																																																																																																																.equals(sysLine)) {
+																																																																																																															if (!actorToLine
+																																																																																																																	.equals(sysActorToSysLine)) {
+																																																																																																																if (!actorToLine
+																																																																																																																		.equals(messageSend)) {
+																																																																																																																	if (!actorToLine
+																																																																																																																			.equals(interaction)) {
+																																																																																																																		if (!actorToLine
+																																																																																																																				.equals(messageReceive)) {
+																																																																																																																			if (!actorToLine
+																																																																																																																					.equals(flow)) {
+																																																																																																																				if (!actorToLine
+																																																																																																																						.equals(flowToInteraction)) {
+																																																																																																																					if (!actorToLine
+																																																																																																																							.equals(step)) {
+																																																																																																																						if (!actorToLine
+																																																																																																																								.equals(message)) {
+																																																																																																																							if (!actorToLine
+																																																																																																																									.equals(line)) {
+																																																																																																																								if (!actorToLine
+																																																																																																																										.equals(useCase)) {
+																																																																																																																									if (!actorToLine
+																																																																																																																											.equals(useCaseToInteraction)) {
+																																																																																																																										return new Object[] {
+																																																																																																																												ruleresult,
+																																																																																																																												actor,
+																																																																																																																												sysActor,
+																																																																																																																												packageDeclaration,
+																																																																																																																												sysLine,
+																																																																																																																												sysActorToSysLine,
+																																																																																																																												messageSend,
+																																																																																																																												interaction,
+																																																																																																																												messageReceive,
+																																																																																																																												flow,
+																																																																																																																												flowToInteraction,
+																																																																																																																												step,
+																																																																																																																												message,
+																																																																																																																												line,
+																																																																																																																												useCase,
+																																																																																																																												useCaseToInteraction,
+																																																																																																																												actorToLine };
 																																																																																																																									}
 																																																																																																																								}
 																																																																																																																							}
@@ -5080,11 +4937,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_11_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
+	public static final Object[] pattern_UserStepBFMessageRule_11_3_greenBBBBBBBBBBFFFFFFFFFFFFFFFF(
 			PerformRuleResult ruleresult, EObject actor, EObject sysLine,
 			EObject messageSend, EObject interaction, EObject messageReceive,
-			EObject flow, EObject step, EObject message, EObject stepToMessage,
-			EObject line) {
+			EObject flow, EObject step, EObject message, EObject line) {
 		EMoflonEdge sysLine__messageSend____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageSend__sysLine____covered = TGGRuntimeFactory.eINSTANCE
@@ -5097,21 +4953,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge interaction__messageReceive____fragment = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge step__actor____actor = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge message__messageSend____sendEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge stepToMessage__step____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge stepToMessage__message____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageSend__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -5121,6 +4965,14 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge flow__step____steps = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge step__actor____actor = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
 		String ruleresult_ruleName_prime = "UserStepBFMessageRule";
 		String sysLine__messageSend____coveredBy_name_prime = "coveredBy";
 		String messageSend__sysLine____covered_name_prime = "covered";
@@ -5128,18 +4980,16 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		String interaction__messageSend____fragment_name_prime = "fragment";
 		String messageReceive__interaction____enclosingInteraction_name_prime = "enclosingInteraction";
 		String interaction__messageReceive____fragment_name_prime = "fragment";
-		String flow__step____steps_name_prime = "steps";
-		String step__actor____actor_name_prime = "actor";
 		String message__messageSend____sendEvent_name_prime = "sendEvent";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
-		String message__interaction____interaction_name_prime = "interaction";
-		String interaction__message____message_name_prime = "message";
-		String stepToMessage__step____source_name_prime = "source";
-		String stepToMessage__message____target_name_prime = "target";
 		String messageSend__message____message_name_prime = "message";
 		String messageReceive__message____message_name_prime = "message";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String flow__step____steps_name_prime = "steps";
+		String step__actor____actor_name_prime = "actor";
 		sysLine__messageSend____coveredBy.setSrc(sysLine);
 		sysLine__messageSend____coveredBy.setTrg(messageSend);
 		ruleresult.getTranslatedEdges().add(sysLine__messageSend____coveredBy);
@@ -5163,12 +5013,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		interaction__messageReceive____fragment.setTrg(messageReceive);
 		ruleresult.getTranslatedEdges().add(
 				interaction__messageReceive____fragment);
-		flow__step____steps.setSrc(flow);
-		flow__step____steps.setTrg(step);
-		ruleresult.getCreatedEdges().add(flow__step____steps);
-		step__actor____actor.setSrc(step);
-		step__actor____actor.setTrg(actor);
-		ruleresult.getCreatedEdges().add(step__actor____actor);
 		message__messageSend____sendEvent.setSrc(message);
 		message__messageSend____sendEvent.setTrg(messageSend);
 		ruleresult.getTranslatedEdges().add(message__messageSend____sendEvent);
@@ -5176,19 +5020,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		ruleresult.getTranslatedEdges().add(
 				message__messageReceive____receiveEvent);
-		message__interaction____interaction.setSrc(message);
-		message__interaction____interaction.setTrg(interaction);
-		ruleresult.getTranslatedEdges()
-				.add(message__interaction____interaction);
-		interaction__message____message.setSrc(interaction);
-		interaction__message____message.setTrg(message);
-		ruleresult.getTranslatedEdges().add(interaction__message____message);
-		stepToMessage__step____source.setSrc(stepToMessage);
-		stepToMessage__step____source.setTrg(step);
-		ruleresult.getCreatedEdges().add(stepToMessage__step____source);
-		stepToMessage__message____target.setSrc(stepToMessage);
-		stepToMessage__message____target.setTrg(message);
-		ruleresult.getCreatedEdges().add(stepToMessage__message____target);
 		messageSend__message____message.setSrc(messageSend);
 		messageSend__message____message.setTrg(message);
 		ruleresult.getTranslatedEdges().add(messageSend__message____message);
@@ -5201,6 +5032,19 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		messageReceive__line____covered.setSrc(messageReceive);
 		messageReceive__line____covered.setTrg(line);
 		ruleresult.getTranslatedEdges().add(messageReceive__line____covered);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		ruleresult.getTranslatedEdges()
+				.add(message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		ruleresult.getTranslatedEdges().add(interaction__message____message);
+		flow__step____steps.setSrc(flow);
+		flow__step____steps.setTrg(step);
+		ruleresult.getCreatedEdges().add(flow__step____steps);
+		step__actor____actor.setSrc(step);
+		step__actor____actor.setTrg(actor);
+		ruleresult.getCreatedEdges().add(step__actor____actor);
 		ruleresult.setRuleName(ruleresult_ruleName_prime);
 		sysLine__messageSend____coveredBy
 				.setName(sysLine__messageSend____coveredBy_name_prime);
@@ -5214,20 +5058,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(messageReceive__interaction____enclosingInteraction_name_prime);
 		interaction__messageReceive____fragment
 				.setName(interaction__messageReceive____fragment_name_prime);
-		flow__step____steps.setName(flow__step____steps_name_prime);
-		step__actor____actor.setName(step__actor____actor_name_prime);
 		message__messageSend____sendEvent
 				.setName(message__messageSend____sendEvent_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
-		message__interaction____interaction
-				.setName(message__interaction____interaction_name_prime);
-		interaction__message____message
-				.setName(interaction__message____message_name_prime);
-		stepToMessage__step____source
-				.setName(stepToMessage__step____source_name_prime);
-		stepToMessage__message____target
-				.setName(stepToMessage__message____target_name_prime);
 		messageSend__message____message
 				.setName(messageSend__message____message_name_prime);
 		messageReceive__message____message
@@ -5236,38 +5070,43 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		flow__step____steps.setName(flow__step____steps_name_prime);
+		step__actor____actor.setName(step__actor____actor_name_prime);
 		return new Object[] { ruleresult, actor, sysLine, messageSend,
-				interaction, messageReceive, flow, step, message,
-				stepToMessage, line, sysLine__messageSend____coveredBy,
+				interaction, messageReceive, flow, step, message, line,
+				sysLine__messageSend____coveredBy,
 				messageSend__sysLine____covered,
 				messageSend__interaction____enclosingInteraction,
 				interaction__messageSend____fragment,
 				messageReceive__interaction____enclosingInteraction,
-				interaction__messageReceive____fragment, flow__step____steps,
-				step__actor____actor, message__messageSend____sendEvent,
+				interaction__messageReceive____fragment,
+				message__messageSend____sendEvent,
 				message__messageReceive____receiveEvent,
-				message__interaction____interaction,
-				interaction__message____message, stepToMessage__step____source,
-				stepToMessage__message____target,
 				messageSend__message____message,
 				messageReceive__message____message,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered };
+				messageReceive__line____covered,
+				message__interaction____interaction,
+				interaction__message____message, flow__step____steps,
+				step__actor____actor };
 	}
 
-	public static final void pattern_UserStepBFMessageRule_11_5_expressionBBBBBBBBBBBBBBBBBBB(
+	public static final void pattern_UserStepBFMessageRule_11_5_expressionBBBBBBBBBBBBBBBBBB(
 			UserStepBFMessageRule _this, PerformRuleResult ruleresult,
 			EObject actor, EObject sysActor, EObject packageDeclaration,
 			EObject sysLine, EObject sysActorToSysLine, EObject messageSend,
 			EObject interaction, EObject messageReceive, EObject flow,
-			EObject flowToInteraction, EObject useCase,
-			EObject useCaseToInteraction, EObject step, EObject message,
-			EObject stepToMessage, EObject line, EObject actorToLine) {
+			EObject flowToInteraction, EObject step, EObject message,
+			EObject line, EObject useCase, EObject useCaseToInteraction,
+			EObject actorToLine) {
 		_this.registerObjects_BWD(ruleresult, actor, sysActor,
 				packageDeclaration, sysLine, sysActorToSysLine, messageSend,
-				interaction, messageReceive, flow, flowToInteraction, useCase,
-				useCaseToInteraction, step, message, stepToMessage, line,
-				actorToLine);
+				interaction, messageReceive, flow, flowToInteraction, step,
+				message, line, useCase, useCaseToInteraction, actorToLine);
 
 	}
 
@@ -5366,7 +5205,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_12_2_blackFFBFBBBFFFFBBFB(
+	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_12_2_blackFFBFBBBFFBBFFFB(
 			Lifeline sysLine, MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, Message message,
@@ -5414,9 +5253,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																messageReceive,
 																flow,
 																flowToInteraction,
+																message,
+																line,
 																useCase,
 																useCaseToInteraction,
-																message, line,
 																actorToLine,
 																match });
 													}
@@ -5444,9 +5284,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, Message message,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!actor.equals(sysActor)) {
 			if (!messageReceive.equals(messageSend)) {
@@ -5465,35 +5306,37 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 												if (interaction
 														.equals(flowToInteraction
 																.getTarget())) {
-													if (useCase.getFlows()
-															.contains(flow)) {
-														if (useCase
-																.equals(useCaseToInteraction
-																		.getSource())) {
-															if (interaction
-																	.equals(useCaseToInteraction
-																			.getTarget())) {
-																if (messageSend
-																		.equals(message
-																				.getSendEvent())) {
-																	if (messageReceive
-																			.equals(message
-																					.getReceiveEvent())) {
-																		if (interaction
-																				.equals(message
-																						.getInteraction())) {
+													if (messageSend
+															.equals(message
+																	.getSendEvent())) {
+														if (messageReceive
+																.equals(message
+																		.getReceiveEvent())) {
+															if (message
+																	.equals(messageSend
+																			.getMessage())) {
+																if (message
+																		.equals(messageReceive
+																				.getMessage())) {
+																	if (line.getCoveredBy()
+																			.contains(
+																					messageReceive)) {
+																		if (useCase
+																				.getFlows()
+																				.contains(
+																						flow)) {
 																			if (interaction
 																					.equals(line
 																							.getInteraction())) {
-																				if (message
-																						.equals(messageSend
-																								.getMessage())) {
-																					if (message
-																							.equals(messageReceive
-																									.getMessage())) {
-																						if (line.getCoveredBy()
-																								.contains(
-																										messageReceive)) {
+																				if (interaction
+																						.equals(message
+																								.getInteraction())) {
+																					if (useCase
+																							.equals(useCaseToInteraction
+																									.getSource())) {
+																						if (interaction
+																								.equals(useCaseToInteraction
+																										.getTarget())) {
 																							if (actor
 																									.equals(actorToLine
 																											.getSource())) {
@@ -5523,10 +5366,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																														messageReceive,
 																														flow,
 																														flowToInteraction,
-																														useCase,
-																														useCaseToInteraction,
 																														message,
 																														line,
+																														useCase,
+																														useCaseToInteraction,
 																														actorToLine });
 																											}
 																										}
@@ -5563,9 +5406,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, Message message,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		IsApplicableMatch isApplicableMatch = TGGRuntimeFactory.eINSTANCE
 				.createIsApplicableMatch();
 		EMoflonEdge packageDeclaration__actor____actors = TGGRuntimeFactory.eINSTANCE
@@ -5592,23 +5436,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createEMoflonEdge();
 		EMoflonEdge flowToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
-		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
 		EMoflonEdge message__messageSend____sendEvent = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge message__messageReceive____receiveEvent = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
-				.createEMoflonEdge();
-		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageSend__message____message = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -5617,6 +5447,20 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		EMoflonEdge line__messageReceive____coveredBy = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge messageReceive__line____covered = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCase__flow____flows = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge line__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__line____lifeline = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge message__interaction____interaction = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge interaction__message____message = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__useCase____source = TGGRuntimeFactory.eINSTANCE
+				.createEMoflonEdge();
+		EMoflonEdge useCaseToInteraction__interaction____target = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
 		EMoflonEdge actorToLine__actor____source = TGGRuntimeFactory.eINSTANCE
 				.createEMoflonEdge();
@@ -5636,19 +5480,19 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		String interaction__messageReceive____fragment_name_prime = "fragment";
 		String flowToInteraction__flow____source_name_prime = "source";
 		String flowToInteraction__interaction____target_name_prime = "target";
-		String useCase__flow____flows_name_prime = "flows";
-		String useCaseToInteraction__useCase____source_name_prime = "source";
-		String useCaseToInteraction__interaction____target_name_prime = "target";
 		String message__messageSend____sendEvent_name_prime = "sendEvent";
 		String message__messageReceive____receiveEvent_name_prime = "receiveEvent";
-		String message__interaction____interaction_name_prime = "interaction";
-		String interaction__message____message_name_prime = "message";
-		String line__interaction____interaction_name_prime = "interaction";
-		String interaction__line____lifeline_name_prime = "lifeline";
 		String messageSend__message____message_name_prime = "message";
 		String messageReceive__message____message_name_prime = "message";
 		String line__messageReceive____coveredBy_name_prime = "coveredBy";
 		String messageReceive__line____covered_name_prime = "covered";
+		String useCase__flow____flows_name_prime = "flows";
+		String line__interaction____interaction_name_prime = "interaction";
+		String interaction__line____lifeline_name_prime = "lifeline";
+		String message__interaction____interaction_name_prime = "interaction";
+		String interaction__message____message_name_prime = "message";
+		String useCaseToInteraction__useCase____source_name_prime = "source";
+		String useCaseToInteraction__interaction____target_name_prime = "target";
 		String actorToLine__actor____source_name_prime = "source";
 		String actorToLine__line____target_name_prime = "target";
 		String packageDeclaration__useCase____useCases_name_prime = "useCases";
@@ -5662,10 +5506,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		isApplicableMatch.getAllContextElements().add(messageReceive);
 		isApplicableMatch.getAllContextElements().add(flow);
 		isApplicableMatch.getAllContextElements().add(flowToInteraction);
-		isApplicableMatch.getAllContextElements().add(useCase);
-		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(message);
 		isApplicableMatch.getAllContextElements().add(line);
+		isApplicableMatch.getAllContextElements().add(useCase);
+		isApplicableMatch.getAllContextElements().add(useCaseToInteraction);
 		isApplicableMatch.getAllContextElements().add(actorToLine);
 		packageDeclaration__actor____actors.setSrc(packageDeclaration);
 		packageDeclaration__actor____actors.setTrg(actor);
@@ -5716,18 +5560,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		flowToInteraction__interaction____target.setTrg(interaction);
 		isApplicableMatch.getAllContextElements().add(
 				flowToInteraction__interaction____target);
-		useCase__flow____flows.setSrc(useCase);
-		useCase__flow____flows.setTrg(flow);
-		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
-		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
-		useCaseToInteraction__useCase____source.setTrg(useCase);
-		isApplicableMatch.getAllContextElements().add(
-				useCaseToInteraction__useCase____source);
-		useCaseToInteraction__interaction____target
-				.setSrc(useCaseToInteraction);
-		useCaseToInteraction__interaction____target.setTrg(interaction);
-		isApplicableMatch.getAllContextElements().add(
-				useCaseToInteraction__interaction____target);
 		message__messageSend____sendEvent.setSrc(message);
 		message__messageSend____sendEvent.setTrg(messageSend);
 		isApplicableMatch.getAllContextElements().add(
@@ -5736,22 +5568,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		message__messageReceive____receiveEvent.setTrg(messageReceive);
 		isApplicableMatch.getAllContextElements().add(
 				message__messageReceive____receiveEvent);
-		message__interaction____interaction.setSrc(message);
-		message__interaction____interaction.setTrg(interaction);
-		isApplicableMatch.getAllContextElements().add(
-				message__interaction____interaction);
-		interaction__message____message.setSrc(interaction);
-		interaction__message____message.setTrg(message);
-		isApplicableMatch.getAllContextElements().add(
-				interaction__message____message);
-		line__interaction____interaction.setSrc(line);
-		line__interaction____interaction.setTrg(interaction);
-		isApplicableMatch.getAllContextElements().add(
-				line__interaction____interaction);
-		interaction__line____lifeline.setSrc(interaction);
-		interaction__line____lifeline.setTrg(line);
-		isApplicableMatch.getAllContextElements().add(
-				interaction__line____lifeline);
 		messageSend__message____message.setSrc(messageSend);
 		messageSend__message____message.setTrg(message);
 		isApplicableMatch.getAllContextElements().add(
@@ -5768,6 +5584,34 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		messageReceive__line____covered.setTrg(line);
 		isApplicableMatch.getAllContextElements().add(
 				messageReceive__line____covered);
+		useCase__flow____flows.setSrc(useCase);
+		useCase__flow____flows.setTrg(flow);
+		isApplicableMatch.getAllContextElements().add(useCase__flow____flows);
+		line__interaction____interaction.setSrc(line);
+		line__interaction____interaction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				line__interaction____interaction);
+		interaction__line____lifeline.setSrc(interaction);
+		interaction__line____lifeline.setTrg(line);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__line____lifeline);
+		message__interaction____interaction.setSrc(message);
+		message__interaction____interaction.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				message__interaction____interaction);
+		interaction__message____message.setSrc(interaction);
+		interaction__message____message.setTrg(message);
+		isApplicableMatch.getAllContextElements().add(
+				interaction__message____message);
+		useCaseToInteraction__useCase____source.setSrc(useCaseToInteraction);
+		useCaseToInteraction__useCase____source.setTrg(useCase);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__useCase____source);
+		useCaseToInteraction__interaction____target
+				.setSrc(useCaseToInteraction);
+		useCaseToInteraction__interaction____target.setTrg(interaction);
+		isApplicableMatch.getAllContextElements().add(
+				useCaseToInteraction__interaction____target);
 		actorToLine__actor____source.setSrc(actorToLine);
 		actorToLine__actor____source.setTrg(actor);
 		isApplicableMatch.getAllContextElements().add(
@@ -5804,23 +5648,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(flowToInteraction__flow____source_name_prime);
 		flowToInteraction__interaction____target
 				.setName(flowToInteraction__interaction____target_name_prime);
-		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
-		useCaseToInteraction__useCase____source
-				.setName(useCaseToInteraction__useCase____source_name_prime);
-		useCaseToInteraction__interaction____target
-				.setName(useCaseToInteraction__interaction____target_name_prime);
 		message__messageSend____sendEvent
 				.setName(message__messageSend____sendEvent_name_prime);
 		message__messageReceive____receiveEvent
 				.setName(message__messageReceive____receiveEvent_name_prime);
-		message__interaction____interaction
-				.setName(message__interaction____interaction_name_prime);
-		interaction__message____message
-				.setName(interaction__message____message_name_prime);
-		line__interaction____interaction
-				.setName(line__interaction____interaction_name_prime);
-		interaction__line____lifeline
-				.setName(interaction__line____lifeline_name_prime);
 		messageSend__message____message
 				.setName(messageSend__message____message_name_prime);
 		messageReceive__message____message
@@ -5829,6 +5660,19 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(line__messageReceive____coveredBy_name_prime);
 		messageReceive__line____covered
 				.setName(messageReceive__line____covered_name_prime);
+		useCase__flow____flows.setName(useCase__flow____flows_name_prime);
+		line__interaction____interaction
+				.setName(line__interaction____interaction_name_prime);
+		interaction__line____lifeline
+				.setName(interaction__line____lifeline_name_prime);
+		message__interaction____interaction
+				.setName(message__interaction____interaction_name_prime);
+		interaction__message____message
+				.setName(interaction__message____message_name_prime);
+		useCaseToInteraction__useCase____source
+				.setName(useCaseToInteraction__useCase____source_name_prime);
+		useCaseToInteraction__interaction____target
+				.setName(useCaseToInteraction__interaction____target_name_prime);
 		actorToLine__actor____source
 				.setName(actorToLine__actor____source_name_prime);
 		actorToLine__line____target
@@ -5837,8 +5681,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.setName(packageDeclaration__useCase____useCases_name_prime);
 		return new Object[] { actor, sysActor, packageDeclaration, sysLine,
 				sysActorToSysLine, messageSend, interaction, messageReceive,
-				flow, flowToInteraction, useCase, useCaseToInteraction,
-				message, line, actorToLine, isApplicableMatch,
+				flow, flowToInteraction, message, line, useCase,
+				useCaseToInteraction, actorToLine, isApplicableMatch,
 				packageDeclaration__actor____actors,
 				packageDeclaration__sysActor____actors,
 				sysLine__messageSend____coveredBy,
@@ -5851,19 +5695,19 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				interaction__messageReceive____fragment,
 				flowToInteraction__flow____source,
 				flowToInteraction__interaction____target,
-				useCase__flow____flows,
-				useCaseToInteraction__useCase____source,
-				useCaseToInteraction__interaction____target,
 				message__messageSend____sendEvent,
 				message__messageReceive____receiveEvent,
-				message__interaction____interaction,
-				interaction__message____message,
-				line__interaction____interaction,
-				interaction__line____lifeline, messageSend__message____message,
+				messageSend__message____message,
 				messageReceive__message____message,
 				line__messageReceive____coveredBy,
-				messageReceive__line____covered, actorToLine__actor____source,
-				actorToLine__line____target,
+				messageReceive__line____covered, useCase__flow____flows,
+				line__interaction____interaction,
+				interaction__line____lifeline,
+				message__interaction____interaction,
+				interaction__message____message,
+				useCaseToInteraction__useCase____source,
+				useCaseToInteraction__interaction____target,
+				actorToLine__actor____source, actorToLine__line____target,
 				packageDeclaration__useCase____useCases };
 	}
 
@@ -5874,21 +5718,22 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, Message message,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		CSP _localVariable_0 = _this.isApplicable_solveCsp_BWD(
 				isApplicableMatch, actor, sysActor, packageDeclaration,
 				sysLine, sysActorToSysLine, messageSend, interaction,
-				messageReceive, flow, flowToInteraction, useCase,
-				useCaseToInteraction, message, line, actorToLine);
+				messageReceive, flow, flowToInteraction, message, line,
+				useCase, useCaseToInteraction, actorToLine);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, actor,
 					sysActor, packageDeclaration, sysLine, sysActorToSysLine,
 					messageSend, interaction, messageReceive, flow,
-					flowToInteraction, useCase, useCaseToInteraction, message,
-					line, actorToLine };
+					flowToInteraction, message, line, useCase,
+					useCaseToInteraction, actorToLine };
 		}
 		return null;
 	}
@@ -5905,14 +5750,15 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			MessageOccurrenceSpecification messageSend,
 			Interaction interaction,
 			MessageOccurrenceSpecification messageReceive, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Message message,
-			Lifeline line, ActorToLifeline actorToLine) {
+			FlowToInteractionFragment flowToInteraction, Message message,
+			Lifeline line, UseCase useCase,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine) {
 		Object[] result_pattern_UserStepBFMessageRule_12_4_binding = pattern_UserStepBFMessageRule_12_4_bindingFBBBBBBBBBBBBBBBBB(
 				_this, isApplicableMatch, actor, sysActor, packageDeclaration,
 				sysLine, sysActorToSysLine, messageSend, interaction,
-				messageReceive, flow, flowToInteraction, useCase,
-				useCaseToInteraction, message, line, actorToLine);
+				messageReceive, flow, flowToInteraction, message, line,
+				useCase, useCaseToInteraction, actorToLine);
 		if (result_pattern_UserStepBFMessageRule_12_4_binding != null) {
 			CSP csp = (CSP) result_pattern_UserStepBFMessageRule_12_4_binding[0];
 
@@ -5922,8 +5768,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				return new Object[] { csp, _this, isApplicableMatch, actor,
 						sysActor, packageDeclaration, sysLine,
 						sysActorToSysLine, messageSend, interaction,
-						messageReceive, flow, flowToInteraction, useCase,
-						useCaseToInteraction, message, line, actorToLine };
+						messageReceive, flow, flowToInteraction, message, line,
+						useCase, useCaseToInteraction, actorToLine };
 			}
 		}
 		return null;
@@ -6008,11 +5854,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_679747 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_607777 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_679747)) {
-					if (!messageReceive.equals(__DEC_message_message_679747)) {
+				if (!messageSend.equals(__DEC_message_message_607777)) {
+					if (!messageReceive.equals(__DEC_message_message_607777)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6215,11 +6061,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_212562 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_61217 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_212562)) {
-					if (!messageReceive.equals(__DEC_message_message_212562)) {
+				if (!messageSend.equals(__DEC_message_message_61217)) {
+					if (!messageReceive.equals(__DEC_message_message_61217)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6422,11 +6268,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_924950 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_741420 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_924950)) {
-					if (!messageReceive.equals(__DEC_message_message_924950)) {
+				if (!messageSend.equals(__DEC_message_message_741420)) {
+					if (!messageReceive.equals(__DEC_message_message_741420)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6623,11 +6469,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_357264 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_634948 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_357264)) {
-					if (!messageReceive.equals(__DEC_message_message_357264)) {
+				if (!messageSend.equals(__DEC_message_message_634948)) {
+					if (!messageReceive.equals(__DEC_message_message_634948)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6824,11 +6670,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_582810 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_116961 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_582810)) {
-					if (!messageReceive.equals(__DEC_message_message_582810)) {
+				if (!messageSend.equals(__DEC_message_message_116961)) {
+					if (!messageReceive.equals(__DEC_message_message_116961)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7026,11 +6872,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_442456 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_6786 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_442456)) {
-					if (!messageReceive.equals(__DEC_message_message_442456)) {
+				if (!messageSend.equals(__DEC_message_message_6786)) {
+					if (!messageReceive.equals(__DEC_message_message_6786)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7193,7 +7039,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserStepBFMessageRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
+			if (__performOperationname.equals("isApplicable_BWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -7224,40 +7070,107 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
+	public static final Object[] pattern_UserStepBFMessageRule_26_2_black_nac_0BBB(
+			Message message, MessageOccurrenceSpecification messageSend,
+			MessageOccurrenceSpecification messageReceive) {
+		if (!messageReceive.equals(messageSend)) {
+			for (MessageEnd __DEC_message_message_827371 : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(message, MessageEnd.class,
+							"message")) {
+				if (!messageSend.equals(__DEC_message_message_827371)) {
+					if (!messageReceive.equals(__DEC_message_message_827371)) {
+						return new Object[] { message, messageSend,
+								messageReceive };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserStepBFMessageRule_26_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageSend) {
+		if (messageSend.equals(message.getReceiveEvent())) {
+			return new Object[] { message, messageSend };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserStepBFMessageRule_26_2_black_nac_2BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_26_2_blackFFFFFFB(
-			EMoflonEdge _edge_steps) {
+			EMoflonEdge _edge_sendEvent) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpFlow = _edge_steps.getSrc();
-		if (tmpFlow instanceof BasicFlow) {
-			BasicFlow flow = (BasicFlow) tmpFlow;
-			EObject tmpStep = _edge_steps.getTrg();
-			if (tmpStep instanceof NormalStep) {
-				NormalStep step = (NormalStep) tmpStep;
-				if (flow.getSteps().contains(step)) {
-					Actor actor = step.getActor();
-					if (actor != null) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
-								.getOppositeReferenceTyped(flow, UseCase.class,
-										"flows")) {
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(actor,
-											PackageDeclaration.class, "actors")) {
-								if (packageDeclaration.getUseCases().contains(
-										useCase)) {
-									for (Actor sysActor : packageDeclaration
-											.getActors()) {
-										if (!actor.equals(sysActor)) {
-											_result.add(new Object[] { actor,
-													sysActor,
-													packageDeclaration, flow,
-													useCase, step, _edge_steps });
+		EObject tmpMessage = _edge_sendEvent.getSrc();
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			EObject tmpMessageSend = _edge_sendEvent.getTrg();
+			if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+				if (messageSend.equals(message.getSendEvent())) {
+					if (message.equals(messageSend.getMessage())) {
+						MessageEnd tmpMessageReceive = message
+								.getReceiveEvent();
+						if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+							MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+							if (!messageReceive.equals(messageSend)) {
+								if (message.equals(messageReceive.getMessage())) {
+									Interaction interaction = message
+											.getInteraction();
+									if (interaction != null) {
+										if (interaction.equals(messageSend
+												.getEnclosingInteraction())) {
+											if (interaction
+													.equals(messageReceive
+															.getEnclosingInteraction())) {
+												if (pattern_UserStepBFMessageRule_26_2_black_nac_1BB(
+														message, messageSend) == null) {
+													if (pattern_UserStepBFMessageRule_26_2_black_nac_0BBB(
+															message,
+															messageSend,
+															messageReceive) == null) {
+														if (pattern_UserStepBFMessageRule_26_2_black_nac_2BB(
+																message,
+																messageReceive) == null) {
+															for (Lifeline sysLine : messageSend
+																	.getCovered()) {
+																for (Lifeline line : messageReceive
+																		.getCovered()) {
+																	if (!line
+																			.equals(sysLine)) {
+																		if (interaction
+																				.equals(line
+																						.getInteraction())) {
+																			_result.add(new Object[] {
+																					sysLine,
+																					messageSend,
+																					interaction,
+																					messageReceive,
+																					message,
+																					line,
+																					_edge_sendEvent });
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
 										}
 									}
+
 								}
 							}
 						}
-					}
 
+					}
 				}
 			}
 
@@ -7277,18 +7190,20 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_26_3_expressionFBBBBBBBB(
-			UserStepBFMessageRule _this, Match match, Actor actor,
-			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, actor,
-				sysActor, packageDeclaration, flow, useCase, step);
+			UserStepBFMessageRule _this, Match match, Lifeline sysLine,
+			MessageOccurrenceSpecification messageSend,
+			Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Message message,
+			Lifeline line) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, sysLine,
+				messageSend, interaction, messageReceive, message, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_26_4_expressionFBB(
 			UserStepBFMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -7327,7 +7242,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserStepBFMessageRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_FWD")) {
+			if (__performOperationname.equals("isApplicable_BWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -7358,42 +7273,105 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
+	public static final Object[] pattern_UserStepBFMessageRule_27_2_black_nac_0BBB(
+			Message message, MessageOccurrenceSpecification messageSend,
+			MessageOccurrenceSpecification messageReceive) {
+		if (!messageReceive.equals(messageSend)) {
+			for (MessageEnd __DEC_message_message_753877 : org.moflon.util.eMoflonEMFUtil
+					.getOppositeReferenceTyped(message, MessageEnd.class,
+							"message")) {
+				if (!messageSend.equals(__DEC_message_message_753877)) {
+					if (!messageReceive.equals(__DEC_message_message_753877)) {
+						return new Object[] { message, messageSend,
+								messageReceive };
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserStepBFMessageRule_27_2_black_nac_1BB(
+			Message message, MessageOccurrenceSpecification messageSend) {
+		if (messageSend.equals(message.getReceiveEvent())) {
+			return new Object[] { message, messageSend };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserStepBFMessageRule_27_2_black_nac_2BB(
+			Message message, MessageOccurrenceSpecification messageReceive) {
+		if (messageReceive.equals(message.getSendEvent())) {
+			return new Object[] { message, messageReceive };
+		}
+		return null;
+	}
+
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_27_2_blackFFFFFFB(
-			EMoflonEdge _edge_actor) {
+			EMoflonEdge _edge_receiveEvent) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpStep = _edge_actor.getSrc();
-		if (tmpStep instanceof NormalStep) {
-			NormalStep step = (NormalStep) tmpStep;
-			EObject tmpActor = _edge_actor.getTrg();
-			if (tmpActor instanceof Actor) {
-				Actor actor = (Actor) tmpActor;
-				if (actor.equals(step.getActor())) {
-					for (Flow tmpFlow : org.moflon.util.eMoflonEMFUtil
-							.getOppositeReferenceTyped(step, Flow.class,
-									"steps")) {
-						if (tmpFlow instanceof BasicFlow) {
-							BasicFlow flow = (BasicFlow) tmpFlow;
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
-									.getOppositeReferenceTyped(actor,
-											PackageDeclaration.class, "actors")) {
-								for (Actor sysActor : packageDeclaration
-										.getActors()) {
-									if (!actor.equals(sysActor)) {
-										for (UseCase useCase : packageDeclaration
-												.getUseCases()) {
-											if (useCase.getFlows().contains(
-													flow)) {
-												_result.add(new Object[] {
-														actor, sysActor,
-														packageDeclaration,
-														flow, useCase, step,
-														_edge_actor });
+		EObject tmpMessage = _edge_receiveEvent.getSrc();
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			EObject tmpMessageReceive = _edge_receiveEvent.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (messageReceive.equals(message.getReceiveEvent())) {
+					if (message.equals(messageReceive.getMessage())) {
+						MessageEnd tmpMessageSend = message.getSendEvent();
+						if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+							MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+							if (!messageReceive.equals(messageSend)) {
+								if (message.equals(messageSend.getMessage())) {
+									Interaction interaction = message
+											.getInteraction();
+									if (interaction != null) {
+										if (interaction.equals(messageSend
+												.getEnclosingInteraction())) {
+											if (interaction
+													.equals(messageReceive
+															.getEnclosingInteraction())) {
+												if (pattern_UserStepBFMessageRule_27_2_black_nac_2BB(
+														message, messageReceive) == null) {
+													if (pattern_UserStepBFMessageRule_27_2_black_nac_0BBB(
+															message,
+															messageSend,
+															messageReceive) == null) {
+														if (pattern_UserStepBFMessageRule_27_2_black_nac_1BB(
+																message,
+																messageSend) == null) {
+															for (Lifeline line : messageReceive
+																	.getCovered()) {
+																if (interaction
+																		.equals(line
+																				.getInteraction())) {
+																	for (Lifeline sysLine : messageSend
+																			.getCovered()) {
+																		if (!line
+																				.equals(sysLine)) {
+																			_result.add(new Object[] {
+																					sysLine,
+																					messageSend,
+																					interaction,
+																					messageReceive,
+																					message,
+																					line,
+																					_edge_receiveEvent });
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
 											}
 										}
 									}
+
 								}
 							}
 						}
+
 					}
 				}
 			}
@@ -7414,18 +7392,20 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_27_3_expressionFBBBBBBBB(
-			UserStepBFMessageRule _this, Match match, Actor actor,
-			Actor sysActor, PackageDeclaration packageDeclaration,
-			BasicFlow flow, UseCase useCase, NormalStep step) {
-		boolean _localVariable_0 = _this.isAppropriate_FWD(match, actor,
-				sysActor, packageDeclaration, flow, useCase, step);
+			UserStepBFMessageRule _this, Match match, Lifeline sysLine,
+			MessageOccurrenceSpecification messageSend,
+			Interaction interaction,
+			MessageOccurrenceSpecification messageReceive, Message message,
+			Lifeline line) {
+		boolean _localVariable_0 = _this.isAppropriate_BWD(match, sysLine,
+				messageSend, interaction, messageReceive, message, line);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_27_4_expressionFBB(
 			UserStepBFMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_FWD(match);
+		boolean _localVariable_0 = _this.checkTypes_BWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -7499,11 +7479,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_254598 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_26198 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_254598)) {
-					if (!messageReceive.equals(__DEC_message_message_254598)) {
+				if (!messageSend.equals(__DEC_message_message_26198)) {
+					if (!messageReceive.equals(__DEC_message_message_26198)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7530,30 +7510,29 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_28_2_blackFFFFFFB(
-			EMoflonEdge _edge_sendEvent) {
+			EMoflonEdge _edge_message) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessage = _edge_sendEvent.getSrc();
-		if (tmpMessage instanceof Message) {
-			Message message = (Message) tmpMessage;
-			EObject tmpMessageSend = _edge_sendEvent.getTrg();
-			if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-				MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+		EObject tmpMessageSend = _edge_message.getSrc();
+		if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+			EObject tmpMessage = _edge_message.getTrg();
+			if (tmpMessage instanceof Message) {
+				Message message = (Message) tmpMessage;
 				if (messageSend.equals(message.getSendEvent())) {
 					if (message.equals(messageSend.getMessage())) {
-						MessageEnd tmpMessageReceive = message
-								.getReceiveEvent();
-						if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-							MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-							if (!messageReceive.equals(messageSend)) {
-								if (message.equals(messageReceive.getMessage())) {
-									Interaction interaction = message
-											.getInteraction();
-									if (interaction != null) {
-										if (interaction.equals(messageSend
+						Interaction interaction = messageSend
+								.getEnclosingInteraction();
+						if (interaction != null) {
+							if (interaction.equals(message.getInteraction())) {
+								MessageEnd tmpMessageReceive = message
+										.getReceiveEvent();
+								if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+									MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+									if (!messageReceive.equals(messageSend)) {
+										if (interaction.equals(messageReceive
 												.getEnclosingInteraction())) {
-											if (interaction
-													.equals(messageReceive
-															.getEnclosingInteraction())) {
+											if (message.equals(messageReceive
+													.getMessage())) {
 												if (pattern_UserStepBFMessageRule_28_2_black_nac_1BB(
 														message, messageSend) == null) {
 													if (pattern_UserStepBFMessageRule_28_2_black_nac_0BBB(
@@ -7565,13 +7544,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																messageReceive) == null) {
 															for (Lifeline sysLine : messageSend
 																	.getCovered()) {
-																for (Lifeline line : messageReceive
-																		.getCovered()) {
+																for (Lifeline line : interaction
+																		.getLifeline()) {
 																	if (!line
 																			.equals(sysLine)) {
-																		if (interaction
-																				.equals(line
-																						.getInteraction())) {
+																		if (line.getCoveredBy()
+																				.contains(
+																						messageReceive)) {
 																			_result.add(new Object[] {
 																					sysLine,
 																					messageSend,
@@ -7579,7 +7558,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																					messageReceive,
 																					message,
 																					line,
-																					_edge_sendEvent });
+																					_edge_message });
 																		}
 																	}
 																}
@@ -7590,8 +7569,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 											}
 										}
 									}
-
 								}
+
 							}
 						}
 
@@ -7702,11 +7681,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_632199 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_855122 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_632199)) {
-					if (!messageReceive.equals(__DEC_message_message_632199)) {
+				if (!messageSend.equals(__DEC_message_message_855122)) {
+					if (!messageReceive.equals(__DEC_message_message_855122)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7733,29 +7712,29 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_29_2_blackFFFFFFB(
-			EMoflonEdge _edge_receiveEvent) {
+			EMoflonEdge _edge_message) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessage = _edge_receiveEvent.getSrc();
-		if (tmpMessage instanceof Message) {
-			Message message = (Message) tmpMessage;
-			EObject tmpMessageReceive = _edge_receiveEvent.getTrg();
-			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+		EObject tmpMessageReceive = _edge_message.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpMessage = _edge_message.getTrg();
+			if (tmpMessage instanceof Message) {
+				Message message = (Message) tmpMessage;
 				if (messageReceive.equals(message.getReceiveEvent())) {
 					if (message.equals(messageReceive.getMessage())) {
-						MessageEnd tmpMessageSend = message.getSendEvent();
-						if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-							MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
-							if (!messageReceive.equals(messageSend)) {
-								if (message.equals(messageSend.getMessage())) {
-									Interaction interaction = message
-											.getInteraction();
-									if (interaction != null) {
+						Interaction interaction = messageReceive
+								.getEnclosingInteraction();
+						if (interaction != null) {
+							if (interaction.equals(message.getInteraction())) {
+								MessageEnd tmpMessageSend = message
+										.getSendEvent();
+								if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+									MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+									if (!messageReceive.equals(messageSend)) {
 										if (interaction.equals(messageSend
 												.getEnclosingInteraction())) {
-											if (interaction
-													.equals(messageReceive
-															.getEnclosingInteraction())) {
+											if (message.equals(messageSend
+													.getMessage())) {
 												if (pattern_UserStepBFMessageRule_29_2_black_nac_2BB(
 														message, messageReceive) == null) {
 													if (pattern_UserStepBFMessageRule_29_2_black_nac_0BBB(
@@ -7781,7 +7760,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																					messageReceive,
 																					message,
 																					line,
-																					_edge_receiveEvent });
+																					_edge_message });
 																		}
 																	}
 																}
@@ -7792,8 +7771,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 											}
 										}
 									}
-
 								}
+
 							}
 						}
 
@@ -7904,11 +7883,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_529485 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_809532 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_529485)) {
-					if (!messageReceive.equals(__DEC_message_message_529485)) {
+				if (!messageSend.equals(__DEC_message_message_809532)) {
+					if (!messageReceive.equals(__DEC_message_message_809532)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7935,44 +7914,47 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_30_2_blackFFFFFFB(
-			EMoflonEdge _edge_interaction) {
+			EMoflonEdge _edge_coveredBy) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessage = _edge_interaction.getSrc();
-		if (tmpMessage instanceof Message) {
-			Message message = (Message) tmpMessage;
-			EObject tmpInteraction = _edge_interaction.getTrg();
-			if (tmpInteraction instanceof Interaction) {
-				Interaction interaction = (Interaction) tmpInteraction;
-				if (interaction.equals(message.getInteraction())) {
-					MessageEnd tmpMessageSend = message.getSendEvent();
-					if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-						MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
-						if (interaction.equals(messageSend
+		EObject tmpLine = _edge_coveredBy.getSrc();
+		if (tmpLine instanceof Lifeline) {
+			Lifeline line = (Lifeline) tmpLine;
+			EObject tmpMessageReceive = _edge_coveredBy.getTrg();
+			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+				if (line.getCoveredBy().contains(messageReceive)) {
+					Interaction interaction = line.getInteraction();
+					if (interaction != null) {
+						if (interaction.equals(messageReceive
 								.getEnclosingInteraction())) {
-							if (message.equals(messageSend.getMessage())) {
-								MessageEnd tmpMessageReceive = message
-										.getReceiveEvent();
-								if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-									MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-									if (!messageReceive.equals(messageSend)) {
-										if (interaction.equals(messageReceive
-												.getEnclosingInteraction())) {
-											if (message.equals(messageReceive
-													.getMessage())) {
-												if (pattern_UserStepBFMessageRule_30_2_black_nac_1BB(
-														message, messageSend) == null) {
-													if (pattern_UserStepBFMessageRule_30_2_black_nac_0BBB(
-															message,
-															messageSend,
-															messageReceive) == null) {
+							Message message = messageReceive.getMessage();
+							if (message != null) {
+								if (messageReceive.equals(message
+										.getReceiveEvent())) {
+									if (interaction.equals(message
+											.getInteraction())) {
+										MessageEnd tmpMessageSend = message
+												.getSendEvent();
+										if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+											MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+											if (!messageReceive
+													.equals(messageSend)) {
+												if (interaction
+														.equals(messageSend
+																.getEnclosingInteraction())) {
+													if (message
+															.equals(messageSend
+																	.getMessage())) {
 														if (pattern_UserStepBFMessageRule_30_2_black_nac_2BB(
 																message,
 																messageReceive) == null) {
-															for (Lifeline line : interaction
-																	.getLifeline()) {
-																if (line.getCoveredBy()
-																		.contains(
-																				messageReceive)) {
+															if (pattern_UserStepBFMessageRule_30_2_black_nac_0BBB(
+																	message,
+																	messageSend,
+																	messageReceive) == null) {
+																if (pattern_UserStepBFMessageRule_30_2_black_nac_1BB(
+																		message,
+																		messageSend) == null) {
 																	for (Lifeline sysLine : messageSend
 																			.getCovered()) {
 																		if (!line
@@ -7984,7 +7966,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																					messageReceive,
 																					message,
 																					line,
-																					_edge_interaction });
+																					_edge_coveredBy });
 																		}
 																	}
 																}
@@ -7994,10 +7976,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 												}
 											}
 										}
+
 									}
 								}
-
 							}
+
 						}
 					}
 
@@ -8107,11 +8090,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_302695 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_221598 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_302695)) {
-					if (!messageReceive.equals(__DEC_message_message_302695)) {
+				if (!messageSend.equals(__DEC_message_message_221598)) {
+					if (!messageReceive.equals(__DEC_message_message_221598)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8138,44 +8121,47 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_31_2_blackFFFFFFB(
-			EMoflonEdge _edge_message) {
+			EMoflonEdge _edge_covered) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpInteraction = _edge_message.getSrc();
-		if (tmpInteraction instanceof Interaction) {
-			Interaction interaction = (Interaction) tmpInteraction;
-			EObject tmpMessage = _edge_message.getTrg();
-			if (tmpMessage instanceof Message) {
-				Message message = (Message) tmpMessage;
-				if (interaction.equals(message.getInteraction())) {
-					MessageEnd tmpMessageSend = message.getSendEvent();
-					if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-						MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
-						if (interaction.equals(messageSend
-								.getEnclosingInteraction())) {
-							if (message.equals(messageSend.getMessage())) {
-								MessageEnd tmpMessageReceive = message
-										.getReceiveEvent();
-								if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-									MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-									if (!messageReceive.equals(messageSend)) {
-										if (interaction.equals(messageReceive
-												.getEnclosingInteraction())) {
-											if (message.equals(messageReceive
-													.getMessage())) {
-												if (pattern_UserStepBFMessageRule_31_2_black_nac_1BB(
-														message, messageSend) == null) {
-													if (pattern_UserStepBFMessageRule_31_2_black_nac_0BBB(
-															message,
-															messageSend,
-															messageReceive) == null) {
+		EObject tmpMessageReceive = _edge_covered.getSrc();
+		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+			EObject tmpLine = _edge_covered.getTrg();
+			if (tmpLine instanceof Lifeline) {
+				Lifeline line = (Lifeline) tmpLine;
+				if (line.getCoveredBy().contains(messageReceive)) {
+					Interaction interaction = messageReceive
+							.getEnclosingInteraction();
+					if (interaction != null) {
+						if (interaction.equals(line.getInteraction())) {
+							Message message = messageReceive.getMessage();
+							if (message != null) {
+								if (messageReceive.equals(message
+										.getReceiveEvent())) {
+									if (interaction.equals(message
+											.getInteraction())) {
+										MessageEnd tmpMessageSend = message
+												.getSendEvent();
+										if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+											MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+											if (!messageReceive
+													.equals(messageSend)) {
+												if (interaction
+														.equals(messageSend
+																.getEnclosingInteraction())) {
+													if (message
+															.equals(messageSend
+																	.getMessage())) {
 														if (pattern_UserStepBFMessageRule_31_2_black_nac_2BB(
 																message,
 																messageReceive) == null) {
-															for (Lifeline line : interaction
-																	.getLifeline()) {
-																if (line.getCoveredBy()
-																		.contains(
-																				messageReceive)) {
+															if (pattern_UserStepBFMessageRule_31_2_black_nac_0BBB(
+																	message,
+																	messageSend,
+																	messageReceive) == null) {
+																if (pattern_UserStepBFMessageRule_31_2_black_nac_1BB(
+																		message,
+																		messageSend) == null) {
 																	for (Lifeline sysLine : messageSend
 																			.getCovered()) {
 																		if (!line
@@ -8187,7 +8173,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																					messageReceive,
 																					message,
 																					line,
-																					_edge_message });
+																					_edge_covered });
 																		}
 																	}
 																}
@@ -8197,10 +8183,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 												}
 											}
 										}
+
 									}
 								}
-
 							}
+
 						}
 					}
 
@@ -8310,11 +8297,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_983239 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_181613 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_983239)) {
-					if (!messageReceive.equals(__DEC_message_message_983239)) {
+				if (!messageSend.equals(__DEC_message_message_181613)) {
+					if (!messageReceive.equals(__DEC_message_message_181613)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8341,20 +8328,21 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_32_2_blackFFFFFFB(
-			EMoflonEdge _edge_message) {
+			EMoflonEdge _edge_interaction) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessageSend = _edge_message.getSrc();
-		if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-			MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
-			EObject tmpMessage = _edge_message.getTrg();
-			if (tmpMessage instanceof Message) {
-				Message message = (Message) tmpMessage;
-				if (messageSend.equals(message.getSendEvent())) {
-					if (message.equals(messageSend.getMessage())) {
-						Interaction interaction = messageSend
-								.getEnclosingInteraction();
-						if (interaction != null) {
-							if (interaction.equals(message.getInteraction())) {
+		EObject tmpMessage = _edge_interaction.getSrc();
+		if (tmpMessage instanceof Message) {
+			Message message = (Message) tmpMessage;
+			EObject tmpInteraction = _edge_interaction.getTrg();
+			if (tmpInteraction instanceof Interaction) {
+				Interaction interaction = (Interaction) tmpInteraction;
+				if (interaction.equals(message.getInteraction())) {
+					MessageEnd tmpMessageSend = message.getSendEvent();
+					if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+						MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+						if (interaction.equals(messageSend
+								.getEnclosingInteraction())) {
+							if (message.equals(messageSend.getMessage())) {
 								MessageEnd tmpMessageReceive = message
 										.getReceiveEvent();
 								if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
@@ -8373,15 +8361,15 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 														if (pattern_UserStepBFMessageRule_32_2_black_nac_2BB(
 																message,
 																messageReceive) == null) {
-															for (Lifeline sysLine : messageSend
-																	.getCovered()) {
-																for (Lifeline line : interaction
-																		.getLifeline()) {
-																	if (!line
-																			.equals(sysLine)) {
-																		if (line.getCoveredBy()
-																				.contains(
-																						messageReceive)) {
+															for (Lifeline line : interaction
+																	.getLifeline()) {
+																if (line.getCoveredBy()
+																		.contains(
+																				messageReceive)) {
+																	for (Lifeline sysLine : messageSend
+																			.getCovered()) {
+																		if (!line
+																				.equals(sysLine)) {
 																			_result.add(new Object[] {
 																					sysLine,
 																					messageSend,
@@ -8389,7 +8377,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																					messageReceive,
 																					message,
 																					line,
-																					_edge_message });
+																					_edge_interaction });
 																		}
 																	}
 																}
@@ -8404,8 +8392,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 							}
 						}
-
 					}
+
 				}
 			}
 
@@ -8512,11 +8500,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_780979 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_382529 : org.moflon.util.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_780979)) {
-					if (!messageReceive.equals(__DEC_message_message_780979)) {
+				if (!messageSend.equals(__DEC_message_message_382529)) {
+					if (!messageReceive.equals(__DEC_message_message_382529)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8545,41 +8533,42 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_33_2_blackFFFFFFB(
 			EMoflonEdge _edge_message) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessageReceive = _edge_message.getSrc();
-		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
+		EObject tmpInteraction = _edge_message.getSrc();
+		if (tmpInteraction instanceof Interaction) {
+			Interaction interaction = (Interaction) tmpInteraction;
 			EObject tmpMessage = _edge_message.getTrg();
 			if (tmpMessage instanceof Message) {
 				Message message = (Message) tmpMessage;
-				if (messageReceive.equals(message.getReceiveEvent())) {
-					if (message.equals(messageReceive.getMessage())) {
-						Interaction interaction = messageReceive
-								.getEnclosingInteraction();
-						if (interaction != null) {
-							if (interaction.equals(message.getInteraction())) {
-								MessageEnd tmpMessageSend = message
-										.getSendEvent();
-								if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-									MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+				if (interaction.equals(message.getInteraction())) {
+					MessageEnd tmpMessageSend = message.getSendEvent();
+					if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
+						MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
+						if (interaction.equals(messageSend
+								.getEnclosingInteraction())) {
+							if (message.equals(messageSend.getMessage())) {
+								MessageEnd tmpMessageReceive = message
+										.getReceiveEvent();
+								if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
+									MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
 									if (!messageReceive.equals(messageSend)) {
-										if (interaction.equals(messageSend
+										if (interaction.equals(messageReceive
 												.getEnclosingInteraction())) {
-											if (message.equals(messageSend
+											if (message.equals(messageReceive
 													.getMessage())) {
-												if (pattern_UserStepBFMessageRule_33_2_black_nac_2BB(
-														message, messageReceive) == null) {
+												if (pattern_UserStepBFMessageRule_33_2_black_nac_1BB(
+														message, messageSend) == null) {
 													if (pattern_UserStepBFMessageRule_33_2_black_nac_0BBB(
 															message,
 															messageSend,
 															messageReceive) == null) {
-														if (pattern_UserStepBFMessageRule_33_2_black_nac_1BB(
+														if (pattern_UserStepBFMessageRule_33_2_black_nac_2BB(
 																message,
-																messageSend) == null) {
-															for (Lifeline line : messageReceive
-																	.getCovered()) {
-																if (interaction
-																		.equals(line
-																				.getInteraction())) {
+																messageReceive) == null) {
+															for (Lifeline line : interaction
+																	.getLifeline()) {
+																if (line.getCoveredBy()
+																		.contains(
+																				messageReceive)) {
 																	for (Lifeline sysLine : messageSend
 																			.getCovered()) {
 																		if (!line
@@ -8606,8 +8595,8 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 
 							}
 						}
-
 					}
+
 				}
 			}
 
@@ -8679,7 +8668,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserStepBFMessageRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -8710,108 +8699,37 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_34_2_black_nac_0BBB(
-			Message message, MessageOccurrenceSpecification messageSend,
-			MessageOccurrenceSpecification messageReceive) {
-		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_25467 : org.moflon.util.eMoflonEMFUtil
-					.getOppositeReferenceTyped(message, MessageEnd.class,
-							"message")) {
-				if (!messageSend.equals(__DEC_message_message_25467)) {
-					if (!messageReceive.equals(__DEC_message_message_25467)) {
-						return new Object[] { message, messageSend,
-								messageReceive };
-					}
-				}
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UserStepBFMessageRule_34_2_black_nac_1BB(
-			Message message, MessageOccurrenceSpecification messageSend) {
-		if (messageSend.equals(message.getReceiveEvent())) {
-			return new Object[] { message, messageSend };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UserStepBFMessageRule_34_2_black_nac_2BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		if (messageReceive.equals(message.getSendEvent())) {
-			return new Object[] { message, messageReceive };
-		}
-		return null;
-	}
-
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_34_2_blackFFFFFFB(
-			EMoflonEdge _edge_coveredBy) {
+			EMoflonEdge _edge_steps) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpLine = _edge_coveredBy.getSrc();
-		if (tmpLine instanceof Lifeline) {
-			Lifeline line = (Lifeline) tmpLine;
-			EObject tmpMessageReceive = _edge_coveredBy.getTrg();
-			if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-				MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-				if (line.getCoveredBy().contains(messageReceive)) {
-					Interaction interaction = line.getInteraction();
-					if (interaction != null) {
-						if (interaction.equals(messageReceive
-								.getEnclosingInteraction())) {
-							Message message = messageReceive.getMessage();
-							if (message != null) {
-								if (messageReceive.equals(message
-										.getReceiveEvent())) {
-									if (interaction.equals(message
-											.getInteraction())) {
-										MessageEnd tmpMessageSend = message
-												.getSendEvent();
-										if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-											MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
-											if (!messageReceive
-													.equals(messageSend)) {
-												if (interaction
-														.equals(messageSend
-																.getEnclosingInteraction())) {
-													if (message
-															.equals(messageSend
-																	.getMessage())) {
-														if (pattern_UserStepBFMessageRule_34_2_black_nac_2BB(
-																message,
-																messageReceive) == null) {
-															if (pattern_UserStepBFMessageRule_34_2_black_nac_0BBB(
-																	message,
-																	messageSend,
-																	messageReceive) == null) {
-																if (pattern_UserStepBFMessageRule_34_2_black_nac_1BB(
-																		message,
-																		messageSend) == null) {
-																	for (Lifeline sysLine : messageSend
-																			.getCovered()) {
-																		if (!line
-																				.equals(sysLine)) {
-																			_result.add(new Object[] {
-																					sysLine,
-																					messageSend,
-																					interaction,
-																					messageReceive,
-																					message,
-																					line,
-																					_edge_coveredBy });
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
+		EObject tmpFlow = _edge_steps.getSrc();
+		if (tmpFlow instanceof BasicFlow) {
+			BasicFlow flow = (BasicFlow) tmpFlow;
+			EObject tmpStep = _edge_steps.getTrg();
+			if (tmpStep instanceof NormalStep) {
+				NormalStep step = (NormalStep) tmpStep;
+				if (flow.getSteps().contains(step)) {
+					Actor actor = step.getActor();
+					if (actor != null) {
+						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+								.getOppositeReferenceTyped(flow, UseCase.class,
+										"flows")) {
+							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(actor,
+											PackageDeclaration.class, "actors")) {
+								if (packageDeclaration.getUseCases().contains(
+										useCase)) {
+									for (Actor sysActor : packageDeclaration
+											.getActors()) {
+										if (!actor.equals(sysActor)) {
+											_result.add(new Object[] { actor,
+													sysActor,
+													packageDeclaration, flow,
+													step, useCase, _edge_steps });
 										}
-
 									}
 								}
 							}
-
 						}
 					}
 
@@ -8834,20 +8752,18 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_34_3_expressionFBBBBBBBB(
-			UserStepBFMessageRule _this, Match match, Lifeline sysLine,
-			MessageOccurrenceSpecification messageSend,
-			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Message message,
-			Lifeline line) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, sysLine,
-				messageSend, interaction, messageReceive, message, line);
+			UserStepBFMessageRule _this, Match match, Actor actor,
+			Actor sysActor, PackageDeclaration packageDeclaration,
+			BasicFlow flow, NormalStep step, UseCase useCase) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, actor,
+				sysActor, packageDeclaration, flow, step, useCase);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_34_4_expressionFBB(
 			UserStepBFMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -8886,7 +8802,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			EClass __eClass, UserStepBFMessageRule _this) {
 		for (EOperation __performOperation : __eClass.getEOperations()) {
 			String __performOperationname = __performOperation.getName();
-			if (__performOperationname.equals("isApplicable_BWD")) {
+			if (__performOperationname.equals("isApplicable_FWD")) {
 				return new Object[] { __performOperation, __eClass, _this };
 			}
 
@@ -8917,111 +8833,43 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return new Object[] { __result };
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_35_2_black_nac_0BBB(
-			Message message, MessageOccurrenceSpecification messageSend,
-			MessageOccurrenceSpecification messageReceive) {
-		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_934444 : org.moflon.util.eMoflonEMFUtil
-					.getOppositeReferenceTyped(message, MessageEnd.class,
-							"message")) {
-				if (!messageSend.equals(__DEC_message_message_934444)) {
-					if (!messageReceive.equals(__DEC_message_message_934444)) {
-						return new Object[] { message, messageSend,
-								messageReceive };
-					}
-				}
-			}
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UserStepBFMessageRule_35_2_black_nac_1BB(
-			Message message, MessageOccurrenceSpecification messageSend) {
-		if (messageSend.equals(message.getReceiveEvent())) {
-			return new Object[] { message, messageSend };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UserStepBFMessageRule_35_2_black_nac_2BB(
-			Message message, MessageOccurrenceSpecification messageReceive) {
-		if (messageReceive.equals(message.getSendEvent())) {
-			return new Object[] { message, messageReceive };
-		}
-		return null;
-	}
-
 	public static final Iterable<Object[]> pattern_UserStepBFMessageRule_35_2_blackFFFFFFB(
-			EMoflonEdge _edge_covered) {
+			EMoflonEdge _edge_actor) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		EObject tmpMessageReceive = _edge_covered.getSrc();
-		if (tmpMessageReceive instanceof MessageOccurrenceSpecification) {
-			MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) tmpMessageReceive;
-			EObject tmpLine = _edge_covered.getTrg();
-			if (tmpLine instanceof Lifeline) {
-				Lifeline line = (Lifeline) tmpLine;
-				if (line.getCoveredBy().contains(messageReceive)) {
-					Interaction interaction = messageReceive
-							.getEnclosingInteraction();
-					if (interaction != null) {
-						if (interaction.equals(line.getInteraction())) {
-							Message message = messageReceive.getMessage();
-							if (message != null) {
-								if (messageReceive.equals(message
-										.getReceiveEvent())) {
-									if (interaction.equals(message
-											.getInteraction())) {
-										MessageEnd tmpMessageSend = message
-												.getSendEvent();
-										if (tmpMessageSend instanceof MessageOccurrenceSpecification) {
-											MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) tmpMessageSend;
-											if (!messageReceive
-													.equals(messageSend)) {
-												if (interaction
-														.equals(messageSend
-																.getEnclosingInteraction())) {
-													if (message
-															.equals(messageSend
-																	.getMessage())) {
-														if (pattern_UserStepBFMessageRule_35_2_black_nac_2BB(
-																message,
-																messageReceive) == null) {
-															if (pattern_UserStepBFMessageRule_35_2_black_nac_0BBB(
-																	message,
-																	messageSend,
-																	messageReceive) == null) {
-																if (pattern_UserStepBFMessageRule_35_2_black_nac_1BB(
-																		message,
-																		messageSend) == null) {
-																	for (Lifeline sysLine : messageSend
-																			.getCovered()) {
-																		if (!line
-																				.equals(sysLine)) {
-																			_result.add(new Object[] {
-																					sysLine,
-																					messageSend,
-																					interaction,
-																					messageReceive,
-																					message,
-																					line,
-																					_edge_covered });
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
+		EObject tmpStep = _edge_actor.getSrc();
+		if (tmpStep instanceof NormalStep) {
+			NormalStep step = (NormalStep) tmpStep;
+			EObject tmpActor = _edge_actor.getTrg();
+			if (tmpActor instanceof Actor) {
+				Actor actor = (Actor) tmpActor;
+				if (actor.equals(step.getActor())) {
+					for (Flow tmpFlow : org.moflon.util.eMoflonEMFUtil
+							.getOppositeReferenceTyped(step, Flow.class,
+									"steps")) {
+						if (tmpFlow instanceof BasicFlow) {
+							BasicFlow flow = (BasicFlow) tmpFlow;
+							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+									.getOppositeReferenceTyped(actor,
+											PackageDeclaration.class, "actors")) {
+								for (Actor sysActor : packageDeclaration
+										.getActors()) {
+									if (!actor.equals(sysActor)) {
+										for (UseCase useCase : packageDeclaration
+												.getUseCases()) {
+											if (useCase.getFlows().contains(
+													flow)) {
+												_result.add(new Object[] {
+														actor, sysActor,
+														packageDeclaration,
+														flow, step, useCase,
+														_edge_actor });
 											}
 										}
-
 									}
 								}
 							}
-
 						}
 					}
-
 				}
 			}
 
@@ -9041,20 +8889,18 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_35_3_expressionFBBBBBBBB(
-			UserStepBFMessageRule _this, Match match, Lifeline sysLine,
-			MessageOccurrenceSpecification messageSend,
-			Interaction interaction,
-			MessageOccurrenceSpecification messageReceive, Message message,
-			Lifeline line) {
-		boolean _localVariable_0 = _this.isAppropriate_BWD(match, sysLine,
-				messageSend, interaction, messageReceive, message, line);
+			UserStepBFMessageRule _this, Match match, Actor actor,
+			Actor sysActor, PackageDeclaration packageDeclaration,
+			BasicFlow flow, NormalStep step, UseCase useCase) {
+		boolean _localVariable_0 = _this.isAppropriate_FWD(match, actor,
+				sysActor, packageDeclaration, flow, step, useCase);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
 
 	public static final boolean pattern_UserStepBFMessageRule_35_4_expressionFBB(
 			UserStepBFMessageRule _this, Match match) {
-		boolean _localVariable_0 = _this.checkTypes_BWD(match);
+		boolean _localVariable_0 = _this.checkTypes_FWD(match);
 		boolean _result = Boolean.valueOf(_localVariable_0);
 		return _result;
 	}
@@ -9170,15 +9016,6 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 	}
 
 	public static final Object[] pattern_UserStepBFMessageRule_38_2_black_nac_9BB(
-			ModelgeneratorRuleResult ruleResult,
-			UseCaseToInteraction useCaseToInteraction) {
-		if (ruleResult.getCorrObjects().contains(useCaseToInteraction)) {
-			return new Object[] { ruleResult, useCaseToInteraction };
-		}
-		return null;
-	}
-
-	public static final Object[] pattern_UserStepBFMessageRule_38_2_black_nac_10BB(
 			ModelgeneratorRuleResult ruleResult, Lifeline line) {
 		if (ruleResult.getTargetObjects().contains(line)) {
 			return new Object[] { ruleResult, line };
@@ -9186,10 +9023,19 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_38_2_black_nac_11BB(
+	public static final Object[] pattern_UserStepBFMessageRule_38_2_black_nac_10BB(
 			ModelgeneratorRuleResult ruleResult, ActorToLifeline actorToLine) {
 		if (ruleResult.getCorrObjects().contains(actorToLine)) {
 			return new Object[] { ruleResult, actorToLine };
+		}
+		return null;
+	}
+
+	public static final Object[] pattern_UserStepBFMessageRule_38_2_black_nac_11BB(
+			ModelgeneratorRuleResult ruleResult,
+			UseCaseToInteraction useCaseToInteraction) {
+		if (ruleResult.getCorrObjects().contains(useCaseToInteraction)) {
+			return new Object[] { ruleResult, useCaseToInteraction };
 		}
 		return null;
 	}
@@ -9255,10 +9101,10 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																								Interaction interaction = line
 																										.getInteraction();
 																								if (interaction != null) {
-																									if (pattern_UserStepBFMessageRule_38_2_black_nac_11BB(
+																									if (pattern_UserStepBFMessageRule_38_2_black_nac_10BB(
 																											ruleResult,
 																											actorToLine) == null) {
-																										if (pattern_UserStepBFMessageRule_38_2_black_nac_10BB(
+																										if (pattern_UserStepBFMessageRule_38_2_black_nac_9BB(
 																												ruleResult,
 																												line) == null) {
 																											if (pattern_UserStepBFMessageRule_38_2_black_nac_8BB(
@@ -9272,7 +9118,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																													if (interaction
 																															.equals(useCaseToInteraction
 																																	.getTarget())) {
-																														if (pattern_UserStepBFMessageRule_38_2_black_nac_9BB(
+																														if (pattern_UserStepBFMessageRule_38_2_black_nac_11BB(
 																																ruleResult,
 																																useCaseToInteraction) == null) {
 																															for (FlowToInteractionFragment flowToInteraction : org.moflon.util.eMoflonEMFUtil
@@ -9297,9 +9143,9 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 																																				flow,
 																																				flowToInteraction,
 																																				interaction,
-																																				useCaseToInteraction,
 																																				line,
 																																				actorToLine,
+																																				useCaseToInteraction,
 																																				ruleEntryContainer,
 																																				ruleResult });
 																																	}
@@ -9346,20 +9192,20 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Lifeline line,
+			FlowToInteractionFragment flowToInteraction, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {
 		CSP _localVariable_0 = _this.generateModel_solveCsp_BWD(
 				isApplicableMatch, actor, sysActor, packageDeclaration,
 				sysLine, sysActorToSysLine, interaction, flow,
-				flowToInteraction, useCase, useCaseToInteraction, line,
+				flowToInteraction, line, useCase, useCaseToInteraction,
 				actorToLine, ruleResult);
 		CSP csp = _localVariable_0;
 		if (csp != null) {
 			return new Object[] { csp, _this, isApplicableMatch, actor,
 					sysActor, packageDeclaration, sysLine, sysActorToSysLine,
-					interaction, flow, flowToInteraction, useCase,
-					useCaseToInteraction, line, actorToLine, ruleResult };
+					interaction, flow, flowToInteraction, line, useCase,
+					useCaseToInteraction, actorToLine, ruleResult };
 		}
 		return null;
 	}
@@ -9374,13 +9220,13 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Lifeline line,
+			FlowToInteractionFragment flowToInteraction, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {
 		Object[] result_pattern_UserStepBFMessageRule_38_3_binding = pattern_UserStepBFMessageRule_38_3_bindingFBBBBBBBBBBBBBBB(
 				_this, isApplicableMatch, actor, sysActor, packageDeclaration,
 				sysLine, sysActorToSysLine, interaction, flow,
-				flowToInteraction, useCase, useCaseToInteraction, line,
+				flowToInteraction, line, useCase, useCaseToInteraction,
 				actorToLine, ruleResult);
 		if (result_pattern_UserStepBFMessageRule_38_3_binding != null) {
 			CSP csp = (CSP) result_pattern_UserStepBFMessageRule_38_3_binding[0];
@@ -9391,7 +9237,7 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				return new Object[] { csp, _this, isApplicableMatch, actor,
 						sysActor, packageDeclaration, sysLine,
 						sysActorToSysLine, interaction, flow,
-						flowToInteraction, useCase, useCaseToInteraction, line,
+						flowToInteraction, line, useCase, useCaseToInteraction,
 						actorToLine, ruleResult };
 			}
 		}
@@ -9409,16 +9255,16 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Lifeline line,
+			FlowToInteractionFragment flowToInteraction, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine) {
 		if (!actor.equals(sysActor)) {
 			if (!line.equals(sysLine)) {
 				if (!actorToLine.equals(sysActorToSysLine)) {
 					return new Object[] { actor, sysActor, packageDeclaration,
 							sysLine, sysActorToSysLine, interaction, flow,
-							flowToInteraction, useCase, useCaseToInteraction,
-							line, actorToLine };
+							flowToInteraction, line, useCase,
+							useCaseToInteraction, actorToLine };
 				}
 			}
 		}
@@ -9429,23 +9275,23 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, Actor sysActor, PackageDeclaration packageDeclaration,
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			Interaction interaction, BasicFlow flow,
-			FlowToInteractionFragment flowToInteraction, UseCase useCase,
-			UseCaseToInteraction useCaseToInteraction, Lifeline line,
+			FlowToInteractionFragment flowToInteraction, Lifeline line,
+			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult) {
 		if (!actor.equals(sysActor)) {
 			if (!line.equals(sysLine)) {
 				if (!actorToLine.equals(sysActorToSysLine)) {
 					return new Object[] { actor, sysActor, packageDeclaration,
 							sysLine, sysActorToSysLine, interaction, flow,
-							flowToInteraction, useCase, useCaseToInteraction,
-							line, actorToLine, ruleResult };
+							flowToInteraction, line, useCase,
+							useCaseToInteraction, actorToLine, ruleResult };
 				}
 			}
 		}
 		return null;
 	}
 
-	public static final Object[] pattern_UserStepBFMessageRule_38_6_greenBBFBFBFFFBBB(
+	public static final Object[] pattern_UserStepBFMessageRule_38_6_greenBBFBFBFFBBB(
 			Actor actor, Lifeline sysLine, Interaction interaction,
 			BasicFlow flow, Lifeline line, ModelgeneratorRuleResult ruleResult,
 			CSP csp) {
@@ -9455,13 +9301,11 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 				.createMessageOccurrenceSpecification();
 		NormalStep step = UseCaseDSLFactory.eINSTANCE.createNormalStep();
 		Message message = ModalSequenceDiagramFactory.eINSTANCE.createMessage();
-		NormalStepToMessage stepToMessage = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
-				.createNormalStepToMessage();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
-		Object _localVariable_2 = csp.getValue("message", "name");
-		Object _localVariable_3 = csp.getValue("message", "messageSort");
-		Object _localVariable_4 = csp.getValue("message", "messageKind");
+		Object _localVariable_2 = csp.getValue("message", "messageSort");
+		Object _localVariable_3 = csp.getValue("message", "messageKind");
+		Object _localVariable_4 = csp.getValue("message", "name");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
 		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		sysLine.getCoveredBy().add(messageSend);
@@ -9475,30 +9319,26 @@ public class UserStepBFMessageRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getSourceObjects().add(step);
 		message.setSendEvent(messageSend);
 		message.setReceiveEvent(messageReceive);
-		message.setInteraction(interaction);
 		messageSend.setMessage(message);
 		messageReceive.setMessage(message);
+		message.setInteraction(interaction);
 		ruleResult.getTargetObjects().add(message);
-		stepToMessage.setSource(step);
-		stepToMessage.setTarget(message);
-		ruleResult.getCorrObjects().add(stepToMessage);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
-		String message_name_prime = (String) _localVariable_2;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_3;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_4;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
+		String message_name_prime = (String) _localVariable_4;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
 		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
-		message.setName(message_name_prime);
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.setName(message_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));
 		return new Object[] { actor, sysLine, messageSend, interaction,
-				messageReceive, flow, step, message, stepToMessage, line,
-				ruleResult, csp };
+				messageReceive, flow, step, message, line, ruleResult, csp };
 	}
 
 	public static final ModelgeneratorRuleResult pattern_UserStepBFMessageRule_38_7_expressionFB(

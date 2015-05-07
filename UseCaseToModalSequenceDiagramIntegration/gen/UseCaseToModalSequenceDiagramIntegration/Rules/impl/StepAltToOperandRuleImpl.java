@@ -994,7 +994,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_102(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_181(
 			EMoflonEdge _edge_operand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1058,7 +1058,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_238(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_462(
 			EMoflonEdge _edge_stepAlternative) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1125,7 +1125,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_239(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_463(
 			EMoflonEdge _edge_ref) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1192,7 +1192,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_103(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_182(
 			EMoflonEdge _edge_guard) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1256,7 +1256,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_104(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_183(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1320,7 +1320,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_105(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_184(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1384,7 +1384,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_106(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_185(
 			EMoflonEdge _edge_specification) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1448,7 +1448,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_240(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_464(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
@@ -1808,29 +1808,29 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_102__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_102((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_181__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_181((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_238__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_238((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_462__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_462((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_239__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_239((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_463__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_463((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_103__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_103((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_182__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_182((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_104__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_104((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_183__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_183((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_105__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_105((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_184__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_184((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_106__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_106((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_185__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_185((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_240__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_240((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_464__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_464((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4410,9 +4410,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_20_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_534563 = operand
+		Interaction __DEC_operand_enclosingInteraction_690486 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_534563 != null) {
+		if (__DEC_operand_enclosingInteraction_690486 != null) {
 			return new Object[] { operand };
 		}
 
@@ -4421,10 +4421,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_20_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_579620 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_145870 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_579620)) {
+			if (!combo.equals(__DEC_operand_operand_145870)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -4433,10 +4433,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_20_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_603502 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_46594 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_603502)) {
+			if (!operand.equals(__DEC_guard_guard_46594)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -4872,9 +4872,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_23_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_333129 = operand
+		Interaction __DEC_operand_enclosingInteraction_159507 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_333129 != null) {
+		if (__DEC_operand_enclosingInteraction_159507 != null) {
 			return new Object[] { operand };
 		}
 
@@ -4883,10 +4883,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_23_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_216630 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_954077 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_216630)) {
+			if (!combo.equals(__DEC_operand_operand_954077)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -4895,10 +4895,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_23_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_948925 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_404313 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_948925)) {
+			if (!operand.equals(__DEC_guard_guard_404313)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5045,9 +5045,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_24_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_32600 = operand
+		Interaction __DEC_operand_enclosingInteraction_689686 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_32600 != null) {
+		if (__DEC_operand_enclosingInteraction_689686 != null) {
 			return new Object[] { operand };
 		}
 
@@ -5056,10 +5056,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_24_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_387132 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_381738 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_387132)) {
+			if (!combo.equals(__DEC_operand_operand_381738)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -5068,10 +5068,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_24_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_727022 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_99170 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_727022)) {
+			if (!operand.equals(__DEC_guard_guard_99170)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5220,9 +5220,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_25_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_56301 = operand
+		Interaction __DEC_operand_enclosingInteraction_455982 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_56301 != null) {
+		if (__DEC_operand_enclosingInteraction_455982 != null) {
 			return new Object[] { operand };
 		}
 
@@ -5231,10 +5231,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_25_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_356189 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_403365 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_356189)) {
+			if (!combo.equals(__DEC_operand_operand_403365)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -5243,10 +5243,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_25_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_347038 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_380493 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_347038)) {
+			if (!operand.equals(__DEC_guard_guard_380493)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5395,9 +5395,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_26_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_52848 = operand
+		Interaction __DEC_operand_enclosingInteraction_617075 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_52848 != null) {
+		if (__DEC_operand_enclosingInteraction_617075 != null) {
 			return new Object[] { operand };
 		}
 
@@ -5406,10 +5406,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_26_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_208910 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_666789 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_208910)) {
+			if (!combo.equals(__DEC_operand_operand_666789)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -5418,10 +5418,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_26_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_208952 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_551104 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_208952)) {
+			if (!operand.equals(__DEC_guard_guard_551104)) {
 				return new Object[] { guard, operand };
 			}
 		}

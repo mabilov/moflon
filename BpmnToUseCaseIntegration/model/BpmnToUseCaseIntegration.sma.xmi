@@ -2,389 +2,379 @@
 <analysis:StaticAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:analysis="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//analysis">
   <sourceRules>
     <rules ruleName="BpModelToUseCaseModelRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_FWD_DocumentRoot_0"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_FWD_DocumentRoot_1"/>
     </rules>
     <rules ruleName="DefinitionsToPackageRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_FWD_EMoflonEdge_0"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_FWD_EMoflonEdge_224"/>
     </rules>
     <rules ruleName="ProcessToUseCaseRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_FWD_EMoflonEdge_1"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_FWD_EMoflonEdge_225"/>
     </rules>
     <rules ruleName="Class1">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_2"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_3"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_4"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_5"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_226"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_227"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_228"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_FWD_EMoflonEdge_229"/>
     </rules>
     <rules ruleName="LaneSetRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneSetRule/isAppropriate_FWD_EMoflonEdge_6"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneSetRule/isAppropriate_FWD_EMoflonEdge_230"/>
     </rules>
     <rules ruleName="LaneToActorRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneToActorRule/isAppropriate_FWD_EMoflonEdge_7"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneToActorRule/isAppropriate_FWD_EMoflonEdge_231"/>
     </rules>
     <rules ruleName="ServiceTaskToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_8"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_9"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_10"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_11"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_12"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_13"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_14"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_232"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_233"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_234"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_235"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_236"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_237"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_FWD_EMoflonEdge_238"/>
     </rules>
     <rules ruleName="UserTaskToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_15"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_16"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_17"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_18"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_19"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_20"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_21"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_239"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_240"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_241"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_242"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_243"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_244"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_FWD_EMoflonEdge_245"/>
     </rules>
     <rules ruleName="ITEToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_22"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_23"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_24"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_25"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_26"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_27"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_28"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_246"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_247"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_248"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_249"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_250"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_251"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_FWD_EMoflonEdge_252"/>
     </rules>
     <rules ruleName="EndEventRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_29"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_30"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_31"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_32"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_253"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_254"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_255"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_FWD_EMoflonEdge_256"/>
     </rules>
     <rules ruleName="FirstInterThrowEventToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_33"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_34"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_35"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_36"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_37"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_38"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_39"/>
-    </rules>
-    <rules ruleName="EventBasedGatewayToStepCoreRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule/isAppropriate_FWD_EMoflonEdge_40"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule/isAppropriate_FWD_EMoflonEdge_41"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule/isAppropriate_FWD_EMoflonEdge_42"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule/isAppropriate_FWD_EMoflonEdge_43"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_257"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_258"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_259"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_260"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_261"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_262"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_FWD_EMoflonEdge_263"/>
     </rules>
     <rules ruleName="ParallelConvergingGatewayRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_44"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_45"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_46"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_47"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_48"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_49"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_50"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_264"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_265"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_266"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_267"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_268"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_269"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/isAppropriate_FWD_EMoflonEdge_270"/>
     </rules>
     <rules ruleName="SeqFlowAfterEGToAltFlowRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_FWD_EMoflonEdge_51"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_FWD_EMoflonEdge_52"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_FWD_EMoflonEdge_53"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_FWD_EMoflonEdge_271"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_FWD_EMoflonEdge_272"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_FWD_EMoflonEdge_273"/>
     </rules>
     <rules ruleName="SeqFlowAfterPGToParallelFlowRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_FWD_EMoflonEdge_54"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_FWD_EMoflonEdge_55"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_FWD_EMoflonEdge_56"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_FWD_EMoflonEdge_274"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_FWD_EMoflonEdge_275"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_FWD_EMoflonEdge_276"/>
     </rules>
     <rules ruleName="CatchEventAfterEBGToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_57"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_58"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_59"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_60"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_61"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_62"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_63"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_64"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_65"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_66"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_277"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_278"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_279"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_280"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_281"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_282"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_283"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_284"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_285"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_FWD_EMoflonEdge_286"/>
     </rules>
     <rules ruleName="ExclusiveGatewayToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_67"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_68"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_69"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_70"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_71"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_72"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_73"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_74"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_287"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_288"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_289"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_290"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_291"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_292"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_293"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_294"/>
     </rules>
     <rules ruleName="ParallelGatewayToParallelStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_75"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_76"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_77"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_78"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_295"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_296"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_297"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_FWD_EMoflonEdge_298"/>
     </rules>
     <rules ruleName="EventBasedGatewayToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_79"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_80"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_81"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_82"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_299"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_300"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_301"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_FWD_EMoflonEdge_302"/>
     </rules>
     <rules ruleName="LaneStartEventRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneStartEventRule/isAppropriate_FWD_EMoflonEdge_83"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneStartEventRule/isAppropriate_FWD_EMoflonEdge_303"/>
     </rules>
     <rules ruleName="ExcConvGwAfterEventGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_84"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_85"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_86"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_87"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_88"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_89"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_90"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_304"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_305"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_306"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_307"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_308"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_309"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/isAppropriate_FWD_EMoflonEdge_310"/>
     </rules>
     <rules ruleName="ExcConvGwDefaultSeqFlowRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_91"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_92"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_93"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_94"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_95"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_96"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_97"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_98"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_99"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_311"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_312"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_313"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_314"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_315"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_316"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_317"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_318"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/isAppropriate_FWD_EMoflonEdge_319"/>
     </rules>
     <rules ruleName="ParallelConvergingGatewayTwoInputsRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_100"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_101"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_102"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_103"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_104"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_105"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_106"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_107"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_108"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_320"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_321"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_322"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_323"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_324"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_325"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_326"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_327"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/isAppropriate_FWD_EMoflonEdge_328"/>
     </rules>
     <rules ruleName="ExcConvGwAfterExDivGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_109"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_110"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_111"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_112"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_113"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_114"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_115"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_329"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_330"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_331"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_332"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_333"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_334"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/isAppropriate_FWD_EMoflonEdge_335"/>
     </rules>
     <rules ruleName="ExConvGwAfterEventGwIceSeqFlowRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_116"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_117"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_118"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_119"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_120"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_121"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_122"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_336"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_337"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_338"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_339"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_340"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_341"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/isAppropriate_FWD_EMoflonEdge_342"/>
     </rules>
     <rules ruleName="ContinuationRule"/>
     <rules ruleName="ICEToStepAfterSERule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_123"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_124"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_125"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_126"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_127"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_128"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_129"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_343"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_344"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_345"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_346"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_347"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_348"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_349"/>
     </rules>
     <rules ruleName="ICEToStepAfterExGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_130"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_131"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_132"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_133"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_134"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_135"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_136"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_350"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_351"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_352"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_353"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_354"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_355"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_356"/>
     </rules>
     <rules ruleName="ICEToStepAfterPGRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_137"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_138"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_139"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_140"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_141"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_142"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_143"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_357"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_358"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_359"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_360"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_361"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_362"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_363"/>
     </rules>
     <rules ruleName="ICEToStepAfterTaskRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_144"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_145"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_146"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_147"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_148"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_149"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_150"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_364"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_365"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_366"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_367"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_368"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_369"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_FWD_EMoflonEdge_370"/>
     </rules>
     <rules ruleName="ICEToStepAfterEventRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_151"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_152"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_153"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_154"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_155"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_156"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_157"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_371"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_372"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_373"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_374"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_375"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_376"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_FWD_EMoflonEdge_377"/>
     </rules>
     <rules ruleName="ICEToStepAfterExConvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_158"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_159"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_160"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_161"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_162"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_163"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_164"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_378"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_379"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_380"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_381"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_382"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_383"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_FWD_EMoflonEdge_384"/>
     </rules>
     <rules ruleName="ICEToStepAfterPConvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_165"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_166"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_167"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_168"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_169"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_170"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_171"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_385"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_386"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_387"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_388"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_389"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_390"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_FWD_EMoflonEdge_391"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterSERule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_172"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_173"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_174"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_175"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_176"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_177"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_178"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_392"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_393"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_394"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_395"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_396"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_397"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_398"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterExGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_179"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_180"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_181"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_182"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_183"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_184"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_185"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_399"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_400"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_401"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_402"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_403"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_404"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_405"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterPGRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_186"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_187"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_188"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_189"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_190"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_191"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_192"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_406"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_407"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_408"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_409"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_410"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_411"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_412"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterEvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_193"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_194"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_195"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_196"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_197"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_198"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_199"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_413"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_414"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_415"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_416"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_417"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_418"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_419"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterSERule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_200"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_201"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_202"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_203"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_204"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_205"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_206"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_420"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_421"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_422"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_423"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_424"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_425"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_FWD_EMoflonEdge_426"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterExGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_207"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_208"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_209"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_210"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_211"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_212"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_213"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_427"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_428"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_429"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_430"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_431"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_432"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_FWD_EMoflonEdge_433"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterPGRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_214"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_215"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_216"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_217"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_218"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_219"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_220"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_434"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_435"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_436"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_437"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_438"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_439"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_FWD_EMoflonEdge_440"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterEvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_221"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_222"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_223"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_224"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_225"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_226"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_227"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_441"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_442"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_443"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_444"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_445"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_446"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_FWD_EMoflonEdge_447"/>
     </rules>
   </sourceRules>
   <targetRules>
     <rules ruleName="BpModelToUseCaseModelRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_BWD_UseCasesModel_0"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/isAppropriate_BWD_UseCasesModel_1"/>
     </rules>
     <rules ruleName="DefinitionsToPackageRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_BWD_EMoflonEdge_0"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/isAppropriate_BWD_EMoflonEdge_69"/>
     </rules>
     <rules ruleName="ProcessToUseCaseRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_BWD_EMoflonEdge_1"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_BWD_EMoflonEdge_2"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_BWD_EMoflonEdge_3"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_BWD_EMoflonEdge_70"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_BWD_EMoflonEdge_71"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/isAppropriate_BWD_EMoflonEdge_72"/>
     </rules>
     <rules ruleName="Class1">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_BWD_EMoflonEdge_4"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/isAppropriate_BWD_EMoflonEdge_73"/>
     </rules>
     <rules ruleName="LaneSetRule"/>
     <rules ruleName="LaneToActorRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneToActorRule/isAppropriate_BWD_EMoflonEdge_5"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneToActorRule/isAppropriate_BWD_EMoflonEdge_74"/>
     </rules>
     <rules ruleName="ServiceTaskToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_BWD_EMoflonEdge_6"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_BWD_EMoflonEdge_7"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_BWD_EMoflonEdge_8"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_BWD_EMoflonEdge_75"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_BWD_EMoflonEdge_76"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/isAppropriate_BWD_EMoflonEdge_77"/>
     </rules>
     <rules ruleName="UserTaskToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_BWD_EMoflonEdge_9"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_BWD_EMoflonEdge_10"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_BWD_EMoflonEdge_11"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_BWD_EMoflonEdge_78"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_BWD_EMoflonEdge_79"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/isAppropriate_BWD_EMoflonEdge_80"/>
     </rules>
     <rules ruleName="ITEToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD_EMoflonEdge_12"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD_EMoflonEdge_13"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD_EMoflonEdge_14"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD_EMoflonEdge_81"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD_EMoflonEdge_82"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/isAppropriate_BWD_EMoflonEdge_83"/>
     </rules>
     <rules ruleName="EndEventRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_BWD_EMoflonEdge_15"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/isAppropriate_BWD_EMoflonEdge_84"/>
     </rules>
     <rules ruleName="FirstInterThrowEventToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD_EMoflonEdge_16"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD_EMoflonEdge_17"/>
-    </rules>
-    <rules ruleName="EventBasedGatewayToStepCoreRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule/isAppropriate_BWD_EMoflonEdge_18"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepCoreRule/isAppropriate_BWD_EMoflonEdge_19"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD_EMoflonEdge_85"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/isAppropriate_BWD_EMoflonEdge_86"/>
     </rules>
     <rules ruleName="ParallelConvergingGatewayRule"/>
     <rules ruleName="SeqFlowAfterEGToAltFlowRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_BWD_EMoflonEdge_20"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_BWD_EMoflonEdge_21"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_BWD_EMoflonEdge_22"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_BWD_EMoflonEdge_87"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_BWD_EMoflonEdge_88"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/isAppropriate_BWD_EMoflonEdge_89"/>
     </rules>
     <rules ruleName="SeqFlowAfterPGToParallelFlowRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_BWD_EMoflonEdge_23"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_BWD_EMoflonEdge_24"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_BWD_EMoflonEdge_90"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/isAppropriate_BWD_EMoflonEdge_91"/>
     </rules>
     <rules ruleName="CatchEventAfterEBGToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_BWD_EMoflonEdge_25"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_BWD_EMoflonEdge_26"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_BWD_EMoflonEdge_27"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_BWD_EMoflonEdge_92"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_BWD_EMoflonEdge_93"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/isAppropriate_BWD_EMoflonEdge_94"/>
     </rules>
     <rules ruleName="ExclusiveGatewayToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_28"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_29"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_30"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_95"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_96"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_97"/>
     </rules>
     <rules ruleName="ParallelGatewayToParallelStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_BWD_EMoflonEdge_31"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_BWD_EMoflonEdge_32"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_BWD_EMoflonEdge_98"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/isAppropriate_BWD_EMoflonEdge_99"/>
     </rules>
     <rules ruleName="EventBasedGatewayToStepRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_33"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_34"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_35"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_100"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_101"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/isAppropriate_BWD_EMoflonEdge_102"/>
     </rules>
     <rules ruleName="LaneStartEventRule"/>
     <rules ruleName="ExcConvGwAfterEventGwRule"/>
@@ -393,71 +383,71 @@
     <rules ruleName="ExcConvGwAfterExDivGwRule"/>
     <rules ruleName="ExConvGwAfterEventGwIceSeqFlowRule"/>
     <rules ruleName="ContinuationRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ContinuationRule/isAppropriate_BWD_EMoflonEdge_36"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ContinuationRule/isAppropriate_BWD_EMoflonEdge_103"/>
     </rules>
     <rules ruleName="ICEToStepAfterSERule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_37"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_38"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_104"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_105"/>
     </rules>
     <rules ruleName="ICEToStepAfterExGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_39"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_40"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_106"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_107"/>
     </rules>
     <rules ruleName="ICEToStepAfterPGRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_41"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_42"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_108"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_109"/>
     </rules>
     <rules ruleName="ICEToStepAfterTaskRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD_EMoflonEdge_43"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD_EMoflonEdge_44"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD_EMoflonEdge_45"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD_EMoflonEdge_110"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD_EMoflonEdge_111"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/isAppropriate_BWD_EMoflonEdge_112"/>
     </rules>
     <rules ruleName="ICEToStepAfterEventRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD_EMoflonEdge_46"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD_EMoflonEdge_47"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD_EMoflonEdge_48"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD_EMoflonEdge_113"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD_EMoflonEdge_114"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/isAppropriate_BWD_EMoflonEdge_115"/>
     </rules>
     <rules ruleName="ICEToStepAfterExConvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD_EMoflonEdge_49"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD_EMoflonEdge_50"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD_EMoflonEdge_51"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD_EMoflonEdge_116"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD_EMoflonEdge_117"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/isAppropriate_BWD_EMoflonEdge_118"/>
     </rules>
     <rules ruleName="ICEToStepAfterPConvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD_EMoflonEdge_52"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD_EMoflonEdge_53"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD_EMoflonEdge_54"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD_EMoflonEdge_119"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD_EMoflonEdge_120"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/isAppropriate_BWD_EMoflonEdge_121"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterSERule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_55"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_56"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_122"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_123"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterExGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_57"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_58"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_124"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_125"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterPGRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_59"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_60"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_126"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_127"/>
     </rules>
     <rules ruleName="ServiceTaskToStepAfterEvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_61"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_62"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_128"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_129"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterSERule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_63"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_64"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_130"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/isAppropriate_BWD_EMoflonEdge_131"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterExGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_65"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_66"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_132"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/isAppropriate_BWD_EMoflonEdge_133"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterPGRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_67"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_68"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_134"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/isAppropriate_BWD_EMoflonEdge_135"/>
     </rules>
     <rules ruleName="UserTaskToStepAfterEvGwRule">
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_69"/>
-      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_70"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_136"/>
+      <isAppropriateMethods href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/isAppropriate_BWD_EMoflonEdge_137"/>
     </rules>
   </targetRules>
 </analysis:StaticAnalysis>

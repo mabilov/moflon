@@ -768,7 +768,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_228(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_452(
 			EMoflonEdge _edge_packages) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCPackageToMSDPackageImpl
@@ -829,7 +829,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_71(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_150(
 			EMoflonEdge _edge_packagedElement) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCPackageToMSDPackageImpl
@@ -1107,11 +1107,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_228__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_228((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_452__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_452((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_71__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_71((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_150__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_150((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2272,10 +2272,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UCPackageToMSDPackage_20_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_440805 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_129260 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_440805)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_129260)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}

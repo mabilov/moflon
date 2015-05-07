@@ -842,6 +842,13 @@ rule__StepType__Alternatives
 { after(grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4()); }
 )
 
+    |(
+{ before(grammarAccess.getStepTypeAccess().getWAIT_ALTEnumLiteralDeclaration_5()); }
+(	'wait-alt' 
+)
+{ after(grammarAccess.getStepTypeAccess().getWAIT_ALTEnumLiteralDeclaration_5()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);

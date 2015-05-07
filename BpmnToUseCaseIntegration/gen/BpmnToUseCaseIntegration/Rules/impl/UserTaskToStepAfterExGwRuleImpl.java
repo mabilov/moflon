@@ -1010,7 +1010,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_207(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_427(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1077,7 +1077,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_208(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_428(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1144,7 +1144,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_209(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_429(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1211,7 +1211,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_210(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_430(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1278,7 +1278,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_211(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_431(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1345,7 +1345,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_212(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_432(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1412,7 +1412,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_213(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_433(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1479,7 +1479,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_65(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_132(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1541,7 +1541,7 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_66(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_133(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UserTaskToStepAfterExGwRuleImpl
@@ -1902,32 +1902,32 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_207__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_207((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_427__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_427((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_208__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_208((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_428__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_428((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_209__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_209((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_429__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_429((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_210__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_210((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_430__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_430((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_211__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_211((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_431__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_431((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_212__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_212((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_432__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_432((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_213__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_213((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_433__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_433((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_65__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_65((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_132__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_132((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_66__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_66((EMoflonEdge) arguments
+		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_133__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_133((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USER_TASK_TO_STEP_AFTER_EX_GW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4467,10 +4467,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_20_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_864424 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_43481 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_864424)) {
+			if (!flowNode.equals(__DEC_outFlow_default_43481)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4670,10 +4670,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_507308 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_568121 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_507308)) {
+			if (!flowNode.equals(__DEC_outFlow_default_568121)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4868,10 +4868,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_444706 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_103219 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_444706)) {
+			if (!flowNode.equals(__DEC_outFlow_default_103219)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5071,10 +5071,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_316218 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_207690 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_316218)) {
+			if (!flowNode.equals(__DEC_outFlow_default_207690)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5268,10 +5268,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_652633 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_73822 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_652633)) {
+			if (!flowNode.equals(__DEC_outFlow_default_73822)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5464,10 +5464,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_310146 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_464134 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_310146)) {
+			if (!flowNode.equals(__DEC_outFlow_default_464134)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5663,10 +5663,10 @@ public class UserTaskToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UserTaskToStepAfterExGwRule_26_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_537243 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_655822 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_537243)) {
+			if (!flowNode.equals(__DEC_outFlow_default_655822)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}

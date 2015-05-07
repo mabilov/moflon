@@ -128,7 +128,7 @@ public interface LaneStartEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_303(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

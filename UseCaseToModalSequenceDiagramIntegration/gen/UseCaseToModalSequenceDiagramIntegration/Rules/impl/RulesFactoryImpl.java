@@ -56,6 +56,10 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE:
+			return createWaitStepToFoundMessageRule();
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE:
+			return createSendStepToLostMessageRule();
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE:
 			return createUCModelToMSDModelRule();
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE:
@@ -92,6 +96,26 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WaitStepToFoundMessageRule createWaitStepToFoundMessageRule() {
+		WaitStepToFoundMessageRuleImpl waitStepToFoundMessageRule = new WaitStepToFoundMessageRuleImpl();
+		return waitStepToFoundMessageRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SendStepToLostMessageRule createSendStepToLostMessageRule() {
+		SendStepToLostMessageRuleImpl sendStepToLostMessageRule = new SendStepToLostMessageRuleImpl();
+		return sendStepToLostMessageRule;
 	}
 
 	/**

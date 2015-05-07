@@ -57,7 +57,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 */
 	boolean isAppropriate_FWD(Match match,
 			PackageDeclaration packageDeclaration, Actor sysActor, Actor actor,
-			NamedFlow flow, UseCase useCase, NormalStep step);
+			NamedFlow flow, NormalStep step, UseCase useCase);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,7 +83,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 */
 	void registerObjectsToMatch_FWD(Match match,
 			PackageDeclaration packageDeclaration, Actor sysActor, Actor actor,
-			NamedFlow flow, UseCase useCase, NormalStep step);
+			NamedFlow flow, NormalStep step, UseCase useCase);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,7 +93,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 */
 	CSP isAppropriate_solveCsp_FWD(Match match,
 			PackageDeclaration packageDeclaration, Actor sysActor, Actor actor,
-			NamedFlow flow, UseCase useCase, NormalStep step);
+			NamedFlow flow, NormalStep step, UseCase useCase);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,8 +114,8 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			InteractionOperand operand, CombinedFragment combo, NamedFlow flow,
 			FlowToInteractionFragment flowToOperand, Lifeline line,
-			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
-			NormalStep step, Interaction interaction,
+			NormalStep step, UseCase useCase, Interaction interaction,
+			UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine);
 
 	/**
@@ -137,8 +137,8 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 			EObject sysLine, EObject messageSend, EObject sysActorToSysLine,
 			EObject operand, EObject combo, EObject flow,
 			EObject flowToOperand, EObject messageReceive, EObject line,
-			EObject useCase, EObject useCaseToInteraction, EObject step,
-			EObject message, EObject interaction, EObject stepToMessage,
+			EObject step, EObject message, EObject useCase,
+			EObject interaction, EObject useCaseToInteraction,
 			EObject actorToLine);
 
 	/**
@@ -222,8 +222,8 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 			CombinedFragment combo, NamedFlow flow,
 			FlowToInteractionFragment flowToOperand,
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
-			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
-			Message message, Interaction interaction,
+			Message message, UseCase useCase, Interaction interaction,
+			UseCaseToInteraction useCaseToInteraction,
 			ActorToLifeline actorToLine);
 
 	/**
@@ -245,8 +245,8 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 			EObject sysLine, EObject messageSend, EObject sysActorToSysLine,
 			EObject operand, EObject combo, EObject flow,
 			EObject flowToOperand, EObject messageReceive, EObject line,
-			EObject useCase, EObject useCaseToInteraction, EObject step,
-			EObject message, EObject interaction, EObject stepToMessage,
+			EObject step, EObject message, EObject useCase,
+			EObject interaction, EObject useCaseToInteraction,
 			EObject actorToLine);
 
 	/**
@@ -263,7 +263,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_137(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_216(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -272,7 +272,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_138(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_217(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,7 +280,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_139(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_218(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -289,7 +289,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_140(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_219(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,7 +297,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_141(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_220(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -306,7 +306,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_142(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_221(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,7 +314,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_143(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_222(
 			EMoflonEdge _edge_fragment);
 
 	/**
@@ -323,7 +323,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_144(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_223(
 			EMoflonEdge _edge_enclosingOperand);
 
 	/**
@@ -332,7 +332,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_145(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_224(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -341,7 +341,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_146(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_225(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -349,7 +349,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_147(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_226(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -358,7 +358,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_148(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_227(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -366,23 +366,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_245(EMoflonEdge _edge_steps);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_246(EMoflonEdge _edge_actor);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_149(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_228(
 			EMoflonEdge _edge_sendEvent);
 
 	/**
@@ -391,7 +375,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_150(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_229(
 			EMoflonEdge _edge_receiveEvent);
 
 	/**
@@ -400,7 +384,23 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_151(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_230(EMoflonEdge _edge_message);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_231(EMoflonEdge _edge_message);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_232(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -409,7 +409,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_152(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_233(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -417,7 +417,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_153(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_469(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -425,7 +425,7 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_154(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_470(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -464,9 +464,9 @@ public interface UserStepNfToMessageRule extends EObject, AbstractRule {
 			Lifeline sysLine, ActorToLifeline sysActorToSysLine,
 			InteractionOperand operand, CombinedFragment combo, NamedFlow flow,
 			FlowToInteractionFragment flowToOperand, Lifeline line,
-			UseCase useCase, UseCaseToInteraction useCaseToInteraction,
-			Interaction interaction, ActorToLifeline actorToLine,
-			ModelgeneratorRuleResult ruleResult);
+			UseCase useCase, Interaction interaction,
+			UseCaseToInteraction useCaseToInteraction,
+			ActorToLifeline actorToLine, ModelgeneratorRuleResult ruleResult);
 
 	/**
 	 * <!-- begin-user-doc -->

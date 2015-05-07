@@ -800,7 +800,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_2(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_226(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
@@ -856,7 +856,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_3(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_227(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
@@ -912,7 +912,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_4(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_73(
 			EMoflonEdge _edge_preconditions) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
@@ -968,7 +968,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_4(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_228(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
@@ -1024,7 +1024,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_5(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
@@ -1314,20 +1314,20 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 			return null;
 		case RulesPackage.CLASS1___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_2__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_2((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_226__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_226((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_3__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_3((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_227__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_227((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_BWD_EMOFLON_EDGE_4__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_4((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_BWD_EMOFLON_EDGE_73__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_73((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_4__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_4((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_228__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_228((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_5__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_5((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_229__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_229((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.CLASS1___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2986,7 +2986,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_20_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_493203 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_181464 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3124,7 +3124,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_21_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_622567 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_521727 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3262,9 +3262,9 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_22_2_black_nac_0BB(
 			UCCondition precond, BasicFlow basicFlow) {
-		for (Flow __DEC_precond_finalState_399543 : org.moflon.util.eMoflonEMFUtil
+		for (Flow __DEC_precond_finalState_516285 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, Flow.class, "finalState")) {
-			if (!basicFlow.equals(__DEC_precond_finalState_399543)) {
+			if (!basicFlow.equals(__DEC_precond_finalState_516285)) {
 				return new Object[] { precond, basicFlow };
 			}
 		}
@@ -3273,10 +3273,10 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_22_2_black_nac_1BB(
 			UCCondition precond, UseCase useCase) {
-		for (UseCase __DEC_precond_preconditions_977855 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_precond_preconditions_317045 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_precond_preconditions_977855)) {
+			if (!useCase.equals(__DEC_precond_preconditions_317045)) {
 				return new Object[] { precond, useCase };
 			}
 		}
@@ -3414,7 +3414,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_23_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_642927 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_738910 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3556,7 +3556,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_24_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_560624 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_959909 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };

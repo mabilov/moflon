@@ -93,6 +93,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StepType">
     <eLiterals name="ALT" value="5" literal="alt"/>
+    <eLiterals name="WAIT_ALT" value="6" literal="wait_alt"/>
     <eLiterals name="WAIT" value="1" literal="wait"/>
     <eLiterals name="SEND" value="2" literal="send"/>
     <eLiterals name="PERFORM" value="3" literal="perform"/>

@@ -830,7 +830,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_231(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_455(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ActorToLifelineRuleImpl
@@ -892,7 +892,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_73(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_152(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ActorToLifelineRuleImpl
@@ -954,7 +954,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_74(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_153(
 			EMoflonEdge _edge_lifeline) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ActorToLifelineRuleImpl
@@ -1258,14 +1258,14 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ACTOR_TO_LIFELINE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_231__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_231((EMoflonEdge) arguments
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_455__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_455((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_73__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_73((EMoflonEdge) arguments
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_152__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_152((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_74__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_74((EMoflonEdge) arguments
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_153__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_153((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ACTOR_TO_LIFELINE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2797,10 +2797,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ActorToLifelineRule_20_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_426647 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_271690 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_426647)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_271690)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}

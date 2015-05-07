@@ -144,7 +144,7 @@ public interface ContinuationRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_36(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_103(
 			EMoflonEdge _edge_continuation);
 
 	/**

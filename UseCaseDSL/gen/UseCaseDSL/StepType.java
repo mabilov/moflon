@@ -29,6 +29,16 @@ public enum StepType implements Enumerator {
 	ALT(5, "ALT", "alt"),
 
 	/**
+	 * The '<em><b>WAIT ALT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WAIT_ALT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	WAIT_ALT(6, "WAIT_ALT", "wait_alt"),
+
+	/**
 	 * The '<em><b>WAIT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +92,21 @@ public enum StepType implements Enumerator {
 	 * @ordered
 	 */
 	public static final int ALT_VALUE = 5;
+
+	/**
+	 * The '<em><b>WAIT ALT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>WAIT ALT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #WAIT_ALT
+	 * @model literal="wait_alt"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WAIT_ALT_VALUE = 6;
 
 	/**
 	 * The '<em><b>WAIT</b></em>' literal value.
@@ -149,8 +174,8 @@ public enum StepType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final StepType[] VALUES_ARRAY = new StepType[] { ALT, WAIT,
-			SEND, PERFORM, CALL, };
+	private static final StepType[] VALUES_ARRAY = new StepType[] { ALT,
+			WAIT_ALT, WAIT, SEND, PERFORM, CALL, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Step Type</b></em>' enumerators.
@@ -209,6 +234,8 @@ public enum StepType implements Enumerator {
 		switch (value) {
 		case ALT_VALUE:
 			return ALT;
+		case WAIT_ALT_VALUE:
+			return WAIT_ALT;
 		case WAIT_VALUE:
 			return WAIT;
 		case SEND_VALUE:

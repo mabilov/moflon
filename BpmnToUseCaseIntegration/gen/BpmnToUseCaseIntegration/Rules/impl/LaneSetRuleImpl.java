@@ -353,7 +353,7 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_6(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_230(
 			EMoflonEdge _edge_laneSets) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneSetRuleImpl
@@ -556,8 +556,8 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 			return null;
 		case RulesPackage.LANE_SET_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.LANE_SET_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_6__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_6((EMoflonEdge) arguments
+		case RulesPackage.LANE_SET_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_230__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_230((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_SET_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -978,10 +978,10 @@ public class LaneSetRuleImpl extends AbstractRuleImpl implements LaneSetRule {
 
 	public static final Object[] pattern_LaneSetRule_10_2_black_nac_0BB(
 			LaneSet laneSet, bpmn2.Process process) {
-		for (FlowElementsContainer __DEC_laneSet_laneSets_641836 : org.moflon.util.eMoflonEMFUtil
+		for (FlowElementsContainer __DEC_laneSet_laneSets_974591 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(laneSet,
 						FlowElementsContainer.class, "laneSets")) {
-			if (!process.equals(__DEC_laneSet_laneSets_641836)) {
+			if (!process.equals(__DEC_laneSet_laneSets_974591)) {
 				return new Object[] { laneSet, process };
 			}
 		}

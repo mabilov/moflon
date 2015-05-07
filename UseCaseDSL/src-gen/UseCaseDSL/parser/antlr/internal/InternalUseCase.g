@@ -1678,6 +1678,12 @@ ruleStepType returns [Enumerator current=null]
         $current = grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_4, grammarAccess.getStepTypeAccess().getALTEnumLiteralDeclaration_4()); 
     }
+)
+    |(	enumLiteral_5='wait-alt' 
+	{
+        $current = grammarAccess.getStepTypeAccess().getWAIT_ALTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_5, grammarAccess.getStepTypeAccess().getWAIT_ALTEnumLiteralDeclaration_5()); 
+    }
 ));
 
 

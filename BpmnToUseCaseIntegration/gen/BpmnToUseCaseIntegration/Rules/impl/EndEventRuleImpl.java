@@ -830,7 +830,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_29(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_253(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -891,7 +891,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_30(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_254(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -952,7 +952,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_31(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_255(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -1013,7 +1013,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_15(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
 			EMoflonEdge _edge_finalState) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -1072,7 +1072,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_32(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_256(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
@@ -1381,20 +1381,20 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			return null;
 		case RulesPackage.END_EVENT_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_29__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_29((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_253__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_253((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_30__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_30((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_254__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_254((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_31__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_31((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_255__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_255((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_15__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_15((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_84__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_84((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_32__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_32((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_256__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_256((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3566,9 +3566,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 	public static final Object[] pattern_EndEventRule_23_2_black_nac_0BB(
 			UCCondition postcond, Flow flow) {
-		for (Flow __DEC_postcond_finalState_203053 : org.moflon.util.eMoflonEMFUtil
+		for (Flow __DEC_postcond_finalState_698880 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(postcond, Flow.class, "finalState")) {
-			if (!flow.equals(__DEC_postcond_finalState_203053)) {
+			if (!flow.equals(__DEC_postcond_finalState_698880)) {
 				return new Object[] { postcond, flow };
 			}
 		}
@@ -3577,10 +3577,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 	public static final Object[] pattern_EndEventRule_23_2_black_nac_1BB(
 			UCCondition postcond, UseCase useCase) {
-		for (UseCase __DEC_postcond_preconditions_916790 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_postcond_preconditions_810362 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(postcond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_postcond_preconditions_916790)) {
+			if (!useCase.equals(__DEC_postcond_preconditions_810362)) {
 				return new Object[] { postcond, useCase };
 			}
 		}

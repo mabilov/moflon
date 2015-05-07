@@ -670,7 +670,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_100(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_320(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -741,7 +741,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_101(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_321(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -812,7 +812,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_102(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_322(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -883,7 +883,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_103(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_323(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -954,7 +954,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_104(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_324(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -1025,7 +1025,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_105(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_325(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -1096,7 +1096,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_106(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_326(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -1167,7 +1167,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_107(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_327(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -1238,7 +1238,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_108(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_328(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
@@ -1607,32 +1607,32 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			return null;
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_100__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_100((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_320__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_320((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_101__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_101((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_321__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_321((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_102__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_102((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_322__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_322((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_103__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_103((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_323__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_323((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_104__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_104((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_324__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_324((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_105__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_105((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_325__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_325((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_106__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_106((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_326__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_326((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_107__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_107((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_327__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_327((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_108__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_108((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_328__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_328((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -4539,7 +4539,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_75054 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_315546 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4810,7 +4810,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_808184 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_940914 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5081,7 +5081,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_322970 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_227441 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5352,7 +5352,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_866123 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_502932 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5622,7 +5622,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_429878 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_960812 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5893,7 +5893,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_454776 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_937396 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6164,7 +6164,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_535871 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_921608 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6434,7 +6434,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_934283 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_396753 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6704,7 +6704,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_318067 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_544677 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };

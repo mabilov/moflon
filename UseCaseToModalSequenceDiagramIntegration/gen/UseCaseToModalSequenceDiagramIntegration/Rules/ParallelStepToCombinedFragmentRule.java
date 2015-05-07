@@ -222,7 +222,7 @@ public interface ParallelStepToCombinedFragmentRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_75(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_154(
 			EMoflonEdge _edge_enclosingInteraction);
 
 	/**
@@ -231,7 +231,8 @@ public interface ParallelStepToCombinedFragmentRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_76(EMoflonEdge _edge_fragment);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_155(
+			EMoflonEdge _edge_fragment);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -239,7 +240,7 @@ public interface ParallelStepToCombinedFragmentRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_232(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_456(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->

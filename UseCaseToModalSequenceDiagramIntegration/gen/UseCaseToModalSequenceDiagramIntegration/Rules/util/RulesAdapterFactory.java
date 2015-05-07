@@ -69,6 +69,23 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected RulesSwitch<Adapter> modelSwitch = new RulesSwitch<Adapter>() {
 		@Override
+		public Adapter caseWaitStepToFoundMessageRule(
+				WaitStepToFoundMessageRule object) {
+			return createWaitStepToFoundMessageRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseSendStepToLostMessageRule(
+				SendStepToLostMessageRule object) {
+			return createSendStepToLostMessageRuleAdapter();
+		}
+
+		@Override
+		public Adapter caseStepToMessageRule(StepToMessageRule object) {
+			return createStepToMessageRuleAdapter();
+		}
+
+		@Override
 		public Adapter caseUCModelToMSDModelRule(UCModelToMSDModelRule object) {
 			return createUCModelToMSDModelRuleAdapter();
 		}
@@ -214,6 +231,48 @@ public class RulesAdapterFactory extends AdapterFactoryImpl {
 	@Override
 	public Adapter createAdapter(Notifier target) {
 		return modelSwitch.doSwitch((EObject) target);
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule <em>Wait Step To Found Message Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule
+	 * @generated
+	 */
+	public Adapter createWaitStepToFoundMessageRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule <em>Send Step To Lost Message Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule
+	 * @generated
+	 */
+	public Adapter createSendStepToLostMessageRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepToMessageRule <em>Step To Message Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepToMessageRule
+	 * @generated
+	 */
+	public Adapter createStepToMessageRuleAdapter() {
+		return null;
 	}
 
 	/**

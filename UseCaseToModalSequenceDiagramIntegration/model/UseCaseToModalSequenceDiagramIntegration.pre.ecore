@@ -100,6 +100,15 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eSubpackages name="Rules" nsURI="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules" nsPrefix="Rules">
+    <eClassifiers xsi:type="ecore:EClass" name="WaitStepToFoundMessageRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SendStepToLostMessageRule">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StepToMessageRule" abstract="true">
+      <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UCModelToMSDModelRule">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>

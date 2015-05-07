@@ -259,7 +259,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_57(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_277(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -268,7 +268,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_58(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_278(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -277,7 +277,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_59(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_279(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -286,7 +286,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_60(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_280(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -295,7 +295,8 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_61(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_281(
+			EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,7 +304,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_62(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_282(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -312,7 +313,8 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_63(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_283(
+			EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -320,7 +322,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_64(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_284(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -329,7 +331,8 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_65(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_285(
+			EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -337,7 +340,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_25(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_92(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -345,7 +348,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_26(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_93(
 			EMoflonEdge _edge_stepAlternative);
 
 	/**
@@ -354,7 +357,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_27(EMoflonEdge _edge_ref);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_94(EMoflonEdge _edge_ref);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -362,7 +365,7 @@ public interface CatchEventAfterEBGToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_66(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_286(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

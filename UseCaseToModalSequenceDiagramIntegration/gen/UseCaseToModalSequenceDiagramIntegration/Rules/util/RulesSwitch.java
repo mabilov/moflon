@@ -68,6 +68,33 @@ public class RulesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE: {
+			WaitStepToFoundMessageRule waitStepToFoundMessageRule = (WaitStepToFoundMessageRule) theEObject;
+			T result = caseWaitStepToFoundMessageRule(waitStepToFoundMessageRule);
+			if (result == null)
+				result = caseAbstractRule(waitStepToFoundMessageRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE: {
+			SendStepToLostMessageRule sendStepToLostMessageRule = (SendStepToLostMessageRule) theEObject;
+			T result = caseSendStepToLostMessageRule(sendStepToLostMessageRule);
+			if (result == null)
+				result = caseAbstractRule(sendStepToLostMessageRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RulesPackage.STEP_TO_MESSAGE_RULE: {
+			StepToMessageRule stepToMessageRule = (StepToMessageRule) theEObject;
+			T result = caseStepToMessageRule(stepToMessageRule);
+			if (result == null)
+				result = caseAbstractRule(stepToMessageRule);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE: {
 			UCModelToMSDModelRule ucModelToMSDModelRule = (UCModelToMSDModelRule) theEObject;
 			T result = caseUCModelToMSDModelRule(ucModelToMSDModelRule);
@@ -269,6 +296,51 @@ public class RulesSwitch<T> extends Switch<T> {
 		default:
 			return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Wait Step To Found Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Wait Step To Found Message Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWaitStepToFoundMessageRule(WaitStepToFoundMessageRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Send Step To Lost Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Send Step To Lost Message Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSendStepToLostMessageRule(SendStepToLostMessageRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Step To Message Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Step To Message Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStepToMessageRule(StepToMessageRule object) {
+		return null;
 	}
 
 	/**

@@ -246,7 +246,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_49(EMoflonEdge _edge_next);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_116(EMoflonEdge _edge_next);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,7 +254,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_158(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_378(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -263,7 +263,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_159(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_379(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -272,7 +272,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_160(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_380(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -281,7 +281,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_161(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_381(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -290,7 +290,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_162(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_382(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -299,7 +299,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_163(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_383(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -308,7 +308,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_50(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_117(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,7 +316,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_51(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_118(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -324,7 +324,7 @@ public interface ICEToStepAfterExConvGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_164(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_384(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

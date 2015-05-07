@@ -240,7 +240,7 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_54(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_274(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -249,7 +249,7 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_55(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_275(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -258,7 +258,8 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_56(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_276(
+			EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,7 +267,7 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_23(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_90(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,7 +275,7 @@ public interface SeqFlowAfterPGToParallelFlowRule extends EObject, AbstractRule 
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_24(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_91(
 			EMoflonEdge _edge_invokedFlows);
 
 	/**

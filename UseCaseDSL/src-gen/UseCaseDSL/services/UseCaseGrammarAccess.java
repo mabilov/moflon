@@ -1062,12 +1062,14 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCALLCallKeyword_3_0 = (Keyword)cCALLEnumLiteralDeclaration_3.eContents().get(0);
 		private final EnumLiteralDeclaration cALTEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
 		private final Keyword cALTAltKeyword_4_0 = (Keyword)cALTEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cWAIT_ALTEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cWAIT_ALTWaitAltKeyword_5_0 = (Keyword)cWAIT_ALTEnumLiteralDeclaration_5.eContents().get(0);
 		
 		//enum StepType:
-		//	WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt";
+		//	WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt" | WAIT_ALT="wait-alt";
 		public EnumRule getRule() { return rule; }
 
-		//WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt"
+		//WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt" | WAIT_ALT="wait-alt"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//WAIT="wait"
@@ -1099,6 +1101,12 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"alt"
 		public Keyword getALTAltKeyword_4_0() { return cALTAltKeyword_4_0; }
+
+		//WAIT_ALT="wait-alt"
+		public EnumLiteralDeclaration getWAIT_ALTEnumLiteralDeclaration_5() { return cWAIT_ALTEnumLiteralDeclaration_5; }
+
+		//"wait-alt"
+		public Keyword getWAIT_ALTWaitAltKeyword_5_0() { return cWAIT_ALTWaitAltKeyword_5_0; }
 	}
 	
 	private final UseCasesModelElements pUseCasesModel;
@@ -1388,7 +1396,7 @@ public class UseCaseGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum StepType:
-	//	WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt";
+	//	WAIT="wait" | SEND="send" | PERFORM="perform" | CALL="call" | ALT="alt" | WAIT_ALT="wait-alt";
 	public StepTypeElements getStepTypeAccess() {
 		return unknownRuleStepType;
 	}

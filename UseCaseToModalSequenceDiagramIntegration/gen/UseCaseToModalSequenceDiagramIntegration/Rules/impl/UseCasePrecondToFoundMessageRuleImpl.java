@@ -965,7 +965,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_235(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_459(
 			EMoflonEdge _edge_preconditions) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1029,7 +1029,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_80(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_159(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1093,7 +1093,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_81(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_160(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1157,7 +1157,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_82(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_161(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1221,7 +1221,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_83(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_162(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1285,7 +1285,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_163(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1349,7 +1349,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_85(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_164(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1413,7 +1413,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_86(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_165(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1477,7 +1477,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_87(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_166(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
@@ -1828,32 +1828,32 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_235__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_235((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_459__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_459((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_80__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_80((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_159__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_159((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_81__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_81((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_160__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_160((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_82__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_82((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_161__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_161((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_83__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_83((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_162__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_162((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_84__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_84((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_163__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_163((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_85__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_85((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_164__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_164((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_86__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_86((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_165__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_165((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_87__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_87((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_166__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_166((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3908,10 +3908,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
 			UCCondition precond, UseCase useCase) {
-		for (UseCase __DEC_precond_preconditions_725346 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_precond_preconditions_204430 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_precond_preconditions_725346)) {
+			if (!useCase.equals(__DEC_precond_preconditions_204430)) {
 				return new Object[] { precond, useCase };
 			}
 		}
@@ -4042,9 +4042,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_359529 = message.getSendEvent();
-		if (__DEC_message_sendEvent_359529 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_359529)) {
+		MessageEnd __DEC_message_sendEvent_59495 = message.getSendEvent();
+		if (__DEC_message_sendEvent_59495 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_59495)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4054,9 +4054,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_431434 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_729469 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_431434)) {
+			if (!messageReceive.equals(__DEC_message_message_729469)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4213,9 +4213,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_980928 = message.getSendEvent();
-		if (__DEC_message_sendEvent_980928 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_980928)) {
+		MessageEnd __DEC_message_sendEvent_759892 = message.getSendEvent();
+		if (__DEC_message_sendEvent_759892 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_759892)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4225,9 +4225,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_206328 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_663304 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_206328)) {
+			if (!messageReceive.equals(__DEC_message_message_663304)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4386,9 +4386,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_225174 = message.getSendEvent();
-		if (__DEC_message_sendEvent_225174 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_225174)) {
+		MessageEnd __DEC_message_sendEvent_334289 = message.getSendEvent();
+		if (__DEC_message_sendEvent_334289 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_334289)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4398,9 +4398,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_428978 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_800399 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_428978)) {
+			if (!messageReceive.equals(__DEC_message_message_800399)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4558,9 +4558,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_699083 = message.getSendEvent();
-		if (__DEC_message_sendEvent_699083 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_699083)) {
+		MessageEnd __DEC_message_sendEvent_911770 = message.getSendEvent();
+		if (__DEC_message_sendEvent_911770 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_911770)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4570,9 +4570,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_831105 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_13616 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_831105)) {
+			if (!messageReceive.equals(__DEC_message_message_13616)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4729,9 +4729,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_115870 = message.getSendEvent();
-		if (__DEC_message_sendEvent_115870 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_115870)) {
+		MessageEnd __DEC_message_sendEvent_164468 = message.getSendEvent();
+		if (__DEC_message_sendEvent_164468 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_164468)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4741,9 +4741,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_165962 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_606371 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_165962)) {
+			if (!messageReceive.equals(__DEC_message_message_606371)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4901,9 +4901,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_640131 = message.getSendEvent();
-		if (__DEC_message_sendEvent_640131 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_640131)) {
+		MessageEnd __DEC_message_sendEvent_134249 = message.getSendEvent();
+		if (__DEC_message_sendEvent_134249 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_134249)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4913,9 +4913,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_618933 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_689706 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_618933)) {
+			if (!messageReceive.equals(__DEC_message_message_689706)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5071,9 +5071,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_452964 = message.getSendEvent();
-		if (__DEC_message_sendEvent_452964 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_452964)) {
+		MessageEnd __DEC_message_sendEvent_909456 = message.getSendEvent();
+		if (__DEC_message_sendEvent_909456 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_909456)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5083,9 +5083,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_322814 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_978407 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_322814)) {
+			if (!messageReceive.equals(__DEC_message_message_978407)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5244,9 +5244,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_60137 = message.getSendEvent();
-		if (__DEC_message_sendEvent_60137 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_60137)) {
+		MessageEnd __DEC_message_sendEvent_206626 = message.getSendEvent();
+		if (__DEC_message_sendEvent_206626 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_206626)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5256,9 +5256,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_292057 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_552821 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_292057)) {
+			if (!messageReceive.equals(__DEC_message_message_552821)) {
 				return new Object[] { message, messageReceive };
 			}
 		}

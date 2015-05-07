@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration">
-  <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.2"/>
+  <domain name="Source" metamodel="//@metamodel.2" type="SOURCE"/>
+  <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
+  <domain name="Correspondence" metamodel="//@metamodel.0"/>
   <tggRule name="BpModelToUseCaseModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="documentRoot" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//DocumentRoot"/>
@@ -1267,7 +1267,7 @@
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
     </csp>
   </tggRule>
-  <tggRule name="EventBasedGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
+  <tggRule name="EventBasedGatewayToStepCoreRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="process" incomingLink="//@tggRule.21/@linkVariable.4" outgoingLink="//@tggRule.21/@linkVariable.0 //@tggRule.21/@linkVariable.1 //@tggRule.21/@linkVariable.2" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/bpmn2/model/Bpmn2.ecore#//Process"/>
     </objectVariable>
@@ -1373,12 +1373,24 @@
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
       </constraints>
+      <constraints variables="//@tggRule.21/@csp/@variables.6 //@tggRule.21/@csp/@variables.7" name="eqStepType" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+      </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="eventBasedGateway"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="eventBasedGateway"/>
       <variables xsi:type="csp:AttributeVariable" attribute="label" objectVariable="normalStep"/>
       <variables xsi:type="csp:AttributeVariable" attribute="gatewayDirection" objectVariable="eventBasedGateway"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000B22446976657267696E6722"/>
+      <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
+      <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22574149545F414C5422"/>
     </csp>
   </tggRule>
   <tggRule name="ExclusiveConvergingGatewayRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1" abstractRule="true">
@@ -2769,13 +2781,13 @@
     </linkVariable>
     <csp/>
   </tggRule>
+  <metamodel name="BpmnToUseCaseIntegration">
+    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
+  </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
   <metamodel name="bpmn2">
     <outermostPackage href="platform:/plugin/bpmn2/model/Bpmn2.ecore#/"/>
-  </metamodel>
-  <metamodel name="BpmnToUseCaseIntegration">
-    <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

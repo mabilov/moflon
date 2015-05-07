@@ -386,7 +386,7 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_83(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_303(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneStartEventRuleImpl
@@ -608,8 +608,8 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.LANE_START_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_83__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_83((EMoflonEdge) arguments
+		case RulesPackage.LANE_START_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_303__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_303((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

@@ -164,7 +164,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_100(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_320(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -173,7 +173,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_101(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_321(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -182,7 +182,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_102(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_322(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -191,7 +191,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_103(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_323(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -200,7 +200,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_104(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_324(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -209,7 +209,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_105(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_325(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -218,7 +218,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_106(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_326(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -227,7 +227,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_107(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_327(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -236,7 +236,7 @@ public interface ParallelConvergingGatewayTwoInputsRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_108(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_328(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

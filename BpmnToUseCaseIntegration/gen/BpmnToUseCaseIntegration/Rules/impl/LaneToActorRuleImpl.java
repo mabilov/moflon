@@ -865,7 +865,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_7(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_231(
 			EMoflonEdge _edge_lanes) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneToActorRuleImpl
@@ -926,7 +926,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_5(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_74(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneToActorRuleImpl
@@ -1256,11 +1256,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_7__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_7((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_231__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_231((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_5__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_5((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_74__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_74((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2871,9 +2871,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_20_2_black_nac_0BB(
 			Lane lane, LaneSet laneSet) {
-		for (LaneSet __DEC_lane_lanes_40624 : org.moflon.util.eMoflonEMFUtil
+		for (LaneSet __DEC_lane_lanes_889966 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(lane, LaneSet.class, "lanes")) {
-			if (!laneSet.equals(__DEC_lane_lanes_40624)) {
+			if (!laneSet.equals(__DEC_lane_lanes_889966)) {
 				return new Object[] { lane, laneSet };
 			}
 		}
@@ -3009,10 +3009,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_21_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_883138 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_26706 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_883138)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_26706)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}

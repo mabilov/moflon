@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<UseCaseDSL:UseCasesModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UseCaseDSL="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore">
+  <packages name="de.abilov.booksale">
+    <useCases description="Book Sale Process" name="booksale">
+      <flows xsi:type="UseCaseDSL:BasicFlow">
+        <steps xsi:type="UseCaseDSL:NormalStep" next="check_stock" label="Record Order" name="record_order" actor="sys" type="perform"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" next="all_books_available" label="Check Stock" name="check_stock" actor="sys" type="perform"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" next="pgw1" label="All books available" name="all_books_available" actor="sys">
+          <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="No" ref="ShipmentPrepare"/>
+        </steps>
+        <steps xsi:type="UseCaseDSL:ParallelStep" next="deliver_books_customer" label="pgw1" name="pgw1" invokedFlows="payment shipment_prepare"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" next="delivery_confirmed" label="Deliver books to customer" name="deliver_books_customer" actor="shipping" type="perform"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Delivery confirmed" name="delivery_confirmed" actor="sys" type="wait"/>
+        <finalState name="Order processed successfully"/>
+      </flows>
+      <flows xsi:type="UseCaseDSL:AlternativeFlow" name="ShipmentPrepare">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Deliver books to stock" name="deliver_books_stock" actor="shipping" type="perform"/>
+      </flows>
+      <flows xsi:type="UseCaseDSL:ParallelFlow" name="payment">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Charge Issue" name="charge_issue" actor="sys" type="perform"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Wait for event" name="wait_for_event" actor="sys">
+          <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="delay > 5 days" ref="delay_5d"/>
+          <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="Payment Received" ref="payment_received"/>
+        </steps>
+      </flows>
+      <flows xsi:type="UseCaseDSL:ParallelFlow" name="shipment_prepare">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Separate books of the request" name="separate_books" actor="shipping" type="perform"/>
+      </flows>
+      <flows xsi:type="UseCaseDSL:AlternativeFlow" name="delay_5d">
+        <steps xsi:type="UseCaseDSL:NormalStep" next="cancel" label="Send cancellation notice to customer" name="send_cancel" actor="sys" type="send"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Cancel order" name="cancel" actor="sys" type="perform"/>
+        <finalState name="Order is canceled"/>
+      </flows>
+      <flows xsi:type="UseCaseDSL:AlternativeFlow" name="payment_received">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Issue invoice" name="issue_invoice" actor="financing" type="perform"/>
+      </flows>
+      <preconditions name="Order Received"/>
+    </useCases>
+    <actors name="sys" type="system"/>
+    <actors description="Sales" name="sales"/>
+    <actors description="Financing" name="financing"/>
+    <actors description="Shipping" name="shipping"/>
+  </packages>
+</UseCaseDSL:UseCasesModel>

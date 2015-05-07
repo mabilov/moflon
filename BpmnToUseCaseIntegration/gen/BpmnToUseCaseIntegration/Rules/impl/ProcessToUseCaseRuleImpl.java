@@ -905,7 +905,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_1(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_225(
 			EMoflonEdge _edge_rootElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
@@ -966,7 +966,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_1(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_70(
 			EMoflonEdge _edge_useCases) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
@@ -1030,7 +1030,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_2(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_71(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
@@ -1094,7 +1094,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_3(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_72(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
@@ -1425,17 +1425,17 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_1__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_1((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_225__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_225((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_1__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_1((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_70__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_70((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_2__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_2((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_71__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_71((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_3__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_3((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_72__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_72((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3123,10 +3123,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_556554 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_203527 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_556554)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_203527)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3135,10 +3135,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_492695 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_839339 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_492695)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_839339)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3274,10 +3274,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_427211 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_4201 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_427211)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_4201)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3286,10 +3286,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_839795 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_249372 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_839795)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_249372)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3424,10 +3424,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_238070 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_857652 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_238070)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_857652)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3436,10 +3436,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_719062 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_574027 : org.moflon.util.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_719062)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_574027)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}

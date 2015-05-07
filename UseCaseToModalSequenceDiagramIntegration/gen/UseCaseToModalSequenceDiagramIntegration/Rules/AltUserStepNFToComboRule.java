@@ -282,7 +282,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_207(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_286(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -291,7 +291,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_208(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_287(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -299,7 +299,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_209(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_288(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -308,7 +308,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_210(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_289(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,7 +316,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_211(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_290(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -325,7 +325,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_212(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_291(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -333,7 +333,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_213(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_292(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -342,7 +342,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_214(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_293(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -350,7 +350,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_215(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_294(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -359,7 +359,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_216(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_295(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -367,7 +367,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_217(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_296(
 			EMoflonEdge _edge_fragment);
 
 	/**
@@ -376,7 +376,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_218(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_297(
 			EMoflonEdge _edge_enclosingOperand);
 
 	/**
@@ -385,7 +385,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_219(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_298(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -394,7 +394,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_220(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_299(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -402,7 +402,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_221(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_300(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -411,7 +411,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_222(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_301(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -419,7 +419,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_223(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_302(
 			EMoflonEdge _edge_enclosingInteraction);
 
 	/**
@@ -428,7 +428,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_224(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_303(
 			EMoflonEdge _edge_fragment);
 
 	/**
@@ -437,7 +437,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_259(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_483(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -445,7 +445,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_260(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_484(
 			EMoflonEdge _edge_stepAlternative);
 
 	/**
@@ -454,7 +454,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_261(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_485(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -462,7 +462,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_262(EMoflonEdge _edge_ref);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_486(EMoflonEdge _edge_ref);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -470,7 +470,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_225(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_304(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -479,7 +479,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_226(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_305(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -487,7 +487,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_227(EMoflonEdge _edge_guard);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_306(EMoflonEdge _edge_guard);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -495,7 +495,7 @@ public interface AltUserStepNFToComboRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_228(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_307(
 			EMoflonEdge _edge_specification);
 
 	/**

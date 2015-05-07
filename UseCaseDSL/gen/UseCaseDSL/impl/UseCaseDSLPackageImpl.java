@@ -1089,6 +1089,7 @@ public class UseCaseDSLPackageImpl extends EPackageImpl implements
 
 		initEEnum(stepTypeEEnum, StepType.class, "StepType");
 		addEEnumLiteral(stepTypeEEnum, StepType.ALT);
+		addEEnumLiteral(stepTypeEEnum, StepType.WAIT_ALT);
 		addEEnumLiteral(stepTypeEEnum, StepType.WAIT);
 		addEEnumLiteral(stepTypeEEnum, StepType.SEND);
 		addEEnumLiteral(stepTypeEEnum, StepType.PERFORM);

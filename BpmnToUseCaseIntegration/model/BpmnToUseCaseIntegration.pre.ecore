@@ -208,7 +208,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ParallelGatewayToParallelStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule">
+    <eClassifiers xsi:type="ecore:EClass" name="EventBasedGatewayToStepCoreRule" abstract="true">
       <eSuperTypes href="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore#//AbstractRule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExclusiveConvergingGatewayRule" abstract="true">

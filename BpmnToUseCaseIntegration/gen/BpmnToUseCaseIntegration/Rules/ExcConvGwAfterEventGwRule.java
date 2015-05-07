@@ -163,7 +163,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_84(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_304(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -172,7 +172,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_85(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_305(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -181,7 +181,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_86(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_306(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -190,7 +190,8 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_87(EMoflonEdge _edge_incoming);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_307(
+			EMoflonEdge _edge_incoming);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,7 +199,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_88(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_308(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -207,7 +208,8 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_89(EMoflonEdge _edge_outgoing);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_309(
+			EMoflonEdge _edge_outgoing);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,7 +217,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_90(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_310(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

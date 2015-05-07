@@ -666,7 +666,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_DocumentRoot_0(
+	public EObjectContainer isAppropriate_FWD_DocumentRoot_1(
 			DocumentRoot documentRoot) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = BpModelToUseCaseModelRuleImpl
@@ -725,7 +725,7 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_UseCasesModel_0(
+	public EObjectContainer isAppropriate_BWD_UseCasesModel_1(
 			UseCasesModel useCasesModel) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = BpModelToUseCaseModelRuleImpl
@@ -958,11 +958,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_0__DOCUMENTROOT:
-			return isAppropriate_FWD_DocumentRoot_0((DocumentRoot) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_1__DOCUMENTROOT:
+			return isAppropriate_FWD_DocumentRoot_1((DocumentRoot) arguments
 					.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_0__USECASESMODEL:
-			return isAppropriate_BWD_UseCasesModel_0((UseCasesModel) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_1__USECASESMODEL:
+			return isAppropriate_BWD_UseCasesModel_1((UseCasesModel) arguments
 					.get(0));
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

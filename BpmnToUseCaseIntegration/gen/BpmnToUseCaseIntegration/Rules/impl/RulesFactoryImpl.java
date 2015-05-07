@@ -78,8 +78,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 			return createEndEventRule();
 		case RulesPackage.FIRST_INTER_THROW_EVENT_TO_STEP_RULE:
 			return createFirstInterThrowEventToStepRule();
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_CORE_RULE:
-			return createEventBasedGatewayToStepCoreRule();
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE:
 			return createParallelConvergingGatewayRule();
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE:
@@ -252,16 +250,6 @@ public class RulesFactoryImpl extends EFactoryImpl implements RulesFactory {
 	public FirstInterThrowEventToStepRule createFirstInterThrowEventToStepRule() {
 		FirstInterThrowEventToStepRuleImpl firstInterThrowEventToStepRule = new FirstInterThrowEventToStepRuleImpl();
 		return firstInterThrowEventToStepRule;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventBasedGatewayToStepCoreRule createEventBasedGatewayToStepCoreRule() {
-		EventBasedGatewayToStepCoreRuleImpl eventBasedGatewayToStepCoreRule = new EventBasedGatewayToStepCoreRuleImpl();
-		return eventBasedGatewayToStepCoreRule;
 	}
 
 	/**

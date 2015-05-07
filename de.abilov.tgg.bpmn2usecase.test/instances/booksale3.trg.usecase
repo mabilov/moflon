@@ -31,7 +31,7 @@ parallel flow shipment_prepare
 	step separate_books "Separate books of the request" perform by shipping
 end flow
 alternative flow delay_5d
-	step send_cancel "Send cancellation notice to customer" send by sys
+	step send_cancel "Send cancellation notice to customer" send by sys next cancel
 	step cancel "Cancel order" perform by sys
 end flow with postcondition "Order is canceled"
 alternative flow payment_received

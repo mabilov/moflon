@@ -12,6 +12,7 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType">
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/ALT"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/WAIT_ALT"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/WAIT"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/SEND"/>
       <genEnumLiterals ecoreEnumLiteral="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//StepType/PERFORM"/>
