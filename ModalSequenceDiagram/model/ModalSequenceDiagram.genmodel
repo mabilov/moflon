@@ -120,6 +120,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//OpaqueExpression/body"/>
     </genClasses>
     <genClasses image="false" ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//NamedElement/_id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#//TypedElement">

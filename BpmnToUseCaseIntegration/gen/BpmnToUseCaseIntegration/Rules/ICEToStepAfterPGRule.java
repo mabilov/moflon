@@ -239,7 +239,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_357(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_333(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -248,7 +248,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_358(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_334(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -257,7 +257,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_359(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_335(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -266,7 +266,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_360(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_336(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -275,7 +275,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_361(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_337(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -284,7 +284,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_362(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_338(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -293,7 +293,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_108(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_839(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,7 +301,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_109(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_840(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public interface ICEToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_363(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_339(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

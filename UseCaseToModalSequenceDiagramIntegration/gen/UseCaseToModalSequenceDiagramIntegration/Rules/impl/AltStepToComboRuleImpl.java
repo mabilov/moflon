@@ -104,7 +104,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						useCase, flow, packageDeclaration, actor, step);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[flow] = " + flow + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[actor] = " + actor + ", " + "[step] = "
+							+ step + ".");
 		}
 
 		// Solve CSP
@@ -113,7 +119,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						match, useCase, flow, packageDeclaration, actor, step);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[flow] = " + flow + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[actor] = " + actor + ", " + "[step] = "
+							+ step + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -126,7 +138,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							flow, packageDeclaration, actor, step);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", " + "[flow] = "
+								+ flow + ", " + "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[actor] = "
+								+ actor + ", " + "[step] = " + step + ".");
 			}
 			AltStepToComboRuleImpl.pattern_AltStepToComboRule_0_4_greenBBBBFF(
 					match, flow, actor, step);
@@ -139,7 +156,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							flow, packageDeclaration, actor, step);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", " + "[flow] = "
+								+ flow + ", " + "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[actor] = "
+								+ actor + ", " + "[step] = " + step + ".");
 			}
 			AltStepToComboRuleImpl
 					.pattern_AltStepToComboRule_0_5_greenBBBBBFFF(match,
@@ -174,7 +196,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Interaction interaction = (Interaction) result1_bindingAndBlack[0];
 		UseCase useCase = (UseCase) result1_bindingAndBlack[1];
@@ -198,7 +223,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						stepToCombo);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[combo] = " + combo + ", " + "[stepToCombo] = "
+							+ stepToCombo + ".");
 		}
 		Object[] result2_green = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_1_2_greenFBBB(step, combo,
@@ -213,7 +241,41 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						line, stepToCombo);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[stepToCombo] = " + stepToCombo + ".");
 		}
 		AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_1_3_greenBBBBBBBBFFFFFFFF(
@@ -250,7 +312,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				.pattern_AltStepToComboRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -262,7 +325,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_2_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCase useCase = (UseCase) result2_binding[0];
 		Flow flow = (Flow) result2_binding[1];
@@ -307,7 +371,37 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								actor, actorToLine, step, line);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", " + "[line] = " + line + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -320,7 +414,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_2_6_greenBB(ruleresult,
@@ -416,19 +514,41 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", true, csp);
+		var_step_name.setValue(step.getName());
+		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", true, csp);
+		var_step_label.setValue(step.getLabel());
+		var_step_label.setType("String");
 
 		// Create unbound variables
+		Variable var_combo__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo._id", csp);
+		var_combo__id.setType("String");
+		Variable var_combo_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo.name", csp);
+		var_combo_name.setType("String");
 		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
 				.createVariable("combo.interactionOperator", csp);
 		var_combo_interactionOperator
 				.setType("ModalSequenceDiagram.InteractionOperatorKind");
 
 		// Create constraints
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 		EqInterOperKind eqInterOperKind = new EqInterOperKind();
 
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 		csp.getConstraints().add(eqInterOperKind);
 
 		// Solve CSP
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_combo__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_combo_name);
 		eqInterOperKind.setRuleName("");
 		eqInterOperKind.solve(var_combo_interactionOperator, literal0);
 
@@ -503,7 +623,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						interaction, combo, line);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[interaction] = "
+							+ interaction + ", " + "[combo] = " + combo + ", "
+							+ "[line] = " + line + ".");
 		}
 
 		// Solve CSP
@@ -512,7 +636,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						match, interaction, combo, line);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[interaction] = "
+							+ interaction + ", " + "[combo] = " + combo + ", "
+							+ "[line] = " + line + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -525,7 +653,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							interaction, combo, line);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[combo] = " + combo + ", " + "[line] = "
+								+ line + ".");
 			}
 			AltStepToComboRuleImpl
 					.pattern_AltStepToComboRule_10_4_greenBBBBFFFF(match,
@@ -541,7 +673,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							interaction, combo, line);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[combo] = " + combo + ", " + "[line] = "
+								+ line + ".");
 			}
 			AltStepToComboRuleImpl.pattern_AltStepToComboRule_10_5_greenBBBFF(
 					match, interaction, line);
@@ -573,7 +709,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Interaction interaction = (Interaction) result1_bindingAndBlack[0];
 		UseCase useCase = (UseCase) result1_bindingAndBlack[1];
@@ -597,7 +736,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						stepToCombo);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[combo] = " + combo + ", " + "[stepToCombo] = "
+							+ stepToCombo + ".");
 		}
 		Object[] result2_green = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_11_2_greenFBBB(step, combo,
@@ -612,7 +754,41 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 						line, stepToCombo);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[stepToCombo] = " + stepToCombo + ".");
 		}
 		AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_11_3_greenBBBBBBBBFFFFFFFF(
@@ -649,7 +825,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				.pattern_AltStepToComboRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -661,7 +838,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_12_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Interaction interaction = (Interaction) result2_binding[0];
 		CombinedFragment combo = (CombinedFragment) result2_binding[1];
@@ -708,7 +886,37 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 								actor, actorToLine, combo, line);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", " + "[line] = " + line + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -722,7 +930,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_12_6_greenBB(
@@ -815,20 +1027,42 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_combo__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo._id", true, csp);
+		var_combo__id.setValue(combo.get_id());
+		var_combo__id.setType("String");
+		Variable var_combo_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo.name", true, csp);
+		var_combo_name.setValue(combo.getName());
+		var_combo_name.setType("String");
 
 		// Create unbound variables
 		Variable var_step_type = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.type", csp);
 		var_step_type.setType("UseCaseDSL.StepType");
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", csp);
+		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 
 		// Create constraints
 		EqStepType eqStepType = new EqStepType();
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqStepType);
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqStepType.setRuleName("");
 		eqStepType.solve(var_step_type, literal0);
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_combo__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_combo_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("interaction", interaction);
@@ -896,14 +1130,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_324(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_885(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -936,7 +1171,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_20_5_greenBBB(match,
@@ -958,14 +1197,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_325(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_886(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -998,7 +1238,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_21_5_greenBBB(match,
@@ -1020,14 +1264,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_495(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_432(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1063,7 +1308,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_22_5_greenBBB(match,
@@ -1085,14 +1334,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_496(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_433(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1128,7 +1378,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_23_5_greenBBB(match,
@@ -1150,14 +1404,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_326(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_887(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1190,7 +1445,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_24_5_greenBBB(match,
@@ -1212,14 +1471,15 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_327(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_888(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1252,7 +1512,11 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_25_5_greenBBB(match,
@@ -1274,8 +1538,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1283,8 +1548,9 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1300,7 +1566,8 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				.pattern_AltStepToComboRule_28_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = AltStepToComboRuleImpl
 				.pattern_AltStepToComboRule_28_1_greenFF();
@@ -1329,7 +1596,37 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							actor, actorToLine, line, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[interaction] = "
+								+ interaction
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[actorToLine] = "
+								+ actorToLine
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", " + "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1351,7 +1648,32 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 									actorToLine, line, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[interaction] = "
+										+ interaction
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[actor] = "
+										+ actor
+										+ ", "
+										+ "[actorToLine] = "
+										+ actorToLine
+										+ ", "
+										+ "[line] = "
+										+ line
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					AltStepToComboRuleImpl
 							.pattern_AltStepToComboRule_28_6_greenBBBFFBFBB(
@@ -1402,6 +1724,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_type = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.type", csp);
 		var_step_type.setType("UseCaseDSL.StepType");
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", csp);
+		var_step_name.setType("String");
+		Variable var_combo__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo._id", csp);
+		var_combo__id.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
+		Variable var_combo_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo.name", csp);
+		var_combo_name.setType("String");
 		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
 				.createVariable("combo.interactionOperator", csp);
 		var_combo_interactionOperator
@@ -1410,15 +1744,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		// Create constraints
 		EqStepType eqStepType = new EqStepType();
 		EqInterOperKind eqInterOperKind = new EqInterOperKind();
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eqInterOperKind);
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqStepType.setRuleName("");
 		eqStepType.solve(var_step_type, literal0);
 		eqInterOperKind.setRuleName("");
 		eqInterOperKind.solve(var_combo_interactionOperator, literal1);
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_combo__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_combo_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("interaction", interaction);
@@ -1543,23 +1885,23 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_324__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_324((EMoflonEdge) arguments
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_885__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_885((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_325__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_325((EMoflonEdge) arguments
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_886__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_886((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_495__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_495((EMoflonEdge) arguments
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_432__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_432((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_496__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_496((EMoflonEdge) arguments
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_433__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_433((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_326__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_326((EMoflonEdge) arguments
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_887__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_887((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_327__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_327((EMoflonEdge) arguments
+		case RulesPackage.ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_888__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_888((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ALT_STEP_TO_COMBO_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1833,12 +2175,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				.createCombinedFragment();
 		NormalStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createNormalStepToCombinedFragment();
-		Object _localVariable_0 = csp.getValue("combo", "interactionOperator");
+		Object _localVariable_0 = csp.getValue("combo", "_id");
+		Object _localVariable_1 = csp.getValue("combo", "name");
+		Object _localVariable_2 = csp.getValue("combo", "interactionOperator");
 		combo.setEnclosingInteraction(interaction);
 		line.getCoveredBy().add(combo);
 		stepToCombo.setSource(step);
 		stepToCombo.setTarget(combo);
-		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_0;
+		String combo__id_prime = (String) _localVariable_0;
+		String combo_name_prime = (String) _localVariable_1;
+		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_2;
+		combo.set_id(combo__id_prime);
+		combo.setName(combo_name_prime);
 		combo.setInteractionOperator(combo_interactionOperator_prime);
 		return new Object[] { interaction, step, combo, line, stepToCombo, csp };
 	}
@@ -2216,12 +2564,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			UseCase useCase, Flow flow, PackageDeclaration packageDeclaration,
 			Actor actor, NormalStep step, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
 						"source")) {
 			Interaction interaction = useCaseToInteraction.getTarget();
 			if (interaction != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(actor,
 								ActorToLifeline.class, "source")) {
 					Lifeline line = actorToLine.getTarget();
@@ -2725,12 +3073,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		NormalStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createNormalStepToCombinedFragment();
 		Object _localVariable_0 = csp.getValue("step", "type");
+		Object _localVariable_1 = csp.getValue("step", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		stepToCombo.setSource(step);
 		stepToCombo.setTarget(combo);
 		StepType step_type_prime = (StepType) _localVariable_0;
+		String step_name_prime = (String) _localVariable_1;
+		String step_label_prime = (String) _localVariable_2;
 		step.setType(step_type_prime);
+		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		return new Object[] { flow, actor, step, combo, stepToCombo, csp };
 	}
 
@@ -3096,12 +3450,12 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			Interaction interaction, CombinedFragment combo, Lifeline line,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(interaction,
 						UseCaseToInteraction.class, "target")) {
 			UseCase useCase = useCaseToInteraction.getSource();
 			if (useCase != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(line, ActorToLifeline.class,
 								"target")) {
 					Actor actor = actorToLine.getSource();
@@ -3131,7 +3485,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 							if (line.equals(actorToLine.getTarget())) {
 								if (line.getCoveredBy().contains(combo)) {
 									for (Flow flow : useCase.getFlows()) {
-										for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+										for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														useCase,
 														PackageDeclaration.class,
@@ -3663,10 +4017,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 				if (flow.getSteps().contains(step)) {
 					Actor actor = step.getActor();
 					if (actor != null) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(flow, UseCase.class,
 										"flows")) {
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+							for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(actor,
 											PackageDeclaration.class, "actors")) {
 								if (packageDeclaration.getUseCases().contains(
@@ -3788,10 +4142,10 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 			if (tmpActor instanceof Actor) {
 				Actor actor = (Actor) tmpActor;
 				if (actor.equals(step.getActor())) {
-					for (Flow flow : org.moflon.util.eMoflonEMFUtil
+					for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(step, Flow.class,
 									"steps")) {
-						for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+						for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(actor,
 										PackageDeclaration.class, "actors")) {
 							for (UseCase useCase : packageDeclaration
@@ -4201,7 +4555,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 														.getFlows()) {
 													if (pattern_AltStepToComboRule_28_2_black_nac_3BB(
 															ruleResult, flow) == null) {
-														for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+														for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		useCase,
 																		PackageDeclaration.class,
@@ -4214,7 +4568,7 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 																	if (pattern_AltStepToComboRule_28_2_black_nac_5BB(
 																			ruleResult,
 																			actor) == null) {
-																		for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+																		for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 																				.getOppositeReferenceTyped(
 																						line,
 																						ActorToLifeline.class,
@@ -4345,9 +4699,13 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		NormalStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createNormalStepToCombinedFragment();
 		Object _localVariable_0 = csp.getValue("step", "type");
-		Object _localVariable_1 = csp.getValue("combo", "interactionOperator");
+		Object _localVariable_1 = csp.getValue("step", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
+		Object _localVariable_3 = csp.getValue("combo", "_id");
+		Object _localVariable_4 = csp.getValue("combo", "name");
+		Object _localVariable_5 = csp.getValue("combo", "interactionOperator");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_6 = ruleResult.getIncrementedPerformCount();
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		ruleResult.getSourceObjects().add(step);
@@ -4358,10 +4716,18 @@ public class AltStepToComboRuleImpl extends AbstractRuleImpl implements
 		stepToCombo.setTarget(combo);
 		ruleResult.getCorrObjects().add(stepToCombo);
 		StepType step_type_prime = (StepType) _localVariable_0;
-		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_1;
+		String step_name_prime = (String) _localVariable_1;
+		String step_label_prime = (String) _localVariable_2;
+		String combo__id_prime = (String) _localVariable_3;
+		String combo_name_prime = (String) _localVariable_4;
+		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_5;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_6);
 		step.setType(step_type_prime);
+		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
+		combo.set_id(combo__id_prime);
+		combo.setName(combo_name_prime);
 		combo.setInteractionOperator(combo_interactionOperator_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

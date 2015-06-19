@@ -2,8 +2,9 @@ package org.moflon.tie;
 
 import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
-import org.moflon.util.eMoflonEMFUtil;
 import org.moflon.ide.debug.DebugSynchronizationHelper;
+import org.eclipse.emf.ecore.EPackage;
+
 
 import org.eclipse.emf.common.util.URI;
 import TGGRuntime.CorrespondenceModel;
@@ -11,17 +12,12 @@ import TGGRuntime.CorrespondenceModel;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 
 
-public class BpmnToUseCaseIntegrationSync extends DebugSynchronizationHelper {
+public class BpmnToUseCaseIntegrationSync extends DebugSynchronizationHelper{
 
-	public BpmnToUseCaseIntegrationSync() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-
-                
-        // Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
-	}
+   public BpmnToUseCaseIntegrationSync()
+   {
+      super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
+   }
 	
 	public static void main(String[] args) throws IOException {
 		// Set up logging
@@ -32,7 +28,7 @@ public class BpmnToUseCaseIntegrationSync extends DebugSynchronizationHelper {
 		helper.syncForward("instances/fwd.corr.xmi");
 		
 		// Propagate changes made to target
-		helper = new BpmnToUseCaseIntegrationSync();
+        helper = new BpmnToUseCaseIntegrationSync();
 		helper.syncBackward("instances/fwd.corr.xmi");
 	}
 

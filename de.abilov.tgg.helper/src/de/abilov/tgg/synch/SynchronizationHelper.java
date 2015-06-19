@@ -23,11 +23,16 @@ import org.eclipse.emf.compare.scope.DefaultComparisonScope;
 import org.eclipse.emf.compare.scope.IComparisonScope;
 import org.eclipse.emf.compare.utils.UseIdentifiers;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 
 import TGGRuntime.CorrespondenceModel;
 
 public abstract class SynchronizationHelper extends
-		org.moflon.tgg.algorithm.synchronization.SynchronizationHelper {
+		org.moflon.ide.debug.DebugSynchronizationHelper {
+
+	public SynchronizationHelper(EPackage corrPackage, String pathToProject) {
+		super(corrPackage, pathToProject);
+	}
 
 	private String direction = forwardDirection;
 	protected String corrFile;
@@ -100,7 +105,7 @@ public abstract class SynchronizationHelper extends
 			merger.copyAllRightToLeft(differences1, new BasicMonitor());
 		}
 	}
-	
+
 	protected void loadTriple(String corr) {
 		loadCorr(corr);
 		CorrespondenceModel corrModel = (CorrespondenceModel) getCorr();

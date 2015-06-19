@@ -224,7 +224,7 @@ public interface DefinitionsToPackageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_224(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_200(
 			EMoflonEdge _edge_definitions);
 
 	/**
@@ -233,7 +233,8 @@ public interface DefinitionsToPackageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_69(EMoflonEdge _edge_packages);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_800(
+			EMoflonEdge _edge_packages);
 
 	/**
 	 * <!-- begin-user-doc -->

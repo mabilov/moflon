@@ -259,7 +259,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_360(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_921(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -268,7 +268,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_361(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_922(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,7 +276,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_362(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_923(
 			EMoflonEdge _edge_enclosingInteraction);
 
 	/**
@@ -285,7 +285,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_363(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_924(
 			EMoflonEdge _edge_fragment);
 
 	/**
@@ -294,7 +294,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_364(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_925(
 			EMoflonEdge _edge_enclosingInteraction);
 
 	/**
@@ -303,7 +303,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_365(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_926(
 			EMoflonEdge _edge_fragment);
 
 	/**
@@ -312,7 +312,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_366(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_927(
 			EMoflonEdge _edge_sendEvent);
 
 	/**
@@ -321,7 +321,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_367(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_928(
 			EMoflonEdge _edge_receiveEvent);
 
 	/**
@@ -330,7 +330,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_368(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_929(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -338,7 +338,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_369(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_930(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -346,7 +346,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_370(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_931(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -355,7 +355,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_371(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_932(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -363,7 +363,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_372(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_933(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -372,7 +372,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_373(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_934(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -380,7 +380,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_506(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_443(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,7 +388,7 @@ public interface UserStepBFMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_507(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_444(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->

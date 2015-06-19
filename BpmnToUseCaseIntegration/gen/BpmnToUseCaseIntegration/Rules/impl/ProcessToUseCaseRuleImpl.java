@@ -101,7 +101,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						definitions, process);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[definitions] = "
+							+ definitions + ", " + "[process] = " + process
+							+ ".");
 		}
 
 		// Solve CSP
@@ -110,7 +114,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						match, definitions, process);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[definitions] = "
+							+ definitions + ", " + "[process] = " + process
+							+ ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -123,7 +131,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							definitions, process);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[definitions] = " + definitions + ", "
+								+ "[process] = " + process + ".");
 			}
 			ProcessToUseCaseRuleImpl
 					.pattern_ProcessToUseCaseRule_0_4_greenBBBF(match,
@@ -136,7 +147,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							definitions, process);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[definitions] = " + definitions + ", "
+								+ "[process] = " + process + ".");
 			}
 			ProcessToUseCaseRuleImpl.pattern_ProcessToUseCaseRule_0_5_greenBB(
 					match, definitions);
@@ -166,7 +180,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Definitions definitions = (Definitions) result1_bindingAndBlack[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[1];
@@ -190,7 +207,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						processToActor, processToBasicFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[process] = " + process + ", "
+							+ "[useCase] = " + useCase + ", "
+							+ "[processToUseCase] = " + processToUseCase + ", "
+							+ "[basicFlow] = " + basicFlow + ", "
+							+ "[actor] = " + actor + ", "
+							+ "[processToActor] = " + processToActor + ", "
+							+ "[processToBasicFlow] = " + processToBasicFlow
+							+ ".");
 		}
 		Object[] result2_green = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_1_2_greenFBBBBBBB(process,
@@ -206,7 +231,40 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						processToActor, processToBasicFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[definitions] = "
+							+ definitions
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[definitionsToPackage] = "
+							+ definitionsToPackage
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[basicFlow] = "
+							+ basicFlow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[processToActor] = "
+							+ processToActor
+							+ ", "
+							+ "[processToBasicFlow] = "
+							+ processToBasicFlow
+							+ ".");
 		}
 		ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_1_3_greenBBBBBBBBBBFFFFFFFFFF(
@@ -247,7 +305,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				.pattern_ProcessToUseCaseRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -259,7 +318,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_2_2_bindingFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Definitions definitions = (Definitions) result2_binding[0];
 		bpmn2.Process process = (bpmn2.Process) result2_binding[1];
@@ -289,7 +349,16 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								process);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[definitions] = " + definitions + ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ", "
+									+ "[definitionsToPackage] = "
+									+ definitionsToPackage + ", "
+									+ "[process] = " + process + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -303,7 +372,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_2_6_greenBB(
@@ -493,7 +566,13 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration, useCase, basicFlow, actor);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[basicFlow] = " + basicFlow + ", "
+							+ "[actor] = " + actor + ".");
 		}
 
 		// Solve CSP
@@ -502,7 +581,13 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						match, packageDeclaration, useCase, basicFlow, actor);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[basicFlow] = " + basicFlow + ", "
+							+ "[actor] = " + actor + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -515,7 +600,12 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, useCase, basicFlow, actor);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[useCase] = "
+								+ useCase + ", " + "[basicFlow] = " + basicFlow
+								+ ", " + "[actor] = " + actor + ".");
 			}
 			ProcessToUseCaseRuleImpl
 					.pattern_ProcessToUseCaseRule_10_4_greenBBBBBFFF(match,
@@ -530,7 +620,12 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, useCase, basicFlow, actor);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[useCase] = "
+								+ useCase + ", " + "[basicFlow] = " + basicFlow
+								+ ", " + "[actor] = " + actor + ".");
 			}
 			ProcessToUseCaseRuleImpl.pattern_ProcessToUseCaseRule_10_5_greenBB(
 					match, packageDeclaration);
@@ -561,7 +656,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Definitions definitions = (Definitions) result1_bindingAndBlack[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[1];
@@ -585,7 +683,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						processToActor, processToBasicFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[process] = " + process + ", "
+							+ "[useCase] = " + useCase + ", "
+							+ "[processToUseCase] = " + processToUseCase + ", "
+							+ "[basicFlow] = " + basicFlow + ", "
+							+ "[actor] = " + actor + ", "
+							+ "[processToActor] = " + processToActor + ", "
+							+ "[processToBasicFlow] = " + processToBasicFlow
+							+ ".");
 		}
 		Object[] result2_green = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_11_2_greenFBBBBBBB(process,
@@ -601,7 +707,40 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 						processToActor, processToBasicFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[definitions] = "
+							+ definitions
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[definitionsToPackage] = "
+							+ definitionsToPackage
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[basicFlow] = "
+							+ basicFlow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[processToActor] = "
+							+ processToActor
+							+ ", "
+							+ "[processToBasicFlow] = "
+							+ processToBasicFlow
+							+ ".");
 		}
 		ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_11_3_greenBBBBBBBBBBFFFFFFFFFF(
@@ -642,7 +781,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				.pattern_ProcessToUseCaseRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -654,7 +794,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -689,7 +830,29 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 								useCase, basicFlow, actor);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[definitions] = "
+									+ definitions
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[definitionsToPackage] = "
+									+ definitionsToPackage
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[basicFlow] = "
+									+ basicFlow
+									+ ", "
+									+ "[actor] = " + actor + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -703,7 +866,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_12_6_greenBB(
@@ -905,14 +1072,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_225(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_201(
 			EMoflonEdge _edge_rootElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -944,7 +1112,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_20_5_greenBBB(match,
@@ -966,14 +1138,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_70(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_801(
 			EMoflonEdge _edge_useCases) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1008,7 +1181,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_21_5_greenBBB(match,
@@ -1030,14 +1207,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_71(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_802(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1072,7 +1250,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_22_5_greenBBB(match,
@@ -1094,14 +1276,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_72(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_803(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1136,7 +1319,11 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_23_5_greenBBB(match,
@@ -1158,8 +1345,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1167,8 +1355,9 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1184,7 +1373,8 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 				.pattern_ProcessToUseCaseRule_26_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ProcessToUseCaseRuleImpl
 				.pattern_ProcessToUseCaseRule_26_1_greenFF();
@@ -1208,7 +1398,15 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[definitions] = " + definitions
+								+ ", " + "[packageDeclaration] = "
+								+ packageDeclaration + ", "
+								+ "[definitionsToPackage] = "
+								+ definitionsToPackage + ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1228,7 +1426,14 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 									definitionsToPackage, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[definitions] = "
+										+ definitions + ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration + ", "
+										+ "[definitionsToPackage] = "
+										+ definitionsToPackage + ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ProcessToUseCaseRuleImpl
 							.pattern_ProcessToUseCaseRule_26_6_greenBBFFFFFFFBB(
@@ -1425,17 +1630,17 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_225__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_225((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_201__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_201((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_70__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_70((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_801__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_801((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_71__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_71((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_802__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_802((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_72__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_72((EMoflonEdge) arguments
+		case RulesPackage.PROCESS_TO_USE_CASE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_803__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_803((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PROCESS_TO_USE_CASE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2025,7 +2230,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 	public static final Iterable<Object[]> pattern_ProcessToUseCaseRule_2_2_blackBFFBB(
 			Definitions definitions, bpmn2.Process process, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (DefinitionsToPackage definitionsToPackage : org.moflon.util.eMoflonEMFUtil
+		for (DefinitionsToPackage definitionsToPackage : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(definitions,
 						DefinitionsToPackage.class, "source")) {
 			PackageDeclaration packageDeclaration = definitionsToPackage
@@ -2787,7 +2992,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration, UseCase useCase,
 			BasicFlow basicFlow, Actor actor, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (DefinitionsToPackage definitionsToPackage : org.moflon.util.eMoflonEMFUtil
+		for (DefinitionsToPackage definitionsToPackage : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						DefinitionsToPackage.class, "target")) {
 			Definitions definitions = definitionsToPackage.getSource();
@@ -3123,10 +3328,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_203527 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_710717 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_203527)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_710717)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3135,10 +3340,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_21_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_839339 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_759532 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_839339)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_759532)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3274,10 +3479,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_4201 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_453831 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_4201)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_453831)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3286,10 +3491,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_22_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_249372 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_536367 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_249372)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_536367)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3424,10 +3629,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_857652 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_618546 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_857652)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_618546)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -3436,10 +3641,10 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ProcessToUseCaseRule_23_2_black_nac_1BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_574027 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_985481 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_574027)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_985481)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3456,7 +3661,7 @@ public class ProcessToUseCaseRuleImpl extends AbstractRuleImpl implements
 			if (tmpBasicFlow instanceof BasicFlow) {
 				BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
 				if (useCase.getFlows().contains(basicFlow)) {
-					for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+					for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(useCase,
 									PackageDeclaration.class, "useCases")) {
 						if (pattern_ProcessToUseCaseRule_23_2_black_nac_0BB(

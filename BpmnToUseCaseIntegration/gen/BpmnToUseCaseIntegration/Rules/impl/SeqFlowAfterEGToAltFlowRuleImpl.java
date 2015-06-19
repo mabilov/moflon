@@ -108,7 +108,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						match, defaultFlow, exclusiveGateway, process, outFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[defaultFlow] = "
+							+ defaultFlow + ", " + "[exclusiveGateway] = "
+							+ exclusiveGateway + ", " + "[process] = "
+							+ process + ", " + "[outFlow] = " + outFlow + ".");
 		}
 
 		// Solve CSP
@@ -118,7 +123,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						outFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[defaultFlow] = "
+							+ defaultFlow + ", " + "[exclusiveGateway] = "
+							+ exclusiveGateway + ", " + "[process] = "
+							+ process + ", " + "[outFlow] = " + outFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -132,7 +142,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							defaultFlow, exclusiveGateway, process, outFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[defaultFlow] = " + defaultFlow + ", "
+								+ "[exclusiveGateway] = " + exclusiveGateway
+								+ ", " + "[process] = " + process + ", "
+								+ "[outFlow] = " + outFlow + ".");
 			}
 			SeqFlowAfterEGToAltFlowRuleImpl
 					.pattern_SeqFlowAfterEGToAltFlowRule_0_4_greenBBBBFFF(
@@ -147,7 +162,12 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							defaultFlow, exclusiveGateway, process, outFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[defaultFlow] = " + defaultFlow + ", "
+								+ "[exclusiveGateway] = " + exclusiveGateway
+								+ ", " + "[process] = " + process + ", "
+								+ "[outFlow] = " + outFlow + ".");
 			}
 			SeqFlowAfterEGToAltFlowRuleImpl
 					.pattern_SeqFlowAfterEGToAltFlowRule_0_5_greenBBBBFFFFF(
@@ -184,7 +204,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
 		ProcessToUseCase processToUseCase = (ProcessToUseCase) result1_bindingAndBlack[1];
@@ -212,7 +235,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						outFlowToAlt, outFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[alternativeFlow] = "
+							+ alternativeFlow + ", "
+							+ "[outFlowToAlternativeFlow] = "
+							+ outFlowToAlternativeFlow + ", " + "[alt] = "
+							+ alt + ", " + "[outFlowToAlt] = " + outFlowToAlt
+							+ ", " + "[outFlow] = " + outFlow + ".");
 		}
 		Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_1_2_greenFBBBBB(
@@ -230,7 +259,50 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						exclusiveGateway, process, outFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[defaultFlow] = "
+							+ defaultFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[defaultFlowToFlow] = "
+							+ defaultFlowToFlow
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[exclusiveGatewayToNormalStep] = "
+							+ exclusiveGatewayToNormalStep
+							+ ", "
+							+ "[alternativeFlow] = "
+							+ alternativeFlow
+							+ ", "
+							+ "[outFlowToAlternativeFlow] = "
+							+ outFlowToAlternativeFlow
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[outFlowToAlt] = "
+							+ outFlowToAlt
+							+ ", "
+							+ "[exclusiveGateway] = "
+							+ exclusiveGateway
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[outFlow] = " + outFlow + ".");
 		}
 		SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_1_3_greenBBBBBBBBBBFFFFFFFFFF(
@@ -272,7 +344,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				.pattern_SeqFlowAfterEGToAltFlowRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -284,7 +357,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		SequenceFlow defaultFlow = (SequenceFlow) result2_binding[0];
 		ExclusiveGateway exclusiveGateway = (ExclusiveGateway) result2_binding[1];
@@ -340,7 +414,43 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								process, outFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[defaultFlow] = "
+									+ defaultFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[defaultFlowToFlow] = "
+									+ defaultFlowToFlow
+									+ ", "
+									+ "[normalStep] = "
+									+ normalStep
+									+ ", "
+									+ "[exclusiveGatewayToNormalStep] = "
+									+ exclusiveGatewayToNormalStep
+									+ ", "
+									+ "[exclusiveGateway] = "
+									+ exclusiveGateway
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[outFlow] = "
+									+ outFlow
+									+ ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -354,7 +464,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_2_6_greenBB(
@@ -544,7 +658,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						match, useCase, flow, normalStep, alternativeFlow, alt);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[flow] = " + flow + ", "
+							+ "[normalStep] = " + normalStep + ", "
+							+ "[alternativeFlow] = " + alternativeFlow + ", "
+							+ "[alt] = " + alt + ".");
 		}
 
 		// Solve CSP
@@ -554,7 +674,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						alternativeFlow, alt);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[flow] = " + flow + ", "
+							+ "[normalStep] = " + normalStep + ", "
+							+ "[alternativeFlow] = " + alternativeFlow + ", "
+							+ "[alt] = " + alt + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -569,7 +695,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							alt);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", " + "[flow] = "
+								+ flow + ", " + "[normalStep] = " + normalStep
+								+ ", " + "[alternativeFlow] = "
+								+ alternativeFlow + ", " + "[alt] = " + alt
+								+ ".");
 			}
 			SeqFlowAfterEGToAltFlowRuleImpl
 					.pattern_SeqFlowAfterEGToAltFlowRule_10_4_greenBBBBBFFF(
@@ -585,7 +717,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							alt);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", " + "[flow] = "
+								+ flow + ", " + "[normalStep] = " + normalStep
+								+ ", " + "[alternativeFlow] = "
+								+ alternativeFlow + ", " + "[alt] = " + alt
+								+ ".");
 			}
 			SeqFlowAfterEGToAltFlowRuleImpl
 					.pattern_SeqFlowAfterEGToAltFlowRule_10_5_greenBBBBFF(
@@ -619,7 +757,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
 		ProcessToUseCase processToUseCase = (ProcessToUseCase) result1_bindingAndBlack[1];
@@ -647,7 +788,13 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						outFlowToAlt, outFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[alternativeFlow] = "
+							+ alternativeFlow + ", "
+							+ "[outFlowToAlternativeFlow] = "
+							+ outFlowToAlternativeFlow + ", " + "[alt] = "
+							+ alt + ", " + "[outFlowToAlt] = " + outFlowToAlt
+							+ ", " + "[outFlow] = " + outFlow + ".");
 		}
 		Object[] result2_green = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_11_2_greenFBBBBB(
@@ -665,7 +812,50 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 						exclusiveGateway, process, outFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[defaultFlow] = "
+							+ defaultFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[defaultFlowToFlow] = "
+							+ defaultFlowToFlow
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[exclusiveGatewayToNormalStep] = "
+							+ exclusiveGatewayToNormalStep
+							+ ", "
+							+ "[alternativeFlow] = "
+							+ alternativeFlow
+							+ ", "
+							+ "[outFlowToAlternativeFlow] = "
+							+ outFlowToAlternativeFlow
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[outFlowToAlt] = "
+							+ outFlowToAlt
+							+ ", "
+							+ "[exclusiveGateway] = "
+							+ exclusiveGateway
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[outFlow] = " + outFlow + ".");
 		}
 		SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_11_3_greenBBBBBBBBBBFFFFFFFFFF(
@@ -707,7 +897,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				.pattern_SeqFlowAfterEGToAltFlowRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -719,7 +910,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_12_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCase useCase = (UseCase) result2_binding[0];
 		Flow flow = (Flow) result2_binding[1];
@@ -776,7 +968,45 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 								alt, exclusiveGateway, process);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[defaultFlow] = "
+									+ defaultFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[defaultFlowToFlow] = "
+									+ defaultFlowToFlow
+									+ ", "
+									+ "[normalStep] = "
+									+ normalStep
+									+ ", "
+									+ "[exclusiveGatewayToNormalStep] = "
+									+ exclusiveGatewayToNormalStep
+									+ ", "
+									+ "[alternativeFlow] = "
+									+ alternativeFlow
+									+ ", "
+									+ "[alt] = "
+									+ alt
+									+ ", "
+									+ "[exclusiveGateway] = "
+									+ exclusiveGateway
+									+ ", "
+									+ "[process] = "
+									+ process + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -790,7 +1020,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_12_6_greenBB(
@@ -980,14 +1214,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_87(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_818(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1023,7 +1258,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_20_5_greenBBB(
@@ -1045,14 +1284,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_88(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_819(
 			EMoflonEdge _edge_stepAlternative) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1088,7 +1328,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_21_5_greenBBB(
@@ -1110,14 +1354,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_89(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_820(
 			EMoflonEdge _edge_ref) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1153,7 +1398,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_22_5_greenBBB(
@@ -1175,14 +1424,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_271(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_247(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1217,7 +1467,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_23_5_greenBBB(
@@ -1239,14 +1493,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_272(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_248(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1281,7 +1536,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_24_5_greenBBB(
@@ -1303,14 +1562,15 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_273(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_249(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1345,7 +1605,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_25_5_greenBBB(
@@ -1367,8 +1631,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1376,8 +1641,9 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1393,7 +1659,8 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 				.pattern_SeqFlowAfterEGToAltFlowRule_28_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = SeqFlowAfterEGToAltFlowRuleImpl
 				.pattern_SeqFlowAfterEGToAltFlowRule_28_1_greenFF();
@@ -1424,7 +1691,41 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 							process, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[processToUseCase] = "
+								+ processToUseCase
+								+ ", "
+								+ "[defaultFlow] = "
+								+ defaultFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[defaultFlowToFlow] = "
+								+ defaultFlowToFlow
+								+ ", "
+								+ "[normalStep] = "
+								+ normalStep
+								+ ", "
+								+ "[exclusiveGatewayToNormalStep] = "
+								+ exclusiveGatewayToNormalStep
+								+ ", "
+								+ "[exclusiveGateway] = "
+								+ exclusiveGateway
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1449,7 +1750,35 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 									exclusiveGateway, process, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[processToUseCase] = "
+										+ processToUseCase
+										+ ", "
+										+ "[defaultFlow] = "
+										+ defaultFlow
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[defaultFlowToFlow] = "
+										+ defaultFlowToFlow
+										+ ", "
+										+ "[normalStep] = "
+										+ normalStep
+										+ ", "
+										+ "[exclusiveGatewayToNormalStep] = "
+										+ exclusiveGatewayToNormalStep
+										+ ", "
+										+ "[exclusiveGateway] = "
+										+ exclusiveGateway
+										+ ", "
+										+ "[process] = "
+										+ process
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					SeqFlowAfterEGToAltFlowRuleImpl
 							.pattern_SeqFlowAfterEGToAltFlowRule_28_6_greenBBFFFFBBFBB(
@@ -1654,23 +1983,23 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_87__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_87((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_818__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_818((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_88__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_88((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_819__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_819((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_89__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_89((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_820__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_820((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_271__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_271((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_247__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_247((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_272__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_272((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_248__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_248((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_273__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_273((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_249__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_249((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_EG_TO_ALT_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2554,17 +2883,17 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			bpmn2.Process process, SequenceFlow outFlow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!defaultFlow.equals(outFlow)) {
-			for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+			for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(process, ProcessToUseCase.class,
 							"source")) {
 				UseCase useCase = processToUseCase.getTarget();
 				if (useCase != null) {
-					for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.util.eMoflonEMFUtil
+					for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(defaultFlow,
 									SequenceFlowToUCFlow.class, "source")) {
 						Flow flow = defaultFlowToFlow.getTarget();
 						if (flow != null) {
-							for (FlowNodeToStep exclusiveGatewayToNormalStep : org.moflon.util.eMoflonEMFUtil
+							for (FlowNodeToStep exclusiveGatewayToNormalStep : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(
 											exclusiveGateway,
 											FlowNodeToStep.class, "source")) {
@@ -3768,18 +4097,18 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!alternativeFlow.equals(flow)) {
-			for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+			for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(useCase, ProcessToUseCase.class,
 							"target")) {
 				bpmn2.Process process = processToUseCase.getSource();
 				if (process != null) {
-					for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.util.eMoflonEMFUtil
+					for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(flow,
 									SequenceFlowToUCFlow.class, "target")) {
 						SequenceFlow defaultFlow = defaultFlowToFlow
 								.getSource();
 						if (defaultFlow != null) {
-							for (FlowNodeToStep exclusiveGatewayToNormalStep : org.moflon.util.eMoflonEMFUtil
+							for (FlowNodeToStep exclusiveGatewayToNormalStep : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(normalStep,
 											FlowNodeToStep.class, "target")) {
 								FlowNode tmpExclusiveGateway = exclusiveGatewayToNormalStep
@@ -4342,11 +4671,11 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 					NamedFlow tmpAlternativeFlow = alt.getRef();
 					if (tmpAlternativeFlow instanceof AlternativeFlow) {
 						AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
-						for (Flow flow : org.moflon.util.eMoflonEMFUtil
+						for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(normalStep,
 										Flow.class, "steps")) {
 							if (!alternativeFlow.equals(flow)) {
-								for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+								for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(
 												alternativeFlow, UseCase.class,
 												"flows")) {
@@ -4471,10 +4800,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 			if (tmpAlternativeFlow instanceof AlternativeFlow) {
 				AlternativeFlow alternativeFlow = (AlternativeFlow) tmpAlternativeFlow;
 				if (alternativeFlow.equals(alt.getRef())) {
-					for (NormalStep normalStep : org.moflon.util.eMoflonEMFUtil
+					for (NormalStep normalStep : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(alt, NormalStep.class,
 									"stepAlternative")) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(alternativeFlow,
 										UseCase.class, "flows")) {
 							for (Flow flow : useCase.getFlows()) {
@@ -4590,10 +4919,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_60816 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_382434 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_60816)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_382434)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4627,7 +4956,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										outFlow, exclusiveGateway) == null) {
 									if (pattern_SeqFlowAfterEGToAltFlowRule_23_2_black_nac_1BB(
 											exclusiveGateway, outFlow) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														outFlow,
 														FlowElementsContainer.class,
@@ -4758,10 +5087,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_763503 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_760504 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_763503)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_760504)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -4795,7 +5124,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 										outFlow, exclusiveGateway) == null) {
 									if (pattern_SeqFlowAfterEGToAltFlowRule_24_2_black_nac_1BB(
 											exclusiveGateway, outFlow) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														exclusiveGateway,
 														FlowElementsContainer.class,
@@ -4925,10 +5254,10 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SeqFlowAfterEGToAltFlowRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway) {
-		for (ExclusiveGateway __DEC_outFlow_default_845908 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_537245 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!exclusiveGateway.equals(__DEC_outFlow_default_845908)) {
+			if (!exclusiveGateway.equals(__DEC_outFlow_default_537245)) {
 				return new Object[] { outFlow, exclusiveGateway };
 			}
 		}
@@ -5165,7 +5494,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 													exclusiveGateway) == null) {
 												if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_5BB(
 														ruleResult, defaultFlow) == null) {
-													for (Flow flow : org.moflon.util.eMoflonEMFUtil
+													for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	normalStep,
 																	Flow.class,
@@ -5173,7 +5502,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 														if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_1BB(
 																ruleResult,
 																flow) == null) {
-															for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+															for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 																	.getOppositeReferenceTyped(
 																			exclusiveGateway,
 																			FlowElementsContainer.class,
@@ -5187,7 +5516,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 																		if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_7BB(
 																				ruleResult,
 																				process) == null) {
-																			for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																			for (SequenceFlowToUCFlow defaultFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																					.getOppositeReferenceTyped(
 																							defaultFlow,
 																							SequenceFlowToUCFlow.class,
@@ -5197,7 +5526,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 																					if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_6BB(
 																							ruleResult,
 																							defaultFlowToFlow) == null) {
-																						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+																						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 																								.getOppositeReferenceTyped(
 																										flow,
 																										UseCase.class,
@@ -5205,7 +5534,7 @@ public class SeqFlowAfterEGToAltFlowRuleImpl extends AbstractRuleImpl implements
 																							if (pattern_SeqFlowAfterEGToAltFlowRule_28_2_black_nac_0BB(
 																									ruleResult,
 																									useCase) == null) {
-																								for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+																								for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 																										.getOppositeReferenceTyped(
 																												process,
 																												ProcessToUseCase.class,

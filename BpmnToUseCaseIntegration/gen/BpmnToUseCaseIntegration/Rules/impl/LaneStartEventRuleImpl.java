@@ -90,7 +90,12 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 						flowNode, process, laneSet);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[lane] = " + lane
+							+ ", " + "[flowNode] = " + flowNode + ", "
+							+ "[process] = " + process + ", " + "[laneSet] = "
+							+ laneSet + ".");
 		}
 
 		// Solve CSP
@@ -99,7 +104,12 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 						match, lane, flowNode, process, laneSet);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[lane] = " + lane
+							+ ", " + "[flowNode] = " + flowNode + ", "
+							+ "[process] = " + process + ", " + "[laneSet] = "
+							+ laneSet + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -112,7 +122,11 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 							flowNode, process, laneSet);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[lane] = " + lane + ", " + "[flowNode] = "
+								+ flowNode + ", " + "[process] = " + process
+								+ ", " + "[laneSet] = " + laneSet + ".");
 			}
 			LaneStartEventRuleImpl.pattern_LaneStartEventRule_0_4_greenBBBF(
 					match, lane, flowNode);
@@ -124,7 +138,11 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 							flowNode, process, laneSet);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[lane] = " + lane + ", " + "[flowNode] = "
+								+ flowNode + ", " + "[process] = " + process
+								+ ", " + "[laneSet] = " + laneSet + ".");
 			}
 			LaneStartEventRuleImpl
 					.pattern_LaneStartEventRule_0_5_greenBBBBBFFF(match, lane,
@@ -158,7 +176,10 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Lane lane = (Lane) result1_bindingAndBlack[0];
 		StartEvent flowNode = (StartEvent) result1_bindingAndBlack[1];
@@ -171,7 +192,7 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneStartEventRule_1_2_greenF();
 		if (result2_green == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed.");
 		}
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
@@ -181,7 +202,12 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 						flowNode, process, laneSet);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[lane] = " + lane + ", "
+							+ "[flowNode] = " + flowNode + ", "
+							+ "[process] = " + process + ", " + "[laneSet] = "
+							+ laneSet + ".");
 		}
 		LaneStartEventRuleImpl.pattern_LaneStartEventRule_1_3_greenBBBF(
 				ruleresult, lane, flowNode);
@@ -206,7 +232,8 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneStartEventRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -218,7 +245,8 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = LaneStartEventRuleImpl
 				.pattern_LaneStartEventRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Lane lane = (Lane) result2_binding[0];
 		StartEvent flowNode = (StartEvent) result2_binding[1];
@@ -247,7 +275,13 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 								process, laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", " + "[lane] = "
+									+ lane + ", " + "[flowNode] = " + flowNode
+									+ ", " + "[process] = " + process + ", "
+									+ "[laneSet] = " + laneSet + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -260,7 +294,11 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					LaneStartEventRuleImpl
 							.pattern_LaneStartEventRule_2_6_greenBB(ruleresult,
@@ -386,14 +424,15 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_303(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_279(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneStartEventRuleImpl
 				.pattern_LaneStartEventRule_10_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -427,7 +466,11 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					LaneStartEventRuleImpl
 							.pattern_LaneStartEventRule_10_5_greenBBB(match,
@@ -449,8 +492,9 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -465,7 +509,8 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneStartEventRule_12_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = LaneStartEventRuleImpl
 				.pattern_LaneStartEventRule_12_1_greenFF();
@@ -489,7 +534,14 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 							laneSet, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[lane] = " + lane + ", "
+								+ "[flowNode] = " + flowNode + ", "
+								+ "[process] = " + process + ", "
+								+ "[laneSet] = " + laneSet + ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -507,7 +559,13 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 									flowNode, process, laneSet, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[lane] = " + lane
+										+ ", " + "[flowNode] = " + flowNode
+										+ ", " + "[process] = " + process
+										+ ", " + "[laneSet] = " + laneSet
+										+ ", " + "[ruleResult] = " + ruleResult
+										+ ".");
 					}
 					LaneStartEventRuleImpl
 							.pattern_LaneStartEventRule_12_6_greenBBB(lane,
@@ -608,8 +666,8 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.LANE_START_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_303__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_303((EMoflonEdge) arguments
+		case RulesPackage.LANE_START_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_279__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_279((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_START_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1147,10 +1205,10 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 			if (tmpFlowNode instanceof StartEvent) {
 				StartEvent flowNode = (StartEvent) tmpFlowNode;
 				if (lane.getFlowNodeRefs().contains(flowNode)) {
-					for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+					for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(lane, LaneSet.class,
 									"lanes")) {
-						for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+						for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(flowNode,
 										FlowElementsContainer.class,
 										"flowElements")) {
@@ -1275,12 +1333,12 @@ public class LaneStartEventRuleImpl extends AbstractRuleImpl implements
 					Lane lane = (Lane) tmpLane;
 					if (pattern_LaneStartEventRule_12_2_black_nac_0BB(
 							ruleResult, lane) == null) {
-						for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+						for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(lane, LaneSet.class,
 										"lanes")) {
 							if (pattern_LaneStartEventRule_12_2_black_nac_1BB(
 									ruleResult, laneSet) == null) {
-								for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+								for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(laneSet,
 												FlowElementsContainer.class,
 												"laneSets")) {

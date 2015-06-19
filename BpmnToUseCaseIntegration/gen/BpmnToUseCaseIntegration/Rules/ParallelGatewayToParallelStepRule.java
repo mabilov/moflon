@@ -237,7 +237,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_98(EMoflonEdge _edge_next);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_829(EMoflonEdge _edge_next);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,7 +245,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_295(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_271(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -254,7 +254,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_296(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_272(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -263,7 +263,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_297(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_273(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -272,7 +272,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_99(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_830(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,7 +280,7 @@ public interface ParallelGatewayToParallelStepRule extends EObject,
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_298(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_274(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

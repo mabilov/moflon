@@ -163,7 +163,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_304(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_280(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -172,7 +172,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_305(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_281(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -181,7 +181,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_306(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_282(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -190,7 +190,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_307(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_283(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -199,7 +199,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_308(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_284(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -208,7 +208,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_309(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_285(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -217,7 +217,7 @@ public interface ExcConvGwAfterEventGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_310(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_286(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

@@ -239,7 +239,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_308(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_869(
 			EMoflonEdge _edge_receiveEvent);
 
 	/**
@@ -248,7 +248,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_309(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_870(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,7 +256,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_310(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_871(
 			EMoflonEdge _edge_coveredBy);
 
 	/**
@@ -265,7 +265,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_311(EMoflonEdge _edge_covered);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_872(EMoflonEdge _edge_covered);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,7 +273,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_312(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_873(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -282,7 +282,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_313(EMoflonEdge _edge_message);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_874(EMoflonEdge _edge_message);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -290,7 +290,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_487(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_424(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -298,7 +298,7 @@ public interface WaitStepToFoundMessageRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_488(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_425(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -109,7 +109,32 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						laneSet);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[flowNode] = "
+							+ flowNode
+							+ ", "
+							+ "[event] = "
+							+ event
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = " + laneSet + ".");
 		}
 
 		// Solve CSP
@@ -119,7 +144,32 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						lane, laneSet);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[flowNode] = "
+							+ flowNode
+							+ ", "
+							+ "[event] = "
+							+ event
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = " + laneSet + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -133,7 +183,27 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 							laneSet);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[flowNode] = "
+								+ flowNode
+								+ ", "
+								+ "[event] = "
+								+ event
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane + ", " + "[laneSet] = " + laneSet + ".");
 			}
 			ICEToStepAfterExGwRuleImpl
 					.pattern_ICEToStepAfterExGwRule_0_4_greenBBBBBBFFFFFFF(
@@ -153,7 +223,27 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 							laneSet);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[flowNode] = "
+								+ flowNode
+								+ ", "
+								+ "[event] = "
+								+ event
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane + ", " + "[laneSet] = " + laneSet + ".");
 			}
 			ICEToStepAfterExGwRuleImpl
 					.pattern_ICEToStepAfterExGwRule_0_5_greenBBBBBBFFFFF(match,
@@ -190,7 +280,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		ExclusiveGateway flowNode = (ExclusiveGateway) result1_bindingAndBlack[0];
 		IntermediateCatchEvent event = (IntermediateCatchEvent) result1_bindingAndBlack[1];
@@ -217,7 +310,12 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						normalStep, outFlow, outFlowToNormalStep, outFlowToFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[event] = " + event + ", "
+							+ "[normalStep] = " + normalStep + ", "
+							+ "[outFlow] = " + outFlow + ", "
+							+ "[outFlowToNormalStep] = " + outFlowToNormalStep
+							+ ", " + "[outFlowToFlow] = " + outFlowToFlow + ".");
 		}
 		Object[] result2_green = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_1_2_greenFBBBBB(event,
@@ -233,7 +331,51 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						lane, laneSet);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[flowNode] = "
+							+ flowNode
+							+ ", "
+							+ "[event] = "
+							+ event
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[processToActor] = "
+							+ processToActor
+							+ ", "
+							+ "[outFlowToNormalStep] = "
+							+ outFlowToNormalStep
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[outFlowToFlow] = "
+							+ outFlowToFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet + ".");
 		}
 		ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
@@ -277,7 +419,8 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 				.pattern_ICEToStepAfterExGwRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -289,7 +432,8 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_2_2_bindingFFFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		ExclusiveGateway flowNode = (ExclusiveGateway) result2_binding[0];
 		IntermediateCatchEvent event = (IntermediateCatchEvent) result2_binding[1];
@@ -342,7 +486,44 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 								laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[flowNode] = "
+									+ flowNode
+									+ ", "
+									+ "[event] = "
+									+ event
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[outFlow] = "
+									+ outFlow
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[processToActor] = "
+									+ processToActor
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = " + laneSet + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -356,7 +537,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_2_6_greenBB(
@@ -573,7 +758,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						normalStep, actor, flow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[normalStep] = "
+							+ normalStep + ", " + "[actor] = " + actor + ", "
+							+ "[flow] = " + flow + ".");
 		}
 
 		// Solve CSP
@@ -582,7 +771,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						this, match, normalStep, actor, flow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[normalStep] = "
+							+ normalStep + ", " + "[actor] = " + actor + ", "
+							+ "[flow] = " + flow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -595,7 +788,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 							normalStep, actor, flow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[normalStep] = " + normalStep + ", "
+								+ "[actor] = " + actor + ", " + "[flow] = "
+								+ flow + ".");
 			}
 			ICEToStepAfterExGwRuleImpl
 					.pattern_ICEToStepAfterExGwRule_10_4_greenBBBBFF(match,
@@ -609,7 +806,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 							normalStep, actor, flow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[normalStep] = " + normalStep + ", "
+								+ "[actor] = " + actor + ", " + "[flow] = "
+								+ flow + ".");
 			}
 			ICEToStepAfterExGwRuleImpl
 					.pattern_ICEToStepAfterExGwRule_10_5_greenBBB(match, actor,
@@ -640,7 +841,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		ExclusiveGateway flowNode = (ExclusiveGateway) result1_bindingAndBlack[0];
 		NormalStep normalStep = (NormalStep) result1_bindingAndBlack[1];
@@ -667,7 +871,12 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						normalStep, outFlow, outFlowToNormalStep, outFlowToFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[event] = " + event + ", "
+							+ "[normalStep] = " + normalStep + ", "
+							+ "[outFlow] = " + outFlow + ", "
+							+ "[outFlowToNormalStep] = " + outFlowToNormalStep
+							+ ", " + "[outFlowToFlow] = " + outFlowToFlow + ".");
 		}
 		Object[] result2_green = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_11_2_greenFBBBBB(event,
@@ -683,7 +892,51 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 						lane, laneSet);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[flowNode] = "
+							+ flowNode
+							+ ", "
+							+ "[event] = "
+							+ event
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[processToActor] = "
+							+ processToActor
+							+ ", "
+							+ "[outFlowToNormalStep] = "
+							+ outFlowToNormalStep
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[outFlowToFlow] = "
+							+ outFlowToFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet + ".");
 		}
 		ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_11_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
@@ -727,7 +980,8 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 				.pattern_ICEToStepAfterExGwRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -739,7 +993,8 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_12_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		NormalStep normalStep = (NormalStep) result2_binding[0];
 		Actor actor = (Actor) result2_binding[1];
@@ -785,7 +1040,41 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 								inFlowToFlow, lane, laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[flowNode] = "
+									+ flowNode
+									+ ", "
+									+ "[normalStep] = "
+									+ normalStep
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[processToActor] = "
+									+ processToActor
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = " + laneSet + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -799,7 +1088,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_12_6_greenBB(
@@ -995,14 +1288,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_350(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_326(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1040,7 +1334,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_20_5_greenBBB(
@@ -1062,14 +1360,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_351(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_327(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1107,7 +1406,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_21_5_greenBBB(
@@ -1129,14 +1432,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_352(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_328(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1174,7 +1478,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_22_5_greenBBB(
@@ -1196,14 +1504,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_353(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_329(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1241,7 +1550,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_23_5_greenBBB(
@@ -1263,14 +1576,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_354(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_330(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1308,7 +1622,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_24_5_greenBBB(
@@ -1330,14 +1648,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_355(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_331(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1375,7 +1694,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_25_5_greenBBB(
@@ -1397,14 +1720,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_106(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_837(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1437,7 +1761,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_26_5_greenBBB(
@@ -1459,14 +1787,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_107(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_838(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_27_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1499,7 +1828,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_27_5_greenBBB(
@@ -1521,14 +1854,15 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_356(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_332(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_28_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1566,7 +1900,11 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_28_5_greenBBB(
@@ -1588,8 +1926,9 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1597,8 +1936,9 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1614,7 +1954,8 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 				.pattern_ICEToStepAfterExGwRule_31_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ICEToStepAfterExGwRuleImpl
 				.pattern_ICEToStepAfterExGwRule_31_1_greenFF();
@@ -1644,7 +1985,42 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 							laneSet, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[flowNode] = "
+								+ flowNode
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[processToActor] = "
+								+ processToActor
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1667,7 +2043,36 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 									laneSet, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[flowNode] = "
+										+ flowNode
+										+ ", "
+										+ "[process] = "
+										+ process
+										+ ", "
+										+ "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[actor] = "
+										+ actor
+										+ ", "
+										+ "[processToActor] = "
+										+ processToActor
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[lane] = "
+										+ lane
+										+ ", "
+										+ "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[ruleResult] = "
+										+ ruleResult + ".");
 					}
 					ICEToStepAfterExGwRuleImpl
 							.pattern_ICEToStepAfterExGwRule_31_6_greenFFBBFBFBFBBB(
@@ -1887,32 +2292,32 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_350__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_350((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_326__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_326((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_351__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_351((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_327__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_327((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_352__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_352((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_328__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_328((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_353__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_353((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_329__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_329((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_354__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_354((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_330__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_330((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_355__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_355((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_331__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_331((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_106__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_106((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_837__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_837((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_107__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_107((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_838__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_838((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_356__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_356((EMoflonEdge) arguments
+		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_332__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_332((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ICE_TO_STEP_AFTER_EX_GW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2859,12 +3264,12 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 			Lane lane, LaneSet laneSet, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!inFlow.equals(outFlow)) {
-			for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+			for (ProcessToActor processToActor : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(process, ProcessToActor.class,
 							"source")) {
 				Actor actor = processToActor.getTarget();
 				if (actor != null) {
-					for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+					for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(inFlow,
 									SequenceFlowToUCFlow.class, "source")) {
 						Flow flow = inFlowToFlow.getTarget();
@@ -3962,12 +4367,12 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 	public static final Iterable<Object[]> pattern_ICEToStepAfterExGwRule_12_2_blackBFFBFBFB(
 			NormalStep normalStep, Actor actor, Flow flow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+		for (ProcessToActor processToActor : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, ProcessToActor.class,
 						"target")) {
 			bpmn2.Process process = processToActor.getSource();
 			if (process != null) {
-				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(flow,
 								SequenceFlowToUCFlow.class, "target")) {
 					SequenceFlow inFlow = inFlowToFlow.getSource();
@@ -4271,10 +4676,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_20_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_907010 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_70010 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_907010)) {
+			if (!flowNode.equals(__DEC_outFlow_default_70010)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4463,10 +4868,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_21_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_521604 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_594717 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_521604)) {
+			if (!flowNode.equals(__DEC_outFlow_default_594717)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4656,10 +5061,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_22_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_110039 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_165248 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_110039)) {
+			if (!flowNode.equals(__DEC_outFlow_default_165248)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4703,7 +5108,7 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 											outFlow, event) == null) {
 										if (pattern_ICEToStepAfterExGwRule_22_2_black_nac_2BB(
 												flowNode, outFlow) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															inFlow,
 															FlowElementsContainer.class,
@@ -4849,10 +5254,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_23_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_616996 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_468634 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_616996)) {
+			if (!flowNode.equals(__DEC_outFlow_default_468634)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -4896,7 +5301,7 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 											outFlow, event) == null) {
 										if (pattern_ICEToStepAfterExGwRule_23_2_black_nac_2BB(
 												flowNode, outFlow) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															event,
 															FlowElementsContainer.class,
@@ -5043,10 +5448,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_24_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_421827 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_123986 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_421827)) {
+			if (!flowNode.equals(__DEC_outFlow_default_123986)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5090,7 +5495,7 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 											outFlow, flowNode) == null) {
 										if (pattern_ICEToStepAfterExGwRule_24_2_black_nac_2BB(
 												flowNode, outFlow) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															outFlow,
 															FlowElementsContainer.class,
@@ -5236,10 +5641,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_25_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_366984 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_663378 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_366984)) {
+			if (!flowNode.equals(__DEC_outFlow_default_663378)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5283,7 +5688,7 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 											outFlow, flowNode) == null) {
 										if (pattern_ICEToStepAfterExGwRule_25_2_black_nac_2BB(
 												flowNode, outFlow) == null) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															event,
 															FlowElementsContainer.class,
@@ -5438,7 +5843,7 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 			if (tmpActor instanceof Actor) {
 				Actor actor = (Actor) tmpActor;
 				if (actor.equals(normalStep.getActor())) {
-					for (Flow flow : org.moflon.util.eMoflonEMFUtil
+					for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(normalStep, Flow.class,
 									"steps")) {
 						_result.add(new Object[] { normalStep, actor, flow,
@@ -5660,10 +6065,10 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ICEToStepAfterExGwRule_28_2_black_nac_0BB(
 			SequenceFlow outFlow, ExclusiveGateway flowNode) {
-		for (ExclusiveGateway __DEC_outFlow_default_31450 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_587057 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
-			if (!flowNode.equals(__DEC_outFlow_default_31450)) {
+			if (!flowNode.equals(__DEC_outFlow_default_587057)) {
 				return new Object[] { outFlow, flowNode };
 			}
 		}
@@ -5708,12 +6113,12 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 												outFlow, event) == null) {
 											if (pattern_ICEToStepAfterExGwRule_28_2_black_nac_2BB(
 													flowNode, outFlow) == null) {
-												for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+												for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																lane,
 																LaneSet.class,
 																"lanes")) {
-													for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+													for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	event,
 																	FlowElementsContainer.class,
@@ -5942,7 +6347,7 @@ public class ICEToStepAfterExGwRuleImpl extends AbstractRuleImpl implements
 																		if (pattern_ICEToStepAfterExGwRule_31_2_black_nac_4BB(
 																				ruleResult,
 																				lane) == null) {
-																			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																					.getOppositeReferenceTyped(
 																							inFlow,
 																							SequenceFlowToUCFlow.class,

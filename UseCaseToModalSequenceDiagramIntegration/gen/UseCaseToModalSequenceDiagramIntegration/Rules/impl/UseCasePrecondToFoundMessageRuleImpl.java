@@ -105,7 +105,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						match, precond, useCase, actor, packageDeclaration);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[precond] = "
+							+ precond + ", " + "[useCase] = " + useCase + ", "
+							+ "[actor] = " + actor + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ".");
 		}
 
 		// Solve CSP
@@ -115,7 +121,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						packageDeclaration);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[precond] = "
+							+ precond + ", " + "[useCase] = " + useCase + ", "
+							+ "[actor] = " + actor + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -129,7 +141,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							match, precond, useCase, actor, packageDeclaration);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[precond] = " + precond + ", "
+								+ "[useCase] = " + useCase + ", "
+								+ "[actor] = " + actor + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_0_4_greenBBBF(
@@ -142,7 +160,13 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							match, precond, useCase, actor, packageDeclaration);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[precond] = " + precond + ", "
+								+ "[useCase] = " + useCase + ", "
+								+ "[actor] = " + actor + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_0_5_greenBBBBFF(
@@ -176,7 +200,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UCCondition precond = (UCCondition) result1_bindingAndBlack[0];
 		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[1];
@@ -200,7 +227,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						precond, message, messageReceive, precondToMessage);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[precond] = " + precond + ", "
+							+ "[message] = " + message + ", "
+							+ "[messageReceive] = " + messageReceive + ", "
+							+ "[precondToMessage] = " + precondToMessage + ".");
 		}
 		Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_1_2_greenFBBBB(
@@ -215,7 +246,41 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						packageDeclaration, line, actorToLine, precondToMessage);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[precond] = "
+							+ precond
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[precondToMessage] = " + precondToMessage + ".");
 		}
 		UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_1_3_greenBBBBBBBBFFFFFFFFFFF(
@@ -255,7 +320,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -267,7 +333,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UCCondition precond = (UCCondition) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -310,7 +377,36 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								actor, packageDeclaration, line, actorToLine);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[precond] = "
+									+ precond
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -324,7 +420,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_2_6_greenBB(
@@ -527,7 +627,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						this, match, message, interaction, messageReceive, line);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[message] = "
+							+ message + ", " + "[interaction] = " + interaction
+							+ ", " + "[messageReceive] = " + messageReceive
+							+ ", " + "[line] = " + line + ".");
 		}
 
 		// Solve CSP
@@ -536,7 +641,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						this, match, message, interaction, messageReceive, line);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[message] = "
+							+ message + ", " + "[interaction] = " + interaction
+							+ ", " + "[messageReceive] = " + messageReceive
+							+ ", " + "[line] = " + line + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -550,7 +660,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							match, message, interaction, messageReceive, line);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[message] = " + message + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[messageReceive] = " + messageReceive + ", "
+								+ "[line] = " + line + ".");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_10_4_greenBBBBBFFFFFFFF(
@@ -570,7 +685,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							match, message, interaction, messageReceive, line);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[message] = " + message + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[messageReceive] = " + messageReceive + ", "
+								+ "[line] = " + line + ".");
 			}
 			UseCasePrecondToFoundMessageRuleImpl
 					.pattern_UseCasePrecondToFoundMessageRule_10_5_greenBBBFF(
@@ -604,7 +724,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[0];
 		UseCase useCase = (UseCase) result1_bindingAndBlack[1];
@@ -628,7 +751,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						precond, message, messageReceive, precondToMessage);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[precond] = " + precond + ", "
+							+ "[message] = " + message + ", "
+							+ "[messageReceive] = " + messageReceive + ", "
+							+ "[precondToMessage] = " + precondToMessage + ".");
 		}
 		Object[] result2_green = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_11_2_greenFBBBB(
@@ -643,7 +770,41 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 						packageDeclaration, line, actorToLine, precondToMessage);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[precond] = "
+							+ precond
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[precondToMessage] = " + precondToMessage + ".");
 		}
 		UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_11_3_greenBBBBBBBBFFFFFFFFFFF(
@@ -683,7 +844,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -695,7 +857,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Message message = (Message) result2_binding[0];
 		Interaction interaction = (Interaction) result2_binding[1];
@@ -746,7 +909,39 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 								actor, packageDeclaration, line, actorToLine);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[message] = "
+									+ message
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[messageReceive] = "
+									+ messageReceive
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -760,7 +955,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_12_6_greenBB(
@@ -965,14 +1164,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_500(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_437(
 			EMoflonEdge _edge_preconditions) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1007,7 +1207,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_20_5_greenBBB(
@@ -1029,14 +1233,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_333(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_894(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1071,7 +1276,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_21_5_greenBBB(
@@ -1093,14 +1302,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_334(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_895(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1135,7 +1345,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_22_5_greenBBB(
@@ -1157,14 +1371,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_335(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_896(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1199,7 +1414,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_23_5_greenBBB(
@@ -1221,14 +1440,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_336(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_897(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1263,7 +1483,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_24_5_greenBBB(
@@ -1285,14 +1509,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_337(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_898(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1327,7 +1552,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_25_5_greenBBB(
@@ -1349,14 +1578,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_338(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_899(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1391,7 +1621,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_26_5_greenBBB(
@@ -1413,14 +1647,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_339(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_900(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_27_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1455,7 +1690,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_27_5_greenBBB(
@@ -1477,14 +1716,15 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_340(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_901(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_28_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1519,7 +1759,11 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_28_5_greenBBB(
@@ -1541,8 +1785,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1550,8 +1795,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1567,7 +1813,8 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_31_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = UseCasePrecondToFoundMessageRuleImpl
 				.pattern_UseCasePrecondToFoundMessageRule_31_1_greenFF();
@@ -1595,7 +1842,36 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 							line, actorToLine, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[interaction] = "
+								+ interaction
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[actorToLine] = "
+								+ actorToLine
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1617,7 +1893,32 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 									actorToLine, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[interaction] = "
+										+ interaction
+										+ ", "
+										+ "[actor] = "
+										+ actor
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[line] = "
+										+ line
+										+ ", "
+										+ "[actorToLine] = "
+										+ actorToLine
+										+ ", "
+										+ "[ruleResult] = "
+										+ ruleResult
+										+ ".");
 					}
 					UseCasePrecondToFoundMessageRuleImpl
 							.pattern_UseCasePrecondToFoundMessageRule_31_6_greenFBFBFBFBB(
@@ -1828,32 +2129,32 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_500__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_500((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_437__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_437((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_333__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_333((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_894__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_894((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_334__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_334((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_895__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_895((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_335__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_335((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_896__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_896((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_336__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_336((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_897__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_897((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_337__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_337((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_898__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_898((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_338__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_338((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_899__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_899((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_339__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_339((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_900__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_900((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_340__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_340((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_901__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_901((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2546,12 +2847,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			UCCondition precond, UseCase useCase, Actor actor,
 			PackageDeclaration packageDeclaration, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
 						"source")) {
 			Interaction interaction = useCaseToInteraction.getTarget();
 			if (interaction != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(actor,
 								ActorToLifeline.class, "source")) {
 					Lifeline line = actorToLine.getTarget();
@@ -3519,12 +3820,12 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 			MessageOccurrenceSpecification messageReceive, Lifeline line,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(interaction,
 						UseCaseToInteraction.class, "target")) {
 			UseCase useCase = useCaseToInteraction.getSource();
 			if (useCase != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(line, ActorToLifeline.class,
 								"target")) {
 					Actor actor = actorToLine.getSource();
@@ -3561,7 +3862,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 												.getSource())) {
 											if (line.equals(actorToLine
 													.getTarget())) {
-												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+												for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																useCase,
 																PackageDeclaration.class,
@@ -3908,10 +4209,10 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
 			UCCondition precond, UseCase useCase) {
-		for (UseCase __DEC_precond_preconditions_46579 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_precond_preconditions_544138 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_precond_preconditions_46579)) {
+			if (!useCase.equals(__DEC_precond_preconditions_544138)) {
 				return new Object[] { precond, useCase };
 			}
 		}
@@ -3930,7 +4231,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 				if (useCase.getPreconditions().contains(precond)) {
 					if (pattern_UseCasePrecondToFoundMessageRule_20_2_black_nac_0BB(
 							precond, useCase) == null) {
-						for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+						for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(useCase,
 										PackageDeclaration.class, "useCases")) {
 							for (Actor actor : packageDeclaration.getActors()) {
@@ -4042,9 +4343,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_449113 = message.getSendEvent();
-		if (__DEC_message_sendEvent_449113 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_449113)) {
+		MessageEnd __DEC_message_sendEvent_129476 = message.getSendEvent();
+		if (__DEC_message_sendEvent_129476 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_129476)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4054,9 +4355,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_819755 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_838611 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_819755)) {
+			if (!messageReceive.equals(__DEC_message_message_838611)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4213,9 +4514,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_784953 = message.getSendEvent();
-		if (__DEC_message_sendEvent_784953 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_784953)) {
+		MessageEnd __DEC_message_sendEvent_862524 = message.getSendEvent();
+		if (__DEC_message_sendEvent_862524 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_862524)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4225,9 +4526,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_428643 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_801448 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_428643)) {
+			if (!messageReceive.equals(__DEC_message_message_801448)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4386,9 +4687,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_495959 = message.getSendEvent();
-		if (__DEC_message_sendEvent_495959 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_495959)) {
+		MessageEnd __DEC_message_sendEvent_665512 = message.getSendEvent();
+		if (__DEC_message_sendEvent_665512 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_665512)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4398,9 +4699,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_323987 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_157544 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_323987)) {
+			if (!messageReceive.equals(__DEC_message_message_157544)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4558,9 +4859,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_228964 = message.getSendEvent();
-		if (__DEC_message_sendEvent_228964 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_228964)) {
+		MessageEnd __DEC_message_sendEvent_587633 = message.getSendEvent();
+		if (__DEC_message_sendEvent_587633 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_587633)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4570,9 +4871,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_724912 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_391797 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_724912)) {
+			if (!messageReceive.equals(__DEC_message_message_391797)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4729,9 +5030,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_434822 = message.getSendEvent();
-		if (__DEC_message_sendEvent_434822 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_434822)) {
+		MessageEnd __DEC_message_sendEvent_532869 = message.getSendEvent();
+		if (__DEC_message_sendEvent_532869 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_532869)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4741,9 +5042,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_146698 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_790905 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_146698)) {
+			if (!messageReceive.equals(__DEC_message_message_790905)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4901,9 +5202,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_876472 = message.getSendEvent();
-		if (__DEC_message_sendEvent_876472 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_876472)) {
+		MessageEnd __DEC_message_sendEvent_74196 = message.getSendEvent();
+		if (__DEC_message_sendEvent_74196 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_74196)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4913,9 +5214,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_26_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_660086 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_861635 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_660086)) {
+			if (!messageReceive.equals(__DEC_message_message_861635)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5071,9 +5372,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_398876 = message.getSendEvent();
-		if (__DEC_message_sendEvent_398876 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_398876)) {
+		MessageEnd __DEC_message_sendEvent_851381 = message.getSendEvent();
+		if (__DEC_message_sendEvent_851381 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_851381)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5083,9 +5384,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_27_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_37995 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_98802 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_37995)) {
+			if (!messageReceive.equals(__DEC_message_message_98802)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5244,9 +5545,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_316539 = message.getSendEvent();
-		if (__DEC_message_sendEvent_316539 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_316539)) {
+		MessageEnd __DEC_message_sendEvent_356831 = message.getSendEvent();
+		if (__DEC_message_sendEvent_356831 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_356831)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5256,9 +5557,9 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_UseCasePrecondToFoundMessageRule_28_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_999646 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_93500 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_999646)) {
+			if (!messageReceive.equals(__DEC_message_message_93500)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -5467,7 +5768,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 												.getLifeline()) {
 											if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_5BB(
 													ruleResult, line) == null) {
-												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+												for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																useCase,
 																PackageDeclaration.class,
@@ -5480,7 +5781,7 @@ public class UseCasePrecondToFoundMessageRuleImpl extends AbstractRuleImpl
 															if (pattern_UseCasePrecondToFoundMessageRule_31_2_black_nac_3BB(
 																	ruleResult,
 																	actor) == null) {
-																for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+																for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 																		.getOppositeReferenceTyped(
 																				line,
 																				ActorToLifeline.class,

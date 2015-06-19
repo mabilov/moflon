@@ -8,23 +8,20 @@ Export-Package: UseCaseToModalSequenceDiagramIntegration.util,
  UseCaseToModalSequenceDiagramIntegration.Rules.util,
  UseCaseToModalSequenceDiagramIntegration.impl
 Bundle-Name: UseCaseToModalSequenceDiagramIntegration
-Bundle-Version: 1.0
-Require-Bundle: UseCaseDSL,
- ModalSequenceDiagram,
- org.eclipse.emf.ecore,
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
- org.moflon.dependencies,
+ org.moflon.core.utilities,
+ UseCaseDSL,
+ ModalSequenceDiagram,
+ org.apache.log4j;bundle-version="1.2.15",
  MocaTree,
  SDMLanguage,
  TGGLanguage,
  TGGRuntime,
- de.abilov.tgg.helper,
- DebugLanguage
+ DebugLanguage,
+ de.abilov.tgg.helper
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: Marat Abilov
-Import-Package: org.eclipse.emf.compare,org.eclipse.emf.compare.match,
- org.eclipse.emf.compare.match.eobject,org.eclipse.emf.compare.match.i
- mpl,org.eclipse.emf.compare.merge,org.eclipse.emf.compare.scope,org.e
- clipse.emf.compare.utils
+Bundle-Vendor: TU Darmstadt

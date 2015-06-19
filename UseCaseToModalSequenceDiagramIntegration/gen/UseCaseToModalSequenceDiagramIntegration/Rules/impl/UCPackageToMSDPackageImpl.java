@@ -96,7 +96,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						useCasesModel, packageDeclaration);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[useCasesModel] = " + useCasesModel + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ".");
 		}
 
 		// Solve CSP
@@ -105,7 +110,12 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						match, useCasesModel, packageDeclaration);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[useCasesModel] = " + useCasesModel + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -118,7 +128,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 							useCasesModel, packageDeclaration);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCasesModel] = " + useCasesModel + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			UCPackageToMSDPackageImpl
 					.pattern_UCPackageToMSDPackage_0_4_greenBBBF(match,
@@ -131,7 +145,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 							useCasesModel, packageDeclaration);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCasesModel] = " + useCasesModel + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			UCPackageToMSDPackageImpl
 					.pattern_UCPackageToMSDPackage_0_5_greenBB(match,
@@ -162,7 +180,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result1_bindingAndBlack[0];
 		Model model = (Model) result1_bindingAndBlack[1];
@@ -181,7 +202,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						p, packageDeclarationToPackage);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[packageDeclaration] = "
+							+ packageDeclaration + ", " + "[p] = " + p + ", "
+							+ "[packageDeclarationToPackage] = "
+							+ packageDeclarationToPackage + ".");
 		}
 		Object[] result2_green = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_1_2_greenFBBB(
@@ -195,7 +220,16 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						packageDeclaration, p, packageDeclarationToPackage);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[useCasesModel] = " + useCasesModel
+							+ ", " + "[model] = " + model + ", "
+							+ "[useCasesModelToModel] = "
+							+ useCasesModelToModel + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[p] = " + p + ", "
+							+ "[packageDeclarationToPackage] = "
+							+ packageDeclarationToPackage + ".");
 		}
 		UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_1_3_greenBBBBBBFFFF(ruleresult,
@@ -227,7 +261,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				.pattern_UCPackageToMSDPackage_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -239,7 +274,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_2_2_bindingFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result2_binding[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[1];
@@ -268,7 +304,16 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								useCasesModelToModel, packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[useCasesModel] = " + useCasesModel
+									+ ", " + "[model] = " + model + ", "
+									+ "[useCasesModelToModel] = "
+									+ useCasesModelToModel + ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -282,7 +327,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UCPackageToMSDPackageImpl
 							.pattern_UCPackageToMSDPackage_2_6_greenBB(
@@ -438,7 +487,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						model, p);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[model] = "
+							+ model + ", " + "[p] = " + p + ".");
 		}
 
 		// Solve CSP
@@ -447,7 +499,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						match, model, p);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[model] = "
+							+ model + ", " + "[p] = " + p + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -460,7 +515,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 							p);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[model] = " + model + ", " + "[p] = " + p
+								+ ".");
 			}
 			UCPackageToMSDPackageImpl
 					.pattern_UCPackageToMSDPackage_10_4_greenBBBF(match, model,
@@ -473,7 +531,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 							p);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[model] = " + model + ", " + "[p] = " + p
+								+ ".");
 			}
 			UCPackageToMSDPackageImpl
 					.pattern_UCPackageToMSDPackage_10_5_greenBB(match, model);
@@ -503,7 +564,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result1_bindingAndBlack[0];
 		Model model = (Model) result1_bindingAndBlack[1];
@@ -522,7 +586,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						packageDeclaration, p, packageDeclarationToPackage);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[packageDeclaration] = "
+							+ packageDeclaration + ", " + "[p] = " + p + ", "
+							+ "[packageDeclarationToPackage] = "
+							+ packageDeclarationToPackage + ".");
 		}
 		Object[] result2_green = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_11_2_greenFBBB(
@@ -536,7 +604,16 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 						packageDeclaration, p, packageDeclarationToPackage);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[useCasesModel] = " + useCasesModel
+							+ ", " + "[model] = " + model + ", "
+							+ "[useCasesModelToModel] = "
+							+ useCasesModelToModel + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[p] = " + p + ", "
+							+ "[packageDeclarationToPackage] = "
+							+ packageDeclarationToPackage + ".");
 		}
 		UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_11_3_greenBBBBBBFFFF(ruleresult,
@@ -568,7 +645,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				.pattern_UCPackageToMSDPackage_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -580,7 +658,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_12_2_bindingFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Model model = (Model) result2_binding[0];
 		ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result2_binding[1];
@@ -607,7 +686,15 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 								useCasesModelToModel, p);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[useCasesModel] = " + useCasesModel
+									+ ", " + "[model] = " + model + ", "
+									+ "[useCasesModelToModel] = "
+									+ useCasesModelToModel + ", " + "[p] = "
+									+ p + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -621,7 +708,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UCPackageToMSDPackageImpl
 							.pattern_UCPackageToMSDPackage_12_6_greenBB(
@@ -768,14 +859,15 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_491(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_428(
 			EMoflonEdge _edge_packages) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -807,7 +899,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UCPackageToMSDPackageImpl
 							.pattern_UCPackageToMSDPackage_20_5_greenBBB(match,
@@ -829,14 +925,15 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_320(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_881(
 			EMoflonEdge _edge_packagedElement) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -868,7 +965,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UCPackageToMSDPackageImpl
 							.pattern_UCPackageToMSDPackage_21_5_greenBBB(match,
@@ -890,8 +991,9 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -899,8 +1001,9 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -916,7 +1019,8 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 				.pattern_UCPackageToMSDPackage_24_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = UCPackageToMSDPackageImpl
 				.pattern_UCPackageToMSDPackage_24_1_greenFF();
@@ -939,7 +1043,14 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 							useCasesModelToModel, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[useCasesModel] = " + useCasesModel
+								+ ", " + "[model] = " + model + ", "
+								+ "[useCasesModelToModel] = "
+								+ useCasesModelToModel + ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -958,7 +1069,13 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[useCasesModel] = "
+										+ useCasesModel + ", " + "[model] = "
+										+ model + ", "
+										+ "[useCasesModelToModel] = "
+										+ useCasesModelToModel + ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					UCPackageToMSDPackageImpl
 							.pattern_UCPackageToMSDPackage_24_6_greenBBFFFBB(
@@ -1107,11 +1224,11 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_491__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_491((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_428__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_428((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_320__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_320((EMoflonEdge) arguments
+		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_881__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_881((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.UC_PACKAGE_TO_MSD_PACKAGE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1531,7 +1648,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			UseCasesModel useCasesModel, PackageDeclaration packageDeclaration,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCasesModelToModel useCasesModelToModel : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModelToModel useCasesModelToModel : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCasesModel,
 						UseCasesModelToModel.class, "source")) {
 			Model model = useCasesModelToModel.getTarget();
@@ -2077,7 +2194,7 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 			Model model, ModalSequenceDiagram.Package p, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!model.equals(p)) {
-			for (UseCasesModelToModel useCasesModelToModel : org.moflon.util.eMoflonEMFUtil
+			for (UseCasesModelToModel useCasesModelToModel : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(model,
 							UseCasesModelToModel.class, "target")) {
 				UseCasesModel useCasesModel = useCasesModelToModel.getSource();
@@ -2272,10 +2389,10 @@ public class UCPackageToMSDPackageImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UCPackageToMSDPackage_20_2_black_nac_0BB(
 			PackageDeclaration packageDeclaration, UseCasesModel useCasesModel) {
-		for (UseCasesModel __DEC_packageDeclaration_packages_603470 : org.moflon.util.eMoflonEMFUtil
+		for (UseCasesModel __DEC_packageDeclaration_packages_330093 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						UseCasesModel.class, "packages")) {
-			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_603470)) {
+			if (!useCasesModel.equals(__DEC_packageDeclaration_packages_330093)) {
 				return new Object[] { packageDeclaration, useCasesModel };
 			}
 		}

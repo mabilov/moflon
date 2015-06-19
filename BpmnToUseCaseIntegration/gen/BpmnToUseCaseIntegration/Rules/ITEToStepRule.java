@@ -242,7 +242,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_81(EMoflonEdge _edge_next);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_812(EMoflonEdge _edge_next);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,7 +250,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_246(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_222(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -259,7 +259,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_247(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_223(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -268,7 +268,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_248(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_224(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -277,7 +277,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_249(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_225(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -286,7 +286,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_250(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_226(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -295,7 +295,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_251(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_227(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -304,7 +304,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_82(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_813(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -312,7 +312,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_83(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_814(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -320,7 +320,7 @@ public interface ITEToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_252(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_228(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

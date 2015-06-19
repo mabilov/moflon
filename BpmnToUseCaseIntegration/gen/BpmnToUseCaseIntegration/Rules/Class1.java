@@ -229,7 +229,7 @@ public interface Class1 extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_226(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_202(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -238,7 +238,7 @@ public interface Class1 extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_227(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_203(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -247,7 +247,7 @@ public interface Class1 extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_73(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_804(
 			EMoflonEdge _edge_preconditions);
 
 	/**
@@ -256,7 +256,7 @@ public interface Class1 extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_228(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_204(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -265,7 +265,7 @@ public interface Class1 extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_205(
 			EMoflonEdge _edge_outgoing);
 
 	/**

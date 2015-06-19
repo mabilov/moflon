@@ -91,7 +91,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						documentRoot);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[documentRoot] = "
+							+ documentRoot + ".");
 		}
 
 		// Solve CSP
@@ -100,7 +103,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						this, match, documentRoot);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[documentRoot] = "
+							+ documentRoot + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -113,7 +119,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 							documentRoot);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[documentRoot] = " + documentRoot + ".");
 			}
 			BpModelToUseCaseModelRuleImpl
 					.pattern_BpModelToUseCaseModelRule_0_4_greenBB(match,
@@ -125,7 +133,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 							documentRoot);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[documentRoot] = " + documentRoot + ".");
 			}
 			// register objects to match
 			BpModelToUseCaseModelRuleImpl
@@ -152,7 +162,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		DocumentRoot documentRoot = (DocumentRoot) result1_bindingAndBlack[0];
 		// CSP csp = (CSP) result1_bindingAndBlack[1];
@@ -167,7 +180,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						useCasesModel, docRootToUCModel);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[documentRoot] = "
+							+ documentRoot + ", " + "[useCasesModel] = "
+							+ useCasesModel + ", " + "[docRootToUCModel] = "
+							+ docRootToUCModel + ".");
 		}
 		Object[] result2_green = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_1_2_greenFBBB(documentRoot,
@@ -180,7 +197,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						documentRoot, useCasesModel, docRootToUCModel);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[documentRoot] = " + documentRoot + ", "
+							+ "[useCasesModel] = " + useCasesModel + ", "
+							+ "[docRootToUCModel] = " + docRootToUCModel + ".");
 		}
 		BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_1_3_greenBBBBFF(ruleresult,
@@ -209,7 +230,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_BpModelToUseCaseModelRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -221,7 +243,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_2_2_bindingFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		DocumentRoot documentRoot = (DocumentRoot) result2_binding[0];
 		for (Object[] result2_black : BpModelToUseCaseModelRuleImpl
@@ -240,7 +263,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 								this, isApplicableMatch, documentRoot);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[documentRoot] = " + documentRoot + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -254,7 +281,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					BpModelToUseCaseModelRuleImpl
 							.pattern_BpModelToUseCaseModelRule_2_6_greenBB(
@@ -380,7 +411,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						useCasesModel);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[useCasesModel] = " + useCasesModel + ".");
 		}
 
 		// Solve CSP
@@ -389,7 +423,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						this, match, useCasesModel);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[useCasesModel] = " + useCasesModel + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -402,7 +439,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 							useCasesModel);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCasesModel] = " + useCasesModel + ".");
 			}
 			BpModelToUseCaseModelRuleImpl
 					.pattern_BpModelToUseCaseModelRule_10_4_greenBB(match,
@@ -414,7 +453,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 							useCasesModel);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCasesModel] = " + useCasesModel + ".");
 			}
 			// register objects to match
 			BpModelToUseCaseModelRuleImpl
@@ -441,7 +482,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result1_bindingAndBlack[0];
 		// CSP csp = (CSP) result1_bindingAndBlack[1];
@@ -456,7 +500,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						useCasesModel, docRootToUCModel);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[documentRoot] = "
+							+ documentRoot + ", " + "[useCasesModel] = "
+							+ useCasesModel + ", " + "[docRootToUCModel] = "
+							+ docRootToUCModel + ".");
 		}
 		Object[] result2_green = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_11_2_greenFBBB(documentRoot,
@@ -469,7 +517,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						documentRoot, useCasesModel, docRootToUCModel);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[documentRoot] = " + documentRoot + ", "
+							+ "[useCasesModel] = " + useCasesModel + ", "
+							+ "[docRootToUCModel] = " + docRootToUCModel + ".");
 		}
 		BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_11_3_greenBBBBFF(ruleresult,
@@ -498,7 +550,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_BpModelToUseCaseModelRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -510,7 +563,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_12_2_bindingFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result2_binding[0];
 		for (Object[] result2_black : BpModelToUseCaseModelRuleImpl
@@ -529,7 +583,12 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 								this, isApplicableMatch, useCasesModel);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[useCasesModel] = " + useCasesModel
+									+ ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -543,7 +602,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					BpModelToUseCaseModelRuleImpl
 							.pattern_BpModelToUseCaseModelRule_12_6_greenBB(
@@ -666,14 +729,15 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_DocumentRoot_1(
+	public EObjectContainer isAppropriate_FWD_DocumentRoot_0(
 			DocumentRoot documentRoot) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -703,7 +767,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					BpModelToUseCaseModelRuleImpl
 							.pattern_BpModelToUseCaseModelRule_20_5_greenBBB(
@@ -725,14 +793,15 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_UseCasesModel_1(
+	public EObjectContainer isAppropriate_BWD_UseCasesModel_0(
 			UseCasesModel useCasesModel) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -762,7 +831,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					BpModelToUseCaseModelRuleImpl
 							.pattern_BpModelToUseCaseModelRule_21_5_greenBBB(
@@ -784,8 +857,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -793,8 +867,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -809,7 +884,8 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_BpModelToUseCaseModelRule_24_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = BpModelToUseCaseModelRuleImpl
 				.pattern_BpModelToUseCaseModelRule_24_1_greenFF();
@@ -827,7 +903,10 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 							this, isApplicableMatch, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -841,7 +920,9 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 						.pattern_BpModelToUseCaseModelRule_24_6_blackB(ruleResult);
 				if (result6_black == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [perform] failed");
+							"Pattern matching in node [perform] failed."
+									+ " Variables: " + "[ruleResult] = "
+									+ ruleResult + ".");
 				}
 				BpModelToUseCaseModelRuleImpl
 						.pattern_BpModelToUseCaseModelRule_24_6_greenFFFB(ruleResult);
@@ -958,11 +1039,11 @@ public class BpModelToUseCaseModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_1__DOCUMENTROOT:
-			return isAppropriate_FWD_DocumentRoot_1((DocumentRoot) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_FWD_DOCUMENT_ROOT_0__DOCUMENTROOT:
+			return isAppropriate_FWD_DocumentRoot_0((DocumentRoot) arguments
 					.get(0));
-		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_1__USECASESMODEL:
-			return isAppropriate_BWD_UseCasesModel_1((UseCasesModel) arguments
+		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___IS_APPROPRIATE_BWD_USE_CASES_MODEL_0__USECASESMODEL:
+			return isAppropriate_BWD_UseCasesModel_0((UseCasesModel) arguments
 					.get(0));
 		case RulesPackage.BP_MODEL_TO_USE_CASE_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));

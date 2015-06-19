@@ -109,7 +109,13 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						laneSet);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[inFlow] = "
+							+ inFlow + ", " + "[process] = " + process + ", "
+							+ "[eventBasedGateway] = " + eventBasedGateway
+							+ ", " + "[lane] = " + lane + ", " + "[laneSet] = "
+							+ laneSet + ".");
 		}
 
 		// Solve CSP
@@ -119,7 +125,13 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						laneSet);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[inFlow] = "
+							+ inFlow + ", " + "[process] = " + process + ", "
+							+ "[eventBasedGateway] = " + eventBasedGateway
+							+ ", " + "[lane] = " + lane + ", " + "[laneSet] = "
+							+ laneSet + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -133,7 +145,13 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 							inFlow, process, eventBasedGateway, lane, laneSet);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[inFlow] = " + inFlow + ", "
+								+ "[process] = " + process + ", "
+								+ "[eventBasedGateway] = " + eventBasedGateway
+								+ ", " + "[lane] = " + lane + ", "
+								+ "[laneSet] = " + laneSet + ".");
 			}
 			EventBasedGatewayToStepRuleImpl
 					.pattern_EventBasedGatewayToStepRule_0_4_greenBBBBBFFFF(
@@ -149,7 +167,13 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 							inFlow, process, eventBasedGateway, lane, laneSet);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[inFlow] = " + inFlow + ", "
+								+ "[process] = " + process + ", "
+								+ "[eventBasedGateway] = " + eventBasedGateway
+								+ ", " + "[lane] = " + lane + ", "
+								+ "[laneSet] = " + laneSet + ".");
 			}
 			EventBasedGatewayToStepRuleImpl
 					.pattern_EventBasedGatewayToStepRule_0_5_greenBBBBBFFF(
@@ -184,7 +208,10 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[0];
 		Step prevStep = (Step) result1_bindingAndBlack[1];
@@ -210,7 +237,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						eventBasedGateway, ebgToNormalStep);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[normalStep] = " + normalStep
+							+ ", " + "[eventBasedGateway] = "
+							+ eventBasedGateway + ", " + "[ebgToNormalStep] = "
+							+ ebgToNormalStep + ".");
 		}
 		Object[] result2_green = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_1_2_greenFBBB(normalStep,
@@ -226,7 +257,46 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						lane, laneSet);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[prevStep] = "
+							+ prevStep
+							+ ", "
+							+ "[inFlowToPrevStep] = "
+							+ inFlowToPrevStep
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[eventBasedGateway] = "
+							+ eventBasedGateway
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[processToActor] = "
+							+ processToActor
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[ebgToNormalStep] = "
+							+ ebgToNormalStep
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", " + "[laneSet] = " + laneSet + ".");
 		}
 		EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_1_3_greenBBBBBBBBBBFFFFFFFFF(
@@ -265,7 +335,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				.pattern_EventBasedGatewayToStepRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -277,7 +348,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_2_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		SequenceFlow inFlow = (SequenceFlow) result2_binding[0];
 		bpmn2.Process process = (bpmn2.Process) result2_binding[1];
@@ -329,7 +401,43 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 								lane, laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[prevStep] = "
+									+ prevStep
+									+ ", "
+									+ "[inFlowToPrevStep] = "
+									+ inFlowToPrevStep
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[eventBasedGateway] = "
+									+ eventBasedGateway
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[processToActor] = "
+									+ processToActor
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", " + "[laneSet] = " + laneSet + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -343,7 +451,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_2_6_greenBB(
@@ -555,7 +667,12 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						match, prevStep, normalStep, actor, flow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[prevStep] = "
+							+ prevStep + ", " + "[normalStep] = " + normalStep
+							+ ", " + "[actor] = " + actor + ", " + "[flow] = "
+							+ flow + ".");
 		}
 
 		// Solve CSP
@@ -564,7 +681,12 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						this, match, prevStep, normalStep, actor, flow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[prevStep] = "
+							+ prevStep + ", " + "[normalStep] = " + normalStep
+							+ ", " + "[actor] = " + actor + ", " + "[flow] = "
+							+ flow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -578,7 +700,12 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 							prevStep, normalStep, actor, flow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[prevStep] = " + prevStep + ", "
+								+ "[normalStep] = " + normalStep + ", "
+								+ "[actor] = " + actor + ", " + "[flow] = "
+								+ flow + ".");
 			}
 			EventBasedGatewayToStepRuleImpl
 					.pattern_EventBasedGatewayToStepRule_10_4_greenBBBBBFFF(
@@ -593,7 +720,12 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 							prevStep, normalStep, actor, flow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[prevStep] = " + prevStep + ", "
+								+ "[normalStep] = " + normalStep + ", "
+								+ "[actor] = " + actor + ", " + "[flow] = "
+								+ flow + ".");
 			}
 			EventBasedGatewayToStepRuleImpl
 					.pattern_EventBasedGatewayToStepRule_10_5_greenBBBB(match,
@@ -624,7 +756,10 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[0];
 		Step prevStep = (Step) result1_bindingAndBlack[1];
@@ -650,7 +785,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						eventBasedGateway, ebgToNormalStep);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[normalStep] = " + normalStep
+							+ ", " + "[eventBasedGateway] = "
+							+ eventBasedGateway + ", " + "[ebgToNormalStep] = "
+							+ ebgToNormalStep + ".");
 		}
 		Object[] result2_green = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_11_2_greenFBBB(normalStep,
@@ -666,7 +805,46 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 						lane, laneSet);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[prevStep] = "
+							+ prevStep
+							+ ", "
+							+ "[inFlowToPrevStep] = "
+							+ inFlowToPrevStep
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[eventBasedGateway] = "
+							+ eventBasedGateway
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[processToActor] = "
+							+ processToActor
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[ebgToNormalStep] = "
+							+ ebgToNormalStep
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", " + "[laneSet] = " + laneSet + ".");
 		}
 		EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_11_3_greenBBBBBBBBBBFFFFFFFFF(
@@ -705,7 +883,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				.pattern_EventBasedGatewayToStepRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -717,7 +896,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Step prevStep = (Step) result2_binding[0];
 		NormalStep normalStep = (NormalStep) result2_binding[1];
@@ -766,7 +946,44 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 								laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[prevStep] = "
+									+ prevStep
+									+ ", "
+									+ "[inFlowToPrevStep] = "
+									+ inFlowToPrevStep
+									+ ", "
+									+ "[normalStep] = "
+									+ normalStep
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[processToActor] = "
+									+ processToActor
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = " + laneSet + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -780,7 +997,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_12_6_greenBB(
@@ -979,14 +1200,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_100(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_831(
 			EMoflonEdge _edge_next) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1020,7 +1242,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_20_5_greenBBB(
@@ -1042,14 +1268,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_299(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_275(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1085,7 +1312,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_21_5_greenBBB(
@@ -1107,14 +1338,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_300(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_276(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1150,7 +1382,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_22_5_greenBBB(
@@ -1172,14 +1408,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_301(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_277(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1215,7 +1452,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_23_5_greenBBB(
@@ -1237,14 +1478,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_101(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_832(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1278,7 +1520,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_24_5_greenBBB(
@@ -1300,14 +1546,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_102(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_833(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1341,7 +1588,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_25_5_greenBBB(
@@ -1363,14 +1614,15 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_302(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_278(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1406,7 +1658,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_26_5_greenBBB(
@@ -1428,8 +1684,9 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1437,8 +1694,9 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1454,7 +1712,8 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				.pattern_EventBasedGatewayToStepRule_29_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = EventBasedGatewayToStepRuleImpl
 				.pattern_EventBasedGatewayToStepRule_29_1_greenFF();
@@ -1485,7 +1744,45 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 							flow, inFlowToFlow, lane, laneSet, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[prevStep] = "
+								+ prevStep
+								+ ", "
+								+ "[inFlowToPrevStep] = "
+								+ inFlowToPrevStep
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[processToActor] = "
+								+ processToActor
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1508,7 +1805,39 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 									inFlowToFlow, lane, laneSet, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[prevStep] = "
+										+ prevStep
+										+ ", "
+										+ "[inFlowToPrevStep] = "
+										+ inFlowToPrevStep
+										+ ", "
+										+ "[process] = "
+										+ process
+										+ ", "
+										+ "[actor] = "
+										+ actor
+										+ ", "
+										+ "[processToActor] = "
+										+ processToActor
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[lane] = "
+										+ lane
+										+ ", "
+										+ "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[ruleResult] = "
+										+ ruleResult + ".");
 					}
 					EventBasedGatewayToStepRuleImpl
 							.pattern_EventBasedGatewayToStepRule_29_6_greenBBFBFBBFBBB(
@@ -1723,26 +2052,26 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_100__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_100((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_831__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_831((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_299__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_299((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_275__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_275((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_300__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_300((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_276__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_276((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_301__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_301((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_277__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_277((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_101__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_101((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_832__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_832((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_102__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_102((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_833__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_833((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_302__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_302((EMoflonEdge) arguments
+		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_278__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_278((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EVENT_BASED_GATEWAY_TO_STEP_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2554,17 +2883,17 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			EventBasedGateway eventBasedGateway, Lane lane, LaneSet laneSet,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (SequenceFlowToStep inFlowToPrevStep : org.moflon.util.eMoflonEMFUtil
+		for (SequenceFlowToStep inFlowToPrevStep : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(inFlow, SequenceFlowToStep.class,
 						"source")) {
 			Step prevStep = inFlowToPrevStep.getTarget();
 			if (prevStep != null) {
-				for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToActor processToActor : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(process,
 								ProcessToActor.class, "source")) {
 					Actor actor = processToActor.getTarget();
 					if (actor != null) {
-						for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+						for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(inFlow,
 										SequenceFlowToUCFlow.class, "source")) {
 							Flow flow = inFlowToFlow.getTarget();
@@ -3612,17 +3941,17 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!normalStep.equals(prevStep)) {
-			for (SequenceFlowToStep inFlowToPrevStep : org.moflon.util.eMoflonEMFUtil
+			for (SequenceFlowToStep inFlowToPrevStep : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(prevStep,
 							SequenceFlowToStep.class, "target")) {
 				SequenceFlow inFlow = inFlowToPrevStep.getSource();
 				if (inFlow != null) {
-					for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+					for (ProcessToActor processToActor : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(actor,
 									ProcessToActor.class, "target")) {
 						bpmn2.Process process = processToActor.getSource();
 						if (process != null) {
-							for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+							for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(flow,
 											SequenceFlowToUCFlow.class,
 											"target")) {
@@ -3970,7 +4299,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 					if (normalStep.equals(prevStep.getNext())) {
 						Actor actor = normalStep.getActor();
 						if (actor != null) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+							for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(normalStep,
 											Flow.class, "steps")) {
 								_result.add(new Object[] { prevStep,
@@ -4217,7 +4546,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			if (tmpEventBasedGateway instanceof EventBasedGateway) {
 				EventBasedGateway eventBasedGateway = (EventBasedGateway) tmpEventBasedGateway;
 				if (eventBasedGateway.equals(inFlow.getTargetRef())) {
-					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+					for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(inFlow,
 									FlowElementsContainer.class, "flowElements")) {
 						if (tmpProcess instanceof bpmn2.Process) {
@@ -4348,7 +4677,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			if (tmpInFlow instanceof SequenceFlow) {
 				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 				if (eventBasedGateway.equals(inFlow.getTargetRef())) {
-					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+					for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(eventBasedGateway,
 									FlowElementsContainer.class, "flowElements")) {
 						if (tmpProcess instanceof bpmn2.Process) {
@@ -4478,11 +4807,11 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 			if (tmpActor instanceof Actor) {
 				Actor actor = (Actor) tmpActor;
 				if (actor.equals(normalStep.getActor())) {
-					for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+					for (Step prevStep : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(normalStep, Step.class,
 									"next")) {
 						if (!normalStep.equals(prevStep)) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+							for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(normalStep,
 											Flow.class, "steps")) {
 								_result.add(new Object[] { prevStep,
@@ -4601,7 +4930,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				if (flow.getSteps().contains(normalStep)) {
 					Actor actor = normalStep.getActor();
 					if (actor != null) {
-						for (Step prevStep : org.moflon.util.eMoflonEMFUtil
+						for (Step prevStep : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(normalStep,
 										Step.class, "next")) {
 							if (!normalStep.equals(prevStep)) {
@@ -4721,10 +5050,10 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 				EventBasedGateway eventBasedGateway = (EventBasedGateway) tmpEventBasedGateway;
 				if (lane.getFlowNodeRefs().contains(eventBasedGateway)) {
 					for (SequenceFlow inFlow : eventBasedGateway.getIncoming()) {
-						for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+						for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(lane, LaneSet.class,
 										"lanes")) {
-							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+							for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(
 											eventBasedGateway,
 											FlowElementsContainer.class,
@@ -4916,7 +5245,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 										ruleResult, inFlow) == null) {
 									if (pattern_EventBasedGatewayToStepRule_29_2_black_nac_2BB(
 											ruleResult, prevStep) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														inFlow,
 														FlowElementsContainer.class,
@@ -4935,7 +5264,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 																if (pattern_EventBasedGatewayToStepRule_29_2_black_nac_5BB(
 																		ruleResult,
 																		lane) == null) {
-																	for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																	for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																			.getOppositeReferenceTyped(
 																					inFlow,
 																					SequenceFlowToUCFlow.class,
@@ -4949,7 +5278,7 @@ public class EventBasedGatewayToStepRuleImpl extends AbstractRuleImpl implements
 																				if (pattern_EventBasedGatewayToStepRule_29_2_black_nac_9BB(
 																						ruleResult,
 																						flow) == null) {
-																					for (ProcessToActor processToActor : org.moflon.util.eMoflonEMFUtil
+																					for (ProcessToActor processToActor : org.moflon.core.utilities.eMoflonEMFUtil
 																							.getOppositeReferenceTyped(
 																									process,
 																									ProcessToActor.class,

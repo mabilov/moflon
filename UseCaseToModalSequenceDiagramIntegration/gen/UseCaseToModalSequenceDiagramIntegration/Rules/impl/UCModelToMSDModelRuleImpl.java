@@ -91,7 +91,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						useCasesModel);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[useCasesModel] = " + useCasesModel + ".");
 		}
 
 		// Solve CSP
@@ -100,7 +103,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						match, useCasesModel);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[useCasesModel] = " + useCasesModel + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -113,7 +119,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 							useCasesModel);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCasesModel] = " + useCasesModel + ".");
 			}
 			UCModelToMSDModelRuleImpl
 					.pattern_UCModelToMSDModelRule_0_4_greenBB(match,
@@ -125,7 +133,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 							useCasesModel);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCasesModel] = " + useCasesModel + ".");
 			}
 			// register objects to match
 			UCModelToMSDModelRuleImpl
@@ -152,7 +162,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result1_bindingAndBlack[0];
 		// CSP csp = (CSP) result1_bindingAndBlack[1];
@@ -167,7 +180,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						model, useCasesModelToModel);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[useCasesModel] = "
+							+ useCasesModel + ", " + "[model] = " + model
+							+ ", " + "[useCasesModelToModel] = "
+							+ useCasesModelToModel + ".");
 		}
 		Object[] result2_green = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_1_2_greenFBBB(useCasesModel,
@@ -180,7 +197,12 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						useCasesModel, model, useCasesModelToModel);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[useCasesModel] = " + useCasesModel
+							+ ", " + "[model] = " + model + ", "
+							+ "[useCasesModelToModel] = "
+							+ useCasesModelToModel + ".");
 		}
 		UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_1_3_greenBBBBFF(ruleresult,
@@ -208,7 +230,8 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_UCModelToMSDModelRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -220,7 +243,8 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_2_2_bindingFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCasesModel useCasesModel = (UseCasesModel) result2_binding[0];
 		for (Object[] result2_black : UCModelToMSDModelRuleImpl
@@ -238,7 +262,12 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 								this, isApplicableMatch, useCasesModel);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[useCasesModel] = " + useCasesModel
+									+ ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -252,7 +281,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UCModelToMSDModelRuleImpl
 							.pattern_UCModelToMSDModelRule_2_6_greenBB(
@@ -380,7 +413,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_UCModelToMSDModelRule_10_1_blackBBB(this, match, model);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[model] = "
+							+ model + ".");
 		}
 
 		// Solve CSP
@@ -389,7 +425,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						match, model);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[model] = "
+							+ model + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -401,7 +440,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 					.pattern_UCModelToMSDModelRule_10_4_blackBB(match, model);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[model] = " + model + ".");
 			}
 			UCModelToMSDModelRuleImpl
 					.pattern_UCModelToMSDModelRule_10_4_greenBB(match, model);
@@ -411,7 +452,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 					.pattern_UCModelToMSDModelRule_10_5_blackBB(match, model);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[model] = " + model + ".");
 			}
 			// register objects to match
 			UCModelToMSDModelRuleImpl
@@ -438,7 +481,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Model model = (Model) result1_bindingAndBlack[0];
 		// CSP csp = (CSP) result1_bindingAndBlack[1];
@@ -453,7 +499,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						model, useCasesModelToModel);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[useCasesModel] = "
+							+ useCasesModel + ", " + "[model] = " + model
+							+ ", " + "[useCasesModelToModel] = "
+							+ useCasesModelToModel + ".");
 		}
 		Object[] result2_green = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_11_2_greenFBBB(useCasesModel,
@@ -466,7 +516,12 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						useCasesModel, model, useCasesModelToModel);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = " + ruleresult
+							+ ", " + "[useCasesModel] = " + useCasesModel
+							+ ", " + "[model] = " + model + ", "
+							+ "[useCasesModelToModel] = "
+							+ useCasesModelToModel + ".");
 		}
 		UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_11_3_greenBBBBFF(ruleresult,
@@ -494,7 +549,8 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_UCModelToMSDModelRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -506,7 +562,8 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_12_2_bindingFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Model model = (Model) result2_binding[0];
 		for (Object[] result2_black : UCModelToMSDModelRuleImpl
@@ -524,7 +581,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 								this, isApplicableMatch, model);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", " + "[model] = "
+									+ model + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -538,7 +599,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UCModelToMSDModelRuleImpl
 							.pattern_UCModelToMSDModelRule_12_6_greenBB(
@@ -658,14 +723,15 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_UseCasesModel_1(
+	public EObjectContainer isAppropriate_FWD_UseCasesModel_8(
 			UseCasesModel useCasesModel) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -695,7 +761,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UCModelToMSDModelRuleImpl
 							.pattern_UCModelToMSDModelRule_20_5_greenBBB(match,
@@ -717,13 +787,14 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_Model_1(Model model) {
+	public EObjectContainer isAppropriate_BWD_Model_8(Model model) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -753,7 +824,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UCModelToMSDModelRuleImpl
 							.pattern_UCModelToMSDModelRule_21_5_greenBBB(match,
@@ -775,8 +850,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -784,8 +860,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -800,7 +877,8 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 				.pattern_UCModelToMSDModelRule_24_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = UCModelToMSDModelRuleImpl
 				.pattern_UCModelToMSDModelRule_24_1_greenFF();
@@ -818,7 +896,10 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 							this, isApplicableMatch, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -831,7 +912,9 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 						.pattern_UCModelToMSDModelRule_24_6_blackB(ruleResult);
 				if (result6_black == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [perform] failed");
+							"Pattern matching in node [perform] failed."
+									+ " Variables: " + "[ruleResult] = "
+									+ ruleResult + ".");
 				}
 				UCModelToMSDModelRuleImpl
 						.pattern_UCModelToMSDModelRule_24_6_greenFFFB(ruleResult);
@@ -948,11 +1031,11 @@ public class UCModelToMSDModelRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_1__USECASESMODEL:
-			return isAppropriate_FWD_UseCasesModel_1((UseCasesModel) arguments
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_8__USECASESMODEL:
+			return isAppropriate_FWD_UseCasesModel_8((UseCasesModel) arguments
 					.get(0));
-		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_1__MODEL:
-			return isAppropriate_BWD_Model_1((Model) arguments.get(0));
+		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_8__MODEL:
+			return isAppropriate_BWD_Model_8((Model) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
 		case RulesPackage.UC_MODEL_TO_MSD_MODEL_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:

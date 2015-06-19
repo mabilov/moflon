@@ -103,7 +103,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 				match, process, startEvent, seqFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[process] = "
+							+ process + ", " + "[startEvent] = " + startEvent
+							+ ", " + "[seqFlow] = " + seqFlow + ".");
 		}
 
 		// Solve CSP
@@ -112,7 +116,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 						startEvent, seqFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[process] = "
+							+ process + ", " + "[startEvent] = " + startEvent
+							+ ", " + "[seqFlow] = " + seqFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -123,7 +131,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 					match, process, startEvent, seqFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[process] = " + process + ", "
+								+ "[startEvent] = " + startEvent + ", "
+								+ "[seqFlow] = " + seqFlow + ".");
 			}
 			Class1Impl.pattern_Class1_0_4_greenBBBBFFFF(match, process,
 					startEvent, seqFlow);
@@ -137,7 +149,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 					match, process, startEvent, seqFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[process] = " + process + ", "
+								+ "[startEvent] = " + startEvent + ", "
+								+ "[seqFlow] = " + seqFlow + ".");
 			}
 			Class1Impl.pattern_Class1_0_5_greenBB(match, process);
 
@@ -163,7 +179,10 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		UseCase useCase = (UseCase) result1_bindingAndBlack[1];
@@ -185,7 +204,13 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 				seqFlowToBasicFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[startEvent] = " + startEvent
+							+ ", " + "[precond] = " + precond + ", "
+							+ "[startEventToPrecond] = " + startEventToPrecond
+							+ ", " + "[seqFlow] = " + seqFlow + ", "
+							+ "[seqFlowToBasicFlow] = " + seqFlowToBasicFlow
+							+ ".");
 		}
 		Object[] result2_green = Class1Impl.pattern_Class1_1_2_greenFBBBBB(
 				startEvent, precond, startEventToPrecond, seqFlow,
@@ -200,7 +225,39 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 						seqFlow, seqFlowToBasicFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[startEvent] = "
+							+ startEvent
+							+ ", "
+							+ "[precond] = "
+							+ precond
+							+ ", "
+							+ "[basicFlow] = "
+							+ basicFlow
+							+ ", "
+							+ "[processToBasicFlow] = "
+							+ processToBasicFlow
+							+ ", "
+							+ "[startEventToPrecond] = "
+							+ startEventToPrecond
+							+ ", "
+							+ "[seqFlow] = "
+							+ seqFlow
+							+ ", "
+							+ "[seqFlowToBasicFlow] = "
+							+ seqFlowToBasicFlow + ".");
 		}
 		Class1Impl.pattern_Class1_1_3_greenBBBBBBBBBFFFFFFFFF(ruleresult,
 				process, useCase, startEvent, precond, basicFlow,
@@ -235,7 +292,8 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 				.pattern_Class1_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -247,7 +305,8 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 		Object[] result2_binding = Class1Impl
 				.pattern_Class1_2_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
 		StartEvent startEvent = (StartEvent) result2_binding[1];
@@ -287,7 +346,32 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 								processToBasicFlow, seqFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[startEvent] = "
+									+ startEvent
+									+ ", "
+									+ "[basicFlow] = "
+									+ basicFlow
+									+ ", "
+									+ "[processToBasicFlow] = "
+									+ processToBasicFlow
+									+ ", "
+									+ "[seqFlow] = " + seqFlow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -299,7 +383,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					Class1Impl.pattern_Class1_2_6_greenBB(ruleresult,
 							isApplicableMatch);
@@ -460,7 +548,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 				this, match, useCase, precond, basicFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[precond] = " + precond + ", "
+							+ "[basicFlow] = " + basicFlow + ".");
 		}
 
 		// Solve CSP
@@ -469,7 +561,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 						useCase, precond, basicFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[precond] = " + precond + ", "
+							+ "[basicFlow] = " + basicFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -480,7 +576,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 					match, useCase, precond, basicFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", "
+								+ "[precond] = " + precond + ", "
+								+ "[basicFlow] = " + basicFlow + ".");
 			}
 			Class1Impl.pattern_Class1_10_4_greenBBBF(match, useCase, precond);
 			// EMoflonEdge useCase__precond____preconditions = (EMoflonEdge) result4_green[3];
@@ -490,7 +590,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 					match, useCase, precond, basicFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", "
+								+ "[precond] = " + precond + ", "
+								+ "[basicFlow] = " + basicFlow + ".");
 			}
 			Class1Impl.pattern_Class1_10_5_greenBBBF(match, useCase, basicFlow);
 			// EMoflonEdge useCase__basicFlow____flows = (EMoflonEdge) result5_green[3];
@@ -517,7 +621,10 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		UseCase useCase = (UseCase) result1_bindingAndBlack[1];
@@ -539,7 +646,13 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 				seqFlowToBasicFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[startEvent] = " + startEvent
+							+ ", " + "[precond] = " + precond + ", "
+							+ "[startEventToPrecond] = " + startEventToPrecond
+							+ ", " + "[seqFlow] = " + seqFlow + ", "
+							+ "[seqFlowToBasicFlow] = " + seqFlowToBasicFlow
+							+ ".");
 		}
 		Object[] result2_green = Class1Impl.pattern_Class1_11_2_greenFBBBBB(
 				startEvent, precond, startEventToPrecond, seqFlow,
@@ -554,7 +667,39 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 						seqFlow, seqFlowToBasicFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[startEvent] = "
+							+ startEvent
+							+ ", "
+							+ "[precond] = "
+							+ precond
+							+ ", "
+							+ "[basicFlow] = "
+							+ basicFlow
+							+ ", "
+							+ "[processToBasicFlow] = "
+							+ processToBasicFlow
+							+ ", "
+							+ "[startEventToPrecond] = "
+							+ startEventToPrecond
+							+ ", "
+							+ "[seqFlow] = "
+							+ seqFlow
+							+ ", "
+							+ "[seqFlowToBasicFlow] = "
+							+ seqFlowToBasicFlow + ".");
 		}
 		Class1Impl.pattern_Class1_11_3_greenBBBBBBBBBFFFFFFFFF(ruleresult,
 				process, useCase, startEvent, precond, basicFlow,
@@ -589,7 +734,8 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 				.pattern_Class1_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -601,7 +747,8 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 		Object[] result2_binding = Class1Impl
 				.pattern_Class1_12_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCase useCase = (UseCase) result2_binding[0];
 		UCCondition precond = (UCCondition) result2_binding[1];
@@ -637,7 +784,30 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 								processToBasicFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[precond] = "
+									+ precond
+									+ ", "
+									+ "[basicFlow] = "
+									+ basicFlow
+									+ ", "
+									+ "[processToBasicFlow] = "
+									+ processToBasicFlow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -649,7 +819,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					Class1Impl.pattern_Class1_12_6_greenBB(ruleresult,
 							isApplicableMatch);
@@ -800,14 +974,15 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_226(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_202(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
 				.pattern_Class1_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -836,7 +1011,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					Class1Impl.pattern_Class1_20_5_greenBBB(match,
 							__performOperation, __result);
@@ -856,14 +1035,15 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_227(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_203(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
 				.pattern_Class1_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -892,7 +1072,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					Class1Impl.pattern_Class1_21_5_greenBBB(match,
 							__performOperation, __result);
@@ -912,14 +1096,15 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_73(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_804(
 			EMoflonEdge _edge_preconditions) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
 				.pattern_Class1_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -948,7 +1133,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					Class1Impl.pattern_Class1_22_5_greenBBB(match,
 							__performOperation, __result);
@@ -968,14 +1157,15 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_228(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_204(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
 				.pattern_Class1_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1004,7 +1194,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					Class1Impl.pattern_Class1_23_5_greenBBB(match,
 							__performOperation, __result);
@@ -1024,14 +1218,15 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_205(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = Class1Impl
 				.pattern_Class1_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1060,7 +1255,11 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					Class1Impl.pattern_Class1_24_5_greenBBB(match,
 							__performOperation, __result);
@@ -1080,8 +1279,9 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1089,8 +1289,9 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1105,7 +1306,8 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 		Object[] result1_black = Class1Impl.pattern_Class1_27_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = Class1Impl.pattern_Class1_27_1_greenFF();
 		IsApplicableMatch isApplicableMatch = (IsApplicableMatch) result1_green[0];
@@ -1130,7 +1332,30 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[processToUseCase] = "
+								+ processToUseCase
+								+ ", "
+								+ "[basicFlow] = "
+								+ basicFlow
+								+ ", "
+								+ "[processToBasicFlow] = "
+								+ processToBasicFlow
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1148,7 +1373,16 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 									processToBasicFlow, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[process] = "
+										+ process + ", " + "[useCase] = "
+										+ useCase + ", "
+										+ "[processToUseCase] = "
+										+ processToUseCase + ", "
+										+ "[basicFlow] = " + basicFlow + ", "
+										+ "[processToBasicFlow] = "
+										+ processToBasicFlow + ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					Class1Impl.pattern_Class1_27_6_greenBBFFBFFFBB(process,
 							useCase, basicFlow, ruleResult, csp);
@@ -1314,20 +1548,20 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 			return null;
 		case RulesPackage.CLASS1___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_226__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_226((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_202__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_202((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_227__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_227((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_203__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_203((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_BWD_EMOFLON_EDGE_73__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_73((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_BWD_EMOFLON_EDGE_804__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_804((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_228__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_228((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_204__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_204((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_229__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_229((EMoflonEdge) arguments
+		case RulesPackage.CLASS1___IS_APPROPRIATE_FWD_EMOFLON_EDGE_205__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_205((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.CLASS1___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1944,12 +2178,12 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 			bpmn2.Process process, StartEvent startEvent, SequenceFlow seqFlow,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+		for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(process, ProcessToUseCase.class,
 						"source")) {
 			UseCase useCase = processToUseCase.getTarget();
 			if (useCase != null) {
-				for (ProcessToBasicFlow processToBasicFlow : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToBasicFlow processToBasicFlow : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(process,
 								ProcessToBasicFlow.class, "source")) {
 					BasicFlow basicFlow = processToBasicFlow.getTarget();
@@ -2748,12 +2982,12 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 			UseCase useCase, UCCondition precond, BasicFlow basicFlow,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+		for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, ProcessToUseCase.class,
 						"target")) {
 			bpmn2.Process process = processToUseCase.getSource();
 			if (process != null) {
-				for (ProcessToBasicFlow processToBasicFlow : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToBasicFlow processToBasicFlow : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(basicFlow,
 								ProcessToBasicFlow.class, "target")) {
 					if (process.equals(processToBasicFlow.getSource())) {
@@ -2986,7 +3220,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_20_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_181464 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_940810 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3124,7 +3358,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_21_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_521727 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_632882 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3262,9 +3496,9 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_22_2_black_nac_0BB(
 			UCCondition precond, BasicFlow basicFlow) {
-		for (Flow __DEC_precond_finalState_516285 : org.moflon.util.eMoflonEMFUtil
+		for (Flow __DEC_precond_finalState_619534 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, Flow.class, "finalState")) {
-			if (!basicFlow.equals(__DEC_precond_finalState_516285)) {
+			if (!basicFlow.equals(__DEC_precond_finalState_619534)) {
 				return new Object[] { precond, basicFlow };
 			}
 		}
@@ -3273,10 +3507,10 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_22_2_black_nac_1BB(
 			UCCondition precond, UseCase useCase) {
-		for (UseCase __DEC_precond_preconditions_317045 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_precond_preconditions_314137 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(precond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_precond_preconditions_317045)) {
+			if (!useCase.equals(__DEC_precond_preconditions_314137)) {
 				return new Object[] { precond, useCase };
 			}
 		}
@@ -3414,7 +3648,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_23_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_738910 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_863944 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3443,7 +3677,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 					if (pattern_Class1_23_2_black_nac_0B(seqFlow) == null) {
 						if (pattern_Class1_23_2_black_nac_1BB(seqFlow,
 								startEvent) == null) {
-							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+							for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(seqFlow,
 											FlowElementsContainer.class,
 											"flowElements")) {
@@ -3556,7 +3790,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 
 	public static final Object[] pattern_Class1_24_2_black_nac_0B(
 			SequenceFlow seqFlow) {
-		for (ExclusiveGateway __DEC_seqFlow_default_959909 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_seqFlow_default_841446 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(seqFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { seqFlow };
@@ -3585,7 +3819,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 					if (pattern_Class1_24_2_black_nac_0B(seqFlow) == null) {
 						if (pattern_Class1_24_2_black_nac_1BB(seqFlow,
 								startEvent) == null) {
-							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+							for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(startEvent,
 											FlowElementsContainer.class,
 											"flowElements")) {
@@ -3734,7 +3968,7 @@ public class Class1Impl extends AbstractRuleImpl implements Class1 {
 												BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
 												if (pattern_Class1_27_2_black_nac_3BB(
 														ruleResult, basicFlow) == null) {
-													for (ProcessToBasicFlow processToBasicFlow : org.moflon.util.eMoflonEMFUtil
+													for (ProcessToBasicFlow processToBasicFlow : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	process,
 																	ProcessToBasicFlow.class,

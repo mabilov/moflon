@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<algorithm:TempOutputContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ModalSequenceDiagram="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore" xmlns:algorithm="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//algorithm">
+  <potentialRoots xsi:type="ModalSequenceDiagram:Model">
+    <packagedElement xsi:type="ModalSequenceDiagram:Package" name="de.abilov.booksale">
+      <packagedElement xsi:type="ModalSequenceDiagram:Interaction" name="booksale">
+        <lifeline name="shipping" coveredBy="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.0 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.5 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8/@operand.0 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8"/>
+        <lifeline name="financing" coveredBy="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.3 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0"/>
+        <lifeline name="sys" coveredBy="//@potentialRoots.1 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.1 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.0 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0 //@potentialRoots.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1 //@potentialRoots.3 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.4 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8 //@potentialRoots.4 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8/@operand.0 //@potentialRoots.5"/>
+        <lifeline name="sales" coveredBy="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.6 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.7 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1/@fragment.1"/>
+        <fragment xsi:type="ModalSequenceDiagram:CombinedFragment" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.0 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.1 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.3" interactionOperator="PAR">
+          <operand covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.0">
+            <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.2"/>
+            <guard>
+              <specification xsi:type="ModalSequenceDiagram:LiteralString" value="shipment_prepare"/>
+            </guard>
+          </operand>
+          <operand covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.1 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.3">
+            <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.4"/>
+            <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.9" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.3"/>
+            <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.9"/>
+            <guard>
+              <specification xsi:type="ModalSequenceDiagram:LiteralString" value="payment"/>
+            </guard>
+          </operand>
+        </fragment>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.1" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.3" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.3" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.5" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.5" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.6" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.3"/>
+        <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.6" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.3"/>
+        <fragment xsi:type="ModalSequenceDiagram:CombinedFragment" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.0" interactionOperator="ALT">
+          <operand covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2 //@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.0">
+            <fragment xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.8"/>
+            <guard name="ShipmentPrepare">
+              <specification xsi:type="ModalSequenceDiagram:LiteralString" value="No"/>
+            </guard>
+          </operand>
+        </fragment>
+        <message name="delivery_confirmed" receiveEvent="//@potentialRoots.1" messageKind="FOUND" messageSort="ASYNCH_SIGNAL"/>
+        <message name="Order Received" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.1" messageKind="FOUND" messageSort="ASYNCH_SIGNAL"/>
+        <message name="separate_books" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.0/@fragment.0" sendEvent="//@potentialRoots.2" messageSort="ASYNCH_CALL"/>
+        <message name="check_stock" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.3" sendEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.2" messageSort="ASYNCH_CALL"/>
+        <message name="issue_invoice" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1/@fragment.0" sendEvent="//@potentialRoots.3" messageSort="ASYNCH_CALL"/>
+        <message name="deliver_books_customer" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.5" sendEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.4" messageSort="ASYNCH_CALL"/>
+        <message name="record_order" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.7" sendEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.6" messageSort="ASYNCH_CALL"/>
+        <message name="payment_received" receiveEvent="//@potentialRoots.4" messageKind="FOUND" messageSort="ASYNCH_SIGNAL"/>
+        <message name="deliver_books_stock" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8/@operand.0/@fragment.0" sendEvent="//@potentialRoots.5" messageSort="ASYNCH_CALL"/>
+        <message name="charge_issue" receiveEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1/@fragment.2" sendEvent="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1/@fragment.1" messageSort="ASYNCH_CALL"/>
+      </packagedElement>
+    </packagedElement>
+  </potentialRoots>
+  <potentialRoots xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.0" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+  <potentialRoots xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.2" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+  <potentialRoots xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.4" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+  <potentialRoots xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.7" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+  <potentialRoots xsi:type="ModalSequenceDiagram:MessageOccurrenceSpecification" message="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.8" covered="//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+</algorithm:TempOutputContainer>

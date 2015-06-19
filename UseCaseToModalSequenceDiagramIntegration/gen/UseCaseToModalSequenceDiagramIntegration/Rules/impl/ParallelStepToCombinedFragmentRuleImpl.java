@@ -99,7 +99,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						this, match, useCase, flow, step);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[flow] = " + flow + ", "
+							+ "[step] = " + step + ".");
 		}
 
 		// Solve CSP
@@ -108,7 +112,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						this, match, useCase, flow, step);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[useCase] = "
+							+ useCase + ", " + "[flow] = " + flow + ", "
+							+ "[step] = " + step + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -122,7 +130,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 							match, useCase, flow, step);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", " + "[flow] = "
+								+ flow + ", " + "[step] = " + step + ".");
 			}
 			ParallelStepToCombinedFragmentRuleImpl
 					.pattern_ParallelStepToCombinedFragmentRule_0_4_greenBBBF(
@@ -135,7 +146,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 							match, useCase, flow, step);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[useCase] = " + useCase + ", " + "[flow] = "
+								+ flow + ", " + "[step] = " + step + ".");
 			}
 			ParallelStepToCombinedFragmentRuleImpl
 					.pattern_ParallelStepToCombinedFragmentRule_0_5_greenBBBF(
@@ -167,7 +181,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
 		Interaction interaction = (Interaction) result1_bindingAndBlack[1];
@@ -187,7 +204,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						combo, stepToCombo);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[combo] = " + combo + ", " + "[stepToCombo] = "
+							+ stepToCombo + ".");
 		}
 		Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_1_2_greenFBBB(step,
@@ -201,7 +221,29 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						useCaseToInteraction, step, combo, stepToCombo);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[stepToCombo] = " + stepToCombo + ".");
 		}
 		ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_1_3_greenBBBBBBFFFFF(
@@ -233,7 +275,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -245,7 +288,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_2_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		UseCase useCase = (UseCase) result2_binding[0];
 		Flow flow = (Flow) result2_binding[1];
@@ -277,7 +321,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 								flow, useCaseToInteraction, step);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", " + "[useCase] = "
+									+ useCase + ", " + "[interaction] = "
+									+ interaction + ", " + "[flow] = " + flow
+									+ ", " + "[useCaseToInteraction] = "
+									+ useCaseToInteraction + ", " + "[step] = "
+									+ step + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -291,7 +343,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ParallelStepToCombinedFragmentRuleImpl
 							.pattern_ParallelStepToCombinedFragmentRule_2_6_greenBB(
@@ -368,19 +424,41 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", true, csp);
+		var_step_name.setValue(step.getName());
+		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", true, csp);
+		var_step_label.setValue(step.getLabel());
+		var_step_label.setType("String");
 
 		// Create unbound variables
+		Variable var_combo__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo._id", csp);
+		var_combo__id.setType("String");
+		Variable var_combo_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo.name", csp);
+		var_combo_name.setType("String");
 		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
 				.createVariable("combo.interactionOperator", csp);
 		var_combo_interactionOperator
 				.setType("ModalSequenceDiagram.InteractionOperatorKind");
 
 		// Create constraints
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 		EqInterOperKind eqInterOperKind = new EqInterOperKind();
 
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 		csp.getConstraints().add(eqInterOperKind);
 
 		// Solve CSP
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_combo__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_combo_name);
 		eqInterOperKind.setRuleName("");
 		eqInterOperKind.solve(var_combo_interactionOperator, literal0);
 
@@ -448,7 +526,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						this, match, interaction, combo);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[interaction] = "
+							+ interaction + ", " + "[combo] = " + combo + ".");
 		}
 
 		// Solve CSP
@@ -457,7 +538,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						this, match, interaction, combo);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[interaction] = "
+							+ interaction + ", " + "[combo] = " + combo + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -471,7 +555,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 							match, interaction, combo);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[combo] = " + combo + ".");
 			}
 			ParallelStepToCombinedFragmentRuleImpl
 					.pattern_ParallelStepToCombinedFragmentRule_10_4_greenBBBFF(
@@ -485,7 +572,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 							match, interaction, combo);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[combo] = " + combo + ".");
 			}
 			ParallelStepToCombinedFragmentRuleImpl
 					.pattern_ParallelStepToCombinedFragmentRule_10_5_greenBB(
@@ -516,17 +606,20 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		UseCase useCase = (UseCase) result1_bindingAndBlack[0];
 		Interaction interaction = (Interaction) result1_bindingAndBlack[1];
 		Flow flow = (Flow) result1_bindingAndBlack[2];
 		UseCaseToInteraction useCaseToInteraction = (UseCaseToInteraction) result1_bindingAndBlack[3];
 		CombinedFragment combo = (CombinedFragment) result1_bindingAndBlack[4];
-		// CSP csp = (CSP) result1_bindingAndBlack[5];
+		CSP csp = (CSP) result1_bindingAndBlack[5];
 		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
-				.pattern_ParallelStepToCombinedFragmentRule_11_1_greenBFBF(
-						flow, combo);
+				.pattern_ParallelStepToCombinedFragmentRule_11_1_greenBFBFB(
+						flow, combo, csp);
 		ParallelStep step = (ParallelStep) result1_green[1];
 		ParallelStepToCombinedFragment stepToCombo = (ParallelStepToCombinedFragment) result1_green[3];
 
@@ -536,7 +629,10 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						combo, stepToCombo);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[combo] = " + combo + ", " + "[stepToCombo] = "
+							+ stepToCombo + ".");
 		}
 		Object[] result2_green = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_11_2_greenFBBB(
@@ -550,7 +646,29 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 						useCaseToInteraction, step, combo, stepToCombo);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[stepToCombo] = " + stepToCombo + ".");
 		}
 		ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_11_3_greenBBBBBBFFFFF(
@@ -582,7 +700,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -594,7 +713,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_12_2_bindingFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Interaction interaction = (Interaction) result2_binding[0];
 		CombinedFragment combo = (CombinedFragment) result2_binding[1];
@@ -626,7 +746,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 								flow, useCaseToInteraction, combo);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", " + "[useCase] = "
+									+ useCase + ", " + "[interaction] = "
+									+ interaction + ", " + "[flow] = " + flow
+									+ ", " + "[useCaseToInteraction] = "
+									+ useCaseToInteraction + ", "
+									+ "[combo] = " + combo + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -640,7 +768,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ParallelStepToCombinedFragmentRuleImpl
 							.pattern_ParallelStepToCombinedFragmentRule_12_6_greenBB(
@@ -726,12 +858,35 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		// Create literals
 
 		// Create attribute variables
+		Variable var_combo__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo._id", true, csp);
+		var_combo__id.setValue(combo.get_id());
+		var_combo__id.setType("String");
+		Variable var_combo_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo.name", true, csp);
+		var_combo_name.setValue(combo.getName());
+		var_combo_name.setType("String");
 
 		// Create unbound variables
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", csp);
+		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 
 		// Create constraints
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
+
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_combo__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_combo_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("useCase", useCase);
@@ -789,14 +944,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_328(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_889(
 			EMoflonEdge _edge_enclosingInteraction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -828,7 +984,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelStepToCombinedFragmentRuleImpl
 							.pattern_ParallelStepToCombinedFragmentRule_20_5_greenBBB(
@@ -850,14 +1010,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_329(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_890(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -889,7 +1050,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelStepToCombinedFragmentRuleImpl
 							.pattern_ParallelStepToCombinedFragmentRule_21_5_greenBBB(
@@ -911,14 +1076,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_497(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_434(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -951,7 +1117,11 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelStepToCombinedFragmentRuleImpl
 							.pattern_ParallelStepToCombinedFragmentRule_22_5_greenBBB(
@@ -973,8 +1143,9 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -982,8 +1153,9 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -999,7 +1171,8 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_25_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ParallelStepToCombinedFragmentRuleImpl
 				.pattern_ParallelStepToCombinedFragmentRule_25_1_greenFF();
@@ -1023,7 +1196,15 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 							flow, useCaseToInteraction, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[useCase] = " + useCase + ", "
+								+ "[interaction] = " + interaction + ", "
+								+ "[flow] = " + flow + ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction + ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1044,7 +1225,14 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 									useCaseToInteraction, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[useCase] = "
+										+ useCase + ", " + "[interaction] = "
+										+ interaction + ", " + "[flow] = "
+										+ flow + ", "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction + ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ParallelStepToCombinedFragmentRuleImpl
 							.pattern_ParallelStepToCombinedFragmentRule_25_6_greenBBFFFBB(
@@ -1085,6 +1273,18 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		// Create attribute variables
 
 		// Create unbound variables
+		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.name", csp);
+		var_step_name.setType("String");
+		Variable var_combo__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo._id", csp);
+		var_combo__id.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
+		Variable var_combo_name = CSPFactoryHelper.eINSTANCE.createVariable(
+				"combo.name", csp);
+		var_combo_name.setType("String");
 		Variable var_combo_interactionOperator = CSPFactoryHelper.eINSTANCE
 				.createVariable("combo.interactionOperator", csp);
 		var_combo_interactionOperator
@@ -1092,12 +1292,20 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 
 		// Create constraints
 		EqInterOperKind eqInterOperKind = new EqInterOperKind();
+		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqInterOperKind);
+		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqInterOperKind.setRuleName("");
 		eqInterOperKind.solve(var_combo_interactionOperator, literal0);
+		eq.setRuleName("");
+		eq.solve(var_step_name, var_combo__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_combo_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("useCase", useCase);
@@ -1200,14 +1408,14 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_328__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_328((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_889__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_889((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_329__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_329((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_890__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_890((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_497__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_497((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_434__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_434((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1411,11 +1619,17 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 				.createCombinedFragment();
 		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createParallelStepToCombinedFragment();
-		Object _localVariable_0 = csp.getValue("combo", "interactionOperator");
+		Object _localVariable_0 = csp.getValue("combo", "_id");
+		Object _localVariable_1 = csp.getValue("combo", "name");
+		Object _localVariable_2 = csp.getValue("combo", "interactionOperator");
 		combo.setEnclosingInteraction(interaction);
 		stepToCombo.setSource(step);
 		stepToCombo.setTarget(combo);
-		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_0;
+		String combo__id_prime = (String) _localVariable_0;
+		String combo_name_prime = (String) _localVariable_1;
+		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_2;
+		combo.set_id(combo__id_prime);
+		combo.setName(combo_name_prime);
 		combo.setInteractionOperator(combo_interactionOperator_prime);
 		return new Object[] { interaction, step, combo, stepToCombo, csp };
 	}
@@ -1647,7 +1861,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_2_2_blackBFBFBB(
 			UseCase useCase, Flow flow, ParallelStep step, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
 						"source")) {
 			Interaction interaction = useCaseToInteraction.getTarget();
@@ -1978,15 +2192,21 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		return null;
 	}
 
-	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_1_greenBFBF(
-			Flow flow, CombinedFragment combo) {
+	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_1_greenBFBFB(
+			Flow flow, CombinedFragment combo, CSP csp) {
 		ParallelStep step = UseCaseDSLFactory.eINSTANCE.createParallelStep();
 		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createParallelStepToCombinedFragment();
+		Object _localVariable_0 = csp.getValue("step", "name");
+		Object _localVariable_1 = csp.getValue("step", "label");
 		flow.getSteps().add(step);
 		stepToCombo.setSource(step);
 		stepToCombo.setTarget(combo);
-		return new Object[] { flow, step, combo, stepToCombo };
+		String step_name_prime = (String) _localVariable_0;
+		String step_label_prime = (String) _localVariable_1;
+		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
+		return new Object[] { flow, step, combo, stepToCombo, csp };
 	}
 
 	public static final Object[] pattern_ParallelStepToCombinedFragmentRule_11_2_blackBBB(
@@ -2211,7 +2431,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 	public static final Iterable<Object[]> pattern_ParallelStepToCombinedFragmentRule_12_2_blackFBFBB(
 			Interaction interaction, CombinedFragment combo, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(interaction,
 						UseCaseToInteraction.class, "target")) {
 			UseCase useCase = useCaseToInteraction.getSource();
@@ -2652,7 +2872,7 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 			if (tmpStep instanceof ParallelStep) {
 				ParallelStep step = (ParallelStep) tmpStep;
 				if (flow.getSteps().contains(step)) {
-					for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+					for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(flow, UseCase.class,
 									"flows")) {
 						_result.add(new Object[] { useCase, flow, step,
@@ -2879,9 +3099,13 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 				.createCombinedFragment();
 		ParallelStepToCombinedFragment stepToCombo = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createParallelStepToCombinedFragment();
-		Object _localVariable_0 = csp.getValue("combo", "interactionOperator");
+		Object _localVariable_0 = csp.getValue("step", "name");
+		Object _localVariable_1 = csp.getValue("step", "label");
+		Object _localVariable_2 = csp.getValue("combo", "_id");
+		Object _localVariable_3 = csp.getValue("combo", "name");
+		Object _localVariable_4 = csp.getValue("combo", "interactionOperator");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_1 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
 		flow.getSteps().add(step);
 		ruleResult.getSourceObjects().add(step);
 		combo.setEnclosingInteraction(interaction);
@@ -2889,9 +3113,17 @@ public class ParallelStepToCombinedFragmentRuleImpl extends AbstractRuleImpl
 		stepToCombo.setSource(step);
 		stepToCombo.setTarget(combo);
 		ruleResult.getCorrObjects().add(stepToCombo);
-		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_0;
+		String step_name_prime = (String) _localVariable_0;
+		String step_label_prime = (String) _localVariable_1;
+		String combo__id_prime = (String) _localVariable_2;
+		String combo_name_prime = (String) _localVariable_3;
+		InteractionOperatorKind combo_interactionOperator_prime = (InteractionOperatorKind) _localVariable_4;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_1);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
+		combo.set_id(combo__id_prime);
+		combo.setName(combo_name_prime);
 		combo.setInteractionOperator(combo_interactionOperator_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

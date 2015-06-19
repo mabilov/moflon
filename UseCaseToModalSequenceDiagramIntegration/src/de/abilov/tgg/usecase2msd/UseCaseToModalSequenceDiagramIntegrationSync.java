@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.moflon.util.eMoflonEMFUtil;
+import org.moflon.core.utilities.eMoflonEMFUtil;
 
 import UseCaseDSL.resource.UseCaseXMIHelper;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
@@ -14,14 +14,8 @@ import de.abilov.tgg.synch.SynchronizationHelper;
 public class UseCaseToModalSequenceDiagramIntegrationSync extends
 		SynchronizationHelper {
 
-	public UseCaseToModalSequenceDiagramIntegrationSync() throws IOException {
-		// Register packages
-		eMoflonEMFUtil
-				.init(UseCaseToModalSequenceDiagramIntegrationPackage.eINSTANCE);
-
-		// Load rules and set correspondence
-		setCorrPackage(UseCaseToModalSequenceDiagramIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
+	public UseCaseToModalSequenceDiagramIntegrationSync() {
+		super(UseCaseToModalSequenceDiagramIntegrationPackage.eINSTANCE, ".");
 	}
 
 	private String newSourceFile;

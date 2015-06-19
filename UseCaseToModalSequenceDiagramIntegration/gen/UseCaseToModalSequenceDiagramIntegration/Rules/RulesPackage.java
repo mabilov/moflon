@@ -258,76 +258,76 @@ public interface RulesPackage extends EPackage {
 	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 308</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 869</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_308__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_869__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 309</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 870</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_309__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_870__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 310</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 871</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_310__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_871__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 311</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 872</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_311__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_872__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 312</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 873</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_312__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_873__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 313</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 874</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_313__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_874__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 487</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 424</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_487__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_424__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 488</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 425</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_488__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_425__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -583,76 +583,76 @@ public interface RulesPackage extends EPackage {
 	int SEND_STEP_TO_LOST_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 314</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 875</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_314__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_875__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 315</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 876</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_315__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_876__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 316</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 877</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_316__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_877__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 317</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 878</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_317__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_878__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 318</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 879</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_318__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_879__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 319</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 880</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_319__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_880__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 489</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 426</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_489__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_426__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 490</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 427</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_490__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_427__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -936,22 +936,22 @@ public interface RulesPackage extends EPackage {
 	int UC_MODEL_TO_MSD_MODEL_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD Use Cases Model 1</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD Use Cases Model 8</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_1__USECASESMODEL = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_FWD_USE_CASES_MODEL_8__USECASESMODEL = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD Model 1</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD Model 8</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_1__MODEL = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int UC_MODEL_TO_MSD_MODEL_RULE___IS_APPROPRIATE_BWD_MODEL_8__MODEL = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -1207,22 +1207,22 @@ public interface RulesPackage extends EPackage {
 	int UC_PACKAGE_TO_MSD_PACKAGE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 491</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 428</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_491__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_428__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 320</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 881</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_320__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int UC_PACKAGE_TO_MSD_PACKAGE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_881__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -1478,31 +1478,31 @@ public interface RulesPackage extends EPackage {
 	int USE_CASE_TO_INTERACTION_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 492</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 429</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_492__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_429__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 321</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 882</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_321__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_882__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 493</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 430</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_493__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_430__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -1758,31 +1758,31 @@ public interface RulesPackage extends EPackage {
 	int ACTOR_TO_LIFELINE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 494</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 431</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_494__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_431__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 322</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 883</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_322__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_883__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 323</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 884</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_323__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_884__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -2122,58 +2122,58 @@ public interface RulesPackage extends EPackage {
 	int ALT_STEP_TO_COMBO_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 324</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 885</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_324__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_885__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 325</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 886</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_325__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_886__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 495</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 432</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_495__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_432__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 496</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 433</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_496__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_433__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 326</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 887</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_326__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_887__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 327</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 888</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_327__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int ALT_STEP_TO_COMBO_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_888__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -2429,31 +2429,31 @@ public interface RulesPackage extends EPackage {
 	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 328</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 889</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_328__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_889__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 329</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 890</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_329__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_890__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 497</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 434</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_497__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int PARALLEL_STEP_TO_COMBINED_FRAGMENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_434__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -2709,49 +2709,49 @@ public interface RulesPackage extends EPackage {
 	int PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 330</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 891</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_330__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_891__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 498</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 435</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_498__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_435__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 499</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 436</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_499__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_436__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 331</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 892</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_331__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_892__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 332</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 893</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_332__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_893__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -3007,85 +3007,85 @@ public interface RulesPackage extends EPackage {
 	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 500</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 437</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_500__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_437__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 333</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 894</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_333__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_894__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 334</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 895</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_334__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_895__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 335</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 896</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_335__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_896__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 336</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 897</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_336__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_897__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 337</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 898</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_337__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_898__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 338</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 899</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_338__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_899__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 339</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 900</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_339__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_900__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 340</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 901</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_340__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USE_CASE_PRECOND_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_901__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -3341,148 +3341,148 @@ public interface RulesPackage extends EPackage {
 	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 341</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 902</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_341__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_902__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 342</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 903</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_342__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_903__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 343</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 904</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_343__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_904__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 344</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 905</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_344__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_905__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 345</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 906</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_345__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_906__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 346</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 907</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_346__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_907__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 347</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 908</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_347__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_908__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 348</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 909</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_348__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_909__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 349</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 910</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_349__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_910__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 350</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 911</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_350__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_911__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 351</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 912</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_351__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_912__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 352</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 913</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_352__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_913__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 353</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 914</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_353__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_914__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 354</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 915</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_354__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_915__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 501</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 438</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_501__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_438__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 502</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 439</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_502__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int SYSTEM_STEP_BF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_439__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -3738,76 +3738,76 @@ public interface RulesPackage extends EPackage {
 	int STEP_ALT_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 355</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 916</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_355__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_916__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 503</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 440</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_503__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_440__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 504</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 441</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_504__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_441__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 356</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 917</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_356__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_917__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 357</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 918</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_357__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_918__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 358</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 919</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_358__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_919__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 359</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 920</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_359__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_920__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 505</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 442</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_505__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_442__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -4063,148 +4063,148 @@ public interface RulesPackage extends EPackage {
 	int USER_STEP_BF_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 360</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 921</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_360__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_921__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 361</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 922</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_361__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_922__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 362</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 923</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_362__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_923__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 363</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 924</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_363__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_924__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 364</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 925</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_364__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_925__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 365</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 926</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_365__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_926__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 366</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 927</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_366__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_927__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 367</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 928</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_367__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_928__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 368</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 929</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_368__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_929__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 369</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 930</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_369__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_930__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 370</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 931</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_370__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_931__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 371</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 932</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_371__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_932__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 372</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 933</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_372__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_933__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 373</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 934</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_373__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_934__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 506</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 443</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_506__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_443__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 507</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 444</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_507__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int USER_STEP_BF_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_444__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -4460,166 +4460,166 @@ public interface RulesPackage extends EPackage {
 	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 374</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 935</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_374__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_935__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 375</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 936</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_375__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_936__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 376</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 937</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_376__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_937__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 377</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 938</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_377__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_938__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 378</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 939</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_378__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_939__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 379</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 940</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_379__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_940__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 380</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 941</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_380__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_941__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 381</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 942</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_381__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_942__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 382</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 943</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_382__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_943__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 383</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 944</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_383__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_944__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 384</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 945</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_384__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_945__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 385</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 946</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_385__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_946__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 386</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 947</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_386__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_947__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 387</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 948</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_387__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_948__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 388</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 949</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_388__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_949__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 389</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 950</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_389__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_950__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 508</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 445</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_508__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_445__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 509</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 446</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_509__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_446__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -4875,184 +4875,184 @@ public interface RulesPackage extends EPackage {
 	int USER_STEP_NF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 19;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 390</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 951</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_390__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_951__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 20;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 391</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 952</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_391__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_952__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 21;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 392</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 953</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_392__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_953__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 22;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 393</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 954</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_393__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_954__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 23;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 394</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 955</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_394__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_955__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 24;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 395</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 956</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_395__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_956__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 396</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 957</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_396__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_957__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 397</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 958</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_397__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_958__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 27;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 398</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 959</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_398__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_959__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 28;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 399</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 960</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_399__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_960__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 29;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 400</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 961</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_400__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_961__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 30;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 401</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 962</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_401__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_962__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 31;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 402</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 963</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_402__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_963__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 32;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 403</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 964</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_403__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_964__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 33;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 404</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 965</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_404__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_965__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 34;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 405</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 966</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_405__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_966__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 35;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 406</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 967</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_406__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_967__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 36;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 407</em>' operation.
+	 * The operation id for the '<em>Is Appropriate BWD EMoflon Edge 968</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_407__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_968__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 37;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 510</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 447</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_510__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_447__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 38;
 
 	/**
-	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 511</em>' operation.
+	 * The operation id for the '<em>Is Appropriate FWD EMoflon Edge 448</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_511__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
+	int USER_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_448__EMOFLONEDGE = TGGRuntimePackage.ABSTRACT_RULE_OPERATION_COUNT + 39;
 
 	/**
 	 * The operation id for the '<em>Check Attributes FWD</em>' operation.
@@ -5319,84 +5319,84 @@ public interface RulesPackage extends EPackage {
 	EOperation getWaitStepToFoundMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_308(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 308</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_869(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 869</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 308</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_308(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 869</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_869(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_308__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_869__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_309(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 309</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_870(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 870</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 309</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_309(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 870</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_870(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_309__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_870__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_310(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 310</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_871(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 871</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 310</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_310(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 871</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_871(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_310__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_871__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_311(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 311</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_872(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 872</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 311</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_311(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 872</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_872(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_311__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_872__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_312(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 312</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_873(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 873</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 312</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_312(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 873</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_873(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_312__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_873__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_313(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 313</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_874(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 874</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 313</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_313(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 874</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_874(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_313__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_874__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_487(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 487</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_424(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 424</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 487</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_487(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 424</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_424(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_FWD_EMoflonEdge_487__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_FWD_EMoflonEdge_424__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_488(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 488</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_425(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 425</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 488</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_488(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 425</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_425(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getWaitStepToFoundMessageRule__IsAppropriate_FWD_EMoflonEdge_488__EMoflonEdge();
+	EOperation getWaitStepToFoundMessageRule__IsAppropriate_FWD_EMoflonEdge_425__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.WaitStepToFoundMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -5659,84 +5659,84 @@ public interface RulesPackage extends EPackage {
 	EOperation getSendStepToLostMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_314(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 314</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_875(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 875</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 314</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_314(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 875</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_875(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_314__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_875__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_315(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 315</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_876(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 876</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 315</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_315(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 876</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_876(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_315__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_876__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_316(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 316</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_877(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 877</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 316</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_316(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 877</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_877(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_316__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_877__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_317(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 317</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_878(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 878</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 317</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_317(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 878</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_878(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_317__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_878__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_318(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 318</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_879(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 879</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 318</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_318(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 879</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_879(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_318__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_879__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_319(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 319</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_880(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 880</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 319</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_319(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 880</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_BWD_EMoflonEdge_880(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_319__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_BWD_EMoflonEdge_880__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_489(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 489</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_426(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 426</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 489</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_489(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 426</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_426(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_FWD_EMoflonEdge_489__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_FWD_EMoflonEdge_426__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_490(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 490</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_427(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 427</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 490</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_490(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 427</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#isAppropriate_FWD_EMoflonEdge_427(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSendStepToLostMessageRule__IsAppropriate_FWD_EMoflonEdge_490__EMoflonEdge();
+	EOperation getSendStepToLostMessageRule__IsAppropriate_FWD_EMoflonEdge_427__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SendStepToLostMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -6009,24 +6009,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getUCModelToMSDModelRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_FWD_UseCasesModel_1(UseCaseDSL.UseCasesModel) <em>Is Appropriate FWD Use Cases Model 1</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_FWD_UseCasesModel_8(UseCaseDSL.UseCasesModel) <em>Is Appropriate FWD Use Cases Model 8</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD Use Cases Model 1</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_FWD_UseCasesModel_1(UseCaseDSL.UseCasesModel)
+	 * @return the meta object for the '<em>Is Appropriate FWD Use Cases Model 8</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_FWD_UseCasesModel_8(UseCaseDSL.UseCasesModel)
 	 * @generated
 	 */
-	EOperation getUCModelToMSDModelRule__IsAppropriate_FWD_UseCasesModel_1__UseCasesModel();
+	EOperation getUCModelToMSDModelRule__IsAppropriate_FWD_UseCasesModel_8__UseCasesModel();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_BWD_Model_1(ModalSequenceDiagram.Model) <em>Is Appropriate BWD Model 1</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_BWD_Model_8(ModalSequenceDiagram.Model) <em>Is Appropriate BWD Model 8</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD Model 1</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_BWD_Model_1(ModalSequenceDiagram.Model)
+	 * @return the meta object for the '<em>Is Appropriate BWD Model 8</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#isAppropriate_BWD_Model_8(ModalSequenceDiagram.Model)
 	 * @generated
 	 */
-	EOperation getUCModelToMSDModelRule__IsAppropriate_BWD_Model_1__Model();
+	EOperation getUCModelToMSDModelRule__IsAppropriate_BWD_Model_8__Model();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCModelToMSDModelRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -6289,24 +6289,24 @@ public interface RulesPackage extends EPackage {
 	EOperation getUCPackageToMSDPackage__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_FWD_EMoflonEdge_491(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 491</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_FWD_EMoflonEdge_428(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 428</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 491</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_FWD_EMoflonEdge_491(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 428</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_FWD_EMoflonEdge_428(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUCPackageToMSDPackage__IsAppropriate_FWD_EMoflonEdge_491__EMoflonEdge();
+	EOperation getUCPackageToMSDPackage__IsAppropriate_FWD_EMoflonEdge_428__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_BWD_EMoflonEdge_320(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 320</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_BWD_EMoflonEdge_881(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 881</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 320</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_BWD_EMoflonEdge_320(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 881</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#isAppropriate_BWD_EMoflonEdge_881(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUCPackageToMSDPackage__IsAppropriate_BWD_EMoflonEdge_320__EMoflonEdge();
+	EOperation getUCPackageToMSDPackage__IsAppropriate_BWD_EMoflonEdge_881__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UCPackageToMSDPackage#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -6569,34 +6569,34 @@ public interface RulesPackage extends EPackage {
 	EOperation getUseCaseToInteractionRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_492(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 492</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_429(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 429</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 492</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_492(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 429</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_429(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCaseToInteractionRule__IsAppropriate_FWD_EMoflonEdge_492__EMoflonEdge();
+	EOperation getUseCaseToInteractionRule__IsAppropriate_FWD_EMoflonEdge_429__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_BWD_EMoflonEdge_321(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 321</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_BWD_EMoflonEdge_882(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 882</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 321</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_BWD_EMoflonEdge_321(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 882</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_BWD_EMoflonEdge_882(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCaseToInteractionRule__IsAppropriate_BWD_EMoflonEdge_321__EMoflonEdge();
+	EOperation getUseCaseToInteractionRule__IsAppropriate_BWD_EMoflonEdge_882__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_493(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 493</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_430(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 430</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 493</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_493(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 430</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#isAppropriate_FWD_EMoflonEdge_430(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCaseToInteractionRule__IsAppropriate_FWD_EMoflonEdge_493__EMoflonEdge();
+	EOperation getUseCaseToInteractionRule__IsAppropriate_FWD_EMoflonEdge_430__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCaseToInteractionRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -6859,34 +6859,34 @@ public interface RulesPackage extends EPackage {
 	EOperation getActorToLifelineRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_FWD_EMoflonEdge_494(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 494</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_FWD_EMoflonEdge_431(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 431</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 494</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_FWD_EMoflonEdge_494(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 431</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_FWD_EMoflonEdge_431(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getActorToLifelineRule__IsAppropriate_FWD_EMoflonEdge_494__EMoflonEdge();
+	EOperation getActorToLifelineRule__IsAppropriate_FWD_EMoflonEdge_431__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_322(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 322</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_883(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 883</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 322</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_322(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 883</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_883(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_322__EMoflonEdge();
+	EOperation getActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_883__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_323(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 323</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_884(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 884</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 323</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_323(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 884</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#isAppropriate_BWD_EMoflonEdge_884(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_323__EMoflonEdge();
+	EOperation getActorToLifelineRule__IsAppropriate_BWD_EMoflonEdge_884__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ActorToLifelineRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -7179,64 +7179,64 @@ public interface RulesPackage extends EPackage {
 	EOperation getAltStepToComboRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_324(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 324</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_885(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 885</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 324</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_324(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 885</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_885(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_324__EMoflonEdge();
+	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_885__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_325(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 325</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_886(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 886</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 325</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_325(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 886</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_886(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_325__EMoflonEdge();
+	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_886__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_495(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 495</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_432(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 432</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 495</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_495(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 432</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_432(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getAltStepToComboRule__IsAppropriate_FWD_EMoflonEdge_495__EMoflonEdge();
+	EOperation getAltStepToComboRule__IsAppropriate_FWD_EMoflonEdge_432__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_496(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 496</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_433(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 433</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 496</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_496(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 433</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_FWD_EMoflonEdge_433(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getAltStepToComboRule__IsAppropriate_FWD_EMoflonEdge_496__EMoflonEdge();
+	EOperation getAltStepToComboRule__IsAppropriate_FWD_EMoflonEdge_433__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_326(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 326</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_887(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 887</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 326</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_326(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 887</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_887(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_326__EMoflonEdge();
+	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_887__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_327(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 327</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_888(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 888</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 327</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_327(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 888</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#isAppropriate_BWD_EMoflonEdge_888(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_327__EMoflonEdge();
+	EOperation getAltStepToComboRule__IsAppropriate_BWD_EMoflonEdge_888__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.AltStepToComboRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -7499,34 +7499,34 @@ public interface RulesPackage extends EPackage {
 	EOperation getParallelStepToCombinedFragmentRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_328(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 328</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_889(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 889</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 328</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_328(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 889</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_889(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelStepToCombinedFragmentRule__IsAppropriate_BWD_EMoflonEdge_328__EMoflonEdge();
+	EOperation getParallelStepToCombinedFragmentRule__IsAppropriate_BWD_EMoflonEdge_889__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_329(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 329</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_890(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 890</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 329</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_329(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 890</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_BWD_EMoflonEdge_890(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelStepToCombinedFragmentRule__IsAppropriate_BWD_EMoflonEdge_329__EMoflonEdge();
+	EOperation getParallelStepToCombinedFragmentRule__IsAppropriate_BWD_EMoflonEdge_890__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_FWD_EMoflonEdge_497(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 497</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_FWD_EMoflonEdge_434(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 434</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 497</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_FWD_EMoflonEdge_497(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 434</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#isAppropriate_FWD_EMoflonEdge_434(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelStepToCombinedFragmentRule__IsAppropriate_FWD_EMoflonEdge_497__EMoflonEdge();
+	EOperation getParallelStepToCombinedFragmentRule__IsAppropriate_FWD_EMoflonEdge_434__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelStepToCombinedFragmentRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -7789,54 +7789,54 @@ public interface RulesPackage extends EPackage {
 	EOperation getParallelFlowToOperandRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_330(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 330</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_891(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 891</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 330</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_330(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 891</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_891(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelFlowToOperandRule__IsAppropriate_BWD_EMoflonEdge_330__EMoflonEdge();
+	EOperation getParallelFlowToOperandRule__IsAppropriate_BWD_EMoflonEdge_891__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_498(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 498</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_435(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 435</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 498</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_498(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 435</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_435(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelFlowToOperandRule__IsAppropriate_FWD_EMoflonEdge_498__EMoflonEdge();
+	EOperation getParallelFlowToOperandRule__IsAppropriate_FWD_EMoflonEdge_435__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_499(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 499</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_436(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 436</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 499</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_499(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 436</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_FWD_EMoflonEdge_436(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelFlowToOperandRule__IsAppropriate_FWD_EMoflonEdge_499__EMoflonEdge();
+	EOperation getParallelFlowToOperandRule__IsAppropriate_FWD_EMoflonEdge_436__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_331(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 331</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_892(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 892</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 331</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_331(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 892</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_892(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelFlowToOperandRule__IsAppropriate_BWD_EMoflonEdge_331__EMoflonEdge();
+	EOperation getParallelFlowToOperandRule__IsAppropriate_BWD_EMoflonEdge_892__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_332(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 332</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_893(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 893</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 332</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_332(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 893</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#isAppropriate_BWD_EMoflonEdge_893(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getParallelFlowToOperandRule__IsAppropriate_BWD_EMoflonEdge_332__EMoflonEdge();
+	EOperation getParallelFlowToOperandRule__IsAppropriate_BWD_EMoflonEdge_893__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.ParallelFlowToOperandRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -8099,94 +8099,94 @@ public interface RulesPackage extends EPackage {
 	EOperation getUseCasePrecondToFoundMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_500(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 500</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_437(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 437</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 500</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_500(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 437</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_FWD_EMoflonEdge_437(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_FWD_EMoflonEdge_500__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_FWD_EMoflonEdge_437__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_333(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 333</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_894(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 894</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 333</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_333(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 894</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_894(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_333__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_894__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_334(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 334</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_895(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 895</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 334</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_334(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 895</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_895(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_334__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_895__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_335(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 335</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_896(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 896</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 335</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_335(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 896</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_896(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_335__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_896__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_336(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 336</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_897(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 897</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 336</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_336(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 897</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_897(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_336__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_897__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_337(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 337</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_898(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 898</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 337</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_337(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 898</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_898(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_337__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_898__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_338(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 338</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_899(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 899</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 338</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_338(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 899</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_899(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_338__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_899__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_339(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 339</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_900(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 900</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 339</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_339(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 900</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_900(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_339__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_900__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_340(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 340</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_901(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 901</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 340</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_340(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 901</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#isAppropriate_BWD_EMoflonEdge_901(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_340__EMoflonEdge();
+	EOperation getUseCasePrecondToFoundMessageRule__IsAppropriate_BWD_EMoflonEdge_901__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UseCasePrecondToFoundMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -8449,164 +8449,164 @@ public interface RulesPackage extends EPackage {
 	EOperation getSystemStepBFToMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_341(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 341</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_902(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 902</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 341</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_341(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 902</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_902(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_341__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_902__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_342(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 342</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_903(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 903</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 342</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_342(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 903</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_903(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_342__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_903__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_343(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 343</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_904(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 904</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 343</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_343(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 904</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_904(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_343__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_904__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_344(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 344</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_905(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 905</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 344</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_344(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 905</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_905(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_344__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_905__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_345(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 345</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_906(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 906</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 345</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_345(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 906</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_906(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_345__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_906__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_346(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 346</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_907(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 907</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 346</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_346(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 907</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_907(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_346__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_907__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_347(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 347</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_908(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 908</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 347</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_347(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 908</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_908(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_347__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_908__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_348(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 348</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_909(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 909</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 348</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_348(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 909</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_909(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_348__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_909__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_349(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 349</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_910(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 910</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 349</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_349(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 910</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_910(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_349__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_910__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_350(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 350</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_911(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 911</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 350</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_350(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 911</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_911(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_350__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_911__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_351(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 351</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_912(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 912</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 351</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_351(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 912</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_912(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_351__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_912__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_352(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 352</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_913(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 913</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 352</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_352(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 913</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_913(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_352__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_913__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_353(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 353</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_914(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 914</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 353</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_353(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 914</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_914(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_353__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_914__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_354(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 354</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_915(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 915</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 354</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_354(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 915</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_BWD_EMoflonEdge_915(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_354__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_BWD_EMoflonEdge_915__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_501(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 501</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_438(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 438</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 501</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_501(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 438</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_438(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_FWD_EMoflonEdge_501__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_FWD_EMoflonEdge_438__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_502(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 502</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_439(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 439</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 502</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_502(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 439</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#isAppropriate_FWD_EMoflonEdge_439(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepBFToMessageRule__IsAppropriate_FWD_EMoflonEdge_502__EMoflonEdge();
+	EOperation getSystemStepBFToMessageRule__IsAppropriate_FWD_EMoflonEdge_439__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepBFToMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -8869,84 +8869,84 @@ public interface RulesPackage extends EPackage {
 	EOperation getStepAltToOperandRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_355(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 355</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_916(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 916</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 355</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_355(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 916</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_916(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_355__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_916__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_503(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 503</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_440(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 440</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 503</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_503(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 440</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_440(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_FWD_EMoflonEdge_503__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_FWD_EMoflonEdge_440__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_504(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 504</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_441(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 441</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 504</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_504(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 441</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_441(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_FWD_EMoflonEdge_504__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_FWD_EMoflonEdge_441__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_356(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 356</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_917(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 917</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 356</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_356(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 917</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_917(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_356__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_917__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_357(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 357</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_918(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 918</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 357</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_357(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 918</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_918(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_357__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_918__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_358(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 358</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_919(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 919</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 358</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_358(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 919</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_919(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_358__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_919__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_359(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 359</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_920(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 920</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 359</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_359(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 920</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_BWD_EMoflonEdge_920(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_359__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_BWD_EMoflonEdge_920__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_505(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 505</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_442(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 442</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 505</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_505(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 442</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#isAppropriate_FWD_EMoflonEdge_442(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getStepAltToOperandRule__IsAppropriate_FWD_EMoflonEdge_505__EMoflonEdge();
+	EOperation getStepAltToOperandRule__IsAppropriate_FWD_EMoflonEdge_442__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.StepAltToOperandRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -9209,164 +9209,164 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserStepBFMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_360(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 360</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_921(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 921</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 360</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_360(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 921</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_921(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_360__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_921__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_361(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 361</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_922(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 922</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 361</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_361(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 922</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_922(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_361__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_922__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_362(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 362</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_923(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 923</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 362</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_362(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 923</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_923(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_362__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_923__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_363(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 363</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_924(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 924</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 363</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_363(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 924</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_924(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_363__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_924__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_364(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 364</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_925(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 925</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 364</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_364(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 925</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_925(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_364__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_925__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_365(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 365</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_926(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 926</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 365</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_365(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 926</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_926(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_365__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_926__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_366(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 366</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_927(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 927</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 366</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_366(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 927</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_927(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_366__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_927__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_367(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 367</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_928(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 928</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 367</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_367(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 928</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_928(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_367__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_928__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_368(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 368</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_929(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 929</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 368</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_368(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 929</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_929(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_368__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_929__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_369(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 369</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_930(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 930</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 369</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_369(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 930</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_930(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_369__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_930__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_370(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 370</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_931(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 931</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 370</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_370(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 931</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_931(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_370__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_931__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_371(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 371</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_932(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 932</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 371</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_371(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 932</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_932(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_371__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_932__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_372(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 372</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_933(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 933</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 372</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_372(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 933</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_933(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_372__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_933__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_373(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 373</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_934(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 934</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 373</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_373(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 934</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_BWD_EMoflonEdge_934(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_373__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_BWD_EMoflonEdge_934__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_506(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 506</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_443(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 443</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 506</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_506(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 443</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_443(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_FWD_EMoflonEdge_506__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_FWD_EMoflonEdge_443__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_507(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 507</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_444(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 444</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 507</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_507(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 444</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#isAppropriate_FWD_EMoflonEdge_444(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepBFMessageRule__IsAppropriate_FWD_EMoflonEdge_507__EMoflonEdge();
+	EOperation getUserStepBFMessageRule__IsAppropriate_FWD_EMoflonEdge_444__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepBFMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -9629,184 +9629,184 @@ public interface RulesPackage extends EPackage {
 	EOperation getSystemStepNFToMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_374(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 374</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_935(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 935</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 374</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_374(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 935</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_935(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_374__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_935__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_375(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 375</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_936(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 936</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 375</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_375(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 936</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_936(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_375__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_936__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_376(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 376</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_937(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 937</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 376</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_376(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 937</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_937(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_376__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_937__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_377(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 377</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_938(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 938</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 377</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_377(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 938</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_938(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_377__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_938__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_378(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 378</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_939(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 939</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 378</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_378(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 939</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_939(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_378__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_939__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_379(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 379</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_940(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 940</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 379</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_379(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 940</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_940(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_379__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_940__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_380(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 380</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_941(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 941</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 380</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_380(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 941</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_941(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_380__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_941__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_381(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 381</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_942(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 942</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 381</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_381(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 942</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_942(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_381__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_942__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_382(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 382</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_943(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 943</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 382</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_382(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 943</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_943(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_382__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_943__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_383(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 383</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_944(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 944</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 383</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_383(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 944</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_944(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_383__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_944__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_384(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 384</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_945(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 945</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 384</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_384(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 945</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_945(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_384__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_945__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_385(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 385</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_946(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 946</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 385</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_385(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 946</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_946(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_385__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_946__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_386(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 386</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_947(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 947</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 386</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_386(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 947</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_947(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_386__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_947__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_387(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 387</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_948(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 948</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 387</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_387(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 948</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_948(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_387__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_948__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_388(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 388</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_949(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 949</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 388</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_388(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 949</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_949(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_388__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_949__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_389(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 389</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_950(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 950</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 389</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_389(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 950</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_BWD_EMoflonEdge_950(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_389__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_BWD_EMoflonEdge_950__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_508(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 508</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_445(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 445</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 508</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_508(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 445</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_445(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_FWD_EMoflonEdge_508__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_FWD_EMoflonEdge_445__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_509(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 509</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_446(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 446</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 509</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_509(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 446</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#isAppropriate_FWD_EMoflonEdge_446(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getSystemStepNFToMessageRule__IsAppropriate_FWD_EMoflonEdge_509__EMoflonEdge();
+	EOperation getSystemStepNFToMessageRule__IsAppropriate_FWD_EMoflonEdge_446__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.SystemStepNFToMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.
@@ -10069,204 +10069,204 @@ public interface RulesPackage extends EPackage {
 	EOperation getUserStepNfToMessageRule__CheckTypes_BWD__Match();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_390(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 390</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_951(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 951</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 390</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_390(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 951</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_951(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_390__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_951__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_391(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 391</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_952(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 952</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 391</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_391(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 952</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_952(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_391__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_952__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_392(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 392</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_953(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 953</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 392</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_392(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 953</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_953(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_392__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_953__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_393(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 393</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_954(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 954</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 393</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_393(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 954</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_954(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_393__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_954__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_394(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 394</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_955(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 955</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 394</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_394(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 955</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_955(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_394__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_955__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_395(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 395</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_956(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 956</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 395</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_395(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 956</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_956(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_395__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_956__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_396(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 396</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_957(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 957</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 396</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_396(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 957</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_957(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_396__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_957__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_397(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 397</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_958(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 958</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 397</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_397(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 958</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_958(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_397__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_958__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_398(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 398</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_959(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 959</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 398</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_398(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 959</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_959(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_398__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_959__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_399(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 399</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_960(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 960</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 399</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_399(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 960</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_960(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_399__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_960__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_400(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 400</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_961(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 961</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 400</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_400(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 961</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_961(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_400__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_961__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_401(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 401</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_962(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 962</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 401</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_401(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 962</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_962(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_401__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_962__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_402(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 402</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_963(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 963</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 402</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_402(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 963</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_963(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_402__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_963__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_403(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 403</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_964(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 964</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 403</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_403(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 964</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_964(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_403__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_964__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_404(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 404</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_965(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 965</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 404</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_404(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 965</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_965(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_404__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_965__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_405(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 405</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_966(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 966</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 405</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_405(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 966</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_966(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_405__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_966__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_406(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 406</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_967(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 967</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 406</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_406(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 967</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_967(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_406__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_967__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_407(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 407</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_968(TGGRuntime.EMoflonEdge) <em>Is Appropriate BWD EMoflon Edge 968</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 407</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_407(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate BWD EMoflon Edge 968</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_BWD_EMoflonEdge_968(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_407__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_BWD_EMoflonEdge_968__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_510(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 510</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_447(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 447</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 510</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_510(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 447</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_447(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_FWD_EMoflonEdge_510__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_FWD_EMoflonEdge_447__EMoflonEdge();
 
 	/**
-	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_511(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 511</em>}' operation.
+	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_448(TGGRuntime.EMoflonEdge) <em>Is Appropriate FWD EMoflon Edge 448</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 511</em>' operation.
-	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_511(TGGRuntime.EMoflonEdge)
+	 * @return the meta object for the '<em>Is Appropriate FWD EMoflon Edge 448</em>' operation.
+	 * @see UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#isAppropriate_FWD_EMoflonEdge_448(TGGRuntime.EMoflonEdge)
 	 * @generated
 	 */
-	EOperation getUserStepNfToMessageRule__IsAppropriate_FWD_EMoflonEdge_511__EMoflonEdge();
+	EOperation getUserStepNfToMessageRule__IsAppropriate_FWD_EMoflonEdge_448__EMoflonEdge();
 
 	/**
 	 * Returns the meta object for the '{@link UseCaseToModalSequenceDiagramIntegration.Rules.UserStepNfToMessageRule#checkAttributes_FWD(TGGRuntime.TripleMatch) <em>Check Attributes FWD</em>}' operation.

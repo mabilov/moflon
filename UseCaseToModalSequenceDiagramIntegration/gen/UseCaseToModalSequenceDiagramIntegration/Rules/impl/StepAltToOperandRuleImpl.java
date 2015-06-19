@@ -116,7 +116,33 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						useCase);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[altFlow] = "
+							+ altFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase + ".");
 		}
 
 		// Solve CSP
@@ -126,7 +152,33 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						altFlow, flow, useCase);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[altFlow] = "
+							+ altFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -140,7 +192,27 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							flow, useCase);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[alt] = "
+								+ alt
+								+ ", "
+								+ "[altFlow] = "
+								+ altFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow + ", " + "[useCase] = " + useCase + ".");
 			}
 			StepAltToOperandRuleImpl
 					.pattern_StepAltToOperandRule_0_4_greenBBBBBFFF(match,
@@ -156,7 +228,27 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							flow, useCase);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[alt] = "
+								+ alt
+								+ ", "
+								+ "[altFlow] = "
+								+ altFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow + ", " + "[useCase] = " + useCase + ".");
 			}
 			StepAltToOperandRuleImpl
 					.pattern_StepAltToOperandRule_0_5_greenBBBBBBFFFFF(match,
@@ -193,7 +285,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Actor actor = (Actor) result1_bindingAndBlack[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[1];
@@ -223,7 +318,13 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						spec, altFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[altFlowToOperand] = "
+							+ altFlowToOperand + ", " + "[alt] = " + alt + ", "
+							+ "[operand] = " + operand + ", "
+							+ "[altToOperand] = " + altToOperand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ", " + "[altFlow] = " + altFlow + ".");
 		}
 		Object[] result2_green = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_1_2_greenFBBBBBBB(
@@ -240,7 +341,54 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						altFlow, flow, useCase, line);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[altFlowToOperand] = "
+							+ altFlowToOperand
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[stepToCombo] = "
+							+ stepToCombo
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[altToOperand] = "
+							+ altToOperand
+							+ ", "
+							+ "[guard] = "
+							+ guard
+							+ ", "
+							+ "[spec] = "
+							+ spec
+							+ ", "
+							+ "[altFlow] = "
+							+ altFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase + ", " + "[line] = " + line + ".");
 		}
 		StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_1_3_greenBBBBBBBBBBBBFFFFFFFFFFFF(
@@ -283,7 +431,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				.pattern_StepAltToOperandRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -295,7 +444,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_2_2_bindingFFFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Actor actor = (Actor) result2_binding[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[1];
@@ -346,7 +496,44 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								stepToCombo, alt, altFlow, flow, useCase, line);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[stepToCombo] = "
+									+ stepToCombo
+									+ ", "
+									+ "[alt] = "
+									+ alt
+									+ ", "
+									+ "[altFlow] = "
+									+ altFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[line] = " + line + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -360,7 +547,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_2_6_greenBB(
@@ -560,7 +751,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						combo, operand, guard, spec, line);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[combo] = "
+							+ combo + ", " + "[operand] = " + operand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ", " + "[line] = " + line + ".");
 		}
 
 		// Solve CSP
@@ -569,7 +765,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						this, match, combo, operand, guard, spec, line);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[combo] = "
+							+ combo + ", " + "[operand] = " + operand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ", " + "[line] = " + line + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -582,7 +783,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							combo, operand, guard, spec, line);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[combo] = " + combo + ", " + "[operand] = "
+								+ operand + ", " + "[guard] = " + guard + ", "
+								+ "[spec] = " + spec + ", " + "[line] = "
+								+ line + ".");
 			}
 			StepAltToOperandRuleImpl
 					.pattern_StepAltToOperandRule_10_4_greenBBBBBBFFFFF(match,
@@ -599,7 +805,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							combo, operand, guard, spec, line);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[combo] = " + combo + ", " + "[operand] = "
+								+ operand + ", " + "[guard] = " + guard + ", "
+								+ "[spec] = " + spec + ", " + "[line] = "
+								+ line + ".");
 			}
 			StepAltToOperandRuleImpl
 					.pattern_StepAltToOperandRule_10_5_greenBBBFF(match, combo,
@@ -632,7 +843,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Actor actor = (Actor) result1_bindingAndBlack[0];
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[1];
@@ -662,7 +876,13 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						spec, altFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[altFlowToOperand] = "
+							+ altFlowToOperand + ", " + "[alt] = " + alt + ", "
+							+ "[operand] = " + operand + ", "
+							+ "[altToOperand] = " + altToOperand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ", " + "[altFlow] = " + altFlow + ".");
 		}
 		Object[] result2_green = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_11_2_greenFBBBBBBB(
@@ -679,7 +899,54 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						altFlow, flow, useCase, line);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[altFlowToOperand] = "
+							+ altFlowToOperand
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[stepToCombo] = "
+							+ stepToCombo
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[altToOperand] = "
+							+ altToOperand
+							+ ", "
+							+ "[guard] = "
+							+ guard
+							+ ", "
+							+ "[spec] = "
+							+ spec
+							+ ", "
+							+ "[altFlow] = "
+							+ altFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase + ", " + "[line] = " + line + ".");
 		}
 		StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_11_3_greenBBBBBBBBBBBBFFFFFFFFFFFF(
@@ -722,7 +989,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				.pattern_StepAltToOperandRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -734,7 +1002,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_12_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		CombinedFragment combo = (CombinedFragment) result2_binding[0];
 		InteractionOperand operand = (InteractionOperand) result2_binding[1];
@@ -788,7 +1057,47 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 								useCase, line);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[stepToCombo] = "
+									+ stepToCombo
+									+ ", "
+									+ "[operand] = "
+									+ operand
+									+ ", "
+									+ "[guard] = "
+									+ guard
+									+ ", "
+									+ "[spec] = "
+									+ spec
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[line] = " + line + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -802,7 +1111,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_12_6_greenBB(
@@ -994,14 +1307,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_355(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_916(
 			EMoflonEdge _edge_operand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1036,7 +1350,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_20_5_greenBBB(match,
@@ -1058,14 +1376,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_503(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_440(
 			EMoflonEdge _edge_stepAlternative) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1103,7 +1422,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_21_5_greenBBB(match,
@@ -1125,14 +1448,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_504(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_441(
 			EMoflonEdge _edge_ref) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1170,7 +1494,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_22_5_greenBBB(match,
@@ -1192,14 +1520,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_356(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_917(
 			EMoflonEdge _edge_guard) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1234,7 +1563,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_23_5_greenBBB(match,
@@ -1256,14 +1589,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_357(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_918(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1298,7 +1632,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_24_5_greenBBB(match,
@@ -1320,14 +1658,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_358(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_919(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1362,7 +1701,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_25_5_greenBBB(match,
@@ -1384,14 +1727,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_359(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_920(
 			EMoflonEdge _edge_specification) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1426,7 +1770,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_26_5_greenBBB(match,
@@ -1448,14 +1796,15 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_505(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_442(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_27_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1493,7 +1842,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_27_5_greenBBB(match,
@@ -1515,8 +1868,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1524,8 +1878,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1541,7 +1896,8 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 				.pattern_StepAltToOperandRule_30_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = StepAltToOperandRuleImpl
 				.pattern_StepAltToOperandRule_30_1_greenFF();
@@ -1571,7 +1927,42 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 							useCase, line, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[actorToLine] = "
+								+ actorToLine
+								+ ", "
+								+ "[combo] = "
+								+ combo
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[stepToCombo] = "
+								+ stepToCombo
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1592,7 +1983,35 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 									line, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[actor] = "
+										+ actor
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[actorToLine] = "
+										+ actorToLine
+										+ ", "
+										+ "[combo] = "
+										+ combo
+										+ ", "
+										+ "[step] = "
+										+ step
+										+ ", "
+										+ "[stepToCombo] = "
+										+ stepToCombo
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[line] = "
+										+ line
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					StepAltToOperandRuleImpl
 							.pattern_StepAltToOperandRule_30_6_greenFBBFFFFFFBBBB(
@@ -1808,29 +2227,29 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_355__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_355((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_916__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_916((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_503__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_503((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_440__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_440((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_504__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_504((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_441__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_441((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_356__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_356((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_917__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_917((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_357__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_357((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_918__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_918((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_358__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_358((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_919__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_919((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_359__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_359((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_920__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_920((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_505__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_505((EMoflonEdge) arguments
+		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_442__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_442((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.STEP_ALT_TO_OPERAND_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2816,12 +3235,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			AlternativeFlow altFlow, Flow flow, UseCase useCase, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!altFlow.equals(flow)) {
-			for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+			for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(actor, ActorToLifeline.class,
 							"source")) {
 				Lifeline line = actorToLine.getTarget();
 				if (line != null) {
-					for (NormalStepToCombinedFragment stepToCombo : org.moflon.util.eMoflonEMFUtil
+					for (NormalStepToCombinedFragment stepToCombo : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(step,
 									NormalStepToCombinedFragment.class,
 									"source")) {
@@ -4039,12 +4458,12 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			InteractionConstraint guard, LiteralString spec, Lifeline line,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+		for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(line, ActorToLifeline.class,
 						"target")) {
 			Actor actor = actorToLine.getSource();
 			if (actor != null) {
-				for (NormalStepToCombinedFragment stepToCombo : org.moflon.util.eMoflonEMFUtil
+				for (NormalStepToCombinedFragment stepToCombo : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(combo,
 								NormalStepToCombinedFragment.class, "target")) {
 					NormalStep step = stepToCombo.getSource();
@@ -4079,7 +4498,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 												operand)) {
 											if (spec.equals(guard
 													.getSpecification())) {
-												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+												for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																actor,
 																PackageDeclaration.class,
@@ -4410,9 +4829,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_20_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_643907 = operand
+		Interaction __DEC_operand_enclosingInteraction_471367 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_643907 != null) {
+		if (__DEC_operand_enclosingInteraction_471367 != null) {
 			return new Object[] { operand };
 		}
 
@@ -4421,10 +4840,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_20_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_4596 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_767742 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_4596)) {
+			if (!combo.equals(__DEC_operand_operand_767742)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -4433,10 +4852,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_20_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_646701 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_428964 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_646701)) {
+			if (!operand.equals(__DEC_guard_guard_428964)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -4594,11 +5013,11 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 						NamedFlow tmpAltFlow = alt.getRef();
 						if (tmpAltFlow instanceof AlternativeFlow) {
 							AlternativeFlow altFlow = (AlternativeFlow) tmpAltFlow;
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+							for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(step,
 											Flow.class, "steps")) {
 								if (!altFlow.equals(flow)) {
-									for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+									for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 											.getOppositeReferenceTyped(actor,
 													PackageDeclaration.class,
 													"actors")) {
@@ -4735,18 +5154,18 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			if (tmpAltFlow instanceof AlternativeFlow) {
 				AlternativeFlow altFlow = (AlternativeFlow) tmpAltFlow;
 				if (altFlow.equals(alt.getRef())) {
-					for (NormalStep step : org.moflon.util.eMoflonEMFUtil
+					for (NormalStep step : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(alt, NormalStep.class,
 									"stepAlternative")) {
 						Actor actor = step.getActor();
 						if (actor != null) {
-							for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+							for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(altFlow,
 											UseCase.class, "flows")) {
 								for (Flow flow : useCase.getFlows()) {
 									if (!altFlow.equals(flow)) {
 										if (flow.getSteps().contains(step)) {
-											for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+											for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															actor,
 															PackageDeclaration.class,
@@ -4872,9 +5291,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_23_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_330663 = operand
+		Interaction __DEC_operand_enclosingInteraction_55188 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_330663 != null) {
+		if (__DEC_operand_enclosingInteraction_55188 != null) {
 			return new Object[] { operand };
 		}
 
@@ -4883,10 +5302,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_23_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_123803 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_679238 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_123803)) {
+			if (!combo.equals(__DEC_operand_operand_679238)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -4895,10 +5314,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_23_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_250099 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_947993 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_250099)) {
+			if (!operand.equals(__DEC_guard_guard_947993)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5045,9 +5464,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_24_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_775950 = operand
+		Interaction __DEC_operand_enclosingInteraction_320381 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_775950 != null) {
+		if (__DEC_operand_enclosingInteraction_320381 != null) {
 			return new Object[] { operand };
 		}
 
@@ -5056,10 +5475,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_24_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_961617 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_172108 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_961617)) {
+			if (!combo.equals(__DEC_operand_operand_172108)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -5068,10 +5487,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_24_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_984755 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_314396 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_984755)) {
+			if (!operand.equals(__DEC_guard_guard_314396)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5220,9 +5639,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_25_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_336697 = operand
+		Interaction __DEC_operand_enclosingInteraction_681020 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_336697 != null) {
+		if (__DEC_operand_enclosingInteraction_681020 != null) {
 			return new Object[] { operand };
 		}
 
@@ -5231,10 +5650,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_25_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_288323 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_426253 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_288323)) {
+			if (!combo.equals(__DEC_operand_operand_426253)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -5243,10 +5662,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_25_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_740291 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_992235 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_740291)) {
+			if (!operand.equals(__DEC_guard_guard_992235)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5395,9 +5814,9 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_26_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_735056 = operand
+		Interaction __DEC_operand_enclosingInteraction_692783 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_735056 != null) {
+		if (__DEC_operand_enclosingInteraction_692783 != null) {
 			return new Object[] { operand };
 		}
 
@@ -5406,10 +5825,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_26_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_42228 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_330066 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_42228)) {
+			if (!combo.equals(__DEC_operand_operand_330066)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -5418,10 +5837,10 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_StepAltToOperandRule_26_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_987036 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_716938 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_987036)) {
+			if (!operand.equals(__DEC_guard_guard_716938)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -5438,7 +5857,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 			if (tmpSpec instanceof LiteralString) {
 				LiteralString spec = (LiteralString) tmpSpec;
 				if (spec.equals(guard.getSpecification())) {
-					for (InteractionOperand operand : org.moflon.util.eMoflonEMFUtil
+					for (InteractionOperand operand : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(guard,
 									InteractionOperand.class, "guard")) {
 						if (pattern_StepAltToOperandRule_26_2_black_nac_0B(operand) == null) {
@@ -5588,7 +6007,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 												AlternativeFlowAlternative alt = (AlternativeFlowAlternative) tmpAlt;
 												if (altFlow
 														.equals(alt.getRef())) {
-													for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+													for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	useCase,
 																	PackageDeclaration.class,
@@ -5787,7 +6206,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 														.getCovered()) {
 													if (pattern_StepAltToOperandRule_30_2_black_nac_7BB(
 															ruleResult, line) == null) {
-														for (Flow flow : org.moflon.util.eMoflonEMFUtil
+														for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		step,
 																		Flow.class,
@@ -5795,7 +6214,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 															if (pattern_StepAltToOperandRule_30_2_black_nac_3BB(
 																	ruleResult,
 																	flow) == null) {
-																for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+																for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 																		.getOppositeReferenceTyped(
 																				actor,
 																				PackageDeclaration.class,
@@ -5812,7 +6231,7 @@ public class StepAltToOperandRuleImpl extends AbstractRuleImpl implements
 																				if (pattern_StepAltToOperandRule_30_2_black_nac_2BB(
 																						ruleResult,
 																						useCase) == null) {
-																					for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+																					for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 																							.getOppositeReferenceTyped(
 																									actor,
 																									ActorToLifeline.class,

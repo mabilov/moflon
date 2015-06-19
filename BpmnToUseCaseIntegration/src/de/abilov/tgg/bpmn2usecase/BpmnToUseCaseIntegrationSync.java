@@ -5,7 +5,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.moflon.util.eMoflonEMFUtil;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.moflon.core.utilities.eMoflonEMFUtil;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 import UseCaseDSL.resource.UseCaseXMIHelper;
@@ -13,12 +14,7 @@ import de.abilov.tgg.synch.SynchronizationHelper;
 
 public class BpmnToUseCaseIntegrationSync extends SynchronizationHelper {
 	public BpmnToUseCaseIntegrationSync() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-
-		// Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
+		super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
 	}
 
 	private String newSourceFile;
@@ -28,8 +24,11 @@ public class BpmnToUseCaseIntegrationSync extends SynchronizationHelper {
 
 	@Override
 	protected void performForward() throws IOException {
-		final EObject newSrc = eMoflonEMFUtil.loadModelWithDependencies(
-				newSourceFile, getResourceSet());
+		Resource res = this.getResourceSet().getResource(
+				URI.createFileURI(newSourceFile), true);
+		eMoflonEMFUtil.installCrossReferencers(this.getResourceSet());
+		final EObject newSrc = res.getContents().get(0);
+
 		setChangeSrc(root -> {
 			mergeRightToLeft(root, newSrc);
 		});

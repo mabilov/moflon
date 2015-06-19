@@ -112,7 +112,36 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						divergeFlow, exConvGateway, outFlow, lane, laneSet);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[defaultFlow] = "
+							+ defaultFlow
+							+ ", "
+							+ "[exclusiveGateway] = "
+							+ exclusiveGateway
+							+ ", "
+							+ "[divergeFlow] = "
+							+ divergeFlow
+							+ ", "
+							+ "[exConvGateway] = "
+							+ exConvGateway
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane + ", " + "[laneSet] = " + laneSet + ".");
 		}
 
 		// Solve CSP
@@ -123,7 +152,36 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						lane, laneSet);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[defaultFlow] = "
+							+ defaultFlow
+							+ ", "
+							+ "[exclusiveGateway] = "
+							+ exclusiveGateway
+							+ ", "
+							+ "[divergeFlow] = "
+							+ divergeFlow
+							+ ", "
+							+ "[exConvGateway] = "
+							+ exConvGateway
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane + ", " + "[laneSet] = " + laneSet + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -138,7 +196,36 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 							outFlow, lane, laneSet);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[defaultFlow] = "
+								+ defaultFlow
+								+ ", "
+								+ "[exclusiveGateway] = "
+								+ exclusiveGateway
+								+ ", "
+								+ "[divergeFlow] = "
+								+ divergeFlow
+								+ ", "
+								+ "[exConvGateway] = "
+								+ exConvGateway
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet + ".");
 			}
 			ExcConvGwAfterExDivGwRuleImpl
 					.pattern_ExcConvGwAfterExDivGwRule_0_4_greenBBBBBBFFFFFFF(
@@ -160,7 +247,36 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 							outFlow, lane, laneSet);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[defaultFlow] = "
+								+ defaultFlow
+								+ ", "
+								+ "[exclusiveGateway] = "
+								+ exclusiveGateway
+								+ ", "
+								+ "[divergeFlow] = "
+								+ divergeFlow
+								+ ", "
+								+ "[exConvGateway] = "
+								+ exConvGateway
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet + ".");
 			}
 			ExcConvGwAfterExDivGwRuleImpl
 					.pattern_ExcConvGwAfterExDivGwRule_0_5_greenBBBBBBBBFFFFFFFFF(
@@ -203,7 +319,10 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[0];
 		Step step = (Step) result1_bindingAndBlack[1];
@@ -239,7 +358,13 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						outFlowToNormalStep);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[exConvGateway] = "
+							+ exConvGateway + ", " + "[outFlow] = " + outFlow
+							+ ", " + "[ecgwToStep] = " + ecgwToStep + ", "
+							+ "[outFlowToInitFlow] = " + outFlowToInitFlow
+							+ ", " + "[outFlowToNormalStep] = "
+							+ outFlowToNormalStep + ".");
 		}
 		Object[] result2_green = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_1_2_greenFBBBBB(
@@ -258,7 +383,73 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						outFlowToNormalStep, lane, laneSet);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[inFlowToStep] = "
+							+ inFlowToStep
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[defaultFlow] = "
+							+ defaultFlow
+							+ ", "
+							+ "[exclusiveGateway] = "
+							+ exclusiveGateway
+							+ ", "
+							+ "[divergeFlow] = "
+							+ divergeFlow
+							+ ", "
+							+ "[normalStep] = "
+							+ normalStep
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[initFlow] = "
+							+ initFlow
+							+ ", "
+							+ "[defaultFlowToInitFlow] = "
+							+ defaultFlowToInitFlow
+							+ ", "
+							+ "[egwToStep] = "
+							+ egwToStep
+							+ ", "
+							+ "[divergeFlowToAlt] = "
+							+ divergeFlowToAlt
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[divergeFlowToFlow] = "
+							+ divergeFlowToFlow
+							+ ", "
+							+ "[exConvGateway] = "
+							+ exConvGateway
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[ecgwToStep] = "
+							+ ecgwToStep
+							+ ", "
+							+ "[outFlowToInitFlow] = "
+							+ outFlowToInitFlow
+							+ ", "
+							+ "[outFlowToNormalStep] = "
+							+ outFlowToNormalStep
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", " + "[laneSet] = " + laneSet + ".");
 		}
 		ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
@@ -304,7 +495,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				.pattern_ExcConvGwAfterExDivGwRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -316,7 +508,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_2_2_bindingFFFFFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		SequenceFlow inFlow = (SequenceFlow) result2_binding[0];
 		bpmn2.Process process = (bpmn2.Process) result2_binding[1];
@@ -401,7 +594,68 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 								exConvGateway, outFlow, lane, laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[inFlowToStep] = "
+									+ inFlowToStep
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[defaultFlow] = "
+									+ defaultFlow
+									+ ", "
+									+ "[exclusiveGateway] = "
+									+ exclusiveGateway
+									+ ", "
+									+ "[divergeFlow] = "
+									+ divergeFlow
+									+ ", "
+									+ "[normalStep] = "
+									+ normalStep
+									+ ", "
+									+ "[alt] = "
+									+ alt
+									+ ", "
+									+ "[initFlow] = "
+									+ initFlow
+									+ ", "
+									+ "[defaultFlowToInitFlow] = "
+									+ defaultFlowToInitFlow
+									+ ", "
+									+ "[egwToStep] = "
+									+ egwToStep
+									+ ", "
+									+ "[divergeFlowToAlt] = "
+									+ divergeFlowToAlt
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[divergeFlowToFlow] = "
+									+ divergeFlowToFlow
+									+ ", "
+									+ "[exConvGateway] = "
+									+ exConvGateway
+									+ ", "
+									+ "[outFlow] = "
+									+ outFlow
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = " + laneSet + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -415,7 +669,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_2_6_greenBB(
@@ -637,14 +895,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_329(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_305(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_10_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -685,7 +944,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_10_5_greenBBB(
@@ -707,14 +970,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_330(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_306(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_11_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -755,7 +1019,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_11_5_greenBBB(
@@ -777,14 +1045,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_331(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_307(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -825,7 +1094,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_12_5_greenBBB(
@@ -847,14 +1120,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_332(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_308(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_13_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -895,7 +1169,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_13_5_greenBBB(
@@ -917,14 +1195,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_333(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_309(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_14_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -965,7 +1244,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_14_5_greenBBB(
@@ -987,14 +1270,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_334(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_310(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_15_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1035,7 +1319,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_15_5_greenBBB(
@@ -1057,14 +1345,15 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_335(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_311(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_16_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1105,7 +1394,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_16_5_greenBBB(
@@ -1127,8 +1420,9 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1144,7 +1438,8 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 				.pattern_ExcConvGwAfterExDivGwRule_18_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ExcConvGwAfterExDivGwRuleImpl
 				.pattern_ExcConvGwAfterExDivGwRule_18_1_greenFF();
@@ -1185,7 +1480,65 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 							laneSet, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[inFlowToStep] = "
+								+ inFlowToStep
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[defaultFlow] = "
+								+ defaultFlow
+								+ ", "
+								+ "[exclusiveGateway] = "
+								+ exclusiveGateway
+								+ ", "
+								+ "[divergeFlow] = "
+								+ divergeFlow
+								+ ", "
+								+ "[normalStep] = "
+								+ normalStep
+								+ ", "
+								+ "[alt] = "
+								+ alt
+								+ ", "
+								+ "[initFlow] = "
+								+ initFlow
+								+ ", "
+								+ "[defaultFlowToInitFlow] = "
+								+ defaultFlowToInitFlow
+								+ ", "
+								+ "[egwToStep] = "
+								+ egwToStep
+								+ ", "
+								+ "[divergeFlowToAlt] = "
+								+ divergeFlowToAlt
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[divergeFlowToFlow] = "
+								+ divergeFlowToFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1214,7 +1567,59 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 									lane, laneSet, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[step] = "
+										+ step
+										+ ", "
+										+ "[inFlowToStep] = "
+										+ inFlowToStep
+										+ ", "
+										+ "[process] = "
+										+ process
+										+ ", "
+										+ "[defaultFlow] = "
+										+ defaultFlow
+										+ ", "
+										+ "[exclusiveGateway] = "
+										+ exclusiveGateway
+										+ ", "
+										+ "[divergeFlow] = "
+										+ divergeFlow
+										+ ", "
+										+ "[normalStep] = "
+										+ normalStep
+										+ ", "
+										+ "[alt] = "
+										+ alt
+										+ ", "
+										+ "[initFlow] = "
+										+ initFlow
+										+ ", "
+										+ "[defaultFlowToInitFlow] = "
+										+ defaultFlowToInitFlow
+										+ ", "
+										+ "[egwToStep] = "
+										+ egwToStep
+										+ ", "
+										+ "[divergeFlowToAlt] = "
+										+ divergeFlowToAlt
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[divergeFlowToFlow] = "
+										+ divergeFlowToFlow
+										+ ", "
+										+ "[lane] = "
+										+ lane
+										+ ", "
+										+ "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ExcConvGwAfterExDivGwRuleImpl
 							.pattern_ExcConvGwAfterExDivGwRule_18_6_greenBBBBFFFFFBBB(
@@ -1407,26 +1812,26 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_329__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_329((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_305__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_305((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_330__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_330((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_306__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_306((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_331__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_331((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_307__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_307((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_332__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_332((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_308__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_308((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_333__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_333((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_309__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_309((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_334__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_334((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_310__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_310((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_335__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_335((EMoflonEdge) arguments
+		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_311__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_311((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.EXC_CONV_GW_AFTER_EX_DIV_GW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3032,13 +3437,13 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
 								if (!exConvGateway.equals(exclusiveGateway)) {
-									for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+									for (SequenceFlowToStep inFlowToStep : org.moflon.core.utilities.eMoflonEMFUtil
 											.getOppositeReferenceTyped(inFlow,
 													SequenceFlowToStep.class,
 													"source")) {
 										Step step = inFlowToStep.getTarget();
 										if (step != null) {
-											for (SequenceFlowToUCFlow defaultFlowToInitFlow : org.moflon.util.eMoflonEMFUtil
+											for (SequenceFlowToUCFlow defaultFlowToInitFlow : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															defaultFlow,
 															SequenceFlowToUCFlow.class,
@@ -3046,7 +3451,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 												Flow initFlow = defaultFlowToInitFlow
 														.getTarget();
 												if (initFlow != null) {
-													for (FlowNodeToStep egwToStep : org.moflon.util.eMoflonEMFUtil
+													for (FlowNodeToStep egwToStep : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	exclusiveGateway,
 																	FlowNodeToStep.class,
@@ -3057,7 +3462,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 															NormalStep normalStep = (NormalStep) tmpNormalStep;
 															if (!normalStep
 																	.equals(step)) {
-																for (SeqFlowToAltFlowAlt divergeFlowToAlt : org.moflon.util.eMoflonEMFUtil
+																for (SeqFlowToAltFlowAlt divergeFlowToAlt : org.moflon.core.utilities.eMoflonEMFUtil
 																		.getOppositeReferenceTyped(
 																				divergeFlow,
 																				SeqFlowToAltFlowAlt.class,
@@ -3065,7 +3470,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																	AlternativeFlowAlternative alt = divergeFlowToAlt
 																			.getTarget();
 																	if (alt != null) {
-																		for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																		for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																				.getOppositeReferenceTyped(
 																						divergeFlow,
 																						SequenceFlowToUCFlow.class,
@@ -3796,17 +4201,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_76654 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_999796 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_76654 != null) {
+								if (__DEC_exConvGateway_default_999796 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_76654)) {
+											.equals(__DEC_exConvGateway_default_999796)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_76654)) {
+												.equals(__DEC_exConvGateway_default_999796)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_76654)) {
+													.equals(__DEC_exConvGateway_default_999796)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_76654)) {
+														.equals(__DEC_exConvGateway_default_999796)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -3832,11 +4237,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_315824 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_589446 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_315824)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_315824)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_589446)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_589446)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -4160,17 +4565,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_480845 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_814681 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_480845 != null) {
+								if (__DEC_exConvGateway_default_814681 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_480845)) {
+											.equals(__DEC_exConvGateway_default_814681)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_480845)) {
+												.equals(__DEC_exConvGateway_default_814681)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_480845)) {
+													.equals(__DEC_exConvGateway_default_814681)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_480845)) {
+														.equals(__DEC_exConvGateway_default_814681)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -4196,11 +4601,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_692970 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_552870 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_692970)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_692970)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_552870)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_552870)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -4524,17 +4929,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_444972 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_965055 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_444972 != null) {
+								if (__DEC_exConvGateway_default_965055 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_444972)) {
+											.equals(__DEC_exConvGateway_default_965055)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_444972)) {
+												.equals(__DEC_exConvGateway_default_965055)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_444972)) {
+													.equals(__DEC_exConvGateway_default_965055)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_444972)) {
+														.equals(__DEC_exConvGateway_default_965055)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -4560,11 +4965,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_951974 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_797068 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_951974)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_951974)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_797068)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_797068)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -4656,7 +5061,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 										exConvGateway, outFlow) == null) {
 									if (pattern_ExcConvGwAfterExDivGwRule_12_2_black_nac_8BB(
 											outFlow, exConvGateway) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														inFlow,
 														FlowElementsContainer.class,
@@ -4888,17 +5293,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_543817 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_525401 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_543817 != null) {
+								if (__DEC_exConvGateway_default_525401 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_543817)) {
+											.equals(__DEC_exConvGateway_default_525401)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_543817)) {
+												.equals(__DEC_exConvGateway_default_525401)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_543817)) {
+													.equals(__DEC_exConvGateway_default_525401)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_543817)) {
+														.equals(__DEC_exConvGateway_default_525401)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -4924,11 +5329,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_983173 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_189307 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_983173)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_983173)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_189307)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_189307)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -5020,7 +5425,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 										exConvGateway, outFlow) == null) {
 									if (pattern_ExcConvGwAfterExDivGwRule_13_2_black_nac_8BB(
 											outFlow, exConvGateway) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														exConvGateway,
 														FlowElementsContainer.class,
@@ -5251,17 +5656,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_512108 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_399005 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_512108 != null) {
+								if (__DEC_exConvGateway_default_399005 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_512108)) {
+											.equals(__DEC_exConvGateway_default_399005)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_512108)) {
+												.equals(__DEC_exConvGateway_default_399005)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_512108)) {
+													.equals(__DEC_exConvGateway_default_399005)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_512108)) {
+														.equals(__DEC_exConvGateway_default_399005)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -5287,11 +5692,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_484483 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_908353 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_484483)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_484483)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_908353)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_908353)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -5384,7 +5789,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 								if (!inFlow.equals(outFlow)) {
 									if (pattern_ExcConvGwAfterExDivGwRule_14_2_black_nac_2BB(
 											exConvGateway, inFlow) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														outFlow,
 														FlowElementsContainer.class,
@@ -5616,17 +6021,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_298778 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_685396 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_298778 != null) {
+								if (__DEC_exConvGateway_default_685396 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_298778)) {
+											.equals(__DEC_exConvGateway_default_685396)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_298778)) {
+												.equals(__DEC_exConvGateway_default_685396)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_298778)) {
+													.equals(__DEC_exConvGateway_default_685396)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_298778)) {
+														.equals(__DEC_exConvGateway_default_685396)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -5652,11 +6057,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_373142 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_698289 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_373142)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_373142)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_698289)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_698289)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -5749,7 +6154,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 								if (!inFlow.equals(outFlow)) {
 									if (pattern_ExcConvGwAfterExDivGwRule_15_2_black_nac_2BB(
 											exConvGateway, inFlow) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														exConvGateway,
 														FlowElementsContainer.class,
@@ -5980,17 +6385,17 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 					if (!defaultFlow.equals(outFlow)) {
 						if (!divergeFlow.equals(inFlow)) {
 							if (!divergeFlow.equals(outFlow)) {
-								SequenceFlow __DEC_exConvGateway_default_138662 = exConvGateway
+								SequenceFlow __DEC_exConvGateway_default_383113 = exConvGateway
 										.getDefault();
-								if (__DEC_exConvGateway_default_138662 != null) {
+								if (__DEC_exConvGateway_default_383113 != null) {
 									if (!inFlow
-											.equals(__DEC_exConvGateway_default_138662)) {
+											.equals(__DEC_exConvGateway_default_383113)) {
 										if (!defaultFlow
-												.equals(__DEC_exConvGateway_default_138662)) {
+												.equals(__DEC_exConvGateway_default_383113)) {
 											if (!divergeFlow
-													.equals(__DEC_exConvGateway_default_138662)) {
+													.equals(__DEC_exConvGateway_default_383113)) {
 												if (!outFlow
-														.equals(__DEC_exConvGateway_default_138662)) {
+														.equals(__DEC_exConvGateway_default_383113)) {
 													return new Object[] {
 															exConvGateway,
 															inFlow,
@@ -6016,11 +6421,11 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 			SequenceFlow outFlow, ExclusiveGateway exclusiveGateway,
 			ExclusiveGateway exConvGateway) {
 		if (!exConvGateway.equals(exclusiveGateway)) {
-			for (ExclusiveGateway __DEC_outFlow_default_673793 : org.moflon.util.eMoflonEMFUtil
+			for (ExclusiveGateway __DEC_outFlow_default_119749 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 							"default")) {
-				if (!exclusiveGateway.equals(__DEC_outFlow_default_673793)) {
-					if (!exConvGateway.equals(__DEC_outFlow_default_673793)) {
+				if (!exclusiveGateway.equals(__DEC_outFlow_default_119749)) {
+					if (!exConvGateway.equals(__DEC_outFlow_default_119749)) {
 						return new Object[] { outFlow, exclusiveGateway,
 								exConvGateway };
 					}
@@ -6114,12 +6519,12 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 											exConvGateway, outFlow) == null) {
 										if (pattern_ExcConvGwAfterExDivGwRule_16_2_black_nac_8BB(
 												outFlow, exConvGateway) == null) {
-											for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+											for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															lane,
 															LaneSet.class,
 															"lanes")) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																exConvGateway,
 																FlowElementsContainer.class,
@@ -6469,7 +6874,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 										ruleResult, inFlow) == null) {
 									if (pattern_ExcConvGwAfterExDivGwRule_18_2_black_nac_2BB(
 											ruleResult, step) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														inFlow,
 														FlowElementsContainer.class,
@@ -6521,7 +6926,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																														if (pattern_ExcConvGwAfterExDivGwRule_18_2_black_nac_16BB(
 																																ruleResult,
 																																lane) == null) {
-																															for (Flow tmpFlow : org.moflon.util.eMoflonEMFUtil
+																															for (Flow tmpFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																	.getOppositeReferenceTyped(
 																																			step,
 																																			Flow.class,
@@ -6531,7 +6936,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																																	if (pattern_ExcConvGwAfterExDivGwRule_18_2_black_nac_3BB(
 																																			ruleResult,
 																																			flow) == null) {
-																																		for (SequenceFlowToUCFlow defaultFlowToInitFlow : org.moflon.util.eMoflonEMFUtil
+																																		for (SequenceFlowToUCFlow defaultFlowToInitFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																				.getOppositeReferenceTyped(
 																																						defaultFlow,
 																																						SequenceFlowToUCFlow.class,
@@ -6565,7 +6970,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																																														if (pattern_ExcConvGwAfterExDivGwRule_18_2_black_nac_4BB(
 																																																ruleResult,
 																																																alt) == null) {
-																																															for (FlowNodeToStep egwToStep : org.moflon.util.eMoflonEMFUtil
+																																															for (FlowNodeToStep egwToStep : org.moflon.core.utilities.eMoflonEMFUtil
 																																																	.getOppositeReferenceTyped(
 																																																			exclusiveGateway,
 																																																			FlowNodeToStep.class,
@@ -6576,7 +6981,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																																																	if (pattern_ExcConvGwAfterExDivGwRule_18_2_black_nac_11BB(
 																																																			ruleResult,
 																																																			egwToStep) == null) {
-																																																		for (SeqFlowToAltFlowAlt divergeFlowToAlt : org.moflon.util.eMoflonEMFUtil
+																																																		for (SeqFlowToAltFlowAlt divergeFlowToAlt : org.moflon.core.utilities.eMoflonEMFUtil
 																																																				.getOppositeReferenceTyped(
 																																																						divergeFlow,
 																																																						SeqFlowToAltFlowAlt.class,
@@ -6586,7 +6991,7 @@ public class ExcConvGwAfterExDivGwRuleImpl extends AbstractRuleImpl implements
 																																																				if (pattern_ExcConvGwAfterExDivGwRule_18_2_black_nac_13BB(
 																																																						ruleResult,
 																																																						divergeFlowToAlt) == null) {
-																																																					for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																					for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																																							.getOppositeReferenceTyped(
 																																																									divergeFlow,
 																																																									SequenceFlowToUCFlow.class,

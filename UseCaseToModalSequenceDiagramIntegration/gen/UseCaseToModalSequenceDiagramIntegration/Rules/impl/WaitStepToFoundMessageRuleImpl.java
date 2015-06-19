@@ -106,7 +106,13 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						match, step, useCase, flow, actor, packageDeclaration);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[step] = " + step
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[flow] = " + flow + ", " + "[actor] = " + actor
+							+ ", " + "[packageDeclaration] = "
+							+ packageDeclaration + ".");
 		}
 
 		// Solve CSP
@@ -116,7 +122,13 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[step] = " + step
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[flow] = " + flow + ", " + "[actor] = " + actor
+							+ ", " + "[packageDeclaration] = "
+							+ packageDeclaration + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -129,7 +141,13 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 							step, useCase, flow, actor, packageDeclaration);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[step] = " + step + ", " + "[useCase] = "
+								+ useCase + ", " + "[flow] = " + flow + ", "
+								+ "[actor] = " + actor + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			WaitStepToFoundMessageRuleImpl
 					.pattern_WaitStepToFoundMessageRule_0_4_greenBBBBFF(match,
@@ -143,7 +161,13 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 							step, useCase, flow, actor, packageDeclaration);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[step] = " + step + ", " + "[useCase] = "
+								+ useCase + ", " + "[flow] = " + flow + ", "
+								+ "[actor] = " + actor + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			WaitStepToFoundMessageRuleImpl
 					.pattern_WaitStepToFoundMessageRule_0_5_greenBBBBBFFF(
@@ -178,7 +202,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		NormalStep step = (NormalStep) result1_bindingAndBlack[0];
 		Lifeline line = (Lifeline) result1_bindingAndBlack[1];
@@ -202,7 +229,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						messageReceive);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[message] = " + message + ", "
+							+ "[messageReceive] = " + messageReceive + ".");
 		}
 		Object[] result2_green = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_1_2_greenFBBB(step,
@@ -217,7 +247,43 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						actor, actorToLine, packageDeclaration);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ".");
 		}
 		WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_1_3_greenBBBBBBBBFFFFFFFF(
@@ -254,7 +320,8 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_WaitStepToFoundMessageRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -266,7 +333,8 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_2_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		NormalStep step = (NormalStep) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -312,7 +380,39 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 								actorToLine, packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -326,7 +426,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_2_6_greenBB(
@@ -430,6 +534,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				"step.name", true, csp);
 		var_step_name.setValue(step.getName());
 		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", true, csp);
+		var_step_label.setValue(step.getLabel());
+		var_step_label.setType("String");
 
 		// Create unbound variables
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
@@ -438,6 +546,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", csp);
 		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", csp);
+		var_message__id.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
@@ -446,10 +557,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqMessageSort.setRuleName("");
@@ -457,7 +570,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal1);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("step", step);
@@ -531,7 +646,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						match, message, messageReceive, line, interaction);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[message] = "
+							+ message + ", " + "[messageReceive] = "
+							+ messageReceive + ", " + "[line] = " + line + ", "
+							+ "[interaction] = " + interaction + ".");
 		}
 
 		// Solve CSP
@@ -540,7 +660,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						this, match, message, messageReceive, line, interaction);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[message] = "
+							+ message + ", " + "[messageReceive] = "
+							+ messageReceive + ", " + "[line] = " + line + ", "
+							+ "[interaction] = " + interaction + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -554,7 +679,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 							message, messageReceive, line, interaction);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[message] = " + message + ", "
+								+ "[messageReceive] = " + messageReceive + ", "
+								+ "[line] = " + line + ", "
+								+ "[interaction] = " + interaction + ".");
 			}
 			WaitStepToFoundMessageRuleImpl
 					.pattern_WaitStepToFoundMessageRule_10_4_greenBBBBBFFFFFF(
@@ -572,7 +702,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 							message, messageReceive, line, interaction);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[message] = " + message + ", "
+								+ "[messageReceive] = " + messageReceive + ", "
+								+ "[line] = " + line + ", "
+								+ "[interaction] = " + interaction + ".");
 			}
 			WaitStepToFoundMessageRuleImpl
 					.pattern_WaitStepToFoundMessageRule_10_5_greenBBBFF(match,
@@ -606,7 +741,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Message message = (Message) result1_bindingAndBlack[0];
 		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result1_bindingAndBlack[1];
@@ -630,7 +768,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						message, messageReceive);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[message] = " + message + ", "
+							+ "[messageReceive] = " + messageReceive + ".");
 		}
 		Object[] result2_green = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_11_2_greenFBBB(step,
@@ -645,7 +786,43 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 						actor, actorToLine, packageDeclaration);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ".");
 		}
 		WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_11_3_greenBBBBBBBBFFFFFFFF(
@@ -682,7 +859,8 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_WaitStepToFoundMessageRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -694,7 +872,8 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Message message = (Message) result2_binding[0];
 		MessageOccurrenceSpecification messageReceive = (MessageOccurrenceSpecification) result2_binding[1];
@@ -746,7 +925,42 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 								packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[message] = "
+									+ message
+									+ ", "
+									+ "[messageReceive] = "
+									+ messageReceive
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -760,7 +974,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_12_6_greenBB(
@@ -867,6 +1085,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", true, csp);
+		var_message__id.setValue(message.get_id());
+		var_message__id.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", true, csp);
 		var_message_name.setValue(message.getName());
@@ -879,19 +1101,26 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 
 		// Create constraints
 		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqStepType.setRuleName("");
 		eqStepType.solve(var_step_type, literal0);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("message", message);
@@ -964,14 +1193,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_308(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_869(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1006,7 +1236,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_20_5_greenBBB(
@@ -1028,14 +1262,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_309(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_870(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1070,7 +1305,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_21_5_greenBBB(
@@ -1092,14 +1331,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_310(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_871(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1134,7 +1374,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_22_5_greenBBB(
@@ -1156,14 +1400,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_311(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_872(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1198,7 +1443,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_23_5_greenBBB(
@@ -1220,14 +1469,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_312(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_873(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1262,7 +1512,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_24_5_greenBBB(
@@ -1284,14 +1538,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_313(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_874(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1326,7 +1581,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_25_5_greenBBB(
@@ -1348,14 +1607,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_487(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_424(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1391,7 +1651,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_26_5_greenBBB(
@@ -1413,14 +1677,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_488(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_425(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_27_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1456,7 +1721,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_27_5_greenBBB(
@@ -1478,8 +1747,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1487,8 +1757,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1504,7 +1775,8 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_WaitStepToFoundMessageRule_30_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = WaitStepToFoundMessageRuleImpl
 				.pattern_WaitStepToFoundMessageRule_30_1_greenFF();
@@ -1533,7 +1805,39 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 							actorToLine, packageDeclaration, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[interaction] = "
+								+ interaction
+								+ ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[actorToLine] = "
+								+ actorToLine
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1556,7 +1860,32 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									actorToLine, packageDeclaration, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[line] = "
+										+ line
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[interaction] = "
+										+ interaction
+										+ ", "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[actor] = "
+										+ actor
+										+ ", "
+										+ "[actorToLine] = "
+										+ actorToLine
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					WaitStepToFoundMessageRuleImpl
 							.pattern_WaitStepToFoundMessageRule_30_6_greenFFFBBBBBB(
@@ -1619,6 +1948,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", csp);
+		var_message__id.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
@@ -1628,11 +1963,13 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqStepType.setRuleName("");
@@ -1642,7 +1979,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal2);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("line", line);
@@ -1766,29 +2105,29 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_308__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_308((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_869__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_869((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_309__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_309((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_870__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_870((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_310__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_310((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_871__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_871((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_311__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_311((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_872__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_872((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_312__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_312((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_873__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_873((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_313__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_313((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_874__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_874((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_487__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_487((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_424__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_424((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_488__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_488((EMoflonEdge) arguments
+		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_425__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_425((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.WAIT_STEP_TO_FOUND_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2068,16 +2407,19 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				.createMessageOccurrenceSpecification();
 		Object _localVariable_0 = csp.getValue("message", "messageSort");
 		Object _localVariable_1 = csp.getValue("message", "messageKind");
-		Object _localVariable_2 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("message", "_id");
+		Object _localVariable_3 = csp.getValue("message", "name");
 		message.setInteraction(interaction);
 		message.setReceiveEvent(messageReceive);
 		messageReceive.setMessage(message);
 		line.getCoveredBy().add(messageReceive);
 		MessageSort message_messageSort_prime = (MessageSort) _localVariable_0;
 		MessageKind message_messageKind_prime = (MessageKind) _localVariable_1;
-		String message_name_prime = (String) _localVariable_2;
+		String message__id_prime = (String) _localVariable_2;
+		String message_name_prime = (String) _localVariable_3;
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.set_id(message__id_prime);
 		message.setName(message_name_prime);
 		return new Object[] { message, messageReceive, line, interaction, csp };
 	}
@@ -2460,12 +2802,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 			NormalStep step, UseCase useCase, Flow flow, Actor actor,
 			PackageDeclaration packageDeclaration, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
 						"source")) {
 			Interaction interaction = useCaseToInteraction.getTarget();
 			if (interaction != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(actor,
 								ActorToLifeline.class, "source")) {
 					Lifeline line = actorToLine.getTarget();
@@ -3018,12 +3360,15 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		NormalStep step = UseCaseDSLFactory.eINSTANCE.createNormalStep();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
+		String step_label_prime = (String) _localVariable_2;
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		return new Object[] { step, flow, actor, csp };
 	}
 
@@ -3401,12 +3746,12 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageReceive,
 			Lifeline line, Interaction interaction, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(interaction,
 						UseCaseToInteraction.class, "target")) {
 			UseCase useCase = useCaseToInteraction.getSource();
 			if (useCase != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(line, ActorToLifeline.class,
 								"target")) {
 					Actor actor = actorToLine.getSource();
@@ -3441,7 +3786,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 									if (actor.equals(actorToLine.getSource())) {
 										if (line.equals(actorToLine.getTarget())) {
 											for (Flow flow : useCase.getFlows()) {
-												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+												for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																actor,
 																PackageDeclaration.class,
@@ -3772,9 +4117,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_20_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_156170 = message.getSendEvent();
-		if (__DEC_message_sendEvent_156170 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_156170)) {
+		MessageEnd __DEC_message_sendEvent_542323 = message.getSendEvent();
+		if (__DEC_message_sendEvent_542323 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_542323)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3784,9 +4129,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_20_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_211711 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_577830 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_211711)) {
+			if (!messageReceive.equals(__DEC_message_message_577830)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3796,11 +4141,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_20_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_549622 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_990808 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_549622 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_990808 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_549622)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_990808)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -3970,9 +4315,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_987957 = message.getSendEvent();
-		if (__DEC_message_sendEvent_987957 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_987957)) {
+		MessageEnd __DEC_message_sendEvent_315606 = message.getSendEvent();
+		if (__DEC_message_sendEvent_315606 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_315606)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3982,9 +4327,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_220838 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_49684 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_220838)) {
+			if (!messageReceive.equals(__DEC_message_message_49684)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -3994,11 +4339,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_21_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_726241 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_186129 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_726241 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_186129 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_726241)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_186129)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4168,9 +4513,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_71375 = message.getSendEvent();
-		if (__DEC_message_sendEvent_71375 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_71375)) {
+		MessageEnd __DEC_message_sendEvent_663707 = message.getSendEvent();
+		if (__DEC_message_sendEvent_663707 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_663707)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4180,9 +4525,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_672416 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_919367 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_672416)) {
+			if (!messageReceive.equals(__DEC_message_message_919367)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4192,11 +4537,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_22_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_286427 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_977525 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_286427 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_977525 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_286427)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_977525)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4369,9 +4714,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_107505 = message.getSendEvent();
-		if (__DEC_message_sendEvent_107505 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_107505)) {
+		MessageEnd __DEC_message_sendEvent_565241 = message.getSendEvent();
+		if (__DEC_message_sendEvent_565241 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_565241)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4381,9 +4726,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_867999 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_55502 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_867999)) {
+			if (!messageReceive.equals(__DEC_message_message_55502)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4393,11 +4738,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_23_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_327939 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_905062 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_327939 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_905062 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_327939)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_905062)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4570,9 +4915,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_152176 = message.getSendEvent();
-		if (__DEC_message_sendEvent_152176 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_152176)) {
+		MessageEnd __DEC_message_sendEvent_2223 = message.getSendEvent();
+		if (__DEC_message_sendEvent_2223 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_2223)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4582,9 +4927,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_938081 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_115642 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_938081)) {
+			if (!messageReceive.equals(__DEC_message_message_115642)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4594,11 +4939,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_24_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_576826 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_52531 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_576826 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_52531 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_576826)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_52531)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4770,9 +5115,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		MessageEnd __DEC_message_sendEvent_864371 = message.getSendEvent();
-		if (__DEC_message_sendEvent_864371 != null) {
-			if (!messageReceive.equals(__DEC_message_sendEvent_864371)) {
+		MessageEnd __DEC_message_sendEvent_786537 = message.getSendEvent();
+		if (__DEC_message_sendEvent_786537 != null) {
+			if (!messageReceive.equals(__DEC_message_sendEvent_786537)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4782,9 +5127,9 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_WaitStepToFoundMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageReceive) {
-		for (MessageEnd __DEC_message_message_191309 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_143735 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageReceive.equals(__DEC_message_message_191309)) {
+			if (!messageReceive.equals(__DEC_message_message_143735)) {
 				return new Object[] { message, messageReceive };
 			}
 		}
@@ -4794,11 +5139,11 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_WaitStepToFoundMessageRule_25_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_696373 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_63730 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_696373 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_63730 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_696373)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_63730)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -4980,10 +5325,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				if (flow.getSteps().contains(step)) {
 					Actor actor = step.getActor();
 					if (actor != null) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(flow, UseCase.class,
 										"flows")) {
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+							for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(actor,
 											PackageDeclaration.class, "actors")) {
 								if (packageDeclaration.getUseCases().contains(
@@ -5106,10 +5451,10 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 			if (tmpActor instanceof Actor) {
 				Actor actor = (Actor) tmpActor;
 				if (actor.equals(step.getActor())) {
-					for (Flow flow : org.moflon.util.eMoflonEMFUtil
+					for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(step, Flow.class,
 									"steps")) {
-						for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+						for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(actor,
 										PackageDeclaration.class, "actors")) {
 							for (UseCase useCase : packageDeclaration
@@ -5286,7 +5631,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 														.getFlows()) {
 													if (pattern_WaitStepToFoundMessageRule_30_2_black_nac_4BB(
 															ruleResult, flow) == null) {
-														for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+														for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		useCase,
 																		PackageDeclaration.class,
@@ -5299,7 +5644,7 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 																	if (pattern_WaitStepToFoundMessageRule_30_2_black_nac_6BB(
 																			ruleResult,
 																			actor) == null) {
-																		for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+																		for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 																				.getOppositeReferenceTyped(
 																						line,
 																						ActorToLifeline.class,
@@ -5429,11 +5774,13 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 				.createMessageOccurrenceSpecification();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
-		Object _localVariable_2 = csp.getValue("message", "messageSort");
-		Object _localVariable_3 = csp.getValue("message", "messageKind");
-		Object _localVariable_4 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
+		Object _localVariable_3 = csp.getValue("message", "messageSort");
+		Object _localVariable_4 = csp.getValue("message", "messageKind");
+		Object _localVariable_5 = csp.getValue("message", "_id");
+		Object _localVariable_6 = csp.getValue("message", "name");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_7 = ruleResult.getIncrementedPerformCount();
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		ruleResult.getSourceObjects().add(step);
@@ -5445,15 +5792,19 @@ public class WaitStepToFoundMessageRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getTargetObjects().add(messageReceive);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
-		String message_name_prime = (String) _localVariable_4;
+		String step_label_prime = (String) _localVariable_2;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_3;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_4;
+		String message__id_prime = (String) _localVariable_5;
+		String message_name_prime = (String) _localVariable_6;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_7);
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.set_id(message__id_prime);
 		message.setName(message_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

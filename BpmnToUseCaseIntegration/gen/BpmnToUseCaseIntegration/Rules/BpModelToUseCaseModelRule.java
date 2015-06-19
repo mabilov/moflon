@@ -207,7 +207,7 @@ public interface BpModelToUseCaseModelRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_DocumentRoot_1(DocumentRoot documentRoot);
+	EObjectContainer isAppropriate_FWD_DocumentRoot_0(DocumentRoot documentRoot);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,7 +215,7 @@ public interface BpModelToUseCaseModelRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_UseCasesModel_1(
+	EObjectContainer isAppropriate_BWD_UseCasesModel_0(
 			UseCasesModel useCasesModel);
 
 	/**

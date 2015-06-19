@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link ModalSequenceDiagram.impl.NamedElementImpl#get_id <em>id</em>}</li>
  *   <li>{@link ModalSequenceDiagram.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
@@ -29,6 +30,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class NamedElementImpl extends EObjectImpl implements
 		NamedElement {
+	/**
+	 * The default value of the '{@link #get_id() <em>id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #get_id()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String _ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #get_id() <em>id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #get_id()
+	 * @generated
+	 * @ordered
+	 */
+	protected String _id = _ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,6 +94,28 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String get_id() {
+		return _id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void set_id(String new_id) {
+		String old_id = _id;
+		_id = new_id;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ModalSequenceDiagramPackage.NAMED_ELEMENT__ID, old_id, _id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getName() {
 		return name;
 	}
@@ -99,6 +142,8 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case ModalSequenceDiagramPackage.NAMED_ELEMENT__ID:
+			return get_id();
 		case ModalSequenceDiagramPackage.NAMED_ELEMENT__NAME:
 			return getName();
 		}
@@ -113,6 +158,9 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case ModalSequenceDiagramPackage.NAMED_ELEMENT__ID:
+			set_id((String) newValue);
+			return;
 		case ModalSequenceDiagramPackage.NAMED_ELEMENT__NAME:
 			setName((String) newValue);
 			return;
@@ -128,6 +176,9 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case ModalSequenceDiagramPackage.NAMED_ELEMENT__ID:
+			set_id(_ID_EDEFAULT);
+			return;
 		case ModalSequenceDiagramPackage.NAMED_ELEMENT__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -143,6 +194,9 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case ModalSequenceDiagramPackage.NAMED_ELEMENT__ID:
+			return _ID_EDEFAULT == null ? _id != null : !_ID_EDEFAULT
+					.equals(_id);
 		case ModalSequenceDiagramPackage.NAMED_ELEMENT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
 					.equals(name);
@@ -161,7 +215,9 @@ public abstract class NamedElementImpl extends EObjectImpl implements
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (_id: ");
+		result.append(_id);
+		result.append(", name: ");
 		result.append(name);
 		result.append(')');
 		return result.toString();

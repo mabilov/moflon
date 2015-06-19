@@ -239,7 +239,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_392(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_368(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -248,7 +248,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_393(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_369(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -257,7 +257,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_394(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_370(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -266,7 +266,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_395(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_371(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -275,7 +275,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_396(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_372(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -284,7 +284,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_397(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_373(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -293,7 +293,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_122(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_853(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,7 +301,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_123(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_854(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public interface ServiceTaskToStepAfterSERule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_398(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_374(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

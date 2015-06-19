@@ -183,29 +183,29 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_308">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_308/_edge_receiveEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_869">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_869/_edge_receiveEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_309">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_309/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_870">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_870/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_310">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_310/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_871">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_871/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_311">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_311/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_872">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_872/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_312">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_312/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_873">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_873/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_313">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_313/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_874">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_874/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_487">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_487/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_424">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_424/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_488">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_488/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_425">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_425/_edge_actor"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/WaitStepToFoundMessageRule/checkAttributes_FWD/tripleMatch"/>
@@ -362,29 +362,29 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_314">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_314/_edge_sendEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_875">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_875/_edge_sendEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_315">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_315/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_876">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_876/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_316">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_316/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_877">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_877/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_317">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_317/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_878">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_878/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_318">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_318/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_879">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_879/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_319">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_319/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_880">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_BWD_EMoflonEdge_880/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_489">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_489/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_426">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_426/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_490">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_490/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_427">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/isAppropriate_FWD_EMoflonEdge_427/_edge_actor"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SendStepToLostMessageRule/checkAttributes_FWD/tripleMatch"/>
@@ -488,11 +488,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_FWD_UseCasesModel_1">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_FWD_UseCasesModel_1/useCasesModel"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_FWD_UseCasesModel_8">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_FWD_UseCasesModel_8/useCasesModel"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_BWD_Model_1">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_BWD_Model_1/model"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_BWD_Model_8">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/isAppropriate_BWD_Model_8/model"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCModelToMSDModelRule/checkAttributes_FWD/tripleMatch"/>
@@ -604,11 +604,11 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_FWD_EMoflonEdge_491">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_FWD_EMoflonEdge_491/_edge_packages"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_FWD_EMoflonEdge_428">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_FWD_EMoflonEdge_428/_edge_packages"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_BWD_EMoflonEdge_320">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_BWD_EMoflonEdge_320/_edge_packagedElement"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_BWD_EMoflonEdge_881">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/isAppropriate_BWD_EMoflonEdge_881/_edge_packagedElement"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UCPackageToMSDPackage/checkAttributes_FWD/tripleMatch"/>
@@ -732,14 +732,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_492">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_492/_edge_useCases"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_429">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_429/_edge_useCases"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_BWD_EMoflonEdge_321">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_BWD_EMoflonEdge_321/_edge_packagedElement"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_BWD_EMoflonEdge_882">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_BWD_EMoflonEdge_882/_edge_packagedElement"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_493">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_493/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_430">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/isAppropriate_FWD_EMoflonEdge_430/_edge_flows"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCaseToInteractionRule/checkAttributes_FWD/tripleMatch"/>
@@ -873,14 +873,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_494">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_494/_edge_actors"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_431">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_FWD_EMoflonEdge_431/_edge_actors"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_322">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_322/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_883">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_883/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_323">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_323/_edge_lifeline"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_884">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/isAppropriate_BWD_EMoflonEdge_884/_edge_lifeline"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ActorToLifelineRule/checkAttributes_FWD/tripleMatch"/>
@@ -1034,23 +1034,23 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_324">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_324/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_885">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_885/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_325">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_325/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_886">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_886/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_495">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_495/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_432">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_432/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_496">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_496/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_433">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_FWD_EMoflonEdge_433/_edge_actor"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_326">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_326/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_887">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_887/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_327">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_327/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_888">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/isAppropriate_BWD_EMoflonEdge_888/_edge_covered"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/AltStepToComboRule/checkAttributes_FWD/tripleMatch"/>
@@ -1178,14 +1178,14 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_328">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_328/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_889">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_889/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_329">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_329/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_890">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_BWD_EMoflonEdge_890/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_FWD_EMoflonEdge_497">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_FWD_EMoflonEdge_497/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_FWD_EMoflonEdge_434">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/isAppropriate_FWD_EMoflonEdge_434/_edge_steps"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelStepToCombinedFragmentRule/checkAttributes_FWD/tripleMatch"/>
@@ -1328,20 +1328,20 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_330">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_330/_edge_operand"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_891">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_891/_edge_operand"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_498">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_498/_edge_invokedFlows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_435">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_435/_edge_invokedFlows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_499">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_499/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_436">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_FWD_EMoflonEdge_436/_edge_flows"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_331">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_331/_edge_guard"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_892">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_892/_edge_guard"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_332">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_332/_edge_specification"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_893">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/isAppropriate_BWD_EMoflonEdge_893/_edge_specification"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/ParallelFlowToOperandRule/checkAttributes_FWD/tripleMatch"/>
@@ -1490,32 +1490,32 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_500">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_500/_edge_preconditions"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_437">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_FWD_EMoflonEdge_437/_edge_preconditions"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_333">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_333/_edge_receiveEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_894">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_894/_edge_receiveEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_334">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_334/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_895">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_895/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_335">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_335/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_896">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_896/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_336">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_336/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_897">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_897/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_337">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_337/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_898">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_898/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_338">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_338/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_899">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_899/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_339">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_339/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_900">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_900/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_340">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_340/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_901">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/isAppropriate_BWD_EMoflonEdge_901/_edge_covered"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UseCasePrecondToFoundMessageRule/checkAttributes_FWD/tripleMatch"/>
@@ -1677,53 +1677,53 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_341">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_341/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_902">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_902/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_342">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_342/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_903">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_903/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_343">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_343/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_904">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_904/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_344">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_344/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_905">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_905/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_345">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_345/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_906">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_906/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_346">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_346/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_907">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_907/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_347">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_347/_edge_sendEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_908">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_908/_edge_sendEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_348">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_348/_edge_receiveEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_909">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_909/_edge_receiveEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_349">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_349/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_910">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_910/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_350">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_350/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_911">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_911/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_351">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_351/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_912">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_912/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_352">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_352/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_913">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_913/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_353">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_353/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_914">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_914/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_354">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_354/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_915">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_BWD_EMoflonEdge_915/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_501">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_501/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_438">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_438/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_502">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_502/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_439">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/isAppropriate_FWD_EMoflonEdge_439/_edge_actor"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepBFToMessageRule/checkAttributes_FWD/tripleMatch"/>
@@ -1903,29 +1903,29 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_355">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_355/_edge_operand"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_916">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_916/_edge_operand"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_503">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_503/_edge_stepAlternative"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_440">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_440/_edge_stepAlternative"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_504">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_504/_edge_ref"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_441">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_441/_edge_ref"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_356">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_356/_edge_guard"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_917">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_917/_edge_guard"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_357">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_357/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_918">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_918/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_358">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_358/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_919">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_919/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_359">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_359/_edge_specification"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_920">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_BWD_EMoflonEdge_920/_edge_specification"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_505">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_505/_edge_flows"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_442">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/isAppropriate_FWD_EMoflonEdge_442/_edge_flows"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/StepAltToOperandRule/checkAttributes_FWD/tripleMatch"/>
@@ -2111,53 +2111,53 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_360">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_360/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_921">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_921/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_361">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_361/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_922">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_922/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_362">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_362/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_923">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_923/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_363">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_363/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_924">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_924/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_364">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_364/_edge_enclosingInteraction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_925">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_925/_edge_enclosingInteraction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_365">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_365/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_926">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_926/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_366">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_366/_edge_sendEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_927">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_927/_edge_sendEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_367">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_367/_edge_receiveEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_928">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_928/_edge_receiveEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_368">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_368/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_929">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_929/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_369">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_369/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_930">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_930/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_370">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_370/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_931">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_931/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_371">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_371/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_932">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_932/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_372">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_372/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_933">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_933/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_373">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_373/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_934">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_BWD_EMoflonEdge_934/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_506">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_506/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_443">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_443/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_507">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_507/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_444">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/isAppropriate_FWD_EMoflonEdge_444/_edge_actor"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepBFMessageRule/checkAttributes_FWD/tripleMatch"/>
@@ -2338,59 +2338,59 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_374">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_374/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_935">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_935/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_375">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_375/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_936">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_936/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_376">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_376/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_937">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_937/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_377">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_377/_edge_enclosingOperand"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_938">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_938/_edge_enclosingOperand"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_378">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_378/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_939">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_939/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_379">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_379/_edge_enclosingOperand"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_940">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_940/_edge_enclosingOperand"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_380">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_380/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_941">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_941/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_381">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_381/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_942">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_942/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_382">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_382/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_943">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_943/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_383">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_383/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_944">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_944/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_384">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_384/_edge_sendEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_945">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_945/_edge_sendEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_385">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_385/_edge_receiveEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_946">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_946/_edge_receiveEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_386">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_386/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_947">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_947/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_387">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_387/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_948">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_948/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_388">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_388/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_949">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_949/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_389">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_389/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_950">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_BWD_EMoflonEdge_950/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_508">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_508/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_445">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_445/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_509">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_509/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_446">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/isAppropriate_FWD_EMoflonEdge_446/_edge_actor"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/SystemStepNFToMessageRule/checkAttributes_FWD/tripleMatch"/>
@@ -2591,65 +2591,65 @@
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/checkTypes_BWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/checkTypes_BWD/match"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_390">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_390/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_951">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_951/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_391">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_391/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_952">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_952/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_392">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_392/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_953">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_953/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_393">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_393/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_954">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_954/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_394">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_394/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_955">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_955/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_395">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_395/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_956">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_956/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_396">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_396/_edge_fragment"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_957">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_957/_edge_fragment"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_397">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_397/_edge_enclosingOperand"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_958">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_958/_edge_enclosingOperand"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_398">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_398/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_959">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_959/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_399">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_399/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_960">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_960/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_400">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_400/_edge_coveredBy"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_961">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_961/_edge_coveredBy"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_401">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_401/_edge_covered"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_962">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_962/_edge_covered"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_402">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_402/_edge_sendEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_963">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_963/_edge_sendEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_403">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_403/_edge_receiveEvent"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_964">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_964/_edge_receiveEvent"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_404">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_404/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_965">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_965/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_405">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_405/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_966">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_966/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_406">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_406/_edge_interaction"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_967">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_967/_edge_interaction"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_407">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_407/_edge_message"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_968">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_BWD_EMoflonEdge_968/_edge_message"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_510">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_510/_edge_steps"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_447">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_447/_edge_steps"/>
         </genOperations>
-        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_511">
-          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_511/_edge_actor"/>
+        <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_448">
+          <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/isAppropriate_FWD_EMoflonEdge_448/_edge_actor"/>
         </genOperations>
         <genOperations ecoreOperation="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/checkAttributes_FWD">
           <genParameters ecoreParameter="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//Rules/UserStepNfToMessageRule/checkAttributes_FWD/tripleMatch"/>

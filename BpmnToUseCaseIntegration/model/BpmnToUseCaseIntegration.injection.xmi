@@ -1491,217 +1491,217 @@
   <compilerInjectionEntries content="return true &amp;&amp; match.getObject(&quot;normalStep&quot;).eClass().equals(UseCaseDSL.UseCaseDSLPackage.eINSTANCE.getNormalStep());">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/checkTypes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/BpModelToUseCaseModelRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/DefinitionsToPackageRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ProcessToUseCaseRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/Class1/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneSetRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneToActorRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneToActorRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ITEToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EndEventRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/FirstInterThrowEventToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterEGToAltFlowRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/SeqFlowAfterPGToParallelFlowRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/CatchEventAfterEBGToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExclusiveGatewayToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelGatewayToParallelStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/EventBasedGatewayToStepRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/LaneStartEventRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterEventGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwDefaultSeqFlowRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ParallelConvergingGatewayTwoInputsRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExcConvGwAfterExDivGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ExConvGwAfterEventGwIceSeqFlowRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ContinuationRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterSERule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPGRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterTaskRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterEventRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterExConvGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ICEToStepAfterPConvGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterSERule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterExGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterPGRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/ServiceTaskToStepAfterEvGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterSERule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterExGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterPGRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/checkAttributes_FWD"/>
   </compilerInjectionEntries>
-  <compilerInjectionEntries content="// TODO: NICO!!!&#xA;return null;">
+  <compilerInjectionEntries content="throw new UnsupportedOperationException(&quot;developments on attribute synchronization with eMoflon not yet completed&quot;);">
     <eOperation href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#//Rules/UserTaskToStepAfterEvGwRule/checkAttributes_BWD"/>
   </compilerInjectionEntries>
   <compilerInjectionEntries content="// Create CSP&#xD;&#xA;CSP csp = CspFactory.eINSTANCE.createCSP();&#xD;&#xA;isApplicableMatch.getAttributeInfo().add(csp);&#xD;&#xA;&#xD;&#xA;// Create literals&#xD;&#xA;&#xD;&#xA;// Create attribute variables&#xD;&#xA;&#xD;&#xA;// Create unbound variables&#xD;&#xA;&#xD;&#xA;// Create constraints&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;// Solve CSP&#xD;&#xA;&#xD;&#xA;// Snapshot pattern match on which CSP is solved&#xD;&#xA;return csp;">

@@ -99,7 +99,12 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration, actor, useCase);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[actor] = " + actor + ", "
+							+ "[useCase] = " + useCase + ".");
 		}
 
 		// Solve CSP
@@ -108,7 +113,12 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						match, packageDeclaration, actor, useCase);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[actor] = " + actor + ", "
+							+ "[useCase] = " + useCase + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -121,7 +131,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, actor, useCase);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[actor] = "
+								+ actor + ", " + "[useCase] = " + useCase + ".");
 			}
 			ActorToLifelineRuleImpl.pattern_ActorToLifelineRule_0_4_greenBBBF(
 					match, packageDeclaration, actor);
@@ -133,7 +147,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, actor, useCase);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[actor] = "
+								+ actor + ", " + "[useCase] = " + useCase + ".");
 			}
 			ActorToLifelineRuleImpl.pattern_ActorToLifelineRule_0_5_greenBBBF(
 					match, packageDeclaration, useCase);
@@ -164,7 +182,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[0];
 		ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result1_bindingAndBlack[1];
@@ -186,7 +207,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						actorToLine);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[actor] = " + actor + ", "
+							+ "[line] = " + line + ", " + "[actorToLine] = "
+							+ actorToLine + ".");
 		}
 		Object[] result2_green = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_1_2_greenFBBB(actor, line,
@@ -201,7 +225,36 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						interaction);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[p] = "
+							+ p
+							+ ", "
+							+ "[packageDeclarationToP] = "
+							+ packageDeclarationToP
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[interaction] = "
+							+ interaction + ".");
 		}
 		ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_1_3_greenBBBBBBFFFFF(ruleresult,
@@ -235,7 +288,8 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				.pattern_ActorToLifelineRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -247,7 +301,8 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_2_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[0];
 		Actor actor = (Actor) result2_binding[1];
@@ -286,7 +341,32 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 								useCaseToInteraction, interaction);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[p] = "
+									+ p
+									+ ", "
+									+ "[packageDeclarationToP] = "
+									+ packageDeclarationToP
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[interaction] = " + interaction + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -300,7 +380,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ActorToLifelineRuleImpl
 							.pattern_ActorToLifelineRule_2_6_greenBB(
@@ -380,20 +464,31 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				"actor.name", true, csp);
 		var_actor_name.setValue(actor.getName());
 		var_actor_name.setType("String");
+		Variable var_actor_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("actor.description", true, csp);
+		var_actor_description.setValue(actor.getDescription());
+		var_actor_description.setType("String");
 
 		// Create unbound variables
+		Variable var_line__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"line._id", csp);
+		var_line__id.setType("String");
 		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"line.name", csp);
 		var_line_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_actor_name, var_line_name);
+		eq.solve(var_actor_name, var_line__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_actor_description, var_line_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -465,7 +560,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						line, interaction);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[p] = " + p + ", "
+							+ "[line] = " + line + ", " + "[interaction] = "
+							+ interaction + ".");
 		}
 
 		// Solve CSP
@@ -474,7 +573,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						match, p, line, interaction);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[p] = " + p + ", "
+							+ "[line] = " + line + ", " + "[interaction] = "
+							+ interaction + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -487,7 +590,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 							interaction);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[p] = " + p + ", " + "[line] = " + line
+								+ ", " + "[interaction] = " + interaction + ".");
 			}
 			ActorToLifelineRuleImpl
 					.pattern_ActorToLifelineRule_10_4_greenBBBFF(match, line,
@@ -501,7 +607,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 							interaction);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[p] = " + p + ", " + "[line] = " + line
+								+ ", " + "[interaction] = " + interaction + ".");
 			}
 			ActorToLifelineRuleImpl.pattern_ActorToLifelineRule_10_5_greenBBBF(
 					match, p, interaction);
@@ -532,7 +641,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[0];
 		ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result1_bindingAndBlack[1];
@@ -554,7 +666,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						actorToLine);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[actor] = " + actor + ", "
+							+ "[line] = " + line + ", " + "[actorToLine] = "
+							+ actorToLine + ".");
 		}
 		Object[] result2_green = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_11_2_greenFBBB(actor, line,
@@ -569,7 +684,36 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 						interaction);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[p] = "
+							+ p
+							+ ", "
+							+ "[packageDeclarationToP] = "
+							+ packageDeclarationToP
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[interaction] = "
+							+ interaction + ".");
 		}
 		ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_11_3_greenBBBBBBFFFFF(ruleresult,
@@ -603,7 +747,8 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				.pattern_ActorToLifelineRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -615,7 +760,8 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_12_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		ModalSequenceDiagram.Package p = (ModalSequenceDiagram.Package) result2_binding[0];
 		Lifeline line = (Lifeline) result2_binding[1];
@@ -655,7 +801,32 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 								useCaseToInteraction, interaction);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[p] = "
+									+ p
+									+ ", "
+									+ "[packageDeclarationToP] = "
+									+ packageDeclarationToP
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[interaction] = " + interaction + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -669,7 +840,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ActorToLifelineRuleImpl
 							.pattern_ActorToLifelineRule_12_6_greenBB(
@@ -747,6 +922,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		// Create literals
 
 		// Create attribute variables
+		Variable var_line__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"line._id", true, csp);
+		var_line__id.setValue(line.get_id());
+		var_line__id.setType("String");
 		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"line.name", true, csp);
 		var_line_name.setValue(line.getName());
@@ -756,15 +935,22 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"actor.name", csp);
 		var_actor_name.setType("String");
+		Variable var_actor_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("actor.description", csp);
+		var_actor_description.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_actor_name, var_line_name);
+		eq.solve(var_actor_name, var_line__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_actor_description, var_line_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -830,14 +1016,15 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_494(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_431(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -870,7 +1057,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ActorToLifelineRuleImpl
 							.pattern_ActorToLifelineRule_20_5_greenBBB(match,
@@ -892,14 +1083,15 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_322(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_883(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -932,7 +1124,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ActorToLifelineRuleImpl
 							.pattern_ActorToLifelineRule_21_5_greenBBB(match,
@@ -954,14 +1150,15 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_323(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_884(
 			EMoflonEdge _edge_lifeline) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -994,7 +1191,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ActorToLifelineRuleImpl
 							.pattern_ActorToLifelineRule_22_5_greenBBB(match,
@@ -1016,8 +1217,9 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1025,8 +1227,9 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1042,7 +1245,8 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 				.pattern_ActorToLifelineRule_25_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ActorToLifelineRuleImpl
 				.pattern_ActorToLifelineRule_25_1_greenFF();
@@ -1069,7 +1273,32 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 							useCaseToInteraction, interaction, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[p] = "
+								+ p
+								+ ", "
+								+ "[packageDeclarationToP] = "
+								+ packageDeclarationToP
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction
+								+ ", "
+								+ "[interaction] = "
+								+ interaction
+								+ ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1091,7 +1320,19 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration + ", " + "[p] = "
+										+ p + ", "
+										+ "[packageDeclarationToP] = "
+										+ packageDeclarationToP + ", "
+										+ "[useCase] = " + useCase + ", "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction + ", "
+										+ "[interaction] = " + interaction
+										+ ", " + "[ruleResult] = " + ruleResult
+										+ ".");
 					}
 					ActorToLifelineRuleImpl
 							.pattern_ActorToLifelineRule_25_6_greenBFFFBBB(
@@ -1134,18 +1375,28 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Variable var_actor_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"actor.name", csp);
 		var_actor_name.setType("String");
+		Variable var_line__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"line._id", csp);
+		var_line__id.setType("String");
+		Variable var_actor_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("actor.description", csp);
+		var_actor_description.setType("String");
 		Variable var_line_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"line.name", csp);
 		var_line_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_actor_name, var_line_name);
+		eq.solve(var_actor_name, var_line__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_actor_description, var_line_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -1258,14 +1509,14 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.ACTOR_TO_LIFELINE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_494__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_494((EMoflonEdge) arguments
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_431__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_431((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_322__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_322((EMoflonEdge) arguments
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_883__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_883((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_323__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_323((EMoflonEdge) arguments
+		case RulesPackage.ACTOR_TO_LIFELINE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_884__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_884((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.ACTOR_TO_LIFELINE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1498,11 +1749,14 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		Lifeline line = ModalSequenceDiagramFactory.eINSTANCE.createLifeline();
 		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createActorToLifeline();
-		Object _localVariable_0 = csp.getValue("line", "name");
+		Object _localVariable_0 = csp.getValue("line", "_id");
+		Object _localVariable_1 = csp.getValue("line", "name");
 		line.setInteraction(interaction);
 		actorToLine.setSource(actor);
 		actorToLine.setTarget(line);
-		String line_name_prime = (String) _localVariable_0;
+		String line__id_prime = (String) _localVariable_0;
+		String line_name_prime = (String) _localVariable_1;
+		line.set_id(line__id_prime);
 		line.setName(line_name_prime);
 		return new Object[] { actor, line, actorToLine, interaction, csp };
 	}
@@ -1787,12 +2041,12 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration, Actor actor,
 			UseCase useCase, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						PackageDeclarationToPackage.class, "source")) {
 			ModalSequenceDiagram.Package p = packageDeclarationToP.getTarget();
 			if (p != null) {
-				for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(useCase,
 								UseCaseToInteraction.class, "source")) {
 					Interaction interaction = useCaseToInteraction.getTarget();
@@ -2230,11 +2484,14 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createActorToLifeline();
 		Object _localVariable_0 = csp.getValue("actor", "name");
+		Object _localVariable_1 = csp.getValue("actor", "description");
 		packageDeclaration.getActors().add(actor);
 		actorToLine.setSource(actor);
 		actorToLine.setTarget(line);
 		String actor_name_prime = (String) _localVariable_0;
+		String actor_description_prime = (String) _localVariable_1;
 		actor.setName(actor_name_prime);
+		actor.setDescription(actor_description_prime);
 		return new Object[] { packageDeclaration, actor, line, actorToLine, csp };
 	}
 
@@ -2516,13 +2773,13 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			ModalSequenceDiagram.Package p, Lifeline line,
 			Interaction interaction, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(p,
 						PackageDeclarationToPackage.class, "target")) {
 			PackageDeclaration packageDeclaration = packageDeclarationToP
 					.getSource();
 			if (packageDeclaration != null) {
-				for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(interaction,
 								UseCaseToInteraction.class, "target")) {
 					UseCase useCase = useCaseToInteraction.getSource();
@@ -2797,10 +3054,10 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ActorToLifelineRule_20_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_937313 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_266242 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_937313)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_266242)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -2933,7 +3190,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			if (tmpInteraction instanceof Interaction) {
 				Interaction interaction = (Interaction) tmpInteraction;
 				if (interaction.equals(line.getInteraction())) {
-					for (ModalSequenceDiagram.Package p : org.moflon.util.eMoflonEMFUtil
+					for (ModalSequenceDiagram.Package p : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(interaction,
 									ModalSequenceDiagram.Package.class,
 									"packagedElement")) {
@@ -3050,7 +3307,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 			if (tmpLine instanceof Lifeline) {
 				Lifeline line = (Lifeline) tmpLine;
 				if (interaction.equals(line.getInteraction())) {
-					for (ModalSequenceDiagram.Package p : org.moflon.util.eMoflonEMFUtil
+					for (ModalSequenceDiagram.Package p : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(interaction,
 									ModalSequenceDiagram.Package.class,
 									"packagedElement")) {
@@ -3199,7 +3456,7 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 										ruleResult, useCase) == null) {
 									if (pattern_ActorToLifelineRule_25_2_black_nac_3BB(
 											ruleResult, interaction) == null) {
-										for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+										for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														useCase,
 														PackageDeclaration.class,
@@ -3207,14 +3464,14 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 											if (pattern_ActorToLifelineRule_25_2_black_nac_0BB(
 													ruleResult,
 													packageDeclaration) == null) {
-												for (ModalSequenceDiagram.Package p : org.moflon.util.eMoflonEMFUtil
+												for (ModalSequenceDiagram.Package p : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																interaction,
 																ModalSequenceDiagram.Package.class,
 																"packagedElement")) {
 													if (pattern_ActorToLifelineRule_25_2_black_nac_4BB(
 															ruleResult, p) == null) {
-														for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.util.eMoflonEMFUtil
+														for (PackageDeclarationToPackage packageDeclarationToP : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		packageDeclaration,
 																		PackageDeclarationToPackage.class,
@@ -3337,9 +3594,11 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		ActorToLifeline actorToLine = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createActorToLifeline();
 		Object _localVariable_0 = csp.getValue("actor", "name");
-		Object _localVariable_1 = csp.getValue("line", "name");
+		Object _localVariable_1 = csp.getValue("actor", "description");
+		Object _localVariable_2 = csp.getValue("line", "_id");
+		Object _localVariable_3 = csp.getValue("line", "name");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		packageDeclaration.getActors().add(actor);
 		ruleResult.getSourceObjects().add(actor);
 		line.setInteraction(interaction);
@@ -3348,10 +3607,14 @@ public class ActorToLifelineRuleImpl extends AbstractRuleImpl implements
 		actorToLine.setTarget(line);
 		ruleResult.getCorrObjects().add(actorToLine);
 		String actor_name_prime = (String) _localVariable_0;
-		String line_name_prime = (String) _localVariable_1;
+		String actor_description_prime = (String) _localVariable_1;
+		String line__id_prime = (String) _localVariable_2;
+		String line_name_prime = (String) _localVariable_3;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		actor.setName(actor_name_prime);
+		actor.setDescription(actor_description_prime);
+		line.set_id(line__id_prime);
 		line.setName(line_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

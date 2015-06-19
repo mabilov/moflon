@@ -229,7 +229,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_225(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_201(
 			EMoflonEdge _edge_rootElements);
 
 	/**
@@ -238,7 +238,8 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_70(EMoflonEdge _edge_useCases);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_801(
+			EMoflonEdge _edge_useCases);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,7 +247,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_71(EMoflonEdge _edge_actors);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_802(EMoflonEdge _edge_actors);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,7 +255,7 @@ public interface ProcessToUseCaseRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_72(EMoflonEdge _edge_flows);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_803(EMoflonEdge _edge_flows);
 
 	/**
 	 * <!-- begin-user-doc -->

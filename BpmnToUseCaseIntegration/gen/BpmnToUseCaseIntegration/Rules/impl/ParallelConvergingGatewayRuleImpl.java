@@ -109,7 +109,35 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						outFlow, lane, laneSet, parallelGateway, divergeFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[parallelConvGateway] = "
+							+ parallelConvGateway
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[divergeFlow] = " + divergeFlow + ".");
 		}
 
 		// Solve CSP
@@ -119,7 +147,35 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						outFlow, lane, laneSet, parallelGateway, divergeFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[parallelConvGateway] = "
+							+ parallelConvGateway
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[divergeFlow] = " + divergeFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -135,7 +191,31 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							divergeFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[parallelConvGateway] = "
+								+ parallelConvGateway
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", " + "[divergeFlow] = " + divergeFlow + ".");
 			}
 			ParallelConvergingGatewayRuleImpl
 					.pattern_ParallelConvergingGatewayRule_0_4_greenBBBBBBFFFFFFF(
@@ -157,7 +237,31 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							divergeFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[parallelConvGateway] = "
+								+ parallelConvGateway
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", " + "[divergeFlow] = " + divergeFlow + ".");
 			}
 			ParallelConvergingGatewayRuleImpl
 					.pattern_ParallelConvergingGatewayRule_0_5_greenBBBBBBBFFFFFFF(
@@ -198,7 +302,10 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[1];
@@ -231,7 +338,14 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						outFlowToInitFlow, outFlowToParallelStep);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[parallelConvGateway] = "
+							+ parallelConvGateway + ", " + "[outFlow] = "
+							+ outFlow + ", " + "[pcgwToParStep] = "
+							+ pcgwToParStep + ", " + "[outFlowToInitFlow] = "
+							+ outFlowToInitFlow + ", "
+							+ "[outFlowToParallelStep] = "
+							+ outFlowToParallelStep + ".");
 		}
 		Object[] result2_green = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_1_2_greenFBBBBB(
@@ -250,7 +364,67 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 						divergeFlow, divergeFlowToFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[parallelConvGateway] = "
+							+ parallelConvGateway
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[inFlowToStep] = "
+							+ inFlowToStep
+							+ ", "
+							+ "[initFlow] = "
+							+ initFlow
+							+ ", "
+							+ "[parallelStep] = "
+							+ parallelStep
+							+ ", "
+							+ "[pcgwToParStep] = "
+							+ pcgwToParStep
+							+ ", "
+							+ "[outFlowToInitFlow] = "
+							+ outFlowToInitFlow
+							+ ", "
+							+ "[outFlowToParallelStep] = "
+							+ outFlowToParallelStep
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[pgwToParallelStep] = "
+							+ pgwToParallelStep
+							+ ", "
+							+ "[divergeFlow] = "
+							+ divergeFlow
+							+ ", "
+							+ "[divergeFlowToFlow] = "
+							+ divergeFlowToFlow
+							+ ".");
 		}
 		ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
@@ -296,7 +470,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				.pattern_ParallelConvergingGatewayRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -308,7 +483,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_2_2_bindingFFFFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
 		SequenceFlow inFlow = (SequenceFlow) result2_binding[1];
@@ -382,7 +558,60 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 								divergeFlowToFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[parallelConvGateway] = "
+									+ parallelConvGateway
+									+ ", "
+									+ "[outFlow] = "
+									+ outFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[inFlowToStep] = "
+									+ inFlowToStep
+									+ ", "
+									+ "[initFlow] = "
+									+ initFlow
+									+ ", "
+									+ "[parallelStep] = "
+									+ parallelStep
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = "
+									+ laneSet
+									+ ", "
+									+ "[parallelGateway] = "
+									+ parallelGateway
+									+ ", "
+									+ "[pgwToParallelStep] = "
+									+ pgwToParallelStep
+									+ ", "
+									+ "[divergeFlow] = "
+									+ divergeFlow
+									+ ", "
+									+ "[divergeFlowToFlow] = "
+									+ divergeFlowToFlow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -396,7 +625,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_2_6_greenBB(
@@ -609,14 +842,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_264(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_240(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_10_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -656,7 +890,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_10_5_greenBBB(
@@ -678,14 +916,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_265(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_241(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_11_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -725,7 +964,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_11_5_greenBBB(
@@ -747,14 +990,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_266(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_242(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -794,7 +1038,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_12_5_greenBBB(
@@ -816,14 +1064,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_267(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_243(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_13_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -863,7 +1112,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_13_5_greenBBB(
@@ -885,14 +1138,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_268(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_244(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_14_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -932,7 +1186,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_14_5_greenBBB(
@@ -954,14 +1212,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_269(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_245(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_15_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1001,7 +1260,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_15_5_greenBBB(
@@ -1023,14 +1286,15 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_270(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_246(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_16_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1070,7 +1334,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_16_5_greenBBB(
@@ -1092,8 +1360,9 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1109,7 +1378,8 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 				.pattern_ParallelConvergingGatewayRule_18_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ParallelConvergingGatewayRuleImpl
 				.pattern_ParallelConvergingGatewayRule_18_1_greenFF();
@@ -1146,7 +1416,57 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[inFlowToStep] = "
+								+ inFlowToStep
+								+ ", "
+								+ "[initFlow] = "
+								+ initFlow
+								+ ", "
+								+ "[parallelStep] = "
+								+ parallelStep
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", "
+								+ "[pgwToParallelStep] = "
+								+ pgwToParallelStep
+								+ ", "
+								+ "[divergeFlow] = "
+								+ divergeFlow
+								+ ", "
+								+ "[divergeFlowToFlow] = "
+								+ divergeFlowToFlow
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1172,7 +1492,50 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 									divergeFlowToFlow, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[process] = "
+										+ process
+										+ ", "
+										+ "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[step] = "
+										+ step
+										+ ", "
+										+ "[inFlowToStep] = "
+										+ inFlowToStep
+										+ ", "
+										+ "[initFlow] = "
+										+ initFlow
+										+ ", "
+										+ "[parallelStep] = "
+										+ parallelStep
+										+ ", "
+										+ "[lane] = "
+										+ lane
+										+ ", "
+										+ "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[parallelGateway] = "
+										+ parallelGateway
+										+ ", "
+										+ "[pgwToParallelStep] = "
+										+ pgwToParallelStep
+										+ ", "
+										+ "[divergeFlow] = "
+										+ divergeFlow
+										+ ", "
+										+ "[divergeFlowToFlow] = "
+										+ divergeFlowToFlow
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ParallelConvergingGatewayRuleImpl
 							.pattern_ParallelConvergingGatewayRule_18_6_greenBBFFBBFFFBBB(
@@ -1355,26 +1718,26 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_264__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_264((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_240__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_240((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_265__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_265((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_241__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_241((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_266__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_266((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_242__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_242((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_267__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_267((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_243__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_243((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_268__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_268((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_244__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_244((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_269__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_269((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_245__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_245((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_270__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_270((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_246__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_246((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2738,19 +3101,19 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 			if (!parallelConvGateway.equals(parallelGateway)) {
 				if (!divergeFlow.equals(inFlow)) {
 					if (!divergeFlow.equals(outFlow)) {
-						for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+						for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(inFlow,
 										SequenceFlowToUCFlow.class, "source")) {
 							Flow tmpFlow = inFlowToFlow.getTarget();
 							if (tmpFlow instanceof ParallelFlow) {
 								ParallelFlow flow = (ParallelFlow) tmpFlow;
-								for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+								for (SequenceFlowToStep inFlowToStep : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(inFlow,
 												SequenceFlowToStep.class,
 												"source")) {
 									Step step = inFlowToStep.getTarget();
 									if (step != null) {
-										for (FlowNodeToStep pgwToParallelStep : org.moflon.util.eMoflonEMFUtil
+										for (FlowNodeToStep pgwToParallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														parallelGateway,
 														FlowNodeToStep.class,
@@ -2760,7 +3123,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 											if (tmpParallelStep instanceof ParallelStep) {
 												ParallelStep parallelStep = (ParallelStep) tmpParallelStep;
 												if (!parallelStep.equals(step)) {
-													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	divergeFlow,
 																	SequenceFlowToUCFlow.class,
@@ -2896,7 +3259,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																													if (pattern_ParallelConvergingGatewayRule_2_3_black_nac_0BB(
 																															step,
 																															parallelStep) == null) {
-																														for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																														for (Flow initFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																.getOppositeReferenceTyped(
 																																		parallelStep,
 																																		Flow.class,
@@ -3367,7 +3730,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_10_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_688194 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_925450 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3581,7 +3944,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_11_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_100117 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_261331 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3795,7 +4158,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_12_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_509867 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_220656 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -3835,7 +4198,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							if (pattern_ParallelConvergingGatewayRule_12_2_black_nac_0B(outFlow) == null) {
 								if (pattern_ParallelConvergingGatewayRule_12_2_black_nac_1BB(
 										outFlow, parallelConvGateway) == null) {
-									for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 											.getOppositeReferenceTyped(
 													inFlow,
 													FlowElementsContainer.class,
@@ -4011,7 +4374,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_13_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_721085 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_102079 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4051,7 +4414,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							if (pattern_ParallelConvergingGatewayRule_13_2_black_nac_0B(outFlow) == null) {
 								if (pattern_ParallelConvergingGatewayRule_13_2_black_nac_1BB(
 										outFlow, parallelConvGateway) == null) {
-									for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 											.getOppositeReferenceTyped(
 													parallelConvGateway,
 													FlowElementsContainer.class,
@@ -4225,7 +4588,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_14_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_338698 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_700747 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4265,7 +4628,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							for (SequenceFlow inFlow : parallelConvGateway
 									.getIncoming()) {
 								if (!inFlow.equals(outFlow)) {
-									for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 											.getOppositeReferenceTyped(
 													outFlow,
 													FlowElementsContainer.class,
@@ -4441,7 +4804,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_15_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_208884 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_684138 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4481,7 +4844,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 							for (SequenceFlow inFlow : parallelConvGateway
 									.getIncoming()) {
 								if (!inFlow.equals(outFlow)) {
-									for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+									for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 											.getOppositeReferenceTyped(
 													parallelConvGateway,
 													FlowElementsContainer.class,
@@ -4655,7 +5018,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_ParallelConvergingGatewayRule_16_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_655846 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_248661 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4697,11 +5060,11 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 								if (pattern_ParallelConvergingGatewayRule_16_2_black_nac_0B(outFlow) == null) {
 									if (pattern_ParallelConvergingGatewayRule_16_2_black_nac_1BB(
 											outFlow, parallelConvGateway) == null) {
-										for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+										for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														lane, LaneSet.class,
 														"lanes")) {
-											for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+											for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 													.getOppositeReferenceTyped(
 															parallelConvGateway,
 															FlowElementsContainer.class,
@@ -4981,7 +5344,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 										for (Step step : flow.getSteps()) {
 											if (pattern_ParallelConvergingGatewayRule_18_2_black_nac_4BB(
 													ruleResult, step) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																inFlow,
 																FlowElementsContainer.class,
@@ -5020,7 +5383,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																										if (pattern_ParallelConvergingGatewayRule_18_2_black_nac_13BB(
 																												ruleResult,
 																												lane) == null) {
-																											for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+																											for (SequenceFlowToStep inFlowToStep : org.moflon.core.utilities.eMoflonEMFUtil
 																													.getOppositeReferenceTyped(
 																															inFlow,
 																															SequenceFlowToStep.class,
@@ -5030,7 +5393,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																													if (pattern_ParallelConvergingGatewayRule_18_2_black_nac_5BB(
 																															ruleResult,
 																															inFlowToStep) == null) {
-																														for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																														for (ParallelStep parallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 																																.getOppositeReferenceTyped(
 																																		flow,
 																																		ParallelStep.class,
@@ -5040,7 +5403,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																																if (pattern_ParallelConvergingGatewayRule_18_2_black_nac_6BB(
 																																		ruleResult,
 																																		parallelStep) == null) {
-																																	for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																	for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																			.getOppositeReferenceTyped(
 																																					flow,
 																																					SequenceFlowToUCFlow.class,
@@ -5053,7 +5416,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																																				if (pattern_ParallelConvergingGatewayRule_18_2_black_nac_11BB(
 																																						ruleResult,
 																																						divergeFlowToFlow) == null) {
-																																					for (FlowNodeToStep pgwToParallelStep : org.moflon.util.eMoflonEMFUtil
+																																					for (FlowNodeToStep pgwToParallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 																																							.getOppositeReferenceTyped(
 																																									parallelGateway,
 																																									FlowNodeToStep.class,
@@ -5064,7 +5427,7 @@ public class ParallelConvergingGatewayRuleImpl extends AbstractRuleImpl
 																																							if (pattern_ParallelConvergingGatewayRule_18_2_black_nac_8BB(
 																																									ruleResult,
 																																									pgwToParallelStep) == null) {
-																																								for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																								for (Flow initFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																										.getOppositeReferenceTyped(
 																																												parallelStep,
 																																												Flow.class,

@@ -100,7 +100,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 						flow, step, nextStep);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[alt] = " + alt
+							+ ", " + "[flow] = " + flow + ", " + "[step] = "
+							+ step + ", " + "[nextStep] = " + nextStep + ".");
 		}
 
 		// Solve CSP
@@ -109,7 +113,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 						match, alt, flow, step, nextStep);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[alt] = " + alt
+							+ ", " + "[flow] = " + flow + ", " + "[step] = "
+							+ step + ", " + "[nextStep] = " + nextStep + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -122,7 +130,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 							step, nextStep);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[alt] = " + alt + ", " + "[flow] = " + flow
+								+ ", " + "[step] = " + step + ", "
+								+ "[nextStep] = " + nextStep + ".");
 			}
 			ContinuationRuleImpl.pattern_ContinuationRule_0_4_greenBBBF(match,
 					alt, nextStep);
@@ -134,7 +146,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 							step, nextStep);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[alt] = " + alt + ", " + "[flow] = " + flow
+								+ ", " + "[step] = " + step + ", "
+								+ "[nextStep] = " + nextStep + ".");
 			}
 			ContinuationRuleImpl.pattern_ContinuationRule_0_5_greenBBBBBFFF(
 					match, alt, flow, step, nextStep);
@@ -166,7 +182,10 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[0];
 		ExclusiveGateway excConvGw = (ExclusiveGateway) result1_bindingAndBlack[1];
@@ -186,7 +205,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 				.pattern_ContinuationRule_1_2_greenF();
 		if (result2_green == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed.");
 		}
 		PerformRuleResult ruleresult = (PerformRuleResult) result2_green[0];
 
@@ -198,7 +217,43 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 						nextNodeToNextStep);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[excConvGw] = "
+							+ excConvGw
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[nextNode] = "
+							+ nextNode
+							+ ", "
+							+ "[alt] = "
+							+ alt
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[excConvGwToStep] = "
+							+ excConvGwToStep
+							+ ", "
+							+ "[nextStep] = "
+							+ nextStep
+							+ ", "
+							+ "[nextNodeToNextStep] = "
+							+ nextNodeToNextStep
+							+ ".");
 		}
 		ContinuationRuleImpl.pattern_ContinuationRule_1_3_greenBBBF(ruleresult,
 				alt, nextStep);
@@ -226,7 +281,8 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 				.pattern_ContinuationRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -238,7 +294,8 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ContinuationRuleImpl
 				.pattern_ContinuationRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		AlternativeFlowAlternative alt = (AlternativeFlowAlternative) result2_binding[0];
 		AlternativeFlow flow = (AlternativeFlow) result2_binding[1];
@@ -291,7 +348,45 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 								nextNodeToNextStep);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[excConvGw] = "
+									+ excConvGw
+									+ ", "
+									+ "[outFlow] = "
+									+ outFlow
+									+ ", "
+									+ "[nextNode] = "
+									+ nextNode
+									+ ", "
+									+ "[alt] = "
+									+ alt
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[excConvGwToStep] = "
+									+ excConvGwToStep
+									+ ", "
+									+ "[nextStep] = "
+									+ nextStep
+									+ ", "
+									+ "[nextNodeToNextStep] = "
+									+ nextNodeToNextStep + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -304,7 +399,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ContinuationRuleImpl.pattern_ContinuationRule_2_6_greenBB(
 							ruleresult, isApplicableMatch);
@@ -467,14 +566,15 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_103(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_834(
 			EMoflonEdge _edge_continuation) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ContinuationRuleImpl
 				.pattern_ContinuationRule_10_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -508,7 +608,11 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ContinuationRuleImpl
 							.pattern_ContinuationRule_10_5_greenBBB(match,
@@ -530,8 +634,9 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -547,7 +652,8 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 				.pattern_ContinuationRule_12_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ContinuationRuleImpl
 				.pattern_ContinuationRule_12_1_greenFF();
@@ -580,7 +686,48 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[excConvGw] = "
+								+ excConvGw
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[nextNode] = "
+								+ nextNode
+								+ ", "
+								+ "[alt] = "
+								+ alt
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[excConvGwToStep] = "
+								+ excConvGwToStep
+								+ ", "
+								+ "[nextStep] = "
+								+ nextStep
+								+ ", "
+								+ "[nextNodeToNextStep] = "
+								+ nextNodeToNextStep
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -602,7 +749,41 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 									nextStep, nextNodeToNextStep, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[excConvGw] = "
+										+ excConvGw
+										+ ", "
+										+ "[outFlow] = "
+										+ outFlow
+										+ ", "
+										+ "[nextNode] = "
+										+ nextNode
+										+ ", "
+										+ "[alt] = "
+										+ alt
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[step] = "
+										+ step
+										+ ", "
+										+ "[excConvGwToStep] = "
+										+ excConvGwToStep
+										+ ", "
+										+ "[nextStep] = "
+										+ nextStep
+										+ ", "
+										+ "[nextNodeToNextStep] = "
+										+ nextNodeToNextStep
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ContinuationRuleImpl
 							.pattern_ContinuationRule_12_6_greenBBB(alt,
@@ -742,8 +923,8 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.CONTINUATION_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.CONTINUATION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_103__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_103((EMoflonEdge) arguments
+		case RulesPackage.CONTINUATION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_834__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_834((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.CONTINUATION_RULE___CHECK_ATTRIBUTES_BWD__TRIPLEMATCH:
 			return checkAttributes_BWD((TripleMatch) arguments.get(0));
@@ -1328,18 +1509,18 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 			NormalStep step, Step nextStep, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!nextStep.equals(step)) {
-			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(flow,
 							SequenceFlowToUCFlow.class, "target")) {
 				SequenceFlow inFlow = inFlowToFlow.getSource();
 				if (inFlow != null) {
-					for (FlowNodeToStep excConvGwToStep : org.moflon.util.eMoflonEMFUtil
+					for (FlowNodeToStep excConvGwToStep : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(step,
 									FlowNodeToStep.class, "target")) {
 						FlowNode tmpExcConvGw = excConvGwToStep.getSource();
 						if (tmpExcConvGw instanceof ExclusiveGateway) {
 							ExclusiveGateway excConvGw = (ExclusiveGateway) tmpExcConvGw;
-							for (FlowNodeToStep nextNodeToNextStep : org.moflon.util.eMoflonEMFUtil
+							for (FlowNodeToStep nextNodeToNextStep : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(nextStep,
 											FlowNodeToStep.class, "target")) {
 								if (!excConvGwToStep.equals(nextNodeToNextStep)) {
@@ -1749,7 +1930,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 					NamedFlow tmpFlow = alt.getRef();
 					if (tmpFlow instanceof AlternativeFlow) {
 						AlternativeFlow flow = (AlternativeFlow) tmpFlow;
-						for (NormalStep step : org.moflon.util.eMoflonEMFUtil
+						for (NormalStep step : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(alt,
 										NormalStep.class, "stepAlternative")) {
 							if (!nextStep.equals(step)) {
@@ -1982,7 +2163,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 																									if (pattern_ContinuationRule_12_2_black_nac_5BB(
 																											ruleResult,
 																											flow) == null) {
-																										for (FlowNodeToStep nextNodeToNextStep : org.moflon.util.eMoflonEMFUtil
+																										for (FlowNodeToStep nextNodeToNextStep : org.moflon.core.utilities.eMoflonEMFUtil
 																												.getOppositeReferenceTyped(
 																														nextStep,
 																														FlowNodeToStep.class,
@@ -1995,7 +2176,7 @@ public class ContinuationRuleImpl extends AbstractRuleImpl implements
 																													if (pattern_ContinuationRule_12_2_black_nac_8BB(
 																															ruleResult,
 																															nextNodeToNextStep) == null) {
-																														for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																														for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																.getOppositeReferenceTyped(
 																																		inFlow,
 																																		SequenceFlowToUCFlow.class,

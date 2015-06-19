@@ -69,13 +69,22 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int NAMED_ELEMENT = 23;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__NAME = 0;
+	int NAMED_ELEMENT__NAME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Named Element</em>' class.
@@ -84,7 +93,7 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+	int NAMED_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Named Element</em>' class.
@@ -104,6 +113,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int PACKAGEABLE_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGEABLE_ELEMENT__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -141,6 +159,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int PACKAGE = 1;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__ID = PACKAGEABLE_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -189,6 +216,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MODEL = 0;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ID = PACKAGE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,6 +271,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int TYPE = 7;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__ID = PACKAGEABLE_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +317,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CLASSIFIER = 6;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASSIFIER__ID = TYPE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,6 +361,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int STRUCTURED_CLASSIFIER = 4;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCTURED_CLASSIFIER__ID = CLASSIFIER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -362,6 +425,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int COLLABORATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLABORATION__ID = STRUCTURED_CLASSIFIER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -428,6 +500,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int BEHAVIORED_CLASSIFIER = 5;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORED_CLASSIFIER__ID = CLASSIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,6 +553,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int CLASS = 32;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__ID = BEHAVIORED_CLASSIFIER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -547,6 +637,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int BEHAVIOR = 9;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR__ID = CLASS__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -618,6 +717,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERACTION = 8;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION__ID = BEHAVIOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -774,6 +882,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int REDEFINABLE_ELEMENT = 25;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REDEFINABLE_ELEMENT__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -811,6 +928,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int FEATURE = 26;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__ID = REDEFINABLE_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +972,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int CONNECTOR = 10;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__ID = FEATURE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -892,6 +1027,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int LIFELINE = 11;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIFELINE__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -976,6 +1120,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION_FRAGMENT = 12;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_FRAGMENT__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1049,6 +1202,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int TYPED_ELEMENT = 24;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_ELEMENT__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1093,6 +1255,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int CONNECTABLE_ELEMENT = 13;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTABLE_ELEMENT__ID = TYPED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1141,6 +1312,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int PROPERTY = 14;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ID = CONNECTABLE_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1185,6 +1365,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int MESSAGE = 15;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE__ID = NAMED_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1296,6 +1485,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MESSAGE_END = 16;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_END__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1340,6 +1538,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int MESSAGE_OCCURRENCE_SPECIFICATION = 17;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_OCCURRENCE_SPECIFICATION__ID = MESSAGE_END__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1442,6 +1649,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int OCCURRENCE_SPECIFICATION = 18;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OCCURRENCE_SPECIFICATION__ID = INTERACTION_FRAGMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1533,6 +1749,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int STATE_INVARIANT = 19;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_INVARIANT__ID = INTERACTION_FRAGMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1615,6 +1840,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CONSTRAINT = 20;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__ID = PACKAGEABLE_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1661,6 +1895,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int VALUE_SPECIFICATION = 21;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION__ID = PACKAGEABLE_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1696,6 +1939,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int OPAQUE_EXPRESSION = 22;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPAQUE_EXPRESSION__ID = VALUE_SPECIFICATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1781,6 +2033,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int EVENT = 31;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__ID = PACKAGEABLE_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1818,6 +2079,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MESSAGE_EVENT = 30;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_EVENT__ID = EVENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1853,6 +2123,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int CALL_EVENT = 28;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_EVENT__ID = MESSAGE_EVENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1901,6 +2180,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int BEHAVIORAL_FEATURE = 33;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIORAL_FEATURE__ID = FEATURE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1938,6 +2226,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int OPERATION = 29;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ID = BEHAVIORAL_FEATURE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1973,6 +2270,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int DESTRUCTION_OCCURENCE_SPECIFICATION = 34;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTION_OCCURENCE_SPECIFICATION__ID = MESSAGE_OCCURRENCE_SPECIFICATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2075,6 +2381,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int GENERAL_ORDERING = 35;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERAL_ORDERING__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2128,6 +2443,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int EXECUTION_OCCURRENCE_SPECIFICATION = 36;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_OCCURRENCE_SPECIFICATION__ID = OCCURRENCE_SPECIFICATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2230,6 +2554,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int EXECUTION_SPECIFICATION = 51;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_SPECIFICATION__ID = INTERACTION_FRAGMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2319,6 +2652,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int ACTION_EXECUTION_SPECIFICATION = 37;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION_EXECUTION_SPECIFICATION__ID = EXECUTION_SPECIFICATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2421,6 +2763,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int BEHAVIOR_EXECUTION_SPECIFICATION = 38;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOR_EXECUTION_SPECIFICATION__ID = EXECUTION_SPECIFICATION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2521,6 +2872,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int NAMESPACE = 39;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__ID = NAMED_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2556,6 +2916,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int COMBINED_FRAGMENT = 49;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMBINED_FRAGMENT__ID = INTERACTION_FRAGMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2656,6 +3025,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int CONSIDER_IGNORE_FRAGMENT = 40;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSIDER_IGNORE_FRAGMENT__ID = COMBINED_FRAGMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2767,6 +3145,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CONTINUATION = 41;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUATION__ID = INTERACTION_FRAGMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2847,6 +3234,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERACTION_USE = 42;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_USE__ID = INTERACTION_FRAGMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2956,6 +3352,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int MODAL_MESSAGE = 43;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODAL_MESSAGE__ID = MESSAGE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3085,6 +3490,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CONDITION = 44;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ID = STATE_INVARIANT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3174,6 +3588,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int TIME_CONDITION = 45;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_CONDITION__ID = CONDITION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3267,6 +3690,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int SPECIFICATION_PART = 46;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFICATION_PART__ID = PROPERTY__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3322,6 +3754,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int ENCAPSULATED_CLASSIFIER = 47;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENCAPSULATED_CLASSIFIER__ID = STRUCTURED_CLASSIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3375,6 +3816,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int INTERACTION_OPERAND = 48;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_OPERAND__ID = INTERACTION_FRAGMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3468,6 +3918,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int INTERACTION_CONSTRAINT = 50;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERACTION_CONSTRAINT__ID = CONSTRAINT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3530,6 +3989,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int GATE = 52;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GATE__ID = MESSAGE_END__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3604,6 +4072,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int PART_DECOMPOSITION = 54;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART_DECOMPOSITION__ID = INTERACTION_USE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3715,6 +4192,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int CLOCK_RESET = 55;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_RESET__ID = STATE_INVARIANT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3797,6 +4283,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int MSD_SPECIFICATION = 56;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MSD_SPECIFICATION__ID = PACKAGE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3850,6 +4345,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int ENVIRONMENT_ASSUMPTION = 57;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENVIRONMENT_ASSUMPTION__ID = INTERACTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4006,6 +4510,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	int LITERAL_SPECIFICATION = 59;
 
 	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_SPECIFICATION__ID = VALUE_SPECIFICATION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4041,6 +4554,15 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	int LITERAL_STRING = 58;
+
+	/**
+	 * The feature id for the '<em><b>id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_STRING__ID = LITERAL_SPECIFICATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4750,6 +5272,17 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.NamedElement#get_id <em>id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>id</em>'.
+	 * @see ModalSequenceDiagram.NamedElement#get_id()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement__id();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ModalSequenceDiagram.NamedElement#getName <em>Name</em>}'.
@@ -6065,6 +6598,14 @@ public interface ModalSequenceDiagramPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__ID = eINSTANCE.getNamedElement__id();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

@@ -205,7 +205,7 @@ public interface UCModelToMSDModelRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_UseCasesModel_1(
+	EObjectContainer isAppropriate_FWD_UseCasesModel_8(
 			UseCasesModel useCasesModel);
 
 	/**
@@ -214,7 +214,7 @@ public interface UCModelToMSDModelRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_Model_1(Model model);
+	EObjectContainer isAppropriate_BWD_Model_8(Model model);
 
 	/**
 	 * <!-- begin-user-doc -->

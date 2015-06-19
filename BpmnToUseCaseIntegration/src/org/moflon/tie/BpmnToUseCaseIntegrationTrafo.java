@@ -2,24 +2,20 @@ package org.moflon.tie;
 
 import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
-import org.moflon.util.eMoflonEMFUtil;
 import org.moflon.ide.debug.DebugSynchronizationHelper;
+import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.EObject;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 
 
-public class BpmnToUseCaseIntegrationTrafo extends DebugSynchronizationHelper {
+public class BpmnToUseCaseIntegrationTrafo extends DebugSynchronizationHelper{
 
-	public BpmnToUseCaseIntegrationTrafo() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-
-                
-        // Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
-	}
+   public BpmnToUseCaseIntegrationTrafo()
+   {
+      super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
+   }
 
 	public static void main(String[] args) throws IOException {
 		// Set up logging
@@ -34,7 +30,7 @@ public class BpmnToUseCaseIntegrationTrafo extends DebugSynchronizationHelper {
 		helper.performBackward("instances/bwd.src.xmi");
 	}
 
-	private void performForward() {
+	public void performForward() {
 		integrateForward();
 
 		saveTrg("instances/fwd.trg.xmi");
@@ -60,7 +56,7 @@ public class BpmnToUseCaseIntegrationTrafo extends DebugSynchronizationHelper {
 		}
 	}
 
-	private void performBackward() {
+	public void performBackward() {
 		integrateBackward();
 
 		saveSrc("instances/bwd.trg.xmi");

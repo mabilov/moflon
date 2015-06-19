@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BpmnToUseCaseIntegration">
-  <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
+  <domain name="Source" metamodel="//@metamodel.0" type="SOURCE"/>
+  <domain name="Target" metamodel="//@metamodel.1" type="TARGET"/>
   <domain name="Correspondence" metamodel="//@metamodel.2"/>
   <tggRule name="BpModelToUseCaseModelRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="documentRoot" incomingLink="//@tggRule.0/@linkVariable.0" bindingOperator="CREATE" domain="//@domain.0">
@@ -415,9 +415,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="task"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
@@ -813,9 +810,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED00057400062253454E4422"/>
@@ -835,9 +829,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED0005740006225741495422"/>
@@ -1077,9 +1068,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="exclusiveGateway"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
@@ -1129,9 +1117,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED00057400062253454E4422"/>
@@ -1151,9 +1136,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="type" objectVariable="normalStep"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED0005740006225741495422"/>
@@ -1379,9 +1361,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" attribute="id" objectVariable="eventBasedGateway"/>
       <variables xsi:type="csp:AttributeVariable" attribute="name" objectVariable="normalStep"/>
@@ -2781,11 +2760,11 @@
     </linkVariable>
     <csp/>
   </tggRule>
-  <metamodel name="UseCaseDSL">
-    <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
-  </metamodel>
   <metamodel name="bpmn2">
     <outermostPackage href="platform:/plugin/bpmn2/model/Bpmn2.ecore#/"/>
+  </metamodel>
+  <metamodel name="UseCaseDSL">
+    <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
   <metamodel name="BpmnToUseCaseIntegration">
     <outermostPackage href="platform:/plugin/BpmnToUseCaseIntegration/model/BpmnToUseCaseIntegration.ecore#/"/>

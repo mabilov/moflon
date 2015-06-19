@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TGGRuntime:CorrespondenceModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ModalSequenceDiagram="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore" xmlns:TGGRuntime="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore" xmlns:UseCaseDSL="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore" xmlns:UseCaseToModalSequenceDiagramIntegration="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore">
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:UseCasesModelToModel">
+    <source href="booksale1.src.usecase.xmi#/"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:PackageDeclarationToPackage">
+    <source href="booksale1.src.usecase.xmi#de.abilov.booksale"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:UseCaseToInteraction">
+    <source href="booksale1.src.usecase.xmi#booksale"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:FlowToInteractionFragment">
+    <source xsi:type="UseCaseDSL:BasicFlow" href="booksale1.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0"/>
+    <target xsi:type="ModalSequenceDiagram:Interaction" href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
+    <source href="booksale1.src.usecase.xmi#shipping"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
+    <source href="booksale1.src.usecase.xmi#financing"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.1"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ParallelStepToCombinedFragment">
+    <source href="booksale1.src.usecase.xmi#pgw1"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:FlowToInteractionFragment">
+    <source xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.src.usecase.xmi#shipment_prepare"/>
+    <target xsi:type="ModalSequenceDiagram:InteractionOperand" href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:FlowToInteractionFragment">
+    <source xsi:type="UseCaseDSL:ParallelFlow" href="booksale1.src.usecase.xmi#payment"/>
+    <target xsi:type="ModalSequenceDiagram:InteractionOperand" href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.0/@operand.1"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
+    <source href="booksale1.src.usecase.xmi#sys"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.2"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:UCConditionToMessage">
+    <source href="booksale1.src.usecase.xmi#//@packages.0/@useCases.0/@preconditions.0"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@message.1"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:ActorToLifeline">
+    <source href="booksale1.src.usecase.xmi#sales"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@lifeline.3"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:NormalStepToCombinedFragment">
+    <source href="booksale1.src.usecase.xmi#all_books_available"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:FlowToInteractionFragment">
+    <source xsi:type="UseCaseDSL:AlternativeFlow" href="booksale1.src.usecase.xmi#ShipmentPrepare"/>
+    <target xsi:type="ModalSequenceDiagram:InteractionOperand" href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8/@operand.0"/>
+  </correspondences>
+  <correspondences xsi:type="UseCaseToModalSequenceDiagramIntegration:StepAlternativeToInteractionOperand">
+    <source xsi:type="UseCaseDSL:AlternativeFlowAlternative" href="booksale1.src.usecase.xmi#//@packages.0/@useCases.0/@flows.0/@steps.2/@stepAlternative.0"/>
+    <target href="booksale1.trg.xmi#//@potentialRoots.0/@packagedElement.0/@packagedElement.0/@fragment.8/@operand.0"/>
+  </correspondences>
+  <source href="booksale1.src.usecase.xmi#/"/>
+  <target href="booksale1.trg.xmi#/"/>
+</TGGRuntime:CorrespondenceModel>

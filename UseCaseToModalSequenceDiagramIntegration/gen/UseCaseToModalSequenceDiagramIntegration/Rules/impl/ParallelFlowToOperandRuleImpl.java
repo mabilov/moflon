@@ -104,7 +104,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						step, parFlow, useCase, flow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[step] = " + step
+							+ ", " + "[parFlow] = " + parFlow + ", "
+							+ "[useCase] = " + useCase + ", " + "[flow] = "
+							+ flow + ".");
 		}
 
 		// Solve CSP
@@ -113,7 +118,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						this, match, step, parFlow, useCase, flow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[step] = " + step
+							+ ", " + "[parFlow] = " + parFlow + ", "
+							+ "[useCase] = " + useCase + ", " + "[flow] = "
+							+ flow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -126,7 +136,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 							step, parFlow, useCase, flow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[step] = " + step + ", " + "[parFlow] = "
+								+ parFlow + ", " + "[useCase] = " + useCase
+								+ ", " + "[flow] = " + flow + ".");
 			}
 			ParallelFlowToOperandRuleImpl
 					.pattern_ParallelFlowToOperandRule_0_4_greenBBBBFF(match,
@@ -140,7 +154,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 							step, parFlow, useCase, flow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[step] = " + step + ", " + "[parFlow] = "
+								+ parFlow + ", " + "[useCase] = " + useCase
+								+ ", " + "[flow] = " + flow + ".");
 			}
 			ParallelFlowToOperandRuleImpl
 					.pattern_ParallelFlowToOperandRule_0_5_greenBBBBFF(match,
@@ -173,7 +191,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		CombinedFragment combo = (CombinedFragment) result1_bindingAndBlack[0];
 		ParallelStep step = (ParallelStep) result1_bindingAndBlack[1];
@@ -196,7 +217,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						operand, parFlowToOperand, guard, spec);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[parFlow] = " + parFlow + ", "
+							+ "[operand] = " + operand + ", "
+							+ "[parFlowToOperand] = " + parFlowToOperand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ".");
 		}
 		Object[] result2_green = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_1_2_greenFBBBBB(parFlow,
@@ -210,7 +236,37 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						flow, operand, parFlowToOperand, guard, spec);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[stepToCombo] = "
+							+ stepToCombo
+							+ ", "
+							+ "[parFlow] = "
+							+ parFlow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[parFlowToOperand] = "
+							+ parFlowToOperand
+							+ ", "
+							+ "[guard] = "
+							+ guard
+							+ ", " + "[spec] = " + spec + ".");
 		}
 		ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_1_3_greenBBBBBBBBBFFFFFFF(
@@ -245,7 +301,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				.pattern_ParallelFlowToOperandRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -257,7 +314,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		ParallelStep step = (ParallelStep) result2_binding[0];
 		ParallelFlow parFlow = (ParallelFlow) result2_binding[1];
@@ -291,7 +349,29 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 								stepToCombo, parFlow, useCase, flow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[stepToCombo] = "
+									+ stepToCombo
+									+ ", "
+									+ "[parFlow] = "
+									+ parFlow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[flow] = " + flow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -305,7 +385,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_2_6_greenBB(
@@ -467,7 +551,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						match, combo, operand, guard, spec);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[combo] = "
+							+ combo + ", " + "[operand] = " + operand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ".");
 		}
 
 		// Solve CSP
@@ -476,7 +565,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						this, match, combo, operand, guard, spec);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[combo] = "
+							+ combo + ", " + "[operand] = " + operand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -489,7 +583,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 							combo, operand, guard, spec);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[combo] = " + combo + ", " + "[operand] = "
+								+ operand + ", " + "[guard] = " + guard + ", "
+								+ "[spec] = " + spec + ".");
 			}
 			ParallelFlowToOperandRuleImpl
 					.pattern_ParallelFlowToOperandRule_10_4_greenBBBBBFFF(
@@ -504,7 +602,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 							combo, operand, guard, spec);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[combo] = " + combo + ", " + "[operand] = "
+								+ operand + ", " + "[guard] = " + guard + ", "
+								+ "[spec] = " + spec + ".");
 			}
 			ParallelFlowToOperandRuleImpl
 					.pattern_ParallelFlowToOperandRule_10_5_greenBB(match,
@@ -535,7 +637,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		CombinedFragment combo = (CombinedFragment) result1_bindingAndBlack[0];
 		ParallelStep step = (ParallelStep) result1_bindingAndBlack[1];
@@ -558,7 +663,12 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						operand, parFlowToOperand, guard, spec);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[parFlow] = " + parFlow + ", "
+							+ "[operand] = " + operand + ", "
+							+ "[parFlowToOperand] = " + parFlowToOperand + ", "
+							+ "[guard] = " + guard + ", " + "[spec] = " + spec
+							+ ".");
 		}
 		Object[] result2_green = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_11_2_greenFBBBBB(parFlow,
@@ -572,7 +682,37 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						flow, operand, parFlowToOperand, guard, spec);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[stepToCombo] = "
+							+ stepToCombo
+							+ ", "
+							+ "[parFlow] = "
+							+ parFlow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[parFlowToOperand] = "
+							+ parFlowToOperand
+							+ ", "
+							+ "[guard] = "
+							+ guard
+							+ ", " + "[spec] = " + spec + ".");
 		}
 		ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_11_3_greenBBBBBBBBBFFFFFFF(
@@ -607,7 +747,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				.pattern_ParallelFlowToOperandRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -619,7 +760,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		CombinedFragment combo = (CombinedFragment) result2_binding[0];
 		InteractionOperand operand = (InteractionOperand) result2_binding[1];
@@ -657,7 +799,36 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 								spec);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[stepToCombo] = "
+									+ stepToCombo
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[operand] = "
+									+ operand
+									+ ", "
+									+ "[guard] = "
+									+ guard
+									+ ", "
+									+ "[spec] = "
+									+ spec + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -671,7 +842,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_12_6_greenBB(
@@ -837,14 +1012,15 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_330(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_891(
 			EMoflonEdge _edge_operand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -878,7 +1054,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_20_5_greenBBB(
@@ -900,14 +1080,15 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_498(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_435(
 			EMoflonEdge _edge_invokedFlows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -941,7 +1122,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_21_5_greenBBB(
@@ -963,14 +1148,15 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_499(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_436(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1004,7 +1190,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_22_5_greenBBB(
@@ -1026,14 +1216,15 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_331(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_892(
 			EMoflonEdge _edge_guard) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1067,7 +1258,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_23_5_greenBBB(
@@ -1089,14 +1284,15 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_332(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_893(
 			EMoflonEdge _edge_specification) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1130,7 +1326,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_24_5_greenBBB(
@@ -1152,8 +1352,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1161,8 +1362,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1178,7 +1380,8 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				.pattern_ParallelFlowToOperandRule_27_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ParallelFlowToOperandRuleImpl
 				.pattern_ParallelFlowToOperandRule_27_1_greenFF();
@@ -1203,7 +1406,31 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 							useCase, flow, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[combo] = "
+								+ combo
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[stepToCombo] = "
+								+ stepToCombo
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult
+								+ ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1223,7 +1450,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[combo] = " + combo
+										+ ", " + "[step] = " + step + ", "
+										+ "[stepToCombo] = " + stepToCombo
+										+ ", " + "[useCase] = " + useCase
+										+ ", " + "[flow] = " + flow + ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ParallelFlowToOperandRuleImpl
 							.pattern_ParallelFlowToOperandRule_27_6_greenBBFBFFFFBB(
@@ -1394,20 +1627,20 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_330__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_330((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_891__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_891((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_498__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_498((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_435__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_435((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_499__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_499((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_436__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_436((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_331__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_331((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_892__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_892((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_332__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_332((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_893__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_893((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_FLOW_TO_OPERAND_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1997,7 +2230,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			Flow flow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!flow.equals(parFlow)) {
-			for (ParallelStepToCombinedFragment stepToCombo : org.moflon.util.eMoflonEMFUtil
+			for (ParallelStepToCombinedFragment stepToCombo : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(step,
 							ParallelStepToCombinedFragment.class, "source")) {
 				CombinedFragment combo = stepToCombo.getTarget();
@@ -2736,7 +2969,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			CombinedFragment combo, InteractionOperand operand,
 			InteractionConstraint guard, LiteralString spec, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (ParallelStepToCombinedFragment stepToCombo : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStepToCombinedFragment stepToCombo : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(combo,
 						ParallelStepToCombinedFragment.class, "target")) {
 			ParallelStep step = stepToCombo.getSource();
@@ -2760,10 +2993,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				if (combo.equals(stepToCombo.getTarget())) {
 					if (guard.equals(operand.getGuard())) {
 						if (spec.equals(guard.getSpecification())) {
-							for (Flow flow : org.moflon.util.eMoflonEMFUtil
+							for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(step,
 											Flow.class, "steps")) {
-								for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+								for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(flow,
 												UseCase.class, "flows")) {
 									_result.add(new Object[] { combo, step,
@@ -2978,9 +3211,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_20_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_921042 = operand
+		Interaction __DEC_operand_enclosingInteraction_314407 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_921042 != null) {
+		if (__DEC_operand_enclosingInteraction_314407 != null) {
 			return new Object[] { operand };
 		}
 
@@ -2989,10 +3222,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_20_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_18224 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_531013 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_18224)) {
+			if (!combo.equals(__DEC_operand_operand_531013)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -3001,10 +3234,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_20_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_209214 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_957500 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_209214)) {
+			if (!operand.equals(__DEC_guard_guard_957500)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -3143,10 +3376,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_21_2_black_nac_0BB(
 			ParallelFlow parFlow, ParallelStep step) {
-		for (ParallelStep __DEC_parFlow_invokedFlows_178494 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parFlow_invokedFlows_745246 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!step.equals(__DEC_parFlow_invokedFlows_178494)) {
+			if (!step.equals(__DEC_parFlow_invokedFlows_745246)) {
 				return new Object[] { parFlow, step };
 			}
 		}
@@ -3165,11 +3398,11 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 				if (step.getInvokedFlows().contains(parFlow)) {
 					if (pattern_ParallelFlowToOperandRule_21_2_black_nac_0BB(
 							parFlow, step) == null) {
-						for (Flow flow : org.moflon.util.eMoflonEMFUtil
+						for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(step, Flow.class,
 										"steps")) {
 							if (!flow.equals(parFlow)) {
-								for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+								for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(parFlow,
 												UseCase.class, "flows")) {
 									if (useCase.getFlows().contains(flow)) {
@@ -3282,10 +3515,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_22_2_black_nac_0BB(
 			ParallelFlow parFlow, ParallelStep step) {
-		for (ParallelStep __DEC_parFlow_invokedFlows_74784 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parFlow_invokedFlows_209764 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!step.equals(__DEC_parFlow_invokedFlows_74784)) {
+			if (!step.equals(__DEC_parFlow_invokedFlows_209764)) {
 				return new Object[] { parFlow, step };
 			}
 		}
@@ -3421,9 +3654,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_23_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_430131 = operand
+		Interaction __DEC_operand_enclosingInteraction_518106 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_430131 != null) {
+		if (__DEC_operand_enclosingInteraction_518106 != null) {
 			return new Object[] { operand };
 		}
 
@@ -3432,10 +3665,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_23_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_73198 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_981640 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_73198)) {
+			if (!combo.equals(__DEC_operand_operand_981640)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -3444,10 +3677,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_23_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_91582 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_674587 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_91582)) {
+			if (!operand.equals(__DEC_guard_guard_674587)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -3470,7 +3703,7 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 						if (pattern_ParallelFlowToOperandRule_23_2_black_nac_0B(operand) == null) {
 							if (pattern_ParallelFlowToOperandRule_23_2_black_nac_2BB(
 									guard, operand) == null) {
-								for (CombinedFragment combo : org.moflon.util.eMoflonEMFUtil
+								for (CombinedFragment combo : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(operand,
 												CombinedFragment.class,
 												"operand")) {
@@ -3587,9 +3820,9 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_24_2_black_nac_0B(
 			InteractionOperand operand) {
-		Interaction __DEC_operand_enclosingInteraction_294894 = operand
+		Interaction __DEC_operand_enclosingInteraction_56132 = operand
 				.getEnclosingInteraction();
-		if (__DEC_operand_enclosingInteraction_294894 != null) {
+		if (__DEC_operand_enclosingInteraction_56132 != null) {
 			return new Object[] { operand };
 		}
 
@@ -3598,10 +3831,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_24_2_black_nac_1BB(
 			InteractionOperand operand, CombinedFragment combo) {
-		for (CombinedFragment __DEC_operand_operand_663791 : org.moflon.util.eMoflonEMFUtil
+		for (CombinedFragment __DEC_operand_operand_191821 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(operand, CombinedFragment.class,
 						"operand")) {
-			if (!combo.equals(__DEC_operand_operand_663791)) {
+			if (!combo.equals(__DEC_operand_operand_191821)) {
 				return new Object[] { operand, combo };
 			}
 		}
@@ -3610,10 +3843,10 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_ParallelFlowToOperandRule_24_2_black_nac_2BB(
 			InteractionConstraint guard, InteractionOperand operand) {
-		for (InteractionOperand __DEC_guard_guard_45367 : org.moflon.util.eMoflonEMFUtil
+		for (InteractionOperand __DEC_guard_guard_201939 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(guard, InteractionOperand.class,
 						"guard")) {
-			if (!operand.equals(__DEC_guard_guard_45367)) {
+			if (!operand.equals(__DEC_guard_guard_201939)) {
 				return new Object[] { guard, operand };
 			}
 		}
@@ -3630,13 +3863,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 			if (tmpSpec instanceof LiteralString) {
 				LiteralString spec = (LiteralString) tmpSpec;
 				if (spec.equals(guard.getSpecification())) {
-					for (InteractionOperand operand : org.moflon.util.eMoflonEMFUtil
+					for (InteractionOperand operand : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(guard,
 									InteractionOperand.class, "guard")) {
 						if (pattern_ParallelFlowToOperandRule_24_2_black_nac_0B(operand) == null) {
 							if (pattern_ParallelFlowToOperandRule_24_2_black_nac_2BB(
 									guard, operand) == null) {
-								for (CombinedFragment combo : org.moflon.util.eMoflonEMFUtil
+								for (CombinedFragment combo : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(operand,
 												CombinedFragment.class,
 												"operand")) {
@@ -3780,13 +4013,13 @@ public class ParallelFlowToOperandRuleImpl extends AbstractRuleImpl implements
 										ruleResult, combo) == null) {
 									if (pattern_ParallelFlowToOperandRule_27_2_black_nac_2BB(
 											ruleResult, step) == null) {
-										for (Flow flow : org.moflon.util.eMoflonEMFUtil
+										for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														step, Flow.class,
 														"steps")) {
 											if (pattern_ParallelFlowToOperandRule_27_2_black_nac_3BB(
 													ruleResult, flow) == null) {
-												for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+												for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																flow,
 																UseCase.class,

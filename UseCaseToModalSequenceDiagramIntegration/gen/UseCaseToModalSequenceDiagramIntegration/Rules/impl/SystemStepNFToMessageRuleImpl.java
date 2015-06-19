@@ -110,7 +110,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						match, actor, flow, step, useCase, packageDeclaration);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[actor] = "
+							+ actor + ", " + "[flow] = " + flow + ", "
+							+ "[step] = " + step + ", " + "[useCase] = "
+							+ useCase + ", " + "[packageDeclaration] = "
+							+ packageDeclaration + ".");
 		}
 
 		// Solve CSP
@@ -120,7 +126,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[actor] = "
+							+ actor + ", " + "[flow] = " + flow + ", "
+							+ "[step] = " + step + ", " + "[useCase] = "
+							+ useCase + ", " + "[packageDeclaration] = "
+							+ packageDeclaration + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -133,7 +145,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 							actor, flow, step, useCase, packageDeclaration);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[actor] = " + actor + ", " + "[flow] = "
+								+ flow + ", " + "[step] = " + step + ", "
+								+ "[useCase] = " + useCase + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			SystemStepNFToMessageRuleImpl
 					.pattern_SystemStepNFToMessageRule_0_4_greenBBBBFF(match,
@@ -147,7 +165,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 							actor, flow, step, useCase, packageDeclaration);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[actor] = " + actor + ", " + "[flow] = "
+								+ flow + ", " + "[step] = " + step + ", "
+								+ "[useCase] = " + useCase + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			SystemStepNFToMessageRuleImpl
 					.pattern_SystemStepNFToMessageRule_0_5_greenBBBBBFFF(match,
@@ -182,7 +206,10 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Actor actor = (Actor) result1_bindingAndBlack[0];
 		Lifeline line = (Lifeline) result1_bindingAndBlack[1];
@@ -209,7 +236,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						messageReceive, step, message);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[messageSend] = " + messageSend
+							+ ", " + "[messageReceive] = " + messageReceive
+							+ ", " + "[step] = " + step + ", " + "[message] = "
+							+ message + ".");
 		}
 		Object[] result2_green = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_1_2_greenFBBBB(messageSend,
@@ -225,7 +256,52 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[messageSend] = "
+							+ messageSend
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[flowToOperand] = "
+							+ flowToOperand
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ".");
 		}
 		SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
@@ -273,7 +349,8 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_SystemStepNFToMessageRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -285,7 +362,8 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_2_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Actor actor = (Actor) result2_binding[0];
 		NamedFlow flow = (NamedFlow) result2_binding[1];
@@ -335,7 +413,45 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 								packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[operand] = "
+									+ operand
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[flowToOperand] = "
+									+ flowToOperand
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -349,7 +465,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_2_6_greenBB(
@@ -466,6 +586,10 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 				"step.name", true, csp);
 		var_step_name.setValue(step.getName());
 		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", true, csp);
+		var_step_label.setValue(step.getLabel());
+		var_step_label.setType("String");
 
 		// Create unbound variables
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
@@ -474,6 +598,9 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", csp);
 		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", csp);
+		var_message__id.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
@@ -482,10 +609,12 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqMessageSort.setRuleName("");
@@ -493,7 +622,9 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal1);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("actor", actor);
@@ -576,7 +707,32 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						combo, message, interaction);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[messageSend] = "
+							+ messageSend
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[interaction] = " + interaction + ".");
 		}
 
 		// Solve CSP
@@ -586,7 +742,32 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						messageReceive, combo, message, interaction);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[messageSend] = "
+							+ messageSend
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[interaction] = " + interaction + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -600,7 +781,30 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 							combo, message, interaction);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[messageSend] = "
+								+ messageSend
+								+ ", "
+								+ "[operand] = "
+								+ operand
+								+ ", "
+								+ "[messageReceive] = "
+								+ messageReceive
+								+ ", "
+								+ "[combo] = "
+								+ combo
+								+ ", "
+								+ "[message] = "
+								+ message
+								+ ", "
+								+ "[interaction] = "
+								+ interaction + ".");
 			}
 			SystemStepNFToMessageRuleImpl
 					.pattern_SystemStepNFToMessageRule_10_4_greenBBBBBBBBFFFFFFFFFFFFFFFF(
@@ -630,7 +834,30 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 							combo, message, interaction);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[messageSend] = "
+								+ messageSend
+								+ ", "
+								+ "[operand] = "
+								+ operand
+								+ ", "
+								+ "[messageReceive] = "
+								+ messageReceive
+								+ ", "
+								+ "[combo] = "
+								+ combo
+								+ ", "
+								+ "[message] = "
+								+ message
+								+ ", "
+								+ "[interaction] = "
+								+ interaction + ".");
 			}
 			SystemStepNFToMessageRuleImpl
 					.pattern_SystemStepNFToMessageRule_10_5_greenBBBBBFFF(
@@ -665,7 +892,10 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Actor actor = (Actor) result1_bindingAndBlack[0];
 		Lifeline line = (Lifeline) result1_bindingAndBlack[1];
@@ -692,7 +922,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						messageReceive, step, message);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[messageSend] = " + messageSend
+							+ ", " + "[messageReceive] = " + messageReceive
+							+ ", " + "[step] = " + step + ", " + "[message] = "
+							+ message + ".");
 		}
 		Object[] result2_green = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_11_2_greenFBBBB(messageSend,
@@ -708,7 +942,52 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[messageSend] = "
+							+ messageSend
+							+ ", "
+							+ "[operand] = "
+							+ operand
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[flowToOperand] = "
+							+ flowToOperand
+							+ ", "
+							+ "[messageReceive] = "
+							+ messageReceive
+							+ ", "
+							+ "[combo] = "
+							+ combo
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ".");
 		}
 		SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_11_3_greenBBBBBBBBBBBFFFFFFFFFFFFFFFFFF(
@@ -756,7 +1035,8 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_SystemStepNFToMessageRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -768,7 +1048,8 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_12_2_bindingFFFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Lifeline line = (Lifeline) result2_binding[0];
 		MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_binding[1];
@@ -837,7 +1118,51 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 								packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[messageSend] = "
+									+ messageSend
+									+ ", "
+									+ "[operand] = "
+									+ operand
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[flowToOperand] = "
+									+ flowToOperand
+									+ ", "
+									+ "[messageReceive] = "
+									+ messageReceive
+									+ ", "
+									+ "[combo] = "
+									+ combo
+									+ ", "
+									+ "[message] = "
+									+ message
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -851,7 +1176,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_12_6_greenBB(
@@ -977,6 +1306,10 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 				"actor.type", true, csp);
 		var_actor_type.setValue(actor.getType());
 		var_actor_type.setType("UseCaseDSL.ActorType");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", true, csp);
+		var_message__id.setValue(message.get_id());
+		var_message__id.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", true, csp);
 		var_message_name.setValue(message.getName());
@@ -989,15 +1322,20 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 
 		// Create constraints
 		EqActorType eqActorType = new EqActorType();
 		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqActorType);
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqActorType.setRuleName("");
@@ -1005,7 +1343,9 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		eqStepType.setRuleName("");
 		eqStepType.solve(var_step_type, literal1);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("actor", actor);
@@ -1089,14 +1429,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_374(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_935(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1134,7 +1475,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_20_5_greenBBB(
@@ -1156,14 +1501,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_375(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_936(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1201,7 +1547,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_21_5_greenBBB(
@@ -1223,14 +1573,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_376(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_937(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1268,7 +1619,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_22_5_greenBBB(
@@ -1290,14 +1645,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_377(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_938(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1335,7 +1691,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_23_5_greenBBB(
@@ -1357,14 +1717,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_378(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_939(
 			EMoflonEdge _edge_fragment) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1402,7 +1763,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_24_5_greenBBB(
@@ -1424,14 +1789,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_379(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_940(
 			EMoflonEdge _edge_enclosingOperand) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1469,7 +1835,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_25_5_greenBBB(
@@ -1491,14 +1861,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_380(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_941(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1536,7 +1907,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_26_5_greenBBB(
@@ -1558,14 +1933,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_381(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_942(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_27_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1603,7 +1979,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_27_5_greenBBB(
@@ -1625,14 +2005,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_382(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_943(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_28_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1670,7 +2051,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_28_5_greenBBB(
@@ -1692,14 +2077,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_383(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_944(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_29_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1737,7 +2123,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_29_5_greenBBB(
@@ -1759,14 +2149,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_384(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_945(
 			EMoflonEdge _edge_sendEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_30_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1804,7 +2195,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_30_5_greenBBB(
@@ -1826,14 +2221,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_385(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_946(
 			EMoflonEdge _edge_receiveEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_31_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1871,7 +2267,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_31_5_greenBBB(
@@ -1893,14 +2293,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_386(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_947(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_32_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1938,7 +2339,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_32_5_greenBBB(
@@ -1960,14 +2365,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_387(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_948(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_33_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -2005,7 +2411,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_33_5_greenBBB(
@@ -2027,14 +2437,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_388(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_949(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_34_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -2072,7 +2483,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_34_5_greenBBB(
@@ -2094,14 +2509,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_389(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_950(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_35_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -2139,7 +2555,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_35_5_greenBBB(
@@ -2161,14 +2581,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_508(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_445(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_36_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -2204,7 +2625,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_36_5_greenBBB(
@@ -2226,14 +2651,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_509(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_446(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_37_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -2269,7 +2695,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_37_5_greenBBB(
@@ -2291,8 +2721,9 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -2300,8 +2731,9 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -2317,7 +2749,8 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_SystemStepNFToMessageRule_40_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = SystemStepNFToMessageRuleImpl
 				.pattern_SystemStepNFToMessageRule_40_1_greenFF();
@@ -2349,7 +2782,45 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[operand] = "
+								+ operand
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[flowToOperand] = "
+								+ flowToOperand
+								+ ", "
+								+ "[combo] = "
+								+ combo
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[interaction] = "
+								+ interaction
+								+ ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -2373,7 +2844,38 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 									ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[actor] = "
+										+ actor
+										+ ", "
+										+ "[line] = "
+										+ line
+										+ ", "
+										+ "[operand] = "
+										+ operand
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[flowToOperand] = "
+										+ flowToOperand
+										+ ", "
+										+ "[combo] = "
+										+ combo
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[interaction] = "
+										+ interaction
+										+ ", "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					SystemStepNFToMessageRuleImpl
 							.pattern_SystemStepNFToMessageRule_40_6_greenBBFBBFBFFBBB(
@@ -2447,6 +2949,12 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", csp);
+		var_message__id.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
@@ -2457,12 +2965,14 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqActorType);
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqActorType.setRuleName("");
@@ -2474,7 +2984,9 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal3);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("actor", actor);
@@ -2617,59 +3129,59 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_374__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_374((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_935__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_935((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_375__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_375((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_936__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_936((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_376__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_376((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_937__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_937((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_377__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_377((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_938__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_938((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_378__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_378((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_939__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_939((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_379__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_379((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_940__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_940((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_380__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_380((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_941__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_941((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_381__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_381((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_942__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_942((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_382__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_382((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_943__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_943((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_383__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_383((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_944__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_944((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_384__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_384((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_945__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_945((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_385__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_385((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_946__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_946((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_386__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_386((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_947__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_947((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_387__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_387((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_948__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_948((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_388__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_388((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_949__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_949((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_389__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_389((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_950__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_950((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_508__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_508((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_445__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_445((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_509__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_509((EMoflonEdge) arguments
+		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_446__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_446((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SYSTEM_STEP_NF_TO_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2976,7 +3488,8 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		line.getCoveredBy().add(combo);
 		Object _localVariable_0 = csp.getValue("message", "messageSort");
 		Object _localVariable_1 = csp.getValue("message", "messageKind");
-		Object _localVariable_2 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("message", "_id");
+		Object _localVariable_3 = csp.getValue("message", "name");
 		line.getCoveredBy().add(messageSend);
 		operand.getFragment().add(messageSend);
 		operand.getFragment().add(messageReceive);
@@ -2987,9 +3500,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		message.setInteraction(interaction);
 		MessageSort message_messageSort_prime = (MessageSort) _localVariable_0;
 		MessageKind message_messageKind_prime = (MessageKind) _localVariable_1;
-		String message_name_prime = (String) _localVariable_2;
+		String message__id_prime = (String) _localVariable_2;
+		String message_name_prime = (String) _localVariable_3;
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.set_id(message__id_prime);
 		message.setName(message_name_prime);
 		return new Object[] { line, messageSend, operand, messageReceive,
 				combo, message, interaction, csp };
@@ -3581,13 +4096,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Actor actor, NamedFlow flow, NormalStep step, UseCase useCase,
 			PackageDeclaration packageDeclaration, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (FlowToInteractionFragment flowToOperand : org.moflon.util.eMoflonEMFUtil
+		for (FlowToInteractionFragment flowToOperand : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(flow,
 						FlowToInteractionFragment.class, "source")) {
 			InteractionFragment tmpOperand = flowToOperand.getTarget();
 			if (tmpOperand instanceof InteractionOperand) {
 				InteractionOperand operand = (InteractionOperand) tmpOperand;
-				for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+				for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(useCase,
 								UseCaseToInteraction.class, "source")) {
 					Interaction interaction = useCaseToInteraction.getTarget();
@@ -3625,7 +4140,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 												.contains(useCase)) {
 											for (Lifeline line : interaction
 													.getLifeline()) {
-												for (CombinedFragment combo : org.moflon.util.eMoflonEMFUtil
+												for (CombinedFragment combo : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																operand,
 																CombinedFragment.class,
@@ -4327,12 +4842,15 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		NormalStep step = UseCaseDSLFactory.eINSTANCE.createNormalStep();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
+		String step_label_prime = (String) _localVariable_2;
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		return new Object[] { actor, flow, step, csp };
 	}
 
@@ -4939,13 +5457,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!messageReceive.equals(messageSend)) {
-			for (FlowToInteractionFragment flowToOperand : org.moflon.util.eMoflonEMFUtil
+			for (FlowToInteractionFragment flowToOperand : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(operand,
 							FlowToInteractionFragment.class, "target")) {
 				Flow tmpFlow = flowToOperand.getSource();
 				if (tmpFlow instanceof NamedFlow) {
 					NamedFlow flow = (NamedFlow) tmpFlow;
-					for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+					for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(interaction,
 									UseCaseToInteraction.class, "target")) {
 						UseCase useCase = useCaseToInteraction.getSource();
@@ -5009,7 +5527,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 																			if (interaction
 																					.equals(useCaseToInteraction
 																							.getTarget())) {
-																				for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+																				for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 																						.getOppositeReferenceTyped(
 																								useCase,
 																								PackageDeclaration.class,
@@ -5464,11 +5982,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_20_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_755859 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_70140 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_755859 != null) {
+		if (__DEC_messageSend_enclosingInteraction_70140 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_755859)) {
+					.equals(__DEC_messageSend_enclosingInteraction_70140)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -5479,11 +5997,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_20_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_549426 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_39236 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_549426 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_39236 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_549426)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_39236)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -5495,11 +6013,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_918930 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_141883 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_918930)) {
-					if (!messageReceive.equals(__DEC_message_message_918930)) {
+				if (!messageSend.equals(__DEC_message_message_141883)) {
+					if (!messageReceive.equals(__DEC_message_message_141883)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -5745,11 +6263,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_21_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_65970 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_345092 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_65970 != null) {
+		if (__DEC_messageSend_enclosingInteraction_345092 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_65970)) {
+					.equals(__DEC_messageSend_enclosingInteraction_345092)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -5760,11 +6278,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_21_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_761331 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_462035 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_761331 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_462035 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_761331)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_462035)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -5776,11 +6294,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_565517 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_63352 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_565517)) {
-					if (!messageReceive.equals(__DEC_message_message_565517)) {
+				if (!messageSend.equals(__DEC_message_message_63352)) {
+					if (!messageReceive.equals(__DEC_message_message_63352)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6026,11 +6544,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_22_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_872034 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_277464 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_872034 != null) {
+		if (__DEC_messageSend_enclosingInteraction_277464 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_872034)) {
+					.equals(__DEC_messageSend_enclosingInteraction_277464)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6041,11 +6559,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_22_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_467480 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_404260 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_467480 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_404260 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_467480)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_404260)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6057,11 +6575,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_520930 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_992320 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_520930)) {
-					if (!messageReceive.equals(__DEC_message_message_520930)) {
+				if (!messageSend.equals(__DEC_message_message_992320)) {
+					if (!messageReceive.equals(__DEC_message_message_992320)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6303,11 +6821,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_23_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_222374 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_693108 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_222374 != null) {
+		if (__DEC_messageSend_enclosingInteraction_693108 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_222374)) {
+					.equals(__DEC_messageSend_enclosingInteraction_693108)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6318,11 +6836,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_23_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_177528 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_661780 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_177528 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_661780 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_177528)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_661780)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6334,11 +6852,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_422227 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_921447 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_422227)) {
-					if (!messageReceive.equals(__DEC_message_message_422227)) {
+				if (!messageSend.equals(__DEC_message_message_921447)) {
+					if (!messageReceive.equals(__DEC_message_message_921447)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6580,11 +7098,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_24_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_294944 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_353369 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_294944 != null) {
+		if (__DEC_messageSend_enclosingInteraction_353369 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_294944)) {
+					.equals(__DEC_messageSend_enclosingInteraction_353369)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6595,11 +7113,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_24_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_669953 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_49970 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_669953 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_49970 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_669953)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_49970)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6611,11 +7129,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_787452 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_896261 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_787452)) {
-					if (!messageReceive.equals(__DEC_message_message_787452)) {
+				if (!messageSend.equals(__DEC_message_message_896261)) {
+					if (!messageReceive.equals(__DEC_message_message_896261)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -6856,11 +7374,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_25_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_80925 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_913245 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_80925 != null) {
+		if (__DEC_messageSend_enclosingInteraction_913245 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_80925)) {
+					.equals(__DEC_messageSend_enclosingInteraction_913245)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -6871,11 +7389,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_25_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_507470 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_751232 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_507470 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_751232 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_507470)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_751232)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -6887,11 +7405,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_762981 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_375552 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_762981)) {
-					if (!messageReceive.equals(__DEC_message_message_762981)) {
+				if (!messageSend.equals(__DEC_message_message_375552)) {
+					if (!messageReceive.equals(__DEC_message_message_375552)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7132,11 +7650,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_26_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_822777 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_852653 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_822777 != null) {
+		if (__DEC_messageSend_enclosingInteraction_852653 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_822777)) {
+					.equals(__DEC_messageSend_enclosingInteraction_852653)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7147,11 +7665,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_26_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_132047 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_211946 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_132047 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_211946 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_132047)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_211946)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7163,11 +7681,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_816943 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_676352 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_816943)) {
-					if (!messageReceive.equals(__DEC_message_message_816943)) {
+				if (!messageSend.equals(__DEC_message_message_676352)) {
+					if (!messageReceive.equals(__DEC_message_message_676352)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7414,11 +7932,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_27_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_351903 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_34838 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_351903 != null) {
+		if (__DEC_messageSend_enclosingInteraction_34838 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_351903)) {
+					.equals(__DEC_messageSend_enclosingInteraction_34838)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7429,11 +7947,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_27_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_110607 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_255951 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_110607 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_255951 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_110607)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_255951)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7445,11 +7963,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_910769 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_208933 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_910769)) {
-					if (!messageReceive.equals(__DEC_message_message_910769)) {
+				if (!messageSend.equals(__DEC_message_message_208933)) {
+					if (!messageReceive.equals(__DEC_message_message_208933)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7696,11 +8214,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_28_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_461254 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_806983 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_461254 != null) {
+		if (__DEC_messageSend_enclosingInteraction_806983 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_461254)) {
+					.equals(__DEC_messageSend_enclosingInteraction_806983)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7711,11 +8229,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_28_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_752839 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_411665 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_752839 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_411665 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_752839)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_411665)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -7727,11 +8245,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_427315 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_792056 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_427315)) {
-					if (!messageReceive.equals(__DEC_message_message_427315)) {
+				if (!messageSend.equals(__DEC_message_message_792056)) {
+					if (!messageReceive.equals(__DEC_message_message_792056)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -7977,11 +8495,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_29_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_345087 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_223305 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_345087 != null) {
+		if (__DEC_messageSend_enclosingInteraction_223305 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_345087)) {
+					.equals(__DEC_messageSend_enclosingInteraction_223305)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -7992,11 +8510,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_29_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_753479 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_91443 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_753479 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_91443 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_753479)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_91443)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8008,11 +8526,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_294325 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_193743 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_294325)) {
-					if (!messageReceive.equals(__DEC_message_message_294325)) {
+				if (!messageSend.equals(__DEC_message_message_193743)) {
+					if (!messageReceive.equals(__DEC_message_message_193743)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8255,11 +8773,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_30_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_108036 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_391335 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_108036 != null) {
+		if (__DEC_messageSend_enclosingInteraction_391335 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_108036)) {
+					.equals(__DEC_messageSend_enclosingInteraction_391335)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8270,11 +8788,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_30_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_700763 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_736244 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_700763 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_736244 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_700763)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_736244)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8286,11 +8804,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_622117 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_931131 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_622117)) {
-					if (!messageReceive.equals(__DEC_message_message_622117)) {
+				if (!messageSend.equals(__DEC_message_message_931131)) {
+					if (!messageReceive.equals(__DEC_message_message_931131)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8532,11 +9050,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_31_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_67353 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_902880 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_67353 != null) {
+		if (__DEC_messageSend_enclosingInteraction_902880 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_67353)) {
+					.equals(__DEC_messageSend_enclosingInteraction_902880)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8547,11 +9065,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_31_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_77382 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_607504 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_77382 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_607504 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_77382)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_607504)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8563,11 +9081,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_574837 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_570325 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_574837)) {
-					if (!messageReceive.equals(__DEC_message_message_574837)) {
+				if (!messageSend.equals(__DEC_message_message_570325)) {
+					if (!messageReceive.equals(__DEC_message_message_570325)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -8808,11 +9326,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_32_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_987830 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_220192 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_987830 != null) {
+		if (__DEC_messageSend_enclosingInteraction_220192 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_987830)) {
+					.equals(__DEC_messageSend_enclosingInteraction_220192)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -8823,11 +9341,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_32_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_365669 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_29124 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_365669 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_29124 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_365669)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_29124)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -8839,11 +9357,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_41747 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_887982 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_41747)) {
-					if (!messageReceive.equals(__DEC_message_message_41747)) {
+				if (!messageSend.equals(__DEC_message_message_887982)) {
+					if (!messageReceive.equals(__DEC_message_message_887982)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9086,11 +9604,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_33_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_806008 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_982326 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_806008 != null) {
+		if (__DEC_messageSend_enclosingInteraction_982326 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_806008)) {
+					.equals(__DEC_messageSend_enclosingInteraction_982326)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9101,11 +9619,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_33_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_267396 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_636846 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_267396 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_636846 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_267396)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_636846)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9117,11 +9635,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_657220 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_404408 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_657220)) {
-					if (!messageReceive.equals(__DEC_message_message_657220)) {
+				if (!messageSend.equals(__DEC_message_message_404408)) {
+					if (!messageReceive.equals(__DEC_message_message_404408)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9363,11 +9881,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_34_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_509838 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_552903 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_509838 != null) {
+		if (__DEC_messageSend_enclosingInteraction_552903 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_509838)) {
+					.equals(__DEC_messageSend_enclosingInteraction_552903)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9378,11 +9896,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_34_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_137003 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_593387 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_137003 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_593387 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_137003)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_593387)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9394,11 +9912,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_745553 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_276148 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_745553)) {
-					if (!messageReceive.equals(__DEC_message_message_745553)) {
+				if (!messageSend.equals(__DEC_message_message_276148)) {
+					if (!messageReceive.equals(__DEC_message_message_276148)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9642,11 +10160,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SystemStepNFToMessageRule_35_2_black_nac_0BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_373475 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_168502 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_373475 != null) {
+		if (__DEC_messageSend_enclosingInteraction_168502 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_373475)) {
+					.equals(__DEC_messageSend_enclosingInteraction_168502)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -9657,11 +10175,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 	public static final Object[] pattern_SystemStepNFToMessageRule_35_2_black_nac_1BB(
 			MessageOccurrenceSpecification messageReceive,
 			Interaction interaction) {
-		Interaction __DEC_messageReceive_enclosingInteraction_771137 = messageReceive
+		Interaction __DEC_messageReceive_enclosingInteraction_727524 = messageReceive
 				.getEnclosingInteraction();
-		if (__DEC_messageReceive_enclosingInteraction_771137 != null) {
+		if (__DEC_messageReceive_enclosingInteraction_727524 != null) {
 			if (!interaction
-					.equals(__DEC_messageReceive_enclosingInteraction_771137)) {
+					.equals(__DEC_messageReceive_enclosingInteraction_727524)) {
 				return new Object[] { messageReceive, interaction };
 			}
 		}
@@ -9673,11 +10191,11 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			MessageOccurrenceSpecification messageReceive) {
 		if (!messageReceive.equals(messageSend)) {
-			for (MessageEnd __DEC_message_message_226398 : org.moflon.util.eMoflonEMFUtil
+			for (MessageEnd __DEC_message_message_907537 : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(message, MessageEnd.class,
 							"message")) {
-				if (!messageSend.equals(__DEC_message_message_226398)) {
-					if (!messageReceive.equals(__DEC_message_message_226398)) {
+				if (!messageSend.equals(__DEC_message_message_907537)) {
+					if (!messageReceive.equals(__DEC_message_message_907537)) {
 						return new Object[] { message, messageSend,
 								messageReceive };
 					}
@@ -9931,10 +10449,10 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 				if (flow.getSteps().contains(step)) {
 					Actor actor = step.getActor();
 					if (actor != null) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(flow, UseCase.class,
 										"flows")) {
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+							for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(actor,
 											PackageDeclaration.class, "actors")) {
 								if (packageDeclaration.getUseCases().contains(
@@ -10057,12 +10575,12 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 			if (tmpActor instanceof Actor) {
 				Actor actor = (Actor) tmpActor;
 				if (actor.equals(step.getActor())) {
-					for (Flow tmpFlow : org.moflon.util.eMoflonEMFUtil
+					for (Flow tmpFlow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(step, Flow.class,
 									"steps")) {
 						if (tmpFlow instanceof NamedFlow) {
 							NamedFlow flow = (NamedFlow) tmpFlow;
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+							for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(actor,
 											PackageDeclaration.class, "actors")) {
 								for (UseCase useCase : packageDeclaration
@@ -10251,20 +10769,20 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 										ruleResult, flow) == null) {
 									if (pattern_SystemStepNFToMessageRule_40_2_black_nac_5BB(
 											ruleResult, operand) == null) {
-										for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+										for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														flow, UseCase.class,
 														"flows")) {
 											if (pattern_SystemStepNFToMessageRule_40_2_black_nac_2BB(
 													ruleResult, useCase) == null) {
-												for (CombinedFragment combo : org.moflon.util.eMoflonEMFUtil
+												for (CombinedFragment combo : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																operand,
 																CombinedFragment.class,
 																"operand")) {
 													if (pattern_SystemStepNFToMessageRule_40_2_black_nac_6BB(
 															ruleResult, combo) == null) {
-														for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+														for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		useCase,
 																		PackageDeclaration.class,
@@ -10277,7 +10795,7 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 																	if (pattern_SystemStepNFToMessageRule_40_2_black_nac_0BB(
 																			ruleResult,
 																			actor) == null) {
-																		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+																		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 																				.getOppositeReferenceTyped(
 																						useCase,
 																						UseCaseToInteraction.class,
@@ -10436,11 +10954,13 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		line.getCoveredBy().add(combo);
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
-		Object _localVariable_2 = csp.getValue("message", "messageSort");
-		Object _localVariable_3 = csp.getValue("message", "messageKind");
-		Object _localVariable_4 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
+		Object _localVariable_3 = csp.getValue("message", "messageSort");
+		Object _localVariable_4 = csp.getValue("message", "messageKind");
+		Object _localVariable_5 = csp.getValue("message", "_id");
+		Object _localVariable_6 = csp.getValue("message", "name");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_7 = ruleResult.getIncrementedPerformCount();
 		line.getCoveredBy().add(messageSend);
 		operand.getFragment().add(messageSend);
 		ruleResult.getTargetObjects().add(messageSend);
@@ -10457,15 +10977,19 @@ public class SystemStepNFToMessageRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getTargetObjects().add(message);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
-		String message_name_prime = (String) _localVariable_4;
+		String step_label_prime = (String) _localVariable_2;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_3;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_4;
+		String message__id_prime = (String) _localVariable_5;
+		String message_name_prime = (String) _localVariable_6;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_7);
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.set_id(message__id_prime);
 		message.setName(message_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

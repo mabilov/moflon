@@ -20,10 +20,18 @@ alternative flow ShipmentPrepare
 	step deliver_books_stock "Deliver books to stock" perform by shipping
 end flow
 parallel flow payment
-	step charge_issue "Charge Issue" perform by sys next payment_received
-	step payment_received "Payment Received" wait by sys next issue_invoice
-	step issue_invoice "Issue invoice" perform by financing
+	step charge_issue "Charge Issue" perform by sys
+	step wait_for_event "Wait for event" alt by sys
+	alternatives
+		if "delay > 5 days" then alternative flow delay_5d
+		if "Payment Received" then alternative flow payment_received
+	else
 end flow
 parallel flow shipment_prepare
 	step separate_books "Separate books of the request" perform by shipping
+end flow
+alternative flow delay_5d
+end flow with postcondition "Cancel order"
+alternative flow payment_received
+	step issue_invoice "Issue invoice" perform by financing
 end flow end usecase end package

@@ -2,15 +2,12 @@ package de.abilov.tgg.bpmn2usecase;
 
 import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
-import org.moflon.util.eMoflonEMFUtil;
 import org.moflon.ide.debug.DebugSynchronizationHelper;
-
 import org.moflon.tgg.algorithm.modelgenerator.*;
 import org.moflon.tgg.algorithm.modelgenerator.controller.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -18,17 +15,12 @@ import java.math.RoundingMode;
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 
 
-public class BpmnToUseCaseIntegrationModelGenScalabilityTest extends DebugSynchronizationHelper {
+public class BpmnToUseCaseIntegrationModelGenScalabilityTest extends DebugSynchronizationHelper{
 
-	public BpmnToUseCaseIntegrationModelGenScalabilityTest() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-
-                
-        // Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
-	}
+   public BpmnToUseCaseIntegrationModelGenScalabilityTest()
+   {
+      super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
+   }
 
 	private BufferedWriter writer;
 	
@@ -70,7 +62,7 @@ public class BpmnToUseCaseIntegrationModelGenScalabilityTest extends DebugSynchr
 
 	protected void appendLine(int modelgenDuration, int currentPerformCount, double ratio) throws IOException
 	{
-		writer.append(modelgenDuration + "; " + currentPerformCount + "; " + ratio);
+		writer.append(modelgenDuration + "; " + currentPerformCount + "; " + round(ratio,2));
 		writer.newLine();
 	}
 

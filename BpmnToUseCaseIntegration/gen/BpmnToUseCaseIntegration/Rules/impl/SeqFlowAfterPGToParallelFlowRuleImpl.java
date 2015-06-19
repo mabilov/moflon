@@ -106,7 +106,13 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						match, process, parallelGateway, sequenceFlow, inFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[process] = "
+							+ process + ", " + "[parallelGateway] = "
+							+ parallelGateway + ", " + "[sequenceFlow] = "
+							+ sequenceFlow + ", " + "[inFlow] = " + inFlow
+							+ ".");
 		}
 
 		// Solve CSP
@@ -116,7 +122,13 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						inFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[process] = "
+							+ process + ", " + "[parallelGateway] = "
+							+ parallelGateway + ", " + "[sequenceFlow] = "
+							+ sequenceFlow + ", " + "[inFlow] = " + inFlow
+							+ ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -131,7 +143,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 							inFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[process] = " + process + ", "
+								+ "[parallelGateway] = " + parallelGateway
+								+ ", " + "[sequenceFlow] = " + sequenceFlow
+								+ ", " + "[inFlow] = " + inFlow + ".");
 			}
 			SeqFlowAfterPGToParallelFlowRuleImpl
 					.pattern_SeqFlowAfterPGToParallelFlowRule_0_4_greenBBBBFFF(
@@ -147,7 +164,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 							inFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[process] = " + process + ", "
+								+ "[parallelGateway] = " + parallelGateway
+								+ ", " + "[sequenceFlow] = " + sequenceFlow
+								+ ", " + "[inFlow] = " + inFlow + ".");
 			}
 			SeqFlowAfterPGToParallelFlowRuleImpl
 					.pattern_SeqFlowAfterPGToParallelFlowRule_0_5_greenBBBBFFFF(
@@ -183,7 +205,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		ParallelGateway parallelGateway = (ParallelGateway) result1_bindingAndBlack[1];
@@ -208,7 +233,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						sequenceFlow, parallelFlow, sequenceFlowToParallelFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[sequenceFlow] = "
+							+ sequenceFlow + ", " + "[parallelFlow] = "
+							+ parallelFlow + ", "
+							+ "[sequenceFlowToParallelFlow] = "
+							+ sequenceFlowToParallelFlow + ".");
 		}
 		Object[] result2_green = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_1_2_greenFBBB(
@@ -224,7 +254,45 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						parallelFlow, sequenceFlowToParallelFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[sequenceFlow] = "
+							+ sequenceFlow
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[parallelStep] = "
+							+ parallelStep
+							+ ", "
+							+ "[parallelGatewayToParallelStep] = "
+							+ parallelGatewayToParallelStep
+							+ ", "
+							+ "[parallelFlow] = "
+							+ parallelFlow
+							+ ", "
+							+ "[sequenceFlowToParallelFlow] = "
+							+ sequenceFlowToParallelFlow + ".");
 		}
 		SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_1_3_greenBBBBBBBBFFFFFFF(
@@ -263,7 +331,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -275,7 +344,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
 		ParallelGateway parallelGateway = (ParallelGateway) result2_binding[1];
@@ -327,7 +397,42 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 								parallelStep, parallelGatewayToParallelStep);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[parallelGateway] = "
+									+ parallelGateway
+									+ ", "
+									+ "[sequenceFlow] = "
+									+ sequenceFlow
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[parallelStep] = "
+									+ parallelStep
+									+ ", "
+									+ "[parallelGatewayToParallelStep] = "
+									+ parallelGatewayToParallelStep + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -341,7 +446,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_2_6_greenBB(
@@ -529,7 +638,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						this, match, flow, useCase, parallelStep, parallelFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[flow] = " + flow
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[parallelStep] = " + parallelStep + ", "
+							+ "[parallelFlow] = " + parallelFlow + ".");
 		}
 
 		// Solve CSP
@@ -538,7 +652,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						this, match, flow, useCase, parallelStep, parallelFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[flow] = " + flow
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[parallelStep] = " + parallelStep + ", "
+							+ "[parallelFlow] = " + parallelFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -552,7 +671,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 							match, flow, useCase, parallelStep, parallelFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[flow] = " + flow + ", " + "[useCase] = "
+								+ useCase + ", " + "[parallelStep] = "
+								+ parallelStep + ", " + "[parallelFlow] = "
+								+ parallelFlow + ".");
 			}
 			SeqFlowAfterPGToParallelFlowRuleImpl
 					.pattern_SeqFlowAfterPGToParallelFlowRule_10_4_greenBBBBFF(
@@ -566,7 +690,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 							match, flow, useCase, parallelStep, parallelFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[flow] = " + flow + ", " + "[useCase] = "
+								+ useCase + ", " + "[parallelStep] = "
+								+ parallelStep + ", " + "[parallelFlow] = "
+								+ parallelFlow + ".");
 			}
 			SeqFlowAfterPGToParallelFlowRuleImpl
 					.pattern_SeqFlowAfterPGToParallelFlowRule_10_5_greenBBBBFF(
@@ -600,7 +729,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		ParallelGateway parallelGateway = (ParallelGateway) result1_bindingAndBlack[1];
@@ -625,7 +757,12 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						sequenceFlow, parallelFlow, sequenceFlowToParallelFlow);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[sequenceFlow] = "
+							+ sequenceFlow + ", " + "[parallelFlow] = "
+							+ parallelFlow + ", "
+							+ "[sequenceFlowToParallelFlow] = "
+							+ sequenceFlowToParallelFlow + ".");
 		}
 		Object[] result2_green = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_11_2_greenFBBB(
@@ -641,7 +778,45 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						parallelFlow, sequenceFlowToParallelFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[sequenceFlow] = "
+							+ sequenceFlow
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[parallelStep] = "
+							+ parallelStep
+							+ ", "
+							+ "[parallelGatewayToParallelStep] = "
+							+ parallelGatewayToParallelStep
+							+ ", "
+							+ "[parallelFlow] = "
+							+ parallelFlow
+							+ ", "
+							+ "[sequenceFlowToParallelFlow] = "
+							+ sequenceFlowToParallelFlow + ".");
 		}
 		SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_11_3_greenBBBBBBBBFFFFFFF(
@@ -680,7 +855,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -692,7 +868,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 		Object[] result2_binding = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Flow flow = (Flow) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -745,7 +922,41 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 								parallelGatewayToParallelStep, parallelFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[parallelGateway] = "
+									+ parallelGateway
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[parallelStep] = "
+									+ parallelStep
+									+ ", "
+									+ "[parallelGatewayToParallelStep] = "
+									+ parallelGatewayToParallelStep
+									+ ", "
+									+ "[parallelFlow] = " + parallelFlow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -759,7 +970,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_12_6_greenBB(
@@ -942,14 +1157,15 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_274(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_250(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -984,7 +1200,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_20_5_greenBBB(
@@ -1006,14 +1226,15 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_275(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_251(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1048,7 +1269,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_21_5_greenBBB(
@@ -1070,14 +1295,15 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_276(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_252(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1112,7 +1338,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_22_5_greenBBB(
@@ -1134,14 +1364,15 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_90(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_821(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1176,7 +1407,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_23_5_greenBBB(
@@ -1198,14 +1433,15 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_91(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_822(
 			EMoflonEdge _edge_invokedFlows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1240,7 +1476,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_24_5_greenBBB(
@@ -1262,8 +1502,9 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1271,8 +1512,9 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1288,7 +1530,8 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_27_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = SeqFlowAfterPGToParallelFlowRuleImpl
 				.pattern_SeqFlowAfterPGToParallelFlowRule_27_1_greenFF();
@@ -1319,7 +1562,41 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 							parallelGatewayToParallelStep, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[processToUseCase] = "
+								+ processToUseCase
+								+ ", "
+								+ "[parallelStep] = "
+								+ parallelStep
+								+ ", "
+								+ "[parallelGatewayToParallelStep] = "
+								+ parallelGatewayToParallelStep
+								+ ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1343,7 +1620,35 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 									parallelGatewayToParallelStep, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[process] = "
+										+ process
+										+ ", "
+										+ "[parallelGateway] = "
+										+ parallelGateway
+										+ ", "
+										+ "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[processToUseCase] = "
+										+ processToUseCase
+										+ ", "
+										+ "[parallelStep] = "
+										+ parallelStep
+										+ ", "
+										+ "[parallelGatewayToParallelStep] = "
+										+ parallelGatewayToParallelStep
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					SeqFlowAfterPGToParallelFlowRuleImpl
 							.pattern_SeqFlowAfterPGToParallelFlowRule_27_6_greenBBFBBFFBB(
@@ -1543,20 +1848,20 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 			return null;
 		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_274__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_274((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_250__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_250((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_275__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_275((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_251__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_251((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_276__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_276((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_252__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_252((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_90__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_90((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_821__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_821((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_91__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_91((EMoflonEdge) arguments
+		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_822__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_822((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SEQ_FLOW_AFTER_PG_TO_PARALLEL_FLOW_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2326,17 +2631,17 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 			SequenceFlow sequenceFlow, SequenceFlow inFlow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!inFlow.equals(sequenceFlow)) {
-			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(inFlow,
 							SequenceFlowToUCFlow.class, "source")) {
 				Flow flow = inFlowToFlow.getTarget();
 				if (flow != null) {
-					for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+					for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(process,
 									ProcessToUseCase.class, "source")) {
 						UseCase useCase = processToUseCase.getTarget();
 						if (useCase != null) {
-							for (FlowNodeToStep parallelGatewayToParallelStep : org.moflon.util.eMoflonEMFUtil
+							for (FlowNodeToStep parallelGatewayToParallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(parallelGateway,
 											FlowNodeToStep.class, "source")) {
 								Step tmpParallelStep = parallelGatewayToParallelStep
@@ -3387,17 +3692,17 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 			ParallelFlow parallelFlow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
 		if (!flow.equals(parallelFlow)) {
-			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+			for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 					.getOppositeReferenceTyped(flow,
 							SequenceFlowToUCFlow.class, "target")) {
 				SequenceFlow inFlow = inFlowToFlow.getSource();
 				if (inFlow != null) {
-					for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+					for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(useCase,
 									ProcessToUseCase.class, "target")) {
 						bpmn2.Process process = processToUseCase.getSource();
 						if (process != null) {
-							for (FlowNodeToStep parallelGatewayToParallelStep : org.moflon.util.eMoflonEMFUtil
+							for (FlowNodeToStep parallelGatewayToParallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(parallelStep,
 											FlowNodeToStep.class, "target")) {
 								FlowNode tmpParallelGateway = parallelGatewayToParallelStep
@@ -3780,7 +4085,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_20_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_92905 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_368352 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -3925,7 +4230,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_21_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_949207 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_365080 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -3947,7 +4252,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						for (SequenceFlow inFlow : parallelGateway
 								.getIncoming()) {
 							if (!inFlow.equals(sequenceFlow)) {
-								for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+								for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(
 												sequenceFlow,
 												FlowElementsContainer.class,
@@ -4072,7 +4377,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_22_2_black_nac_0B(
 			SequenceFlow sequenceFlow) {
-		for (ExclusiveGateway __DEC_sequenceFlow_default_788741 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_sequenceFlow_default_231565 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(sequenceFlow,
 						ExclusiveGateway.class, "default")) {
 			return new Object[] { sequenceFlow };
@@ -4094,7 +4399,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 						for (SequenceFlow inFlow : parallelGateway
 								.getIncoming()) {
 							if (!inFlow.equals(sequenceFlow)) {
-								for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+								for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(
 												parallelGateway,
 												FlowElementsContainer.class,
@@ -4219,10 +4524,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_23_2_black_nac_0BB(
 			ParallelFlow parallelFlow, ParallelStep parallelStep) {
-		for (ParallelStep __DEC_parallelFlow_invokedFlows_618217 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parallelFlow_invokedFlows_177209 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parallelFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_618217)) {
+			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_177209)) {
 				return new Object[] { parallelFlow, parallelStep };
 			}
 		}
@@ -4359,10 +4664,10 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 
 	public static final Object[] pattern_SeqFlowAfterPGToParallelFlowRule_24_2_black_nac_0BB(
 			ParallelFlow parallelFlow, ParallelStep parallelStep) {
-		for (ParallelStep __DEC_parallelFlow_invokedFlows_680958 : org.moflon.util.eMoflonEMFUtil
+		for (ParallelStep __DEC_parallelFlow_invokedFlows_752593 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(parallelFlow, ParallelStep.class,
 						"invokedFlows")) {
-			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_680958)) {
+			if (!parallelStep.equals(__DEC_parallelFlow_invokedFlows_752593)) {
 				return new Object[] { parallelFlow, parallelStep };
 			}
 		}
@@ -4381,11 +4686,11 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 				if (parallelStep.getInvokedFlows().contains(parallelFlow)) {
 					if (pattern_SeqFlowAfterPGToParallelFlowRule_24_2_black_nac_0BB(
 							parallelFlow, parallelStep) == null) {
-						for (Flow flow : org.moflon.util.eMoflonEMFUtil
+						for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(parallelStep,
 										Flow.class, "steps")) {
 							if (!flow.equals(parallelFlow)) {
-								for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+								for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(
 												parallelFlow, UseCase.class,
 												"flows")) {
@@ -4575,7 +4880,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 														if (pattern_SeqFlowAfterPGToParallelFlowRule_27_2_black_nac_5BB(
 																ruleResult,
 																parallelStep) == null) {
-															for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+															for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 																	.getOppositeReferenceTyped(
 																			inFlow,
 																			FlowElementsContainer.class,
@@ -4589,7 +4894,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 																		if (pattern_SeqFlowAfterPGToParallelFlowRule_27_2_black_nac_0BB(
 																				ruleResult,
 																				process) == null) {
-																			for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+																			for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 																					.getOppositeReferenceTyped(
 																							flow,
 																							UseCase.class,
@@ -4597,7 +4902,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 																				if (pattern_SeqFlowAfterPGToParallelFlowRule_27_2_black_nac_7BB(
 																						ruleResult,
 																						useCase) == null) {
-																					for (FlowNodeToStep parallelGatewayToParallelStep : org.moflon.util.eMoflonEMFUtil
+																					for (FlowNodeToStep parallelGatewayToParallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 																							.getOppositeReferenceTyped(
 																									parallelGateway,
 																									FlowNodeToStep.class,
@@ -4608,7 +4913,7 @@ public class SeqFlowAfterPGToParallelFlowRuleImpl extends AbstractRuleImpl
 																							if (pattern_SeqFlowAfterPGToParallelFlowRule_27_2_black_nac_6BB(
 																									ruleResult,
 																									parallelGatewayToParallelStep) == null) {
-																								for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+																								for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 																										.getOppositeReferenceTyped(
 																												process,
 																												ProcessToUseCase.class,

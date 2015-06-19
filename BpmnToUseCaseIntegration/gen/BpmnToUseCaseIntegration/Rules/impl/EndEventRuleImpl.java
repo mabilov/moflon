@@ -102,7 +102,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						inFlow, endEvent, lane, laneSet);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[process] = "
+							+ process + ", " + "[inFlow] = " + inFlow + ", "
+							+ "[endEvent] = " + endEvent + ", " + "[lane] = "
+							+ lane + ", " + "[laneSet] = " + laneSet + ".");
 		}
 
 		// Solve CSP
@@ -111,7 +116,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						process, inFlow, endEvent, lane, laneSet);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[process] = "
+							+ process + ", " + "[inFlow] = " + inFlow + ", "
+							+ "[endEvent] = " + endEvent + ", " + "[lane] = "
+							+ lane + ", " + "[laneSet] = " + laneSet + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -123,7 +133,13 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							inFlow, endEvent, lane, laneSet);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[process] = " + process + ", "
+								+ "[inFlow] = " + inFlow + ", "
+								+ "[endEvent] = " + endEvent + ", "
+								+ "[lane] = " + lane + ", " + "[laneSet] = "
+								+ laneSet + ".");
 			}
 			EndEventRuleImpl.pattern_EndEventRule_0_4_greenBBBBBFFFF(match,
 					process, inFlow, endEvent, lane);
@@ -138,7 +154,13 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							inFlow, endEvent, lane, laneSet);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[process] = " + process + ", "
+								+ "[inFlow] = " + inFlow + ", "
+								+ "[endEvent] = " + endEvent + ", "
+								+ "[lane] = " + lane + ", " + "[laneSet] = "
+								+ laneSet + ".");
 			}
 			EndEventRuleImpl.pattern_EndEventRule_0_5_greenBBBBBFFF(match,
 					process, inFlow, lane, laneSet);
@@ -168,7 +190,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[1];
@@ -191,7 +216,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						endEventToPostcond);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[endEvent] = " + endEvent
+							+ ", " + "[postcond] = " + postcond + ", "
+							+ "[endEventToPostcond] = " + endEventToPostcond
+							+ ".");
 		}
 		Object[] result2_green = EndEventRuleImpl
 				.pattern_EndEventRule_1_2_greenFBBB(endEvent, postcond,
@@ -206,7 +235,42 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						endEventToPostcond);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[endEvent] = "
+							+ endEvent
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[postcond] = "
+							+ postcond
+							+ ", "
+							+ "[endEventToPostcond] = "
+							+ endEventToPostcond + ".");
 		}
 		EndEventRuleImpl.pattern_EndEventRule_1_3_greenBBBBBBBBFFFFFFF(
 				ruleresult, process, inFlow, endEvent, flow, lane, postcond,
@@ -240,7 +304,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				.pattern_EndEventRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -252,7 +317,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		Object[] result2_binding = EndEventRuleImpl
 				.pattern_EndEventRule_2_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
 		SequenceFlow inFlow = (SequenceFlow) result2_binding[1];
@@ -297,7 +363,40 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 								processToUseCase, lane, laneSet);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[endEvent] = "
+									+ endEvent
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = "
+									+ laneSet
+									+ ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -310,7 +409,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_2_6_greenBB(
 							ruleresult, isApplicableMatch);
@@ -473,7 +576,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						useCase, postcond);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[flow] = " + flow
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[postcond] = " + postcond + ".");
 		}
 
 		// Solve CSP
@@ -482,7 +589,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						flow, useCase, postcond);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[flow] = " + flow
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[postcond] = " + postcond + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -494,7 +605,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							postcond);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[flow] = " + flow + ", " + "[useCase] = "
+								+ useCase + ", " + "[postcond] = " + postcond
+								+ ".");
 			}
 			EndEventRuleImpl.pattern_EndEventRule_10_4_greenBBBF(match, flow,
 					postcond);
@@ -506,7 +621,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							postcond);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[flow] = " + flow + ", " + "[useCase] = "
+								+ useCase + ", " + "[postcond] = " + postcond
+								+ ".");
 			}
 			EndEventRuleImpl.pattern_EndEventRule_10_5_greenBBBF(match, flow,
 					useCase);
@@ -534,7 +653,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		SequenceFlow inFlow = (SequenceFlow) result1_bindingAndBlack[1];
@@ -558,7 +680,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						endEventToPostcond);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[endEvent] = " + endEvent
+							+ ", " + "[postcond] = " + postcond + ", "
+							+ "[endEventToPostcond] = " + endEventToPostcond
+							+ ".");
 		}
 		Object[] result2_green = EndEventRuleImpl
 				.pattern_EndEventRule_11_2_greenFBBB(endEvent, postcond,
@@ -573,7 +699,42 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 						endEventToPostcond);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[endEvent] = "
+							+ endEvent
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[postcond] = "
+							+ postcond
+							+ ", "
+							+ "[endEventToPostcond] = "
+							+ endEventToPostcond + ".");
 		}
 		EndEventRuleImpl.pattern_EndEventRule_11_3_greenBBBBBBBBFFFFFFF(
 				ruleresult, process, inFlow, endEvent, flow, lane, postcond,
@@ -607,7 +768,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				.pattern_EndEventRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -619,7 +781,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 		Object[] result2_binding = EndEventRuleImpl
 				.pattern_EndEventRule_12_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Flow flow = (Flow) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -661,7 +824,37 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 								laneSet, postcond);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = "
+									+ laneSet
+									+ ", " + "[postcond] = " + postcond + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -674,7 +867,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_12_6_greenBB(
 							ruleresult, isApplicableMatch);
@@ -830,14 +1027,15 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_253(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
 				.pattern_EndEventRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -870,7 +1068,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_20_5_greenBBB(match,
 							__performOperation, __result);
@@ -891,14 +1093,15 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_254(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_230(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
 				.pattern_EndEventRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -931,7 +1134,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_21_5_greenBBB(match,
 							__performOperation, __result);
@@ -952,14 +1159,15 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_255(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_231(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
 				.pattern_EndEventRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -992,7 +1200,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_22_5_greenBBB(match,
 							__performOperation, __result);
@@ -1013,14 +1225,15 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_815(
 			EMoflonEdge _edge_finalState) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
 				.pattern_EndEventRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1051,7 +1264,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_23_5_greenBBB(match,
 							__performOperation, __result);
@@ -1072,14 +1289,15 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_256(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_232(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = EndEventRuleImpl
 				.pattern_EndEventRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1112,7 +1330,11 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_24_5_greenBBB(match,
 							__performOperation, __result);
@@ -1133,8 +1355,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1142,8 +1365,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1159,7 +1383,8 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				.pattern_EndEventRule_27_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = EndEventRuleImpl
 				.pattern_EndEventRule_27_1_greenFF();
@@ -1188,7 +1413,38 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 							laneSet, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[processToUseCase] = "
+								+ processToUseCase
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1208,7 +1464,33 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 									processToUseCase, lane, laneSet, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[process] = "
+										+ process
+										+ ", "
+										+ "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[processToUseCase] = "
+										+ processToUseCase
+										+ ", "
+										+ "[lane] = "
+										+ lane
+										+ ", "
+										+ "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[ruleResult] = "
+										+ ruleResult + ".");
 					}
 					EndEventRuleImpl.pattern_EndEventRule_27_6_greenBBFBBFFBB(
 							process, inFlow, flow, lane, ruleResult, csp);
@@ -1381,20 +1663,20 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			return null;
 		case RulesPackage.END_EVENT_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_253__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_253((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_229__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_229((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_254__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_254((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_230__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_230((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_255__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_255((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_231__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_231((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_84__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_84((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_815__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_815((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_256__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_256((EMoflonEdge) arguments
+		case RulesPackage.END_EVENT_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_232__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_232((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.END_EVENT_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2059,12 +2341,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			bpmn2.Process process, SequenceFlow inFlow, EndEvent endEvent,
 			Lane lane, LaneSet laneSet, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+		for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(inFlow, SequenceFlowToUCFlow.class,
 						"source")) {
 			Flow flow = inFlowToFlow.getTarget();
 			if (flow != null) {
-				for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(process,
 								ProcessToUseCase.class, "source")) {
 					UseCase useCase = processToUseCase.getTarget();
@@ -2906,12 +3188,12 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 	public static final Iterable<Object[]> pattern_EndEventRule_12_2_blackFFBFBFBB(
 			Flow flow, UseCase useCase, UCCondition postcond, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+		for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(flow, SequenceFlowToUCFlow.class,
 						"target")) {
 			SequenceFlow inFlow = inFlowToFlow.getSource();
 			if (inFlow != null) {
-				for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(useCase,
 								ProcessToUseCase.class, "target")) {
 					bpmn2.Process process = processToUseCase.getSource();
@@ -3318,7 +3600,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			if (tmpEndEvent instanceof EndEvent) {
 				EndEvent endEvent = (EndEvent) tmpEndEvent;
 				if (endEvent.equals(inFlow.getTargetRef())) {
-					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+					for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(inFlow,
 									FlowElementsContainer.class, "flowElements")) {
 						if (tmpProcess instanceof bpmn2.Process) {
@@ -3446,7 +3728,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 			if (tmpInFlow instanceof SequenceFlow) {
 				SequenceFlow inFlow = (SequenceFlow) tmpInFlow;
 				if (endEvent.equals(inFlow.getTargetRef())) {
-					for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+					for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(endEvent,
 									FlowElementsContainer.class, "flowElements")) {
 						if (tmpProcess instanceof bpmn2.Process) {
@@ -3566,9 +3848,9 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 	public static final Object[] pattern_EndEventRule_23_2_black_nac_0BB(
 			UCCondition postcond, Flow flow) {
-		for (Flow __DEC_postcond_finalState_698880 : org.moflon.util.eMoflonEMFUtil
+		for (Flow __DEC_postcond_finalState_814253 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(postcond, Flow.class, "finalState")) {
-			if (!flow.equals(__DEC_postcond_finalState_698880)) {
+			if (!flow.equals(__DEC_postcond_finalState_814253)) {
 				return new Object[] { postcond, flow };
 			}
 		}
@@ -3577,10 +3859,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 
 	public static final Object[] pattern_EndEventRule_23_2_black_nac_1BB(
 			UCCondition postcond, UseCase useCase) {
-		for (UseCase __DEC_postcond_preconditions_810362 : org.moflon.util.eMoflonEMFUtil
+		for (UseCase __DEC_postcond_preconditions_724507 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(postcond, UseCase.class,
 						"preconditions")) {
-			if (!useCase.equals(__DEC_postcond_preconditions_810362)) {
+			if (!useCase.equals(__DEC_postcond_preconditions_724507)) {
 				return new Object[] { postcond, useCase };
 			}
 		}
@@ -3606,7 +3888,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				UCCondition postcond = (UCCondition) tmpPostcond;
 				if (postcond.equals(flow.getFinalState())) {
 					if (pattern_EndEventRule_23_2_black_nac_0BB(postcond, flow) == null) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(flow, UseCase.class,
 										"flows")) {
 							if (pattern_EndEventRule_23_2_black_nac_1BB(
@@ -3729,10 +4011,10 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 				EndEvent endEvent = (EndEvent) tmpEndEvent;
 				if (lane.getFlowNodeRefs().contains(endEvent)) {
 					for (SequenceFlow inFlow : endEvent.getIncoming()) {
-						for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+						for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(lane, LaneSet.class,
 										"lanes")) {
-							for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+							for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(endEvent,
 											FlowElementsContainer.class,
 											"flowElements")) {
@@ -3904,7 +4186,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 										ruleResult, inFlow) == null) {
 									if (pattern_EndEventRule_27_2_black_nac_5BB(
 											ruleResult, flow) == null) {
-										for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+										for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 												.getOppositeReferenceTyped(
 														inFlow,
 														FlowElementsContainer.class,
@@ -3923,7 +4205,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 																if (pattern_EndEventRule_27_2_black_nac_2BB(
 																		ruleResult,
 																		lane) == null) {
-																	for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+																	for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 																			.getOppositeReferenceTyped(
 																					flow,
 																					UseCase.class,
@@ -3931,7 +4213,7 @@ public class EndEventRuleImpl extends AbstractRuleImpl implements EndEventRule {
 																		if (pattern_EndEventRule_27_2_black_nac_6BB(
 																				ruleResult,
 																				useCase) == null) {
-																			for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+																			for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 																					.getOppositeReferenceTyped(
 																							process,
 																							ProcessToUseCase.class,

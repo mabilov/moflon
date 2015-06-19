@@ -233,7 +233,7 @@ public interface ActorToLifelineRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_494(EMoflonEdge _edge_actors);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_431(EMoflonEdge _edge_actors);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,7 +241,7 @@ public interface ActorToLifelineRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_322(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_883(
 			EMoflonEdge _edge_interaction);
 
 	/**
@@ -250,7 +250,7 @@ public interface ActorToLifelineRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_323(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_884(
 			EMoflonEdge _edge_lifeline);
 
 	/**

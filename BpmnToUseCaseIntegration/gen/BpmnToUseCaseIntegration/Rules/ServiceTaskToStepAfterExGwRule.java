@@ -239,7 +239,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_399(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_375(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -248,7 +248,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_400(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_376(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -257,7 +257,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_401(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_377(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -266,7 +266,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_402(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_378(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -275,7 +275,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_403(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_379(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -284,7 +284,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_404(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_380(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -293,7 +293,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_124(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_855(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,7 +301,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_125(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_856(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public interface ServiceTaskToStepAfterExGwRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_405(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_381(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

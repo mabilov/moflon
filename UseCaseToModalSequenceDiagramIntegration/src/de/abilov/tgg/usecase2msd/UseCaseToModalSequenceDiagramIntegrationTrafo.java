@@ -3,8 +3,6 @@ package de.abilov.tgg.usecase2msd;
 import java.io.IOException;
 import java.util.Map;
 
-import org.moflon.util.eMoflonEMFUtil;
-
 import UseCaseDSL.resource.UseCaseXMIHelper;
 import UseCaseToModalSequenceDiagramIntegration.UseCaseToModalSequenceDiagramIntegrationPackage;
 import de.abilov.tgg.synch.SynchronizationHelper;
@@ -12,14 +10,8 @@ import de.abilov.tgg.synch.SynchronizationHelper;
 public class UseCaseToModalSequenceDiagramIntegrationTrafo extends
 		SynchronizationHelper {
 
-	public UseCaseToModalSequenceDiagramIntegrationTrafo() throws IOException {
-		// Register packages
-		eMoflonEMFUtil
-				.init(UseCaseToModalSequenceDiagramIntegrationPackage.eINSTANCE);
-
-		// Load rules and set correspondence
-		setCorrPackage(UseCaseToModalSequenceDiagramIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
+	public UseCaseToModalSequenceDiagramIntegrationTrafo() {
+		super(UseCaseToModalSequenceDiagramIntegrationPackage.eINSTANCE, ".");
 	}
 
 	private String sourceFile;

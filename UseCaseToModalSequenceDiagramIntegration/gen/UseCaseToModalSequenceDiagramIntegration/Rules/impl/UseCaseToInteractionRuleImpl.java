@@ -100,7 +100,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration, useCase, basicFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[basicFlow] = " + basicFlow + ".");
 		}
 
 		// Solve CSP
@@ -109,7 +114,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						this, match, packageDeclaration, useCase, basicFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[basicFlow] = " + basicFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -122,7 +132,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, useCase, basicFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[useCase] = "
+								+ useCase + ", " + "[basicFlow] = " + basicFlow
+								+ ".");
 			}
 			UseCaseToInteractionRuleImpl
 					.pattern_UseCaseToInteractionRule_0_4_greenBBBBFF(match,
@@ -136,7 +151,12 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, useCase, basicFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[useCase] = "
+								+ useCase + ", " + "[basicFlow] = " + basicFlow
+								+ ".");
 			}
 			UseCaseToInteractionRuleImpl
 					.pattern_UseCaseToInteractionRule_0_5_greenBB(match,
@@ -167,7 +187,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[0];
 		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result1_bindingAndBlack[1];
@@ -189,7 +212,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						basicFlowToInteraction);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[useCase] = " + useCase + ", "
+							+ "[interaction] = " + interaction + ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction + ", " + "[basicFlow] = "
+							+ basicFlow + ", " + "[basicFlowToInteraction] = "
+							+ basicFlowToInteraction + ".");
 		}
 		Object[] result2_green = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_1_2_greenFBBBBB(useCase,
@@ -205,7 +234,33 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						useCaseToInteraction, basicFlow, basicFlowToInteraction);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[_package] = "
+							+ _package
+							+ ", "
+							+ "[packageDeclarationToPackage] = "
+							+ packageDeclarationToPackage
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[basicFlow] = "
+							+ basicFlow
+							+ ", "
+							+ "[basicFlowToInteraction] = "
+							+ basicFlowToInteraction + ".");
 		}
 		UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_1_3_greenBBBBBBBBFFFFFFF(
@@ -242,7 +297,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				.pattern_UseCaseToInteractionRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -254,7 +310,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_2_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -287,7 +344,17 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								basicFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ", "
+									+ "[_package] = " + _package + ", "
+									+ "[packageDeclarationToPackage] = "
+									+ packageDeclarationToPackage + ", "
+									+ "[useCase] = " + useCase + ", "
+									+ "[basicFlow] = " + basicFlow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -301,7 +368,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UseCaseToInteractionRuleImpl
 							.pattern_UseCaseToInteractionRule_2_6_greenBB(
@@ -382,20 +453,31 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				"useCase.name", true, csp);
 		var_useCase_name.setValue(useCase.getName());
 		var_useCase_name.setType("String");
+		Variable var_useCase_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("useCase.description", true, csp);
+		var_useCase_description.setValue(useCase.getDescription());
+		var_useCase_description.setType("String");
 
 		// Create unbound variables
+		Variable var_interaction__id = CSPFactoryHelper.eINSTANCE
+				.createVariable("interaction._id", csp);
+		var_interaction__id.setType("String");
 		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("interaction.name", csp);
 		var_interaction_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_useCase_name, var_interaction_name);
+		eq.solve(var_useCase_name, var_interaction__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_useCase_description, var_interaction_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -470,7 +552,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						_package, interaction);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[_package] = "
+							+ _package + ", " + "[interaction] = "
+							+ interaction + ".");
 		}
 
 		// Solve CSP
@@ -479,7 +565,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						this, match, _package, interaction);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[_package] = "
+							+ _package + ", " + "[interaction] = "
+							+ interaction + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -492,7 +582,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							_package, interaction);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[_package] = " + _package + ", "
+								+ "[interaction] = " + interaction + ".");
 			}
 			UseCaseToInteractionRuleImpl
 					.pattern_UseCaseToInteractionRule_10_4_greenBBBF(match,
@@ -505,7 +598,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							_package, interaction);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[_package] = " + _package + ", "
+								+ "[interaction] = " + interaction + ".");
 			}
 			UseCaseToInteractionRuleImpl
 					.pattern_UseCaseToInteractionRule_10_5_greenBB(match,
@@ -536,7 +632,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result1_bindingAndBlack[0];
 		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result1_bindingAndBlack[1];
@@ -558,7 +657,13 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						basicFlowToInteraction);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[useCase] = " + useCase + ", "
+							+ "[interaction] = " + interaction + ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction + ", " + "[basicFlow] = "
+							+ basicFlow + ", " + "[basicFlowToInteraction] = "
+							+ basicFlowToInteraction + ".");
 		}
 		Object[] result2_green = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_11_2_greenFBBBBB(useCase,
@@ -574,7 +679,33 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 						useCaseToInteraction, basicFlow, basicFlowToInteraction);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[_package] = "
+							+ _package
+							+ ", "
+							+ "[packageDeclarationToPackage] = "
+							+ packageDeclarationToPackage
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[basicFlow] = "
+							+ basicFlow
+							+ ", "
+							+ "[basicFlowToInteraction] = "
+							+ basicFlowToInteraction + ".");
 		}
 		UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_11_3_greenBBBBBBBBFFFFFFF(
@@ -611,7 +742,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				.pattern_UseCaseToInteractionRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -623,7 +755,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_12_2_bindingFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		ModalSequenceDiagram.Package _package = (ModalSequenceDiagram.Package) result2_binding[0];
 		Interaction interaction = (Interaction) result2_binding[1];
@@ -654,7 +787,16 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 								interaction);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = " + this
+									+ ", " + "[isApplicableMatch] = "
+									+ isApplicableMatch + ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ", "
+									+ "[_package] = " + _package + ", "
+									+ "[packageDeclarationToPackage] = "
+									+ packageDeclarationToPackage + ", "
+									+ "[interaction] = " + interaction + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -668,7 +810,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					UseCaseToInteractionRuleImpl
 							.pattern_UseCaseToInteractionRule_12_6_greenBB(
@@ -742,6 +888,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		// Create literals
 
 		// Create attribute variables
+		Variable var_interaction__id = CSPFactoryHelper.eINSTANCE
+				.createVariable("interaction._id", true, csp);
+		var_interaction__id.setValue(interaction.get_id());
+		var_interaction__id.setType("String");
 		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("interaction.name", true, csp);
 		var_interaction_name.setValue(interaction.getName());
@@ -751,15 +901,22 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"useCase.name", csp);
 		var_useCase_name.setType("String");
+		Variable var_useCase_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("useCase.description", csp);
+		var_useCase_description.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_useCase_name, var_interaction_name);
+		eq.solve(var_useCase_name, var_interaction__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_useCase_description, var_interaction_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -821,14 +978,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_492(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_429(
 			EMoflonEdge _edge_useCases) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -861,7 +1019,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCaseToInteractionRuleImpl
 							.pattern_UseCaseToInteractionRule_20_5_greenBBB(
@@ -883,14 +1045,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_321(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_882(
 			EMoflonEdge _edge_packagedElement) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -922,7 +1085,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCaseToInteractionRuleImpl
 							.pattern_UseCaseToInteractionRule_21_5_greenBBB(
@@ -944,14 +1111,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_493(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_430(
 			EMoflonEdge _edge_flows) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -984,7 +1152,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					UseCaseToInteractionRuleImpl
 							.pattern_UseCaseToInteractionRule_22_5_greenBBB(
@@ -1006,8 +1178,9 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1015,8 +1188,9 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1032,7 +1206,8 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				.pattern_UseCaseToInteractionRule_25_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = UseCaseToInteractionRuleImpl
 				.pattern_UseCaseToInteractionRule_25_1_greenFF();
@@ -1055,7 +1230,15 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 							_package, packageDeclarationToPackage, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = " + this + ", "
+								+ "[isApplicableMatch] = " + isApplicableMatch
+								+ ", " + "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[_package] = "
+								+ _package + ", "
+								+ "[packageDeclarationToPackage] = "
+								+ packageDeclarationToPackage + ", "
+								+ "[ruleResult] = " + ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1076,7 +1259,14 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 									packageDeclarationToPackage, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration + ", "
+										+ "[_package] = " + _package + ", "
+										+ "[packageDeclarationToPackage] = "
+										+ packageDeclarationToPackage + ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					UseCaseToInteractionRuleImpl
 							.pattern_UseCaseToInteractionRule_25_6_greenBBFFFFFBB(
@@ -1120,18 +1310,28 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		Variable var_useCase_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"useCase.name", csp);
 		var_useCase_name.setType("String");
+		Variable var_interaction__id = CSPFactoryHelper.eINSTANCE
+				.createVariable("interaction._id", csp);
+		var_interaction__id.setType("String");
+		Variable var_useCase_description = CSPFactoryHelper.eINSTANCE
+				.createVariable("useCase.description", csp);
+		var_useCase_description.setType("String");
 		Variable var_interaction_name = CSPFactoryHelper.eINSTANCE
 				.createVariable("interaction.name", csp);
 		var_interaction_name.setType("String");
 
 		// Create constraints
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eq.setRuleName("");
-		eq.solve(var_useCase_name, var_interaction_name);
+		eq.solve(var_useCase_name, var_interaction__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_useCase_description, var_interaction_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("packageDeclaration",
@@ -1234,14 +1434,14 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_492__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_492((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_429__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_429((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_321__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_321((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_882__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_882((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_493__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_493((EMoflonEdge) arguments
+		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_430__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_430((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.USE_CASE_TO_INTERACTION_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1465,13 +1665,16 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 				.createUseCaseToInteraction();
 		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createFlowToInteractionFragment();
-		Object _localVariable_0 = csp.getValue("interaction", "name");
+		Object _localVariable_0 = csp.getValue("interaction", "_id");
+		Object _localVariable_1 = csp.getValue("interaction", "name");
 		_package.getPackagedElement().add(interaction);
 		useCaseToInteraction.setSource(useCase);
 		useCaseToInteraction.setTarget(interaction);
 		basicFlowToInteraction.setSource(basicFlow);
 		basicFlowToInteraction.setTarget(interaction);
-		String interaction_name_prime = (String) _localVariable_0;
+		String interaction__id_prime = (String) _localVariable_0;
+		String interaction_name_prime = (String) _localVariable_1;
+		interaction.set_id(interaction__id_prime);
 		interaction.setName(interaction_name_prime);
 		return new Object[] { _package, useCase, interaction,
 				useCaseToInteraction, basicFlow, basicFlowToInteraction, csp };
@@ -1772,7 +1975,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration, UseCase useCase,
 			BasicFlow basicFlow, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						PackageDeclarationToPackage.class, "source")) {
 			ModalSequenceDiagram.Package _package = packageDeclarationToPackage
@@ -2124,6 +2327,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createFlowToInteractionFragment();
 		Object _localVariable_0 = csp.getValue("useCase", "name");
+		Object _localVariable_1 = csp.getValue("useCase", "description");
 		packageDeclaration.getUseCases().add(useCase);
 		useCaseToInteraction.setSource(useCase);
 		useCaseToInteraction.setTarget(interaction);
@@ -2131,7 +2335,9 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		basicFlowToInteraction.setSource(basicFlow);
 		basicFlowToInteraction.setTarget(interaction);
 		String useCase_name_prime = (String) _localVariable_0;
+		String useCase_description_prime = (String) _localVariable_1;
 		useCase.setName(useCase_name_prime);
+		useCase.setDescription(useCase_description_prime);
 		return new Object[] { packageDeclaration, useCase, interaction,
 				useCaseToInteraction, basicFlow, basicFlowToInteraction, csp };
 	}
@@ -2425,7 +2631,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			ModalSequenceDiagram.Package _package, Interaction interaction,
 			Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclarationToPackage packageDeclarationToPackage : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(_package,
 						PackageDeclarationToPackage.class, "target")) {
 			PackageDeclaration packageDeclaration = packageDeclarationToPackage
@@ -2631,10 +2837,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_20_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_762379 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_143676 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_762379)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_143676)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -2763,11 +2969,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_21_2_black_nac_0B(
 			Interaction interaction) {
-		Interaction __DEC_interaction_enclosingInteraction_265915 = interaction
+		Interaction __DEC_interaction_enclosingInteraction_512756 = interaction
 				.getEnclosingInteraction();
-		if (__DEC_interaction_enclosingInteraction_265915 != null) {
+		if (__DEC_interaction_enclosingInteraction_512756 != null) {
 			if (!interaction
-					.equals(__DEC_interaction_enclosingInteraction_265915)) {
+					.equals(__DEC_interaction_enclosingInteraction_512756)) {
 				return new Object[] { interaction };
 			}
 		}
@@ -2890,10 +3096,10 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_UseCaseToInteractionRule_22_2_black_nac_0BB(
 			UseCase useCase, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_useCase_useCases_289102 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_useCase_useCases_522399 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, PackageDeclaration.class,
 						"useCases")) {
-			if (!packageDeclaration.equals(__DEC_useCase_useCases_289102)) {
+			if (!packageDeclaration.equals(__DEC_useCase_useCases_522399)) {
 				return new Object[] { useCase, packageDeclaration };
 			}
 		}
@@ -2910,7 +3116,7 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 			if (tmpBasicFlow instanceof BasicFlow) {
 				BasicFlow basicFlow = (BasicFlow) tmpBasicFlow;
 				if (useCase.getFlows().contains(basicFlow)) {
-					for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+					for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(useCase,
 									PackageDeclaration.class, "useCases")) {
 						if (pattern_UseCaseToInteractionRule_22_2_black_nac_0BB(
@@ -3142,9 +3348,11 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		FlowToInteractionFragment basicFlowToInteraction = UseCaseToModalSequenceDiagramIntegrationFactory.eINSTANCE
 				.createFlowToInteractionFragment();
 		Object _localVariable_0 = csp.getValue("useCase", "name");
-		Object _localVariable_1 = csp.getValue("interaction", "name");
+		Object _localVariable_1 = csp.getValue("useCase", "description");
+		Object _localVariable_2 = csp.getValue("interaction", "_id");
+		Object _localVariable_3 = csp.getValue("interaction", "name");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_2 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_4 = ruleResult.getIncrementedPerformCount();
 		packageDeclaration.getUseCases().add(useCase);
 		ruleResult.getSourceObjects().add(useCase);
 		_package.getPackagedElement().add(interaction);
@@ -3158,10 +3366,14 @@ public class UseCaseToInteractionRuleImpl extends AbstractRuleImpl implements
 		basicFlowToInteraction.setTarget(interaction);
 		ruleResult.getCorrObjects().add(basicFlowToInteraction);
 		String useCase_name_prime = (String) _localVariable_0;
-		String interaction_name_prime = (String) _localVariable_1;
+		String useCase_description_prime = (String) _localVariable_1;
+		String interaction__id_prime = (String) _localVariable_2;
+		String interaction_name_prime = (String) _localVariable_3;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_2);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_4);
 		useCase.setName(useCase_name_prime);
+		useCase.setDescription(useCase_description_prime);
+		interaction.set_id(interaction__id_prime);
 		interaction.setName(interaction_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

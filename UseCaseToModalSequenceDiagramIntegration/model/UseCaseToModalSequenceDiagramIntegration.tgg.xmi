@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
 <TGGLanguage:TripleGraphGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TGGLanguage="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore" xmlns:csp="platform:/plugin/TGGLanguage/model/TGGLanguage.ecore#//csp" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UseCaseToModalSequenceDiagramIntegration">
-  <domain name="Source" metamodel="//@metamodel.1" type="SOURCE"/>
-  <domain name="Target" metamodel="//@metamodel.0" type="TARGET"/>
-  <domain name="Correspondence" metamodel="//@metamodel.2"/>
+  <domain name="Source" metamodel="//@metamodel.0" type="SOURCE"/>
+  <domain name="Target" metamodel="//@metamodel.2" type="TARGET"/>
+  <domain name="Correspondence" metamodel="//@metamodel.1"/>
   <tggRule name="WaitStepToFoundMessageRule" correspondence="//@domain.2" source="//@domain.0" target="//@domain.1">
     <objectVariable xsi:type="TGGLanguage:TGGObjectVariable" name="step" incomingLink="//@tggRule.0/@linkVariable.8" outgoingLink="//@tggRule.0/@linkVariable.9" bindingOperator="CREATE" domain="//@domain.0">
       <type xsi:type="ecore:EClass" href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#//NormalStep"/>
@@ -86,9 +86,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.0/@csp/@variables.2 //@tggRule.0/@csp/@variables.3" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -96,13 +93,17 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.0/@csp/@variables.4 //@tggRule.0/@csp/@variables.5" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
         <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.0/@csp/@variables.6 //@tggRule.0/@csp/@variables.7" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -111,7 +112,7 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <constraints variables="//@tggRule.0/@csp/@variables.6 //@tggRule.0/@csp/@variables.7" name="eq">
+      <constraints variables="//@tggRule.0/@csp/@variables.8 //@tggRule.0/@csp/@variables.9" name="eq">
         <signature type=""/>
         <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
@@ -129,6 +130,8 @@
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000722464F554E4422"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
     </csp>
   </tggRule>
@@ -215,9 +218,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.1/@csp/@variables.2 //@tggRule.1/@csp/@variables.3" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -225,13 +225,17 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.1/@csp/@variables.4 //@tggRule.1/@csp/@variables.5" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
         <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.1/@csp/@variables.6 //@tggRule.1/@csp/@variables.7" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -240,7 +244,7 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <constraints variables="//@tggRule.1/@csp/@variables.6 //@tggRule.1/@csp/@variables.7" name="eq">
+      <constraints variables="//@tggRule.1/@csp/@variables.8 //@tggRule.1/@csp/@variables.9" name="eq">
         <signature type=""/>
         <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
@@ -258,6 +262,8 @@
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED0005740006224C4F535422"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
     </csp>
   </tggRule>
@@ -396,7 +402,20 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
+      <constraints variables="//@tggRule.4/@csp/@variables.2 //@tggRule.4/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="useCase"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="interaction"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="useCase"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="interaction"/>
     </csp>
   </tggRule>
@@ -470,7 +489,20 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
+      <constraints variables="//@tggRule.5/@csp/@variables.2 //@tggRule.5/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="actor"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="line"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="description" objectVariable="actor"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="line"/>
     </csp>
   </tggRule>
@@ -557,13 +589,10 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
-      <constraints variables="//@tggRule.6/@csp/@variables.2 //@tggRule.6/@csp/@variables.3" name="eqInterOperKind" userDefined="true">
-        <signature type="EObject"/>
-        <signature type="EString" index="1"/>
+      <constraints variables="//@tggRule.6/@csp/@variables.2 //@tggRule.6/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -572,8 +601,30 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
+      <constraints variables="//@tggRule.6/@csp/@variables.4 //@tggRule.6/@csp/@variables.5" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.6/@csp/@variables.6 //@tggRule.6/@csp/@variables.7" name="eqInterOperKind" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
       <variables xsi:type="csp:AttributeVariable" type="UseCaseDSL.StepType" attribute="type" objectVariable="step"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522414C5422"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="combo"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="combo"/>
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000522616C7422"/>
     </csp>
@@ -622,9 +673,9 @@
       <type href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#//ParallelStepToCombinedFragment/target"/>
     </linkVariable>
     <csp>
-      <constraints variables="//@tggRule.7/@csp/@variables.0 //@tggRule.7/@csp/@variables.1" name="eqInterOperKind" userDefined="true">
-        <signature type="EObject"/>
-        <signature type="EString" index="1"/>
+      <constraints variables="//@tggRule.7/@csp/@variables.0 //@tggRule.7/@csp/@variables.1" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -633,6 +684,28 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
+      <constraints variables="//@tggRule.7/@csp/@variables.2 //@tggRule.7/@csp/@variables.3" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+        <modelgenAdornments value="BB"/>
+        <modelgenAdornments value="BF"/>
+        <modelgenAdornments value="FB"/>
+        <modelgenAdornments value="FF"/>
+      </constraints>
+      <constraints variables="//@tggRule.7/@csp/@variables.4 //@tggRule.7/@csp/@variables.5" name="eqInterOperKind" userDefined="true">
+        <signature type="EObject"/>
+        <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="combo"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="combo"/>
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.InteractionOperatorKind" attribute="interactionOperator" objectVariable="combo"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED00057400052270617222"/>
     </csp>
@@ -814,10 +887,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.9/@csp/@variables.4 //@tggRule.9/@csp/@variables.5" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -825,9 +894,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.9/@csp/@variables.6 //@tggRule.9/@csp/@variables.7" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
@@ -835,10 +901,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="precond"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
@@ -951,10 +1013,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.10/@csp/@variables.2 //@tggRule.10/@csp/@variables.3" name="eqStepType" userDefined="true">
         <signature type="EObject"/>
@@ -962,9 +1020,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.10/@csp/@variables.4 //@tggRule.10/@csp/@variables.5" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -972,13 +1027,17 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.10/@csp/@variables.6 //@tggRule.10/@csp/@variables.7" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
         <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.10/@csp/@variables.8 //@tggRule.10/@csp/@variables.9" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -987,7 +1046,7 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <constraints variables="//@tggRule.10/@csp/@variables.8 //@tggRule.10/@csp/@variables.9" name="eq">
+      <constraints variables="//@tggRule.10/@csp/@variables.10 //@tggRule.10/@csp/@variables.11" name="eq">
         <signature type=""/>
         <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
@@ -1007,6 +1066,8 @@
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
     </csp>
   </tggRule>
@@ -1279,10 +1340,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.12/@csp/@variables.2 //@tggRule.12/@csp/@variables.3" name="eqActorType" userDefined="true">
         <signature type="EObject"/>
@@ -1290,10 +1347,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.12/@csp/@variables.4 //@tggRule.12/@csp/@variables.5" name="eqStepType" userDefined="true">
         <signature type="EObject"/>
@@ -1301,9 +1354,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.12/@csp/@variables.6 //@tggRule.12/@csp/@variables.7" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -1311,13 +1361,17 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.12/@csp/@variables.8 //@tggRule.12/@csp/@variables.9" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
         <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.12/@csp/@variables.10 //@tggRule.12/@csp/@variables.11" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -1326,7 +1380,7 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <constraints variables="//@tggRule.12/@csp/@variables.10 //@tggRule.12/@csp/@variables.11" name="eq">
+      <constraints variables="//@tggRule.12/@csp/@variables.12 //@tggRule.12/@csp/@variables.13" name="eq">
         <signature type=""/>
         <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
@@ -1348,6 +1402,8 @@
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
     </csp>
   </tggRule>
@@ -1464,10 +1520,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.13/@csp/@variables.2 //@tggRule.13/@csp/@variables.3" name="eqStepType" userDefined="true">
         <signature type="EObject"/>
@@ -1475,9 +1527,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.13/@csp/@variables.4 //@tggRule.13/@csp/@variables.5" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -1485,13 +1534,17 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.13/@csp/@variables.6 //@tggRule.13/@csp/@variables.7" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
         <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.13/@csp/@variables.8 //@tggRule.13/@csp/@variables.9" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -1500,7 +1553,7 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <constraints variables="//@tggRule.13/@csp/@variables.8 //@tggRule.13/@csp/@variables.9" name="eq">
+      <constraints variables="//@tggRule.13/@csp/@variables.10 //@tggRule.13/@csp/@variables.11" name="eq">
         <signature type=""/>
         <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
@@ -1520,6 +1573,8 @@
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
     </csp>
   </tggRule>
@@ -1666,10 +1721,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.14/@csp/@variables.2 //@tggRule.14/@csp/@variables.3" name="eqActorType" userDefined="true">
         <signature type="EObject"/>
@@ -1677,10 +1728,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
-        <modelgenAdornments value="FF"/>
       </constraints>
       <constraints variables="//@tggRule.14/@csp/@variables.4 //@tggRule.14/@csp/@variables.5" name="eqStepType" userDefined="true">
         <signature type="EObject"/>
@@ -1688,9 +1735,6 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.14/@csp/@variables.6 //@tggRule.14/@csp/@variables.7" name="eqMessageSort" userDefined="true">
         <signature type="EObject"/>
@@ -1698,13 +1742,17 @@
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
-        <modelgenAdornments value="BB"/>
-        <modelgenAdornments value="BF"/>
-        <modelgenAdornments value="FB"/>
       </constraints>
       <constraints variables="//@tggRule.14/@csp/@variables.8 //@tggRule.14/@csp/@variables.9" name="eqMessageKind" userDefined="true">
         <signature type="EObject"/>
         <signature type="EString" index="1"/>
+        <allowedAdornments value="BB"/>
+        <allowedAdornments value="BF"/>
+        <allowedAdornments value="FB"/>
+      </constraints>
+      <constraints variables="//@tggRule.14/@csp/@variables.10 //@tggRule.14/@csp/@variables.11" name="eq">
+        <signature type=""/>
+        <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
         <allowedAdornments value="BF"/>
         <allowedAdornments value="FB"/>
@@ -1713,7 +1761,7 @@
         <modelgenAdornments value="FB"/>
         <modelgenAdornments value="FF"/>
       </constraints>
-      <constraints variables="//@tggRule.14/@csp/@variables.10 //@tggRule.14/@csp/@variables.11" name="eq">
+      <constraints variables="//@tggRule.14/@csp/@variables.12 //@tggRule.14/@csp/@variables.13" name="eq">
         <signature type=""/>
         <signature type="" index="1"/>
         <allowedAdornments value="BB"/>
@@ -1735,16 +1783,18 @@
       <variables xsi:type="csp:AttributeVariable" type="ModalSequenceDiagram.MessageKind" attribute="messageKind" objectVariable="message"/>
       <variables xsi:type="csp:Literal" bound="true" value="ACED000574000A22434F4D504C45544522"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="step"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="_id" objectVariable="message"/>
+      <variables xsi:type="csp:AttributeVariable" type="String" attribute="label" objectVariable="step"/>
       <variables xsi:type="csp:AttributeVariable" type="String" attribute="name" objectVariable="message"/>
     </csp>
   </tggRule>
-  <metamodel name="ModalSequenceDiagram">
-    <outermostPackage href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/"/>
-  </metamodel>
   <metamodel name="UseCaseDSL">
     <outermostPackage href="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore#/"/>
   </metamodel>
   <metamodel name="UseCaseToModalSequenceDiagramIntegration">
     <outermostPackage href="platform:/plugin/UseCaseToModalSequenceDiagramIntegration/model/UseCaseToModalSequenceDiagramIntegration.ecore#/"/>
+  </metamodel>
+  <metamodel name="ModalSequenceDiagram">
+    <outermostPackage href="platform:/plugin/ModalSequenceDiagram/model/ModalSequenceDiagram.ecore#/"/>
   </metamodel>
 </TGGLanguage:TripleGraphGrammar>

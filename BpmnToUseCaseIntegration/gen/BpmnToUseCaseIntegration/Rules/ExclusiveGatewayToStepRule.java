@@ -244,7 +244,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_95(EMoflonEdge _edge_next);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_826(EMoflonEdge _edge_next);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,7 +252,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_96(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_827(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,7 +260,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_287(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_263(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -269,7 +269,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_288(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_264(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -278,7 +278,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_289(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_265(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -287,7 +287,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_290(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_266(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -296,7 +296,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_291(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_267(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -305,7 +305,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_292(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_268(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -314,7 +314,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_293(EMoflonEdge _edge_default);
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_269(EMoflonEdge _edge_default);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -322,7 +322,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_97(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_828(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,7 +330,7 @@ public interface ExclusiveGatewayToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_294(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_270(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

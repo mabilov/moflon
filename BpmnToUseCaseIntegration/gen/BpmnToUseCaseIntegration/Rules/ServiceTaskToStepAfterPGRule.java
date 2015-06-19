@@ -239,7 +239,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_406(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_382(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -248,7 +248,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_407(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_383(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -257,7 +257,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_408(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_384(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -266,7 +266,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_409(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_385(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -275,7 +275,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_410(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_386(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -284,7 +284,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_411(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_387(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -293,7 +293,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_126(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_857(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,7 +301,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_127(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_858(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public interface ServiceTaskToStepAfterPGRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_412(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_388(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

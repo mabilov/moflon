@@ -106,7 +106,13 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						match, step, useCase, flow, actor, packageDeclaration);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[step] = " + step
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[flow] = " + flow + ", " + "[actor] = " + actor
+							+ ", " + "[packageDeclaration] = "
+							+ packageDeclaration + ".");
 		}
 
 		// Solve CSP
@@ -116,7 +122,13 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[step] = " + step
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[flow] = " + flow + ", " + "[actor] = " + actor
+							+ ", " + "[packageDeclaration] = "
+							+ packageDeclaration + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -129,7 +141,13 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 							step, useCase, flow, actor, packageDeclaration);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[step] = " + step + ", " + "[useCase] = "
+								+ useCase + ", " + "[flow] = " + flow + ", "
+								+ "[actor] = " + actor + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			SendStepToLostMessageRuleImpl
 					.pattern_SendStepToLostMessageRule_0_4_greenBBBBFF(match,
@@ -143,7 +161,13 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 							step, useCase, flow, actor, packageDeclaration);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[step] = " + step + ", " + "[useCase] = "
+								+ useCase + ", " + "[flow] = " + flow + ", "
+								+ "[actor] = " + actor + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ".");
 			}
 			SendStepToLostMessageRuleImpl
 					.pattern_SendStepToLostMessageRule_0_5_greenBBBBBFFF(match,
@@ -178,7 +202,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		NormalStep step = (NormalStep) result1_bindingAndBlack[0];
 		Lifeline line = (Lifeline) result1_bindingAndBlack[1];
@@ -202,7 +229,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						messageSend);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[message] = " + message + ", "
+							+ "[messageSend] = " + messageSend + ".");
 		}
 		Object[] result2_green = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_1_2_greenFBBB(step, message,
@@ -217,7 +247,43 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						actorToLine, packageDeclaration);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[messageSend] = "
+							+ messageSend
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ".");
 		}
 		SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_1_3_greenBBBBBBBBFFFFFFFF(
@@ -254,7 +320,8 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_SendStepToLostMessageRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -266,7 +333,8 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_2_2_bindingFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		NormalStep step = (NormalStep) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -311,7 +379,39 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 								actorToLine, packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -325,7 +425,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_2_6_greenBB(
@@ -429,6 +533,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				"step.name", true, csp);
 		var_step_name.setValue(step.getName());
 		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", true, csp);
+		var_step_label.setValue(step.getLabel());
+		var_step_label.setType("String");
 
 		// Create unbound variables
 		Variable var_message_messageSort = CSPFactoryHelper.eINSTANCE
@@ -437,6 +545,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_message_messageKind = CSPFactoryHelper.eINSTANCE
 				.createVariable("message.messageKind", csp);
 		var_message_messageKind.setType("ModalSequenceDiagram.MessageKind");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", csp);
+		var_message__id.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
@@ -445,10 +556,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqMessageSort.setRuleName("");
@@ -456,7 +569,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal1);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("step", step);
@@ -530,7 +645,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						match, message, messageSend, line, interaction);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[message] = "
+							+ message + ", " + "[messageSend] = " + messageSend
+							+ ", " + "[line] = " + line + ", "
+							+ "[interaction] = " + interaction + ".");
 		}
 
 		// Solve CSP
@@ -539,7 +659,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						this, match, message, messageSend, line, interaction);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[message] = "
+							+ message + ", " + "[messageSend] = " + messageSend
+							+ ", " + "[line] = " + line + ", "
+							+ "[interaction] = " + interaction + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -552,7 +677,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 							message, messageSend, line, interaction);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[message] = " + message + ", "
+								+ "[messageSend] = " + messageSend + ", "
+								+ "[line] = " + line + ", "
+								+ "[interaction] = " + interaction + ".");
 			}
 			SendStepToLostMessageRuleImpl
 					.pattern_SendStepToLostMessageRule_10_4_greenBBBBBFFFFFF(
@@ -570,7 +700,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 							message, messageSend, line, interaction);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[message] = " + message + ", "
+								+ "[messageSend] = " + messageSend + ", "
+								+ "[line] = " + line + ", "
+								+ "[interaction] = " + interaction + ".");
 			}
 			SendStepToLostMessageRuleImpl
 					.pattern_SendStepToLostMessageRule_10_5_greenBBBFF(match,
@@ -604,7 +739,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		Message message = (Message) result1_bindingAndBlack[0];
 		MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result1_bindingAndBlack[1];
@@ -628,7 +766,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						messageSend);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[step] = " + step + ", "
+							+ "[message] = " + message + ", "
+							+ "[messageSend] = " + messageSend + ".");
 		}
 		Object[] result2_green = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_11_2_greenFBBB(step,
@@ -643,7 +784,43 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 						actorToLine, packageDeclaration);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[message] = "
+							+ message
+							+ ", "
+							+ "[messageSend] = "
+							+ messageSend
+							+ ", "
+							+ "[line] = "
+							+ line
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[interaction] = "
+							+ interaction
+							+ ", "
+							+ "[useCaseToInteraction] = "
+							+ useCaseToInteraction
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[actorToLine] = "
+							+ actorToLine
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ".");
 		}
 		SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_11_3_greenBBBBBBBBFFFFFFFF(
@@ -680,7 +857,8 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_SendStepToLostMessageRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -692,7 +870,8 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_12_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		Message message = (Message) result2_binding[0];
 		MessageOccurrenceSpecification messageSend = (MessageOccurrenceSpecification) result2_binding[1];
@@ -743,7 +922,42 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 								packageDeclaration);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[message] = "
+									+ message
+									+ ", "
+									+ "[messageSend] = "
+									+ messageSend
+									+ ", "
+									+ "[line] = "
+									+ line
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[interaction] = "
+									+ interaction
+									+ ", "
+									+ "[useCaseToInteraction] = "
+									+ useCaseToInteraction
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[actor] = "
+									+ actor
+									+ ", "
+									+ "[actorToLine] = "
+									+ actorToLine
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -757,7 +971,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_12_6_greenBB(
@@ -864,6 +1082,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		literal0.setType("");
 
 		// Create attribute variables
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", true, csp);
+		var_message__id.setValue(message.get_id());
+		var_message__id.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", true, csp);
 		var_message_name.setValue(message.getName());
@@ -876,19 +1098,26 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 
 		// Create constraints
 		EqStepType eqStepType = new EqStepType();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqStepType.setRuleName("");
 		eqStepType.solve(var_step_type, literal0);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("message", message);
@@ -961,14 +1190,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_314(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_875(
 			EMoflonEdge _edge_sendEvent) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1003,7 +1233,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_20_5_greenBBB(
@@ -1025,14 +1259,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_315(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_876(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1067,7 +1302,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_21_5_greenBBB(
@@ -1089,14 +1328,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_316(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_877(
 			EMoflonEdge _edge_coveredBy) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_22_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1131,7 +1371,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_22_5_greenBBB(
@@ -1153,14 +1397,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_317(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_878(
 			EMoflonEdge _edge_covered) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_23_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1195,7 +1440,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_23_5_greenBBB(
@@ -1217,14 +1466,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_318(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_879(
 			EMoflonEdge _edge_interaction) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_24_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1259,7 +1509,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_24_5_greenBBB(
@@ -1281,14 +1535,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_319(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_880(
 			EMoflonEdge _edge_message) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_25_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1323,7 +1578,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_25_5_greenBBB(
@@ -1345,14 +1604,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_489(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_426(
 			EMoflonEdge _edge_steps) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_26_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1388,7 +1648,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_26_5_greenBBB(
@@ -1410,14 +1674,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_490(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_427(
 			EMoflonEdge _edge_actor) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_27_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1453,7 +1718,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_27_5_greenBBB(
@@ -1475,8 +1744,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1484,8 +1754,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1501,7 +1772,8 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				.pattern_SendStepToLostMessageRule_30_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = SendStepToLostMessageRuleImpl
 				.pattern_SendStepToLostMessageRule_30_1_greenFF();
@@ -1530,7 +1802,39 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 							actorToLine, packageDeclaration, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[line] = "
+								+ line
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[interaction] = "
+								+ interaction
+								+ ", "
+								+ "[useCaseToInteraction] = "
+								+ useCaseToInteraction
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[actor] = "
+								+ actor
+								+ ", "
+								+ "[actorToLine] = "
+								+ actorToLine
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1553,7 +1857,32 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									actorToLine, packageDeclaration, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[line] = "
+										+ line
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[interaction] = "
+										+ interaction
+										+ ", "
+										+ "[useCaseToInteraction] = "
+										+ useCaseToInteraction
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[actor] = "
+										+ actor
+										+ ", "
+										+ "[actorToLine] = "
+										+ actorToLine
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					SendStepToLostMessageRuleImpl
 							.pattern_SendStepToLostMessageRule_30_6_greenFFFBBBBBB(
@@ -1616,6 +1945,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		Variable var_step_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"step.name", csp);
 		var_step_name.setType("String");
+		Variable var_message__id = CSPFactoryHelper.eINSTANCE.createVariable(
+				"message._id", csp);
+		var_message__id.setType("String");
+		Variable var_step_label = CSPFactoryHelper.eINSTANCE.createVariable(
+				"step.label", csp);
+		var_step_label.setType("String");
 		Variable var_message_name = CSPFactoryHelper.eINSTANCE.createVariable(
 				"message.name", csp);
 		var_message_name.setType("String");
@@ -1625,11 +1960,13 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		EqMessageSort eqMessageSort = new EqMessageSort();
 		EqMessageKind eqMessageKind = new EqMessageKind();
 		Eq eq = new Eq();
+		Eq eq_0 = new Eq();
 
 		csp.getConstraints().add(eqStepType);
 		csp.getConstraints().add(eqMessageSort);
 		csp.getConstraints().add(eqMessageKind);
 		csp.getConstraints().add(eq);
+		csp.getConstraints().add(eq_0);
 
 		// Solve CSP
 		eqStepType.setRuleName("");
@@ -1639,7 +1976,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		eqMessageKind.setRuleName("");
 		eqMessageKind.solve(var_message_messageKind, literal2);
 		eq.setRuleName("");
-		eq.solve(var_step_name, var_message_name);
+		eq.solve(var_step_name, var_message__id);
+		eq_0.setRuleName("");
+		eq_0.solve(var_step_label, var_message_name);
 
 		// Snapshot pattern match on which CSP is solved
 		isApplicableMatch.registerObject("line", line);
@@ -1763,29 +2102,29 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_314__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_314((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_875__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_875((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_315__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_315((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_876__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_876((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_316__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_316((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_877__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_877((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_317__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_317((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_878__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_878((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_318__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_318((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_879__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_879((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_319__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_319((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_880__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_880((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_489__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_489((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_426__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_426((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_490__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_490((EMoflonEdge) arguments
+		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_427__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_427((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.SEND_STEP_TO_LOST_MESSAGE_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -2063,16 +2402,19 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				.createMessageOccurrenceSpecification();
 		Object _localVariable_0 = csp.getValue("message", "messageSort");
 		Object _localVariable_1 = csp.getValue("message", "messageKind");
-		Object _localVariable_2 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("message", "_id");
+		Object _localVariable_3 = csp.getValue("message", "name");
 		message.setInteraction(interaction);
 		message.setSendEvent(messageSend);
 		messageSend.setMessage(message);
 		line.getCoveredBy().add(messageSend);
 		MessageSort message_messageSort_prime = (MessageSort) _localVariable_0;
 		MessageKind message_messageKind_prime = (MessageKind) _localVariable_1;
-		String message_name_prime = (String) _localVariable_2;
+		String message__id_prime = (String) _localVariable_2;
+		String message_name_prime = (String) _localVariable_3;
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.set_id(message__id_prime);
 		message.setName(message_name_prime);
 		return new Object[] { message, messageSend, line, interaction, csp };
 	}
@@ -2452,12 +2794,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 			NormalStep step, UseCase useCase, Flow flow, Actor actor,
 			PackageDeclaration packageDeclaration, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(useCase, UseCaseToInteraction.class,
 						"source")) {
 			Interaction interaction = useCaseToInteraction.getTarget();
 			if (interaction != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(actor,
 								ActorToLifeline.class, "source")) {
 					Lifeline line = actorToLine.getTarget();
@@ -3005,12 +3347,15 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		NormalStep step = UseCaseDSLFactory.eINSTANCE.createNormalStep();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
+		String step_label_prime = (String) _localVariable_2;
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		return new Object[] { step, flow, actor, csp };
 	}
 
@@ -3385,12 +3730,12 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 			Message message, MessageOccurrenceSpecification messageSend,
 			Lifeline line, Interaction interaction, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (UseCaseToInteraction useCaseToInteraction : org.moflon.util.eMoflonEMFUtil
+		for (UseCaseToInteraction useCaseToInteraction : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(interaction,
 						UseCaseToInteraction.class, "target")) {
 			UseCase useCase = useCaseToInteraction.getSource();
 			if (useCase != null) {
-				for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+				for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(line, ActorToLifeline.class,
 								"target")) {
 					Actor actor = actorToLine.getSource();
@@ -3425,7 +3770,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 									if (actor.equals(actorToLine.getSource())) {
 										if (line.equals(actorToLine.getTarget())) {
 											for (Flow flow : useCase.getFlows()) {
-												for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+												for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																actor,
 																PackageDeclaration.class,
@@ -3755,10 +4100,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_20_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_157940 = message
+		MessageEnd __DEC_message_receiveEvent_708661 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_157940 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_157940)) {
+		if (__DEC_message_receiveEvent_708661 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_708661)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3768,9 +4113,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_20_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_79118 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_473834 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_79118)) {
+			if (!messageSend.equals(__DEC_message_message_473834)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3779,11 +4124,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_20_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_549014 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_484860 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_549014 != null) {
+		if (__DEC_messageSend_enclosingInteraction_484860 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_549014)) {
+					.equals(__DEC_messageSend_enclosingInteraction_484860)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -3952,10 +4297,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_21_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_488885 = message
+		MessageEnd __DEC_message_receiveEvent_576903 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_488885 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_488885)) {
+		if (__DEC_message_receiveEvent_576903 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_576903)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3965,9 +4310,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_21_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_174596 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_822557 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_174596)) {
+			if (!messageSend.equals(__DEC_message_message_822557)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -3976,11 +4321,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_21_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_254150 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_46921 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_254150 != null) {
+		if (__DEC_messageSend_enclosingInteraction_46921 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_254150)) {
+					.equals(__DEC_messageSend_enclosingInteraction_46921)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4149,10 +4494,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_22_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_606448 = message
+		MessageEnd __DEC_message_receiveEvent_144227 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_606448 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_606448)) {
+		if (__DEC_message_receiveEvent_144227 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_144227)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4162,9 +4507,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_22_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_450597 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_913276 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_450597)) {
+			if (!messageSend.equals(__DEC_message_message_913276)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4173,11 +4518,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_22_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_145479 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_71127 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_145479 != null) {
+		if (__DEC_messageSend_enclosingInteraction_71127 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_145479)) {
+					.equals(__DEC_messageSend_enclosingInteraction_71127)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4348,10 +4693,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_23_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_439928 = message
+		MessageEnd __DEC_message_receiveEvent_307678 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_439928 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_439928)) {
+		if (__DEC_message_receiveEvent_307678 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_307678)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4361,9 +4706,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_23_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_202361 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_805856 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_202361)) {
+			if (!messageSend.equals(__DEC_message_message_805856)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4372,11 +4717,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_23_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_935236 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_610944 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_935236 != null) {
+		if (__DEC_messageSend_enclosingInteraction_610944 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_935236)) {
+					.equals(__DEC_messageSend_enclosingInteraction_610944)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4548,10 +4893,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_24_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_676806 = message
+		MessageEnd __DEC_message_receiveEvent_921083 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_676806 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_676806)) {
+		if (__DEC_message_receiveEvent_921083 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_921083)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4561,9 +4906,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_24_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_388392 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_756697 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_388392)) {
+			if (!messageSend.equals(__DEC_message_message_756697)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4572,11 +4917,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_24_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_188126 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_630255 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_188126 != null) {
+		if (__DEC_messageSend_enclosingInteraction_630255 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_188126)) {
+					.equals(__DEC_messageSend_enclosingInteraction_630255)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4747,10 +5092,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_25_2_black_nac_0BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		MessageEnd __DEC_message_receiveEvent_703510 = message
+		MessageEnd __DEC_message_receiveEvent_841364 = message
 				.getReceiveEvent();
-		if (__DEC_message_receiveEvent_703510 != null) {
-			if (!messageSend.equals(__DEC_message_receiveEvent_703510)) {
+		if (__DEC_message_receiveEvent_841364 != null) {
+			if (!messageSend.equals(__DEC_message_receiveEvent_841364)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4760,9 +5105,9 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_25_2_black_nac_1BB(
 			Message message, MessageOccurrenceSpecification messageSend) {
-		for (MessageEnd __DEC_message_message_436924 : org.moflon.util.eMoflonEMFUtil
+		for (MessageEnd __DEC_message_message_311036 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(message, MessageEnd.class, "message")) {
-			if (!messageSend.equals(__DEC_message_message_436924)) {
+			if (!messageSend.equals(__DEC_message_message_311036)) {
 				return new Object[] { message, messageSend };
 			}
 		}
@@ -4771,11 +5116,11 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_SendStepToLostMessageRule_25_2_black_nac_2BB(
 			MessageOccurrenceSpecification messageSend, Interaction interaction) {
-		Interaction __DEC_messageSend_enclosingInteraction_308326 = messageSend
+		Interaction __DEC_messageSend_enclosingInteraction_122261 = messageSend
 				.getEnclosingInteraction();
-		if (__DEC_messageSend_enclosingInteraction_308326 != null) {
+		if (__DEC_messageSend_enclosingInteraction_122261 != null) {
 			if (!interaction
-					.equals(__DEC_messageSend_enclosingInteraction_308326)) {
+					.equals(__DEC_messageSend_enclosingInteraction_122261)) {
 				return new Object[] { messageSend, interaction };
 			}
 		}
@@ -4956,10 +5301,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				if (flow.getSteps().contains(step)) {
 					Actor actor = step.getActor();
 					if (actor != null) {
-						for (UseCase useCase : org.moflon.util.eMoflonEMFUtil
+						for (UseCase useCase : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(flow, UseCase.class,
 										"flows")) {
-							for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+							for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 									.getOppositeReferenceTyped(actor,
 											PackageDeclaration.class, "actors")) {
 								if (packageDeclaration.getUseCases().contains(
@@ -5082,10 +5427,10 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 			if (tmpActor instanceof Actor) {
 				Actor actor = (Actor) tmpActor;
 				if (actor.equals(step.getActor())) {
-					for (Flow flow : org.moflon.util.eMoflonEMFUtil
+					for (Flow flow : org.moflon.core.utilities.eMoflonEMFUtil
 							.getOppositeReferenceTyped(step, Flow.class,
 									"steps")) {
-						for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+						for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(actor,
 										PackageDeclaration.class, "actors")) {
 							for (UseCase useCase : packageDeclaration
@@ -5262,7 +5607,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 														.getFlows()) {
 													if (pattern_SendStepToLostMessageRule_30_2_black_nac_4BB(
 															ruleResult, flow) == null) {
-														for (PackageDeclaration packageDeclaration : org.moflon.util.eMoflonEMFUtil
+														for (PackageDeclaration packageDeclaration : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		useCase,
 																		PackageDeclaration.class,
@@ -5275,7 +5620,7 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 																	if (pattern_SendStepToLostMessageRule_30_2_black_nac_6BB(
 																			ruleResult,
 																			actor) == null) {
-																		for (ActorToLifeline actorToLine : org.moflon.util.eMoflonEMFUtil
+																		for (ActorToLifeline actorToLine : org.moflon.core.utilities.eMoflonEMFUtil
 																				.getOppositeReferenceTyped(
 																						line,
 																						ActorToLifeline.class,
@@ -5405,11 +5750,13 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 				.createMessageOccurrenceSpecification();
 		Object _localVariable_0 = csp.getValue("step", "type");
 		Object _localVariable_1 = csp.getValue("step", "name");
-		Object _localVariable_2 = csp.getValue("message", "messageSort");
-		Object _localVariable_3 = csp.getValue("message", "messageKind");
-		Object _localVariable_4 = csp.getValue("message", "name");
+		Object _localVariable_2 = csp.getValue("step", "label");
+		Object _localVariable_3 = csp.getValue("message", "messageSort");
+		Object _localVariable_4 = csp.getValue("message", "messageKind");
+		Object _localVariable_5 = csp.getValue("message", "_id");
+		Object _localVariable_6 = csp.getValue("message", "name");
 		boolean ruleResult_success_prime = Boolean.valueOf(true);
-		int _localVariable_5 = ruleResult.getIncrementedPerformCount();
+		int _localVariable_7 = ruleResult.getIncrementedPerformCount();
 		flow.getSteps().add(step);
 		step.setActor(actor);
 		ruleResult.getSourceObjects().add(step);
@@ -5421,15 +5768,19 @@ public class SendStepToLostMessageRuleImpl extends AbstractRuleImpl implements
 		ruleResult.getTargetObjects().add(messageSend);
 		StepType step_type_prime = (StepType) _localVariable_0;
 		String step_name_prime = (String) _localVariable_1;
-		MessageSort message_messageSort_prime = (MessageSort) _localVariable_2;
-		MessageKind message_messageKind_prime = (MessageKind) _localVariable_3;
-		String message_name_prime = (String) _localVariable_4;
+		String step_label_prime = (String) _localVariable_2;
+		MessageSort message_messageSort_prime = (MessageSort) _localVariable_3;
+		MessageKind message_messageKind_prime = (MessageKind) _localVariable_4;
+		String message__id_prime = (String) _localVariable_5;
+		String message_name_prime = (String) _localVariable_6;
 		ruleResult.setSuccess(Boolean.valueOf(ruleResult_success_prime));
-		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_5);
+		int ruleResult_performCount_prime = Integer.valueOf(_localVariable_7);
 		step.setType(step_type_prime);
 		step.setName(step_name_prime);
+		step.setLabel(step_label_prime);
 		message.setMessageSort(message_messageSort_prime);
 		message.setMessageKind(message_messageKind_prime);
+		message.set_id(message__id_prime);
 		message.setName(message_name_prime);
 		ruleResult.setPerformCount(Integer
 				.valueOf(ruleResult_performCount_prime));

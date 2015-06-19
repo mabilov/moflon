@@ -1149,8 +1149,17 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNamedElement_Name() {
+	public EAttribute getNamedElement__id() {
 		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1949,6 +1958,7 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 		createEAttribute(opaqueExpressionEClass, OPAQUE_EXPRESSION__BODY);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__ID);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		typedElementEClass = createEClass(TYPED_ELEMENT);
@@ -2430,8 +2440,12 @@ public class ModalSequenceDiagramPackageImpl extends EPackageImpl implements
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement__id(), ecorePackage.getEString(), "_id",
+				null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(),
-				"name", null, 1, 1, NamedElement.class, !IS_TRANSIENT,
+				"name", null, 0, 1, NamedElement.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, !IS_ORDERED);
 

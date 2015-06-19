@@ -231,7 +231,7 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_253(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_229(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -240,7 +240,7 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_254(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_230(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -249,7 +249,7 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_255(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_231(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -258,7 +258,7 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_84(
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_815(
 			EMoflonEdge _edge_finalState);
 
 	/**
@@ -267,7 +267,7 @@ public interface EndEventRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_256(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_232(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

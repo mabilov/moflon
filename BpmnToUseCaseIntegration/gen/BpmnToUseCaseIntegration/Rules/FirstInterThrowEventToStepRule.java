@@ -239,7 +239,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_257(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_233(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -248,7 +248,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_258(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_234(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -257,7 +257,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_259(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_235(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -266,7 +266,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_260(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_236(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -275,7 +275,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_261(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_237(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -284,7 +284,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_262(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_238(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -293,7 +293,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_85(EMoflonEdge _edge_actor);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_816(EMoflonEdge _edge_actor);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,7 +301,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_BWD_EMoflonEdge_86(EMoflonEdge _edge_steps);
+	EObjectContainer isAppropriate_BWD_EMoflonEdge_817(EMoflonEdge _edge_steps);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,7 +309,7 @@ public interface FirstInterThrowEventToStepRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_263(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_239(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

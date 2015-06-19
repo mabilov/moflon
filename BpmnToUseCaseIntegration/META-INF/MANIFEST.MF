@@ -12,14 +12,15 @@ Require-Bundle: bpmn2,
  UseCaseDSL,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
- org.moflon.dependencies,
+ org.moflon.core.utilities,
  MocaTree,
  SDMLanguage,
  TGGLanguage,
  TGGRuntime,
  org.eclipse.emf.compare;bundle-version="3.1.2",
  de.abilov.tgg.helper;visibility:=reexport,
- DebugLanguage
+ DebugLanguage,
+ org.apache.log4j;bundle-version="1.2.15"
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

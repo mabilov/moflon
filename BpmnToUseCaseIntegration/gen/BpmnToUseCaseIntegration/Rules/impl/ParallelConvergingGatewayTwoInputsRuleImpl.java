@@ -111,7 +111,41 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						laneSet, divergeFlow);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow1] = "
+							+ inFlow1
+							+ ", "
+							+ "[parallelConvGateway] = "
+							+ parallelConvGateway
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[divergeFlow1] = "
+							+ divergeFlow1
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[divergeFlow] = " + divergeFlow + ".");
 		}
 
 		// Solve CSP
@@ -122,7 +156,41 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						laneSet, divergeFlow);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = "
+							+ this
+							+ ", "
+							+ "[match] = "
+							+ match
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow1] = "
+							+ inFlow1
+							+ ", "
+							+ "[parallelConvGateway] = "
+							+ parallelConvGateway
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[divergeFlow1] = "
+							+ divergeFlow1
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[divergeFlow] = " + divergeFlow + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -138,7 +206,38 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 							lane, laneSet, divergeFlow);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow1] = "
+								+ inFlow1
+								+ ", "
+								+ "[parallelConvGateway] = "
+								+ parallelConvGateway
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", "
+								+ "[divergeFlow1] = "
+								+ divergeFlow1
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[divergeFlow] = " + divergeFlow + ".");
 			}
 			ParallelConvergingGatewayTwoInputsRuleImpl
 					.pattern_ParallelConvergingGatewayTwoInputsRule_0_4_greenBBBBBBBFFFFFFFFF(
@@ -162,7 +261,38 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 							lane, laneSet, divergeFlow);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = "
+								+ match
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow1] = "
+								+ inFlow1
+								+ ", "
+								+ "[parallelConvGateway] = "
+								+ parallelConvGateway
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", "
+								+ "[divergeFlow1] = "
+								+ divergeFlow1
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[outFlow] = "
+								+ outFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[divergeFlow] = " + divergeFlow + ".");
 			}
 			ParallelConvergingGatewayTwoInputsRuleImpl
 					.pattern_ParallelConvergingGatewayTwoInputsRule_0_5_greenBBBBBBBBBFFFFFFFFFFF(
@@ -207,7 +337,10 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						this, isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[0];
 		SequenceFlow inFlow1 = (SequenceFlow) result1_bindingAndBlack[1];
@@ -245,7 +378,13 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						outFlowToParallelStep);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[parallelConvGateway] = "
+							+ parallelConvGateway + ", " + "[outFlow] = "
+							+ outFlow + ", " + "[outFlowToInitFlow] = "
+							+ outFlowToInitFlow + ", "
+							+ "[outFlowToParallelStep] = "
+							+ outFlowToParallelStep + ".");
 		}
 		Object[] result2_green = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_1_2_greenFBBBB(
@@ -265,7 +404,82 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 						laneSet, divergeFlow, divergeFlowToFlow);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[inFlow1] = "
+							+ inFlow1
+							+ ", "
+							+ "[parallelConvGateway] = "
+							+ parallelConvGateway
+							+ ", "
+							+ "[parallelGateway] = "
+							+ parallelGateway
+							+ ", "
+							+ "[divergeFlow1] = "
+							+ divergeFlow1
+							+ ", "
+							+ "[flow1] = "
+							+ flow1
+							+ ", "
+							+ "[inFlow1ToFlow1] = "
+							+ inFlow1ToFlow1
+							+ ", "
+							+ "[step1] = "
+							+ step1
+							+ ", "
+							+ "[inFlow1ToStep1] = "
+							+ inFlow1ToStep1
+							+ ", "
+							+ "[parallelStep] = "
+							+ parallelStep
+							+ ", "
+							+ "[divergeFlow1ToFlow1] = "
+							+ divergeFlow1ToFlow1
+							+ ", "
+							+ "[inFlow] = "
+							+ inFlow
+							+ ", "
+							+ "[outFlow] = "
+							+ outFlow
+							+ ", "
+							+ "[flow] = "
+							+ flow
+							+ ", "
+							+ "[inFlowToFlow] = "
+							+ inFlowToFlow
+							+ ", "
+							+ "[step] = "
+							+ step
+							+ ", "
+							+ "[inFlowToStep] = "
+							+ inFlowToStep
+							+ ", "
+							+ "[initFlow] = "
+							+ initFlow
+							+ ", "
+							+ "[outFlowToInitFlow] = "
+							+ outFlowToInitFlow
+							+ ", "
+							+ "[outFlowToParallelStep] = "
+							+ outFlowToParallelStep
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[divergeFlow] = "
+							+ divergeFlow
+							+ ", "
+							+ "[divergeFlowToFlow] = "
+							+ divergeFlowToFlow
+							+ ".");
 		}
 		ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_1_3_greenBBBBBBBBBBBFFFFFFFFFFFFF(
@@ -312,7 +526,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				.pattern_ParallelConvergingGatewayTwoInputsRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -324,7 +539,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 		Object[] result2_binding = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_2_2_bindingFFFFFFFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		bpmn2.Process process = (bpmn2.Process) result2_binding[0];
 		SequenceFlow inFlow1 = (SequenceFlow) result2_binding[1];
@@ -422,7 +638,78 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 								lane, laneSet, divergeFlow, divergeFlowToFlow);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[inFlow1] = "
+									+ inFlow1
+									+ ", "
+									+ "[parallelConvGateway] = "
+									+ parallelConvGateway
+									+ ", "
+									+ "[parallelGateway] = "
+									+ parallelGateway
+									+ ", "
+									+ "[divergeFlow1] = "
+									+ divergeFlow1
+									+ ", "
+									+ "[flow1] = "
+									+ flow1
+									+ ", "
+									+ "[inFlow1ToFlow1] = "
+									+ inFlow1ToFlow1
+									+ ", "
+									+ "[step1] = "
+									+ step1
+									+ ", "
+									+ "[inFlow1ToStep1] = "
+									+ inFlow1ToStep1
+									+ ", "
+									+ "[parallelStep] = "
+									+ parallelStep
+									+ ", "
+									+ "[divergeFlow1ToFlow1] = "
+									+ divergeFlow1ToFlow1
+									+ ", "
+									+ "[inFlow] = "
+									+ inFlow
+									+ ", "
+									+ "[outFlow] = "
+									+ outFlow
+									+ ", "
+									+ "[flow] = "
+									+ flow
+									+ ", "
+									+ "[inFlowToFlow] = "
+									+ inFlowToFlow
+									+ ", "
+									+ "[step] = "
+									+ step
+									+ ", "
+									+ "[inFlowToStep] = "
+									+ inFlowToStep
+									+ ", "
+									+ "[initFlow] = "
+									+ initFlow
+									+ ", "
+									+ "[lane] = "
+									+ lane
+									+ ", "
+									+ "[laneSet] = "
+									+ laneSet
+									+ ", "
+									+ "[divergeFlow] = "
+									+ divergeFlow
+									+ ", "
+									+ "[divergeFlowToFlow] = "
+									+ divergeFlowToFlow + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -436,7 +723,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									ruleresult, isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_2_6_greenBB(
@@ -670,14 +961,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_320(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_296(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_10_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -719,7 +1011,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_10_5_greenBBB(
@@ -741,14 +1037,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_321(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_297(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_11_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -790,7 +1087,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_11_5_greenBBB(
@@ -812,14 +1113,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_322(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_298(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -861,7 +1163,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_12_5_greenBBB(
@@ -883,14 +1189,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_323(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_299(
 			EMoflonEdge _edge_flowElements) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_13_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -932,7 +1239,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_13_5_greenBBB(
@@ -954,14 +1265,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_324(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_300(
 			EMoflonEdge _edge_targetRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_14_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1003,7 +1315,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_14_5_greenBBB(
@@ -1025,14 +1341,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_325(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_301(
 			EMoflonEdge _edge_incoming) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_15_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1074,7 +1391,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_15_5_greenBBB(
@@ -1096,14 +1417,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_326(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_302(
 			EMoflonEdge _edge_sourceRef) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_16_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1145,7 +1467,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_16_5_greenBBB(
@@ -1167,14 +1493,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_327(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_303(
 			EMoflonEdge _edge_outgoing) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_17_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1216,7 +1543,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_17_5_greenBBB(
@@ -1238,14 +1569,15 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_328(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_304(
 			EMoflonEdge _edge_flowNodeRefs) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_18_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -1287,7 +1619,11 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									match, __performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_18_5_greenBBB(
@@ -1309,8 +1645,9 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1326,7 +1663,8 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 				.pattern_ParallelConvergingGatewayTwoInputsRule_20_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = ParallelConvergingGatewayTwoInputsRuleImpl
 				.pattern_ParallelConvergingGatewayTwoInputsRule_20_1_greenFF();
@@ -1370,7 +1708,75 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 							laneSet, divergeFlow, divergeFlowToFlow, ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[inFlow1] = "
+								+ inFlow1
+								+ ", "
+								+ "[parallelGateway] = "
+								+ parallelGateway
+								+ ", "
+								+ "[divergeFlow1] = "
+								+ divergeFlow1
+								+ ", "
+								+ "[flow1] = "
+								+ flow1
+								+ ", "
+								+ "[inFlow1ToFlow1] = "
+								+ inFlow1ToFlow1
+								+ ", "
+								+ "[step1] = "
+								+ step1
+								+ ", "
+								+ "[inFlow1ToStep1] = "
+								+ inFlow1ToStep1
+								+ ", "
+								+ "[parallelStep] = "
+								+ parallelStep
+								+ ", "
+								+ "[divergeFlow1ToFlow1] = "
+								+ divergeFlow1ToFlow1
+								+ ", "
+								+ "[inFlow] = "
+								+ inFlow
+								+ ", "
+								+ "[flow] = "
+								+ flow
+								+ ", "
+								+ "[inFlowToFlow] = "
+								+ inFlowToFlow
+								+ ", "
+								+ "[step] = "
+								+ step
+								+ ", "
+								+ "[inFlowToStep] = "
+								+ inFlowToStep
+								+ ", "
+								+ "[initFlow] = "
+								+ initFlow
+								+ ", "
+								+ "[lane] = "
+								+ lane
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[divergeFlow] = "
+								+ divergeFlow
+								+ ", "
+								+ "[divergeFlowToFlow] = "
+								+ divergeFlowToFlow
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1400,7 +1806,68 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 									divergeFlowToFlow, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[process] = "
+										+ process
+										+ ", "
+										+ "[inFlow1] = "
+										+ inFlow1
+										+ ", "
+										+ "[parallelGateway] = "
+										+ parallelGateway
+										+ ", "
+										+ "[divergeFlow1] = "
+										+ divergeFlow1
+										+ ", "
+										+ "[flow1] = "
+										+ flow1
+										+ ", "
+										+ "[inFlow1ToFlow1] = "
+										+ inFlow1ToFlow1
+										+ ", "
+										+ "[step1] = "
+										+ step1
+										+ ", "
+										+ "[inFlow1ToStep1] = "
+										+ inFlow1ToStep1
+										+ ", "
+										+ "[parallelStep] = "
+										+ parallelStep
+										+ ", "
+										+ "[divergeFlow1ToFlow1] = "
+										+ divergeFlow1ToFlow1
+										+ ", "
+										+ "[inFlow] = "
+										+ inFlow
+										+ ", "
+										+ "[flow] = "
+										+ flow
+										+ ", "
+										+ "[inFlowToFlow] = "
+										+ inFlowToFlow
+										+ ", "
+										+ "[step] = "
+										+ step
+										+ ", "
+										+ "[inFlowToStep] = "
+										+ inFlowToStep
+										+ ", "
+										+ "[initFlow] = "
+										+ initFlow
+										+ ", "
+										+ "[lane] = "
+										+ lane
+										+ ", "
+										+ "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[divergeFlow] = "
+										+ divergeFlow
+										+ ", "
+										+ "[divergeFlowToFlow] = "
+										+ divergeFlowToFlow
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					ParallelConvergingGatewayTwoInputsRuleImpl
 							.pattern_ParallelConvergingGatewayTwoInputsRule_20_6_greenBBFBBFBFFBBB(
@@ -1607,32 +2074,32 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 			return null;
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_TYPES_FWD__MATCH:
 			return checkTypes_FWD((Match) arguments.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_320__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_320((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_296__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_296((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_321__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_321((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_297__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_297((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_322__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_322((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_298__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_298((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_323__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_323((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_299__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_299((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_324__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_324((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_300__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_300((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_325__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_325((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_301__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_301((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_326__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_326((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_302__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_302((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_327__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_327((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_303__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_303((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_328__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_328((EMoflonEdge) arguments
+		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_304__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_304((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.PARALLEL_CONVERGING_GATEWAY_TWO_INPUTS_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -3586,7 +4053,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											if (!divergeFlow.equals(inFlow)) {
 												if (!divergeFlow
 														.equals(outFlow)) {
-													for (SequenceFlowToUCFlow inFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
+													for (SequenceFlowToUCFlow inFlow1ToFlow1 : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	inFlow1,
 																	SequenceFlowToUCFlow.class,
@@ -3595,7 +4062,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																.getTarget();
 														if (tmpFlow1 instanceof ParallelFlow) {
 															ParallelFlow flow1 = (ParallelFlow) tmpFlow1;
-															for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.util.eMoflonEMFUtil
+															for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.core.utilities.eMoflonEMFUtil
 																	.getOppositeReferenceTyped(
 																			inFlow1,
 																			SequenceFlowToStep.class,
@@ -3603,7 +4070,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																Step step1 = inFlow1ToStep1
 																		.getTarget();
 																if (step1 != null) {
-																	for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
+																	for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.core.utilities.eMoflonEMFUtil
 																			.getOppositeReferenceTyped(
 																					divergeFlow1,
 																					SequenceFlowToUCFlow.class,
@@ -3613,7 +4080,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																			if (flow1
 																					.equals(divergeFlow1ToFlow1
 																							.getTarget())) {
-																				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																				for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																						.getOppositeReferenceTyped(
 																								inFlow,
 																								SequenceFlowToUCFlow.class,
@@ -3628,7 +4095,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																								ParallelFlow flow = (ParallelFlow) tmpFlow;
 																								if (!flow
 																										.equals(flow1)) {
-																									for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+																									for (SequenceFlowToStep inFlowToStep : org.moflon.core.utilities.eMoflonEMFUtil
 																											.getOppositeReferenceTyped(
 																													inFlow,
 																													SequenceFlowToStep.class,
@@ -3640,7 +4107,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																											if (step != null) {
 																												if (!step
 																														.equals(step1)) {
-																													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																													for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																															.getOppositeReferenceTyped(
 																																	divergeFlow,
 																																	SequenceFlowToUCFlow.class,
@@ -3873,7 +4340,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																					.getSource())) {
 																																																		if (flow.equals(divergeFlowToFlow
 																																																				.getTarget())) {
-																																																			for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																																																			for (ParallelStep parallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 																																																					.getOppositeReferenceTyped(
 																																																							flow1,
 																																																							ParallelStep.class,
@@ -3890,7 +4357,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																									step,
 																																																									step1,
 																																																									parallelStep) == null) {
-																																																								for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																																								for (Flow initFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																																										.getOppositeReferenceTyped(
 																																																												parallelStep,
 																																																												Flow.class,
@@ -4539,7 +5006,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_10_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_315546 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_785269 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4810,7 +5277,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_940914 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_382894 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -4863,7 +5330,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											if (pattern_ParallelConvergingGatewayTwoInputsRule_11_2_black_nac_2BB(
 													outFlow,
 													parallelConvGateway) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																inFlow1,
 																FlowElementsContainer.class,
@@ -5081,7 +5548,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_227441 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_776585 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5134,7 +5601,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											if (pattern_ParallelConvergingGatewayTwoInputsRule_12_2_black_nac_2BB(
 													outFlow,
 													parallelConvGateway) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																parallelConvGateway,
 																FlowElementsContainer.class,
@@ -5352,7 +5819,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_13_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_502932 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_466209 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5622,7 +6089,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_960812 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_967996 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5675,7 +6142,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											if (pattern_ParallelConvergingGatewayTwoInputsRule_14_2_black_nac_2BB(
 													outFlow,
 													parallelConvGateway) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																inFlow,
 																FlowElementsContainer.class,
@@ -5893,7 +6360,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_937396 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_906562 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -5946,7 +6413,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											if (pattern_ParallelConvergingGatewayTwoInputsRule_15_2_black_nac_2BB(
 													outFlow,
 													parallelConvGateway) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																parallelConvGateway,
 																FlowElementsContainer.class,
@@ -6164,7 +6631,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_16_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_921608 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_394350 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6216,7 +6683,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											.getIncoming()) {
 										if (!inFlow.equals(inFlow1)) {
 											if (!inFlow.equals(outFlow)) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																outFlow,
 																FlowElementsContainer.class,
@@ -6434,7 +6901,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_17_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_396753 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_790590 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6486,7 +6953,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 											.getIncoming()) {
 										if (!inFlow.equals(inFlow1)) {
 											if (!inFlow.equals(outFlow)) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																parallelConvGateway,
 																FlowElementsContainer.class,
@@ -6704,7 +7171,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 
 	public static final Object[] pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_0B(
 			SequenceFlow outFlow) {
-		for (ExclusiveGateway __DEC_outFlow_default_544677 : org.moflon.util.eMoflonEMFUtil
+		for (ExclusiveGateway __DEC_outFlow_default_557797 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(outFlow, ExclusiveGateway.class,
 						"default")) {
 			return new Object[] { outFlow };
@@ -6759,12 +7226,12 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 												if (pattern_ParallelConvergingGatewayTwoInputsRule_18_2_black_nac_2BB(
 														outFlow,
 														parallelConvGateway) == null) {
-													for (LaneSet laneSet : org.moflon.util.eMoflonEMFUtil
+													for (LaneSet laneSet : org.moflon.core.utilities.eMoflonEMFUtil
 															.getOppositeReferenceTyped(
 																	lane,
 																	LaneSet.class,
 																	"lanes")) {
-														for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+														for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 																.getOppositeReferenceTyped(
 																		parallelConvGateway,
 																		FlowElementsContainer.class,
@@ -7136,7 +7603,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 										for (Step step1 : flow1.getSteps()) {
 											if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_4BB(
 													ruleResult, step1) == null) {
-												for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+												for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 														.getOppositeReferenceTyped(
 																inFlow1,
 																FlowElementsContainer.class,
@@ -7202,7 +7669,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																						if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_19BB(
 																																								ruleResult,
 																																								lane) == null) {
-																																							for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.util.eMoflonEMFUtil
+																																							for (SequenceFlowToStep inFlow1ToStep1 : org.moflon.core.utilities.eMoflonEMFUtil
 																																									.getOppositeReferenceTyped(
 																																											inFlow1,
 																																											SequenceFlowToStep.class,
@@ -7213,7 +7680,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																									if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_5BB(
 																																											ruleResult,
 																																											inFlow1ToStep1) == null) {
-																																										for (ParallelStep parallelStep : org.moflon.util.eMoflonEMFUtil
+																																										for (ParallelStep parallelStep : org.moflon.core.utilities.eMoflonEMFUtil
 																																												.getOppositeReferenceTyped(
 																																														flow1,
 																																														ParallelStep.class,
@@ -7239,7 +7706,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																			if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_8BB(
 																																																					ruleResult,
 																																																					step) == null) {
-																																																				for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.util.eMoflonEMFUtil
+																																																				for (SequenceFlowToUCFlow divergeFlow1ToFlow1 : org.moflon.core.utilities.eMoflonEMFUtil
 																																																						.getOppositeReferenceTyped(
 																																																								flow1,
 																																																								SequenceFlowToUCFlow.class,
@@ -7252,7 +7719,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																							if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_16BB(
 																																																									ruleResult,
 																																																									divergeFlow1ToFlow1) == null) {
-																																																								for (SequenceFlowToStep inFlowToStep : org.moflon.util.eMoflonEMFUtil
+																																																								for (SequenceFlowToStep inFlowToStep : org.moflon.core.utilities.eMoflonEMFUtil
 																																																										.getOppositeReferenceTyped(
 																																																												inFlow,
 																																																												SequenceFlowToStep.class,
@@ -7264,7 +7731,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																											if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_9BB(
 																																																													ruleResult,
 																																																													inFlowToStep) == null) {
-																																																												for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																												for (SequenceFlowToUCFlow inFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																																														.getOppositeReferenceTyped(
 																																																																inFlow,
 																																																																SequenceFlowToUCFlow.class,
@@ -7278,7 +7745,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																																if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_11BB(
 																																																																		ruleResult,
 																																																																		inFlowToFlow) == null) {
-																																																																	for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.util.eMoflonEMFUtil
+																																																																	for (SequenceFlowToUCFlow divergeFlowToFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																																																			.getOppositeReferenceTyped(
 																																																																					divergeFlow,
 																																																																					SequenceFlowToUCFlow.class,
@@ -7294,7 +7761,7 @@ public class ParallelConvergingGatewayTwoInputsRuleImpl extends
 																																																																						if (pattern_ParallelConvergingGatewayTwoInputsRule_20_2_black_nac_12BB(
 																																																																								ruleResult,
 																																																																								divergeFlowToFlow) == null) {
-																																																																							for (Flow initFlow : org.moflon.util.eMoflonEMFUtil
+																																																																							for (Flow initFlow : org.moflon.core.utilities.eMoflonEMFUtil
 																																																																									.getOppositeReferenceTyped(
 																																																																											parallelStep,
 																																																																											Flow.class,

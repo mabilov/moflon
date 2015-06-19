@@ -1,37 +1,25 @@
 package de.abilov.tgg.bpmn2usecase;
 
+import java.io.IOException;
+import org.apache.log4j.BasicConfigurator;
+import org.moflon.ide.debug.DebugSynchronizationHelper;
+import org.moflon.tgg.algorithm.modelgenerator.*;
+import org.moflon.tgg.algorithm.modelgenerator.controller.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-
-import org.apache.log4j.BasicConfigurator;
-import org.moflon.ide.debug.DebugSynchronizationHelper;
-import org.moflon.tgg.algorithm.modelgenerator.GenerationResult;
-import org.moflon.tgg.algorithm.modelgenerator.ModelGenerator;
-import org.moflon.tgg.algorithm.modelgenerator.controller.AbstractModelGenerationController;
-//import org.moflon.tie.BpmnToUseCaseIntegrationTrafo;
-import org.moflon.tgg.algorithm.modelgenerator.controller.DefaultModelGenController;
-import org.moflon.tgg.algorithm.modelgenerator.controller.LimitedRandomRuleSelector;
-import org.moflon.tgg.algorithm.modelgenerator.controller.MaxModelSizeController;
-import org.moflon.util.eMoflonEMFUtil;
-
-import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 import TGGLanguage.DomainType;
 
+import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 
-public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchronizationHelper {
 
-	public BpmnToUseCaseIntegrationTrafoScalabilityTest() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
+public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchronizationHelper{
 
-                
-        // Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
-	}
+   public BpmnToUseCaseIntegrationTrafoScalabilityTest()
+   {
+      super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
+   }
 	
 	
 	public static void main(String[] args) throws IOException
@@ -47,7 +35,7 @@ public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchroni
 
    private static long runTrafoOnGeneratedModel(int modelElementCount, DomainType domainType) throws IOException
    {
-      BpmnToUseCaseIntegrationTrafo helper = new BpmnToUseCaseIntegrationTrafo();
+      BpmnToUseCaseIntegrationTrafoScalabilityTest helper = new BpmnToUseCaseIntegrationTrafoScalabilityTest();
 
       PrintWriter writer = createWriter(modelElementCount, domainType);
 
@@ -65,6 +53,7 @@ public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchroni
          helper.setSrc(result.getSrcModel());
          long timestamp = System.currentTimeMillis();
          helper.integrateForward();
+         duration = System.currentTimeMillis() - timestamp;
          if (saveModels)
          {
             helper.saveTrg("instances/fwd.trg.xmi");
@@ -72,7 +61,6 @@ public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchroni
             helper.saveSynchronizationProtocol("instances/fwd.protocol.xmi");
          }
          System.out.println("Completed forward transformation!");
-         duration = System.currentTimeMillis() - timestamp;
       } else if (domainType == DomainType.TARGET)
       {
          helper.setTrg(result.getTrgModel());

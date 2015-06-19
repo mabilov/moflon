@@ -102,7 +102,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						process, definitions, lane);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[laneSet] = "
+							+ laneSet + ", " + "[process] = " + process + ", "
+							+ "[definitions] = " + definitions + ", "
+							+ "[lane] = " + lane + ".");
 		}
 
 		// Solve CSP
@@ -111,7 +116,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						match, laneSet, process, definitions, lane);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", " + "[laneSet] = "
+							+ laneSet + ", " + "[process] = " + process + ", "
+							+ "[definitions] = " + definitions + ", "
+							+ "[lane] = " + lane + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -124,7 +134,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							process, definitions, lane);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[laneSet] = " + laneSet + ", "
+								+ "[process] = " + process + ", "
+								+ "[definitions] = " + definitions + ", "
+								+ "[lane] = " + lane + ".");
 			}
 			LaneToActorRuleImpl.pattern_LaneToActorRule_0_4_greenBBBF(match,
 					laneSet, lane);
@@ -136,7 +151,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							process, definitions, lane);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[laneSet] = " + laneSet + ", "
+								+ "[process] = " + process + ", "
+								+ "[definitions] = " + definitions + ", "
+								+ "[lane] = " + lane + ".");
 			}
 			LaneToActorRuleImpl.pattern_LaneToActorRule_0_5_greenBBBBFF(match,
 					laneSet, process, definitions);
@@ -167,7 +187,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[0];
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[1];
@@ -189,7 +212,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneToActorRule_1_2_blackBBB(lane, actor, laneToActor);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[lane] = " + lane + ", "
+							+ "[actor] = " + actor + ", " + "[laneToActor] = "
+							+ laneToActor + ".");
 		}
 		Object[] result2_green = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_1_2_greenFBBB(lane, actor, laneToActor);
@@ -203,7 +229,38 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						actor, laneToActor);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[definitions] = "
+							+ definitions
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[definitionsToPackage] = "
+							+ definitionsToPackage
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[laneToActor] = " + laneToActor + ".");
 		}
 		LaneToActorRuleImpl.pattern_LaneToActorRule_1_3_greenBBBBBBFFFF(
 				ruleresult, laneSet, packageDeclaration, lane, actor,
@@ -234,7 +291,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneToActorRule_2_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -246,7 +304,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_2_2_bindingFFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		LaneSet laneSet = (LaneSet) result2_binding[0];
 		bpmn2.Process process = (bpmn2.Process) result2_binding[1];
@@ -289,7 +348,36 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								processToUseCase, lane);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[laneSet] = "
+									+ laneSet
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[definitions] = "
+									+ definitions
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[definitionsToPackage] = "
+									+ definitionsToPackage
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[lane] = "
+									+ lane + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -302,7 +390,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					LaneToActorRuleImpl.pattern_LaneToActorRule_2_6_greenBB(
 							ruleresult, isApplicableMatch);
@@ -487,7 +579,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						packageDeclaration, useCase, actor);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [initial bindings] failed");
+					"Pattern matching in node [initial bindings] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[actor] = " + actor + ".");
 		}
 
 		// Solve CSP
@@ -496,7 +593,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						match, packageDeclaration, useCase, actor);
 		if (result2_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [Solve CSP] failed");
+					"Pattern matching in node [Solve CSP] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[match] = " + match + ", "
+							+ "[packageDeclaration] = " + packageDeclaration
+							+ ", " + "[useCase] = " + useCase + ", "
+							+ "[actor] = " + actor + ".");
 		}
 		CSP csp = (CSP) result2_bindingAndBlack[0];
 		// Check CSP
@@ -509,7 +611,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, useCase, actor);
 			if (result4_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect elements to be translated] failed");
+						"Pattern matching in node [collect elements to be translated] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[useCase] = "
+								+ useCase + ", " + "[actor] = " + actor + ".");
 			}
 			LaneToActorRuleImpl.pattern_LaneToActorRule_10_4_greenBBBF(match,
 					packageDeclaration, actor);
@@ -521,7 +627,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							packageDeclaration, useCase, actor);
 			if (result5_black == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [collect context elements] failed");
+						"Pattern matching in node [collect context elements] failed."
+								+ " Variables: " + "[match] = " + match + ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration + ", " + "[useCase] = "
+								+ useCase + ", " + "[actor] = " + actor + ".");
 			}
 			LaneToActorRuleImpl.pattern_LaneToActorRule_10_5_greenBBBF(match,
 					packageDeclaration, useCase);
@@ -551,7 +661,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						isApplicableMatch);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [perform transformation] failed");
+					"Pattern matching in node [perform transformation] failed."
+							+ " Variables: " + "[this] = " + this + ", "
+							+ "[isApplicableMatch] = " + isApplicableMatch
+							+ ".");
 		}
 		LaneSet laneSet = (LaneSet) result1_bindingAndBlack[0];
 		bpmn2.Process process = (bpmn2.Process) result1_bindingAndBlack[1];
@@ -572,7 +685,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneToActorRule_11_2_blackBBB(lane, actor, laneToActor);
 		if (result2_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [collect translated elements] failed");
+					"Pattern matching in node [collect translated elements] failed."
+							+ " Variables: " + "[lane] = " + lane + ", "
+							+ "[actor] = " + actor + ", " + "[laneToActor] = "
+							+ laneToActor + ".");
 		}
 		Object[] result2_green = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_11_2_greenFBBB(lane, actor,
@@ -587,7 +703,38 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 						actor, laneToActor);
 		if (result3_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [bookkeeping for edges] failed");
+					"Pattern matching in node [bookkeeping for edges] failed."
+							+ " Variables: " + "[ruleresult] = "
+							+ ruleresult
+							+ ", "
+							+ "[laneSet] = "
+							+ laneSet
+							+ ", "
+							+ "[process] = "
+							+ process
+							+ ", "
+							+ "[definitions] = "
+							+ definitions
+							+ ", "
+							+ "[packageDeclaration] = "
+							+ packageDeclaration
+							+ ", "
+							+ "[definitionsToPackage] = "
+							+ definitionsToPackage
+							+ ", "
+							+ "[useCase] = "
+							+ useCase
+							+ ", "
+							+ "[processToUseCase] = "
+							+ processToUseCase
+							+ ", "
+							+ "[lane] = "
+							+ lane
+							+ ", "
+							+ "[actor] = "
+							+ actor
+							+ ", "
+							+ "[laneToActor] = " + laneToActor + ".");
 		}
 		LaneToActorRuleImpl.pattern_LaneToActorRule_11_3_greenBBBBBBFFFF(
 				ruleresult, laneSet, packageDeclaration, lane, actor,
@@ -619,7 +766,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneToActorRule_12_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation performOperation = (EOperation) result1_bindingAndBlack[0];
 		// EClass eClass = (EClass) result1_bindingAndBlack[1];
@@ -631,7 +779,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 		Object[] result2_binding = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_12_2_bindingFFFB(match);
 		if (result2_binding == null) {
-			throw new RuntimeException("Binding in node core match failed");
+			throw new RuntimeException("Binding in node core match failed."
+					+ " Variables: " + "[match] = " + match + ".");
 		}
 		PackageDeclaration packageDeclaration = (PackageDeclaration) result2_binding[0];
 		UseCase useCase = (UseCase) result2_binding[1];
@@ -674,7 +823,36 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 								processToUseCase, actor);
 				if (result4_bindingAndBlack == null) {
 					throw new RuntimeException(
-							"Pattern matching in node [solve CSP] failed");
+							"Pattern matching in node [solve CSP] failed."
+									+ " Variables: " + "[this] = "
+									+ this
+									+ ", "
+									+ "[isApplicableMatch] = "
+									+ isApplicableMatch
+									+ ", "
+									+ "[laneSet] = "
+									+ laneSet
+									+ ", "
+									+ "[process] = "
+									+ process
+									+ ", "
+									+ "[definitions] = "
+									+ definitions
+									+ ", "
+									+ "[packageDeclaration] = "
+									+ packageDeclaration
+									+ ", "
+									+ "[definitionsToPackage] = "
+									+ definitionsToPackage
+									+ ", "
+									+ "[useCase] = "
+									+ useCase
+									+ ", "
+									+ "[processToUseCase] = "
+									+ processToUseCase
+									+ ", "
+									+ "[actor] = "
+									+ actor + ".");
 				}
 				CSP csp = (CSP) result4_bindingAndBlack[0];
 				// check CSP
@@ -687,7 +865,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 									isApplicableMatch);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [add match to rule result] failed");
+								"Pattern matching in node [add match to rule result] failed."
+										+ " Variables: " + "[ruleresult] = "
+										+ ruleresult + ", "
+										+ "[isApplicableMatch] = "
+										+ isApplicableMatch + ".");
 					}
 					LaneToActorRuleImpl.pattern_LaneToActorRule_12_6_greenBB(
 							ruleresult, isApplicableMatch);
@@ -865,14 +1047,15 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_FWD_EMoflonEdge_231(
+	public EObjectContainer isAppropriate_FWD_EMoflonEdge_207(
 			EMoflonEdge _edge_lanes) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_20_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -905,7 +1088,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					LaneToActorRuleImpl.pattern_LaneToActorRule_20_5_greenBBB(
 							match, __performOperation, __result);
@@ -926,14 +1113,15 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObjectContainer isAppropriate_BWD_EMoflonEdge_74(
+	public EObjectContainer isAppropriate_BWD_EMoflonEdge_805(
 			EMoflonEdge _edge_actors) {
 		// prepare return value
 		Object[] result1_bindingAndBlack = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_21_1_bindingAndBlackFFB(this);
 		if (result1_bindingAndBlack == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [prepare return value] failed");
+					"Pattern matching in node [prepare return value] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		EOperation __performOperation = (EOperation) result1_bindingAndBlack[0];
 		EClass __eClass = (EClass) result1_bindingAndBlack[1];
@@ -965,7 +1153,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 									__performOperation, __result);
 					if (result5_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [Add match to rule result] failed");
+								"Pattern matching in node [Add match to rule result] failed."
+										+ " Variables: " + "[match] = " + match
+										+ ", " + "[__performOperation] = "
+										+ __performOperation + ", "
+										+ "[__result] = " + __result + ".");
 					}
 					LaneToActorRuleImpl.pattern_LaneToActorRule_21_5_greenBBB(
 							match, __performOperation, __result);
@@ -986,8 +1178,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_FWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -995,8 +1188,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {// TODO: NICO!!!
-		return null;
+	public RuleResult checkAttributes_BWD(TripleMatch tripleMatch) {
+		throw new UnsupportedOperationException(
+				"developments on attribute synchronization with eMoflon not yet completed");
 	}
 
 	/**
@@ -1012,7 +1206,8 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				.pattern_LaneToActorRule_24_1_blackB(this);
 		if (result1_black == null) {
 			throw new RuntimeException(
-					"Pattern matching in node [create result] failed");
+					"Pattern matching in node [create result] failed."
+							+ " Variables: " + "[this] = " + this + ".");
 		}
 		Object[] result1_green = LaneToActorRuleImpl
 				.pattern_LaneToActorRule_24_1_greenFF();
@@ -1041,7 +1236,36 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 							ruleResult);
 			if (result3_bindingAndBlack == null) {
 				throw new RuntimeException(
-						"Pattern matching in node [solve CSP] failed");
+						"Pattern matching in node [solve CSP] failed."
+								+ " Variables: " + "[this] = "
+								+ this
+								+ ", "
+								+ "[isApplicableMatch] = "
+								+ isApplicableMatch
+								+ ", "
+								+ "[laneSet] = "
+								+ laneSet
+								+ ", "
+								+ "[process] = "
+								+ process
+								+ ", "
+								+ "[definitions] = "
+								+ definitions
+								+ ", "
+								+ "[packageDeclaration] = "
+								+ packageDeclaration
+								+ ", "
+								+ "[definitionsToPackage] = "
+								+ definitionsToPackage
+								+ ", "
+								+ "[useCase] = "
+								+ useCase
+								+ ", "
+								+ "[processToUseCase] = "
+								+ processToUseCase
+								+ ", "
+								+ "[ruleResult] = "
+								+ ruleResult + ".");
 			}
 			CSP csp = (CSP) result3_bindingAndBlack[0];
 			// check CSP
@@ -1062,7 +1286,29 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 									useCase, processToUseCase, ruleResult);
 					if (result6_black == null) {
 						throw new RuntimeException(
-								"Pattern matching in node [perform] failed");
+								"Pattern matching in node [perform] failed."
+										+ " Variables: " + "[laneSet] = "
+										+ laneSet
+										+ ", "
+										+ "[process] = "
+										+ process
+										+ ", "
+										+ "[definitions] = "
+										+ definitions
+										+ ", "
+										+ "[packageDeclaration] = "
+										+ packageDeclaration
+										+ ", "
+										+ "[definitionsToPackage] = "
+										+ definitionsToPackage
+										+ ", "
+										+ "[useCase] = "
+										+ useCase
+										+ ", "
+										+ "[processToUseCase] = "
+										+ processToUseCase
+										+ ", "
+										+ "[ruleResult] = " + ruleResult + ".");
 					}
 					LaneToActorRuleImpl
 							.pattern_LaneToActorRule_24_6_greenBBFFFBB(laneSet,
@@ -1256,11 +1502,11 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			return null;
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_TYPES_BWD__MATCH:
 			return checkTypes_BWD((Match) arguments.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_231__EMOFLONEDGE:
-			return isAppropriate_FWD_EMoflonEdge_231((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_FWD_EMOFLON_EDGE_207__EMOFLONEDGE:
+			return isAppropriate_FWD_EMoflonEdge_207((EMoflonEdge) arguments
 					.get(0));
-		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_74__EMOFLONEDGE:
-			return isAppropriate_BWD_EMoflonEdge_74((EMoflonEdge) arguments
+		case RulesPackage.LANE_TO_ACTOR_RULE___IS_APPROPRIATE_BWD_EMOFLON_EDGE_805__EMOFLONEDGE:
+			return isAppropriate_BWD_EMoflonEdge_805((EMoflonEdge) arguments
 					.get(0));
 		case RulesPackage.LANE_TO_ACTOR_RULE___CHECK_ATTRIBUTES_FWD__TRIPLEMATCH:
 			return checkAttributes_FWD((TripleMatch) arguments.get(0));
@@ -1828,13 +2074,13 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			LaneSet laneSet, bpmn2.Process process, Definitions definitions,
 			Lane lane, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (DefinitionsToPackage definitionsToPackage : org.moflon.util.eMoflonEMFUtil
+		for (DefinitionsToPackage definitionsToPackage : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(definitions,
 						DefinitionsToPackage.class, "source")) {
 			PackageDeclaration packageDeclaration = definitionsToPackage
 					.getTarget();
 			if (packageDeclaration != null) {
-				for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(process,
 								ProcessToUseCase.class, "source")) {
 					UseCase useCase = processToUseCase.getTarget();
@@ -2589,12 +2835,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 			PackageDeclaration packageDeclaration, UseCase useCase,
 			Actor actor, Match match) {
 		LinkedList<Object[]> _result = new LinkedList<Object[]>();
-		for (DefinitionsToPackage definitionsToPackage : org.moflon.util.eMoflonEMFUtil
+		for (DefinitionsToPackage definitionsToPackage : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(packageDeclaration,
 						DefinitionsToPackage.class, "target")) {
 			Definitions definitions = definitionsToPackage.getSource();
 			if (definitions != null) {
-				for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+				for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 						.getOppositeReferenceTyped(useCase,
 								ProcessToUseCase.class, "target")) {
 					bpmn2.Process process = processToUseCase.getSource();
@@ -2871,9 +3117,9 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_20_2_black_nac_0BB(
 			Lane lane, LaneSet laneSet) {
-		for (LaneSet __DEC_lane_lanes_889966 : org.moflon.util.eMoflonEMFUtil
+		for (LaneSet __DEC_lane_lanes_549070 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(lane, LaneSet.class, "lanes")) {
-			if (!laneSet.equals(__DEC_lane_lanes_889966)) {
+			if (!laneSet.equals(__DEC_lane_lanes_549070)) {
 				return new Object[] { lane, laneSet };
 			}
 		}
@@ -2892,12 +3138,12 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 				if (laneSet.getLanes().contains(lane)) {
 					if (pattern_LaneToActorRule_20_2_black_nac_0BB(lane,
 							laneSet) == null) {
-						for (FlowElementsContainer tmpProcess : org.moflon.util.eMoflonEMFUtil
+						for (FlowElementsContainer tmpProcess : org.moflon.core.utilities.eMoflonEMFUtil
 								.getOppositeReferenceTyped(laneSet,
 										FlowElementsContainer.class, "laneSets")) {
 							if (tmpProcess instanceof bpmn2.Process) {
 								bpmn2.Process process = (bpmn2.Process) tmpProcess;
-								for (Definitions definitions : org.moflon.util.eMoflonEMFUtil
+								for (Definitions definitions : org.moflon.core.utilities.eMoflonEMFUtil
 										.getOppositeReferenceTyped(process,
 												Definitions.class,
 												"rootElements")) {
@@ -3009,10 +3255,10 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 
 	public static final Object[] pattern_LaneToActorRule_21_2_black_nac_0BB(
 			Actor actor, PackageDeclaration packageDeclaration) {
-		for (PackageDeclaration __DEC_actor_actors_26706 : org.moflon.util.eMoflonEMFUtil
+		for (PackageDeclaration __DEC_actor_actors_822429 : org.moflon.core.utilities.eMoflonEMFUtil
 				.getOppositeReferenceTyped(actor, PackageDeclaration.class,
 						"actors")) {
-			if (!packageDeclaration.equals(__DEC_actor_actors_26706)) {
+			if (!packageDeclaration.equals(__DEC_actor_actors_822429)) {
 				return new Object[] { actor, packageDeclaration };
 			}
 		}
@@ -3201,7 +3447,7 @@ public class LaneToActorRuleImpl extends AbstractRuleImpl implements
 																if (pattern_LaneToActorRule_24_2_black_nac_0BB(
 																		ruleResult,
 																		laneSet) == null) {
-																	for (ProcessToUseCase processToUseCase : org.moflon.util.eMoflonEMFUtil
+																	for (ProcessToUseCase processToUseCase : org.moflon.core.utilities.eMoflonEMFUtil
 																			.getOppositeReferenceTyped(
 																					process,
 																					ProcessToUseCase.class,

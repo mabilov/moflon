@@ -3,8 +3,6 @@ package de.abilov.tgg.bpmn2usecase;
 import java.io.IOException;
 import java.util.Map;
 
-import org.moflon.util.eMoflonEMFUtil;
-
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 import UseCaseDSL.resource.UseCaseXMIHelper;
 import de.abilov.tgg.synch.SynchronizationHelper;
@@ -12,12 +10,7 @@ import de.abilov.tgg.synch.SynchronizationHelper;
 public class BpmnToUseCaseIntegrationTrafo extends SynchronizationHelper {
 
 	public BpmnToUseCaseIntegrationTrafo() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-
-		// Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
+		super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
 	}
 
 	private String sourceFile;

@@ -155,7 +155,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_264(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_240(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -164,7 +164,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_265(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_241(
 			EMoflonEdge _edge_flowElements);
 
 	/**
@@ -173,7 +173,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_266(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_242(
 			EMoflonEdge _edge_targetRef);
 
 	/**
@@ -182,7 +182,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_267(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_243(
 			EMoflonEdge _edge_incoming);
 
 	/**
@@ -191,7 +191,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_268(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_244(
 			EMoflonEdge _edge_sourceRef);
 
 	/**
@@ -200,7 +200,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_269(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_245(
 			EMoflonEdge _edge_outgoing);
 
 	/**
@@ -209,7 +209,7 @@ public interface ParallelConvergingGatewayRule extends EObject, AbstractRule {
 	 * @model
 	 * @generated
 	 */
-	EObjectContainer isAppropriate_FWD_EMoflonEdge_270(
+	EObjectContainer isAppropriate_FWD_EMoflonEdge_246(
 			EMoflonEdge _edge_flowNodeRefs);
 
 	/**

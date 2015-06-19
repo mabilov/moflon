@@ -2,34 +2,27 @@ package org.moflon.tie;
 
 import java.io.IOException;
 import org.apache.log4j.BasicConfigurator;
-import org.moflon.util.eMoflonEMFUtil;
 import org.moflon.ide.debug.DebugSynchronizationHelper;
+import org.eclipse.emf.ecore.EPackage;
+
 
 import org.moflon.tgg.algorithm.modelgenerator.*;
 import org.moflon.tgg.algorithm.modelgenerator.controller.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import TGGLanguage.DomainType;
 
 import BpmnToUseCaseIntegration.BpmnToUseCaseIntegrationPackage;
 
 
-public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchronizationHelper {
+public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchronizationHelper{
 
-	public BpmnToUseCaseIntegrationTrafoScalabilityTest() throws IOException {
-		// Register packages
-		eMoflonEMFUtil.init(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-
-                
-        // Load rules and set correspondence
-		setCorrPackage(BpmnToUseCaseIntegrationPackage.eINSTANCE);
-		loadRulesFromProject("..");
-	}
+   public BpmnToUseCaseIntegrationTrafoScalabilityTest()
+   {
+      super(BpmnToUseCaseIntegrationPackage.eINSTANCE, ".");
+   }
 	
 	
 	public static void main(String[] args) throws IOException
@@ -45,7 +38,7 @@ public class BpmnToUseCaseIntegrationTrafoScalabilityTest extends DebugSynchroni
 
    private static long runTrafoOnGeneratedModel(int modelElementCount, DomainType domainType) throws IOException
    {
-      BpmnToUseCaseIntegrationTrafo helper = new BpmnToUseCaseIntegrationTrafo();
+      BpmnToUseCaseIntegrationTrafoScalabilityTest helper = new BpmnToUseCaseIntegrationTrafoScalabilityTest();
 
       PrintWriter writer = createWriter(modelElementCount, domainType);
 

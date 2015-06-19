@@ -17,12 +17,20 @@
         <steps xsi:type="UseCaseDSL:NormalStep" label="Deliver books to stock" name="deliver_books_stock" actor="shipping" type="perform"/>
       </flows>
       <flows xsi:type="UseCaseDSL:ParallelFlow" name="payment">
-        <steps xsi:type="UseCaseDSL:NormalStep" next="payment_received" label="Charge Issue" name="charge_issue" actor="sys" type="perform"/>
-        <steps xsi:type="UseCaseDSL:NormalStep" next="issue_invoice" label="Payment Received" name="payment_received" actor="sys" type="wait"/>
-        <steps xsi:type="UseCaseDSL:NormalStep" label="Issue invoice" name="issue_invoice" actor="financing" type="perform"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Charge Issue" name="charge_issue" actor="sys" type="perform"/>
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Wait for event" name="wait_for_event" actor="sys">
+          <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="delay > 5 days" ref="delay_5d"/>
+          <stepAlternative xsi:type="UseCaseDSL:AlternativeFlowAlternative" condition="Payment Received" ref="payment_received"/>
+        </steps>
       </flows>
       <flows xsi:type="UseCaseDSL:ParallelFlow" name="shipment_prepare">
         <steps xsi:type="UseCaseDSL:NormalStep" label="Separate books of the request" name="separate_books" actor="shipping" type="perform"/>
+      </flows>
+      <flows xsi:type="UseCaseDSL:AlternativeFlow" name="delay_5d">
+        <finalState name="Cancel order"/>
+      </flows>
+      <flows xsi:type="UseCaseDSL:AlternativeFlow" name="payment_received">
+        <steps xsi:type="UseCaseDSL:NormalStep" label="Issue invoice" name="issue_invoice" actor="financing" type="perform"/>
       </flows>
       <preconditions name="Order Received"/>
     </useCases>

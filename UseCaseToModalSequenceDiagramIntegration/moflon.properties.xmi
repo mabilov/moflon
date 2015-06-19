@@ -7,16 +7,11 @@
   <dependencies value="platform:/plugin/TGGRuntime/model/TGGRuntime.ecore"/>
   <dependencies value="platform:/plugin/UseCaseDSL/model/UseCaseDSL.ecore"/>
   <dependencies value="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"/>
-  <genSdmRpCoverageInstrumentation/>
-  <skipValidation/>
-  <metaModelProject MetaModelProjectName="bpmn"/>
+  <metaModelProject MetaModelProjectName="de.abilov.ea"/>
   <replaceGenModel/>
-  <injectionErrorHandling/>
-  <listShuffling/>
   <genTracingInstrumentation/>
   <sdmCodegeneratorHandlerId value="DEMOCLES_REVERSE_NAVI"/>
-  <core/>
   <tGGBuildMode/>
   <debugMode/>
-  <strictSDMConditionalBranching bool="false"/>
+  <strictSDMConditionalBranching/>
 </MoflonPropertyContainer:MoflonPropertiesContainer>
